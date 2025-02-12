@@ -8,9 +8,9 @@ extra_head: []
 
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
-  site: Blog name
-  description: General description of the blog
+  site: eSolia Pro Blog
+  description: Blog of eSolia Inc., Tokyo, Japan.
   title: "=title"
   image: "=image"
-  twitter: "@username"
+  twitter: "@esolia_inc"
   lang: en
