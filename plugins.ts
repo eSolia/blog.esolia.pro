@@ -76,7 +76,7 @@ export default function (userOptions?: Options) {
     site.hooks.addMarkdownItPlugin(alert);
 
     // Mastodon comment system
-    site.remoteFile(
+    site.add(
       "/js/comments.js",
       "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
     );

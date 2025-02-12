@@ -41,7 +41,8 @@ export default function (options: Partial<Options> = {}) {
     ];
 
     for (const file of files) {
-      site.remoteFile(file, import.meta.resolve(`./src/${file}`));
+      site.add(file, import.meta.resolve(`./src/${file}`));
+      //site.app(file,`./src/${file}`);
     }
   };
 }
