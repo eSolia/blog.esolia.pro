@@ -20,9 +20,9 @@
   </head>
   <body>
     <nav class="navbar">
-      <a href="/" class="navbar-home">
+      <a href="/" class="navbar-home navbar-logo">
         {{ if it.logo }}
-          {{ it.logo }}
+          <img src="{{ it.logo }}" alt="{{ page.title || slug }}">
         {{ else }}
           <strong>{{ metas.site }}</strong>
         {{ /if }}
