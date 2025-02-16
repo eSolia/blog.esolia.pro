@@ -2,4 +2,8 @@ posts/*.md
 src/uploads
 _site
 _bin
+_cache
+node_modules
+package-lock.json
+yarn.lock
 deno.lock
