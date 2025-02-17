@@ -10,6 +10,7 @@ export default function* ({ search, i18n }) {
       type: "tag",
       search_query: `type=post lang=${lang} '${tag}'`,
       tag,
+      i18n,
     };
   }
 
@@ -21,6 +22,7 @@ export default function* ({ search, i18n }) {
       type: "author",
       search_query: `type=post lang=${lang} author='${author}'`,
       author,
+      i18n,
     };
   }
 }
