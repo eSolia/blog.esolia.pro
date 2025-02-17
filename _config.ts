@@ -10,8 +10,8 @@ import attributes from "lume/plugins/attributes.ts";
 import terser from "lume/plugins/terser.ts";
 import prism from "lume/plugins/prism.ts";
 import basePath from "lume/plugins/base_path.ts";
-// import slugifyUrls from "lume/plugins/slugify_urls.ts";
-// import resolveUrls from "lume/plugins/resolve_urls.ts";
+import slugifyUrls from "lume/plugins/slugify_urls.ts";
+import resolveUrls from "lume/plugins/resolve_urls.ts";
 import metas from "lume/plugins/metas.ts";
 import nav from "lume/plugins/nav.ts";
 import pagefind from "lume/plugins/pagefind.ts";
@@ -32,7 +32,7 @@ import phosphor from "https://deno.land/x/lume_icon_plugins@v0.2.4/phosphor.ts";
 import brotli from "lume/plugins/brotli.ts";
 import cssBanner from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/css_banner.ts?3";
 import shuffle from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/shuffle.ts?3";
-// import purgecss from "lume/plugins/purgecss.ts";
+// ERRORS: import purgecss from "lume/plugins/purgecss.ts";
 // import minify_html from "lume/plugins/minify_html.ts";
 
 
@@ -63,8 +63,8 @@ site.use(date({ locales: { enUS, ja } }));
 site.use(metas());
 site.use(image());
 site.use(footnotes());
-// site.use(resolveUrls());
-// site.use(slugifyUrls());
+site.use(resolveUrls());
+site.use(slugifyUrls());
 site.use(nav());
 site.use(pagefind());
 site.use(sitemap({
@@ -89,7 +89,7 @@ site.use(feed({
   },
 }));
 site.use(multilanguage({
-      languages: ["ja", "en"],
+      languages: ["en", "ja"],
       defaultLanguage: "ja",
 }));
 site.use(phosphor());
@@ -98,9 +98,7 @@ site.use(cssBanner({
   message: "===rickcogley - css jokes are always in style===",
 }));
 site.use(shuffle());
-// site.use(purgecss({
-//   fontFace: true,
-// })); 
+// ERRORS: site.use(purgecss()); 
 // site.use(minify_html());  
 
 site.add([".css"])
