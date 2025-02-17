@@ -16,7 +16,7 @@ bodyClass: body-tag
 </header>
 
 {{ if pagination.page === 1 }}
-{{ set pageTags = search.pages("type=tag", "tag") }}
+{{ set pageTags = search.pages(`type=tag lang=${lang}`, "tag") }}
 {{ if pageTags.length }}
 <nav class="page-navigation">
   <h2>{{ i18n.search.tags }}:</h2>
