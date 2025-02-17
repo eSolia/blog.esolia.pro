@@ -12,6 +12,23 @@
 :root {
   --color-link: var(--color-base);
   --color-link-hover: var(--color-dim);
+  --font-family-ui: "text", -apple-system, system-ui, sans-serif;
+  --font-family-display: var(--font-family-ui);
+}
+
+html {
+  background-color: #f8fbf8;
+  font-family: "text", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "text", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Page layout */
@@ -29,3 +46,84 @@ main {
 .search {
   margin-top: var(--row-gap-xsmall);
 }
+
+
+.text {
+  font-family: "text", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-100 {
+font-family: "text", sans-serif;
+font-optical-sizing: auto;
+font-weight: 100;
+font-style: normal;
+}
+
+.text-200 {
+font-family: "text", sans-serif;
+font-optical-sizing: auto;
+font-weight: 200;
+font-style: normal;
+}
+
+.text-300 {
+font-family: "text", sans-serif;
+font-optical-sizing: auto;
+font-weight: 300;
+font-style: normal;
+}
+
+.text-400 {
+font-family: "text", sans-serif;
+font-optical-sizing: auto;
+font-weight: 400;
+font-style: normal;
+}
+
+.text-500 {
+font-family: "text", sans-serif;
+font-optical-sizing: auto;
+font-weight: 500;
+font-style: normal;
+}
+
+.text-600 {
+font-family: "text", sans-serif;
+font-optical-sizing: auto;
+font-weight: 600;
+font-style: normal;
+}
+
+.text-700 {
+font-family: "text", sans-serif;
+font-optical-sizing: auto;
+font-weight: 700;
+font-style: normal;
+}
+
+.text-800 {
+font-family: "text", sans-serif;
+font-optical-sizing: auto;
+font-weight: 800;
+font-style: normal;
+}
+
+.text-900 {
+font-family: "text", sans-serif;
+font-optical-sizing: auto;
+font-weight: 900;
+font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: "text", sans-serif;
+font-optical-sizing: auto;
+font-weight: 700;
+font-style: bold;
+}
+
+
+/* lume-google-fonts-here */
