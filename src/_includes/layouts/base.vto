@@ -36,7 +36,7 @@
           </a>
         </li>
       {{ /for }}
-      {{- for item of topnav.links }}
+      {{- for item of it.topnav.links }}
         <li>
           <a href="{{ item.href }}"{{ if item.target }} target="{{item.target}}"{{ /if }}>
             {{ item.text }}
