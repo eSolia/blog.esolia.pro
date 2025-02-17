@@ -2,30 +2,34 @@
 @import "https://unpkg.com/@lumeland/ds@0.5.2/ds.css";
 
 /* Custom components */
+@import "css/colors.css";
+@import "css/typography.css";
 @import "css/navbar.css";
 @import "css/page.css";
 @import "css/post-list.css";
 @import "css/post.css";
 @import "css/comments.css";
+@import "css/overrides.css";
 
 /* Make the links black */
 :root {
   --color-link: var(--color-base);
   --color-link-hover: var(--color-dim);
-  --font-family-ui: "text", -apple-system, system-ui, sans-serif;
+  --color-text: hsl(197, 12%, 34%);
+  --font-family-ui: "textface", -apple-system, system-ui, sans-serif;
   --font-family-display: var(--font-family-ui);
 }
 
 html {
   background-color: #f8fbf8;
-  font-family: "text", sans-serif;
+  font-family: "textface", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
 body {
-  font-family: "text", sans-serif;
+  font-family: "textface", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -49,77 +53,77 @@ main {
 
 
 .text {
-  font-family: "text", sans-serif;
+  font-family: "textface", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
 .text-100 {
-font-family: "text", sans-serif;
+font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 100;
 font-style: normal;
 }
 
 .text-200 {
-font-family: "text", sans-serif;
+font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 200;
 font-style: normal;
 }
 
 .text-300 {
-font-family: "text", sans-serif;
+font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 300;
 font-style: normal;
 }
 
 .text-400 {
-font-family: "text", sans-serif;
+font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 400;
 font-style: normal;
 }
 
 .text-500 {
-font-family: "text", sans-serif;
+font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 500;
 font-style: normal;
 }
 
 .text-600 {
-font-family: "text", sans-serif;
+font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 600;
 font-style: normal;
 }
 
 .text-700 {
-font-family: "text", sans-serif;
+font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 700;
 font-style: normal;
 }
 
 .text-800 {
-font-family: "text", sans-serif;
+font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 800;
 font-style: normal;
 }
 
 .text-900 {
-font-family: "text", sans-serif;
+font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 900;
 font-style: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {
-font-family: "text", sans-serif;
+font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 700;
 font-style: bold;

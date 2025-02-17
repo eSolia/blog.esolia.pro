@@ -46,7 +46,7 @@ site.use(googleFonts({
   cssFile: "styles.css",
   placeholder: "/* lume-google-fonts-here */",
   fonts: {
-    text:
+    textface:
       "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;600;700&display=swap",
   },
 }));
