@@ -1,12 +1,12 @@
 ---
-lang: ja
+lang: en
 id: contactpg
 layout: layouts/page.vto
-title: 連絡先
+title: Contact
 url: /contact/
 menu:
   visible: true
   order: 2
 ---
 
-こんにちは
+Hello
