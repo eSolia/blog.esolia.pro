@@ -5,7 +5,7 @@ topnav:
     - text: <strong>イソリア</strong>
       href: https://esolia.co.jp
       icon: building-office
-    - text: GitHub repository
+    - text: GitHub リポジトリ
       href: https://github.com/eSolia/blog.esolia.pro
       icon: github-logo
 # Metas plugin https://lume.land/plugins/metas/#description
