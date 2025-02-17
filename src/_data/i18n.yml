@@ -16,7 +16,7 @@ post:
   reading_time: 分で読む
 search:
   by_author: 作者
-  by_tag: タグされた
+  by_tag: 付けられたタグ
   tags: タグ
 comments:
   title: Comments
