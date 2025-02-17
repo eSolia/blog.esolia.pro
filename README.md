@@ -51,6 +51,9 @@ To use this theme as a base template for a more customized blog, clone this repo
 and edit the [\_config.ts](./_config.ts) file. The source files are in the
 [src](./src/) folder.
 
+* * * 
+
+UPDATE ME
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7bfb45da-9787-468c-bb64-158e43108f49/deploy-status)](https://app.netlify.com/sites/blog-esolia-pro/deploys)
 
