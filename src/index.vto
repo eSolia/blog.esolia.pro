@@ -13,7 +13,7 @@ title: ホーム
 </header>
 
 <section class="postList">
-  {{ for post of search.pages("type=post lang=${lang}", "date=desc", 3) }}
+  {{ for post of search.pages("type=post lang=ja", "date=desc", 3) }}
   <article class="post">
     <header class="post-header">
       <h2 class="post-title">
