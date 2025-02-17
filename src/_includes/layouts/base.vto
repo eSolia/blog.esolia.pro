@@ -18,8 +18,8 @@
     <script src="/js/main.js" type="module"></script>
     {{ it.extra_head?.join("\n") }}
   </head>
-  <body>
-    <nav class="navbar">
+  <body class="">
+    <nav class="navbar text">
       <a href="/" class="navbar-home navbar-logo">
         {{ if it.logo }}
           <img src="{{ it.logo }}" alt="{{ page.title || slug }}">
@@ -36,10 +36,10 @@
           </a>
         </li>
       {{ /for }}
-      {{- for link of it.menu_links }}
+      {{- for item of topnav.links }}
         <li>
-          <a href="{{ link.href }}"{{ if link.target }} target="{{link.target}}"{{ /if }}>
-            {{ link.text }}
+          <a href="{{ item.href }}"{{ if item.target }} target="{{item.target}}"{{ /if }}>
+            {{ item.text }}
           </a>
         </li>
       {{ /for }}
