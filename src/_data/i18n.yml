@@ -1,14 +1,16 @@
+home:
+  welcome: イソリアのオフィシャル プロ ブログへようこそ
 nav:
-  toc: Table of Contents
-  next_post: Newer post →
-  previous_post: ← Older post
-  continue_reading: Continue reading →
-  archive_title: Archive
-  archive: More posts can be found in <a href="/archive/">the archive</a>.
-  back: ← Back
-  page: Page
-  next: Next →
-  previous: ← Previous
+  toc: 目録
+  next_post: より新しいポスト →
+  previous_post: ← より古いポスト
+  continue_reading: つづきを読む →
+  archive_title: アーカイブ
+  archive: 更に<a href="/archive/">アーカイブ</a>にて、ポストの閲覧できます
+  back: ← 戻る
+  page: ページ
+  next: 次へ →
+  previous: ← 前へ
 post:
   by: by
   reading_time: min read
@@ -25,3 +27,33 @@ comments:
   description_all: |
     You can leave a comment by replying to <a href=":src:">this Mastodon post</a> or <a href=":bluesky:">this Bluesky post</a> from your own account.
   empty: No comments yet
+en:
+  home:
+    welcome: Welcome to the official eSolia Pro Blog
+  nav:
+    toc: Table of Contents
+    next_post: Newer post →
+    previous_post: ← Older post
+    continue_reading: Continue reading →
+    archive_title: Archive
+    archive: More posts can be found in <a href="/en/archive/">the archive</a>.
+    back: ← Back
+    page: Page
+    next: Next →
+    previous: ← Previous
+  post:
+    by: by
+    reading_time: min read
+  search:
+    by_author: Posts by
+    by_tag: Tagged
+    tags: Tags
+  comments:
+    title: Comments
+    description: |
+      You can leave a comment by replying to <a href=":src:">this Mastodon post</a> from your own account on Mastodon or any other ActivityPub-capable social network that can exchange replies with Mastodon.
+    description_bluesky: |
+      You can leave a comment by replying to <a href=":bluesky:">this Bluesky post</a> from your own account.
+    description_all: |
+      You can leave a comment by replying to <a href=":src:">this Mastodon post</a> or <a href=":bluesky:">this Bluesky post</a> from your own account.
+    empty: No comments yet
