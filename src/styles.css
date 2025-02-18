@@ -21,7 +21,7 @@
 }
 
 html {
-  background-color: #f8fbf8;
+  background-color: var(--color-sidebarborder);
   font-family: "textface", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -36,9 +36,26 @@ body {
 }
 
 /* Page layout */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--row-gap-medium);
+  margin: 0 20rem;
+  padding: var(--row-gap-medium) var(--column-gap-medium);
+}
+
 main {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 50%;
   padding: var(--row-gap-medium) 0;
-  max-width: min(100% - 15vw, 45em);
+}
+
+.sidebar {
+  flex-basis: 25rem;
+  flex-grow: 1;
+  padding: var(--row-gap-medium) 2rem;
+  border-right: 1px solid var(--color-sidebarborder);
   margin: 0 auto;
 
   & > :first-child {
@@ -52,70 +69,70 @@ main {
 }
 
 
-.text {
+.textface {
   font-family: "textface", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
-.text-100 {
+.textface-100 {
 font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 100;
 font-style: normal;
 }
 
-.text-200 {
+.textface-200 {
 font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 200;
 font-style: normal;
 }
 
-.text-300 {
+.textface-300 {
 font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 300;
 font-style: normal;
 }
 
-.text-400 {
+.textface-400 {
 font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 400;
 font-style: normal;
 }
 
-.text-500 {
+.textface-500 {
 font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 500;
 font-style: normal;
 }
 
-.text-600 {
+.textface-600 {
 font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 600;
 font-style: normal;
 }
 
-.text-700 {
+.textface-700 {
 font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 700;
 font-style: normal;
 }
 
-.text-800 {
+.textface-800 {
 font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 800;
 font-style: normal;
 }
 
-.text-900 {
+.textface-900 {
 font-family: "textface", sans-serif;
 font-optical-sizing: auto;
 font-weight: 900;
