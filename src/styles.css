@@ -54,7 +54,7 @@ main {
 .sidebar {
   /* grid-area: sidebar; */
   padding: var(--row-gap-medium) 2rem;
-  border-right: 2px dotted var(--color-sidebarborder);
+  border-right: 1px solid var(--color-sidebarborder);
   /* margin: 0 auto; */
 
   & > :first-child {
