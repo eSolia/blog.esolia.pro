@@ -5,12 +5,11 @@ title: 日本語 This is a post with mastodon comments
 date: '2018-08-23'
 author: Óscar Otero
 tags:
-  - 日本語
-  - Placeholder
-  - Example
-  - Lorem ipsum
-  - JavaScript
-  - TypeScript
+  - プレースホルダー
+  - 例
+  - 我が輩は
+  - ジャバスクリプト
+  - タイプスクリプト
 comments:
   src: 'https://mastodon.gal/@misteroom/110810445656343599'
 draft: false

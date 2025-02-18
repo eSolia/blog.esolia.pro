@@ -5,9 +5,8 @@ title: 日本語 How to install this theme
 date: 2022-06-12
 author: Óscar Otero
 tags:
-  - Instructions
   - 説明
-  - 日本語
+  - インストール
 ---
 
 **Simple blog** is a clean and minimal blog theme for Lume, with support for
