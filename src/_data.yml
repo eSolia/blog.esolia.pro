@@ -2,7 +2,7 @@ logo: /assets/logo_horiz_darkblue_bgtransparent.svg
 extra_head: []
 topnav:
   links: 
-    - text: <strong>イソリア</strong>
+    - text: イソリア
       href: https://esolia.co.jp
       icon: building-office
     - text: GitHub リポジトリ
@@ -20,7 +20,7 @@ metas:
 en:
   topnav:
     links: 
-      - text: <strong>eSolia Inc.</strong>
+      - text: eSolia Inc.
         href: https://esolia.com
         icon: building-office
       - text: GitHub repository
