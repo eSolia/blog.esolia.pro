@@ -6,6 +6,9 @@
   --esolia-yellow-12-hsl: hsl(56, 11%, 25%);
   --esolia-yellow-13-hsl: hsl(60, 12%, 10%);
   --yellow-12-hsl: hsl(31, 100%, 20%);
+  --esolia-logo-blue-hsl: hsl(238, 38%, 28%);
+  --esolia-logo-orange-hsl: hsl(33, 100%, 70%);
+  --esolia-logo-lightyellow-hsl: hsl(52, 100%, 92%);
 
   /* Light colors */
   color-scheme: light;
@@ -18,7 +21,9 @@
   --color-background: hsl(220, 20%, 100%);
   /* --color-navbackground: hsl(240, 100%, 99.41%); */
   --color-navbackground: hsl(50, 42.86%, 97.25%);
-  --color-sidebarborder: hsl(48, 7%, 86%);
+  --color-navborder: hsla(210, 16%, 63%, 0.2);
+  --color-sidebarborder: hsla(210, 16%, 63%, 0.2);
+  /* --color-sidebarborder: hsl(48, 7%, 86%); */
   /* --color-highlight: hsl(220, 20%, 97%); */
   --color-highlight: var(--esolia-yellow-0-hsl);
 
@@ -97,7 +102,8 @@
   --color-background: hsl(220, 20%, 10%);
   /* --color-navbackground: hsl(210, 1%, 28%); */
   --color-navbackground: hsl(50, 43%, 11%);
-  --color-sidebarborder: hsl(49, 43%, 15%);
+  --color-navborder: hsla(210, 16%, 63%, 0.2);
+  --color-sidebarborder: hsla(210, 16%, 63%, 0.2);
   /* --color-highlight: hsl(220, 20%, 13%); */
   --color-highlight: var(--esolia-yellow-13-hsl);
 

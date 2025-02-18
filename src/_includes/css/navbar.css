@@ -7,7 +7,7 @@
   padding: 2rem min(5vw, 5rem);
   align-items: center;
   background-color: var(--color-navbackground);
-  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+  box-shadow: 0 1px 4px var(--color-navborder);
 }
 
 .navbar-links {
