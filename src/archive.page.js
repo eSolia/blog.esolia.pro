@@ -1,7 +1,6 @@
 export const layout = "layouts/archive.vto";
-export const lang = "ja";
 
-export default function* ({ search, paginate, i18n }) {
+export default function* ({ search, paginate, ja, lang }) {
   const posts = search.pages(`type=post lang=${lang}`, "date=desc");
 
   for (
@@ -17,7 +16,7 @@ export default function* ({ search, paginate, i18n }) {
 
     yield {
       ...data,
-      title: i18n.nav.archive_title,
+      title: `${ja.i18n.nav.archive_title}`,
     };
   }
 }
