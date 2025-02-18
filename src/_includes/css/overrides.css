@@ -16,6 +16,9 @@
   --color-link-hover: var(--color-primary-highlight);
   --color-line: hsl(220, 20%, 90%);
   --color-background: hsl(220, 20%, 100%);
+  /* --color-navbackground: hsl(240, 100%, 99.41%); */
+  --color-navbackground: hsl(50, 42.86%, 97.25%);
+  --color-sidebarborder: hsl(48, 7%, 86%);
   /* --color-highlight: hsl(220, 20%, 97%); */
   --color-highlight: var(--esolia-yellow-0-hsl);
 
@@ -92,6 +95,9 @@
   
   --color-line: hsl(220, 20%, 20%);
   --color-background: hsl(220, 20%, 10%);
+  /* --color-navbackground: hsl(210, 1%, 28%); */
+  --color-navbackground: hsl(50, 43%, 11%);
+  --color-sidebarborder: hsl(49, 43%, 15%);
   /* --color-highlight: hsl(220, 20%, 13%); */
   --color-highlight: var(--esolia-yellow-13-hsl);
 
