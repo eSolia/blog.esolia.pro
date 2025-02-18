@@ -4,5 +4,14 @@
   "deno.unstable": true,
   "deno.suggest.imports.hosts": {
     "https://deno.land": true
-  }
+  },
+  "spellright.language": [
+    "en"
+  ],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext",
+    "typescript"
+  ]
 }

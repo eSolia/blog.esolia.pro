@@ -1,9 +1,9 @@
 ---
-lang: ja
+lang: en
 id: home
 layout: layouts/base.vto
 bodyClass: body-home
-title: ホーム
+title: Home
 ---
 
 <header class="page-header">
@@ -13,7 +13,7 @@ title: ホーム
 </header>
 
 <section class="postList">
-  {{ for post of search.pages("type=post lang=ja", "date=desc", 3) }}
+  {{ for post of search.pages("type=post lang=en", "date=desc", 3) }}
   <article class="post">
     <header class="post-header">
       <h2 class="post-title">

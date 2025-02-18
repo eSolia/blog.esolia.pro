@@ -1,16 +1,35 @@
-lang: en
-
-home:
-  welcome: Hello, I am a person that writes stuff.
-
-menu_links: []
+logo: /assets/logo_horiz_darkblue_bgtransparent.svg
 extra_head: []
-
+topnav:
+  links: 
+    - text: イソリア
+      href: https://esolia.co.jp
+      icon: building-office
+    - text: GitHub リポジトリ
+      href: https://github.com/eSolia/blog.esolia.pro
+      icon: github-logo
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
-  site: Blog name
-  description: General description of the blog
+  site: イソリア プロのブログ
+  description: 株式会社イソリアのブログ
   title: "=title"
   image: "=image"
-  twitter: "@username"
-  lang: en
+  twitter: "@esolia_inc"
+  lang: ja
+
+en:
+  topnav:
+    links: 
+      - text: eSolia Inc.
+        href: https://esolia.com
+        icon: building-office
+      - text: GitHub repository
+        href: https://github.com/eSolia/blog.esolia.pro
+        icon: github-logo
+  metas:
+    site: eSolia Pro Blog
+    description: Blog of eSolia Inc., Tokyo, Japan.
+    title: "=title"
+    image: "=image"
+    twitter: "@esolia_inc"
+    lang: en

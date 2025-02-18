@@ -18,28 +18,28 @@
     <script src="/js/main.js" type="module"></script>
     {{ it.extra_head?.join("\n") }}
   </head>
-  <body>
+  <body class="">
     <nav class="navbar">
-      <a href="/" class="navbar-home">
+      <a href="/" class="navbar-home navbar-logo">
         {{ if it.logo }}
-          {{ it.logo }}
+          <img src="{{ it.logo }}" alt="{{ page.title || slug }}">
         {{ else }}
           <strong>{{ metas.site }}</strong>
         {{ /if }}
       </a>
 
-      <ul class="navbar-links">
-      {{- for entry of search.pages("menu.visible=true", "menu.order") }}
+      <ul class="navbar-links textface-300">
+      {{- for entry of search.pages(`menu.visible=true lang=${lang}`, "menu.order") }}
         <li>
           <a href="{{ entry.url }}"{{ if entry.url == url }} aria-current="page"{{ /if }}>
             {{ entry.menu.title || entry.title }}
           </a>
         </li>
       {{ /for }}
-      {{- for link of it.menu_links }}
+      {{- for item of it.topnav.links }}
         <li>
-          <a href="{{ link.href }}"{{ if link.target }} target="{{link.target}}"{{ /if }}>
-            {{ link.text }}
+          <a href="{{ item.href }}"{{ if item.target }} target="{{item.target}}"{{ /if }}>
+            {{ item.text }}
           </a>
         </li>
       {{ /for }}
@@ -62,10 +62,20 @@
       </ul>
     </nav>
 
-    <main class="{{ it.bodyClass }}">
-      {{ content }}
-    </main>
-
+    <div class="container">
+      <div class="sidebar">
+        <h2>Sidebar</h2>
+        <p>This is the sidebar content. This is more content. And still more.</p>
+        <ul>
+          <li>Category Link A</li>
+          <li>Category Link B</li>
+        </ul>
+      </div>
+      <main class="{{ it.bodyClass }}">
+        {{ content }}
+      </main>
+      
+    </div>
     <!-- Current page: {{ url }} -->
   </body>
 </html>
