@@ -19,7 +19,7 @@
     {{ it.extra_head?.join("\n") }}
   </head>
   <body class="">
-    <nav class="navbar text">
+    <nav class="navbar">
       <a href="/" class="navbar-home navbar-logo">
         {{ if it.logo }}
           <img src="{{ it.logo }}" alt="{{ page.title || slug }}">
@@ -28,7 +28,7 @@
         {{ /if }}
       </a>
 
-      <ul class="navbar-links">
+      <ul class="navbar-links textface-300">
       {{- for entry of search.pages(`menu.visible=true lang=${lang}`, "menu.order") }}
         <li>
           <a href="{{ entry.url }}"{{ if entry.url == url }} aria-current="page"{{ /if }}>
@@ -62,10 +62,20 @@
       </ul>
     </nav>
 
-    <main class="{{ it.bodyClass }}">
-      {{ content }}
-    </main>
-
+    <div class="container">
+      <div class="sidebar">
+        <h2>Sidebar</h2>
+        <p>This is the sidebar content. This is more content. And still more.</p>
+        <ul>
+          <li>Category Link A</li>
+          <li>Category Link B</li>
+        </ul>
+      </div>
+      <main class="{{ it.bodyClass }}">
+        {{ content }}
+      </main>
+      
+    </div>
     <!-- Current page: {{ url }} -->
   </body>
 </html>
