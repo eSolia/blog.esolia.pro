@@ -48,12 +48,16 @@ body {
 
 main {
   /* grid-area: main; */
-  padding: var(--row-gap-medium) 0;
+  font-size: clamp(1rem, 2vw, 3rem); /* Adjusts between the endpoints */
+  padding: var(--row-gap-small);
+  /* max-width: 800px; */
+  max-width: clamp(500px, 80%, 2000px);
+  margin: 0 auto;
 }
 
 .sidebar {
   /* grid-area: sidebar; */
-  padding: var(--row-gap-medium) 2rem;
+  padding: var(--row-gap-small) 2rem;
   border-right: 1px solid var(--color-sidebarborder);
   /* margin: 0 auto; */
 
@@ -65,7 +69,9 @@ main {
 /* Responsive layout for larger screens */
 @media (min-width: 768px) {
   .container {
-      grid-template-columns: 1fr 3fr;
+      /* grid-template-columns: 1fr 3fr; */
+      /* grid-template-columns: 1fr repeat(auto-fill, minmax(1fr, 1.5fr)); */
+      grid-template-columns: 1fr minmax(500px, 3fr);
   }
 }
 
