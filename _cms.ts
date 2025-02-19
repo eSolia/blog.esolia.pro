@@ -1,7 +1,22 @@
 import lumeCMS from "lume/cms/mod.ts";
 import { Field } from "lume/cms/types.ts";
 
-const cms = lumeCMS();
+const cms = lumeCMS({
+  site: {
+    name: "eSolia Blog",
+    description: "Edit the content of the eSolia blog site.",
+    url: "https://blog.esolia.pro",
+    body: `
+    <p>This is the CMS for eSolia's bilingual blog site, with posts in Japanese and English.</p>
+    `,
+  },
+});
+
+// Configure upload
+cms.upload("uploads: Uploaded files", "src:uploads");
+
+// Configure git
+cms.git();
 
 const url: Field = {
   name: "url",
@@ -183,7 +198,5 @@ cms.collection(
     },
   ],
 );
-
-cms.upload("uploads: Uploaded files", "src:uploads");
 
 export default cms;
