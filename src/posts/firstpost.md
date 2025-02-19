@@ -3,18 +3,18 @@ lang: ja
 id: 20180823a
 title: 日本語 This is a post with mastodon comments
 date: '2018-08-23'
-author: Óscar Otero
+author: Rick Cogley
 tags:
   - プレースホルダー
   - 例
   - 我が輩は
   - ジャバスクリプト
   - タイプスクリプト
+  - 在宅型テレワーカー
 comments:
   src: 'https://mastodon.gal/@misteroom/110810445656343599'
 draft: false
 ---
-
 我が輩 Leverage agile frameworks to provide a robust synopsis for high level overviews.
 Iterative approaches to corporate strategy foster collaborative thinking to
 further the overall value proposition. Organically grow the holistic world view
