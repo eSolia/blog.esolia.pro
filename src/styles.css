@@ -48,7 +48,7 @@ body {
 
 main {
   /* grid-area: main; */
-  font-size: clamp(1rem, 2vw, 3rem); /* Adjusts between the endpoints */
+  font-size: clamp(1rem, 2vw, 2rem); /* Adjusts between the endpoints */
   padding: var(--row-gap-small);
   /* max-width: 800px; */
   max-width: clamp(500px, 80%, 2000px);
