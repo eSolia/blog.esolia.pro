@@ -1,22 +1,38 @@
 [build]
   publish = "_site"
-  command = """
-    curl -fsSL https://deno.land/x/install/install.sh | sh && \
-    /opt/buildhome/.deno/bin/deno task build && \
-    tree . > _site/esolia_blog_tree.txt
-  """
+  [context.production]
+    command = """
+      curl -fsSL https://deno.land/x/install/install.sh | sh && \
+      /opt/buildhome/.deno/bin/deno task build && \
+      tree . > _site/esolia_blog_tree.txt && \
+      cp headers-dev _site/_headers
+    """
+  [context.deploy-preview]
+    command = """
+      curl -fsSL https://deno.land/x/install/install.sh | sh && \
+      /opt/buildhome/.deno/bin/deno task build && \
+      tree . > _site/esolia_blog_tree.txt && \
+      cp headers-dev _site/_headers 
+    """
+  [context.branch-deploy]
+    command = """
+      curl -fsSL https://deno.land/x/install/install.sh | sh && \
+      /opt/buildhome/.deno/bin/deno task build && \
+      tree . > _site/esolia_blog_tree.txt
+      cp headers-dev _site/_headers
+    """ 
 
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
+    X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     X-Powered-By = "Lume mixed with Blood Sweat and Tears"
     X-Custom-Header = "Rawr eSolia Tokyo"
-    Referrer-Policy = "strict-origin"
+    Referrer-Policy = "strict-origin-when-cross-origin"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    Permissions-Policy = "accelerometer=(), ambient-light-sensor=*, autoplay=(self), battery=(self), camera=(), cross-origin-isolated=*, fullscreen=*, geolocation=(self), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), usb=()"
+    Permissions-Policy = "autoplay=(), camera=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=()"
 
 [[redirects]]
 from = "/en/*"
