@@ -1,5 +1,5 @@
 @supports (font-size-adjust: 1;) {
-  article {
+  body {
       font-size-adjust: 0.5;
   }
 }
