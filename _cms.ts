@@ -12,6 +12,11 @@ const cms = lumeCMS({
   },
 });
 
+// Enable basicauth
+cms.auth({
+  eSolia: "GoodStories!",
+});
+
 // Configure upload
 cms.upload("uploads: Uploaded files", "src:uploads");
 
