@@ -1,5 +1,4 @@
 posts/*.md
-src/uploads
 _site
 _bin
 _cache
