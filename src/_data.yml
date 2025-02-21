@@ -10,12 +10,21 @@ topnav:
       icon: github-logo
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
-  site: イソリア プロのブログ
-  description: 株式会社イソリアのブログ
-  title: "=title"
-  image: "=image"
-  twitter: "@esolia_inc"
+  type: website
+  site: "イソリア プロ ブログ"
+  title: "プロ ブログ ページ"
   lang: ja
+  description: "株式会社イソリア ブログのページ"
+  image: "/assets/blog-esolia-pro-default.png"
+  icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
+  keywords: ["イソリア", "ブログ", "ウェブログ", "プロ", "プロフェッショナル", "東京ITサービス", "日本語"]
+  twitter: "@esolia_inc"
+  fediverse: "@esolia.com@bsky.brid.gy"
+  color: ["#ffbc68", "#2d2f63"]
+  robots: true
+  generator: true
+  "twitter:label1": "著者"
+  "twitter:data1": "チーム イソリア"
 
 en:
   topnav:
@@ -27,9 +36,18 @@ en:
         href: https://github.com/eSolia/blog.esolia.pro
         icon: github-logo
   metas:
-    site: eSolia Pro Blog
-    description: Blog of eSolia Inc., Tokyo, Japan.
-    title: "=title"
-    image: "=image"
-    twitter: "@esolia_inc"
+    type: website
+    site: "eSolia Pro Blog"
+    title: "Pro Blog Page"
     lang: en
+    description: "Blog page from eSolia Inc., Tokyo, Japan"
+    image: "/assets/blog-esolia-pro-default.png"
+    icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
+    keywords: ["eSolia", "blog", "weblog", "pro", "professional", "tokyo it service", "japan", "english"]
+    twitter: "@esolia_inc"
+    fediverse: "@esolia.com@bsky.brid.gy"
+    color: ["#ffbc68", "#2d2f63"]
+    robots: true
+    generator: true
+    "twitter:label1": "Written by"
+    "twitter:data1": "Team eSolia"
