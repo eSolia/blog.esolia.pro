@@ -6,10 +6,9 @@ author: Ena Ishikawa
 date: 2018-04-16T07:07:27+09:00
 draft: false
 title: Telework Offensive!
-metas:
-  - title: Telework Offensive!
-  - subtitle: It's not just a welfare matter; moving toward a practical telework offensive
-  - description: It's not just a welfare matter; moving toward a practical telework offensive
+subtitle: It's not just a welfare matter; moving toward a practical telework offensive
+description: It's not just a welfare matter; moving toward a practical telework offensive
+image: "/uploads/20180416a-telework-01.png"
 tags:
   - Telework
   - Work-life balance
@@ -18,9 +17,6 @@ tags:
   - Subsidies
   - Grants
   - Workplace
-images:
-  - /img/eSolia-Post-Telework-01.png
-  - /img/symbol_darkblue_bgtransparent 2_web.png
 ---
 
 **Telework** is what we call telecommuting in Japan. The Ministry of Internal Affairs and Communications in Japan defines it as follows...
@@ -47,7 +43,7 @@ The Japan government aims to increase teleworkers by 10% of total office workers
 ICT is ever-progressing. It's easy to implement new technology. As a matter of fact, more than half of companies have already implemented a system to allow mobile work from outside of the offices, so from this point of view we should say it is already somewhat common, especially for sales reps or IT engineers.  
 
 <figure class="image-container">
-<img class="materialboxed responsive-img" width="550" data-caption="Zoom caption" alt="Alt caption" src="/img/eSolia-Post-Telework-01.png" >
+<img class="materialboxed responsive-img" width="550" data-caption="Zoom caption" alt="Alt caption" src="/uploads/eSolia-Post-Telework-01.png" >
 <figcaption><small><em>From Japan Gov't Ministry of Internal Affairs and Communications'<br> Special Report: Global Paradigm Shift Brought About by ICT - <br><a href="http://www.soumu.go.jp/johotsusintokei/whitepaper/ja/h26/html/nc141220.html">Environment for Connection to Corporate Assets from Outside the WAN</a>
 <ul>
 <li>Y: Percentage, X: Years (Heisei 14 (2002) - 25 (2013))</li>
