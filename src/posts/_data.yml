@@ -2,4 +2,9 @@ type: post
 layout: layouts/post.vto
 
 metas:
+  type: blogPosting
   title: "=title"
+  description: "=description"
+  image: "=image"
+  keywords: "=tags"
+  "twitter:data1": "=author"
