@@ -49,8 +49,22 @@ cms.document(
   [
     {
       name: "lang",
-      type: "text",
+      type: "select",
       label: "Language",
+      description: "コンテンツの言語を選択する<br>Select the language of the page content",
+      attributes: {
+        required: true,
+      },
+      options: [
+        {
+          label: "日本語",
+          value: "ja"
+        },
+        {
+          label: "English",
+          value: "en"
+        },
+      ],
     },
     {
       name: "home",
