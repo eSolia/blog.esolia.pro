@@ -117,7 +117,7 @@ cms.document(
 );
 
 cms.collection(
-  "posts: Blog posts",
+  "posts: Blog posts in Japanese and English",
   "src:posts/*.md",
   [
     {
@@ -138,6 +138,15 @@ cms.collection(
           value: "en"
         },
       ],
+    },
+    {
+      name: "id",
+      type: "text",
+      label: "Unique ID for a Set of Translated Pages",
+      description: "Must be the same string for each language version of the same page, and acts to link them together",
+      attributes: {
+        required: true,
+      },
     },
     "title: text",
     url,
