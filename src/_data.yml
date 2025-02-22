@@ -1,5 +1,6 @@
 logo: /assets/logo_horiz_darkblue_bgtransparent.svg
 extra_head: []
+lang: ja
 topnav:
   links: 
     - text: イソリア
@@ -25,8 +26,11 @@ metas:
   generator: true
   "twitter:label1": "著者"
   "twitter:data1": "チーム イソリア"
+  "twitter:label2": "読書時間"
+  "twitter:data2": "$ .reading-info || 2 分"
 
 en:
+  lang: en
   topnav:
     links: 
       - text: eSolia Inc.
@@ -51,3 +55,5 @@ en:
     generator: true
     "twitter:label1": "Written by"
     "twitter:data1": "Team eSolia"
+    "twitter:label2": "Reading Time"
+    "twitter:data2": "$ .reading-info || 2 min"
