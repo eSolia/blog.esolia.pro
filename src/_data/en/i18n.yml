@@ -1,3 +1,4 @@
+lang: en
 home:
   welcome: Welcome to the official eSolia Pro Blog
 nav:
@@ -13,7 +14,8 @@ nav:
   previous: ← Previous
 post:
   by: by
-  reading_time: min read
+  reading_time: Reading Time
+  minutes: min
 search:
   by_author: Posts by
   by_tag: Tagged

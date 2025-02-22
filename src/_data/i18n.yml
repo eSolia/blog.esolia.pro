@@ -1,3 +1,4 @@
+lang: ja
 home:
   welcome: イソリアのオフィシャル プロ ブログへようこそ
 nav:
@@ -13,7 +14,8 @@ nav:
   previous: ← 前へ
 post:
   by: by
-  reading_time: 分で読む
+  reading_time: 読書時間
+  minutes: 分
 search:
   by_author: 作者
   by_tag: 付けられたタグ
