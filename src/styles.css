@@ -10,6 +10,7 @@
 @import "css/post.css";
 @import "css/comments.css";
 @import "css/overrides.css";
+@import "css/menu.css";
 
 /* Make the links black */
 :root {

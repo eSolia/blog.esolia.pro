@@ -64,11 +64,11 @@
 
     <div class="container">
       <div class="sidebar">
-        <ul class="languages">
+        <ul class="menu-languages">
         {{ for alt of alternates }}
           <li>
-            <a href="{{ alt.url }}" {{ if alt.lang == lang }}aria-current="page"{{ /if }}>
-              {{ alt.title }} ({{ alt.lang }})
+            <a href="{{ alt.url }}" {{ if alt.lang == lang }}aria-current="page"{{ /if }} title="{{ alt.title |> escape }}">
+              {{ if alt.lang == "en" }}English{{ else }}日本語{{ /if }}
             </a>
           </li>
         {{ /for }}
