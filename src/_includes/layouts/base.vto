@@ -64,6 +64,15 @@
 
     <div class="container">
       <div class="sidebar">
+        <ul class="languages">
+        {{ for alt of alternates }}
+          <li>
+            <a href="{{ alt.url }}" {{ if alt.lang == lang }}aria-current="page"{{ /if }}>
+              {{ alt.title }} ({{ alt.lang }})
+            </a>
+          </li>
+        {{ /for }}
+        </ul>
         <h2>Sidebar</h2>
         <p>This is the sidebar content. This is more content. And still more.</p>
         <ul>
