@@ -10,7 +10,7 @@ import attributes from "lume/plugins/attributes.ts";
 import terser from "lume/plugins/terser.ts";
 import prism from "lume/plugins/prism.ts";
 import basePath from "lume/plugins/base_path.ts";
-import slugifyUrls from "lume/plugins/slugify_urls.ts";
+// import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import resolveUrls from "lume/plugins/resolve_urls.ts";
 import metas from "lume/plugins/metas.ts";
 import nav from "lume/plugins/nav.ts";
@@ -64,7 +64,7 @@ site.use(metas());
 site.use(image());
 site.use(footnotes());
 site.use(resolveUrls());
-site.use(slugifyUrls());
+// site.use(slugifyUrls());
 site.use(nav());
 site.use(pagefind());
 site.use(sitemap({
