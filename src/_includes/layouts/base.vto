@@ -73,6 +73,15 @@
           </li>
         {{ /for }}
         </ul>
+
+        {{ for tag of search.values("tags") }}
+          {{ tag }}
+        {{ /for }}
+
+        {{# {{ for tag of search.values("tags") }}
+          <a href="{{ search.url(`tag=${tag}`) }}">{{ tag }}</a>
+        {{ /for }} #}}
+
         <h2>Sidebar</h2>
         <p>This is the sidebar content. This is more content. And still more.</p>
         <ul>
