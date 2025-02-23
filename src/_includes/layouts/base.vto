@@ -75,7 +75,7 @@
         </ul>
 
         {{ for tag of search.values("tags") }}
-          {{ tag }}
+          <a href="{{ if lang == "en" }}en{{ /if }}/archive/{{ tag }}">{{ tag }}</a>
         {{ /for }}
 
         {{# {{ for tag of search.values("tags") }}
