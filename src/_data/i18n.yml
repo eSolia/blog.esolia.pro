@@ -21,7 +21,7 @@ post:
   reading_time: 読書時間
   minutes: 分
 search:
-  by_author: 作者
+  by_author: 著者
   by_tag: 付けられたタグ
   by_category: 付けられたカテゴリ
   tags: タグ
