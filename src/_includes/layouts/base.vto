@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- ===== base.vto LAYOUT START ===== -->
 
 <html lang="{{ it.lang }}">
   <head>
@@ -74,21 +75,38 @@
         {{ /for }}
         </ul>
 
-        {{ for tag of search.values("tags") }}
-          <a href="{{ if lang == "en" }}en{{ /if }}/archive/{{ tag }}">{{ tag }}</a>
+        <h2>{{ i18n.nav.all_categories }}</h2>
+        <div class="post-tags">
+        {{ for category of search.values("category") }}
+        {{ set page = search.page(`type=category lang=${lang} category="${category}"`) }}
+        {{ if page }}
+          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ category }}</a>
+        {{ /if }}
         {{ /for }}
+        </div>
 
-        {{# {{ for tag of search.values("tags") }}
-          <a href="{{ search.url(`tag=${tag}`) }}">{{ tag }}</a>
-        {{ /for }} #}}
+        <h2>{{ i18n.nav.all_authors }}</h2>
+        <div class="post-tags">
+        {{ for author of search.values("author") }}
+        {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
+        {{ if page }}
+          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ author }}</a>
+        {{ /if }}
+        {{ /for }}
+        </div>
 
-        <h2>Sidebar</h2>
-        <p>This is the sidebar content. This is more content. And still more.</p>
-        <ul>
-          <li>Category Link A</li>
-          <li>Category Link B</li>
-        </ul>
+        <h2>{{ i18n.nav.all_tags }}</h2>
+        <div class="post-tags">
+        {{ for tag of search.values("tags") }}
+        {{ set page = search.page(`type=tag lang=${lang} tag="${tag}"`) }}
+        {{ if page }}
+          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ tag }}</a>
+        {{ /if }}
+        {{ /for }}
+        </div>
+
       </div>
+
       <main class="{{ it.bodyClass }}">
         {{ content }}
       </main>
@@ -96,4 +114,5 @@
     </div>
     <!-- Current page: {{ url }} -->
   </body>
+  <!-- ===== base.vto LAYOUT END ===== -->
 </html>
