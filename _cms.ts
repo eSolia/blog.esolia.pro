@@ -161,8 +161,9 @@ cms.collection({
     },
     {
       name: "date",
-      type: "date",
-      label: "日付 Date",
+      type: "datetime",
+      label: "日付 Created Date",
+      value: new Date().toISOString(),
       description: "The date the page was posted",
       attributes: {
         required: true,
@@ -200,6 +201,7 @@ cms.collection({
       type: "file",
       label: "ページ画像 Page Image",
       description: "The image to feature for the page, visible in social media shares",
+      value: "/assets/blog-esolia-pro-default.png",
       uploads: "uploads",
       attributes: {
         accept: "image/*",
