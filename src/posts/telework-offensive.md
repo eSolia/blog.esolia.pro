@@ -9,6 +9,7 @@ title: 攻めのテレワーク
 subtitle: 福利厚生だけじゃない、《攻めのテレワーク》 実現に向けて
 description: 福利厚生だけじゃない、「攻めのテレワーク」実現に向けて
 image: "/uploads/20180416a-telework-01.png"
+category: ストーリー
 tags:
   - テレワーク
   - ワークライフバランス
