@@ -2,7 +2,7 @@
 lang: ja
 id: 20180416a
 authorkey: enaishikawa
-author: Ena Ishikawa
+author: 石川 絵奈
 date: 2018-04-16T07:07:27+09:00
 draft: false
 title: 攻めのテレワーク

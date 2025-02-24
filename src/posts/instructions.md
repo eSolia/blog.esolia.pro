@@ -3,7 +3,7 @@ lang: ja
 id: 20220612a
 title: 日本語 How to install this theme
 date: 2022-06-12
-author: Óscar Otero
+author: オテロ オスカー
 category: チュートリアル
 tags:
   - 説明
