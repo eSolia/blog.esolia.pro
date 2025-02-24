@@ -122,7 +122,7 @@ cms.collection({
   description: "日本語と英語のブログポストを編集する<br>Edit blog posts in Japanese and English",
   store: "src:posts/*.md",
   documentName(data) {
-    return `${new Date().toISOString().split("T")[0]}-${data.title}-${data.lang}.md`;
+    return `${new Date().toISOString().slice(0,10).replace(/-/g,"")}-${data.title}-${data.lang}.md`;
   },
   fields: [
     {
@@ -149,6 +149,7 @@ cms.collection({
       type: "text",
       label: "固有ID Unique ID",
       description: "A unique string (e.g. 20250107a) that acts to group a set of translated content pages together",
+      value: new Date().toISOString().slice(0,10).replace(/-/g,""),
       attributes: {
         required: true,
       },
