@@ -12,6 +12,10 @@ nav:
   page: ページ
   next: 次へ →
   previous: ← 前へ
+  all_categories: すべてのカテゴリ
+  all_tags: すべてのタグ
+  all_authors: すべての著者
+  all_posts: すべてのポスト
 post:
   by: by
   reading_time: 読書時間
@@ -19,6 +23,7 @@ post:
 search:
   by_author: 作者
   by_tag: 付けられたタグ
+  by_category: 付けられたカテゴリ
   tags: タグ
 comments:
   title: Comments

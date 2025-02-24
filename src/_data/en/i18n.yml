@@ -12,13 +12,18 @@ nav:
   page: Page
   next: Next →
   previous: ← Previous
+  all_categories: All Categories
+  all_tags: All Tags 
+  all_authors: All Authors
+  all_posts: All Posts
 post:
   by: by
   reading_time: Reading Time
   minutes: min
 search:
-  by_author: Posts by
-  by_tag: Tagged
+  by_author: Authored by
+  by_tag: Tag
+  by_category: Category
   tags: Tags
 comments:
   title: Comments
