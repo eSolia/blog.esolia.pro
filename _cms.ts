@@ -116,14 +116,19 @@ cms.document(
   ],
 );
 
-cms.collection(
-  "posts: Blog posts in Japanese and English",
-  "src:posts/*.md",
-  [
+cms.collection({
+  name: "posts",
+  label: "ブログポスト Blog posts",
+  description: "日本語と英語のブログポストを編集する<br>Edit blog posts in Japanese and English",
+  store: "src:posts/*.md",
+  documentName(data) {
+    return `${new Date().toISOString().split("T")[0]}-${data.title}-${data.lang}.md`;
+  },
+  fields: [
     {
       name: "lang",
       type: "select",
-      label: "Language",
+      label: "言語 Language",
       description: "コンテンツの言語を選択する<br>Select the language of the page content",
       attributes: {
         required: true,
@@ -142,32 +147,87 @@ cms.collection(
     {
       name: "id",
       type: "text",
-      label: "Unique ID for a Set of Translated Pages",
-      description: "Must be the same string for each language version of the same page, and acts to link them together",
+      label: "固有ID Unique ID",
+      description: "A unique string (e.g. 20250107a) that acts to group a set of translated content pages together",
       attributes: {
         required: true,
       },
     },
-    "title: text",
-    url,
+    {
+      name: "url",
+      type: "url",
+      label: "URL",
+      description: "The public URL of the page. Leave empty to use the file path",
+    },
+    {
+      name: "date",
+      type: "date",
+      label: "日付 Date",
+      description: "The date the page was posted",
+      attributes: {
+        required: true,
+      },
+    },
+    {
+      name: "last_modified",
+      type: "current-datetime",
+      label: "最終更新 Last Modified",
+      description: "The date the page was last modified",
+      attributes: {
+        readonly: true
+      }
+    },
+    {
+      name: "title",
+      type: "text",
+      label: "ページ・タイトル Page Title",
+      description: "Title in the language of the page, visible in browser tab and page header, and used in search engine results",
+      attributes: {
+        required: true,
+      },
+    },
+    {
+      name: "description",
+      type: "textarea",
+      label: "ページ・ディスクリプション Page Description",
+      description: "Description in the language of the page, visible in page source, and used in search engine results",
+      attributes: {
+        required: true,
+      },
+    },
+    {
+      name: "image",
+      type: "file",
+      label: "ページ画像 Page Image",
+      description: "The image to feature for the page, visible in social media shares",
+      uploads: "uploads",
+      attributes: {
+        accept: "image/*",
+      },
+    },
     {
       name: "author",
       type: "text",
+      label: "コンテンツの著者 Author of the Content",
+      description: "The author's full name as it should appear in the byline, in the language of the content",
       init(field, { data }) {
         field.options = data.site?.search.values("author");
       },
     },
-    "date: date",
     {
-      name: "draft",
-      label: "Draft",
-      type: "checkbox",
-      description: "If checked, the post will not be published.",
+      name: "category",
+      type: "select",
+      label: "カテゴリー Category",
+      description: "The page category (e.g. Stories, Tips, Tutorials), in the language of the page",
+      init(field, { data }) {
+        field.options = data.site?.search.values("category");
+      },
     },
     {
       name: "tags",
       type: "list",
-      label: "Tags",
+      label: "タグ Tags",
+      description: "The page tags, in the language of the page",
       init(field, { data }) {
         field.options = data.site?.search.values("tags");
       },
@@ -189,17 +249,19 @@ cms.collection(
       ],
     },
     {
-      name: "extra_head",
-      type: "code",
-      description: "Extra content to include in the <head> tag",
+      name: "draft",
+      type: "checkbox",
+      label: "ドラフト Draft",
+      description: "If checked, the post will not be published.",
     },
     {
       name: "content",
       type: "markdown",
-      label: "Content",
+      label: "コンテンツ Content",
+      description: "The main content of the page, in the language of the page, formatted in markdown and HTML",
     },
   ],
-);
+});
 
 cms.collection(
   "pages: Additional pages, like about, contact, etc.",
