@@ -95,7 +95,7 @@
         {{ /for }}
         </div>
 
-        <h2>{{ i18n.nav.all_tags }}</h2>
+        {{# <h2>{{ i18n.nav.all_tags }}</h2>
         <div class="post-tags">
         {{ for tag of search.values("tags") }}
         {{ set page = search.page(`type=tag lang=${lang} tag="${tag}"`) }}
@@ -103,7 +103,7 @@
           <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ tag }}</a>
         {{ /if }}
         {{ /for }}
-        </div>
+        </div> #}}
 
       </div>
 
