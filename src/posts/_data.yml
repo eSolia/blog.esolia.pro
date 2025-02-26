@@ -8,6 +8,11 @@ metas:
   image: "=image"
   keywords: "=tags"
   "twitter:data1": "=author"
+  "article:published_time":	"=date"
+  "article:modified_time": "=last_modified" 
+  "article:author": "=author"
+  "article:section": "=article-type"
+  "article:tag": "=tags" 
 
 en: 
   lang: en
@@ -20,3 +25,8 @@ en:
     image: "=image"
     keywords: "=tags"
     "twitter:data1": "=author"
+    "article:published_time":	"=date"
+    "article:modified_time": "=last_modified" 
+    "article:author": "=author"
+    "article:section": "=article-type"
+    "article:tag": "=tags"
