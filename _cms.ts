@@ -3,8 +3,10 @@ import { Field } from "lume/cms/types.ts";
 
 const username = Deno.env.get("ESBLOG_U1")!;
 const password = Deno.env.get("ESBLOG_P1")!;
+console.log("yo");
 console.log(Deno.env.get("ESBLOG_U1")!);
 console.log(Deno.env.get("ESBLOG_P1")!);
+console.log("yo");
 
 const cms = lumeCMS({
   site: {
