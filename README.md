@@ -23,18 +23,23 @@ It takes advantage of the multilanguage feature of `lume` to generate content pa
 Thank you, [Óscar Otero](https://github.com/oscarotero), for lume and all your support on Discord. 🙏🏻
 
 ## Mechanics
+### CMS
+
+Log into the cms at https://cms.blog.esolia.pro/admin 
+
 ### Deno-related
-
-Upgrade:
-
-```
-> deno task lume upgrade
-```
+Install `deno` on your system and clone the repo to serve locally on localhost, for testing.
 
 Serve locally:
 
 ```
 > deno task lume --serve
+```
+
+Upgrade:
+
+```
+> deno task lume upgrade
 ```
 
 ### Markdown "alerts"
