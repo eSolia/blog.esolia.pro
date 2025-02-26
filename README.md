@@ -2,7 +2,7 @@
 
 # blog.esolia.pro
 
-This doc site is built and based on [`lume`](https://lume.land/), the "static site generator" for `deno`, and is hosted on [Netlify](https://netlify.com) as static files. In comparison to a database-driven site such as Wordpress, static sites are secure and high-performance.
+This blog site is built and based on [`lume`](https://lume.land/), the "static site generator" for `deno`, and is hosted on [Netlify](https://netlify.com) as static files. In comparison to a database-driven site such as Wordpress, static sites are secure and high-performance.
 
 This site is intended to share blog articles from eSolia Inc, such as: 
 
