@@ -262,6 +262,12 @@ cms.collection({
       name: "content",
       type: "markdown",
       label: "コンテンツ Content",
+      value: `REPLACE ME. THIS IS THE INTRO TEXT THAT WILL APPEAR ON THE TOP PAGE. ENTER IT BEFORE THE "MORE" TAG JUST BELOW. 
+
+<!--more-->
+
+## STRUCTURE STARTS FROM HEADER 2
+REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_.`,
       description: "The main content of the page, in the language of the page, formatted in markdown and HTML",
     },
   ],
