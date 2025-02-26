@@ -7,7 +7,7 @@ title: クリアデスク、クリアスクリーンやってますか？
 description: クリアデスク、クリアスクリーンと言うポリシーの重要性についての、セキュリティ 記事
 image: /uploads/blog-esolia-pro-default.png
 author: コグレー リック
-category: チュートリアル
+category: 記事
 tags:
   - セキュリティ
   - ISO27001

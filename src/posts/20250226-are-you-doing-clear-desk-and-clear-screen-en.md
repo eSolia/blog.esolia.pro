@@ -9,7 +9,7 @@ description: >-
   in mind. 
 image: /uploads/blog-esolia-pro-default.png
 author: Rick Cogley
-category: Tutorials
+category: Articles
 tags:
   - Security
   - ISO27001
