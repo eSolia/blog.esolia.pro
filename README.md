@@ -27,6 +27,15 @@ Thank you, [Óscar Otero](https://github.com/oscarotero), for lume and all your 
 
 Log into the cms at https://cms.blog.esolia.pro/admin 
 
+If you make changes on a local clone of the repo and push, the cms won't get those automatically as of 2025 Feb. At this time you need to: 
+
+1. ssh to the vps, specifying the private key
+2. `cd www`
+3. `git pull`
+4. `systemctl restart lumecms`
+
+This pulls the changes from origin, and restarts lumecms. It takes 30 seconds for the UI to be refreshed. 
+
 ### Deno-related
 Install `deno` on your system and clone the repo to serve locally on localhost, for testing.
 
