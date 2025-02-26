@@ -202,8 +202,8 @@ cms.collection({
       name: "image",
       type: "file",
       label: "ページ画像 Page Image",
-      description: "The image to feature for the page, visible in social media shares",
-      value: "/assets/blog-esolia-pro-default.png",
+      description: "The image to feature for the page, visible in social media shares. Upload and select, or use the default.",
+      value: "/uploads/blog-esolia-pro-default.png",
       uploads: "uploads",
       attributes: {
         accept: "image/*",
