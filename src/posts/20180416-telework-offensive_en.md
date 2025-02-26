@@ -18,7 +18,7 @@ tags:
   - Subsidies
   - Grants
   - Workplace
-last_modified: 2025-02-26T00:34:00.000Z
+last_modified: 2025-02-26T07:41:00.000Z
 comments: {}
 ---
 **Telework** is what we call telecommuting in Japan. The Ministry of Internal Affairs and Communications in Japan defines it as follows...

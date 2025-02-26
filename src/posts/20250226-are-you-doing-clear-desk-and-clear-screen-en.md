@@ -2,7 +2,7 @@
 lang: en
 id: '202502260156'
 date: 2025-02-26T01:56:29.381Z
-last_modified: 2025-02-26T11:46:00.000Z
+last_modified: 2025-02-26T07:39:00.000Z
 title: Are you doing Clear Desk and Clear Screen?
 description: >-
   A quick security tip about the importance of keeping clear desk / clear screen
@@ -41,6 +41,6 @@ Like what?
 
 While you think about these areas, of course you need to consider culture, laws and regulations, contractual requirements and identified risks, because they will all impact the details of your policy. 
 
-Refer to [ISO 27001](https://www.iso.org/standard/27001) (Information Security Standard) section A.7.7 for more details, and exercise due care as you do your day-to-day work. 
-
-
+> [!tip]
+>
+> Refer to [ISO 27001](https://www.iso.org/standard/27001) (Information Security Standard) section A.7.7 for more details, and exercise due care as you do your day-to-day work.
