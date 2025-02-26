@@ -3,12 +3,12 @@ lang: ja
 id: 20180416a
 authorkey: enaishikawa
 author: 石川 絵奈
-date: 2018-04-16T07:07:27+09:00
+date: 2018-04-15T22:07:27.000Z
 draft: false
 title: 攻めのテレワーク
 subtitle: 福利厚生だけじゃない、《攻めのテレワーク》 実現に向けて
 description: 福利厚生だけじゃない、「攻めのテレワーク」実現に向けて
-image: "/uploads/20180416a-telework-01.png"
+image: /uploads/20180416a-telework-01.png
 category: ストーリー
 tags:
   - テレワーク
@@ -17,8 +17,9 @@ tags:
   - 在宅業務
   - 職場意識改善助成金
   - ワークライフバランス推進助成金
+last_modified: 2025-02-26T00:29:00.000Z
+comments: {}
 ---
-
 **テレワークとは**　「tele = 離れた所」と「work = 働く」をあわせた造語、日本語です。[一般社団法人テレワーク協会](http://www.japan-telework.or.jp/intro/tw_about.html "一般社団法人テレワーク協会")では下記のように定義しています:
 
 <!--more-->
@@ -98,4 +99,4 @@ ICTの技術は日々進化しており、技術的視点のみで見ると導�
 
 * [イソリアのクラウドデーターベースPROdb](http://esolia.co.jp/prodb/)
 * [IP電話、クラウド型電話サービスでビジネスの効率化を](http://esolia.co.jp/telephone/)
-* [プロジェクト・購買・資産・コンプライアンスなどプロセス管理はイソリアへ](http://esolia.co.jp/process/)
+* [プロジェクト・購買・資産・コンプライアンスなどプロセス管理はイソリアへ](http://esolia.co.jp/process/) 

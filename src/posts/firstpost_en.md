@@ -2,7 +2,7 @@
 lang: en
 id: 20180823a
 title: This is a post with mastodon comments
-date: '2018-08-23'
+date: 2018-08-23T00:00:00.000Z
 author: Óscar Otero
 tags:
   - English
@@ -14,6 +14,9 @@ tags:
 comments:
   src: 'https://mastodon.gal/@misteroom/110810445656343599'
 draft: true
+last_modified: 2025-02-26T00:28:00.000Z
+description: This is the description...
+image: /uploads/blog-esolia-pro-default.png
 ---
 TEST Leverage agile frameworks to provide a robust synopsis for high level overviews.
 Iterative approaches to corporate strategy foster collaborative thinking to

@@ -3,12 +3,12 @@ lang: en
 id: 20180416a
 authorkey: enaishikawa
 author: Ena Ishikawa
-date: 2018-04-16T07:07:27+09:00
+date: 2018-04-15T22:07:27.000Z
 draft: false
 title: Telework Offensive!
 subtitle: It's not just a welfare matter; moving toward a practical telework offensive
 description: It's not just a welfare matter; moving toward a practical telework offensive
-image: "/uploads/20180416a-telework-01.png"
+image: /uploads/20180416a-telework-01.png
 category: Stories
 tags:
   - Telework
@@ -18,8 +18,9 @@ tags:
   - Subsidies
   - Grants
   - Workplace
+last_modified: 2025-02-26T00:34:00.000Z
+comments: {}
 ---
-
 **Telework** is what we call telecommuting in Japan. The Ministry of Internal Affairs and Communications in Japan defines it as follows...
 
 <!--more-->
@@ -110,6 +111,6 @@ eSolia can help you to implement Telework, from consulting to installation and r
 
 * [eSolia Cloud Database "PROdb"](http://esolia.com/prodb/)
 * [Efficient Business via IP Telephone, Cloud Phone Service](http://esolia.com/telephone/)
-* [Hire eSolia for Project, Procurement, Asset and Compliance Management](http://esolia.com/process/)
+* [Hire eSolia for Project, Procurement, Asset and Compliance Management](http://esolia.com/process/) 
 
 Please do not hesitate to [Contact Us](http://esolia.co.jp/info-request).
