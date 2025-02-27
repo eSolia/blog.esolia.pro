@@ -95,7 +95,7 @@ site.use(feed({
   },
 }));
 site.use(multilanguage({
-      languages: ["en", "ja"],
+      languages: ["ja", "en"],
       defaultLanguage: "ja",
 }));
 site.use(phosphor());
