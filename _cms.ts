@@ -20,6 +20,8 @@ cms.auth({
   method: "basic",
   users: {
     // foo: "bar",
+    eSolia: "GoodStories!",
+    lume: "iscool",
     [username]: password,
   },
 });
