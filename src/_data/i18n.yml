@@ -22,8 +22,8 @@ post:
   minutes: 分
 search:
   by_author: 著者
-  by_tag: 付けられたタグ
-  by_category: 付けられたカテゴリ
+  by_tag: タグ
+  by_category: カテゴリ
   tags: タグ
 comments:
   title: Comments
