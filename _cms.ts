@@ -16,19 +16,19 @@ const cms = lumeCMS({
 });
 
 // Enable basicauth
-cms.auth({
-  method: "basic",
-  users: {
-    // foo: "bar",
-    lume: "iscool",
-    [username]: password,
-  },
-});
+// cms.auth({
+//   method: "basic",
+//   users: {
+//     // foo: "bar",
+//     lume: "iscool",
+//     [username]: password,
+//   },
+// });
 
 // Enable basicauth
-// cms.auth({
-//   eSolia: "GoodStories!",
-// });
+cms.auth({
+  eSolia: "GoodStories!",
+});
 
 // Configure upload
 cms.upload("uploads: Uploaded files", "src:uploads");
