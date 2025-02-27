@@ -1,8 +1,8 @@
 import lumeCMS from "lume/cms/mod.ts";
 import { Field } from "lume/cms/types.ts";
 
-// const username = Deno.env.get("ESBLOG_U1")!;
-// const password = Deno.env.get("ESBLOG_P1")!;
+const username = Deno.env.get("ESBLOG_U1")!;
+const password = Deno.env.get("ESBLOG_P1")!;
 
 const cms = lumeCMS({
   site: {
@@ -16,19 +16,19 @@ const cms = lumeCMS({
 });
 
 // Enable basicauth
-// cms.auth({
-//   method: "basic",
-//   users: {
-//     // foo: "bar",
-//     eSolia: "GoodStories!",
-//     lume: "iscool",
-//     [username]: password,
-//   },
-// });
-// Enable basicauth
 cms.auth({
-  eSolia: "GoodStories!",
+  method: "basic",
+  users: {
+    // foo: "bar",
+    lume: "iscool",
+    [username]: password,
+  },
 });
+
+// Enable basicauth
+// cms.auth({
+//   eSolia: "GoodStories!",
+// });
 
 // Configure upload
 cms.upload("uploads: Uploaded files", "src:uploads");
