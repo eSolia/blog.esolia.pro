@@ -69,7 +69,7 @@
         {{ for alt of alternates }}
           <li>
             <a href="{{ alt.url }}" {{ if alt.lang == lang }}aria-current="page"{{ /if }} title="{{ alt.title |> escape }}">
-              {{ if alt.lang == "en" }}English{{ else }}日本語{{ /if }}
+              {{ if alt.lang == "ja" }}日本語{{ else }}English{{ /if }}
             </a>
           </li>
         {{ /for }}
