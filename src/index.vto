@@ -13,6 +13,16 @@ title: ホーム
 </header>
 
 <section class="postList">
+
+  <div class="cards">
+    <div class="card">ONE</div>
+    <div class="card">TWO</div>
+    <div class="card">THREE</div>
+    <div class="card">FOUR</div>
+    <div class="card">FIVE</div>
+    <div class="card">SIX</div>
+  </div>
+
   {{ for post of search.pages("type=post lang=ja", "date=desc", 3) }}
   <article class="post">
     <header class="post-header">
