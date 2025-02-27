@@ -2,7 +2,7 @@
 lang: en
 id: '202502260156'
 date: 2025-02-26T01:56:29.381Z
-last_modified: 2025-02-26T07:39:00.000Z
+last_modified: 2025-02-27T11:15:00.000Z
 title: Are you doing Clear Desk and Clear Screen?
 description: >-
   A quick security tip about the importance of keeping clear desk / clear screen
