@@ -6,7 +6,7 @@ const password = Deno.env.get("ESBLOG_P1")!;
 
 const cms = lumeCMS({
   site: {
-    name: "eSolia Blog",
+    name: "イソリアブログ eSolia Blog",
     description: "Edit the content of the eSolia blog site.",
     url: "https://blog.esolia.pro",
     body: `
