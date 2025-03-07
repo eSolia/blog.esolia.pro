@@ -302,17 +302,17 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
         },
         {
           label: "IMPORTANT (Needed for success)",
-          value: `> [!TIP]
+          value: `> [!IMPORTANT]
 > {$}`,
         },
         {
           label: "WARNING (Attention to risk!)",
-          value: `> [!TIP]
+          value: `> [!WARNING]
 > {$}`,
         },
         {
           label: "CAUTION (Possible negative outcome!)",
-          value: `> [!TIP]
+          value: `> [!CAUTION]
 > {$}`,
         },
         {
