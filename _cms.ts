@@ -284,12 +284,13 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
       description: "The main content of the page, in the language of the page, formatted in markdown and HTML",
       snippets: [
         {
-          label: "copyright",
-          value: "©eSolia Inc"
+          label: "Alert: NOTE",
+          value: `> [!NOTE]
+                   > {1}`,
         },
         {
           label: "Keyboard input",
-          value: "<kbd>{$}</kbd>"
+          value: "<kbd>{$}</kbd>",
         },
       ],
     },
