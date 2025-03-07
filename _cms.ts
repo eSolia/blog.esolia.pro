@@ -284,12 +284,34 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
       description: "The main content of the page, in the language of the page, formatted in markdown and HTML",
       snippets: [
         {
+          label: "Figure with Image",
+          value: `<figure class="">
+  <img class="" alt="EXPLAIN TO SCREENREADER USER" src="/uploads/blog-esolia-pro-default.png" transform-images="avif webp png jpeg 800@2">
+  <figcaption><small>ADD YOUR CAPTION HERE</small></figcaption>
+</figure>`,
+        },
+        {
           label: "NOTE (Info highlight)",
           value: `> [!NOTE]
 > {$}`,
         },
         {
           label: "TIP (Option for success)",
+          value: `> [!TIP]
+> {$}`,
+        },
+        {
+          label: "IMPORTANT (Needed for success)",
+          value: `> [!TIP]
+> {$}`,
+        },
+        {
+          label: "WARNING (Attention to risk!)",
+          value: `> [!TIP]
+> {$}`,
+        },
+        {
+          label: "CAUTION (Possible negative outcome!)",
           value: `> [!TIP]
 > {$}`,
         },
