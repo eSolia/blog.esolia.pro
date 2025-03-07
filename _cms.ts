@@ -284,9 +284,14 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
       description: "The main content of the page, in the language of the page, formatted in markdown and HTML",
       snippets: [
         {
-          label: "Alert: NOTE",
+          label: "NOTE (Info highlight)",
           value: `> [!NOTE]
-                   > {1}`,
+> {$}`,
+        },
+        {
+          label: "TIP (Option for success)",
+          value: `> [!TIP]
+> {$}`,
         },
         {
           label: "Keyboard input",
