@@ -286,8 +286,8 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
         {
           label: "Figure with Image",
           value: `<figure class="">
-  <img class="" alt="EXPLAIN TO SCREENREADER USER" src="/uploads/blog-esolia-pro-default.png" transform-images="avif webp png jpeg 800@2">
-  <figcaption><small>ADD YOUR CAPTION HERE</small></figcaption>
+  <img class="" alt="EXPLAIN TO SCREENREADER USER" src="/uploads/blog-esolia-pro-default.png" width="1000px" transform-images="avif webp png jpeg 1000@2">
+  <figcaption><small><em>ADD YOUR CAPTION HERE</em></small></figcaption>
 </figure>`,
         },
         {
