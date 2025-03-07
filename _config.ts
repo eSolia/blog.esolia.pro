@@ -33,6 +33,7 @@ import phosphor from "https://deno.land/x/lume_icon_plugins@v0.2.4/phosphor.ts";
 import brotli from "lume/plugins/brotli.ts";
 import cssBanner from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/css_banner.ts?3";
 import shuffle from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/shuffle.ts?3";
+import { time } from "node:console";
 // ERRORS: import purgecss from "lume/plugins/purgecss.ts";
 // import minify_html from "lume/plugins/minify_html.ts";
 
@@ -138,6 +139,81 @@ site.preprocess([".html"], (pages) => {
 
 // Alert plugin
 site.hooks.addMarkdownItPlugin(alert);
+
+// site.filter("tdate", (value: string | undefined, locale: string, timezone: string) => {
+//   if (!value) {
+//     return;
+//   }
+//   const recdZonedDateTime = Temporal.ZonedDateTime.from(value);
+//   const formatArgs = [
+//     [locale],
+//     {
+//       year: "numeric",
+//       month: "long",
+//       day: "numeric",
+//       timeZone: timezone
+//     }
+//   ];
+//   return new Intl.DateTimeFormat(...formatArgs).format(recdZonedDateTime.epochMilliseconds);
+// });
+
+// site.filter("tdate0", (value: string | undefined, locale: string, timezone: string) => {
+//   if (!value) {
+//     return;
+//   }
+//   const recdZonedDateTime = Temporal.ZonedDateTime.from(value).withTimeZone(timezone);
+//   const formatArgs = [
+//     locale,
+//     {
+//       year: "numeric",
+//       month: "long",
+//       day: "numeric",
+//       timeZone: timezone
+//     }
+//   ];
+//   return new Intl.DateTimeFormat(...formatArgs).format(recdZonedDateTime.toInstant().epochMilliseconds);
+// });
+
+// site.filter("tdate", (value: string | undefined, locale: string, timezone: string) => {
+//   if (!value) {
+//     return;
+//   }
+//   try {
+//     console.log("DATE VALUE: " + value);
+    
+//     let instant;
+//     if (typeof value === "string" && value.includes("GMT")) {
+//       // Manually parse custom date format
+//       const dateParts = value.split(" ");
+//       const day = dateParts[2];
+//       const month = dateParts[1];
+//       const year = dateParts[3];
+//       const time = dateParts[4];
+//       const isoString = `${year}-${month}-${day}T${time}.000Z`;
+//       instant = Temporal.Instant.from(isoString);
+//     } else {
+//       // Parse ISO 8601 date format
+//       instant = Temporal.Instant.from(value);
+//     }
+
+//     const recdZonedDateTime = instant.toZonedDateTimeISO(timezone);
+//     const formatArgs = [
+//       locale,
+//       {
+//         year: "numeric",
+//         month: "long",
+//         day: "numeric",
+//         timeZone: timezone
+//       }
+//     ];
+//     return new Intl.DateTimeFormat(...formatArgs).format(recdZonedDateTime.epochMilliseconds);
+//   } catch (error) {
+//     console.error("Invalid time value:", error);
+//     return "Invalid date";
+//   }
+// });
+
+
 
 // Mastodon comment system
 // site.add(
