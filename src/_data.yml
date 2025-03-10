@@ -3,11 +3,17 @@ extra_head: []
 lang: ja
 topnav:
   links: 
+    - text: アーカイブ
+      href: /archive
+      target: _self
+      icon: archive
     - text: イソリア
       href: https://esolia.co.jp
+      target: _blank
       icon: building-office
     - text: GitHub リポジトリ
       href: https://github.com/eSolia/blog.esolia.pro
+      target: _blank
       icon: github-logo
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
@@ -33,11 +39,17 @@ en:
   lang: en
   topnav:
     links: 
+      - text: Archive
+        href: /en/archive
+        target: _self
+        icon: archive
       - text: eSolia Inc.
         href: https://esolia.com
+        target: _blank
         icon: building-office
       - text: GitHub repository
         href: https://github.com/eSolia/blog.esolia.pro
+        target: _blank
         icon: github-logo
   metas:
     type: website
