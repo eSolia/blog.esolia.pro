@@ -6,6 +6,7 @@ import { ja } from "npm:date-fns/locale/ja";
 import { getGitDate } from "lume/core/utils/date.ts";
 import picture from "lume/plugins/picture.ts";
 import transformImages from "lume/plugins/transform_images.ts";
+import tailwindcss from "lume/plugins/tailwindcss.ts";
 import lightningCss from "lume/plugins/lightningcss.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
 import attributes from "lume/plugins/attributes.ts";
@@ -58,6 +59,7 @@ site.use(googleFonts({
 site.use(attributes());
 site.use(picture(/* Options */));
 site.use(transformImages());
+site.use(tailwindcss());
 site.use(lightningCss());
 site.use(terser());
 site.use(prism());
