@@ -1,0 +1,124 @@
+<!doctype html>
+<!-- ===== base.vto LAYOUT START ===== -->
+
+<html lang="{{ it.lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ it.title || metas.title }} - {{ metas.site }}</title>
+
+    <meta name="supported-color-schemes" content="light dark">
+    <meta name="theme-color" content="hsl(220, 20%, 100%)" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="hsl(220, 20%, 10%)" media="(prefers-color-scheme: dark)">
+    
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metas.site }}">
+    <link rel="alternate" href="/feed.json" type="application/json" title="{{ metas.site }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="canonical" href="{{ url |> url(true) }}">
+    <script src="/js/main.js" type="module"></script>
+    {{ it.extra_head?.join("\n") }}
+  </head>
+  <body class="m-auto p-8 pb-32 max-w-6xl md:px-16 text-gray-800 bg-gray-50">
+
+{{ include "templates/top-nav.vto" }}
+
+
+    <nav class="navbar">
+      <a href="/" class="navbar-home navbar-logo">
+        {{ if it.logo }}
+          <img src="{{ it.logo }}" alt="{{ page.title || slug }}">
+        {{ else }}
+          <strong>{{ metas.site }}</strong>
+        {{ /if }}
+      </a>
+
+      <ul class="navbar-links textface-300">
+      {{- for entry of search.pages(`menu.visible=true lang=${lang}`, "menu.order") }}
+        <li>
+          <a href="{{ entry.url }}"{{ if entry.url == url }} aria-current="page"{{ /if }}>
+            {{ entry.menu.title || entry.title }}
+          </a>
+        </li>
+      {{ /for }}
+      {{- for item of it.topnav.links }}
+        <li>
+          <a href="{{ item.href }}"{{ if item.target }} target="{{item.target}}"{{ /if }}>
+            {{ item.text }}
+          </a>
+        </li>
+      {{ /for }}
+      <li>
+        <script>
+          let theme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+          document.documentElement.dataset.theme = theme;
+          function changeTheme() {
+            theme = theme === "dark" ? "light" : "dark";
+            localStorage.setItem("theme", theme);
+            document.documentElement.dataset.theme = theme;
+          }
+        </script>
+        <button class="button" onclick="changeTheme()">
+          <span class="icon">◐</span>
+        </button>
+      </li>
+      </ul>
+    </nav>
+
+
+
+    <div class="container">
+      <div class="sidebar">
+        <ul class="menu-languages">
+        {{ for alt of alternates }}
+          <li>
+            <a href="{{ alt.url }}" {{ if alt.lang == lang }}aria-current="page"{{ /if }} title="{{ alt.title |> escape }}">
+              {{ if alt.lang == "ja" }}日本語{{ else }}English{{ /if }}
+            </a>
+          </li>
+        {{ /for }}
+        </ul>
+
+        <h2>{{ i18n.nav.all_categories }}</h2>
+        <div class="post-tags">
+        {{ for category of search.values("category") }}
+        {{ set page = search.page(`type=category lang=${lang} category="${category}"`) }}
+        {{ if page }}
+          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ category }}</a>
+        {{ /if }}
+        {{ /for }}
+        </div>
+
+        <h2>{{ i18n.nav.all_authors }}</h2>
+        <div class="post-tags">
+        {{ for author of search.values("author") }}
+        {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
+        {{ if page }}
+          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ author }}</a>
+        {{ /if }}
+        {{ /for }}
+        </div>
+
+        {{# <h2>{{ i18n.nav.all_tags }}</h2>
+        <div class="post-tags">
+        {{ for tag of search.values("tags") }}
+        {{ set page = search.page(`type=tag lang=${lang} tag="${tag}"`) }}
+        {{ if page }}
+          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ tag }}</a>
+        {{ /if }}
+        {{ /for }}
+        </div> #}}
+
+      </div>
+
+      <main class="{{ it.bodyClass }}">
+        {{ content }}
+      </main>
+      
+    </div>
+    <!-- Current page: {{ url }} -->
+  </body>
+  <!-- ===== base.vto LAYOUT END ===== -->
+</html>
