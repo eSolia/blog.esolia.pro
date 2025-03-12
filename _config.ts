@@ -32,11 +32,13 @@ import image from "https://deno.land/x/lume_markdown_plugins@v0.8.0/image.ts";
 import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnotes.ts";
 import { alert } from "npm:@mdit/plugin-alert@0.14.0";
 import multilanguage from "lume/plugins/multilanguage.ts";
-import phosphor from "https://deno.land/x/lume_icon_plugins@v0.2.4/phosphor.ts";
+import icons from "lume/plugins/icons.ts";
 import brotli from "lume/plugins/brotli.ts";
 import cssBanner from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/css_banner.ts?3";
 import shuffle from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/shuffle.ts?3";
 import { time } from "node:console";
+import inline from "lume/plugins/inline.ts";
+
 // ERRORS: import purgecss from "lume/plugins/purgecss.ts";
 // import minify_html from "lume/plugins/minify_html.ts";
 
@@ -105,7 +107,7 @@ site.use(multilanguage({
       languages: ["ja", "en"],
       defaultLanguage: "ja",
 }));
-site.use(phosphor());
+site.use(icons());
 site.use(brotli());
 site.use(cssBanner({
   message: "===rickcogley - css jokes are always in style===",
@@ -113,6 +115,7 @@ site.use(cssBanner({
 site.use(shuffle());
 // ERRORS: site.use(purgecss()); 
 // site.use(minify_html());  
+site.use(inline());
 
 site.add([".css"])
 site.add("fonts")
