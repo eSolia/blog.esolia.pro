@@ -1,6 +1,11 @@
 lang: ja
 home:
-  welcome: イソリアのオフィシャル プロ ブログへようこそ
+  welcome: 私達イソリアは、バイリンガルITアウトソーシング、頼れるIT部門として貴社のサポートを担当致します。お役に立つIT記事やチップスをご覧頂き、是非ともイソリアにお任せください！
+  company: イソリア
+  sitename: プロ ブログ
+logo:
+  symbol-alt: イソリア ロゴ
+  full-alt: イソリア プロ ブログ
 nav:
   toc: 目録
   next_post: より新しいポスト →

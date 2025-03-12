@@ -1,6 +1,8 @@
 lang: en
 home:
-  welcome: Welcome to the official eSolia Pro Blog
+  welcome: We're eSolia, your virtual Japan IT department. Join us for some articles and tips from our bilingual professionals, then leverage our experience for your success in Japan. 
+  company: eSolia
+  sitename: Pro Blog
 nav:
   toc: Table of Contents
   next_post: Newer post →
