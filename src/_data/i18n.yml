@@ -15,11 +15,18 @@ social:
 logo:
   symbol_alt: イソリア ロゴ
   full_alt: イソリア プロ ブログ
+newsletter:
+  title: 最新情報を受信する
+  description: 新情報の公開、ニュースを受信するために、メールアドレスをご記入ください
+  button: 登録
+  placeholder: メールアドレス
+  success: 登録完了しました！
+  error: 登録に失敗しました
 nav:
   toc: 目録
   next_post: より新しいポスト →
   previous_post: ← より古いポスト
-  continue_reading: つづきを読む →
+  continue_reading: つづきを読む
   archive_title: アーカイブ
   archive: 更に<a href="/archive/">アーカイブ</a>にて、ポストの閲覧できます
   back: ← 戻る
