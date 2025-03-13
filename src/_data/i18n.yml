@@ -1,11 +1,32 @@
 lang: ja
 home:
-  welcome: イソリアのオフィシャル プロ ブログへようこそ
+  welcome: 私達イソリアは、バイリンガルITアウトソーシング、頼れるIT部門として貴社のサポートを担当致します。お役に立つIT記事やチップスをご覧頂き、是非ともイソリアにお任せください！
+  company: イソリア
+  sitename: プロ ブログ
+social:
+  linkedin_label: LinkedInでフォローする
+  linkedin_profile_url: https://www.linkedin.com/company/esolia
+  twitter_label: X Twitterでフォローする
+  twitter_profile_url: https://x.com/esolia_inc
+  bluesky_label: Blueskyでフォローする
+  bluesky_profile_url: https://bsky.app/profile/esolia.com
+  github_label: GitHubプロフィール
+  github_profile_url: https://github.com/esolia
+logo:
+  symbol_alt: イソリア ロゴ
+  full_alt: イソリア プロ ブログ
+newsletter:
+  title: 最新情報を受信する
+  description: 新情報の公開、ニュースを受信するために、メールアドレスをご記入ください
+  button: 登録
+  placeholder: メールアドレス
+  success: 登録完了しました！
+  error: 登録に失敗しました
 nav:
   toc: 目録
   next_post: より新しいポスト →
   previous_post: ← より古いポスト
-  continue_reading: つづきを読む →
+  continue_reading: つづきを読む
   archive_title: アーカイブ
   archive: 更に<a href="/archive/">アーカイブ</a>にて、ポストの閲覧できます
   back: ← 戻る
@@ -28,7 +49,7 @@ search:
 comments:
   title: Comments
   description: |
-    You can leave a comment by replying to <a href=":src:">this Mastodon post</a> from your own account on Mastodon or any other ActivityPub-capable social network that can exchange replies with Mastodon.
+    You can leave a comment by replying to <a href=":src:">this Mastodon post</a> from your own account on Mastodon or any other ActivityPub_capable social network that can exchange replies with Mastodon.
   description_bluesky: |
     You can leave a comment by replying to <a href=":bluesky:">this Bluesky post</a> from your own account.
   description_all: |

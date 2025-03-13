@@ -6,52 +6,30 @@ bodyClass: body-home
 title: ホーム
 ---
 <!-- ===== index.vto LAYOUT START ===== -->
-<header class="page-header">
-  <h1 class="page-title">{{ i18n.home.welcome }}</h1>
-
-  <div class="search" id="search"></div>
-</header>
-
-<section class="postList">
-
-  <div class="cards">
-    <div class="card">ONE</div>
-    <div class="card">TWO</div>
-    <div class="card">THREE</div>
-    <div class="card">FOUR</div>
-    <div class="card">FIVE</div>
-    <div class="card">SIX</div>
-  </div>
-
-  {{ for post of search.pages("type=post lang=ja", "date=desc", 3) }}
-  <article class="post">
-    <header class="post-header">
-      <h2 class="post-title">
-        <a href="{{ post.url }}" {{ if post.url == url }} aria-current="page"{{ /if }}>
-          {{ post.title || post.url }}
-        </a>
-      </h2>
-
-      {{ include "templates/post-details.vto" {
-        date: post.date,
-        tags: post.tags,
-        author: post.author,
-        readingInfo: post.readingInfo
-        } }}
-    </header>
-
-    <div class="post-excerpt body">
-      {{ post.excerpt |> md }}
+<main class="flex-auto">
+  {{ include "templates/top-welcome-header.vto" }}
+  {{ include "templates/photo-obi.vto" }}
+  <div class="mt-24 sm:px-8 md:mt-28">
+    <div class="mx-auto w-full max-w-7xl lg:px-8">
+      <div class="relative px-4 sm:px-8 lg:px-12">
+        <div class="mx-auto max-w-2xl lg:max-w-5xl">
+          <div
+            class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2"
+          >
+            <div class="flex flex-col gap-16">
+              <div class="search" id="search"></div>
+              {{ include "templates/top-post-list.vto" }}
+            </div>
+            <!-- Sidebar start -->
+            <div class="space-y-10 lg:pl-16 xl:pl-24">
+              {{ include "templates/panel-newsletter.vto" }}
+              {{ include "templates/panel-categories.vto" }}
+            </div>
+            <!-- Sidebar end -->
+          </div>
+        </div>
+      </div>
     </div>
-
-    <a href="{{ post.url }}" class="post-link">
-      {{ i18n.nav.continue_reading }}
-    </a>
-  </article>
-{{ /for }}
-</section>
-
-<hr>
-
-<p>{{ i18n.nav.archive }}</p>
+  </div>
+</main>
 <!-- ===== index.vto LAYOUT END ===== -->

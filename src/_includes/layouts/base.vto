@@ -12,107 +12,107 @@
     <meta name="theme-color" content="hsl(220, 20%, 10%)" media="(prefers-color-scheme: dark)">
     
     <link rel="stylesheet" href="/styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metas.site }}">
     <link rel="alternate" href="/feed.json" type="application/json" title="{{ metas.site }}">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="canonical" href="{{ url |> url(true) }}">
     <script src="/js/main.js" type="module"></script>
     {{ it.extra_head?.join("\n") }}
+    {{# <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      document.documentElement.classList.toggle(
+      "dark", localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+      );
+      // Whenever the user explicitly chooses light mode
+      localStorage.theme = "light";
+      // Whenever the user explicitly chooses dark mode
+      localStorage.theme = "dark";
+      // Whenever the user explicitly chooses to respect the OS preference
+      localStorage.removeItem("theme");
+    </script> #}}
+    
+    <!-- Theme toggle script -->
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('themeToggle', () => ({
+                darkMode: localStorage.getItem('darkMode') === 'true' || false,
+                init() {
+                    this.$watch('darkMode', value => {
+                        localStorage.setItem('darkMode', value);
+                        document.body.classList.toggle('dark', value);
+                    });
+                    // Ensure the correct class is applied on page load
+                    document.body.classList.toggle('dark', this.darkMode);
+                }
+            }));
+        });
+    </script>
   </head>
-  <body class="">
-    <nav class="navbar">
-      <a href="/" class="navbar-home navbar-logo">
-        {{ if it.logo }}
-          <img src="{{ it.logo }}" alt="{{ page.title || slug }}">
-        {{ else }}
-          <strong>{{ metas.site }}</strong>
-        {{ /if }}
-      </a>
-
-      <ul class="navbar-links textface-300">
-      {{- for entry of search.pages(`menu.visible=true lang=${lang}`, "menu.order") }}
-        <li>
-          <a href="{{ entry.url }}"{{ if entry.url == url }} aria-current="page"{{ /if }}>
-            {{ entry.menu.title || entry.title }}
-          </a>
-        </li>
-      {{ /for }}
-      {{- for item of it.topnav.links }}
-        <li>
-          <a href="{{ item.href }}"{{ if item.target }} target="{{item.target}}"{{ /if }}>
-            {{ item.text }}
-          </a>
-        </li>
-      {{ /for }}
-      <li>
-        <script>
-          let theme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light");
-          document.documentElement.dataset.theme = theme;
-          function changeTheme() {
-            theme = theme === "dark" ? "light" : "dark";
-            localStorage.setItem("theme", theme);
-            document.documentElement.dataset.theme = theme;
+  <body class="flex h-full bg-zinc-50 dark:bg-black">
+  <script>
+    !(function () {
+      try {
+        var d = document.documentElement,
+          c = d.classList
+        c.remove('light', 'dark')
+        var e = localStorage.getItem('theme')
+        if ('system' === e || (!e && true)) {
+          var t = '(prefers-color-scheme: dark)',
+            m = window.matchMedia(t)
+          if (m.media !== t || m.matches) {
+            d.style.colorScheme = 'dark'
+            c.add('dark')
+          } else {
+            d.style.colorScheme = 'light'
+            c.add('light')
           }
-        </script>
-        <button class="button" onclick="changeTheme()">
-          <span class="icon">◐</span>
-        </button>
-      </li>
-      </ul>
-    </nav>
-
-    <div class="container">
-      <div class="sidebar">
-        <ul class="menu-languages">
-        {{ for alt of alternates }}
-          <li>
-            <a href="{{ alt.url }}" {{ if alt.lang == lang }}aria-current="page"{{ /if }} title="{{ alt.title |> escape }}">
-              {{ if alt.lang == "ja" }}日本語{{ else }}English{{ /if }}
-            </a>
-          </li>
-        {{ /for }}
-        </ul>
-
-        <h2>{{ i18n.nav.all_categories }}</h2>
-        <div class="post-tags">
-        {{ for category of search.values("category") }}
-        {{ set page = search.page(`type=category lang=${lang} category="${category}"`) }}
-        {{ if page }}
-          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ category }}</a>
-        {{ /if }}
-        {{ /for }}
+        } else if (e) {
+          c.add(e || '')
+        }
+        if (e === 'light' || e === 'dark') d.style.colorScheme = e
+      } catch (e) {}
+    })()
+  </script>
+    <!-- Container start -->
+    <div class="flex w-full">
+      <div class="fixed inset-0 flex justify-center sm:px-8">
+        <div class="flex w-full max-w-7xl lg:px-8">
+          <div
+            class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"
+          ></div>
         </div>
-
-        <h2>{{ i18n.nav.all_authors }}</h2>
-        <div class="post-tags">
-        {{ for author of search.values("author") }}
-        {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
-        {{ if page }}
-          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ author }}</a>
-        {{ /if }}
-        {{ /for }}
-        </div>
-
-        {{# <h2>{{ i18n.nav.all_tags }}</h2>
-        <div class="post-tags">
-        {{ for tag of search.values("tags") }}
-        {{ set page = search.page(`type=tag lang=${lang} tag="${tag}"`) }}
-        {{ if page }}
-          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ tag }}</a>
-        {{ /if }}
-        {{ /for }}
-        </div> #}}
-
       </div>
+      <div class="relative flex w-full flex-col">
+      {{ include "templates/top-nav.vto" }}
+      <div class="flex-none" style="height: var(--content-offset)"></div>
 
-      <main class="{{ it.bodyClass }}">
-        {{ content }}
-      </main>
       
+      {{ content }}
+    
+      
+    
+      <!-- Current page: {{ url }} -->
+      {{ include "templates/footer.vto" }}
+      </div>
     </div>
-    <!-- Current page: {{ url }} -->
+    <!-- Container end -->
+    <script>
+    window.addEventListener('scroll', () => {
+        const largeLogo = document.getElementById('large-logo');
+        const smallLogo = document.getElementById('small-logo');
+        const scrollPosition = window.scrollY;
+
+        if (scrollPosition > 10) {
+            largeLogo.classList.add('opacity-0');
+            smallLogo.classList.remove('opacity-0');
+        } else {
+            largeLogo.classList.remove('opacity-0');
+            smallLogo.classList.add('opacity-0');
+        }
+    });
+</script>
   </body>
   <!-- ===== base.vto LAYOUT END ===== -->
 </html>

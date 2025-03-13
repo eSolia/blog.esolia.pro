@@ -1,0 +1,189 @@
+/* Lume's design system */
+@import "https://unpkg.com/@lumeland/ds@0.5.2/ds.css";
+
+/* Custom components */
+@import "css/colors.css";
+@import "css/typography.css";
+@import "css/navbar.css";
+@import "css/page.css";
+@import "css/post-list.css";
+@import "css/post.css";
+@import "css/comments.css";
+@import "css/overrides.css";
+@import "css/menu.css";
+
+/* Make the links black */
+:root {
+  --color-link: var(--color-base);
+  --color-link-hover: var(--color-dim);
+  --color-text: hsl(197, 12%, 34%);
+  --font-family-ui: "textface", -apple-system, system-ui, sans-serif;
+  --font-family-display: var(--font-family-ui);
+}
+
+html {
+  background-color: var(--esolia-logo-orange-hsl);
+  font-family: "textface", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "textface", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Page layout */
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  /* grid-template-areas: "sidebar main"; */
+  gap: 0 var(--row-gap-medium);
+  margin: 0 2rem;
+  padding: var(--row-gap-small) var(--column-gap-small);
+}
+
+main {
+  /* grid-area: main; */
+  font-size: clamp(1rem, 2vw, 2rem); /* Adjusts between the endpoints */
+  padding: var(--row-gap-small);
+  /* max-width: 800px; */
+  max-width: clamp(500px, 80%, 2000px);
+  margin: 0 auto;
+}
+
+.sidebar {
+  /* grid-area: sidebar; */
+  padding: var(--row-gap-small) 2rem;
+  border-right: 1px solid var(--color-sidebarborder);
+  /* margin: 0 auto; */
+
+  & > :first-child {
+    margin-top: 0;
+  }
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 768px) {
+  .container {
+      /* grid-template-columns: 1fr 3fr; */
+      /* grid-template-columns: 1fr repeat(auto-fill, minmax(1fr, 1.5fr)); */
+      grid-template-columns: 1fr minmax(500px, 3fr);
+  }
+}
+
+.card {
+  background-color: var(--esolia-logo-lightyellow-hsl);
+  color: var(--esolia-logo-blue-hsl);
+  padding: 1rem;
+  height: 10rem;
+}
+
+.cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+  display: grid;
+  gap: 1rem;
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+}
+
+/* Screen larger than 600px? 2 column */
+@media (min-width: 600px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 900px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Search tweak */
+.search {
+  margin-top: var(--row-gap-xsmall);
+}
+
+
+.textface {
+  font-family: "textface", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.textface-100 {
+font-family: "textface", sans-serif;
+font-optical-sizing: auto;
+font-weight: 100;
+font-style: normal;
+}
+
+.textface-200 {
+font-family: "textface", sans-serif;
+font-optical-sizing: auto;
+font-weight: 200;
+font-style: normal;
+}
+
+.textface-300 {
+font-family: "textface", sans-serif;
+font-optical-sizing: auto;
+font-weight: 300;
+font-style: normal;
+}
+
+.textface-400 {
+font-family: "textface", sans-serif;
+font-optical-sizing: auto;
+font-weight: 400;
+font-style: normal;
+}
+
+.textface-500 {
+font-family: "textface", sans-serif;
+font-optical-sizing: auto;
+font-weight: 500;
+font-style: normal;
+}
+
+.textface-600 {
+font-family: "textface", sans-serif;
+font-optical-sizing: auto;
+font-weight: 600;
+font-style: normal;
+}
+
+.textface-700 {
+font-family: "textface", sans-serif;
+font-optical-sizing: auto;
+font-weight: 700;
+font-style: normal;
+}
+
+.textface-800 {
+font-family: "textface", sans-serif;
+font-optical-sizing: auto;
+font-weight: 800;
+font-style: normal;
+}
+
+.textface-900 {
+font-family: "textface", sans-serif;
+font-optical-sizing: auto;
+font-weight: 900;
+font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: "textface", sans-serif;
+font-optical-sizing: auto;
+font-weight: 700;
+font-style: bold;
+}
+
+
+/* lume-google-fonts-here */

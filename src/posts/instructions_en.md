@@ -9,11 +9,13 @@ tags:
   - Instructions
 ---
 
+**Here goes** a simple and effective introduction text.
+
+<!--more-->
+
 **Simple blog** is a clean and minimal blog theme for Lume, with support for
 tags and authors. It allows you to build your own blog **in seconds**, and
 provides Atom and JSON feeds for your subscribers.
-
-<!--more-->
 
 The **fastest and easiest** way to configure this theme is the
 [Lume init command](https://deno.land/x/lume_init), which you can also copy

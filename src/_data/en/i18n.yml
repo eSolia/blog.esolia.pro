@@ -1,11 +1,32 @@
 lang: en
 home:
-  welcome: Welcome to the official eSolia Pro Blog
+  welcome: We're eSolia, your virtual Japan IT department. Join us for some articles and tips from our bilingual professionals, then leverage our experience for your success in Japan. 
+  company: eSolia
+  sitename: Pro Blog
+social:
+  linkedin-label: Follow on LinkedIn
+  linkedin-profile-url: https://www.linkedin.com/company/esolia
+  twitter-label: Follow on X Twitter
+  twitter-profile-url: https://x.com/esolia_inc
+  bluesky-label: Follow on Bluesky
+  bluesky-profile-url: https://bsky.app/profile/esolia.com
+  github-label: GitHub profile
+  github-profile-url: https://github.com/esolia
+logo:
+  symbol-alt: eSolia logo
+  full-alt: eSolia Pro Blog
+newsletter:
+  title: Stay Informed
+  description: Get notified when we publish something new, by entering your email address below.
+  button: Join
+  placeholder: Email address
+  success: Subscribed!
+  error: Subscription failed
 nav:
   toc: Table of Contents
   next_post: Newer post →
   previous_post: ← Older post
-  continue_reading: Continue reading →
+  continue_reading: Continue reading
   archive_title: Archive
   archive: More posts can be found in <a href="/en/archive/">the archive</a>.
   back: ← Back

@@ -10,11 +10,13 @@ tags:
   - インストール
 ---
 
+**日本語** で何らかの切れ味のあるイントロ文をこちらで書く。
+
+<!--more-->
+
 **日本語 Simple blog** is a clean and minimal blog theme for Lume, with support for
 tags and authors. It allows you to build your own blog **in seconds**, and
 provides Atom and JSON feeds for your subscribers.
-
-<!--more-->
 
 日本語 The **fastest and easiest** way to configure this theme is the
 [Lume init command](https://deno.land/x/lume_init), which you can also copy
