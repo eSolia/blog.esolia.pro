@@ -11,10 +11,28 @@ topnav:
       href: https://esolia.co.jp
       target: _blank
       icon: building-office
-    - text: GitHub リポジトリ
+footernav:
+  links: 
+    - text: アーカイブ
+      href: /archive
+      target: _self
+      icon: archive
+    - text: サイトマップ
+      href: /sitemap.xml
+      target: _self
+      icon: sitemap
+    - text: プライバシーポリシー
+      href: #
+      target: _self
+      icon: privacy
+    - text: 当サイトのGitHubリポジトリ
       href: https://github.com/eSolia/blog.esolia.pro
       target: _blank
       icon: github-logo
+    - text: イソリア
+      href: https://esolia.co.jp
+      target: _blank
+      icon: building-office
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
   type: website
@@ -51,6 +69,28 @@ en:
         href: https://github.com/eSolia/blog.esolia.pro
         target: _blank
         icon: github-logo
+  footernav:
+    links: 
+      - text: Archive
+        href: /archive
+        target: _self
+        icon: archive
+      - text: Sitemap
+        href: /sitemap.xml
+        target: _self
+        icon: sitemap
+      - text: Privacy Policy
+        href: #
+        target: _self
+        icon: privacy
+      - text: Github Repository for this Site
+        href: https://github.com/eSolia/blog.esolia.pro
+        target: _blank
+        icon: github-logo
+      - text: eSolia
+        href: https://esolia.com
+        target: _blank
+        icon: building-office
   metas:
     type: website
     site: "eSolia Pro Blog"
