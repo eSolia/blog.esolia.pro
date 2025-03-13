@@ -1,5 +1,5 @@
 <!-- ===== top-post-list.vto TEMPLATE START ===== -->
-{{ for post of search.pages("type=post lang=ja", "date=desc", 3) }}
+{{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 3) }}
 <article class="group relative flex flex-col items-start">
   <h2
     class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
