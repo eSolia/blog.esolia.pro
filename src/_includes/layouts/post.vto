@@ -2,54 +2,114 @@
 layout: layouts/base.vto
 bodyClass: body-post
 ---
-<article class="post" data-pagefind-body data-title="{{ title }}" data-pagefind-index-attrs="data-title">
-  <header class="post-header">
-    <h1 class="post-title">{{ title }}</h1>
 
-    {{ include "templates/post-details.vto" }}
-  </header>
+<main class="flex-auto">
+  <div class="mt-16 sm:px-8 lg:mt-32">
+    <div class="mx-auto w-full max-w-7xl lg:px-8">
+      <div class="relative px-4 sm:px-8 lg:px-12">
+        <div class="mx-auto max-w-2xl lg:max-w-5xl">
+          <div class="xl:relative">
+            <div class="mx-auto max-w-2xl">
+              <article>
+                <header class="flex flex-col">
+                  <h1
+                    class="mt-6 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+                  >
+                    {{ title }}
+                  </h1>
 
-  {{ if toc.length }}
-  <nav class="toc">
-    <h2>{{ i18n.nav.toc }}</h2>
-    <ol>
-      {{ for item of toc }}
-      <li>
-        <a href="#{{ item.slug }}">{{ item.text }}</a>
+                  {{ if toc.length }}
+                    <nav class="max-w-2xl mt-4 mr-auto bg-white prose dark:prose-invert dark:bg-zinc-800 p-6 rounded-lg shadow-md">
+                      <h2 class="mb-1 font-light">{{ i18n.nav.toc }}</h2>
+                      <ul class="list-disc list-inside space-y-2 text-sm font-light">
+                        {{ for item of toc }}
+                        <li class="font-light">
+                          <a class="text-zinc-500 no-underline hover:text-teal-500 hover:underline" href="#{{ item.slug }}">{{ item.text }}</a>
 
-        {{ if item.children.length }}
-        <ul>
-          {{ for child of item.children }}
-          <li>
-            <a href="#{{ child.slug }}">{{ child.text }}</a>
-          </li>
-          {{ /for }}
-        </ul>
-        {{ /if }}
-      </li>
-      {{ /for }}
-    </ol>
-  </nav>
-  {{ /if }}
+                          {{ if item.children.length }}
+                          <ul>
+                            {{ for child of item.children }}
+                            <li>
+                              <a href="#{{ child.slug }}">{{ child.text }}</a>
+                            </li>
+                            {{ /for }}
+                          </ul>
+                          {{ /if }}
+                        </li>
+                        {{ /for }}
+                      </ol>
+                    </nav>
+                    {{ /if }}
 
-  <div class="post-body body">
-    {{ content }}
-  </div>
 
-  {{ if it.footnotes.length }}
-  <aside role="note" class="footnotes">
-    <dl>
-      {{ for note of footnotes }}
-      <div id={{ note.id }} class="footnote">
-        <dt><a href="#{{ note.refId }}">{{ note.label }}</a></dt>
-        <dd>{{ note.content }}</dd>
+                  <time
+                    datetime="{{ date }}"
+                    class="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                    ><span
+                      class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
+                    ></span
+                    ><span class="ml-3">{{ date |> date("DATE")}}</span></time
+                  >
+                </header>
+                <div
+                  class="prose mt-8 dark:prose-invert"
+                  data-mdx-content="true"
+                >
+                  {{ content }}
+
+<h3 class="text-red-500">↓↓ WIP - needs formatting and incorporation to page ↓↓</h3>
+                  {{ include "templates/post-details.vto" }}
+                  {{ if footnotes.length }}
+                    <aside role="note" class="footnotes">
+                      <dl>
+                        {{ for note of footnotes }}
+                        <div id={{ note.id }} class="footnote">
+                          <dt><a href="#{{ note.refId }}">{{ note.label }}</a></dt>
+                          <dd>{{ note.content }}</dd>
+                        </div>
+                        {{ /for }}
+                      </dl>
+                    </aside>
+                  {{ /if }}
+
+                  <nav class="page-pagination pagination">
+                    <ul>
+                      {{- set previousPost = search.previousPage(url, "type=post") }}
+                      {{- if previousPost }}
+                      <li class="pagination-prev">
+                        <a href="{{ previousPost.url }}" rel="prev">
+                          <span>{{ i18n.nav.previous_post }}</span>
+                          <strong>{{ previousPost.title }}</strong>
+                        </a>
+                      </li>
+                      {{ /if }}
+
+                      {{- set nextPost = search.nextPage(url, "type=post") }}
+                      {{- if nextPost }}
+                      <li class="pagination-next">
+                        <a href="{{ nextPost.url }}" rel="next">
+                          <span>{{ i18n.nav.next_post }}</span>
+                          <strong>{{ nextPost.title }}</strong>
+                        </a>
+                      </li>
+                      {{ /if }}
+                    </ul>
+                  </nav>
+
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
-      {{ /for }}
-    </dl>
-  </aside>
-  {{ /if }}
+    </div>
+  </div>
+</main>
 
-  {{ if comments?.src || comments?.bluesky }}
+<!-- old stuff possible for incorporation -->
+
+
+  {{# {{ if comments?.src || comments?.bluesky }}
   <aside class="comments-section">
     <header class="comments-header">
       <h2>{{ i18n.comments.title }}</h2>
@@ -65,8 +125,7 @@ bodyClass: body-post
       {{ i18n.comments.empty }}
     </mastodon-comments>
   </aside>
-  {{ /if }}
-</article>
+  {{ /if }} #}}
 
 <nav class="page-pagination pagination">
   <ul>
