@@ -3,6 +3,15 @@ home:
   welcome: We're eSolia, your virtual Japan IT department. Join us for some articles and tips from our bilingual professionals, then leverage our experience for your success in Japan. 
   company: eSolia
   sitename: Pro Blog
+social:
+  linkedin-label: Follow on LinkedIn
+  linkedin-profile-url: https://www.linkedin.com/company/esolia
+  twitter-label: Follow on X Twitter
+  twitter-profile-url: https://x.com/esolia_inc
+  bluesky-label: Follow on Bluesky
+  bluesky-profile-url: https://bsky.app/profile/esolia.com
+  github-label: GitHub profile
+  github-profile-url: https://github.com/esolia
 nav:
   toc: Table of Contents
   next_post: Newer post →
