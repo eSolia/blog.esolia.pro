@@ -23,7 +23,7 @@ newsletter:
   success: 登録完了しました！
   error: 登録に失敗しました
 nav:
-  toc: 目録
+  toc: 目次
   next_post: より新しいポスト →
   previous_post: ← より古いポスト
   continue_reading: つづきを読む
