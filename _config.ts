@@ -7,7 +7,7 @@ import { getGitDate } from "lume/core/utils/date.ts";
 import picture from "lume/plugins/picture.ts";
 import transformImages from "lume/plugins/transform_images.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
-import lightningCss from "lume/plugins/lightningcss.ts";
+// import lightningCss from "lume/plugins/lightningcss.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
 import attributes from "lume/plugins/attributes.ts";
 import terser from "lume/plugins/terser.ts";
@@ -62,7 +62,7 @@ site.use(attributes());
 site.use(picture(/* Options */));
 site.use(transformImages());
 site.use(tailwindcss());
-site.use(lightningCss());
+// site.use(lightningCss());
 site.use(terser());
 site.use(prism());
 site.use(basePath());
@@ -81,7 +81,10 @@ site.use(resolveUrls());
 //   }
 // }));
 site.use(nav());
-site.use(pagefind());
+site.use(pagefind({
+  element: "#search",
+  resetStyles: false,
+}));
 site.use(sitemap({
   // query: "external_link=undefined",
   lastmod: "lastmod",
