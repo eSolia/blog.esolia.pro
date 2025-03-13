@@ -21,7 +21,7 @@ import nav from "lume/plugins/nav.ts";
 import pagefind from "lume/plugins/pagefind.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import source_maps from "lume/plugins/source_maps.ts";
-import sri from "lume/plugins/sri.ts";
+// import sri from "lume/plugins/sri.ts";
 import favicon from "lume/plugins/favicon.ts";
 import feed from "lume/plugins/feed.ts";
 import readingInfo from "lume/plugins/reading_info.ts";
@@ -90,7 +90,7 @@ site.use(sitemap({
   sort: "lastmod=desc",
 }));
 site.use(source_maps());
-site.use(sri());
+// site.use(sri());
 site.use(favicon());
 site.use(feed({
   output: ["/feed.xml", "/feed.json"],

@@ -51,7 +51,7 @@
     </script>
   </head>
   <body class="flex h-full bg-zinc-50 dark:bg-black">
-  <script>
+  {{# <script>
     !(function () {
       try {
         var d = document.documentElement,
@@ -74,7 +74,7 @@
         if (e === 'light' || e === 'dark') d.style.colorScheme = e
       } catch (e) {}
     })()
-  </script>
+  </script> #}}
     <!-- Container start -->
     <div class="flex w-full">
       <div class="fixed inset-0 flex justify-center sm:px-8">
