@@ -25,6 +25,14 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.lede {
+  @apply text-2xl font-light leading-relaxed;
+}
+
+body article > div > p:first-of-type {
+  @apply text-2xl font-light leading-relaxed bg-zinc-50 p-3 rounded-lg;
+}
+
 /*----------------------------
 * 検索ボックス via Lume Pagefind
 *----------------------------*/
