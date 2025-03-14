@@ -285,9 +285,9 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
       snippets: [
         {
           label: "Figure with Image",
-          value: `<figure class="">
-  <img class="" alt="EXPLAIN TO SCREENREADER USER" src="/uploads/blog-esolia-pro-default.png" width="1000px" transform-images="avif webp png jpeg 1000@2">
-  <figcaption><small><em>ADD YOUR CAPTION HERE</em></small></figcaption>
+          value: `<figure class="flex flex-col justify-start items-left">
+  <img class="shadow-lg rounded-lg" alt="EXPLAIN TO SCREENREADER USER" src="/uploads/blog-esolia-pro-default.png" width="1000px" transform-images="avif webp png jpeg 1000@2">
+  <figcaption class="text-left mt-2"><small><em>Fig: ADD YOUR CAPTION HERE</em></small></figcaption>
 </figure>`,
         },
         {
