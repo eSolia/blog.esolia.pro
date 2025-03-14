@@ -44,3 +44,19 @@ While you think about these areas, of course you need to consider culture, laws 
 > [!tip]
 >
 > Refer to [ISO 27001](https://www.iso.org/standard/27001) (Information Security Standard) section A.7.7 for more details, and exercise due care as you do your day-to-day work.
+
+> [!note]
+>
+> Refer to [ISO 27001](https://www.iso.org/standard/27001) (Information Security Standard) section A.7.7 for more details, and exercise due care as you do your day-to-day work.
+
+> [!important]
+>
+> Refer to [ISO 27001](https://www.iso.org/standard/27001) (Information Security Standard) section A.7.7 for more details, and exercise due care as you do your day-to-day work.
+
+> [!warning]
+>
+> Refer to [ISO 27001](https://www.iso.org/standard/27001) (Information Security Standard) section A.7.7 for more details, and exercise due care as you do your day-to-day work.
+
+> [!caution]
+>
+> Refer to [ISO 27001](https://www.iso.org/standard/27001) (Information Security Standard) section A.7.7 for more details, and exercise due care as you do your day-to-day work.

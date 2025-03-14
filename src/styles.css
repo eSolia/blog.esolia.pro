@@ -4,7 +4,7 @@
 @plugin "@tailwindcss/container-queries";
 /* @plugin "daisyui@5.0.1"; */
 /* @plugin "flyonui@latest"; */
-
+@import "css/alerts.css";
 @layer base {
   a {
     text-decoration: underline;
@@ -137,5 +137,7 @@ mark {
 .mobile-menu.is-active {
   transform: translateX(0);
 }
+
+
 
 /* lume-google-fonts-here */
