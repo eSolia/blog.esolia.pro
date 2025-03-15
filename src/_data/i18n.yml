@@ -38,7 +38,7 @@ nav:
   all_authors: すべての著者
   all_posts: すべてのポスト
 post:
-  by: by
+  by: 著者
   reading_time: 読書時間
   minutes: 分
 search:
