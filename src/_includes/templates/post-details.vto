@@ -1,31 +1,26 @@
 <!-- ===== post-details.vto TEMPLATE START ===== -->
-
-<div class="post-details">
+<div class="flex items-center gap-x-4 text-xs">
+  <time datetime="{{ date }}" class="order-first flex items-center text-zinc-400 dark:text-zinc-500">
+    <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+      <span class="ml-3">{{ date |> date("DATE")}}</span>
+  </time>
+  <a href="{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/" class="relative rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-600 ring-1 ring-amber-500/10 ring-inset hover:bg-amber-100 no-underline">{{ category }}</a>
   {{ if author }}
-    {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
-    {{ if page }}
-      <p>{{ i18n.post.by}} <a data-pagefind-filter="author" href="{{ page.url }}">{{ author }}</a></p>
-    {{ else }}
-      <p>{{ i18n.post.by}} {{ author }}</p>
-    {{ /if }}
+  {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
+  {{ if page }}
+    <span class="relative px-2 py-1 text-xs font-light text-zinc-600 hover:bg-zinc-50">{{ i18n.post.by }}: <a class="no-underline" data-pagefind-filter="author" href="{{ page.url }}">{{ author }}</a></span>
+  {{ else }}
+    <span class="relative px-2 py-1 text-xs font-light text-zinc-600">{{ i18n.post.by }} {{ author }}</span>
   {{ /if }}
-
-  <p>
-    <time datetime="{{ date |> date('DATETIME') }}">
-      {{ date |> date('HUMAN_DATE') }}
-    </time>
-  </p>
-
-  <p>{{ i18n.post.reading_time}}: <span class="reading-info">{{ it.readingInfo.minutes }} {{ i18n.post.minutes }}</span> </p>
-
-  <div class="post-tags">
-    {{ for tag of tags }}
-      {{ set page = search.page(`type=tag lang=${lang} tag="${tag}"`) }}
-
-      {{ if page }}
-        <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ tag }}</a>
-      {{ /if }}
+  {{ /if }}
+  <span class="relative px-2 py-1 text-xs font-light text-zinc-600">{{- i18n.post.reading_time -}}: <span class="font-medium">{{- it.readingInfo.minutes -}}{{ if lang === "en" }}&nbsp;{{ /if }}{{ i18n.post.minutes }}</span></span> 
+</div>
+<div class="text-xs/3 text-zinc-500 ml-4 mt-2 flex space-x-2">
+  {{ for tag of tags }}
+    {{ set page = search.page(`type=tag lang=${lang} tag="${tag}"`) }}
+    {{ if page }}
+    <a data-pagefind-filter="filter" class="relative rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline" href="{{ page.url }}">{{ tag }}</a>
+    {{ /if }}
     {{ /for }}
-  </div>
 </div>
 <!-- ===== post-details.vto TEMPLATE END ===== -->
