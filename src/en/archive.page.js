@@ -1,4 +1,5 @@
 export const layout = "layouts/archive.vto";
+// export const id = "archive";
 
 export default function* ({ search, paginate, en, lang }) {
   const posts = search.pages(`type=post lang=${lang}`, "date=desc");

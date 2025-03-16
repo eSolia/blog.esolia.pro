@@ -1,5 +1,6 @@
 export const layout = "layouts/archive_result.vto";
 export const lang = "en";
+// export const id = "archiveresult";
 
 export default function* ({ search, en, lang }) {
   // Generate a page for each tag
