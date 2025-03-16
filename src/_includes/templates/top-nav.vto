@@ -132,12 +132,14 @@
 
               </div>
               <div class="flex justify-end md:flex-1 z-50">
+                {{ if alternates && alternates.length > 1 }}
                 <div class="pointer-events-auto z-50">
                   <button
                       type="button"
                       aria-label="Toggle language"
                       class="group rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium text-zinc-800 dark:text-zinc-200 dark:group-hover:text-zinc-100"
                     >
+                    
                     {{- for alt of alternates }}{{ if alt.lang !== lang }}
                     <a href="{{ alt.url }}" title="{{ alt.title |> escape }}">
                       {{ if alt.lang == "ja" }}日本語{{ else }}English{{ /if }}
@@ -145,6 +147,7 @@
                     {{ /if }}{{ /for }}
                     </button>
                   </div>
+                  {{ /if }}
                 <div class="pointer-events-auto z-50" x-data="themeToggle" :class="{ 'dark': darkMode }">
                 
                   <button
