@@ -1,9 +1,11 @@
 <!-- ===== post-details.vto TEMPLATE START ===== -->
 <div class="flex items-center gap-x-4 text-xs">
+  {{ if date !== "hide" }}
   <time datetime="{{ date }}" class="order-first flex items-center text-zinc-400 dark:text-zinc-500">
     <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
       <span class="ml-3">{{ date |> date("DATE")}}</span>
   </time>
+  {{ /if }}
   <a href="{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/" class="relative rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-600 ring-1 ring-amber-500/10 ring-inset hover:bg-amber-100 no-underline">{{ category }}</a>
   {{ if author }}
   {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
@@ -21,6 +23,6 @@
     {{ if page }}
     <a data-pagefind-filter="filter" class="relative rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline" href="{{ page.url }}">{{ tag }}</a>
     {{ /if }}
-    {{ /for }}
+  {{ /for }}
 </div>
 <!-- ===== post-details.vto TEMPLATE END ===== -->
