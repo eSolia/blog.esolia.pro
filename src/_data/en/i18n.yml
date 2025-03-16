@@ -3,6 +3,9 @@ home:
   welcome: We're eSolia, your virtual Japan IT department. Join us for some articles and tips from our bilingual professionals, then leverage our experience for your success in Japan. 
   company: eSolia
   sitename: Pro Blog
+archive: 
+  title: Archive
+  description: Find below an archive list of posts written on various IT topics, by eSolia professionals
 social:
   linkedin-label: Follow on LinkedIn
   linkedin-profile-url: https://www.linkedin.com/company/esolia

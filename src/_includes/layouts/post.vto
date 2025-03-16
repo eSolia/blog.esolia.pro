@@ -17,20 +17,7 @@ bodyClass: body-post
 
               <article data-pagefind-body data-title="{{ title }}" data-pagefind-index-attrs="data-title">
                 <header class="flex flex-col">
-                  
-                  <div class="flex items-center gap-x-4 text-xs">
-                    <time datetime="{{ date }}" class="order-first flex items-center text-zinc-400 dark:text-zinc-500"><span
-                      class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
-                    ></span
-                    ><span class="ml-3">{{ date |> date("DATE")}}</span></time>
-                    <a href="{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/" class="relative z-10 rounded-full bg-amber-400 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 no-underline">{{ category }}</a>
-                  </div>
-
-                  
-
-
-
-
+                  {{ include "templates/post-details.vto" }}
                   <h1
                     class="mt-6 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
                   >
@@ -66,8 +53,6 @@ bodyClass: body-post
                 >
                   {{ content }}
 
-<h3 class="text-red-500">↓↓ WIP - needs formatting and incorporation to page ↓↓</h3>
-                  {{ include "templates/post-details.vto" }}
                   {{ if footnotes.length }}
                     <aside role="note" class="footnotes">
                       <dl>

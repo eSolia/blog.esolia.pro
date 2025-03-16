@@ -3,55 +3,78 @@ layout: layouts/base.vto
 bodyClass: body-tag
 ---
 <!-- ===== archive.vto LAYOUT START ===== -->
-<header class="page-header">
-  <h1 class="page-title">{{ title }}</h1>
+<main class="flex-auto">
+  <div class="mt-16 sm:mt-32 sm:px-8">
+    <div class="mx-auto w-full max-w-full lg:px-8">
+      <div class="relative px-4 sm:px-8 lg:px-12">
+        <div class="mx-auto max-w-2xl lg:max-w-5xl">
+          <header class="max-w-2xl">
+            <h1
+              class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+            >
+            <span class="font-light">{{ i18n.home.sitename }}</span>
+            <br class="block sm:hidden"> <span class="bg-gradient-to-r from-amber-500 via-cyan-400 to-blue-900 bg-clip-text text-transparent">{{ i18n.archive.title }}</span>
+            </h1>
+            <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+              {{ i18n.archive.description }}
+            </p>
 
-  <p>
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="3" cy="13" r="2" fill="currentColor"/><path d="M14 13C14 6.925 9.075 2 3 2M9 13a6 6 0 0 0-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> RSS:
-    <a href="/feed.xml">Atom</a>, <a href="/feed.json">JSON</a>
-  </p>
+            <div class="flex items-center space-x-2 mt-3">
+            <img class="size-6 fill-amber-400" src="{{ "rss" |> icon("phosphor", "duotone") }}" inline>RSS:&nbsp;<a class="" href="/feed.xml">Atom, </a>&nbsp;<a class="" href="/feed.json">JSON</a>
+            </div>
+            <div class="search" id="search"></div>
+          
+          {{ if pagination.page === 1 }}
+          {{ set pageTags = search.pages(`type=tag lang=${lang}`, "tag") }}
+          {{ if pageTags.length }}
+          <div class="text-zinc-500 ml-1 mt-2 ">
+            <nav class="">
+              <h2>{{ i18n.search.tags }}:</h2>
+              <ul class="flex flex-wrap space-x-2 space-y-2">
+              {{ for page of pageTags }}
+                <li><a href="{{ page.url }}" class="rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline whitespace-nowrap">{{ page.tag }}</a></li>
+              {{ /for }}
+              </ul>
+            </nav>
+          </div>
+          {{ /if }}
+          {{ /if }}
+          </header>
 
-  {{ if pagination.page === 1 }}
-  <div class="search" id="search"></div>
-  {{ /if }}
-</header>
+          <div class="mt-16 sm:mt-20">
+            <div
+              class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40"
+            >
+              <div class="flex max-w-3xl flex-col space-y-16">
+              {{ include "templates/post-list.vto" { postslist: results } }}
 
-{{ if pagination.page === 1 }}
-{{ set pageTags = search.pages(`type=tag lang=${lang}`, "tag") }}
-{{ if pageTags.length }}
-<nav class="page-navigation">
-  <h2>{{ i18n.search.tags }}:</h2>
-  
-  <ul class="page-navigation-tags">
-  {{ for page of pageTags }}
-    <li><a href="{{ page.url }}" class="badge">{{ page.tag }}</a></li>
-  {{ /for }}
-  </ul>
-</nav>
-{{ /if }}
-{{ /if }}
+              {{ if pagination.totalPages !== 1 }}
+              <nav class="page-pagination pagination">
+                <ul>
+                  {{- if pagination.previous }}
+                  <li class="pagination-prev">
+                    <a href="{{ pagination.previous }}" rel="prev">{{ i18n.nav.previous }}</a>
+                  </li>
+                  {{ /if }}
 
-{{ include "templates/post-list.vto" { postslist: results } }}
+                  <li class="pagination-page">
+                    {{ i18n.nav.page }} {{ pagination.page }}
+                  </li>
 
-{{ if pagination.totalPages !== 1 }}
-<nav class="page-pagination pagination">
-  <ul>
-    {{- if pagination.previous }}
-    <li class="pagination-prev">
-      <a href="{{ pagination.previous }}" rel="prev">{{ i18n.nav.previous }}</a>
-    </li>
-    {{ /if }}
-
-    <li class="pagination-page">
-      {{ i18n.nav.page }} {{ pagination.page }}
-    </li>
-
-    {{- if pagination.next }}
-    <li class="pagination-next">
-      <a href="{{ pagination.next }}" rel="next">{{ i18n.nav.next }}</a>
-    </li>
-    {{ /if }}
-  </ul>
-</nav>
-{{ /if }}
+                  {{- if pagination.next }}
+                  <li class="pagination-next">
+                    <a href="{{ pagination.next }}" rel="next">{{ i18n.nav.next }}</a>
+                  </li>
+                  {{ /if }}
+                </ul>
+              </nav>
+              {{ /if }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 <!-- ===== archive.vto LAYOUT END ===== -->

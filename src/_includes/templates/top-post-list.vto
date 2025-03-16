@@ -1,6 +1,14 @@
 <!-- ===== top-post-list.vto TEMPLATE START ===== -->
 {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 3) }}
 <article class="group relative flex flex-col items-start">
+  <div class="z-10">
+  {{ include "templates/post-details.vto" {
+      date: post.date,
+      category: post.category,
+      author: post.author,
+      readingInfo: post.readingInfo
+    } }}
+  </div>
   <h2
     class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
   >
@@ -17,17 +25,6 @@
       ></a
     >
   </h2>
-  <time
-    class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500"
-    datetime="{{ post.date }}"
-    ><span
-      class="absolute inset-y-0 left-0 flex items-center"
-      aria-hidden="true"
-      ><span
-        class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
-      ></span></span
-    >{{ post.date |> date("DATE")}}</time
-  >
   <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">{{- post.excerpt |> md(true) -}}</p>
   <div
     aria-hidden="true"
@@ -44,9 +41,4 @@
 {{ /for }}
 <!-- ===== top-post-list.vto TEMPLATE END ===== -->
 
-{{# {{ include "templates/post-details.vto" {
-        date: post.date,
-        tags: post.tags,
-        author: post.author,
-        readingInfo: post.readingInfo
-        } }} #}}
+

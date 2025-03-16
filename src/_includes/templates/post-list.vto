@@ -1,20 +1,58 @@
 <!-- ===== post-list.vto TEMPLATE START ===== -->
-<ul class="postList">
-  {{ for post of postslist }}
-  <li class="post">
-    <h2 class="post-title">
-      <a href="{{ post.url }}" {{ if post.url == url }} aria-current="page"{{ /if }}>
-        {{ post.title || post.url }}
-      </a>
+{{ for post of postslist }}
+<article class="md:grid md:grid-cols-4 md:items-baseline">
+  <div class="group relative flex flex-col items-start md:col-span-3">
+    <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+      <div
+        class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"
+      ></div>
+      <a
+        href="{{ post.url }}" {{ if post.url == url }} aria-current="page"{{ /if }}
+        ><span
+          class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"
+        ></span
+        ><span class="relative z-10"
+          >{{ post.title || post.url }}</span
+        ></a
+      >
     </h2>
+    <time
+      class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 md:hidden dark:text-zinc-500"
+      datetime="{{ post.date }}"
+      ><span
+        class="absolute inset-y-0 left-0 flex items-center"
+        aria-hidden="true"
+        ><span
+          class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
+        ></span></span
+      >{{ post.date |> date("DATE")}}</time
+    >
+    <div
+      class="relative z-10 mt-2 text-sm/7 text-zinc-600 dark:text-zinc-400 bg-zinc-50 truncate w-70 md:w-140"
+    >
+      {{ post.excerpt |> md(true) }}
+    </div>
 
     {{ include "templates/post-details.vto" {
-      date: post.date,
-      tags: post.tags,
+      date: "hide",
+      category: post.category,
       author: post.author,
       readingInfo: post.readingInfo
     } }}
-  </li>
-  {{ /for }}
-</ul>
+    <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500">
+    {{ i18n.nav.continue_reading }}<img 
+      alt=""
+      loading="lazy"
+      decoding="async"
+      class="h-4 w-4 fill-teal-500 dark:fill-teal-300" 
+      src="{{ "caret-right" |> icon("phosphor") }}" inline>
+    </div>
+  </div>
+  <time
+    class="relative z-10 order-first mt-1 mb-3 flex items-center text-sm text-zinc-400 max-md:hidden dark:text-zinc-500"
+    datetime="{{ post.date }}"
+    >{{ post.date |> date("DATE")}}</time
+  >
+</article>
+{{ /for }}
 <!-- ===== post-list.vto TEMPLATE END ===== -->
