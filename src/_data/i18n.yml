@@ -3,6 +3,9 @@ home:
   welcome: 私達イソリアは、バイリンガルITアウトソーシング、頼れるIT部門として貴社のサポートを担当致します。お役に立つIT記事やチップスをご覧頂き、是非ともイソリアにお任せください！
   company: イソリア
   sitename: プロ ブログ
+archive: 
+  title: アーカイブ
+  description: 当ページにて、私達イソリアのプロが書いた、様々なITトピックスについてのポストを閲覧できます
 social:
   linkedin_label: LinkedInでフォローする
   linkedin_profile_url: https://www.linkedin.com/company/esolia
