@@ -65,10 +65,6 @@ en:
         href: https://esolia.com
         target: _blank
         icon: building-office
-      - text: GitHub repository
-        href: https://github.com/eSolia/blog.esolia.pro
-        target: _blank
-        icon: github-logo
   footernav:
     links: 
       - text: Archive
