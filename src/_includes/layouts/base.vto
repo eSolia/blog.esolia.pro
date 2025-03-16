@@ -18,20 +18,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="canonical" href="{{ url |> url(true) }}">
     <script src="/js/main.js" type="module"></script>
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/script.js" data-site="OIXGEUHR" defer></script>
+    <!-- / Fathom -->
     {{ it.extra_head?.join("\n") }}
-    {{# <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      document.documentElement.classList.toggle(
-      "dark", localStorage.theme === "dark" ||
-      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-      );
-      // Whenever the user explicitly chooses light mode
-      localStorage.theme = "light";
-      // Whenever the user explicitly chooses dark mode
-      localStorage.theme = "dark";
-      // Whenever the user explicitly chooses to respect the OS preference
-      localStorage.removeItem("theme");
-    </script> #}}
     
     <!-- Theme toggle script -->
     <script>
