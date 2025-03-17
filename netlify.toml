@@ -5,7 +5,7 @@
       curl -fsSL https://deno.land/x/install/install.sh | sh && \
       /opt/buildhome/.deno/bin/deno task build && \
       tree . > _site/esolia_blog_tree.txt && \
-      cp headers-prod _site/_headers
+      cp headers-dev _site/_headers
     """
   [context.deploy-preview]
     command = """
