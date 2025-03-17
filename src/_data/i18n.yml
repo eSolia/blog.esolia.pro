@@ -40,6 +40,7 @@ nav:
   all_tags: すべてのタグ
   all_authors: すべての著者
   all_posts: すべてのポスト
+  return_home: サイトトップへ戻る
 post:
   by: 著者
   reading_time: 読書時間
