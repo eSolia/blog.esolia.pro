@@ -3,10 +3,21 @@ layout: layouts/base.vto
 bodyClass: body-tag
 ---
 <!-- ===== archive_result.vto LAYOUT START ===== -->
-<header class="page-header">
-  <p><a href="/archive/">{{ i18n.nav.back }}</a></p>
-  <h1 class="page-title">{{ title }}</h1>
-</header>
+<main class="flex-auto">
+  <div class="mt-16 sm:mt-32 sm:px-8">
+    <div class="mx-auto w-full max-w-full lg:px-8">
+      <div class="relative px-4 sm:px-8 lg:px-12">
+        <div class="mx-auto max-w-2xl lg:max-w-5xl">
+          <header class="max-w-2xl space-y-10">
+            <div class=""><a href="/archive/">{{  i18n.nav.back }}</a></div>
+            <h1 class="text-4xl font-thin tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">{{ title }}</h1>
+            {{ include "templates/post-list.vto" { postslist: search.pages(search_query) } }}
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 
-{{ include "templates/post-list.vto" { postslist: search.pages(search_query) } }}
+
 <!-- ===== archive_result.vto LAYOUT END ===== -->

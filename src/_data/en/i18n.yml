@@ -40,6 +40,7 @@ nav:
   all_tags: All Tags 
   all_authors: All Authors
   all_posts: All Posts
+  return_home: Return to Site Top
 post:
   by: by
   reading_time: Reading Time
