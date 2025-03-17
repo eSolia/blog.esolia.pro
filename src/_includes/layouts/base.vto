@@ -89,20 +89,22 @@
     </div>
     <!-- Container end -->
     <script>
-    window.addEventListener('scroll', () => {
-        const largeLogo = document.getElementById('large-logo');
-        const smallLogo = document.getElementById('small-logo');
-        const scrollPosition = window.scrollY;
+      window.addEventListener('scroll', () => {
+          const largeLogo = document.getElementById('large-logo');
+          const smallLogo = document.getElementById('small-logo');
+          const scrollPosition = window.scrollY;
 
-        if (scrollPosition > 10) {
-            largeLogo.classList.add('opacity-0');
-            smallLogo.classList.remove('opacity-0');
-        } else {
-            largeLogo.classList.remove('opacity-0');
-            smallLogo.classList.add('opacity-0');
-        }
-    });
-</script>
+          if (scrollPosition > 10) {
+              largeLogo.classList.add('opacity-0');
+              smallLogo.classList.remove('opacity-0');
+          } else {
+              largeLogo.classList.remove('opacity-0');
+              smallLogo.classList.add('opacity-0');
+          }
+      });
+    </script>
+    <script src="{{ script }}"></script>
+
   </body>
   <!-- ===== base.vto LAYOUT END ===== -->
 </html>
