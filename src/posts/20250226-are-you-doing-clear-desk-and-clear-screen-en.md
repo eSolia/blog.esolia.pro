@@ -1,6 +1,6 @@
 ---
 lang: en
-id: '202502260156'
+id: '20250226-clear-desk'
 date: 2025-02-26T01:56:29.381Z
 last_modified: 2025-02-27T11:15:00.000Z
 title: Are you doing Clear Desk and Clear Screen?
