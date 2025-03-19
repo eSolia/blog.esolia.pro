@@ -4,6 +4,7 @@
 @plugin "@tailwindcss/container-queries";
 /* @plugin "daisyui@5.0.1"; */
 /* @plugin "flyonui@latest"; */
+/* @plugin "tailwind-layouts"; */
 @import "css/alerts.css";
 @layer base {
   a {
