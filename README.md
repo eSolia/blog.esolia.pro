@@ -70,3 +70,5 @@ With just the markdown engine you can use "alerts", which come from the alert pl
 > [!CAUTION]
 > Negative potential consequences of an action.
 ```
+
+All of these, and other codes you can use in authoring, are in the "Snippets" dropdown in the markdown editor, in the CMS.
