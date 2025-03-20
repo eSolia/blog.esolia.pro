@@ -1,5 +1,6 @@
 export const layout = "layouts/archive.vto";
-export const lang = "ja";
+// export const lang = "ja";
+export const lang = ["ja", "en"]
 // export const id = "archive";
 
 export default function* ({ search, paginate, i18n }) {
@@ -25,8 +26,7 @@ export default function* ({ search, paginate, i18n }) {
 
 function url(n) {
   if (n === 1) {
-    return "/archive/";
+    return lang === "ja" ? `/archive/` : `/${lang}/archive/`;
   }
-
-  return `/archive/${n}/`;
+  return lang === "ja" ? `/archive/${n}/` : `/${lang}/archive/${n}/`;
 }
