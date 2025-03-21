@@ -113,7 +113,7 @@
 
                 <nav class="pointer-events-auto md:hidden" x-data="{ open: false, zIndex: 0 }">
                   <button type="button" class="mobile-menu-btn text-xl" x-on:click="open=!open; zIndex = open ? 100 : 0" x-on:toggle-menu.window="open = !open; zIndex = open ? 100 : 0" x-show="open" x-cloak>
-                      <img class="h-12 w-12 fill-amber-400 dark:fill-amber-300" src="{{ "x" |> icon("phosphor") }}" inline />
+                      <img class="h-12 w-12 fill-esoliaamber-400 dark:fill-esoliaamber-300" src="{{ "x" |> icon("phosphor") }}" inline />
                   </button>
                   <div class="mobile-menu" x-bind:class="{'is-active' : open }" :style="{ zIndex: zIndex }">
                       <div class="text-5xl mobile-menu__item"><a
@@ -156,7 +156,7 @@
                     class="group rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50"
                     @click="darkMode = !darkMode">
                     <span x-show="!darkMode">
-                      <img class="h-5 w-5 fill-amber-300 stroke-amber-500 transition group-hover:fill-amber-400 group-hover:stroke-amber-700 " src="{{ "sun" |> icon("phosphor", "duotone") }}" inline />
+                      <img class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 " src="{{ "sun" |> icon("phosphor", "duotone") }}" inline />
                     </span><span x-show="darkMode">
                       <img class="h-5 w-5 fill-teal-300 stroke-teal-500 transition group-hover:fill-teal-400 group-hover:stroke-teal-700 " src="{{ "moon-stars" |> icon("phosphor", "duotone") }}" inline />
                     </span>
