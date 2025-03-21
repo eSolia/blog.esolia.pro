@@ -13,6 +13,9 @@ const cms = lumeCMS({
     <p>This is the CMS for eSolia's bilingual blog site, with posts in Japanese and English.</p>
     `,
   },
+  log: {
+    filename: "errors.log",
+  },
 });
 
 // Enable basicauth
@@ -139,6 +142,27 @@ cms.collection({
   },
   fields: [
     {
+      name: "draft",
+      type: "checkbox",
+      label: "ドラフト Draft",
+      description: "If checked, the post will not be published.",
+      view: "Show Flags",
+    },
+    {
+      name: "hot",
+      type: "checkbox",
+      label: "ホット Hot",
+      description: "If checked, the post will be marked as popular in the UI.",
+      view: "Show Flags",
+    },
+    {
+      name: "featured",
+      type: "checkbox",
+      label: "特集 Featured",
+      description: "If checked, the post will be included in the featured list in the UI.",
+      view: "Show Flags",
+    },
+    {
       name: "lang",
       type: "select",
       label: "言語 Language",
@@ -264,12 +288,6 @@ cms.collection({
           type: "url",
         },
       ],
-    },
-    {
-      name: "draft",
-      type: "checkbox",
-      label: "ドラフト Draft",
-      description: "If checked, the post will not be published.",
     },
     {
       name: "content",
