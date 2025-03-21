@@ -11,13 +11,13 @@
     <meta name="theme-color" content="hsl(220, 20%, 100%)" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="hsl(220, 20%, 10%)" media="(prefers-color-scheme: dark)">
     
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css?cb={{ cacheBuster }}"/ type="text/css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metas.site }}">
     <link rel="alternate" href="/feed.json" type="application/json" title="{{ metas.site }}">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="canonical" href="{{ url |> url(true) }}">
-    <script src="/js/main.js" type="module"></script>
+    <script src="/js/main.js?cb={{ cacheBuster }}" type="module"></script>
     <!-- Fathom - beautiful, simple website analytics -->
     <script src="https://cdn.usefathom.com/script.js" data-site="OIXGEUHR" defer></script>
     <!-- / Fathom -->

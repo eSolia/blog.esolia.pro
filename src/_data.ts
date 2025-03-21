@@ -1,4 +1,4 @@
-export const todaysDateYYYYMMDD = `${new Date().toISOString().split("T")[0]}`;
+export const todaysDateYYYYMMDD = `${new Date().toISOString().split("T")[0]}`; 
 
 export const currentDateTime = Temporal.Now.zonedDateTimeISO();
 console.log(`Current temporal timezoned datetime: ${currentDateTime.toString()}`);
@@ -90,3 +90,6 @@ const recdZonedDateTime = sampleInstant.toZonedDateTimeISO(sampleTimezone);
     }
   ];
   console.log(new Intl.DateTimeFormat(...formatArgs).format(recdZonedDateTime.toInstant().epochMilliseconds))
+
+  export const cacheBuster = `${Temporal.Now.instant().epochMilliseconds}`;
+  console.log(`Cache buster: ${cacheBuster}`);
