@@ -24,6 +24,42 @@
   --font-sans: textface, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* eSolia Yellow Logo Color #FFBC68 is 500 */
+  --color-esoliaamber-50: oklch(98.69% 0.021 95.28);
+  --color-esoliaamber-100: oklch(97.31% 0.037 91.69);
+  --color-esoliaamber-200: oklch(94.19% 0.068 87.91);
+  --color-esoliaamber-300: oklch(91.16% 0.088 82.51);
+  --color-esoliaamber-400: oklch(87.86% 0.106 76.63);
+  --color-esoliaamber-500: oklch(84.08% 0.127 70.8);
+  --color-esoliaamber-600: oklch(78.6% 0.169 67.8);
+  --color-esoliaamber-700: oklch(71.02% 0.152 71.84);
+  --color-esoliaamber-800: oklch(61.31% 0.128 78.57);
+  --color-esoliaamber-900: oklch(49.21% 0.101 86.39);
+  --color-esoliaamber-950: oklch(39.79% 0.081 91.8);
+  /* eSolia Blue Logo Color #FFBC68 is 800 */
+  --color-esoliablue-50: oklch(90.41% 0.024 212.91);
+  --color-esoliablue-100: oklch(88.36% 0.026 221.6);
+  --color-esoliablue-200: oklch(83.99% 0.035 233.13);
+  --color-esoliablue-300: oklch(79.87% 0.042 243.84);
+  --color-esoliablue-400: oklch(74.61% 0.054 254.73);
+  --color-esoliablue-500: oklch(68.8% 0.07 263.14);
+  --color-esoliablue-600: oklch(60.47% 0.097 270.94);
+  --color-esoliablue-700: oklch(51.84% 0.128 274.22);
+  --color-esoliablue-800: oklch(33.29% 0.09 278.66);
+  --color-esoliablue-900: oklch(27.79% 0.061 275.21);
+  --color-esoliablue-950: oklch(27.06% 0.05 269.88);
+  /* eSolia Pale Yellow Logo Color #FFFAD7 is 500 */
+  --color-esoliapaleyellow-50: oklch(99.67% 0.005 95.1);
+  --color-esoliapaleyellow-100: oklch(99.67% 0.005 95.1);
+  --color-esoliapaleyellow-200: oklch(99.21% 0.017 99.59);
+  --color-esoliapaleyellow-300: oklch(98.88% 0.022 98.63);
+  --color-esoliapaleyellow-400: oklch(98.41% 0.035 100.11);
+  --color-esoliapaleyellow-500: oklch(98.01% 0.046 100.49);
+  --color-esoliapaleyellow-600: oklch(90.95% 0.181 99.31);
+  --color-esoliapaleyellow-700: oklch(83.09% 0.172 97.79);
+  --color-esoliapaleyellow-800: oklch(71.89% 0.149 98.21);
+  --color-esoliapaleyellow-900: oklch(56.97% 0.118 98.01);
+  --color-esoliapaleyellow-950: oklch(44.52% 0.092 98.87);
 }
 
 .lede {

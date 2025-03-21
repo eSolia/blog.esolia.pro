@@ -59,3 +59,8 @@ comments:
   description_all: |
     You can leave a comment by replying to <a href=":src:">this Mastodon post</a> or <a href=":bluesky:">this Bluesky post</a> from your own account.
   empty: No comments yet
+punctuation: 
+  open_quote: "『"
+  close_quote: "』"
+  open_single_quote: "「"
+  close_single_quote: "」"

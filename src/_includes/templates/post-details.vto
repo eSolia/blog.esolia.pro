@@ -6,7 +6,7 @@
       <span class="ml-3">{{ date |> date("DATE")}}</span>
   </time>
   {{ /if }}
-  <a href="{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/" class="relative rounded-md bg-amber-50 px-2 py-1 text-xs font-medium text-amber-600 ring-1 ring-amber-500/10 ring-inset hover:bg-amber-100 no-underline">{{ category }}</a>
+  <a href="{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/" class="relative rounded-md bg-esoliaamber-50 px-2 py-1 text-xs font-medium text-esoliaamber-600 ring-1 ring-esoliaamber-500/10 ring-inset hover:bg-esoliaamber-100 no-underline">{{ category }}</a>
   {{ if author }}
   {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
   {{ if page }}
