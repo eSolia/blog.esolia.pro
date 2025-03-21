@@ -8,6 +8,7 @@ archive:
   description: 当ページにて、私達イソリアのプロが書いた、様々なITトピックスについてのポストを閲覧できます
 social:
   share_title: 当ポストをソーシャルでシェアする
+  share_placeholder: イソリア プロ ブログの新しいポストを是非チェック
   linkedin_label: LinkedInでフォローする
   linkedin_share: LinkedInでシェアする
   linkedin_profile_url: https://www.linkedin.com/company/esolia
