@@ -66,6 +66,8 @@ bodyClass: body-post
                     </aside>
                   {{ /if }}
 
+                  {{ include "templates/post-share.vto" }}
+
                   {{# <nav class="page-pagination pagination">
                     <ul>
                       {{- set previousPost = search.previousPage(url, "type=post") }}

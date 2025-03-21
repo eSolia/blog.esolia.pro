@@ -1,0 +1,30 @@
+<!-- ===== post-share.vto TEMPLATE START ===== -->
+<div class="mx-auto max-w-sm overflow-hidden rounded-md px-4 py-4 sm:py-2 lg:px-6 bg-zinc-50 dark:bg-zinc-800">
+  <div class="flex flex-wrap justify-center text-md p-1">
+    <p class="text-gray-600">{{ i18n.social.share_title }}</p>
+  </div>
+  <div class="mt-1 flex justify-center gap-x-4 pb-3">
+    <a
+      class="group -m-1 p-1"
+      aria-label="{{ i18n.social.linkedin_share }}"
+      href="https://www.linkedin.com/sharing/share-offsite/?url={{ url }}"
+      target="_blank"
+      ><img class="size-6 fill-sky-800 dark:fill-sky-600" aria-hidden="true" src="{{ "linkedin-logo" |> icon("phosphor", "duotone") }}" inline><span class="sr-only">{{ i18n.social.linkedin_share }}</span>
+    </a>
+    <a
+      class="group -m-1 p-1"
+      aria-label="{{ i18n.social.bluesky_share }}"
+      href="https://bsky.app/intent/compose?text=Check%20out%20this%20post!&url={{ url }}"
+      target="_blank"
+      ><img class="size-6 fill-sky-400 dark:fill-sky-300" aria-hidden="true" src="{{ "butterfly" |> icon("phosphor", "duotone") }}" inline><span class="sr-only">{{ i18n.social.bluesky_share }}</span>
+    </a> 
+    <a
+      class="group -m-1 p-1"
+      aria-label="{{ i18n.social.twitter_share }}"
+      href="https://x.com/intent/post?text=Check%20out%20this%20post!&url={{ url }}"
+      target="_blank"
+      ><img class="size-6 fill-black-600 dark:fill-stone-50" aria-hidden="true" src="{{ "x-logo" |> icon("phosphor", "duotone") }}" inline><span class="sr-only">{{ i18n.social.twitter_share }}</span>
+    </a>
+  </div>
+</div>
+<!-- ===== post-share.vto TEMPLATE END ===== -->
