@@ -7,18 +7,20 @@ archive:
   title: Archive
   description: Find below an archive list of posts written on various IT topics, by eSolia professionals
 social:
+  share_placeholder: Check out this new post from eSolia's Pro Blog
   share_title: Share this post on social media
-  linkedin-label: Follow on LinkedIn
-  linkedin-profile-url: https://www.linkedin.com/company/esolia
-  twitter-label: Follow on X Twitter
-  twitter-profile-url: https://x.com/esolia_inc
-  bluesky-label: Follow on Bluesky
-  bluesky-profile-url: https://bsky.app/profile/esolia.com
-  github-label: GitHub profile
-  github-profile-url: https://github.com/esolia
+  linkedin_label: Follow on LinkedIn
+  linkedin_share: Share on LinkedIn
+  linkedin_profile_url: https://www.linkedin.com/company/esolia
+  twitter_label: Follow on X Twitter
+  twitter_profile_url: https://x.com/esolia_inc
+  bluesky_label: Follow on Bluesky
+  bluesky_profile_url: https://bsky.app/profile/esolia.com
+  github_label: GitHub profile
+  github_profile_url: https://github.com/esolia
 logo:
-  symbol-alt: eSolia logo
-  full-alt: eSolia Pro Blog
+  symbol_alt: eSolia logo
+  full_alt: eSolia Pro Blog
 newsletter:
   title: Stay Informed
   description: Get notified when we publish something new, by entering your email address below.
