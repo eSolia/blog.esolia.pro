@@ -7,11 +7,15 @@ archive:
   title: アーカイブ
   description: 当ページにて、私達イソリアのプロが書いた、様々なITトピックスについてのポストを閲覧できます
 social:
+  share_title: 当ポストをソーシャルでシェアする
   linkedin_label: LinkedInでフォローする
+  linkedin_share: LinkedInでシェアする
   linkedin_profile_url: https://www.linkedin.com/company/esolia
   twitter_label: X Twitterでフォローする
+  twitter_share: X Twitterでシェアする
   twitter_profile_url: https://x.com/esolia_inc
   bluesky_label: Blueskyでフォローする
+  bluesky_share: Blueskyでシェアする
   bluesky_profile_url: https://bsky.app/profile/esolia.com
   github_label: GitHubプロフィール
   github_profile_url: https://github.com/esolia
