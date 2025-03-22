@@ -1,5 +1,7 @@
 <!-- ===== post-list.vto TEMPLATE START ===== -->
 {{ for post of postslist }}
+{{ set timeDiff = (new Date().getTime()) - post.date.getTime() }}
+{{ set daysDiff = timeDiff / (1000 * 3600 * 24) }}
 <article class="md:grid md:grid-cols-4 md:items-baseline">
   <div class="group relative flex flex-col items-start md:col-span-3">
     <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
@@ -57,7 +59,7 @@
   <time
     class="relative z-10 order-first mt-1 mb-3 flex items-center text-sm text-zinc-400 max-md:hidden dark:text-zinc-500"
     datetime="{{ post.date }}"
-    >{{ post.date |> date("DATE")}}</time
+    >{{ post.date |> date("DATE")}}{{ if daysDiff < 40 }}<img class="size-6 fill-emerald-400" src="{{ "dot-outline" |> icon("phosphor", "duotone") }}" inline>{{ /if }}</time
   >
 </article>
 {{ /for }}
