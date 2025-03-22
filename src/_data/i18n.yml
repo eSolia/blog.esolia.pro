@@ -50,6 +50,7 @@ post:
   by: 著者
   reading_time: 読書時間
   minutes: 分
+  hot: 人気
 search:
   by_author: 著者
   by_tag: タグ
