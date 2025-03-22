@@ -2,8 +2,6 @@
 layout: layouts/base.vto
 bodyClass: body-post
 ---
-{{ set timeDiff = (new Date().getTime()) - date.getTime() }}
-{{ set daysDiff = timeDiff / (1000 * 3600 * 24) }}
 <main class="flex-auto">
   <div class="mt-16 sm:px-8 lg:mt-32">
     <div class="mx-auto w-full max-w-7xl lg:px-8">
@@ -18,7 +16,7 @@ bodyClass: body-post
 
               <article data-pagefind-body data-title="{{ title }}" data-pagefind-index-attrs="data-title">
                 <header class="flex flex-col">
-                  {{ include "templates/post-details.vto" { elapsed: daysDiff } }}
+                  {{ include "templates/post-details.vto" { elapsed: elapseddays } }}
                   <h1
                     class="mt-6 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
                   >
