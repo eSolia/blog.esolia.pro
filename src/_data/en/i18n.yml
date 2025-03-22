@@ -48,6 +48,7 @@ post:
   by: by
   reading_time: Reading Time
   minutes: min
+  hot: Hot
 search:
   by_author: Authored by
   by_tag: Tag
