@@ -3,7 +3,8 @@
   {{ if date !== "hide" }}
   <time datetime="{{ date }}" class="order-first flex items-center text-zinc-400 dark:text-zinc-500">
     <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
-      <span class="ml-3">{{ date |> date("DATE")}}</span>
+    <span class="ml-3">{{ date |> date("DATE")}}</span>
+    {{ if elapsed < 40 }}<img class="size-6 fill-emerald-400" src="{{ "dot-outline" |> icon("phosphor", "duotone") }}" inline>{{ /if }}
   </time>
   {{ /if }}
   <a href="{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/" class="relative rounded-md bg-esoliaamber-50 px-2 py-1 text-xs font-medium text-esoliaamber-600 ring-1 ring-esoliaamber-500/10 ring-inset hover:bg-esoliaamber-100 no-underline">{{ category }}</a>
