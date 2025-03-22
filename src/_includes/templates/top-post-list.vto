@@ -1,7 +1,5 @@
 <!-- ===== top-post-list.vto TEMPLATE START ===== -->
 {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 3) }}
-{{ set timeDiff = (new Date().getTime()) - post.date.getTime() }}
-{{ set daysDiff = timeDiff / (1000 * 3600 * 24) }}
 <article class="group relative flex flex-col items-start">
   <div class="z-10">
   {{ include "templates/post-details.vto" {
@@ -9,7 +7,7 @@
       category: post.category,
       author: post.author,
       readingInfo: post.readingInfo,
-      elapsed: daysDiff,
+      elapsed: post.elapseddays,
     } }}
   </div>
   <h2

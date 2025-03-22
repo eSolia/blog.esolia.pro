@@ -132,10 +132,14 @@ site.ignore("*.DS_Store");
 site.ignore("archive");
 
 site.preprocess([".md"], (pages) => {
+  const now = new Date();
   for (const page of pages) {
     page.data.excerpt ??= (page.data.content as string).split(
       /<!--\s*more\s*-->/i,
     )[0];
+    const elapsedDays = now.getTime() - page.data.date.getTime();
+    // save the elapsedDays variable:
+    page.data.elapseddays = elapsedDays / (1000 * 3600 * 24);
   }
 });
 
