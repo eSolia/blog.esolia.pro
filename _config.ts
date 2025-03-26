@@ -11,7 +11,7 @@ import tailwindcss from "lume/plugins/tailwindcss.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
 import attributes from "lume/plugins/attributes.ts";
 import esbuild from "lume/plugins/esbuild.ts";
-import terser from "lume/plugins/terser.ts";
+// import terser from "lume/plugins/terser.ts";
 import prism from "lume/plugins/prism.ts";
 import basePath from "lume/plugins/base_path.ts";
 // import slugifyUrls from "lume/plugins/slugify_urls.ts";
@@ -64,8 +64,7 @@ site.use(picture(/* Options */));
 site.use(transformImages());
 site.use(tailwindcss());
 // site.use(lightningCss());
-site.use(esbuild());
-site.use(terser());
+// site.use(terser());
 site.use(prism());
 site.use(basePath());
 site.use(title());
@@ -124,7 +123,8 @@ site.use(inline());
 
 site.add([".css"])
 site.add("fonts")
-site.add("js")
+site.add([".js", ".ts"]); // Add the files to bundle
+site.use(esbuild());
 site.add("favicon.png")
 site.add("uploads")
 site.add("assets")
