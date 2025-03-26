@@ -10,6 +10,7 @@ import tailwindcss from "lume/plugins/tailwindcss.ts";
 // import lightningCss from "lume/plugins/lightningcss.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
 import attributes from "lume/plugins/attributes.ts";
+import esbuild from "lume/plugins/esbuild.ts";
 import terser from "lume/plugins/terser.ts";
 import prism from "lume/plugins/prism.ts";
 import basePath from "lume/plugins/base_path.ts";
@@ -63,6 +64,7 @@ site.use(picture(/* Options */));
 site.use(transformImages());
 site.use(tailwindcss());
 // site.use(lightningCss());
+site.use(esbuild());
 site.use(terser());
 site.use(prism());
 site.use(basePath());
@@ -126,6 +128,11 @@ site.add("js")
 site.add("favicon.png")
 site.add("uploads")
 site.add("assets")
+// Mastodon comment system
+site.remoteFile(
+  "/js/comments.js",
+  "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
+);
 site.mergeKey("extra_head", "stringArray")
 
 site.ignore("*.DS_Store");
@@ -228,13 +235,5 @@ site.hooks.addMarkdownItPlugin(alert);
 //     return "Invalid date";
 //   }
 // });
-
-
-
-// Mastodon comment system
-// site.add(
-//   "/js/comments.js",
-//   "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
-// );
 
 export default site;

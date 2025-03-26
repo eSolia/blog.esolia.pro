@@ -197,6 +197,7 @@ cms.collection({
       type: "url",
       label: "URL",
       description: "The public URL of the page. Leave empty to use the file path",
+      view: "Show Overrides",
     },
     {
       name: "date",
