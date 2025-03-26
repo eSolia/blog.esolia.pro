@@ -6,7 +6,7 @@
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bullseye",
 	"features": {
 		"ghcr.io/devcontainers-extra/features/deno:1": {}
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -16,6 +16,7 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
+  "postCreateCommand": "./setup.sh",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
