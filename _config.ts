@@ -129,9 +129,9 @@ site.add("favicon.png")
 site.add("uploads")
 site.add("assets")
 // Mastodon comment system
-site.remoteFile(
-  "/js/comments.js",
+site.add(
   "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
+  "/js/comments.js",
 );
 site.mergeKey("extra_head", "stringArray")
 
