@@ -19,7 +19,7 @@
                 href="/"
                 ><img
                   id="large-logo"
-                  alt="eSolia full size logo with dark blue text and transparent background"
+                  alt="{{ i18n.nav.logo_large_alt}}"
                   loading="lazy"
                   fetchpriority="high"
                   decoding="async"
@@ -47,7 +47,7 @@
                 href="/"
                 ><img
                   id="small-logo" 
-                  alt="eSolia symbol logo with dark blue text and transparent background"
+                  alt="{{ i18n.nav.logo_symbol_alt }}"
                   loading="lazy"
                   fetchpriority="high"
                   decoding="async"
@@ -63,7 +63,7 @@
                     type="button"
                     x-data @click="$dispatch('toggle-menu')"
                   >
-                    <span>Menu</span><svg
+                    <span>{{ i18n.nav.mobile_nav_name }}</span><svg
                       viewBox="0 0 8 6"
                       aria-hidden="true"
                       class="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400"
@@ -103,8 +103,12 @@
                     {{- for item of it.topnav.links }}
                     <li>
                       <a 
-                        class="relative block whitespace-nowrap px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400" href="{{ item.href }}"
-                        {{- if item.target }}target="{{ item.target }}"{{ /if }} >{{ item.text }}</a
+                        class="relative block whitespace-nowrap px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400" 
+                        href="{{ item.href }}"
+                        {{- if item.target }}target="{{ item.target }}"{{ /if }} 
+                        aria-label="{{ item.aria_label }}" 
+                        title="{{ item.title }}"
+                        >{{ item.text }} <span class="sr-only">({{ item.aria_label }})</span></a
                       >
                     </li>
                     {{ /for -}}
@@ -116,16 +120,18 @@
                       <img class="h-12 w-12 fill-esoliaamber-400 dark:fill-esoliaamber-300" src="{{ "x" |> icon("phosphor") }}" inline />
                   </button>
                   <div class="mobile-menu" x-bind:class="{'is-active' : open }" :style="{ zIndex: zIndex }">
-                      <div class="text-5xl mobile-menu__item"><a
+                  {{- for item of it.topnav.links }}  
+                    <div class="text-5xl mobile-menu__item">
+                      <a
                       class="link dim white f3 f1-l dib"
-                      href="/"
-                      title="{{ i18n.home.sitename }}"
-                    ><span class="font-thin">{{ "Top" |> toUpperCase }}</span></a></div>
-                      <div class="text-5xl mobile-menu__item"><a
-                      class="link dim white f3 f2-m f1-l dib"
-                      href="/about"
-                      title="test"
-                    ><span class="font-thin">{{ "About" |> toUpperCase }}</span></a></div>
+                      href="{{ item.href }}"
+                      aria-label="{{ item.aria_label }}"
+                      title="{{ item.title }}"
+                      ><span class="font-thin">{{ item.text |> toUpperCase }}</span> <span class="sr-only">({{ item.aria_label }})</span>
+                      </a>
+                    </div>
+                  {{ /for -}}
+
                   </div>
                   </nav>
 
