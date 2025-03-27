@@ -14,8 +14,11 @@
               >
                 {{- for item of it.footernav.links }}
                 <a 
-                    class="whitespace-nowrap transition hover:text-teal-500 dark:hover:text-teal-400" href="{{ item.href }}"
-                    {{- if item.target }}target="{{ item.target }}"{{ /if }} >{{ item.text }}</a
+                    class="whitespace-nowrap transition hover:text-teal-500 dark:hover:text-teal-400" 
+                    href="{{ item.href }}"
+                    aria_label="{{ item.aria_label }}"
+                    title="{{ item.title }}"
+                    {{- if item.target }}target="{{ item.target }}"{{ /if }} >{{ item.text }} <span class="sr-only">({{ item.aria_label }})</span></a
                   >
                 {{ /for -}}
               </div>

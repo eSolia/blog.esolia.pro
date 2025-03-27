@@ -7,32 +7,46 @@ topnav:
       href: /archive
       target: _self
       icon: archive
+      aria_label: サイト内リンク
+      title: アーカイブページへのリンク
     - text: イソリア
       href: https://esolia.co.jp
       target: _blank
       icon: building-office
+      aria_label: 外部リンク
+      title: イソリア社ウェブサイトへのリンク
 footernav:
   links: 
     - text: アーカイブ
       href: /archive
       target: _self
       icon: archive
+      aria_label: サイト内リンク
+      title: アーカイブページへのリンク
     - text: サイトマップ
       href: /sitemap.xml
       target: _self
       icon: sitemap
+      aria_label: サイト内リンク
+      title: サイトマップへのリンク
     - text: プライバシーポリシー
       href: #
       target: _self
       icon: privacy
+      aria_label: サイト内リンク
+      title: プライバシーポリシーへのリンク
     - text: 当サイトのGitHubリポジトリ
       href: https://github.com/eSolia/blog.esolia.pro
       target: _blank
       icon: github-logo
+      aria_label: 外部リンク
+      title: 当サイトのGitHubリポジトリへのリンク
     - text: イソリア
       href: https://esolia.co.jp
       target: _blank
       icon: building-office
+      aria_label: 外部リンク
+      title: イソリア社ウェブサイトへのリンク
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
   type: website
@@ -61,32 +75,46 @@ en:
         href: /en/archive
         target: _self
         icon: archive
+        aria_label: Site internal link
+        title: Link to the Archive page
       - text: eSolia Inc.
         href: https://esolia.com
         target: _blank
         icon: building-office
+        aria_label: External link
+        title: Link to eSolia Inc. website
   footernav:
     links: 
       - text: Archive
         href: /archive
         target: _self
         icon: archive
+        aria_label: Site internal link
+        title: Link to the Archive page
       - text: Sitemap
         href: /sitemap.xml
         target: _self
         icon: sitemap
+        aria_label: Site internal link
+        title: Link to the Sitemap
       - text: Privacy Policy
         href: #
         target: _self
         icon: privacy
+        aria_label: Site internal link
+        title: Link to the Privacy Policy
       - text: Github Repository for this Site
         href: https://github.com/eSolia/blog.esolia.pro
         target: _blank
         icon: github-logo
+        aria_label: External link
+        title: Link to the GitHub Repository for this site
       - text: eSolia
         href: https://esolia.com
         target: _blank
         icon: building-office
+        aria_label: External link
+        title: Link to eSolia Inc. website
   metas:
     type: website
     site: "eSolia Pro Blog"

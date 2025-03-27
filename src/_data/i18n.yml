@@ -46,6 +46,9 @@ nav:
   all_authors: すべての著者
   all_posts: すべてのポスト
   return_home: サイトトップへ戻る
+  logo_large_alt: サイトのトップへリンクするイソリア社フルサイズのロゴマーク
+  logo_symbol_alt: サイトのトップへリンクするイソリア社シンボルタイプのロゴマーク
+  mobile_nav_name: メニュー
 post:
   by: 著者
   reading_time: 読書時間

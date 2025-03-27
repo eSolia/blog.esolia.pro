@@ -44,6 +44,9 @@ nav:
   all_authors: All Authors
   all_posts: All Posts
   return_home: Return to Site Top
+  logo_large_alt: eSolia full size logo linking to site top
+  logo_symbol_alt: eSolia symbol-type logo linking to site top
+  mobile_nav_name: Menu
 post:
   by: by
   reading_time: Reading Time
