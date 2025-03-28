@@ -26,6 +26,24 @@ script: /js/fathom-post-list-event.js
             <div class="search" id="search"></div>
           
           {{ if pagination.page === 1 }}
+
+          {{ set pageCats = search.pages(`type=category lang=${lang}`, "category") }}
+          {{ if pageCats.length }}
+          <div class="text-zinc-500 ml-1 mt-2 ">
+            <nav class="">
+              <h2>{{ i18n.search.categories }}:</h2>
+              <ul class="flex flex-wrap space-x-2 space-y-2">
+              {{ for page of pageCats }}
+                <li><a href="{{ page.url }}" class="rounded-md bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 px-2 py-1 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-600 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/10 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap">{{ page.category }}</a></li>
+              {{ /for }}
+
+
+
+              </ul>
+            </nav>
+          </div>
+          {{ /if }}
+
           {{ set pageTags = search.pages(`type=tag lang=${lang}`, "tag") }}
           {{ if pageTags.length }}
           <div class="text-zinc-500 ml-1 mt-2 ">

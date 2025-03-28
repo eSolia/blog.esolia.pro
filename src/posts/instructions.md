@@ -4,7 +4,7 @@ id: 20220612a
 title: 日本語 How to install this theme
 date: 2022-06-12
 author: オテロ オスカー
-category: チュートリアル
+category: ネットワーク
 tags:
   - 説明
   - インストール

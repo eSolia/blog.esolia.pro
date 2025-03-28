@@ -59,6 +59,11 @@ search:
   by_tag: タグ
   by_category: カテゴリ
   tags: タグ
+  categories: カテゴリ
+  authors: 著者
+  filter_by_author: 著者でフィルター
+  filter_by_tag: タグでフィルター
+  filter_by_category: カテゴリーでフィルター
 comments:
   title: Comments
   description: |

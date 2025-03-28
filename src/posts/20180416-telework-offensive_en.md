@@ -9,7 +9,7 @@ title: Telework Offensive!
 subtitle: It's not just a welfare matter; moving toward a practical telework offensive
 description: It's not just a welfare matter; moving toward a practical telework offensive
 image: /uploads/20180416a-telework-01.png
-category: Stories
+category: Cloud
 tags:
   - Telework
   - Work-life balance

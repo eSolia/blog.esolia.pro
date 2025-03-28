@@ -7,11 +7,13 @@ title: English title
 description: Description goes here
 image: /uploads/blog-esolia-pro-default.png
 author: Ena Ishikawa
-category: Articles
+category: Microsoft-365
 tags:
-  - Tagdesu
+  - One
+  - Two
+  - Three
 comments: {}
-draft: true
+draft: false
 ---
 THIS THAT. REPLACE ME. THIS IS THE INTRO TEXT THAT WILL APPEAR ON THE TOP PAGE. ENTER IT BEFORE THE "MORE" TAG JUST BELOW. 
 
