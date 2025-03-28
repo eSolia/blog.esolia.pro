@@ -9,10 +9,9 @@ description: >-
   in mind. 
 image: /uploads/blog-esolia-pro-default.png
 author: Rick Cogley
-category: Articles
+category: Security
 tags:
-  - Security
-  - ISO27001
+  - "ISO-27001"
 comments: {}
 draft: false
 hot: true
