@@ -4,7 +4,7 @@ id: 20220612a
 title: How to install this theme
 date: 2022-06-12
 author: Óscar Otero
-category: Tutorials
+category: Network
 tags:
   - Instructions
 ---

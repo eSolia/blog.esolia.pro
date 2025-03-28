@@ -16,7 +16,7 @@ draft: true
 last_modified: 2025-02-26T00:27:00.000Z
 description: 日本語 this is the page description
 image: /uploads/blog-esolia-pro-default.png
-category: Tutorials
+category: AI活用
 ---
 我が輩は猫でアル Leverage agile frameworks to provide a robust synopsis for high level overviews.
 Iterative approaches to corporate strategy foster collaborative thinking to

@@ -86,7 +86,7 @@
         {{ for category of search.values("category") }}
         {{ set page = search.page(`type=category lang=${lang} category="${category}"`) }}
         {{ if page }}
-          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ category }}</a>
+          <a data-pagefind-filter="{{ i18n.search.filter_by_tag }}" class="badge" href="{{ page.url }}">{{ category }}</a>
         {{ /if }}
         {{ /for }}
         </div>
@@ -96,7 +96,7 @@
         {{ for author of search.values("author") }}
         {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
         {{ if page }}
-          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ author }}</a>
+          <a data-pagefind-filter="{{ i18n.search.filter_by_tag }}" class="badge" href="{{ page.url }}">{{ author }}</a>
         {{ /if }}
         {{ /for }}
         </div>
@@ -106,7 +106,7 @@
         {{ for tag of search.values("tags") }}
         {{ set page = search.page(`type=tag lang=${lang} tag="${tag}"`) }}
         {{ if page }}
-          <a data-pagefind-filter="filter" class="badge" href="{{ page.url }}">{{ tag }}</a>
+          <a data-pagefind-filter="{{ i18n.search.filter_by_tag }}" class="badge" href="{{ page.url }}">{{ tag }}</a>
         {{ /if }}
         {{ /for }}
         </div> #}}
