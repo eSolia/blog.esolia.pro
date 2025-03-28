@@ -11,6 +11,7 @@ bodyClass: body-tag
           <header class="max-w-2xl space-y-10">
             <div class=""><a href="/archive/">{{  i18n.nav.back }}</a></div>
             <h1 class="text-4xl font-thin tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">{{ title }}</h1>
+            <p>{{ summary }}</p>
             {{ include "templates/post-list.vto" { postslist: search.pages(search_query) } }}
           </header>
         </div>
