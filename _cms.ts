@@ -262,10 +262,13 @@ cms.collection({
       label: "カテゴリー Category",
       description: "ページのカテゴリ（例：セキュリティ、クラウド など）。ページの言語で入力してください。<br>The page category (e.g. Security, Cloud, etc), in the language of the page",
       init(field, { data }) {
-        field.options = [
-          "マイクロソフト365", "Microsoft-365", "セキュリティ", "Security", "ネットワーク", "Network", "クラウド", "Cloud","トラブルシューティング", "Troubleshooting", "AI活用", "AI-Usage", 
-          ...data.site?.search.values("category")
+        const staticOpts = [
+          "マイクロソフト365", "Microsoft-365", "セキュリティ", "Security", "ネットワーク", "Network", "クラウド", "Cloud", "トラブルシューティング", "Troubleshooting", "AI活用", "AI-Usage"
         ];
+        const dynamicOpts = data.site?.search.values("category") || [];
+        const allOpts = [...staticOpts, ...dynamicOpts];
+        const uniqueOpts = [...new Set(allOpts)];
+        field.options = uniqueOpts;
       },
     },
     {
