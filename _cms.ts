@@ -231,7 +231,7 @@ cms.collection({
       name: "description",
       type: "textarea",
       label: "ページ・ディスクリプション Page Description",
-      description: "Description in the language of the page, visible in page source, and used in search engine results<br>Description in the language of the page, visible in page source, and used in search engine results",
+      description: "ページの言語でのディスクリプション。ページソース<head>で見えて、検索結果で表示される。<br>Description in the language of the page, visible in page source <head>, and used in search engine results",
       attributes: {
         required: true,
       },
@@ -260,9 +260,15 @@ cms.collection({
       name: "category",
       type: "select",
       label: "カテゴリー Category",
-      description: "ページのカテゴリ（例：ストーリー、ヒント、チュートリアル）。ページの言語で入力してください。<br>The page category (e.g. Stories, Tips, Tutorials), in the language of the page",
+      description: "ページのカテゴリ（例：セキュリティ、クラウド など）。ページの言語で入力してください。<br>The page category (e.g. Security, Cloud, etc), in the language of the page",
       init(field, { data }) {
-        field.options = data.site?.search.values("category");
+        const staticOpts = [
+          "マイクロソフト365", "Microsoft-365", "セキュリティ", "Security", "ネットワーク", "Network", "クラウド", "Cloud", "トラブルシューティング", "Troubleshooting", "AI活用", "AI-Usage"
+        ];
+        const dynamicOpts = data.site?.search.values("category") || [];
+        const allOpts = [...staticOpts, ...dynamicOpts];
+        const uniqueOpts = [...new Set(allOpts)];
+        field.options = uniqueOpts;
       },
     },
     {
