@@ -136,7 +136,7 @@ site.use(
   seo({
     output: "./_seo_report_ja.json",
     ignore: ["/admin/", "/archive/", "/404.html"],
-    lengthUnit: "character",
+    lengthUnit: "word",
     lengthLocale: "ja",
     ignoreAllButLocale: "ja",
     userCommonWordSet: japaneseCommonWords,
