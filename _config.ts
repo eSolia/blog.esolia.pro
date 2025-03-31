@@ -39,6 +39,7 @@ import cssBanner from "https://raw.githubusercontent.com/RickCogley/hibana/refs/
 import shuffle from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/shuffle.ts?3";
 import { time } from "node:console";
 import inline from "lume/plugins/inline.ts";
+import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
 
 // ERRORS: import purgecss from "lume/plugins/purgecss.ts";
 // import minify_html from "lume/plugins/minify_html.ts";
@@ -121,6 +122,44 @@ site.use(shuffle());
 // site.use(minify_html());  
 site.use(inline());
 
+site.use(
+  seo({
+    output: "./_seo_report_en.json",
+    ignore: ["/admin/", "/assets/", "/404.html"],
+    lengthUnit: "character",
+    lengthLocale: "en",
+    ignoreAllButLocale: "en",
+    thresholdMetaDescriptionLength: 170,
+    thresholdContentMinimum: 3500,
+    thresholdContentMaximum: 20000,
+    thresholdLength: 80,
+    thresholdLengthPercentage: 0.7,
+    thresholdLengthForCWCheck: 35,
+    thresholdCommonWordsPercent: 45,
+    logOperations: false
+  }),
+);
+import { japaneseCommonWords } from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/japanese_common_words.js";
+site.use(
+  seo({
+    output: "./_seo_report_ja.json",
+    ignore: ["/admin/", "/assets/", "/404.html"],
+    lengthUnit: "character",
+    lengthLocale: "ja",
+    ignoreAllButLocale: "ja",
+    thresholdMetaDescriptionLength: 170,
+    thresholdContentMinimum: 3500,
+    thresholdContentMaximum: 20000,
+    thresholdLength: 80,
+    thresholdLengthPercentage: 0.7,
+    thresholdLengthForCWCheck: 35,
+    thresholdCommonWordsPercent: 45,
+    logOperations: false,
+    userCommonWordSet: japaneseCommonWords,
+    commonWordPercentageCallback: function (input: string) : number { return(0.99); }
+  }),
+);
+
 site.add([".css"])
 site.add("fonts")
 site.add([".js", ".ts"]); // Add the files to bundle
@@ -136,7 +175,7 @@ site.add(
 site.mergeKey("extra_head", "stringArray")
 
 site.ignore("*.DS_Store");
-site.ignore("archive");
+site.ignore("keep-archive");
 
 site.preprocess([".md"], (pages) => {
   const now = new Date();
