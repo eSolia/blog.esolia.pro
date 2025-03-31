@@ -125,10 +125,17 @@ site.use(inline());
 site.use(
   seo({
     output: "./_seo_report_en.json",
-    ignore: ["/admin/", "/archive/", "/404.html"],
+    ignore: ["/admin/", "/assets/", "/404.html"],
     lengthUnit: "character",
     lengthLocale: "en",
     ignoreAllButLocale: "en",
+    thresholdMetaDescriptionLength: 170,
+    thresholdContentMinimum: 3500,
+    thresholdContentMaximum: 20000,
+    thresholdLength: 80,
+    thresholdLengthPercentage: 0.7,
+    thresholdLengthForCWCheck: 35,
+    thresholdCommonWordsPercent: 45,
     logOperations: false
   }),
 );
@@ -136,10 +143,17 @@ import { japaneseCommonWords } from "https://raw.githubusercontent.com/timthepos
 site.use(
   seo({
     output: "./_seo_report_ja.json",
-    ignore: ["/admin/", "/archive/", "/404.html"],
-    lengthUnit: "grapheme",
+    ignore: ["/admin/", "/assets/", "/404.html"],
+    lengthUnit: "character",
     lengthLocale: "ja",
     ignoreAllButLocale: "ja",
+    thresholdMetaDescriptionLength: 170,
+    thresholdContentMinimum: 3500,
+    thresholdContentMaximum: 20000,
+    thresholdLength: 80,
+    thresholdLengthPercentage: 0.7,
+    thresholdLengthForCWCheck: 35,
+    thresholdCommonWordsPercent: 45,
     logOperations: false,
     userCommonWordSet: japaneseCommonWords,
     commonWordPercentageCallback: function (input: string) : number { return(0.99); }
@@ -161,7 +175,7 @@ site.add(
 site.mergeKey("extra_head", "stringArray")
 
 site.ignore("*.DS_Store");
-site.ignore("archive");
+site.ignore("keep-archive");
 
 site.preprocess([".md"], (pages) => {
   const now = new Date();
