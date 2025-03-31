@@ -128,7 +128,8 @@ site.use(
     ignore: ["/admin/", "/archive/", "/404.html"],
     lengthUnit: "character",
     lengthLocale: "en",
-    ignoreAllButLocale: "en"
+    ignoreAllButLocale: "en",
+    logOperations: false
   }),
 );
 import { japaneseCommonWords } from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/japanese_common_words.js";
@@ -136,9 +137,10 @@ site.use(
   seo({
     output: "./_seo_report_ja.json",
     ignore: ["/admin/", "/archive/", "/404.html"],
-    lengthUnit: "word",
+    lengthUnit: "grapheme",
     lengthLocale: "ja",
     ignoreAllButLocale: "ja",
+    logOperations: false,
     userCommonWordSet: japaneseCommonWords,
     commonWordPercentageCallback: function (input: string) : number { return(0.99); }
   }),
