@@ -39,6 +39,7 @@ import cssBanner from "https://raw.githubusercontent.com/RickCogley/hibana/refs/
 import shuffle from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/shuffle.ts?3";
 import { time } from "node:console";
 import inline from "lume/plugins/inline.ts";
+import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
 
 // ERRORS: import purgecss from "lume/plugins/purgecss.ts";
 // import minify_html from "lume/plugins/minify_html.ts";
@@ -120,6 +121,28 @@ site.use(shuffle());
 // ERRORS: site.use(purgecss()); 
 // site.use(minify_html());  
 site.use(inline());
+
+site.use(
+  seo({
+    output: "./_seo_report_en.json",
+    ignore: ["/admin/", "/archive/", "/404.html"],
+    lengthUnit: "character",
+    lengthLocale: "en",
+    ignoreAllButLocale: "en"
+  }),
+);
+import { japaneseCommonWords } from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/japanese_common_words.js";
+site.use(
+  seo({
+    output: "./_seo_report_ja.json",
+    ignore: ["/admin/", "/archive/", "/404.html"],
+    lengthUnit: "character",
+    lengthLocale: "ja",
+    ignoreAllButLocale: "ja",
+    userCommonWordSet: japaneseCommonWords,
+    commonWordPercentageCallback: function (input: string) : number { return(0.99); }
+  }),
+);
 
 site.add([".css"])
 site.add("fonts")
