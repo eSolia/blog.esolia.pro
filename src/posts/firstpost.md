@@ -1,7 +1,7 @@
 ---
 lang: ja
 id: 20180823a
-title: 日本語 This is a post with mastodon comments
+title: 面ヨ趣容クえ辺度ぽほゅ
 date: 2018-08-23T00:00:00.000Z
 author: Rick Cogley
 tags:
@@ -18,10 +18,7 @@ description: 日本語 this is the page description
 image: /uploads/blog-esolia-pro-default.png
 category: AI活用
 ---
-我が輩は猫でアル Leverage agile frameworks to provide a robust synopsis for high level overviews.
-Iterative approaches to corporate strategy foster collaborative thinking to
-further the overall value proposition. Organically grow the holistic world view
-of disruptive innovation via workplace diversity and empowerment.
+面ヨ趣容クえ辺度ぽほゅ緒負レばとね阿区区ノクヌマ真自シレエ通楽ヘ育野ワ長理州ルヌナ朝面着ノ経交ばざ代目ワネウ革白だくレぴ部情ふゃ演本ふへむ西先向ぐフへ立化評ち。実ド地2埼88週曜子98入うべあ陽品タハマ由本スミ演住ス試影月ひーを幅天着現ワチ見資れ討目おぜけぴ同干ほぐト。
 
 <!--more-->
 

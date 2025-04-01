@@ -1,29 +1,35 @@
 マイクロソフト365:
   id: cat1
   color: blue
+  img: cat1-bg.jpg
   summary: Microsoft 365に関する記事です。Exchange Online、SharePoint Online、OneDrive for Business、Microsoft Teamsを含みます。これらの記事は、eSoliaの専門家がこれらの製品に関する経験に基づいて執筆しています。
 
 セキュリティ:
   id: cat2
   color: esoliaamber
+  img: cat2-bg.jpg
   summary: セキュリティに分類されたすべての記事です。これらには、eSoliaの専門家の経験に基づいた日常のセキュリティに関する実用的なアドバイスが含まれています。
 
 ネットワーク:
   id: cat3
   color: fuchsia
+  img: cat3-bg.jpg
   summary: ネットワークに分類された全ての記事です。LAN、WAN、VPNを含みます。これらの記事は、eSoliaの専門家がこれらの技術に関する経験に基づいて執筆しています。
 
 クラウド:
   id: cat4
   color: lime
+  img: cat4-bg.jpg
   summary: クラウドコンピューティングに関する記事です。IaaS、PaaS、SaaSを含みます。これらの記事は、eSoliaの専門家がこれらの技術に関する経験に基づいて執筆しています。
 
 トラブルシューティング:
   id: cat5
   color: violet
+  img: cat5-bg.jpg
   summary: トラブルシューティングに関する記事です。一般的な問題の診断と修正のためのヒントやコツを含みます。これらの記事は、eSoliaの専門家がこれらの製品に関する経験に基づいて執筆しています。
 
 AI活用:
   id: cat6
   color: red
+  img: cat6-bg.jpg
   summary: AIの使用に関する記事です。AIツールを効果的に使用するためのヒントやコツを含みます。これらの記事は、eSoliaの専門家がこれらの製品や技術に関する経験に基づいて執筆しています。
