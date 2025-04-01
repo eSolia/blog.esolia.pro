@@ -1,29 +1,35 @@
 Microsoft-365:
   id: cat1
   color: blue
+  img: cat1-bg.jpg
   summary: Articles about Microsoft 365, including Exchange Online, SharePoint Online, OneDrive for Business, and Microsoft Teams. These articles are written by eSolia professionals based on their experience with these products.
 
 Security:
   id: cat2
   color: esoliaamber
+  img: cat2-bg.jpg
   summary: Here are all the articles categorized under Security. These contain practical advice about day-to-day security based on the experience of eSolia professionals. 
 
 Network:
   id: cat3
   color: fuchsia
+  img: cat3-bg.jpg
   summary: Articles about networks, including LAN, WAN, and VPN. These articles are written by eSolia professionals based on their experience with these technologies.
 
 Cloud:
   id: cat4
   color: lime
+  img: cat4-bg.jpg
   summary: All the articles about cloud computing, including IaaS, PaaS, and SaaS. These articles are written by eSolia professionals based on their experience with these technologies.
 
 Troubleshooting:  
   id: cat5
   color: violet
+  img: cat5-bg.jpg
   summary: Articles about troubleshooting, including tips and tricks for diagnosing and fixing common issues. These articles are written by eSolia professionals based on their experience with these products.
 
 AI-Usage: 
   id: cat6
   color: red
+  img: cat6-bg.jpg
   summary: Articles about AI usage, including tips and tricks for using AI tools effectively. These articles are written by eSolia professionals based on their experience with these products and technologies.
