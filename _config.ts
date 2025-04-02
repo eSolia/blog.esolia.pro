@@ -96,7 +96,46 @@ site.use(sitemap({
 }));
 site.use(source_maps());
 // site.use(sri());
-site.use(favicon());
+site.use(favicon({
+  favicons: [
+    { 
+      url: "/favicon.ico", 
+      size: [ 48 ], 
+      rel: "icon", 
+      format: "ico" 
+    },
+    {
+      url: "/apple-touch-icon.png",
+      size: [ 180 ],
+      rel: "apple-touch-icon",
+      format: "png"
+    },
+    {
+      url: "/android-chrome-192x192.png",
+      size: [ 192 ],
+      rel: "icon",
+      format: "png"
+    },
+    {
+      url: "/android-chrome-512x512.png",
+      size: [ 512 ],
+      rel: "icon",
+      format: "png"
+    },
+    {
+      url: "/favicon-16x16.png",
+      size: [ 16 ],
+      rel: "icon",
+      format: "png"
+    },
+    {
+      url: "/favicon-32x32.png",
+      size: [ 32 ],
+      rel: "icon",
+      format: "png"
+    }
+  ]
+}));
 site.use(feed({
   output: ["/feed.xml", "/feed.json"],
   query: "type=post",
@@ -164,7 +203,7 @@ site.add([".css"])
 site.add("fonts")
 site.add([".js", ".ts"]); // Add the files to bundle
 site.use(esbuild());
-site.add("favicon.png")
+site.add("manifest.json")
 site.add("uploads")
 site.add("assets")
 // Mastodon comment system
