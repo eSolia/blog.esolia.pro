@@ -7,7 +7,8 @@
     {{ if elapsed < 40 }}<img class="size-6 fill-emerald-400" src="{{ "dot-outline" |> icon("phosphor", "duotone") }}" inline>{{ /if }}
   </time>
   {{ /if }}
-  <a href="{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/" data-pagefind-filter="{{ i18n.search.filter_by_category }}" class="relative rounded-md bg-{{ if featurecats[category].color }}{{ featurecats[category].color }}{{ else }}zinc{{ /if }}-50 px-2 py-1 text-xs font-medium text-{{ if featurecats[category].color }}{{ featurecats[category].color }}{{ else }}zinc{{ /if }}-600 ring-1 ring-{{ if featurecats[category].color }}{{ featurecats[category].color }}{{ else }}zinc{{ /if }}-500/10 ring-inset hover:bg-{{ if featurecats[category].color }}{{ featurecats[category].color }}{{ else }}zinc{{ /if }}-100 no-underline">{{ category }}</a>
+  {{ set catColor = featurecats.find((item) => item.key === category).color }}
+  <a href="{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/" data-pagefind-filter="{{ i18n.search.filter_by_category }}" class="relative rounded-md bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-50 px-2 py-1 text-xs font-medium text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-600 ring-1 ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/10 ring-inset hover:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-100 no-underline">{{ category }}</a>
   {{ if author }}
   {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
   {{ if page }}

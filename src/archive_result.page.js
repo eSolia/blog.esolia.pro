@@ -6,7 +6,7 @@ export default function* ({ search, lang, i18n, featuretags, featurecats }) {
   // Generate a page for each tag
   for (const tag of search.values("tags", `lang=${lang}`)) {
     yield {
-      ...featuretags[tag], // <- Add the id and summary from featuretags
+      ...featuretags.find((item) => item.key === tag), // <- Add the id and summary etc from featuretags
       url: `/archive/${tag}/`,
       title: `${i18n.search.by_tag}:  ${i18n.punctuation.open_quote}${tag}${i18n.punctuation.close_quote}`,
       type: "tag",
@@ -29,7 +29,7 @@ export default function* ({ search, lang, i18n, featuretags, featurecats }) {
   // Generate a page for each category  
   for (const category of search.values("category", `lang=${lang}`)) {
     yield {
-      ...featurecats[category], // <- Add the id and summary from featurecats
+      ...featurecats.find((item) => item.key === category), // <- Add the id and summary etc from featurecats
       url: `/category/${category}/`,
       title: `${i18n.search.by_category}: ${i18n.punctuation.open_quote}${category}${i18n.punctuation.close_quote}`,
       type: "category",

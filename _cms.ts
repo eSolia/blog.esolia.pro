@@ -59,25 +59,91 @@ const url: Field = {
   },
 };
 
-const srcData = Deno.cwd() + "/src/_data/";
-console.log(srcData);
-// cms.storage("fs1", new FsStorage({ srcData }));
 cms.document({
-  name: "featured-categories-ja",
+  name: "featurecats-ja",
+  type: "object",
   label: "ブログポストの注目カテゴリ",
-  description: "NOT YET WORKING ブログポストで使われている特別に選択した注目カテゴリ情報を編集する",
+  description: "良いSEOを確保するために、ブログポストで使われている特別に選択した注目カテゴリ情報を編集する",
   store: "src:_data/featurecats.yml",
   fields: [
-    "content: markdown",
+    {
+      type: "object-list",
+      name: "[]",
+      label: "カテゴリ",
+      description: "注目カテゴリを編集する",
+      fields: [
+        "key: text",
+        "id: text",
+        "color: text",
+        "img: text",
+        "summary: markdown",
+      ],
+    },
   ],
 });
+
 cms.document({
-  name: "featured-categories-en",
-  label: "Featured Categories",
-  description: "NOT YET WORKING Edit the information for specially selected and featured categories, for blog posts",
+  name: "featuretags-ja",
+  type: "object",
+  label: "ブログポストの注目タグ",
+  description: "良いSEOを確保するために、ブログポストで使われている特別に選択した注目タグ情報を編集する",
+  store: "src:_data/featuretags.yml",
+  fields: [
+    {
+      type: "object-list",
+      name: "[]",
+      label: "タグ",
+      description: "注目タグを編集する",
+      fields: [
+        "key: text",
+        "id: text",
+        "summary: markdown",
+      ],
+    },
+  ],
+});
+
+cms.document({
+  name: "featurecats-en",
+  type: "object",
+  label: "Blog Post Featured Categories",
+  description: "To ensure good SEO, edit the information for these specially selected and featured categories, for blog posts",
   store: "src:_data/en/featurecats.yml",
   fields: [
-    "content: markdown",
+    {
+      type: "object-list",
+      name: "[]",
+      label: "Category",
+      description: "Edit Category",
+      fields: [
+        "key: text",
+        "id: text",
+        "color: text",
+        "img: text",
+        "summary: markdown",
+      ],
+    },
+  ],
+});
+
+cms.document({
+  name: "featuretags-en",
+  type: "object",
+  label: "Blog Post Featured Tags",
+  description: "To ensure good SEO, edit the information for these specially selected and featured tags, for blog posts",
+  store: "src:_data/en/featuretags.yml",
+  fields: [
+    {
+      type: "object-list",
+      name: "[]",
+      label: "Tag",
+      description: "Edit Tag",
+      fields: [
+        "key: text",
+        "id: text",
+        "summary: markdown",
+      ],
+    },
   ],
 });
 
