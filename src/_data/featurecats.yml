@@ -33,3 +33,15 @@ AI活用:
   color: red
   img: cat6-bg.jpg
   summary: AIの使用に関する記事です。AIツールを効果的に使用するためのヒントやコツを含みます。これらの記事は、eSoliaの専門家がこれらの製品や技術に関する経験に基づいて執筆しています。
+
+ウィンドウズ:
+  id: cat7
+  color: amber
+  img: cat7-bg.jpg
+  summary: Windowsに関する記事です。これらの記事は、eSoliaの専門家がこれらのOS製品に関する経験に基づいて執筆しています。
+
+周辺機器:
+  id: cat8
+  color: teal
+  img: cat8-bg.jpg
+  summary: 周辺機器に関する記事です。これらの記事は、eSoliaの専門家がこれらの製品に関する経験に基づいて執筆しています。

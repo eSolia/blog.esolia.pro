@@ -59,6 +59,29 @@ const url: Field = {
   },
 };
 
+const srcData = Deno.cwd() + "/src/_data/";
+console.log(srcData);
+// cms.storage("fs1", new FsStorage({ srcData }));
+cms.document({
+  name: "featured-categories-ja",
+  label: "ブログポストの注目カテゴリ",
+  description: "NOT YET WORKING ブログポストで使われている特別に選択した注目カテゴリ情報を編集する",
+  store: "src:_data/featurecats.yml",
+  fields: [
+    "content: markdown",
+  ],
+});
+cms.document({
+  name: "featured-categories-en",
+  label: "Featured Categories",
+  description: "NOT YET WORKING Edit the information for specially selected and featured categories, for blog posts",
+  store: "src:_data/en/featurecats.yml",
+  fields: [
+    "content: markdown",
+  ],
+});
+
+
 // cms.document(
 //   "settings: Global settings for the site",
 //   "src:_data.yml",
@@ -262,13 +285,13 @@ cms.collection({
       label: "カテゴリー Category",
       description: "ページのカテゴリ（例：セキュリティ、クラウド など）。ページの言語で入力してください。<br>The page category (e.g. Security, Cloud, etc), in the language of the page",
       init(field, { data }) {
-        const staticOpts = [
-          "マイクロソフト365", "Microsoft-365", "セキュリティ", "Security", "ネットワーク", "Network", "クラウド", "Cloud", "トラブルシューティング", "Troubleshooting", "AI活用", "AI-Usage"
+        const staticCats = [
+          "マイクロソフト365", "Microsoft-365", "セキュリティ", "Security", "ネットワーク", "Network", "クラウド", "Cloud", "トラブルシューティング", "Troubleshooting", "AI活用", "AI-Usage", "ウィンドウズ", "Windows", "周辺機器", "Peripherals"
         ];
-        const dynamicOpts = data.site?.search.values("category") || [];
-        const allOpts = [...staticOpts, ...dynamicOpts];
-        const uniqueOpts = [...new Set(allOpts)];
-        field.options = uniqueOpts;
+        const dynamicCats = data.site?.search.values("category") || [];
+        const allCats = [...staticCats, ...dynamicCats];
+        const uniqueCats = [...new Set(allCats)];
+        field.options = uniqueCats;
       },
     },
     {
@@ -277,7 +300,13 @@ cms.collection({
       label: "タグ Tags",
       description: "ページのタグ。ページの言語で入力してください。<br>The page tags, in the language of the page",
       init(field, { data }) {
-        field.options = data.site?.search.values("tags");
+        const staticTags = [
+        "JIS-Q-27001", "ISO-27001"
+        ];
+        const dynamicTags = data.site?.search.values("tags") || [];
+        const allTags = [...staticTags, ...dynamicTags];
+        const uniqueTags = [...new Set(allTags)];
+        field.options = uniqueTags;
       },
     },
     {
