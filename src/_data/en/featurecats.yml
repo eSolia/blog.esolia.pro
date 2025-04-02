@@ -33,3 +33,15 @@ AI-Usage:
   color: red
   img: cat6-bg.jpg
   summary: Articles about AI usage, including tips and tricks for using AI tools effectively. These articles are written by eSolia professionals based on their experience with these products and technologies.
+
+Windows:
+  id: cat7
+  color: amber
+  img: cat7-bg.jpg
+  summary: Articles about Windows. These articles are written by eSolia professionals based on their experience with the OS.
+
+Peripherals:
+  id: cat8
+  color: teal
+  img: cat8-bg.jpg
+  summary: Articles about peripherals. These articles are written by eSolia professionals based on their experience with these products.
