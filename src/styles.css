@@ -6,6 +6,7 @@
 /* @plugin "flyonui@2.0.0"; */
 /* @plugin "tailwind-every-layout@latest"; */
 @import "css/alerts.css";
+/* @import "css/vendor/splidejs/splide-skyblue.min.css"; */
 @layer base {
   a {
     text-decoration: underline;

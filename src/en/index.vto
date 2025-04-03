@@ -9,7 +9,7 @@ script: /js/fathom-post-list-event.js
 <!-- ===== index.vto LAYOUT START ===== -->
 <main class="flex-auto">
   {{ include "templates/top-welcome-header.vto" }}
-  {{ include "templates/photo-obi.vto" }}
+  {{ include "templates/slider1.vto" }}
   <div class="mt-24 sm:px-8 md:mt-28">
     <div class="mx-auto w-full max-w-7xl lg:px-8">
       <div class="relative px-4 sm:px-8 lg:px-12">
@@ -20,12 +20,12 @@ script: /js/fathom-post-list-event.js
             <div class="flex flex-col gap-16">
               <div class="search" id="search"></div>
               {{ include "templates/top-main-cats1.vto" }}
-              {{ include "templates/top-post-list2.vto" }}
+              {{ include "templates/top-post-cards1.vto" }}
             </div>
             <!-- Sidebar start -->
             <div class="space-y-10 lg:pl-16 xl:pl-24">
               {{ include "templates/panel-newsletter.vto" }}
-              {{ include "templates/panel-categories.vto" }}
+              {{# {{ include "templates/panel-categories.vto" }} #}}
             </div>
             <!-- Sidebar end -->
           </div>

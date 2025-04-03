@@ -13,6 +13,7 @@ tags:
 comments:
   src: 'https://mastodon.gal/@misteroom/110810445656343599'
 draft: false
+featured: true
 last_modified: 2025-02-26T00:27:00.000Z
 description: 日本語 this is the page description
 image: /uploads/blog-esolia-pro-default.png
