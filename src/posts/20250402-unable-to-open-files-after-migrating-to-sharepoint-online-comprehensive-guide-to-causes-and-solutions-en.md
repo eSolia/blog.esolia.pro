@@ -31,7 +31,6 @@ Migrating from an on-premises file server to SPO offers potential benefits such 
 <br>
 This was not just a simple server migration—it was a major shift that required changes in operations and processes.<br>
 <br>
-
 ## Concerns Become Reality
 The migration was successfully completed. However, the local IT team had lingering concerns:<br> 
 **"Is this really going to work? Will end users be able to adapt?"** <br>
@@ -56,7 +55,7 @@ However, in SPO, this approach leads to issues such as:<br>
 "Files won’t open due to path length limitations!" <br> 
 To better understand the issue, let's examine SPO’s unique characteristics and the constraints it imposes. <br> 
 <br> 
-## SharePoint Online Constraints: 
+## SharePoint Online Constraints 
 &nbsp;**1. Folder Structure Limitations**<br> 
 &nbsp;&nbsp;・Deep folder structures are not recommended in SPO.<br> 
 &nbsp;&nbsp;・Instead, a metadata-driven approach should be used for better searchability.<br>
