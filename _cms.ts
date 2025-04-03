@@ -33,8 +33,20 @@ cms.auth({
   eSolia: "GoodStories!",
 });
 
-// Configure upload
-cms.upload("uploads: Uploaded files", "src:uploads");
+// Configure upload storage
+cms.upload({
+  name: "uploads",
+  label: "Upload files and images for posts",
+  description: "Upload files and images to the uploads folder, for post use",
+  store: "src:uploads",
+});
+
+cms.upload({
+  name: "assets",
+  label: "Upload files and images for system",
+  description: "Upload files and images to the assets folder, for non-post use",
+  store: "src:assets",
+});
 
 // Configure git
 cms.git();
@@ -75,7 +87,7 @@ cms.document({
         "key: text",
         "id: text",
         "color: text",
-        "img: text",
+        {name: "image", type: "file", upload: "assets"},
         "summary: markdown",
       ],
     },
@@ -119,7 +131,7 @@ cms.document({
         "key: text",
         "id: text",
         "color: text",
-        "img: text",
+        {name: "image", type: "file", upload: "assets"},
         "summary: markdown",
       ],
     },
@@ -352,7 +364,7 @@ cms.collection({
       description: "ページのカテゴリ（例：セキュリティ、クラウド など）。ページの言語で入力してください。<br>The page category (e.g. Security, Cloud, etc), in the language of the page",
       init(field, { data }) {
         const staticCats = [
-          "マイクロソフト365", "Microsoft-365", "セキュリティ", "Security", "ネットワーク", "Network", "クラウド", "Cloud", "トラブルシューティング", "Troubleshooting", "AI活用", "AI-Usage", "ウィンドウズ", "Windows", "周辺機器", "Peripherals"
+          "マイクロソフト365", "Microsoft-365", "セキュリティ", "Security", "ネットワーク", "Network", "クラウド", "Cloud", "トラブルシューティング", "Troubleshooting", "AI活用", "AI-Usage", "ウィンドウズ", "Windows", "周辺機器", "Peripherals", "その他", "Other"
         ];
         const dynamicCats = data.site?.search.values("category") || [];
         const allCats = [...staticCats, ...dynamicCats];

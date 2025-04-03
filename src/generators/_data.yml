@@ -1,0 +1,32 @@
+lang: ja
+seo:
+  skip_content: true
+metas:
+  type: CollectionPage
+  title: "=title || アーカイブ一覧"
+  description: "=summary || =description || 当一覧は、イソリア社のプロが書いた、様々なITトピックスについてのポストを閲覧できます"
+  image: "=image || /assets/cat0-bg.jpg"
+  keywords: "=tags"
+  "twitter:data1": "=author"
+  "article:published_time":	"=date"
+  "article:modified_time": "=last_modified" 
+  "article:author": "=author"
+  "article:section": "=article-type"
+  "article:tag": "=tags" 
+
+en: 
+  lang: en
+  seo:
+    skip_content: true
+  metas:
+    type: CollectionPage
+    title: "=title || Archive Listing"
+    description: "=summary || =description || This page contains a list of posts written by eSolia professionals on various IT topics"
+    image: "=image || /assets/cat0-bg.jpg"
+    keywords: "=tags"
+    "twitter:data1": "=author"
+    "article:published_time":	"=date"
+    "article:modified_time": "=last_modified" 
+    "article:author": "=author"
+    "article:section": "=article-type"
+    "article:tag": "=tags"

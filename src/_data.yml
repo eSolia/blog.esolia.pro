@@ -49,12 +49,12 @@ footernav:
       title: イソリア社ウェブサイトへのリンク
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
+  lang: ja
   type: website
   site: "イソリア プロ ブログ"
-  title: "プロ ブログ ページ"
-  lang: ja
-  description: "株式会社イソリア ブログのページ"
-  image: "/assets/blog-esolia-pro-default.png"
+  title: "=title || プロ ブログ ページ"
+  description: "=description || 株式会社イソリア ブログのページ"
+  image: "=image || /assets/blog-esolia-pro-default.png"
   icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
   keywords: ["イソリア", "ブログ", "ウェブログ", "プロ", "プロフェッショナル", "東京ITサービス", "日本語"]
   twitter: "@esolia_inc"
@@ -116,12 +116,12 @@ en:
         aria_label: External link
         title: Link to eSolia Inc. website
   metas:
+    lang: en
     type: website
     site: "eSolia Pro Blog"
-    title: "Pro Blog Page"
-    lang: en
-    description: "Blog page from eSolia Inc., Tokyo, Japan"
-    image: "/assets/blog-esolia-pro-default.png"
+    title: "=title || Pro Blog Page"
+    description: "=description || Blog page from eSolia Inc., Tokyo, Japan"
+    image: "=image || /assets/blog-esolia-pro-default.png"
     icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
     keywords: ["eSolia", "blog", "weblog", "pro", "professional", "tokyo it service", "japan", "english"]
     twitter: "@esolia_inc"
