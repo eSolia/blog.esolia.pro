@@ -8,7 +8,10 @@ title: >-
   Unable to Open Files After Migrating to SharePoint Online? Comprehensive Guide
   to Causes and Solutions!
 description: >-
-  Files won't open after migrating to SharePoint Online? In this article, we explain the differences in SPO's folder structure, URL limitations, access management, and give some practical solutions. Contains a detailed guide on metadata management to enhance searchability! 
+  Files won't open after migrating to SharePoint Online? In this article, we
+  explain the differences in SPO's folder structure, URL limitations, access
+  management, and give some practical solutions. Contains a detailed guide on
+  metadata management to enhance searchability! 
 image: /uploads/blog-esolia-pro-default.png
 author: Ena Ishikawa
 category: Microsoft-365
@@ -20,7 +23,8 @@ Are you facing issues where files won't open **after migrating to SharePoint Onl
 
 ## From On-Premises to the Cloud 
 
-> "Decommission all on-premises servers across all sites and move to the cloud!" 
+> Decommission all on-premises servers across all sites and move to the cloud!
+
 <br>
 This is a common scenario in foreign-affiliated companies. Often, projects are rolled out to local offices under directives from Global IT. In one such company, following an order from the Global IT Manager, the local IT team was tasked with reviewing its file server operations and migrating them to the cloud.<br>
 <br>
