@@ -30,7 +30,7 @@
   summary: Articles about AI usage, including tips and tricks for using AI tools effectively. These articles are written by eSolia professionals based on their experience with these products and technologies.
 - key: Windows
   id: cat7
-  color: amber
+  color: sky
   image: /assets/cat7-bg.jpg
   summary: Articles about Windows. These articles are written by eSolia professionals based on their experience with the OS.
 - key: Peripherals

@@ -30,7 +30,7 @@
   summary: AIの使用に関する記事です。AIツールを効果的に使用するためのヒントやコツを含みます。これらの記事は、eSoliaの専門家がこれらの製品や技術に関する経験に基づいて執筆しています。
 - key: ウィンドウズ
   id: cat7
-  color: amber
+  color: sky
   image: /assets/cat7-bg.jpg
   summary: Windowsに関する記事です。これらの記事は、eSoliaの専門家がこれらのOS製品に関する経験に基づいて執筆しています。
 - key: 周辺機器
