@@ -1,7 +1,7 @@
 ---
 draft: false
 hot: false
-featured: false
+featured: true
 lang: en
 id: 202503c-essential-shortcuts
 title: >-
@@ -15,7 +15,7 @@ author: Yorihisa Nakada
 category: Microsoft-365
 comments: {}
 ---
-REPLACE ME. THIS IS THE INTRO TEXT THAT WILL APPEAR ON THE TOP PAGE. ENTER IT BEFORE THE "MORE" TAG JUST BELOW. 
+Discover useful shortcut keys for Windows and Office 365 to enhance productivity and streamline your workflow! 
 
 <!--more-->
 Have you ever experienced something like this? 
@@ -50,7 +50,7 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
 
 ***Basic operations (for relieving everyday little frustrations)***
 
-<table border="1">
+<table class="table-fixed">
   <thead>
     <tr>
       <th>Shortcut Key</th>
@@ -59,7 +59,7 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
   </thead>
   <tbody>
     <tr>
-      <td><strong>Win + D</strong></td>
+      <td><strong><kbd>Win + D</kbd></strong></td>
       <td>Show desktop</td>
     </tr>
     <tr>
@@ -85,7 +85,7 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
 
 **Boost productivity (quiet time-savers for smart workers)**
 
-<table border="1">
+<table class="table-fixed">
   <thead>
     <tr>
       <th>Shortcut Key</th>
@@ -126,7 +126,7 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
 
 **Word** 
 
-<table border="1">
+<table class="table-fixed">
   <thead>
     <tr>
       <th>Shortcut Key</th>
@@ -161,7 +161,7 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
 
 **Excel** 
 
-<table border="1">
+<table class="table-fixed">
   <thead>
     <tr>
       <th>Shortcut Key</th>
@@ -196,7 +196,7 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
 
 **Outlook** 
 
-<table border="1">
+<table class="table-fixed">
   <thead>
     <tr>
       <th>Shortcut Key</th>
