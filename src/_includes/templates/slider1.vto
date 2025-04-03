@@ -6,8 +6,8 @@
         <ul class="splide__list rounded-t-2xl">
           <!-- Start slides loop -->
           {{ for post of search.pages(`type=post lang=${lang} featured=true`, "date=desc") }}
-            {{ set catColor = (featurecats.find((item) => item.key === post.category) || {}).color }}
-            {{ set catImage = (featurecats.find((item) => item.key === post.category) || {}).image }}
+            {{ set catColor = featurecats.find((item) => item.key === post.category)?.color }}
+            {{ set catImage = featurecats.find((item) => item.key === post.category)?.image }}
           <li class="splide__slide relative rounded-t-2xl">
             {{# <div class="absolute inset-0 bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500 opacity-30 rounded-t-2xl"></div> #}}
             <img src="{{ if catImage }}{{ catImage }}{{ else }}/assets/cat0-bg.jpg{{ /if }}" alt="Slide Image" class="w-full h-auto rounded-t-2xl object-cover">

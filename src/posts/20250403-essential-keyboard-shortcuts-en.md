@@ -59,23 +59,23 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
   </thead>
   <tbody>
     <tr>
-      <td><strong><kbd>Win + D</kbd></strong></td>
+      <td><kbd>Win</kbd> + <kbd>D</kbd></td>
       <td>Show desktop</td>
     </tr>
     <tr>
-      <td><strong>Win + E</strong></td>
+      <td><kbd>Win</kbd> + <kbd>E</kbd></td>
       <td>Open File Explorer</td>
     </tr>
     <tr>
-      <td><strong>Win + Tab</strong></td>
+      <td><kbd>Win</kbd> + <kbd>Tab</kbd></td>
       <td>Open Task View</td>
     </tr>
     <tr>
-      <td><strong>Alt + Tab</strong></td>
+      <td><kbd>Alt</kbd> + <kbd>Tab</kbd></td>
       <td>Switch between open windows</td>
     </tr>
     <tr>
-      <td><strong>Win + L</strong></td>
+      <td><kbd>Win</kbd> + <kbd>L</kbd></td>
       <td>Lock the screen</td>
     </tr>
   </tbody>
@@ -94,23 +94,23 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
   </thead>
   <tbody>
     <tr>
-      <td><strong>Ctrl + Shift + Esc<strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd></td>
       <td>Open Task Manager</td>
     </tr>
     <tr>
-      <td><strong>Win + Shift + S</strong></td>
+      <td><kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></td>
       <td>Take a screenshot (selectable area)</td>
     </tr>
     <tr>
-      <td><strong>Win + Shift + ←/→</strong></td>
+      <td><kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>←/→</kbd></td>
       <td>Move window to another display</td>
     </tr>
     <tr>
-      <td><strong>Win + V</strong></td>
+      <td><kbd>Win</kbd> + <kbd>V</kbd></td>
       <td>Show clipboard history</td>
     </tr>
     <tr>
-      <td><strong>Win + .</strong></td>
+      <td><kbd>Win</kbd> + <kbd>.</kbd></td>
       <td>Show a Emoji panel</td>
     </tr>
   </tbody>
@@ -135,23 +135,23 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
   </thead>
   <tbody>
     <tr>
-      <td><strong>Ctrl + B<strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>B</kbd></td>
       <td>Bold text</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + I<strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>I</kbd></td>
       <td>Italicize text</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + U<strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>U</kbd></td>
       <td>Underline text</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + Enter<strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td>
       <td>Insert page break</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + Z / Ctrl + Y<strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>Z</kbd> / <kbd>Ctrl</kbd> + <kbd>Y</kbd></td>
       <td>Undo / Redo</td>
     </tr>
   </tbody>
@@ -170,23 +170,23 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
   </thead>
   <tbody>
     <tr>
-      <td><strong>Ctrl + Shift + "+" </strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>+</kbd></td>
       <td>Insert row or column</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + "-"</strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>-</kbd></td>
       <td>Delete row or column</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + Shift + L</strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></td>
       <td>Apply filter</td>
     </tr>
     <tr>
-      <td><strong>F4</strong></td>
+      <td><kbd>F4</kbd></td>
       <td>Repeat last action</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + 1</strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>1</kbd></td>
       <td>Open Format Cells dialog</td>
     </tr>
   </tbody>
@@ -205,23 +205,23 @@ Just simple, practical shortcuts that feel intuitive — ones your fingers will 
   </thead>
   <tbody>
     <tr>
-      <td><strong>Ctrl + R</strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>R</kbd></td>
       <td>Reply to email</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + Shift + R</strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></td>
       <td>Reply all</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + N</strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>N</kbd></td>
       <td>Create a new email</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + Enter</strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td>
       <td>Send email</td>
     </tr>
     <tr>
-      <td><strong>Ctrl + Shift + M</strong></td>
+      <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd></td>
       <td>Add a new calendar event</td>
     </tr>
   </tbody>
@@ -240,10 +240,9 @@ A little help from your fingertips might just make your workday smoother.
 
 ![図形](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAANSURBVBhXY2BgYGAAAAAFAAGKM+MAAAAAAElFTkSuQmCC) 
 
-**💡** **Top 3 Shortcuts to Try Today:** 
-
-- **Alt + Tab**: Switch between windows 
-
-- **Win + L**: Instantly lock your screen 
-
-- **Win + Shift + S**: Take a screenshot of a selected area
+> [!TIP] 
+> **Top 4 Shortcuts to Try Today:**
+> - <kbd>Alt</kbd> + <kbd>Tab</kbd>: Switch between windows 
+> - <kbd>Win</kbd> + <kbd>L</kbd>: Instantly lock your screen 
+> - <kbd>Win</kbd> + <kbd>V</kbd>: Show clipboard history
+> - <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>: Take a screenshot of a selected area

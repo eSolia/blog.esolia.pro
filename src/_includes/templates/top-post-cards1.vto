@@ -9,8 +9,8 @@
       {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 6) }}
       <article class="flex flex-col items-start">
         <div class="relative w-full">
-          {{ set catColor = (featurecats.find((item) => item.key === post.category) || {}).color }}
-          {{ set catImage = (featurecats.find((item) => item.key === post.category) || {}).image }}
+          {{ set catColor = featurecats.find((item) => item.key === post.category)?.color }}
+          {{ set catImage = featurecats.find((item) => item.key === post.category)?.image }}
           <div class="absolute inset-0 bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500 opacity-80 rounded-2xl"></div>
           <img src="{{ if catImage }}{{ catImage }}{{ else }}cat0-bg.jpg{{ /if }}" alt="" class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2">
           <div class="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 ring-inset"></div>
