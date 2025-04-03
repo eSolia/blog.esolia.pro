@@ -1,0 +1,55 @@
+<!-- ===== slider1.vto TEMPLATE START ===== -->
+<div class="mt-16 sm:mt-20">
+  <div class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+    <div class="splide max-w-screen-lg w-full">
+      <div class="splide__track">
+        <ul class="splide__list rounded-t-2xl">
+          <!-- Start slides loop -->
+          {{ for post of search.pages(`type=post lang=${lang} featured=true`, "date=desc") }}
+            {{ set catColor = (featurecats.find((item) => item.key === post.category) || {}).color }}
+            {{ set catImage = (featurecats.find((item) => item.key === post.category) || {}).image }}
+          <li class="splide__slide relative rounded-t-2xl">
+            {{# <div class="absolute inset-0 bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500 opacity-30 rounded-t-2xl"></div> #}}
+            <img src="{{ if catImage }}{{ catImage }}{{ else }}/assets/cat0-bg.jpg{{ /if }}" alt="Slide Image" class="w-full h-auto rounded-t-2xl object-cover">
+            <a
+            href="{{ post.url }}" 
+            data-faid="featured-{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}" 
+            class="data-fatrigger"
+            {{ if post.url == url }} aria-current="page"{{ /if }}
+            >
+              <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 text-zinc-50 bg-{{ if catColor }}{{ catColor }}-500/40{{ else }}white/60{{ /if }} transition delay-150 duration-300 ease-in-out hover:bg-{{ if catColor }}{{ catColor }}-600/40{{ else }}white/40{{ /if }} hover:scale-102 hover:grayscale hover:invert p-5 rounded-lg w-2/3">
+                <h2 class="text-3xl mb-4">{{ post.title }}</h2>
+                <p class="text-sm">{{ post.excerpt |> md(true) }}</p>
+              </div>
+            </a>
+          </li>
+          {{ /for }}
+          <!-- End slides loop -->
+        </ul>
+      </div>
+      <!-- Left fade overlay -->
+      <div class="absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-zinc-200 to-transparent pointer-events-none"></div>
+      <!-- Right fade overlay -->
+      <div class="absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-zinc-200 to-transparent pointer-events-none"></div>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener( 'DOMContentLoaded', function() {
+    var splide = new Splide( '.splide', {
+      type: 'loop',
+      width: '80vw',
+      padding: '20%',
+      gap: '1em',
+      heightRatio: '0.4',
+      breakpoints: {
+			640: {
+				padding: '0%',
+			},
+		},
+    }                      
+    );
+    splide.mount();
+  } );
+</script>
+<!-- ===== slider1.vto TEMPLATE END ===== -->

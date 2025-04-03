@@ -15,7 +15,7 @@ tags:
 comments: {}
 draft: false
 hot: true
-featured: false
+featured: true
 ---
 One security policy that is probably used at most organizations is *"clear desk, clear screen"*. Are you aware and doing it? 
 
