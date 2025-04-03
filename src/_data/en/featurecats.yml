@@ -1,40 +1,40 @@
 - key: Microsoft-365
   id: cat1
   color: blue
-  img: cat1-bg.jpg
+  image: /assets/cat1-bg.jpg
   summary: Articles about Microsoft 365, including Exchange Online, SharePoint Online, OneDrive for Business, and Microsoft Teams. These articles are written by eSolia professionals based on their experience with these products.
 - key: Security
   id: cat2
   color: esoliaamber
-  img: cat2-bg.jpg
+  image: /assets/cat2-bg.jpg
   summary: Here are all the articles categorized under Security. These contain practical advice about day-to-day security based on the experience of eSolia professionals. 
 - key: Network
   id: cat3
   color: fuchsia
-  img: cat3-bg.jpg
+  image: /assets/cat3-bg.jpg
   summary: Articles about networks, including LAN, WAN, and VPN. These articles are written by eSolia professionals based on their experience with these technologies.
 - key: Cloud
   id: cat4
   color: lime
-  img: cat4-bg.jpg
+  image: /assets/cat4-bg.jpg
   summary: All the articles about cloud computing, including IaaS, PaaS, and SaaS. These articles are written by eSolia professionals based on their experience with these technologies.
 - key: Troubleshooting
   id: cat5
   color: violet
-  img: cat5-bg.jpg
+  image: /assets/cat5-bg.jpg
   summary: Articles about troubleshooting, including tips and tricks for diagnosing and fixing common issues. These articles are written by eSolia professionals based on their experience with these products.
 - key: AI-Usage
   id: cat6
   color: red
-  img: cat6-bg.jpg
+  image: /assets/cat6-bg.jpg
   summary: Articles about AI usage, including tips and tricks for using AI tools effectively. These articles are written by eSolia professionals based on their experience with these products and technologies.
 - key: Windows
   id: cat7
   color: amber
-  img: cat7-bg.jpg
+  image: /assets/cat7-bg.jpg
   summary: Articles about Windows. These articles are written by eSolia professionals based on their experience with the OS.
 - key: Peripherals
   id: cat8
   color: teal
-  img: cat8-bg.jpg
+  image: /assets/cat8-bg.jpg
   summary: Articles about peripherals. These articles are written by eSolia professionals based on their experience with these products.
