@@ -71,22 +71,6 @@ body article > div > p:first-of-type {
   @apply text-2xl font-light leading-relaxed bg-zinc-50 p-3 rounded-lg;
 }
 
-kbd2 {
-  background-color: #eee;
-  border-radius: 3px;
-  border: 1px solid #b4b4b4;
-  box-shadow:
-    0 1px 1px rgba(0, 0, 0, 0.2),
-    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
-  color: #333;
-  display: inline-block;
-  font-size: 0.85em;
-  font-weight: 700;
-  line-height: 1;
-  padding: 2px 4px;
-  white-space: nowrap;
-}
-
 /* MDN keyboard shortcut style for kbd tag */
 kbd {
   @apply bg-zinc-200 rounded border border-zinc-400 shadow-md text-zinc-800 inline-block text-[0.85em] font-semibold leading-none px-1 py-0.5 whitespace-nowrap
