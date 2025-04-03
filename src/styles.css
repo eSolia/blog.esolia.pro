@@ -64,11 +64,11 @@
 }
 
 .lede {
-  @apply text-2xl font-light leading-relaxed;
+  @apply text-lg font-light leading-relaxed;
 }
 
 body article > div > p:first-of-type {
-  @apply text-2xl font-light leading-relaxed bg-zinc-50 p-3 rounded-lg;
+  @apply text-lg font-light leading-relaxed text-esoliablue-800;
 }
 
 /* MDN keyboard shortcut style for kbd tag */
