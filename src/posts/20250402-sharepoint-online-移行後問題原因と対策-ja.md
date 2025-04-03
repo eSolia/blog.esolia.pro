@@ -1,18 +1,19 @@
 ---
 draft: false
 hot: false
-featured: false
+featured: true
 lang: ja
 id: 202503b-sharepoint-migration-part1
-title: 'SharePoint Online移行後にファイルが開けない？原因と対策を徹底解説！ '
+title: 'SharePoint Online移行後にファイルが開けない？原因と対策を徹底解説！'
 description: >-
-  SharePoint
-  Onlineへ移行した後に『ファイルが開けない！』というトラブルに直面していませんか？本記事では、SPOのフォルダー構造やURL制限、アクセス管理の違いを解説し、実践的な対策を紹介します。検索性を向上させるためのメタデータ管理方法も詳しく解説！ 
+  SharePoint Onlineへ移行した後に『ファイルが開けない！』というトラブルに直面していませんか？本記事では、SPOのフォルダー構造やURL制限、アクセス管理の違いを解説し、実践的な対策を紹介します。検索性を向上させるためのメタデータ管理方法も詳しく解説！ 
 image: /uploads/blog-esolia-pro-default.png
 author: Ena Ishikawa
 category: マイクロソフト365
 comments: {}
 ---
+SharePoint Onlineへ移行した後に**『ファイルが開けない！』というトラブル**に直面していませんか？本記事では、SPOのフォルダー構造やURL制限、アクセス管理の違いを解説し、実践的な対策を紹介します。検索性を向上させるためのメタデータ管理方法も詳しく解説！
+
 <!--more-->
 
 ## オンプレミスからクラウドへ
