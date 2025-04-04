@@ -1,6 +1,9 @@
 lang: ja
 type: post
 layout: layouts/post.vto
+templateEngine:
+  - vto
+  - md
 metas:
   type: blogPosting
   title: "=title"
@@ -18,6 +21,9 @@ en:
   lang: en
   type: post
   layout: layouts/post.vto
+  templateEngine:
+  - vto
+  - md
   metas:
     type: blogPosting
     title: "=title"
