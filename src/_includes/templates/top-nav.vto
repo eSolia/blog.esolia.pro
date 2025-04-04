@@ -12,7 +12,7 @@
           <div
             class="top-(--avatar-top,--spacing(3)) w-full"
           >
-            <div class="relative">
+            <div class="relative mt-20">
               <a
                 aria-label="Home"
                 class="pointer-events-auto block origin-left"
@@ -23,7 +23,7 @@
                   loading="lazy"
                   fetchpriority="high"
                   decoding="async"
-                  class="w-64 object-cover dark:grayscale dark:invert dark:saturate-[.1] transition-opacity duration-300"
+                  class="-ml-4 w-64 object-cover dark:grayscale dark:invert dark:saturate-[.1] transition-opacity duration-300"
                   src="/assets/logo_horiz_darkblue_bgtransparent_2.svg"
               /></a>
             </div>
@@ -32,15 +32,15 @@
       </div>
     </div>
   </div>
-  <div class="top-0 z-10 h-16 pt-6">
+  <div class="fixed top-0 z-10 h-24 pt-6 w-full bg-zinc-50/70">
     <div
       class="top-(--header-top,--spacing(6)) w-full sm:px-8 fixed"
     >
       <div class="mx-auto w-full max-w-7xl lg:px-8">
         <div class="relative px-4 sm:px-8 lg:px-12">
           <div class="mx-auto max-w-2xl lg:max-w-5xl">
-            <div class="relative flex gap-4">
-              <div class="flex flex-1">
+            <div class="relative flex gap-4 items-center">
+              <div class="flex flex-1 items-center">
               <a
                 aria-label="Home"
                 class="pointer-events-auto block origin-left"
@@ -98,12 +98,12 @@
                 <nav
                   class="pointer-events-auto hidden md:block">
                   <ul 
-                    class="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10"
+                    class="flex rounded-full bg-esoliaamber-500/90 px-3 text-sm font-medium text-zinc-50 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10"
                   >
                     {{- for item of it.topnav.links }}
                     <li>
                       <a 
-                        class="relative block whitespace-nowrap px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400" 
+                        class="relative block whitespace-nowrap px-3 py-2 transition hover:text-sky-400 dark:hover:text-sky-500 no-underline" 
                         href="{{ item.href }}"
                         {{- if item.target }}target="{{ item.target }}"{{ /if }} 
                         aria-label="{{ item.aria_label }}" 
@@ -143,11 +143,11 @@
                   <button
                       type="button"
                       aria-label="Toggle language"
-                      class="group rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium text-zinc-800 dark:text-zinc-200 dark:group-hover:text-zinc-100"
+                      class="group rounded-full bg-esoliaamber-500/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium text-zinc-50 dark:text-zinc-200 dark:group-hover:text-zinc-100"
                     >
                     
                     {{- for alt of alternates }}{{ if alt.lang !== lang }}
-                    <a href="{{ alt.url }}" title="{{ alt.title |> escape }}">
+                    <a class="hover:text-sky-400 dark:hover:text-sky-500 no-underline" href="{{ alt.url }}" title="{{ alt.title |> escape }}">
                       {{ if alt.lang == "ja" }}日本語{{ else }}English{{ /if }}
                     </a>
                     {{ /if }}{{ /for }}
@@ -162,9 +162,9 @@
                     class="group rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50"
                     @click="darkMode = !darkMode">
                     <span x-show="!darkMode">
-                      <img class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 " src="{{ "sun" |> icon("phosphor", "duotone") }}" inline />
+                      <img class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 transition hover:scale-110" src="{{ "sun" |> icon("phosphor", "duotone") }}" inline />
                     </span><span x-show="darkMode">
-                      <img class="h-5 w-5 fill-teal-300 stroke-teal-500 transition group-hover:fill-teal-400 group-hover:stroke-teal-700 " src="{{ "moon-stars" |> icon("phosphor", "duotone") }}" inline />
+                      <img class="h-5 w-5 fill-sky-300 stroke-sky-500 transition group-hover:fill-sky-400 group-hover:stroke-sky-700 transition hover:scale-110" src="{{ "moon-stars" |> icon("phosphor", "duotone") }}" inline />
                     </span>
                   </button>
                 </div>
