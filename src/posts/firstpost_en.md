@@ -2,23 +2,15 @@
 lang: en
 id: 20180823a
 title: This is a post with mastodon comments
-date: 2018-08-23T00:00:00.000Z
 author: Óscar Otero
-tags:
-  - English
-  - Placeholder
-  - Example
-  - Lorem ipsum
-  - JavaScript
-  - TypeScript
 comments:
   src: 'https://mastodon.gal/@misteroom/110810445656343599'
 draft: false
 featured: true
-last_modified: 2025-02-26T00:28:00.000Z
 description: This is the description...
 image: /uploads/blog-esolia-pro-default.png
 category: AI-Usage
+hot: false
 ---
 TEST Leverage agile frameworks to provide a robust synopsis for high level overviews.
 Iterative approaches to corporate strategy foster collaborative thinking to
@@ -27,7 +19,11 @@ of disruptive innovation via workplace diversity and empowerment.
 
 <!--more-->
 
-![Image](/uploads/jrc-cleanshot-microsoft-word-2025-02-19-145534jst@2x.png)
+{{- comp.icon({ name: "windows-logo", size: 4, color: "sky" }) -}} This is for Windows
+{{- comp.icon({ name: "apple-logo", size: 4, color: "emerald" }) -}} This is for Mac
+{{- comp.icon({ name: "highlighter", size: 4, color: "yellow" }) -}} This is <mark>a highlight</mark>
+{{- comp.icon({ name: "fire", size: 4, color: "red" }) -}} This is fire!
+
 
 ```js
 // this is a command

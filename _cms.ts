@@ -264,6 +264,13 @@ cms.collection({
       view: "Show Flags",
     },
     {
+      name: "url",
+      type: "url",
+      label: "URL",
+      description: "The public URL of the page. Leave empty to use the file path",
+      view: "Show Overrides",
+    },
+    {
       name: "lang",
       type: "select",
       label: "言語 Language",
@@ -294,20 +301,15 @@ cms.collection({
       },
     },
     {
-      name: "url",
-      type: "url",
-      label: "URL",
-      description: "The public URL of the page. Leave empty to use the file path",
-      view: "Show Overrides",
-    },
-    {
       name: "date",
       type: "datetime",
       label: "作成日 Created Date",
-      value: new Date().toISOString(),
       description: "作成された日付<br>The date the page was posted",
+      init(field) {
+        field.value = new Date();
+      },
       attributes: {
-        required: true,
+        required: false,
       },
     },
     {
@@ -421,6 +423,10 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
   <img class="shadow-lg rounded-lg" alt="EXPLAIN TO SCREENREADER USER" src="/uploads/blog-esolia-pro-default.png" width="1000px" transform-images="avif webp png jpeg 1000@2">
   <figcaption class="text-left mt-2"><small><em>Fig: ADD YOUR CAPTION HERE</em></small></figcaption>
 </figure>`,
+        },
+        {
+          label: "Icon",
+          value: `{{- comp.icon({ name: "fire", size: 4, color: "red" }) -}}`,
         },
         {
           label: "NOTE (Info highlight)",
