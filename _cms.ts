@@ -306,10 +306,10 @@ cms.collection({
       label: "作成日 Created Date",
       description: "作成された日付<br>The date the page was posted",
       init(field) {
-        field.value = new Date();
+        field.value = new Date().toISOString();
       },
       attributes: {
-        required: false,
+        required: true,
       },
     },
     {
