@@ -17,15 +17,22 @@ function loadVendorScript(src, attributes, callback) {
 window.addEventListener('scroll', () => {
   const largeLogo = document.getElementById('large-logo');
   const smallLogo = document.getElementById('small-logo');
+  const topNavBG = document.getElementById('top-nav-bg');
   const scrollPosition = window.scrollY;
 
   if (scrollPosition > 10) {
       largeLogo.classList.add('opacity-0');
       smallLogo.classList.remove('opacity-0');
+      topNavBG.classList.remove('bg-zinc-50/60');
+      topNavBG.classList.add('bg-zinc-50/90');
   } else {
       largeLogo.classList.remove('opacity-0');
       smallLogo.classList.add('opacity-0');
+      topNavBG.classList.remove('bg-zinc-50/90');
+      topNavBG.classList.add('bg-zinc-50/60');
   }
+
+  // <div id="top-nav-bg" class="fixed top-0 z-10 h-24 pt-6 w-full bg-zinc-50/70"></div>
 });
 
 // Theme Toggle with Alpine.js
