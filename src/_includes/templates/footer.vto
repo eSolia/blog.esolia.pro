@@ -17,7 +17,7 @@
     
     
     <nav class="mt-10 text-sm" aria-label="quick links">
-      <div class="-my-1 flex justify-center gap-x-6">
+      <div class="-my-1 flex justify-center gap-x-6 flex-wrap">
         {{- for item of it.footernav.links }}
         <a 
           class="inline-block rounded-lg px-2 py-1 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-50 dark:hover:bg-zinc-700 dark:hover:text-zinc-200" 
@@ -31,7 +31,7 @@
     </nav>
   </div>
   <div class="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
-    <div class="mt-6 flex gap-6">
+    <div class="mt-6 flex flex-wrap gap-6">
             <a
               class="group -m-1 p-1"
               aria-label="{{ i18n.social.linkedin_label }}"
@@ -57,7 +57,7 @@
               target="_blank"
               ><img class="h-6 w-6 fill-green-600 dark:fill-green-500 transition hover:scale-110" src="{{ "github-logo" |> icon("phosphor", "duotone") }}" inline></a>
           </div>
-    <p class="mt-6 text-sm text-zinc-500 sm:mt-0">©{{ new Date().getFullYear() }} {{ i18n.home.company_long }} All rights reserved.<br><span class="text-xs text-zinc-400">{{ i18n.home.company_address }}</span></p>
+    <p class="mt-6 text-sm text-zinc-500 sm:mt-0 text-center sm:text-left">©{{ new Date().getFullYear() }} {{ i18n.home.company_long }} All rights reserved.<br><span class="text-xs text-zinc-400">{{ i18n.home.company_address }}</span></p>
     </div>
   </div>
 </footer>
