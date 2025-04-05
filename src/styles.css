@@ -7,17 +7,65 @@
 /* @plugin "tailwind-every-layout@latest"; */
 @import "css/alerts.css";
 /* @import "css/vendor/splidejs/splide-skyblue.min.css"; */
+
+/* @layer base {
+  body prose a {
+    text-decoration: underline;
+    text-decoration: wavy;
+    text-decoration-thickness: 1px;
+    text-decoration-color: theme("colors.zinc.300");
+  }
+  body prose a:hover {
+    color: theme("colors.zinc.950");
+    text-decoration-color: theme("colors.zinc.500");
+  }
+} */
+
 @layer base {
   a {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-decoration-color: theme("colors.gray.300");
+    @apply text-zinc-500 hover:text-sky-700 no-underline; /* Example base link styles */
+    transition: color 0.15s ease-in-out;
+    text-decoration-thickness: 1px; /* Set your desired default thickness here as well */
+    text-decoration-color: theme('colors.zinc.500'); /* Match the text color */
   }
-  a:hover {
-    color: theme("colors.gray.950");
-    text-decoration-color: theme("colors.gray.500");
+
+  /* You could also style specific link states globally */
+  a:focus {
+    @apply outline-none ring-2 ring-sky-700/50 ring-offset-2;
   }
 }
+@layer components {
+  /* Apply base styles to tables with not-prose */
+  table not-prose {
+    @apply table-fixed w-full text-left text-sm; 
+  }
+
+  table.not-prose thead {
+    @apply bg-zinc-50 text-zinc-700 dark:bg-zinc-600 dark:text-zinc-300 text-left;
+  }
+
+  table.not-prose th,
+  table.not-prose td {
+    @apply p-2;
+  }
+
+  table.not-prose th {
+    @apply font-semibold;
+  }
+
+  table.not-prose tbody {
+    @apply divide-y divide-zinc-200 dark:divide-zinc-700;
+  }
+  table.not-prose caption {
+    @apply caption-bottom text-left p-2 text-xs text-zinc-400;
+  }
+    /* Override the prose <a> tag hover classes */
+  .prose :where(a) {
+    @apply hover:opacity-60;
+  }
+}
+
+/* prose-a:text-sky-900 dark:prose-a:text-sky-200  prose-a:decoration-sky-700 prose-a:underline  */
 
 @custom-variant dark (&:where(.dark, .dark *));
 

@@ -28,16 +28,17 @@ Here, we’ve gathered a collection of basic shortcuts you can start using right
 No complicated steps, no advanced knowledge required. Just simple, practical shortcuts that feel intuitive — ones your fingers will remember for you. 
 
 ## Useful Shortcut Keys for Windows
-**Basic operations (for relieving everyday little frustrations)**
+### Basic operations 
+For relieving everyday little frustrations...
 
-<table class="table-fixed">
-  <caption class="caption-bottom text-xs text-zinc-400">
+<table class="not-prose w-full text-sm">
+  <caption>
     Table: Basic Windows Keyboard Shortcuts
   </caption>
-  <thead class="bg-zinc-50">
+  <thead>
     <tr>
-      <th class="p-2">Shortcut Key</th>
-      <th class="p-2">Action</th>
+      <th>Shortcut Key</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -64,9 +65,13 @@ No complicated steps, no advanced knowledge required. Just simple, practical sho
   </tbody>
 </table>
 
-**Boost productivity (quiet time-savers for smart workers)**
+### Boost productivity 
+Quiet time-savers for smart workers...
 
-<table class="table-fixed">
+<table class="not-prose w-full text-sm">
+  <caption>
+    Table: Productivity Keyboard Shortcuts
+  </caption>
   <thead>
     <tr>
       <th>Shortcut Key</th>
@@ -98,11 +103,13 @@ No complicated steps, no advanced knowledge required. Just simple, practical sho
 </table>
 
 
-## Shortcut Keys for Office 365 (Word, Excel, Outlook)
+## Shortcut Keys for Office 365 
+### Word 
 
-**Word** 
-
-<table class="table-fixed">
+<table class="not-prose w-full text-sm">
+  <caption>
+    Table: Word Keyboard Shortcuts
+  </caption>
   <thead>
     <tr>
       <th>Shortcut Key</th>
@@ -133,9 +140,12 @@ No complicated steps, no advanced knowledge required. Just simple, practical sho
   </tbody>
 </table>
 
-**Excel** 
+### Excel
 
-<table class="table-fixed">
+<table class="not-prose w-full text-sm">
+  <caption>
+    Table: Excel Keyboard Shortcuts
+  </caption>
   <thead>
     <tr>
       <th>Shortcut Key</th>
@@ -166,9 +176,12 @@ No complicated steps, no advanced knowledge required. Just simple, practical sho
   </tbody>
 </table>
 
-**Outlook** 
+### Outlook
 
-<table class="table-fixed">
+<table class="not-prose w-full text-sm">
+  <caption>
+    Table: Outlook Keyboard Shortcuts
+  </caption>
   <thead>
     <tr>
       <th>Shortcut Key</th>
