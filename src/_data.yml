@@ -30,12 +30,12 @@ footernav:
       aria_label: サイト内リンク
       title: サイトマップへのリンク
     - text: プライバシーポリシー
-      href: #
+      href: https://esolia.co.jp/privacy
       target: _self
       icon: privacy
       aria_label: サイト内リンク
       title: プライバシーポリシーへのリンク
-    - text: 当サイトのGitHubリポジトリ
+    - text: GitHubリポジトリ
       href: https://github.com/eSolia/blog.esolia.pro
       target: _blank
       icon: github-logo
@@ -98,12 +98,12 @@ en:
         aria_label: Site internal link
         title: Link to the Sitemap
       - text: Privacy Policy
-        href: #
+        href: https://esolia.com/privacy
         target: _self
         icon: privacy
         aria_label: Site internal link
         title: Link to the Privacy Policy
-      - text: Github Repository for this Site
+      - text: Github Repo
         href: https://github.com/eSolia/blog.esolia.pro
         target: _blank
         icon: github-logo
