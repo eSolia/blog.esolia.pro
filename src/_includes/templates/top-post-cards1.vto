@@ -18,13 +18,16 @@
           set catImage = featurecats.find((item) => item.key === post.category)?.image
         }}
         <div
-          class="absolute inset-0 bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500 opacity-80 rounded-2xl"
+          class="absolute inset-0 bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500 opacity-80 rounded-2xl transition-opacity duration-300 mix-blend-color"
         >
         </div>
         <img
           src="{{ if catImage }}{{ catImage }}{{ else }}cat0-bg.jpg{{ /if }}"
           alt=""
-          class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2"
+          class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2 transition-opacity duration-300 filter dark:invert mix-blend-normal dark:mix-blend-luminosity"
+          loading="lazy"
+          fetchpriority="high"
+          decoding="async"
         >
         <div
           class="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 ring-inset"
