@@ -13,18 +13,35 @@ function loadVendorScript(src, attributes, callback) {
   document.head.appendChild(script);
 }
   
-// Swap logo on scroll
+// Swap logo on scroll and make nav bg more opaque
 window.addEventListener('scroll', () => {
   const largeLogo = document.getElementById('large-logo');
   const smallLogo = document.getElementById('small-logo');
+  const topNavBG = document.getElementById('top-nav-bg');
   const scrollPosition = window.scrollY;
 
+  // Handle logo swap
   if (scrollPosition > 10) {
       largeLogo.classList.add('opacity-0');
       smallLogo.classList.remove('opacity-0');
   } else {
       largeLogo.classList.remove('opacity-0');
       smallLogo.classList.add('opacity-0');
+  }
+
+  // Handle background color changes
+  if (scrollPosition > 50) {
+      topNavBG.classList.remove('bg-zinc-50/50', 'dark:bg-zinc-700/50', 'bg-zinc-50/70', 'dark:bg-zinc-700/70');
+      topNavBG.classList.add('bg-zinc-50/95', 'dark:bg-zinc-700/95');
+  } else if (scrollPosition > 30 && scrollPosition <= 50) {
+      topNavBG.classList.remove('bg-zinc-50/50', 'dark:bg-zinc-700/50', 'bg-zinc-50/95', 'dark:bg-zinc-700/95');
+      topNavBG.classList.add('bg-zinc-50/70', 'dark:bg-zinc-700/70');
+  } else if (scrollPosition > 10 && scrollPosition <= 30) {
+      topNavBG.classList.remove('bg-zinc-50/70', 'dark:bg-zinc-700/70', 'bg-zinc-50/95', 'dark:bg-zinc-700/95');
+      topNavBG.classList.add('bg-zinc-50/50', 'dark:bg-zinc-700/50');
+  } else {
+      topNavBG.classList.remove('bg-zinc-50/70', 'dark:bg-zinc-700/70', 'bg-zinc-50/95', 'dark:bg-zinc-700/95');
+      topNavBG.classList.add('bg-zinc-50/50', 'dark:bg-zinc-700/50');
   }
 });
 

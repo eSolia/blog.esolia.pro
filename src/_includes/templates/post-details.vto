@@ -4,7 +4,7 @@
   <time datetime="{{ date }}" class="order-first flex items-center text-zinc-400 dark:text-zinc-500">
     <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
     <span class="ml-3">{{ date |> date("DATE")}}</span>
-    {{ if elapsed < 40 }}<img class="size-6 fill-emerald-400" src="{{ "dot-outline" |> icon("phosphor", "duotone") }}" inline>{{ /if }}
+    {{ if elapsed < 40 }}<img class="size-6 fill-sky-400" src="{{ "dot-outline" |> icon("phosphor", "duotone") }}" inline>{{ /if }}
   </time>
   {{ /if }}
   {{ set catColor = featurecats.find((item) => item.key === category)?.color }}
