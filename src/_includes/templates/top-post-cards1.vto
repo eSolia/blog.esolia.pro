@@ -5,56 +5,72 @@
       <h2 class="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">From the blog</h2>
       <p class="mt-2 text-lg/8 text-gray-600">Learn how to grow your business with our expert advice.</p>
     </div> #}}
-    <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-      {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 6) }}
-      <article class="flex flex-col items-start">
-        <div class="relative w-full">
-          {{ set catColor = featurecats.find((item) => item.key === post.category)?.color }}
-          {{ set catImage = featurecats.find((item) => item.key === post.category)?.image }}
-          <div class="absolute inset-0 bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500 opacity-80 rounded-2xl"></div>
-          <img src="{{ if catImage }}{{ catImage }}{{ else }}cat0-bg.jpg{{ /if }}" alt="" class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2">
-          <div class="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 ring-inset"></div>
+<div
+  class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+>
+  {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 6) }}
+    <article class="flex flex-col items-start">
+      <div class="relative w-full">
+        {{
+          set catColor = featurecats.find((item) => item.key === post.category)?.color
+        }}
+        {{
+          set catImage = featurecats.find((item) => item.key === post.category)?.image
+        }}
+        <div
+          class="absolute inset-0 bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500 opacity-80 rounded-2xl"
+        >
         </div>
-        <div class="max-w-xl">
-          <div class="z-10">
-          {{ include "templates/post-details.vto" {
+        <img
+          src="{{ if catImage }}{{ catImage }}{{ else }}cat0-bg.jpg{{ /if }}"
+          alt=""
+          class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2"
+        >
+        <div
+          class="absolute inset-0 rounded-2xl ring-1 ring-gray-900/10 ring-inset"
+        >
+        </div>
+      </div>
+      <div class="max-w-xl">
+        <div class="z-10">
+          {{
+            include "templates/post-details.vto" {
               date: post.date,
               category: post.category,
               author: post.author,
               readingInfo: post.readingInfo,
               elapsed: post.elapseddays,
               hot: post.hot,
-            } }}
-          </div>
-          <div class="group relative">
-            <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-              <a 
-                href="{{ post.url }}" 
-                data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}" 
-                class="data-fatrigger" 
-                {{ if post.url == url }} aria-current="page"{{ /if }}>
-                <span class="absolute inset-0"></span>
-                {{ post.title || post.url }}
-                {{# {{ if post.hot }}<span class="absolute top-0 -right-2 bg-fuchsia-500 text-white text-[0.6rem] font-semibold ml-4 px-2 py-1 rounded-full transform translate-x-1/2 -translate-y-1/2 rotate-12">
+            }
+          }}
+        </div>
+        <div class="group relative">
+          <h3
+            class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600"
+          >
+            <a
+              href="{{ post.url }}"
+              data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}"
+              class="data-fatrigger"
+              {{ if post.url == url }}
+                aria-current="page"{{ /if }}
+            >
+              <span class="absolute inset-0"></span>
+              {{ post.title || post.url }}
+              {{# {{ if post.hot }}<span class="absolute top-0 -right-2 bg-fuchsia-500 text-white text-[0.6rem] font-semibold ml-4 px-2 py-1 rounded-full transform translate-x-1/2 -translate-y-1/2 rotate-12">
                   {{ i18n.post.hot }}
                 </span>{{ /if }} #}}
-              </a>
-            </h3>
-            <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">{{- post.excerpt |> md(true) -}}</p>
-          </div>
-          
+            </a>
+          </h3>
+          <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">
+            {{ post.excerpt |> md(true) }}
+          </p>
         </div>
-      </article>
-      {{ /for }}
-
-      
-
-
-
-    </div>
-  {{# </div>
+      </div>
+    </article>
+  {{ /for }}
+</div>
+{{# </div>
 </div> #}}
 
 <!-- ===== top-post-cards1.vto TEMPLATE END ===== -->
-
-

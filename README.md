@@ -72,3 +72,9 @@ With just the markdown engine you can use "alerts", which come from the alert pl
 ```
 
 All of these, and other codes you can use in authoring, are in the "Snippets" dropdown in the markdown editor, in the CMS.
+
+Get info re current branch for pasting: 
+
+```
+git log --format="%H%nAuthor: %an <%ae>%nDate:   %ad%n%n%s%n%b%n%n" origin/main..HEAD |pbcopy
+```

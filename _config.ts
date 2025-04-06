@@ -44,14 +44,134 @@ import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/hea
 // ERRORS: import purgecss from "lume/plugins/purgecss.ts";
 // import minify_html from "lume/plugins/minify_html.ts";
 
-
 const site = lume({
   src: "./src",
   location: new URL("https://blog.esolia.pro"),
 });
 
 site.use(googleFonts({
-  subsets: ["latin", "latin-ext","[2]","[3]","[4]","[5]","[6]","[7]","[8]","[9]","[10]","[11]","[12]","[13]","[14]","[15]","[16]","[17]","[18]","[19]","[20]","[21]","[22]","[23]","[24]","[25]","[26]","[27]","[28]","[29]","[30]","[31]","[32]","[33]","[34]","[35]","[36]","[37]","[38]","[39]","[40]","[41]","[42]","[43]","[44]","[45]","[46]","[47]","[48]","[49]","[50]","[51]","[52]","[53]","[54]","[55]","[56]","[57]","[58]","[59]","[60]","[61]","[62]","[63]","[64]","[65]","[66]","[67]","[68]","[69]","[70]","[71]","[72]","[73]","[74]","[75]","[76]","[77]","[78]","[79]","[80]","[81]","[82]","[83]","[84]","[85]","[86]","[87]","[88]","[89]","[90]","[91]","[92]","[93]","[94]","[95]","[96]","[97]","[98]","[99]","[100]","[101]","[102]","[103]","[104]","[105]","[106]","[107]","[108]","[109]","[110]","[111]","[112]","[113]","[114]","[115]","[116]","[117]","[118]","[119]"],
+  subsets: [
+    "latin",
+    "latin-ext",
+    "[2]",
+    "[3]",
+    "[4]",
+    "[5]",
+    "[6]",
+    "[7]",
+    "[8]",
+    "[9]",
+    "[10]",
+    "[11]",
+    "[12]",
+    "[13]",
+    "[14]",
+    "[15]",
+    "[16]",
+    "[17]",
+    "[18]",
+    "[19]",
+    "[20]",
+    "[21]",
+    "[22]",
+    "[23]",
+    "[24]",
+    "[25]",
+    "[26]",
+    "[27]",
+    "[28]",
+    "[29]",
+    "[30]",
+    "[31]",
+    "[32]",
+    "[33]",
+    "[34]",
+    "[35]",
+    "[36]",
+    "[37]",
+    "[38]",
+    "[39]",
+    "[40]",
+    "[41]",
+    "[42]",
+    "[43]",
+    "[44]",
+    "[45]",
+    "[46]",
+    "[47]",
+    "[48]",
+    "[49]",
+    "[50]",
+    "[51]",
+    "[52]",
+    "[53]",
+    "[54]",
+    "[55]",
+    "[56]",
+    "[57]",
+    "[58]",
+    "[59]",
+    "[60]",
+    "[61]",
+    "[62]",
+    "[63]",
+    "[64]",
+    "[65]",
+    "[66]",
+    "[67]",
+    "[68]",
+    "[69]",
+    "[70]",
+    "[71]",
+    "[72]",
+    "[73]",
+    "[74]",
+    "[75]",
+    "[76]",
+    "[77]",
+    "[78]",
+    "[79]",
+    "[80]",
+    "[81]",
+    "[82]",
+    "[83]",
+    "[84]",
+    "[85]",
+    "[86]",
+    "[87]",
+    "[88]",
+    "[89]",
+    "[90]",
+    "[91]",
+    "[92]",
+    "[93]",
+    "[94]",
+    "[95]",
+    "[96]",
+    "[97]",
+    "[98]",
+    "[99]",
+    "[100]",
+    "[101]",
+    "[102]",
+    "[103]",
+    "[104]",
+    "[105]",
+    "[106]",
+    "[107]",
+    "[108]",
+    "[109]",
+    "[110]",
+    "[111]",
+    "[112]",
+    "[113]",
+    "[114]",
+    "[115]",
+    "[116]",
+    "[117]",
+    "[118]",
+    "[119]",
+  ],
   cssFile: "styles.css",
   placeholder: "/* lume-google-fonts-here */",
   fonts: {
@@ -98,43 +218,43 @@ site.use(source_maps());
 // site.use(sri());
 site.use(favicon({
   favicons: [
-    { 
-      url: "/favicon.ico", 
-      size: [ 48 ], 
-      rel: "icon", 
-      format: "ico" 
+    {
+      url: "/favicon.ico",
+      size: [48],
+      rel: "icon",
+      format: "ico",
     },
     {
       url: "/apple-touch-icon.png",
-      size: [ 180 ],
+      size: [180],
       rel: "apple-touch-icon",
-      format: "png"
+      format: "png",
     },
     {
       url: "/android-chrome-192x192.png",
-      size: [ 192 ],
+      size: [192],
       rel: "icon",
-      format: "png"
+      format: "png",
     },
     {
       url: "/android-chrome-512x512.png",
-      size: [ 512 ],
+      size: [512],
       rel: "icon",
-      format: "png"
+      format: "png",
     },
     {
       url: "/favicon-16x16.png",
-      size: [ 16 ],
+      size: [16],
       rel: "icon",
-      format: "png"
+      format: "png",
     },
     {
       url: "/favicon-32x32.png",
-      size: [ 32 ],
+      size: [32],
       rel: "icon",
-      format: "png"
-    }
-  ]
+      format: "png",
+    },
+  ],
 }));
 site.use(feed({
   output: ["/feed.xml", "/feed.json"],
@@ -148,8 +268,8 @@ site.use(feed({
   },
 }));
 site.use(multilanguage({
-      languages: ["ja", "en"],
-      defaultLanguage: "ja",
+  languages: ["ja", "en"],
+  defaultLanguage: "ja",
 }));
 site.use(icons());
 site.use(brotli());
@@ -157,8 +277,8 @@ site.use(cssBanner({
   message: "===rickcogley - css jokes are always in style===",
 }));
 site.use(shuffle());
-// ERRORS: site.use(purgecss()); 
-// site.use(minify_html());  
+// ERRORS: site.use(purgecss());
+// site.use(minify_html());
 site.use(inline());
 
 site.use(
@@ -175,7 +295,7 @@ site.use(
     thresholdLengthPercentage: 0.7,
     thresholdLengthForCWCheck: 35,
     thresholdCommonWordsPercent: 45,
-    logOperations: false
+    logOperations: false,
   }),
 );
 import { japaneseCommonWords } from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/japanese_common_words.js";
@@ -195,23 +315,25 @@ site.use(
     thresholdCommonWordsPercent: 45,
     logOperations: false,
     userCommonWordSet: japaneseCommonWords,
-    commonWordPercentageCallback: function (input: string) : number { return(0.99); }
+    commonWordPercentageCallback: function (input: string): number {
+      return (0.99);
+    },
   }),
 );
 
-site.add([".css"])
-site.add("fonts")
+site.add([".css"]);
+site.add("fonts");
 site.add([".js", ".ts"]); // Add the files to bundle
 site.use(esbuild());
-site.add("manifest.json")
-site.add("uploads")
-site.add("assets")
+site.add("manifest.json");
+site.add("uploads");
+site.add("assets");
 // Mastodon comment system
 site.add(
   "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
   "/js/comments.js",
 );
-site.mergeKey("extra_head", "stringArray")
+site.mergeKey("extra_head", "stringArray");
 
 site.ignore("*.DS_Store");
 site.ignore("keep-archive");
@@ -281,7 +403,7 @@ site.hooks.addMarkdownItPlugin(alert);
 //   }
 //   try {
 //     console.log("DATE VALUE: " + value);
-    
+
 //     let instant;
 //     if (typeof value === "string" && value.includes("GMT")) {
 //       // Manually parse custom date format

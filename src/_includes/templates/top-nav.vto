@@ -1,23 +1,17 @@
 <!-- ===== top-nav.vto TEMPLATE START ===== -->
-<header
-  class="pointer-events-none relative z-50 flex flex-none flex-col"
->
+<header class="pointer-events-none relative z-50 flex flex-none flex-col">
   <div class="order-last mt-[calc(--spacing(16)-(--spacing(3)))]"></div>
-  <div
-    class="top-0 order-last -mb-3 pt-3 sm:px-8"
-  >
+  <div class="top-0 order-last -mb-3 pt-3 sm:px-8">
     <div class="mx-auto w-full max-w-7xl lg:px-8">
       <div class="relative px-4 sm:px-8 lg:px-12">
         <div class="mx-auto max-w-2xl lg:max-w-5xl">
-          <div
-            class="top-(--avatar-top,--spacing(3)) w-full"
-          >
+          <div class="top-(--avatar-top,--spacing(3)) w-full">
             <div class="relative mt-20">
               <a
                 aria-label="Home"
                 class="pointer-events-auto block origin-left"
                 href="/"
-                ><img
+              ><img
                   id="large-logo"
                   alt="{{ i18n.nav.logo_large_alt}}"
                   loading="lazy"
@@ -25,45 +19,48 @@
                   decoding="async"
                   class="-ml-4 w-64 object-cover dark:grayscale dark:invert dark:saturate-[.1] transition-opacity duration-300"
                   src="/assets/logo_horiz_darkblue_bgtransparent_2.svg"
-              /></a>
+                /></a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div id="top-nav-bg" class="fixed top-0 z-10 h-24 pt-6 w-full bg-zinc-50/50 dark:bg-zinc-700/50 transition-all duration-700 shadow-xs">
-    <div
-      class="top-(--header-top,--spacing(6)) w-full sm:px-8 fixed"
-    >
+  <div
+    id="top-nav-bg"
+    class="fixed top-0 z-10 h-24 pt-6 w-full bg-zinc-50/50 dark:bg-zinc-700/50 transition-all duration-700 shadow-xs"
+  >
+    <div class="top-(--header-top,--spacing(6)) w-full sm:px-8 fixed">
       <div class="mx-auto w-full max-w-7xl lg:px-8">
         <div class="relative px-4 sm:px-8 lg:px-12">
           <div class="mx-auto max-w-2xl lg:max-w-5xl">
             <div class="relative flex gap-4 items-center">
               <div class="flex flex-1 items-center">
-              <a
-                aria-label="Home"
-                class="pointer-events-auto block origin-left"
-                href="/"
+                <a
+                  aria-label="Home"
+                  class="pointer-events-auto block origin-left"
+                  href="/"
                 ><img
-                  id="small-logo" 
-                  alt="{{ i18n.nav.logo_symbol_alt }}"
-                  loading="lazy"
-                  fetchpriority="high"
-                  decoding="async"
-                  class="w-12 object-cover rounded-md bg-white/90 dark:bg-white/10 dark:grayscale dark:invert dark:saturate-[.1] opacity-0 transition-opacity duration-300"
-                  src="/assets/symbol_darkblue_bgtransparent_2.svg"
-              /></a>
+                    id="small-logo"
+                    alt="{{ i18n.nav.logo_symbol_alt }}"
+                    loading="lazy"
+                    fetchpriority="high"
+                    decoding="async"
+                    class="w-12 object-cover rounded-md bg-white/90 dark:bg-white/10 dark:grayscale dark:invert dark:saturate-[.1] opacity-0 transition-opacity duration-300"
+                    src="/assets/symbol_darkblue_bgtransparent_2.svg"
+                  /></a>
               </div>
               <div class="flex flex-1 justify-end md:justify-center">
                 <div class="pointer-events-auto md:hidden relative">
                   <button
-                    aria-label="Toggle menu" 
+                    aria-label="Toggle menu"
                     class="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
                     type="button"
-                    x-data @click="$dispatch('toggle-menu')"
+                    x-data
+                    @click="$dispatch('toggle-menu')"
                   >
-                    <span>{{ i18n.nav.mobile_nav_name }}</span><svg
+                    <span>{{ i18n.nav.mobile_nav_name }}</span>
+                    <svg
                       viewBox="0 0 8 6"
                       aria-hidden="true"
                       class="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400"
@@ -74,97 +71,125 @@
                         stroke-width="1.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                      ></path>
+                      >
+                      </path>
                     </svg>
                   </button>
                 </div>
                 <div
                   hidden=""
-                  style="
-                    position: fixed;
-                    top: 1px;
-                    left: 1px;
-                    width: 1px;
-                    height: 0;
-                    padding: 0;
-                    margin: -1px;
-                    overflow: hidden;
-                    clip: rect(0, 0, 0, 0);
-                    white-space: nowrap;
-                    border-width: 0;
-                    display: none;
-                  "
-                ></div>
-                <nav
-                  class="pointer-events-auto hidden md:block">
-                  <ul 
+                  style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; display: none"
+                >
+                </div>
+                <nav class="pointer-events-auto hidden md:block">
+                  <ul
                     class="flex rounded-full bg-esoliaamber-500/90 px-3 text-sm font-medium ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10"
                   >
                     {{- for item of it.topnav.links }}
-                    <li>
-                      <a 
-                        class="relative block whitespace-nowrap px-3 py-2 transition text-zinc-50 dark:text-zinc-200 hover:text-sky-400 dark:hover:text-sky-500" 
-                        href="{{ item.href }}"
-                        {{- if item.target }}target="{{ item.target }}"{{ /if }} 
-                        aria-label="{{ item.aria_label }}" 
-                        title="{{ item.title }}"
-                        >{{ item.text }} <span class="sr-only">({{ item.aria_label }})</span></a
-                      >
-                    </li>
+                      <li>
+                        <a
+                          class="relative block whitespace-nowrap px-3 py-2 transition text-zinc-50 dark:text-zinc-200 hover:text-sky-400 dark:hover:text-sky-500"
+                          href="{{ item.href }}"
+                          {{- if item.target }}target="{{ item.target }}"{{
+                            /if
+                          }}
+                          aria-label="{{ item.aria_label }}"
+                          title="{{ item.title }}"
+                        >{{ item.text }}
+                          <span class="sr-only"
+                          >({{ item.aria_label }})</span></a>
+                      </li>
                     {{ /for -}}
                   </ul>
                 </nav>
 
-                <nav class="pointer-events-auto md:hidden" x-data="{ open: false, zIndex: 0 }">
-                  <button type="button" class="mobile-menu-btn text-xl" x-on:click="open=!open; zIndex = open ? 100 : 0" x-on:toggle-menu.window="open = !open; zIndex = open ? 100 : 0" x-show="open" x-cloak>
-                      <img class="h-12 w-12 fill-esoliaamber-400 dark:fill-esoliaamber-300" src="{{ "x" |> icon("phosphor") }}" inline />
+                <nav
+                  class="pointer-events-auto md:hidden"
+                  x-data="{ open: false, zIndex: 0 }"
+                >
+                  <button
+                    type="button"
+                    class="mobile-menu-btn text-xl"
+                    x-on:click="open=!open; zIndex = open ? 100 : 0"
+                    x-on:toggle-menu.window="open = !open; zIndex = open ? 100 : 0"
+                    x-show="open"
+                    x-cloak
+                  >
+                    <img
+                      class="h-12 w-12 fill-esoliaamber-400 dark:fill-esoliaamber-300"
+                      src='{{ "x" |> icon("phosphor") }}'
+                      inline
+                    />
                   </button>
-                  <div class="mobile-menu" x-bind:class="{'is-active' : open }" :style="{ zIndex: zIndex }">
-                  {{- for item of it.topnav.links }}  
-                    <div class="text-5xl mobile-menu__item">
-                      <a
-                      class="link dim white f3 f1-l dib"
-                      href="{{ item.href }}"
-                      aria-label="{{ item.aria_label }}"
-                      title="{{ item.title }}"
-                      ><span class="font-thin">{{ item.text |> toUpperCase }}</span> <span class="sr-only">({{ item.aria_label }})</span>
-                      </a>
-                    </div>
-                  {{ /for -}}
-
+                  <div
+                    class="mobile-menu"
+                    x-bind:class="{'is-active' : open }"
+                    :style="{ zIndex: zIndex }"
+                  >
+                    {{- for item of it.topnav.links }}
+                      <div class="text-5xl mobile-menu__item">
+                        <a
+                          class="link dim white f3 f1-l dib"
+                          href="{{ item.href }}"
+                          aria-label="{{ item.aria_label }}"
+                          title="{{ item.title }}"
+                        ><span class="font-thin">{{
+                            item.text
+                            |> toUpperCase
+                          }}</span>
+                          <span class="sr-only">({{ item.aria_label }})</span>
+                        </a>
+                      </div>
+                    {{ /for -}}
                   </div>
-                  </nav>
-
-
+                </nav>
               </div>
               <div class="flex justify-end md:flex-1 z-50">
                 {{ if alternates && alternates.length > 1 }}
-                <div class="pointer-events-auto z-50">
-                  <button
+                  <div class="pointer-events-auto z-50">
+                    <button
                       type="button"
                       aria-label="Toggle language"
                       class="group rounded-full bg-esoliaamber-500/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium dark:group-hover:text-zinc-100"
                     >
-                    
-                    {{- for alt of alternates }}{{ if alt.lang !== lang }}
-                    <a class="text-zinc-50 dark:text-zinc-200 hover:text-sky-400 dark:hover:text-sky-500" href="{{ alt.url }}" title="{{ alt.title |> escape }}">
-                      {{ if alt.lang == "ja" }}日本語{{ else }}English{{ /if }}
-                    </a>
-                    {{ /if }}{{ /for }}
+                      {{- for alt of alternates }}{{ if alt.lang !== lang }}
+                          <a
+                            class="text-zinc-50 dark:text-zinc-200 hover:text-sky-400 dark:hover:text-sky-500"
+                            href="{{ alt.url }}"
+                            title="{{ alt.title |> escape }}"
+                          >
+                            {{ if alt.lang == "ja" }}日本語{{ else }}English{{
+                              /if
+                            }}
+                          </a>
+                        {{ /if }}{{ /for }}
                     </button>
                   </div>
-                  {{ /if }}
-                <div class="pointer-events-auto z-50" x-data="themeToggle" :class="{ 'dark': darkMode }">
-                
+                {{ /if }}
+                <div
+                  class="pointer-events-auto z-50"
+                  x-data="themeToggle"
+                  :class="{ 'dark': darkMode }"
+                >
                   <button
                     type="button"
                     aria-label="Toggle theme"
                     class="group rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50"
-                    @click="darkMode = !darkMode">
+                    @click="darkMode = !darkMode"
+                  >
                     <span x-show="!darkMode">
-                      <img class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 transition hover:scale-110" src="{{ "sun" |> icon("phosphor", "duotone") }}" inline />
-                    </span><span x-show="darkMode">
-                      <img class="h-5 w-5 fill-sky-300 stroke-sky-500 transition group-hover:fill-sky-400 group-hover:stroke-sky-700 transition hover:scale-110" src="{{ "moon-stars" |> icon("phosphor", "duotone") }}" inline />
+                      <img
+                        class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 transition hover:scale-110"
+                        src='{{ "sun" |> icon("phosphor", "duotone") }}'
+                        inline
+                      />
+                    </span>
+                    <span x-show="darkMode">
+                      <img
+                        class="h-5 w-5 fill-sky-300 stroke-sky-500 transition group-hover:fill-sky-400 group-hover:stroke-sky-700 transition hover:scale-110"
+                        src='{{ "moon-stars" |> icon("phosphor", "duotone") }}'
+                        inline
+                      />
                     </span>
                   </button>
                 </div>
