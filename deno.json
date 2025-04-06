@@ -1,7 +1,7 @@
 {
   "imports": {
-    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@ae2320674c7fdfb32e978536df375dfa24a0a6c5/",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@c078fae6aa3f272e028f2c4d6f11efc35f1920da/"
+    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@65a7ce4ec4572494987e9cd6758e0f160eeec2aa/",
+    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@d50159470f8741692fb9fbbb70bcea13848a6ee4/"
   },
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
