@@ -14,6 +14,9 @@ image: /uploads/blog-esolia-pro-default.png
 author: Yorihisa Nakada
 category: Microsoft-365
 comments: {}
+date: 2025-03-28T03:12:00.000Z
+last_modified: 2025-04-06T06:55:00.000Z
+tags: []
 ---
 Discover **useful keyboard shortcuts** for Windows and Office 365 to enhance productivity and streamline your workflow, <mark>starting today</mark>! 
 
