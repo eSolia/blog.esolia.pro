@@ -98,12 +98,12 @@
                 <nav
                   class="pointer-events-auto hidden md:block">
                   <ul 
-                    class="flex rounded-full bg-esoliaamber-500/90 px-3 text-sm font-medium text-zinc-50 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10"
+                    class="flex rounded-full bg-esoliaamber-500/90 px-3 text-sm font-medium ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10"
                   >
                     {{- for item of it.topnav.links }}
                     <li>
                       <a 
-                        class="relative block whitespace-nowrap px-3 py-2 transition hover:text-sky-400 dark:hover:text-sky-500 no-underline" 
+                        class="relative block whitespace-nowrap px-3 py-2 transition text-zinc-50 dark:text-zinc-200 hover:text-sky-400 dark:hover:text-sky-500" 
                         href="{{ item.href }}"
                         {{- if item.target }}target="{{ item.target }}"{{ /if }} 
                         aria-label="{{ item.aria_label }}" 
@@ -143,11 +143,11 @@
                   <button
                       type="button"
                       aria-label="Toggle language"
-                      class="group rounded-full bg-esoliaamber-500/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium text-zinc-50 dark:text-zinc-200 dark:group-hover:text-zinc-100"
+                      class="group rounded-full bg-esoliaamber-500/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium dark:group-hover:text-zinc-100"
                     >
                     
                     {{- for alt of alternates }}{{ if alt.lang !== lang }}
-                    <a class="hover:text-sky-400 dark:hover:text-sky-500 no-underline" href="{{ alt.url }}" title="{{ alt.title |> escape }}">
+                    <a class="text-zinc-50 dark:text-zinc-200 hover:text-sky-400 dark:hover:text-sky-500" href="{{ alt.url }}" title="{{ alt.title |> escape }}">
                       {{ if alt.lang == "ja" }}日本語{{ else }}English{{ /if }}
                     </a>
                     {{ /if }}{{ /for }}
