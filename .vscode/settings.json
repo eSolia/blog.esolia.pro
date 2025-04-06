@@ -13,5 +13,6 @@
     "latex",
     "plaintext",
     "typescript"
-  ]
+  ],
+  "editor.defaultFormatter": "denoland.vscode-deno"
 }

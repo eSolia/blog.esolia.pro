@@ -1,32 +1,62 @@
 <!-- ===== post-details.vto TEMPLATE START ===== -->
 <div class="mt-8 flex flex-wrap items-center gap-x-4 text-xs">
   {{ if date !== "hide" }}
-  <time datetime="{{ date }}" class="order-first flex items-center text-zinc-400 dark:text-zinc-500">
-    <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
-    <span class="ml-3">{{ date |> date("DATE")}}</span>
-    {{ if elapsed < 40 }}<img class="size-6 fill-sky-400" src="{{ "dot-outline" |> icon("phosphor", "duotone") }}" inline>{{ /if }}
-  </time>
+    <time
+      datetime="{{ date }}"
+      class="order-first flex items-center text-zinc-400 dark:text-zinc-500"
+    >
+      <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+      <span class="ml-3">{{ date |> date("DATE") }}</span>
+      {{ if elapsed < 40 }}<img
+          class="size-6 fill-sky-400"
+          src='{{ "dot-outline" |> icon("phosphor", "duotone") }}'
+          inline
+        >{{ /if }}
+    </time>
   {{ /if }}
   {{ set catColor = featurecats.find((item) => item.key === category)?.color }}
-  <a href="{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/" data-pagefind-filter="{{ i18n.search.filter_by_category }}" class="relative rounded-md bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-50 px-2 py-1 text-xs font-medium text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-600 ring-1 ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/10 ring-inset hover:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-100 no-underline">{{ category }}</a>
+  <a
+    href='{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/'
+    data-pagefind-filter="{{ i18n.search.filter_by_category }}"
+    class="relative rounded-md bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-50 px-2 py-1 text-xs font-medium text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-600 ring-1 ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/10 ring-inset hover:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-100 no-underline"
+  >{{ category }}</a>
   {{ if author }}
-  {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
-  {{ if page }}
-    <span class="relative px-2 py-1 text-xs font-light text-zinc-600 hover:bg-zinc-50">{{ i18n.post.by }}: <a class="no-underline" data-pagefind-filter="{{ i18n.search.filter_by_author }}" href="{{ page.url }}">{{ author }}</a></span>
-  {{ else }}
-    <span class="relative px-2 py-1 text-xs font-light text-zinc-600">{{ i18n.post.by }} {{ author }}</span>
+    {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
+    {{ if page }}
+      <span
+        class="relative px-2 py-1 text-xs font-light text-zinc-600 hover:bg-zinc-50"
+      >{{ i18n.post.by }}: <a
+          class="no-underline"
+          data-pagefind-filter="{{ i18n.search.filter_by_author }}"
+          href="{{ page.url }}"
+        >{{ author }}</a></span>
+    {{ else }}
+      <span class="relative px-2 py-1 text-xs font-light text-zinc-600">{{
+          i18n.post.by
+        }}
+        {{ author }}</span>
+    {{ /if }}
   {{ /if }}
-  {{ /if }}
-  <span class="relative px-2 py-1 text-xs font-light text-zinc-600">{{- i18n.post.reading_time -}}: <span class="font-medium">{{- it.readingInfo.minutes -}}{{ if lang === "en" }}&nbsp;{{ /if }}{{ i18n.post.minutes }}</span></span> 
-  {{ if hot }}<span class="relative rounded-md px-2 py-1 text-[0.6rem] font-medium bg-fuchsia-500 ring-1 ring-fuchsia-50 ring-inset text-white">
-  {{ i18n.post.hot }}
-  </span>{{ /if }}
+  <span class="relative px-2 py-1 text-xs font-light text-zinc-600">{{
+      i18n.post.reading_time
+    }}: <span class="font-medium">{{ it.readingInfo.minutes }}{{
+        if lang === "en"
+      }}&nbsp;{{ /if }}{{ i18n.post.minutes }}</span></span>
+  {{ if hot }}<span
+      class="relative rounded-md px-2 py-1 text-[0.6rem] font-medium bg-fuchsia-500 ring-1 ring-fuchsia-50 ring-inset text-white"
+    >
+      {{ i18n.post.hot }}
+    </span>{{ /if }}
 </div>
 <div class="text-xs/3 text-zinc-500 ml-4 mt-2 flex space-x-2 break-keep">
   {{ for tag of tags }}
     {{ set page = search.page(`type=tag lang=${lang} tag="${tag}"`) }}
     {{ if page }}
-    <a data-pagefind-filter="{{ i18n.search.filter_by_tag }}" class="relative rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline" href="{{ page.url }}">{{ tag }}</a>
+      <a
+        data-pagefind-filter="{{ i18n.search.filter_by_tag }}"
+        class="relative rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline"
+        href="{{ page.url }}"
+      >{{ tag }}</a>
     {{ /if }}
   {{ /for }}
 </div>

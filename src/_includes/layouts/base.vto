@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!-- ===== base.vto LAYOUT START ===== -->
 
 <html lang="{{ it.lang }}">
@@ -8,25 +8,51 @@
     <title>{{ it.title || metas.title }} - {{ metas.site }}</title>
 
     <meta name="supported-color-schemes" content="light dark">
-    <meta name="theme-color" content="hsl(33.38 100% 70%)" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="hsl(237.79 38% 28.000000000000004%)" media="(prefers-color-scheme: dark)">
-    
-    <link rel="stylesheet" href="/styles.css?cb={{ cacheBuster }}"/ type="text/css">
-    <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metas.site }}">
-    <link rel="alternate" href="/feed.json" type="application/json" title="{{ metas.site }}">
+    <meta
+      name="theme-color"
+      content="hsl(33.38 100% 70%)"
+      media="(prefers-color-scheme: light)"
+    >
+    <meta
+      name="theme-color"
+      content="hsl(237.79 38% 28.000000000000004%)"
+      media="(prefers-color-scheme: dark)"
+    >
+
+    <link
+      rel="stylesheet"
+      href="/styles.css?cb={{ cacheBuster }} "
+      type="text/css"
+    >
+    <link
+      rel="alternate"
+      href="/feed.xml"
+      type="application/atom+xml"
+      title="{{ metas.site }}"
+    >
+    <link
+      rel="alternate"
+      href="/feed.json"
+      type="application/json"
+      title="{{ metas.site }}"
+    >
     <link rel="canonical" href="{{ url |> url(true) }}">
     {{# Various js, such as Alpine and Fathom and the theme toggle script #}}
     <script src="/js/main.js?cb={{ cacheBuster }}" type="module" defer></script>
 
-<!-- Splide CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <!-- Splide CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"
+    >
 
-<!-- Splide JS -->
-<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <!-- Splide JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"
+    ></script>
 
     <link rel="manifest" href="/manifest.json">
     {{ it.extra_head?.join("\n") }}
-    
   </head>
   <body class="flex h-full bg-zinc-50 dark:bg-black">
     <!-- Container start -->
@@ -35,17 +61,18 @@
         <div class="flex w-full max-w-7xl lg:px-8">
           <div
             class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"
-          ></div>
+          >
+          </div>
         </div>
       </div>
       <div class="relative flex w-full flex-col">
-      {{ include "templates/top-nav.vto" }}
-      <div class="flex-none" style="height: var(--content-offset)"></div>
-      
-      {{ content }}
-    
-      <!-- Current page: {{ url }} -->
-      {{ include "templates/footer.vto" }}
+        {{ include "templates/top-nav.vto" }}
+        <div class="flex-none" style="height: var(--content-offset)"></div>
+
+        {{ content }}
+
+        <!-- Current page: {{ url }} -->
+        {{ include "templates/footer.vto" }}
       </div>
     </div>
     <!-- Container end -->

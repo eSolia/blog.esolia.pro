@@ -13,51 +13,72 @@ script: /js/fathom-post-list-event.js
             <h1
               class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
             >
-            <span class="font-light">{{ i18n.home.sitename }}</span>
-            <br class="block sm:hidden"> <span class="bg-gradient-to-r from-esoliaamber-500 via-cyan-400 to-esoliablue-800 bg-clip-text text-transparent">{{ i18n.archive.title }}</span>
+              <span class="font-light">{{ i18n.home.sitename }}</span>
+              <br class="block sm:hidden">
+              <span
+                class="bg-gradient-to-r from-esoliaamber-500 via-cyan-400 to-esoliablue-800 bg-clip-text text-transparent"
+              >{{ i18n.archive.title }}</span>
             </h1>
             <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
               {{ i18n.archive.description }}
             </p>
 
             <div class="flex items-center space-x-2 mt-3">
-            <img class="size-6 fill-esoliaamber-400" src="{{ "rss" |> icon("phosphor", "duotone") }}" inline>RSS:&nbsp;<a class="" href="/feed.xml">Atom, </a>&nbsp;<a class="" href="/feed.json">JSON</a>
+              <img
+                class="size-6 fill-esoliaamber-400"
+                src='{{ "rss" |> icon("phosphor", "duotone") }}'
+                inline
+              >RSS:&nbsp;<a class="" href="/feed.xml">Atom, </a>&nbsp;<a
+                class=""
+                href="/feed.json"
+              >JSON</a>
             </div>
             <div class="search" id="search"></div>
-          
-          {{ if pagination.page === 1 }}
 
-          {{ set pageCats = search.pages(`type=category lang=${lang}`, "category") }}
-          {{ if pageCats.length }}
-          <div class="text-zinc-500 ml-1 mt-2 ">
-            <nav class="">
-              <h2>{{ i18n.search.categories }}:</h2>
-              <ul class="flex flex-wrap space-x-2 space-y-2">
-              {{ for page of pageCats }}
-                <li><a href="{{ page.url }}" class="rounded-md bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 px-2 py-1 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-600 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/10 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap">{{ page.category }}</a></li>
-              {{ /for }}
+            {{ if pagination.page === 1 }}
+              {{
+                set pageCats = search.pages(
+                  `type=category lang=${lang}`,
+                  "category",
+                )
+              }}
+              {{ if pageCats.length }}
+                <div class="text-zinc-500 ml-1 mt-2">
+                  <nav class="">
+                    <h2>{{ i18n.search.categories }}:</h2>
+                    <ul class="flex flex-wrap space-x-2 space-y-2">
+                      {{ for page of pageCats }}
+                        <li>
+                          <a
+                            href="{{ page.url }}"
+                            class="rounded-md bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 px-2 py-1 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-600 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/10 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap"
+                          >{{ page.category }}</a>
+                        </li>
+                      {{ /for }}
+                    </ul>
+                  </nav>
+                </div>
+              {{ /if }}
 
-
-
-              </ul>
-            </nav>
-          </div>
-          {{ /if }}
-
-          {{ set pageTags = search.pages(`type=tag lang=${lang}`, "tag") }}
-          {{ if pageTags.length }}
-          <div class="text-zinc-500 ml-1 mt-2 ">
-            <nav class="">
-              <h2>{{ i18n.search.tags }}:</h2>
-              <ul class="flex flex-wrap space-x-2 space-y-2">
-              {{ for page of pageTags }}
-                <li><a href="{{ page.url }}" class="rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline whitespace-nowrap">{{ page.tag }}</a></li>
-              {{ /for }}
-              </ul>
-            </nav>
-          </div>
-          {{ /if }}
-          {{ /if }}
+              {{ set pageTags = search.pages(`type=tag lang=${lang}`, "tag") }}
+              {{ if pageTags.length }}
+                <div class="text-zinc-500 ml-1 mt-2">
+                  <nav class="">
+                    <h2>{{ i18n.search.tags }}:</h2>
+                    <ul class="flex flex-wrap space-x-2 space-y-2">
+                      {{ for page of pageTags }}
+                        <li>
+                          <a
+                            href="{{ page.url }}"
+                            class="rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline whitespace-nowrap"
+                          >{{ page.tag }}</a>
+                        </li>
+                      {{ /for }}
+                    </ul>
+                  </nav>
+                </div>
+              {{ /if }}
+            {{ /if }}
           </header>
 
           <div class="mt-16 sm:mt-20">
@@ -65,29 +86,33 @@ script: /js/fathom-post-list-event.js
               class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40"
             >
               <div class="flex max-w-3xl flex-col space-y-16">
-              {{ include "templates/post-list.vto" { postslist: results } }}
+                {{ include "templates/post-list.vto" { postslist: results } }}
 
-              {{ if pagination.totalPages !== 1 }}
-              <nav class="page-pagination pagination">
-                <ul>
-                  {{- if pagination.previous }}
-                  <li class="pagination-prev">
-                    <a href="{{ pagination.previous }}" rel="prev">{{ i18n.nav.previous }}</a>
-                  </li>
-                  {{ /if }}
+                {{ if pagination.totalPages !== 1 }}
+                  <nav class="page-pagination pagination">
+                    <ul>
+                      {{- if pagination.previous }}
+                        <li class="pagination-prev">
+                          <a href="{{ pagination.previous }}" rel="prev">{{
+                            i18n.nav.previous
+                          }}</a>
+                        </li>
+                      {{ /if }}
 
-                  <li class="pagination-page">
-                    {{ i18n.nav.page }} {{ pagination.page }}
-                  </li>
+                      <li class="pagination-page">
+                        {{ i18n.nav.page }} {{ pagination.page }}
+                      </li>
 
-                  {{- if pagination.next }}
-                  <li class="pagination-next">
-                    <a href="{{ pagination.next }}" rel="next">{{ i18n.nav.next }}</a>
-                  </li>
-                  {{ /if }}
-                </ul>
-              </nav>
-              {{ /if }}
+                      {{- if pagination.next }}
+                        <li class="pagination-next">
+                          <a href="{{ pagination.next }}" rel="next">{{
+                            i18n.nav.next
+                          }}</a>
+                        </li>
+                      {{ /if }}
+                    </ul>
+                  </nav>
+                {{ /if }}
               </div>
             </div>
           </div>

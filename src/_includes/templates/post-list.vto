@@ -1,64 +1,77 @@
 <!-- ===== post-list.vto TEMPLATE START ===== -->
 {{ for post of postslist }}
-<article class="md:grid md:grid-cols-4 md:items-baseline">
-  <div class="group relative flex flex-col items-start md:col-span-3">
-    <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-      <div
-        class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"
-      ></div>
-      <a
-        href="{{ post.url }}" 
-        data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}" 
-        class="data-fatrigger" 
-        {{ if post.url == url }} aria-current="page"{{ /if }}
+  <article class="md:grid md:grid-cols-4 md:items-baseline">
+    <div class="group relative flex flex-col items-start md:col-span-3">
+      <h2
+        class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
+      >
+        <div
+          class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"
+        >
+        </div>
+        <a
+          href="{{ post.url }}"
+          data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}"
+          class="data-fatrigger"
+          {{ if post.url == url }}
+            aria-current="page"{{ /if }}
         ><span
-          class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"
-        ></span
-        ><span class="relative inline-block z-10">
-         <span class="">{{ post.title || post.url }}</span>
-          {{ if post.hot }}<span class="absolute top-0 -right-2 bg-fuchsia-500 text-white text-[0.6rem] font-semibold ml-4 px-2 py-1 rounded-full transform translate-x-1/2 -translate-y-1/2 rotate-12">
-          {{ i18n.post.hot }}
-         </span>{{ /if }}
-        </span>
-      </a>
-    </h2>
-    <time
-      class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 md:hidden dark:text-zinc-500"
-      datetime="{{ post.date }}"
+            class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"
+          ></span><span class="relative inline-block z-10">
+            <span class="">{{ post.title || post.url }}</span>
+            {{ if post.hot }}<span
+                class="absolute top-0 -right-2 bg-fuchsia-500 text-white text-[0.6rem] font-semibold ml-4 px-2 py-1 rounded-full transform translate-x-1/2 -translate-y-1/2 rotate-12"
+              >
+                {{ i18n.post.hot }}
+              </span>{{ /if }}
+          </span>
+        </a>
+      </h2>
+      <time
+        class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 md:hidden dark:text-zinc-500"
+        datetime="{{ post.date }}"
       ><span
-        class="absolute inset-y-0 left-0 flex items-center"
-        aria-hidden="true"
+          class="absolute inset-y-0 left-0 flex items-center"
+          aria-hidden="true"
         ><span
-          class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
-        ></span></span
-      >{{ post.date |> date("DATE")}}</time
-    >
-    <div
-      class="relative z-10 mt-2 text-sm/7 text-zinc-600 dark:text-zinc-400 bg-zinc-50 truncate w-70 md:w-140"
-    >
-      {{ post.excerpt |> md(true) }}
-    </div>
+            class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
+          ></span></span>{{ post.date |> date("DATE") }}</time>
+      <div
+        class="relative z-10 mt-2 text-sm/7 text-zinc-600 dark:text-zinc-400 bg-zinc-50 truncate w-70 md:w-140"
+      >
+        {{ post.excerpt |> md(true) }}
+      </div>
 
-    {{ include "templates/post-details.vto" {
-      date: "hide",
-      category: post.category,
-      author: post.author,
-      readingInfo: post.readingInfo
-    } }}
-    <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-sky-500">
-    {{ i18n.nav.continue_reading }}<img 
-      alt=""
-      loading="lazy"
-      decoding="async"
-      class="h-4 w-4 fill-sky-500 dark:fill-sky-300" 
-      src="{{ "caret-right" |> icon("phosphor") }}" inline>
+      {{
+        include "templates/post-details.vto" {
+          date: "hide",
+          category: post.category,
+          author: post.author,
+          readingInfo: post.readingInfo,
+        }
+      }}
+      <div
+        aria-hidden="true"
+        class="relative z-10 mt-4 flex items-center text-sm font-medium text-sky-500"
+      >
+        {{ i18n.nav.continue_reading }}<img
+          alt=""
+          loading="lazy"
+          decoding="async"
+          class="h-4 w-4 fill-sky-500 dark:fill-sky-300"
+          src='{{ "caret-right" |> icon("phosphor") }}'
+          inline
+        >
+      </div>
     </div>
-  </div>
-  <time
-    class="relative z-10 order-first mt-1 mb-3 flex items-center text-sm text-zinc-400 max-md:hidden dark:text-zinc-500"
-    datetime="{{ post.date }}"
-    >{{ post.date |> date("DATE")}}{{ if post.elapseddays < 40 }}<img class="size-6 fill-sky-400" src="{{ "dot-outline" |> icon("phosphor", "duotone") }}" inline>{{ /if }}</time
-  >
-</article>
+    <time
+      class="relative z-10 order-first mt-1 mb-3 flex items-center text-sm text-zinc-400 max-md:hidden dark:text-zinc-500"
+      datetime="{{ post.date }}"
+    >{{ post.date |> date("DATE") }}{{ if post.elapseddays < 40 }}<img
+          class="size-6 fill-sky-400"
+          src='{{ "dot-outline" |> icon("phosphor", "duotone") }}'
+          inline
+        >{{ /if }}</time>
+  </article>
 {{ /for }}
 <!-- ===== post-list.vto TEMPLATE END ===== -->

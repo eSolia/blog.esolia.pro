@@ -1,52 +1,57 @@
 <!-- ===== top-post-list.vto TEMPLATE START ===== -->
 {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 3) }}
-<article class="group relative flex flex-col items-start">
-  <div class="z-10">
-  {{ include "templates/post-details.vto" {
-      date: post.date,
-      category: post.category,
-      author: post.author,
-      readingInfo: post.readingInfo,
-      elapsed: post.elapseddays,
-    } }}
-  </div>
-  <h2
-    class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
-  >
-    <div
-      class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"
-    ></div>
-    <a
-      href="{{ post.url }}" 
-      data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}" 
-      class="data-fatrigger"
-      {{ if post.url == url }} aria-current="page"{{ /if }}
-      ><span
-        class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"
-      ></span
-      ><span class="relative inline-block z-10">
-        <span class="">{{ post.title || post.url }}</span>
-        {{ if post.hot }}<span class="absolute top-0 -right-2 bg-fuchsia-500 text-white text-[0.6rem] font-semibold ml-4 px-2 py-1 rounded-full transform translate-x-1/2 -translate-y-1/2 rotate-12">
-          {{ i18n.post.hot }}
-        </span>{{ /if }}
-      </span
-      ></a
+  <article class="group relative flex flex-col items-start">
+    <div class="z-10">
+      {{
+        include "templates/post-details.vto" {
+          date: post.date,
+          category: post.category,
+          author: post.author,
+          readingInfo: post.readingInfo,
+          elapsed: post.elapseddays,
+        }
+      }}
+    </div>
+    <h2
+      class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
     >
-  </h2>
-  <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">{{- post.excerpt |> md(true) -}}</p>
-  <div
-    aria-hidden="true"
-    class="relative z-10 mt-4 flex items-center text-sm font-medium text-sky-500"
-  >
-    {{ i18n.nav.continue_reading }}<img 
-      alt=""
-      loading="lazy"
-      decoding="async"
-      class="h-4 w-4 fill-sky-500 dark:fill-sky-300" 
-      src="{{ "caret-right" |> icon("phosphor") }}" inline>
-  </div>
-</article>
+      <div
+        class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"
+      >
+      </div>
+      <a
+        href="{{ post.url }}"
+        data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}"
+        class="data-fatrigger"
+        {{ if post.url == url }}
+          aria-current="page"{{ /if }}
+      ><span
+          class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"
+        ></span><span class="relative inline-block z-10">
+          <span class="">{{ post.title || post.url }}</span>
+          {{ if post.hot }}<span
+              class="absolute top-0 -right-2 bg-fuchsia-500 text-white text-[0.6rem] font-semibold ml-4 px-2 py-1 rounded-full transform translate-x-1/2 -translate-y-1/2 rotate-12"
+            >
+              {{ i18n.post.hot }}
+            </span>{{ /if }}
+        </span></a>
+    </h2>
+    <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+      {{ post.excerpt |> md(true) }}
+    </p>
+    <div
+      aria-hidden="true"
+      class="relative z-10 mt-4 flex items-center text-sm font-medium text-sky-500"
+    >
+      {{ i18n.nav.continue_reading }}<img
+        alt=""
+        loading="lazy"
+        decoding="async"
+        class="h-4 w-4 fill-sky-500 dark:fill-sky-300"
+        src='{{ "caret-right" |> icon("phosphor") }}'
+        inline
+      >
+    </div>
+  </article>
 {{ /for }}
 <!-- ===== top-post-list.vto TEMPLATE END ===== -->
-
-
