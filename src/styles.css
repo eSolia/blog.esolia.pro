@@ -116,7 +116,7 @@
 }
 
 body article > div > p:first-of-type {
-  @apply text-lg font-light leading-relaxed text-esoliablue-800;
+  @apply text-lg font-light leading-relaxed text-esoliablue-800 dark:text-esoliablue-200;
 }
 
 /* MDN keyboard shortcut style for kbd tag */
