@@ -54,7 +54,7 @@
             <a
               href="{{ post.url }}"
               data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}"
-              class="data-fatrigger"
+              class="data-fatrigger text-zinc-800 hover:text-sky-500 dark:text-zinc-50 dark:hover:text-sky-500"
               {{ if post.url == url }}
                 aria-current="page"{{ /if }}
             >
@@ -65,7 +65,7 @@
                 </span>{{ /if }} #}}
             </a>
           </h3>
-          <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">
+          <p class="mt-5 line-clamp-3 text-sm/6 text-zinc-600 dark:text-zinc-300">
             {{ post.excerpt |> md(true) }}
           </p>
         </div>

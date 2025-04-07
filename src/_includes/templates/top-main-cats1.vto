@@ -1,5 +1,5 @@
 <!-- ===== top-main-tags1.vto TEMPLATE START ===== -->
-<div class="flex space-x-2 bg-zinc-100 p-2 rounded-md">
+<div class="flex space-x-2 bg-zinc-100 dark:bg-zinc-700 p-2 rounded-md">
   {{# <span class="inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset">M365</span> #}}
   {{
     set pageCats = search.pages(`type=category lang=${lang}`, "category=desc-locale")
@@ -12,7 +12,7 @@
             <li>
               <a
                 href="{{ page.url }}"
-                class="inline-flex items-center rounded-md bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 px-2 py-1 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-600 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/10 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap"
+                class="inline-flex items-center rounded-md bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-200 px-2 py-1 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-600 dark:text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-700 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/10 dark:ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap"
               >{{ page.category }}</a>
             </li>
           {{ /for }}
