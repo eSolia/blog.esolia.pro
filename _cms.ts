@@ -380,31 +380,71 @@ cms.collection({
       label: "カテゴリー Category",
       description:
         "ページのカテゴリ（例：セキュリティ、クラウド など）。ページの言語で入力してください。<br>The page category (e.g. Security, Cloud, etc), in the language of the page",
-      init(field, { data }) {
-        const staticCats = [
-          "マイクロソフト365",
-          "Microsoft-365",
-          "セキュリティ",
-          "Security",
-          "ネットワーク",
-          "Network",
-          "クラウド",
-          "Cloud",
-          "トラブルシューティング",
-          "Troubleshooting",
-          "AI活用",
-          "AI-Usage",
-          "ウィンドウズ",
-          "Windows",
-          "周辺機器",
-          "Peripherals",
-          "その他",
-          "Other",
-        ];
-        const dynamicCats = data.site?.search.values("category") || [];
-        const allCats = [...staticCats, ...dynamicCats];
-        const uniqueCats = [...new Set(allCats)];
-        field.options = uniqueCats;
+      init(field, { data }, docData) {
+        const site = data.site;
+        // Editing an existing document
+        if (docData) {
+          const { lang } = docData
+          if (lang === "ja") {
+            const staticCats = [
+              "マイクロソフト365",
+              "セキュリティ",
+              "ネットワーク",
+              "クラウド",
+              "トラブルシューティング",
+              "AI活用",
+              "ウィンドウズ",
+              "周辺機器",
+              "その他",
+            ];
+            const dynamicCats = site?.search.values(`category lang=${lang}`) || [];
+            const allCats = [...staticCats, ...dynamicCats];
+            const uniqueCats = [...new Set(allCats)];
+            field.options = uniqueCats;
+          } else if (lang === "en") {
+            const staticCats = [
+              "Microsoft-365",
+              "Security",
+              "Network",
+              "Cloud",
+              "Troubleshooting",
+              "AI-Usage",
+              "Windows",
+              "Peripherals",
+              "Other",
+            ];
+            const dynamicCats = site?.search.values(`category lang=${lang}`) || [];
+            const allCats = [...staticCats, ...dynamicCats];
+            const uniqueCats = [...new Set(allCats)];
+            field.options = uniqueCats;
+          }
+        // New document and we do not have the lang yet
+        } else {
+          const staticCats = [
+            "マイクロソフト365",
+            "Microsoft-365",
+            "セキュリティ",
+            "Security",
+            "ネットワーク",
+            "Network",
+            "クラウド",
+            "Cloud",
+            "トラブルシューティング",
+            "Troubleshooting",
+            "AI活用",
+            "AI-Usage",
+            "ウィンドウズ",
+            "Windows",
+            "周辺機器",
+            "Peripherals",
+            "その他",
+            "Other",
+          ];
+          const dynamicCats = site?.search.values("category") || [];
+          const allCats = [...staticCats, ...dynamicCats];
+          const uniqueCats = [...new Set(allCats)];
+          field.options = uniqueCats;
+        }
       },
     },
     {
