@@ -3,9 +3,9 @@
   {{ if date !== "hide" }}
     <time
       datetime="{{ date }}"
-      class="order-first flex items-center text-zinc-400 dark:text-zinc-500"
+      class="order-first flex items-center text-zinc-400 dark:text-zinc-300"
     >
-      <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+      <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-400"></span>
       <span class="ml-3">{{ date |> date("DATE") }}</span>
       {{ if elapsed < 40 }}<img
           class="size-6 fill-sky-400"
@@ -18,26 +18,26 @@
   <a
     href='{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/'
     data-pagefind-filter="{{ i18n.search.filter_by_category }}"
-    class="relative rounded-md bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-50 px-2 py-1 text-xs font-medium text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-600 ring-1 ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/10 ring-inset hover:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-100 no-underline"
+    class="relative rounded-md bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-200 px-2 py-1 text-xs font-medium text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-600 dark:text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-700 ring-1 ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/10 dark:ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-100 no-underline"
   >{{ category }}</a>
   {{ if author }}
     {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
     {{ if page }}
       <span
-        class="relative px-2 py-1 text-xs font-light text-zinc-600 hover:bg-zinc-50"
+        class="relative px-2 py-1 text-xs font-light text-zinc-400 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700"
       >{{ i18n.post.by }}: <a
-          class="no-underline"
+          class="no-underline text-zinc-400 dark:text-zinc-300"
           data-pagefind-filter="{{ i18n.search.filter_by_author }}"
           href="{{ page.url }}"
         >{{ author }}</a></span>
     {{ else }}
-      <span class="relative px-2 py-1 text-xs font-light text-zinc-600">{{
+      <span class="relative px-2 py-1 text-xs font-light text-zinc-400 dark:text-zinc-300">{{
           i18n.post.by
         }}
         {{ author }}</span>
     {{ /if }}
   {{ /if }}
-  <span class="relative px-2 py-1 text-xs font-light text-zinc-600">{{
+  <span class="relative px-2 py-1 text-xs font-light text-zinc-400 dark:text-zinc-300">{{
       i18n.post.reading_time
     }}: <span class="font-medium">{{ it.readingInfo.minutes }}{{
         if lang === "en"
