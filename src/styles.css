@@ -23,7 +23,7 @@
 
 @layer base {
   a {
-    @apply text-zinc-500 hover:text-sky-700 no-underline; /* Example base link styles */
+    @apply text-zinc-500 dark:text-zinc-100 hover:text-sky-600 dark:hover:text-sky-400; /* Example base link styles */
     transition: color 0.15s ease-in-out;
     text-decoration-thickness: 1px; /* Set your desired default thickness here as well */
     text-decoration-color: theme('colors.zinc.500'); /* Match the text color */
