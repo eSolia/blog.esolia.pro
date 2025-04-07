@@ -29,7 +29,7 @@ window.addEventListener('scroll', () => {
       smallLogo.classList.add('opacity-0');
   }
 
-  // Handle background color changes
+  // Handle nav opacity changes based on scroll position
   if (scrollPosition > 50) {
       topNavBG.classList.remove('bg-zinc-50/50', 'dark:bg-zinc-700/50', 'bg-zinc-50/70', 'dark:bg-zinc-700/70');
       topNavBG.classList.add('bg-zinc-50/95', 'dark:bg-zinc-700/95');
