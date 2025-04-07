@@ -159,12 +159,12 @@ mark {
 }
 :root {
   ::selection {
-    background-color: var(--color-amber-300);
+    background-color: var(--color-sky-300);
     color: var(--color-zinc-900); 
   }
   .dark {
     ::selection {
-      background-color: var(--color-amber-300);
+      background-color: var(--color-sky-300);
       color: var(--color-zinc-900);
     }
   }
