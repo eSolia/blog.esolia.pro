@@ -51,7 +51,7 @@ script: /js/fathom-post-list-event.js
                         <li>
                           <a
                             href="{{ page.url }}"
-                            class="rounded-md bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 px-2 py-1 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-600 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/10 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap"
+                            class="rounded-md bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-200 px-2 py-1 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-600 dark:text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-700 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/10 dark:ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap"
                           >{{ page.category }}</a>
                         </li>
                       {{ /for }}
@@ -70,7 +70,7 @@ script: /js/fathom-post-list-event.js
                         <li>
                           <a
                             href="{{ page.url }}"
-                            class="rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline whitespace-nowrap"
+                            class="rounded-md bg-zinc-50 dark:bg-zinc-700 px-2 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-50 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 dark:hover:bg-zinc-500 no-underline whitespace-nowrap"
                           >{{ page.tag }}</a>
                         </li>
                       {{ /for }}
