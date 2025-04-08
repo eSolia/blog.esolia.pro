@@ -380,31 +380,48 @@ cms.collection({
       label: "カテゴリー Category",
       description:
         "ページのカテゴリ（例：セキュリティ、クラウド など）。ページの言語で入力してください。<br>The page category (e.g. Security, Cloud, etc), in the language of the page",
-      init(field, { data }) {
-        const staticCats = [
-          "マイクロソフト365",
-          "Microsoft-365",
-          "セキュリティ",
-          "Security",
-          "ネットワーク",
-          "Network",
-          "クラウド",
-          "Cloud",
-          "トラブルシューティング",
-          "Troubleshooting",
-          "AI活用",
-          "AI-Usage",
-          "ウィンドウズ",
-          "Windows",
-          "周辺機器",
-          "Peripherals",
-          "その他",
-          "Other",
-        ];
-        const dynamicCats = data.site?.search.values("category") || [];
-        const allCats = [...staticCats, ...dynamicCats];
-        const uniqueCats = [...new Set(allCats)];
-        field.options = uniqueCats;
+      init(field, { data }, docData) {
+        const site = data.site;
+        let allCats = [];
+        const staticCategoriesByLang = {
+          ja: [
+            "マイクロソフト365",
+            "セキュリティ",
+            "ネットワーク",
+            "クラウド",
+            "トラブルシューティング",
+            "AI活用",
+            "ウィンドウズ",
+            "周辺機器",
+            "その他",
+          ],
+          en: [
+            "Microsoft-365",
+            "Security",
+            "Network",
+            "Cloud",
+            "Troubleshooting",
+            "AI-Usage",
+            "Windows",
+            "Peripherals",
+            "Other",
+          ],
+        };
+        // Editing an existing document
+        if (docData) {
+          const { lang } = docData;
+          if (lang === "ja" || lang === "en") {
+            const staticCats = staticCategoriesByLang[lang] || [];
+            const dynamicCats = site?.search.values(`category lang=${lang}`) || [];
+            allCats = [...staticCats, ...dynamicCats];
+          }
+          // If lang is not ja or en for some reason, or for new docs without lang yet
+        } else {
+          const allStaticCats = Object.values(staticCategoriesByLang).flat();
+          const dynamicCats = site?.search.values("category") || [];
+          allCats = [...allStaticCats, ...dynamicCats];
+        }
+        field.options = [...new Set(allCats)]; // Deduplicate categories
       },
     },
     {
@@ -413,15 +430,39 @@ cms.collection({
       label: "タグ Tags",
       description:
         "ページのタグ。ページの言語で入力してください。<br>The page tags, in the language of the page",
-      init(field, { data }) {
-        const staticTags = [
-          "JIS-Q-27001",
-          "ISO-27001",
-        ];
-        const dynamicTags = data.site?.search.values("tags") || [];
-        const allTags = [...staticTags, ...dynamicTags];
-        const uniqueTags = [...new Set(allTags)];
-        field.options = uniqueTags;
+      init(field, { data }, docData) {
+        const site = data.site;
+        // console.log("data:", data);
+        // console.log("docData:", docData);
+        // console.log("site:", site);
+        let allTags = [];
+        const staticTagsByLang = {
+          ja: [
+            "JIS-Q-27001",
+          ],
+          en: [
+            "ISO-27001",
+          ],
+          // Add more languages here if needed
+        };
+        // Editing an existing document
+        if (docData) {
+          const { lang } = docData;
+          console.log("docData.lang:", lang);
+          if (lang === "ja" || lang === "en") {
+            const staticTags = staticTagsByLang[lang] || [];
+            console.log("staticTags (editing):", staticTags);
+            const dynamicTags = site.search.values(`tags lang=${lang}`) || [];
+            console.log("dynamicTags (editing):", dynamicTags);
+            allTags = [...staticTags, ...dynamicTags];
+          }
+          // If lang is not ja or en for some reason, or for new docs without lang yet
+        } else {
+          const allStaticTags = Object.values(staticTagsByLang).flat();
+          const dynamicTags = site.search.values("tags") || [];
+          allTags = [...allStaticTags, ...dynamicTags];
+        }
+        field.options = [...new Set(allTags)]; // Deduplicate tags
       },
     },
     {

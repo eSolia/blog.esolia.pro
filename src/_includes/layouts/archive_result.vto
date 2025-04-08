@@ -15,7 +15,7 @@ bodyClass: body-tag
             >
               {{ title }}
             </h1>
-            <p>{{ summary }}</p>
+            <p class="text-zinc-800 dark:text-zinc-200">{{ summary }}</p>
             {{
               include "templates/post-list.vto" { postslist: search.pages(search_query) }
             }}

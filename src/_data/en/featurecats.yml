@@ -1,6 +1,6 @@
 - key: Microsoft-365
   id: cat1
-  color: blue
+  color: esoliablue
   image: /assets/cat1-bg.jpg
   summary: Articles about Microsoft 365, including Exchange Online, SharePoint Online, OneDrive for Business, and Microsoft Teams. These articles are written by eSolia professionals based on their experience with these products.
 - key: Security
@@ -20,7 +20,7 @@
   summary: All the articles about cloud computing, including IaaS, PaaS, and SaaS. These articles are written by eSolia professionals based on their experience with these technologies.
 - key: Troubleshooting
   id: cat5
-  color: violet
+  color: emerald
   image: /assets/cat5-bg.jpg
   summary: Articles about troubleshooting, including tips and tricks for diagnosing and fixing common issues. These articles are written by eSolia professionals based on their experience with these products.
 - key: AI-Usage
