@@ -412,7 +412,7 @@ cms.collection({
           const { lang } = docData;
           if (lang === "ja" || lang === "en") {
             const staticCats = staticCategoriesByLang[lang] || [];
-            const dynamicCats = site?.search.values(`category lang=${lang}`) || [];
+            const dynamicCats = site?.search.values("category", `lang=${lang}`) || [];
             allCats = [...staticCats, ...dynamicCats];
           }
           // If lang is not ja or en for some reason, or for new docs without lang yet
@@ -452,7 +452,7 @@ cms.collection({
           if (lang === "ja" || lang === "en") {
             const staticTags = staticTagsByLang[lang] || [];
             console.log("staticTags (editing):", staticTags);
-            const dynamicTags = site.search.values(`tags lang=${lang}`) || [];
+            const dynamicTags = site.search.values("tags", `lang=${lang}`) || [];
             console.log("dynamicTags (editing):", dynamicTags);
             allTags = [...staticTags, ...dynamicTags];
           }
@@ -503,6 +503,30 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
 </figure>`,
         },
         {
+          label: "TABLE skeleton with needed default classes",
+          value: `<table class="not-prose w-full text-sm">
+  <caption>
+    Table: Caption for good a11y and semantics
+  </caption>
+  <thead>
+    <tr>
+      <th>Heading 1</th>
+      <th>Heading 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Key A</td>
+      <td>Value A</td>
+    </tr>
+    <tr>
+      <td>Key B</td>
+      <td>Value B</td>
+    </tr>
+  </tbody>
+</table>`,
+        },
+        {
           label: "Icon",
           value: `{{- comp.icon({ name: "fire", size: 4, color: "red" }) -}}`,
         },
@@ -534,6 +558,10 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
         {
           label: "Keyboard input",
           value: "<kbd>{$}</kbd>",
+        },
+        {
+          label: "More Break",
+          value: "<!--more-->",
         },
       ],
     },
