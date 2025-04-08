@@ -32,6 +32,13 @@ newsletter:
   placeholder: メールアドレス
   success: 登録完了しました！
   error: 登録に失敗しました
+contact:
+  title: 弊社サービスをご検討される場合
+  button: お問い合わせ
+  aria_label: 当社本サイトにてお問い合わせをする
+  url: https://esolia.co.jp/info-request/
+  description: |
+    お問い合わせは、ボタンをクリックして、当社本サイトからお願い致します。こちらからご連絡致します。
 nav:
   toc: 目次
   next_post: より新しいポスト →

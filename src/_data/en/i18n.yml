@@ -30,6 +30,13 @@ newsletter:
   placeholder: Email address
   success: Subscribed!
   error: Subscription failed
+contact:
+  title: Considering our services?
+  button: Contact us
+  url: https://esolia.com/info-request/
+  aria_label: Contact us via eSolia main site
+  description: |
+    Please click the button to contact us via our main site. We will get back to you from there. We look forward to assisting you!
 nav:
   toc: Table of Contents
   next_post: Newer post →
