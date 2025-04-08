@@ -73,3 +73,10 @@ loadVendorScript('https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js', 
 loadVendorScript('https://cdn.usefathom.com/script.js', { 'data-site': 'OIXGEUHR', 'defer': '' }, function() {
   console.log('Fathom Analytics loaded with defer and data-site attribute');
 });
+
+// Handle click event for the button with role="button"
+document.querySelector('a[role="button"]').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      this.click();
+    }
+});

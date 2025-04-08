@@ -6,7 +6,7 @@
       <p class="mt-2 text-lg/8 text-gray-600">Learn how to grow your business with our expert advice.</p>
     </div> #}}
 <div
-  class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+  class="mx-auto mt-2 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
 >
   {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 6) }}
     <article class="flex flex-col items-start">
@@ -22,7 +22,7 @@
         >
         </div>
         <img
-          src="{{ if catImage }}{{ catImage }}{{ else }}cat0-bg.jpg{{ /if }}"
+          src="{{ if catImage }}{{ catImage }}{{ else }}/assets/cat0-bg.jpg{{ /if }}"
           alt=""
           class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2 transition-opacity duration-300 filter dark:invert mix-blend-normal dark:mix-blend-luminosity"
           loading="lazy"
