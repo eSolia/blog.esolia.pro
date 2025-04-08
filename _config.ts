@@ -40,6 +40,7 @@ import shuffle from "https://raw.githubusercontent.com/RickCogley/hibana/refs/he
 import { time } from "node:console";
 import inline from "lume/plugins/inline.ts";
 import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
+import codeHighlight from "lume/plugins/code_highlight.ts";
 
 // ERRORS: import purgecss from "lume/plugins/purgecss.ts";
 // import minify_html from "lume/plugins/minify_html.ts";
@@ -320,6 +321,7 @@ site.use(
     },
   }),
 );
+site.use(codeHighlight());
 
 site.add([".css"]);
 site.add("fonts");
