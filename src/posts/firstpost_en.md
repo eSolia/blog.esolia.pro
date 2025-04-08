@@ -13,7 +13,7 @@ category: AI-Usage
 hot: false
 tags: []
 date: 2018-08-22T16:01:00.000Z
-last_modified: 2025-04-04T10:29:00.000Z
+last_modified: 2025-04-08T10:45:00.000Z
 ---
 TEST Leverage agile frameworks to provide a robust synopsis for high level overviews.
 Iterative approaches to corporate strategy foster collaborative thinking to
@@ -27,6 +27,27 @@ of disruptive innovation via workplace diversity and empowerment.
 {{- comp.icon({ name: "highlighter", size: 4, color: "yellow" }) -}} This is <mark>a highlight</mark>
 {{- comp.icon({ name: "fire", size: 4, color: "red" }) -}} This is fire!
 
+<table class="not-prose w-full text-sm">
+  <caption>
+    Table: Caption for good a11y and semantics
+  </caption>
+  <thead>
+    <tr>
+      <th>Heading 1</th>
+      <th>Heading 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Key A</td>
+      <td>Value A</td>
+    </tr>
+    <tr>
+      <td>Key B</td>
+      <td>Value B</td>
+    </tr>
+  </tbody>
+</table>
 
 ```js
 // this is a command
