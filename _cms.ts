@@ -560,6 +560,10 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
           value: "<kbd>{$}</kbd>",
         },
         {
+          label: "Mark highlight",
+          value: "<mark>{$}</mark>",
+        },
+        {
           label: "More Break",
           value: "<!--more-->",
         },
