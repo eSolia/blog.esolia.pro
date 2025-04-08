@@ -412,7 +412,7 @@ cms.collection({
           const { lang } = docData;
           if (lang === "ja" || lang === "en") {
             const staticCats = staticCategoriesByLang[lang] || [];
-            const dynamicCats = site?.search.values(`category lang=${lang}`) || [];
+            const dynamicCats = site?.search.values("category", `lang=${lang}`) || [];
             allCats = [...staticCats, ...dynamicCats];
           }
           // If lang is not ja or en for some reason, or for new docs without lang yet
@@ -452,7 +452,7 @@ cms.collection({
           if (lang === "ja" || lang === "en") {
             const staticTags = staticTagsByLang[lang] || [];
             console.log("staticTags (editing):", staticTags);
-            const dynamicTags = site.search.values(`tags lang=${lang}`) || [];
+            const dynamicTags = site.search.values("tags", `lang=${lang}`) || [];
             console.log("dynamicTags (editing):", dynamicTags);
             allTags = [...staticTags, ...dynamicTags];
           }
