@@ -3,9 +3,15 @@ draft: false
 hot: false
 featured: false
 lang: en
+<<<<<<< HEAD
 id: 202503f-laptop-battery-health
 date: 2025-04-09T01:07:46.664Z
 last_modified: 2025-04-09T11:03:00.000Z
+=======
+id: 202503e-laptop-battery-health
+date: 2025-04-09T01:07:46.664Z
+last_modified: 2025-04-09T10:26:00.000Z
+>>>>>>> cd6cdfc (Changes from CMS)
 title: 'Tips for how to check your laptop battery health on Windows '
 description: 'How to check your laptop battery health '
 image: /uploads/blog-esolia-pro-default.png
@@ -74,4 +80,10 @@ capacity will basically decrease over time, and this tells how much your laptop 
 **CYCLE COUNT** shows how many times you charged this battery. Generally, the battery needs to be replaced after 300~500 times of charging.<br>
 <br>
 
+<<<<<<< HEAD
 This is the method to objectively check the deterioration of your laptop battery. If you have noticed that your laptop battery is running out quickly recently, try checking the battery status using the method above.
+=======
+This is the method to objectively check the deterioration of your laptop battery. If you have noticed that your laptop battery is running out quickly recently, try checking the battery status using the method above. 
+
+
+>>>>>>> cd6cdfc (Changes from CMS)
