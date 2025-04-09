@@ -12,7 +12,6 @@ import googleFonts from "lume/plugins/google_fonts.ts";
 import attributes from "lume/plugins/attributes.ts";
 import esbuild from "lume/plugins/esbuild.ts";
 // import terser from "lume/plugins/terser.ts";
-import prism from "lume/plugins/prism.ts";
 import basePath from "lume/plugins/base_path.ts";
 // import slugifyUrls from "lume/plugins/slugify_urls.ts";
 // import jaconv from "npm:jaconv@1.0.4";
@@ -40,19 +39,20 @@ import shuffle from "https://raw.githubusercontent.com/RickCogley/hibana/refs/he
 import { time } from "node:console";
 import inline from "lume/plugins/inline.ts";
 import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
-import codeHighlight from "lume/plugins/code_highlight.ts";
-import lang_javascript from "npm:highlight.js/lib/languages/javascript";
-import lang_bash from "npm:highlight.js/lib/languages/bash";
-import lang_css from "npm:highlight.js/lib/languages/css";
-import lang_html from "npm:highlight.js/lib/languages/xml";
-import lang_json from "npm:highlight.js/lib/languages/json";
-import lang_javascript_ts from "npm:highlight.js/lib/languages/typescript";
-import lang_javascript_json from "npm:highlight.js/lib/languages/javascript";
-import lang_javascript_js from "npm:highlight.js/lib/languages/javascript";
-import lang_powershell from "npm:highlight.js/lib/languages/powershell";
-import lang_shell from "npm:highlight.js/lib/languages/shell";
-import lang_sql from "npm:highlight.js/lib/languages/sql";
-import lang_yaml from "npm:highlight.js/lib/languages/yaml";
+
+import prism from "lume/plugins/prism.ts";
+import "npm:prismjs@1.29.0/components/prism-git.js";
+import "npm:prismjs@1.29.0/components/prism-json.js";
+import "npm:prismjs@1.29.0/components/prism-markup.js";
+import "npm:prismjs@1.29.0/components/prism-sql.js";
+import "npm:prismjs@1.29.0/components/prism-yaml.js";
+import "npm:prismjs@1.29.0/components/prism-bash.js";
+import "npm:prismjs@1.29.0/components/prism-css.js";
+import "npm:prismjs@1.29.0/components/prism-javascript.js";
+import "npm:prismjs@1.29.0/components/prism-typescript.js";
+import "npm:prismjs@1.29.0/components/prism-powershell.js";
+import "npm:prismjs@1.29.0/components/prism-shell-session.js";
+import "npm:prismjs@1.29.0/components/prism-json5.js";
 
 // ERRORS: import purgecss from "lume/plugins/purgecss.ts";
 // import minify_html from "lume/plugins/minify_html.ts";
@@ -196,10 +196,26 @@ site.use(googleFonts({
 site.use(attributes());
 site.use(picture(/* Options */));
 site.use(transformImages());
+
+site.use(prism({
+  theme: [
+    {
+      name: "default",
+      cssFile: "styles.css",
+      placeholder: "/* light-theme-here */"
+    },
+    {
+      name: "okaidia",
+      cssFile: "styles.css",
+      placeholder: "/* dark-theme-here */"
+    },
+  ]
+}));
+
 site.use(tailwindcss());
 // site.use(lightningCss());
 // site.use(terser());
-site.use(prism());
+
 site.use(basePath());
 site.use(title());
 site.use(toc());
@@ -333,36 +349,7 @@ site.use(
     },
   }),
 );
-site.use(codeHighlight(
-  {
-    theme: [
-      {
-        name: "atom-one-light",
-        cssFile: "styles.css",
-        placeholder: "/* light-theme-here */"
-      },
-      {
-        name: "atom-one-dark",
-        cssFile: "styles.css",
-        placeholder: "/* dark-theme-here */"
-      },
-    ],
-    languages: {
-      bash: lang_bash,
-      css: lang_css,
-      html: lang_html,
-      json: lang_javascript_json,
-      javascript: lang_javascript,
-      typescript: lang_javascript_ts,
-      js: lang_javascript,
-      ts: lang_javascript_ts,
-      powershell: lang_powershell,
-      shell: lang_shell,
-      sql: lang_sql,
-      yaml: lang_yaml,
-    },
-  },
-));
+
 
 site.add([".css"]);
 site.add("fonts");
