@@ -8,3 +8,4 @@ yarn.lock
 deno.lock
 _seo_report_en.json
 _seo_report_ja.json
+errors.log
