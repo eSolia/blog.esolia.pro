@@ -448,12 +448,12 @@ cms.collection({
         // Editing an existing document
         if (docData) {
           const { lang } = docData;
-          console.log("docData.lang:", lang);
+          // console.log("docData.lang:", lang);
           if (lang === "ja" || lang === "en") {
             const staticTags = staticTagsByLang[lang] || [];
-            console.log("staticTags (editing):", staticTags);
+            // console.log("staticTags (editing):", staticTags);
             const dynamicTags = site.search.values("tags", `lang=${lang}`) || [];
-            console.log("dynamicTags (editing):", dynamicTags);
+            // console.log("dynamicTags (editing):", dynamicTags);
             allTags = [...staticTags, ...dynamicTags];
           }
           // If lang is not ja or en for some reason, or for new docs without lang yet
