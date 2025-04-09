@@ -162,11 +162,17 @@ mark {
     background-color: var(--color-sky-300);
     color: var(--color-zinc-900); 
   }
+  
+/* light-theme-here */
+
   .dark {
     ::selection {
       background-color: var(--color-sky-300);
       color: var(--color-zinc-900);
     }
+
+/* dark-theme-here */
+
   }
 }
 
