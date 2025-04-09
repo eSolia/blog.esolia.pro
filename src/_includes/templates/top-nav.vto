@@ -127,13 +127,13 @@
                     :style="{ zIndex: zIndex }"
                   >
                     {{- for item of it.topnav.links }}
-                      <div class="text-5xl mobile-menu__item">
+                      <div class="mobile-menu__item space-y-4">
                         <a
-                          class="link dim white f3 f1-l dib"
+                          class="text-white hover:text-sky-400 text-5xl inline-block"
                           href="{{ item.href }}"
                           aria-label="{{ item.aria_label }}"
                           title="{{ item.title }}"
-                        ><span class="font-thin">{{
+                        ><span class="text-white font-thin">{{
                             item.text
                             |> toUpperCase
                           }}</span>
