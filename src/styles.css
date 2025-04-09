@@ -63,6 +63,19 @@
   .prose :where(a) {
     @apply hover:opacity-60;
   }
+
+  .prose figure + p {
+    margin-top: 1.3333333em; /* Add top margin to paragraphs after figures */
+  }
+
+  .prose p {
+    margin-bottom: 1.3333333em; /* Add bottom margin to all paragraphs */
+  }
+
+  /* Optional: Adjust top margin for the very first paragraph in the prose block */
+  .prose > *:first-child:is(p) {
+    margin-top: 0;
+  }
 }
 
 /* prose-a:text-sky-900 dark:prose-a:text-sky-200  prose-a:decoration-sky-700 prose-a:underline  */

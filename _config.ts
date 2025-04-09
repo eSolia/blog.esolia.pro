@@ -56,11 +56,22 @@ import "npm:prismjs@1.29.0/components/prism-json5.js";
 
 // ERRORS: import purgecss from "lume/plugins/purgecss.ts";
 // import minify_html from "lume/plugins/minify_html.ts";
+// Change markdown-it configuration
+
+const markdown = {
+  options: {
+    typographer: true,
+    breaks: true,
+    xhtmlOut: false,
+  },
+};
 
 const site = lume({
   src: "./src",
   location: new URL("https://blog.esolia.pro"),
-});
+},
+{ markdown }
+);
 
 site.use(googleFonts({
   subsets: [
