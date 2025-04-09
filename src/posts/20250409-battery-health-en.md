@@ -3,6 +3,7 @@ draft: false
 hot: false
 featured: false
 lang: en
+<<<<<<< HEAD
 id: 202503f-laptop-battery-health
 date: 2025-04-09T01:07:46.664Z
 last_modified: 2025-04-10T09:48:00.000Z
@@ -70,4 +71,10 @@ capacity will basically decrease over time, and this tells how much your laptop 
 
 **CYCLE COUNT** shows how many times you charged this battery. Generally, the battery needs to be replaced after 300~500 times of charging.<br>
 
+<<<<<<< HEAD
 This is the method to objectively check the deterioration of your laptop battery. If you have noticed that your laptop battery is running out quickly recently, try checking the battery status using the method above.
+=======
+This is the method to objectively check the deterioration of your laptop battery. If you have noticed that your laptop battery is running out quickly recently, try checking the battery status using the method above. 
+
+
+>>>>>>> cd6cdfc (Changes from CMS)
