@@ -5,7 +5,7 @@ featured: false
 lang: en
 id: 202503g-admin-asked-ai
 date: 2025-04-10T05:13:55.141Z
-last_modified: 2025-04-10T15:21:00.000Z
+last_modified: 2025-04-10T20:41:00.000Z
 title: >-
   UTP Cable? Cat Cable? RJ45 Connector? Admin asked AI about the IT terminology
   that admin is curious about 
@@ -22,8 +22,7 @@ tags:
   - LAN Cabling
 comments: {}
 ---
-How to Use AI to Turn “Kind of Know” into “Truly Understand”<br>
-— IT terms you often see at work. This time, we’ll share a real example of how AI helped deepen understanding.
+How to Use AI to Turn “Kind of Know” into “Truly Understand” — IT terms you often see at work. This time, we’ll share a real example of how AI helped deepen understanding.
 <!--more-->
 
 ## Introduction
@@ -78,4 +77,4 @@ However, it is important to remember that the accuracy of the answers provided b
 
 eSolia provides daily IT support as a reliable IT department for companies in Japan, and we can definitely answer your answers about cabling!  
 
-If you are considering outsourcing your IT department, or if you need help on any IT-related projects (office relocation or LAN cablign constructions,  equipment installation, etc.), please feel free to contact us here. 
+If you are considering outsourcing your IT department, or if you need help on any IT-related projects (office relocation or LAN cablign constructions,  equipment installation, etc.), please feel free to contact us here.
