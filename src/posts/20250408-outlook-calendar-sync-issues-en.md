@@ -5,7 +5,7 @@ featured: false
 lang: en
 id: 202503e-outlook-calender-sync-issues
 date: 2025-04-08T07:31:31.905Z
-last_modified: 2025-04-08T11:06:00.000Z
+last_modified: 2025-04-10T13:56:00.000Z
 title: How to Fix Outlook Calendar Sync Issues.
 description: >-
   Here are some methods to help resolve these problems and ensure smoother
@@ -33,26 +33,25 @@ Another effective method is to **clear the cache**. Outlook app creates a local 
 ### How to Delete the OST File
 Follow these steps to delete the OST file in the Classic version of Outlook:
 
-1.　Open the **File tab**
-2.　Select **Account Settings** 
-3.　Click on **Account Settings** again
-4.　Choose **Data Files**
-5.　Click on the OST file and select **Open File Location**
-6.　When the location of the OST file opens, close Outlook
+1. Open the **File tab**
+2. Select **Account Settings** 
+3. Click on **Account Settings** again
+4. Choose **Data Files**
+5. Click on the OST file and select **Open File Location**
+6. When the location of the OST file opens, close Outlook
 
 <figure class="flex flex-col justify-start items-left">
-  <img alt="Screenshot of Outlook settings" src="/uploads/202503a-(4).jpg" width="300px" transform-images="avif webp png jpeg 300@2">
+  <img alt="Screenshot of Outlook settings" src="/uploads/202503e-outlook-calender-sync-issues-en.png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
-<figcaption class="text-left mt-2"><small>Fig: ADD YOUR CAPTION HERE</small></figcaption>
 
 7. Delete the OST file. (Even if you delete the OST file, Outlook will re-create it automatically.) 
 
 Additionally, rebuilding your profile can help resolve syncing issues. Here’s how to do it:
-
 1. Open **Control Panel** and go to **Mail (Microsoft Outlook)**
 2. Click **Show Profiles**
 3. Delete the current profile 
 4. Create a new profile and give it a slightly different name
+
 
 > [!CAUTION]
 > After deleting the OST file and rebuilding your profile, it might take several hours for emails and other data to sync back to your app. This method doesn’t always resolve the issue, but it can help in many cases. 
@@ -63,4 +62,4 @@ Although the first two methods are effective, delays in syncing can still occur 
 While this may seem old-fashioned, directly confirming with the calendar owner or manager ensures that the schedule is accurate, preventing double bookings and other mistakes.
 
 ## Summary
-Most syncing issues with Outlook can be resolved by using the web version or clearing the cache. However, in some cases, checking manually or rebuilding your profile may be necessary. Regularly double-checking both the web version and the app can help prevent these problems and ensure smoother schedule management. 
+Most syncing issues with Outlook can be resolved by using the web version or clearing the cache. However, in some cases, checking manually or rebuilding your profile may be necessary. Regularly double-checking both the web version and the app can help prevent these problems and ensure smoother schedule management.
