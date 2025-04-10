@@ -74,56 +74,9 @@ loadVendorScript('https://cdn.usefathom.com/script.js', { 'data-site': 'OIXGEUHR
   console.log('Fathom Analytics loaded with defer and data-site attribute');
 });
 
-// Handle keydown event for anchor tags with role="button"
-const buttons = document.querySelectorAll('a[role="button"]');
-buttons.forEach(button => {
-  button.addEventListener('keydown', function(event) {
+// Handle click event for the button with role="button"
+document.querySelector('a[role="button"]').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
       this.click();
-    }
-  });
-});
-
-// Search modal
-const modal = document.getElementById("searchModal");
-const searchButton = document.getElementById("search-button"); // Select the button by its ID
-const close = document.getElementById("modal-close");
-
-searchButton.onclick = function() { // Change the event listener target to the button
-  modal.style.display = "block";
-  // Focus on the Pagefind input if it exists after the modal is shown
-  const pageFind = modal.querySelector(".pagefind-ui__search-input");
-  if (pageFind) {
-    pageFind.focus();
-  }
-}
-close.onclick = function () {
-  modal.style.display = "none";
-}
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-// Close modal on Escape key press
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'Escape' || event.keyCode === 27) { // Check for Escape key
-    if (modal.style.display === 'block') {
-    modal.style.display = 'none';
-    }
- }
-});
-// Open modal on Cmd+K (Mac) or Ctrl+K (Windows/Linux)
-document.addEventListener('keydown', function(event) {
-    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-    const isCmdOrCtrl = isMac ? event.metaKey : event.ctrlKey;
-
-    if (isCmdOrCtrl && event.key === 'k') {
-        event.preventDefault(); // Prevent browser's default search shortcut
-        modal.style.display = 'block';
-        const pageFind = modal.querySelector(".pagefind-ui__search-input");
-        if (pageFind) {
-        pageFind.focus();
-        }
     }
 });

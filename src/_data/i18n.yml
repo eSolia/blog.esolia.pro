@@ -73,7 +73,6 @@ search:
   filter_by_author: 著者でフィルター
   filter_by_tag: タグでフィルター
   filter_by_category: カテゴリーでフィルター
-  close_link: 閉じる
 comments:
   title: Comments
   description: |
