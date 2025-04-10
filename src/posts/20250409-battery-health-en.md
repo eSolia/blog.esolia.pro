@@ -5,9 +5,9 @@ featured: false
 lang: en
 id: 202503f-laptop-battery-health
 date: 2025-04-09T01:07:46.664Z
-last_modified: 2025-04-09T11:03:00.000Z
-title: 'Tips for how to check your laptop battery health on Windows'
-description: 'How to check your laptop battery health'
+last_modified: 2025-04-10T07:41:00.000Z
+title: Tips for how to check your laptop battery health on Windows
+description: How to check your laptop battery health
 image: /uploads/blog-esolia-pro-default.png
 author: Kisetsu Yamada
 category: Troubleshooting
@@ -24,9 +24,9 @@ Windows offers a useful feature to check the battery status of your device by si
 <!--more-->
 
 ## 1. Open “Command Prompt”
-The quickest way to open Command Prompt is,  
+The quickest way to open Command Prompt is: 
 
-A. Press Windows button<br>
+A. Press Windows button
 B. Type “cmd” on search bar and press Enter 
 
 <figure class="flex flex-col justify-start items-left">
@@ -34,18 +34,17 @@ B. Type “cmd” on search bar and press Enter
 </figure>
 
 ## 2. Generate Battery Report
-You will see the black screen pops up.  Input below command and press Enter. 
+You will see the black screen pops up.  Input the below command and press Enter. 
 
 ```powershell
 PS c:\> powercfg/batteryreport    
 ```
+
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot of Typing a command into the Command Prompt" src="/uploads/202503e-laptop-battery-health-en(2).png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
 
 Once the command is entered, Command Prompt tells you that the battery report has been generated. 
-
-Just copy the folder path displayed on this black window and paste it to Explorer using Ctrl + C (Copy) & Ctrl + V (Paste) 
 
 > [!TIP]
 > Just copy the folder path displayed on this black window and paste it to Explorer using<kbd>Ctrl</kbd> + <kbd>C</kbd> & <kbd>Ctrl</kbd> + <kbd>V</kbd>
@@ -53,6 +52,7 @@ Just copy the folder path displayed on this black window and paste it to Explore
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot of Typing the path into explorer" src="/uploads/202503e-laptop-battery-health-en(3).png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
+
 Paste the folder path here and press Enter 
 
 ## 3. Check the Battery Report 
@@ -63,11 +63,10 @@ Your default web browser launches and you will see a report page like this:
 </figure>
 
 > [!TIP]
-> While **DESIGN CAPACITY** shows how much the battery was originally designed,
-**FULL CHARGE CAPACITY** , shows this battery’s current capacity. Full charge
+> While **DESIGN CAPACITY** shows how much capacity the battery was originally designed with, **FULL CHARGE CAPACITY** shows this battery’s current capacity.
 
-capacity will basically decrease over time, and this tells how much your laptop battery is deteriorating. If you find there is a substantial gap between Design Capacity and Full Charge Capacity, let’s say Full charge capacity is 70% that of Design Capacity, it’s a good time to replace the battery or the laptop itself.<br>  
+Full charge capacity will basically decrease over time, and this tells how much your laptop battery is deteriorating. If you find there is a substantial gap between Design Capacity and Full Charge Capacity, let’s say Full charge capacity is 70% that of Design Capacity, it’s a good time to replace the battery or the laptop itself.
 
-**CYCLE COUNT** shows how many times you charged this battery. Generally, the battery needs to be replaced after 300~500 times of charging.<br>
+**CYCLE COUNT** shows how many times you charged this battery. Generally, the battery needs to be replaced after 300~500 times of charging.
 
 This is the method to objectively check the deterioration of your laptop battery. If you have noticed that your laptop battery is running out quickly recently, try checking the battery status using the method above.
