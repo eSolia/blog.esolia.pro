@@ -168,6 +168,24 @@
                 {{ /if }}
                 <div
                   class="pointer-events-auto z-50"
+                >
+                  <button
+                    type="button"
+                    id="search-button" 
+                    aria-label="Popup Search"
+                    class="group rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50"
+                  >
+                    <span>
+                      <img
+                        class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 transition hover:scale-110"
+                        src='{{ "magnifying-glass" |> icon("phosphor", "duotone") }}'
+                        inline
+                      />
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="pointer-events-auto z-50"
                   x-data="themeToggle"
                   :class="{ 'dark': darkMode }"
                 >

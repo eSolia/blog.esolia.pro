@@ -71,6 +71,7 @@ search:
   filter_by_author: Filter by Author
   filter_by_tag: Filter by Tag
   filter_by_category: Filter by Category
+  close_link: Close
 comments:
   title: Comments
   description: |
