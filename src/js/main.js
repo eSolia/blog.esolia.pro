@@ -113,3 +113,17 @@ document.addEventListener('keydown', function(event) {
     }
  }
 });
+// Open modal on Cmd+K (Mac) or Ctrl+K (Windows/Linux)
+document.addEventListener('keydown', function(event) {
+    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    const isCmdOrCtrl = isMac ? event.metaKey : event.ctrlKey;
+
+    if (isCmdOrCtrl && event.key === 'k') {
+        event.preventDefault(); // Prevent browser's default search shortcut
+        modal.style.display = 'block';
+        const pageFind = modal.querySelector(".pagefind-ui__search-input");
+        if (pageFind) {
+        pageFind.focus();
+        }
+    }
+});
