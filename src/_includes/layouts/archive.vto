@@ -23,7 +23,7 @@ script: /js/fathom-post-list-event.js
               {{ i18n.archive.description }}
             </p>
 
-            <div class="flex items-center space-x-2 mt-3">
+            <div class="flex items-center space-x-2 mt-4">
               <img
                 class="size-6 fill-esoliaamber-400"
                 src='{{ "rss" |> icon("phosphor", "duotone") }}'
@@ -33,8 +33,6 @@ script: /js/fathom-post-list-event.js
                 href="/feed.json"
               >JSON</a>
             </div>
-            <div class="search" id="search"></div>
-
             {{ if pagination.page === 1 }}
               {{
                 set pageCats = search.pages(
@@ -43,7 +41,7 @@ script: /js/fathom-post-list-event.js
                 )
               }}
               {{ if pageCats.length }}
-                <div class="text-zinc-500 ml-1 mt-2">
+                <div class="text-zinc-500 ml-1 mt-6">
                   <nav class="">
                     <h2>{{ i18n.search.categories }}:</h2>
                     <ul class="flex flex-wrap space-x-2 space-y-2">
@@ -62,7 +60,7 @@ script: /js/fathom-post-list-event.js
 
               {{ set pageTags = search.pages(`type=tag lang=${lang}`, "tag") }}
               {{ if pageTags.length }}
-                <div class="text-zinc-500 ml-1 mt-2">
+                <div class="text-zinc-500 ml-1 mt-4">
                   <nav class="">
                     <h2>{{ i18n.search.tags }}:</h2>
                     <ul class="flex flex-wrap space-x-2 space-y-2">
