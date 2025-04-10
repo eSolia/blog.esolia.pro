@@ -6,9 +6,6 @@ lang: en
 id: 202503f-laptop-battery-health
 date: 2025-04-09T01:07:46.664Z
 last_modified: 2025-04-09T11:03:00.000Z
-id: 202503f-laptop-battery-health
-date: 2025-04-09T01:07:46.664Z
-last_modified: 2025-04-09T11:03:00.000Z
 title: 'Tips for how to check your laptop battery health on Windows'
 description: 'How to check your laptop battery health'
 image: /uploads/blog-esolia-pro-default.png
