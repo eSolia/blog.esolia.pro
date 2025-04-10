@@ -58,6 +58,7 @@ nav:
   logo_large_alt: サイトのトップへリンクするイソリア社フルサイズのロゴマーク
   logo_symbol_alt: サイトのトップへリンクするイソリア社シンボルタイプのロゴマーク
   mobile_nav_name: メニュー
+  aria_label: ナビゲーションメニューのリンク
 post:
   by: 著者
   reading_time: 読書時間

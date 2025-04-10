@@ -8,9 +8,10 @@
           <div class="top-(--avatar-top,--spacing(3)) w-full">
             <div class="relative mt-20">
               <a
-                aria-label="Home"
+                aria-label="{{ i18n.nav.return_home }}"
+                type="button"
                 class="pointer-events-auto block origin-left"
-                href="/"
+                href="/{{ if it.lang === "en"}}{{ it.lang }}/{{ /if }}"
               ><img
                   id="large-logo"
                   alt="{{ i18n.nav.logo_large_alt}}"
@@ -37,9 +38,10 @@
             <div class="relative flex gap-4 items-center">
               <div class="flex flex-1 items-center">
                 <a
-                  aria-label="Home"
+                  aria-label="{{ i18n.nav.return_home }}"
                   class="pointer-events-auto block origin-left"
-                  href="/"
+                  href="/{{ if it.lang === "en"}}{{ it.lang }}/{{ /if }}"
+                  type="button"
                 ><img
                     id="small-logo"
                     alt="{{ i18n.nav.logo_symbol_alt }}"
@@ -83,7 +85,9 @@
                 </div>
                 <nav class="pointer-events-auto hidden md:block">
                   <ul
-                    class="flex rounded-full bg-esoliaamber-500/90 px-3 text-sm font-medium ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10"
+                    class="flex rounded-full bg-esoliaamber-500/90 px-3 text-sm font-medium ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10 divide-x-1 divide-zinc-50/50 dark:divide-zinc-200/50"
+                    role="menubar"
+                    aria-label="{{ i18n.nav.aria_label }}"
                   >
                     {{- for item of it.topnav.links }}
                       <li>
@@ -144,7 +148,7 @@
                   </div>
                 </nav>
               </div>
-              <div class="flex justify-end md:flex-1 z-50">
+              <div class="flex justify-end md:flex-1 z-50 space-x-1">
                 {{ if alternates && alternates.length > 1 }}
                   <div class="pointer-events-auto z-50">
                     <button
