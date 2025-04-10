@@ -486,12 +486,12 @@ cms.collection({
       type: "markdown",
       label: "コンテンツ Content",
       value:
-        `REPLACE ME. THIS IS THE INTRO TEXT THAT WILL APPEAR ON THE TOP PAGE. ENTER IT BEFORE THE "MORE" TAG JUST BELOW. 
+        `REPLACE ME. THIS IS THE \"LEDE\" INTRO TEXT THAT WILL ALSO APPEAR ON THE TOP PAGE. ENTER IT HERE, MARKDOWN USE OK, NO LINE BREAKS, AND LEAVE THE MORE TAG INTACT. 
 
 <!--more-->
 
 ## STRUCTURE STARTS FROM HEADER 2
-REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_.`,
+REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_. Use the Insert Snippet button to add code snippets, images, tables, icons, etc. You can also use HTML tags if you need to, but at first, try line breaks. Use \<br\> sparingly, as we want to control formatting via css.`,
       description:
         "ページの主要なコンテンツ。ページの言語で記述し、Markdown および HTML でフォーマットしてください。<br>The main content of the page, in the language of the page, formatted in markdown and HTML",
       snippets: [
