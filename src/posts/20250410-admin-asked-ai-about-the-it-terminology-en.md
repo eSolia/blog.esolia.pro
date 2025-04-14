@@ -5,7 +5,7 @@ featured: false
 lang: en
 id: 202503g-admin-asked-ai
 date: 2025-04-10T05:13:55.141Z
-last_modified: 2025-04-10T20:41:00.000Z
+last_modified: 2025-04-14T16:26:00.000Z
 title: >-
   UTP Cable? Cat Cable? RJ45 Connector? Admin asked AI about the IT terminology
   that admin is curious about 
@@ -37,7 +37,7 @@ First, I asked a simple question to three different AI tools.
 
 As summarized below, the search results from each AI seem to be similar. It looks like that it is a compilation of explanations of IT terms that appear in textbooks; it was easier to read through rather than reading textbooks, but I still need some simple clarification to grasp the ideas of these terms.
 
-PDF file here.
+[What is a UTP cable?- Answar （PDF）](/uploads/excel-20250307-utpケーブルって何-aiの回答-en.pdf)
 
 ## After Changing the Way I Asked AI
 So next, I tried asking a more detailed question, taking the knowledge level of the audience into consideration. This time, the AI responses showed some noticeable differences. 
