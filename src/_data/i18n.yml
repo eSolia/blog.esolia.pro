@@ -1,16 +1,16 @@
 lang: ja
 home:
-  welcome: どう言ったブログか？こう言ったブログだよ。私達イソリアは、バイリンガルITアウトソーシング、頼れるIT部門として貴社のサポートを担当致します。お役に立つIT記事やチップスをご覧頂き、是非ともイソリアにお任せください！
+  welcome: 東京を拠点に25周年を迎えるバイリンガルITアウトソーシングのイソリアは、 長年の経験をもとに、現場の視点で選んだ“知って得するTips”を紹介しています。
   company: イソリア
   company_long: 株式会社イソリア
   company_address: 〒105-7105 東京都港区東新橋1-5-2 汐留シティセンター5F（ワークスタイリング）
   sitename: IT Tips Blog
 archive: 
   title: アーカイブ
-  description: 当ページにて、私達イソリアのプロが書いた、様々なITトピックスについてのポストを閲覧できます
+  description: 過去の記事を一覧でご紹介しています。カテゴリやタグを活用して、興味のある情報にすばやくアクセスできます。
 social:
-  share_title: 当ポストをソーシャルでシェアする
-  share_placeholder: イソリア プロ ブログの新しいポストを是非チェック
+  share_title: SNSで記事をシェアする
+  share_placeholder: 役立つIT情報をお届け中！当ブログの最新ポストはこちら
   linkedin_label: LinkedInでフォローする
   linkedin_share: LinkedInでシェアする
   linkedin_profile_url: https://www.linkedin.com/company/esolia
@@ -26,8 +26,8 @@ logo:
   symbol_alt: イソリア ロゴ
   full_alt: イソリア プロ ブログ
 newsletter:
-  title: 最新情報を受信する
-  description: 新情報の公開、ニュースを受信するために、メールアドレスをご記入ください
+  title: 最新情報を受け取る
+  description: 最新の記事情報をいち早くお届けします。読み逃しを防ぐためにも、今すぐご登録を。
   button: 登録
   placeholder: メールアドレス
   success: 登録完了しました！
@@ -38,7 +38,7 @@ contact:
   aria_label: 当社本サイトにてお問い合わせをする
   url: https://esolia.co.jp/info-request/
   description: |
-    お問い合わせは、ボタンをクリックして、当社本サイトからお願い致します。こちらからご連絡致します。
+    サービス導入をご検討の際は、ぜひ本サイトのフォームよりお問い合わせください。担当より迅速にご連絡いたします。
 nav:
   toc: 目次
   next_post: より新しいポスト →
@@ -61,7 +61,7 @@ nav:
   aria_label: ナビゲーションメニューのリンク
 post:
   by: 著者
-  reading_time: 読書時間
+  reading_time: 読了目安
   minutes: 分
   hot: 人気
 search:

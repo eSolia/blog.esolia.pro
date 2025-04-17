@@ -64,7 +64,7 @@ metas:
   generator: true
   "twitter:label1": "著者"
   "twitter:data1": "チーム イソリア"
-  "twitter:label2": "読書時間"
+  "twitter:label2": "読了目安"
   "twitter:data2": "$ .reading-info || 2 分"
 
 en:
