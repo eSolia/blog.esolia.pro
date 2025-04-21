@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/container-queries";
-/* @plugin "daisyui@5.0.1"; */
+/* @plugin "daisyui@5.0.27"; */
 /* @plugin "flyonui@2.0.0"; */
 /* @plugin "tailwind-every-layout@latest"; */
 @import "css/alerts.css";
