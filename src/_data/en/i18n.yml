@@ -1,15 +1,15 @@
 lang: en
 home:
-  welcome: What kind of blog is this? This is this kind of blog... We're eSolia, your virtual Japan IT department. Join us for some articles and tips from our bilingual professionals, then leverage our experience for your success in Japan. 
+  welcome: Based in Tokyo and celebrating 25 years in business, bilingual IT outsourcing company eSolia shares practical, field-tested tips that are genuinely useful—drawn from years of hands-on experience.
   company: eSolia
   company_long: eSolia Inc.
   company_address: Shiodome City Center 5F (Work Styling), 1-5-2 Higashi-Shimbashi, Minato-ku, Tokyo, Japan, 105-7105
   sitename: IT Tips Blog
 archive: 
   title: Archive
-  description: Find below an archive list of posts written on various IT topics, by eSolia professionals
+  description: Browse our archive of past articles. Use categories and tags to quickly find the topics that interest you.
 social:
-  share_placeholder: Check out this new post from eSolia's Pro Blog
+  share_placeholder: Check out this new post from eSolia's IT Tips Blog
   share_title: Share this post on social media
   linkedin_label: Follow on LinkedIn
   linkedin_share: Share on LinkedIn
