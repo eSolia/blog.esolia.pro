@@ -10,7 +10,8 @@ archive:
   description: Browse our archive of past articles. Use categories and tags to quickly find the topics that interest you.
 social:
   share_placeholder: Check out this new post from eSolia's IT Tips Blog
-  share_title: Share this post on social media
+  share_ask: Kindly do us a favor?
+  share_title: Share this post on social media!
   linkedin_label: Follow on LinkedIn
   linkedin_share: Share on LinkedIn
   linkedin_profile_url: https://www.linkedin.com/company/esolia
