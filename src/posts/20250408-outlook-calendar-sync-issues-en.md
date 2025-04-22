@@ -5,11 +5,11 @@ featured: false
 lang: en
 id: 202503e-outlook-calender-sync-issues
 date: 2025-04-08T07:31:31.905Z
-last_modified: 2025-04-10T13:56:00.000Z
+last_modified: 2025-04-22T00:48:00.000Z
 title: How to Fix Outlook Calendar Sync Issues.
 description: >-
-  Here are some methods to help resolve these problems and ensure smoother
-  scheduling.
+  Here are some methods to help resolve outlook calendar sync problems and
+  ensure smoother scheduling.
 image: /uploads/blog-esolia-pro-default.png
 author: 'Kylie Cogley '
 category: Microsoft-365
@@ -47,6 +47,7 @@ Follow these steps to delete the OST file in the Classic version of Outlook:
 7. Delete the OST file. (Even if you delete the OST file, Outlook will re-create it automatically.) 
 
 Additionally, rebuilding your profile can help resolve syncing issues. Here’s how to do it:
+
 1. Open **Control Panel** and go to **Mail (Microsoft Outlook)**
 2. Click **Show Profiles**
 3. Delete the current profile 
