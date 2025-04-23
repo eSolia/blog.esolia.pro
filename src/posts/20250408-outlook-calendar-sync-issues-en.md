@@ -6,7 +6,7 @@ lang: en
 id: 202503e-outlook-calender-sync-issues
 date: 2025-04-08T07:31:31.905Z
 last_modified: 2025-04-22T00:48:00.000Z
-title: How to Fix Outlook Calendar Sync Issues.
+title: How to Fix Outlook Calendar Sync Issues
 description: >-
   Here are some methods to help resolve outlook calendar sync problems and
   ensure smoother scheduling.
