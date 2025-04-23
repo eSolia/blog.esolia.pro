@@ -5,6 +5,8 @@ title: おあみひ課舳保すっむま手日つ
 date: 2022-06-12
 author: オテロ オスカー
 category: ネットワーク
+draft: true
+url: false
 tags:
   - 説明
   - インストール

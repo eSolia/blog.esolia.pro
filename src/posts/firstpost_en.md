@@ -5,8 +5,9 @@ title: This is a post with mastodon comments
 author: Óscar Otero
 comments:
   src: 'https://mastodon.gal/@misteroom/110810445656343599'
-draft: false
-featured: true
+draft: true
+url: false
+featured: false
 description: This is the description...
 image: /uploads/blog-esolia-pro-default.png
 category: AI-Usage
