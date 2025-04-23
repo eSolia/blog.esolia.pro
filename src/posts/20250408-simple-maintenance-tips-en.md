@@ -16,8 +16,7 @@ category: Troubleshooting
 tags: []
 comments: {}
 ---
-Simple maintenance tips to keep your PC running smoothly. 
-By regularly performing these easy maintenance tasks, you can maintain your PC’s performance and enjoy using it for a long time. 
+Simple maintenance tips to keep your PC running smoothly. By regularly performing these easy maintenance tasks, you can maintain your PC’s performance and enjoy using it for a long time. 
 <!--more-->
 
 ## Remove dust from your PC 

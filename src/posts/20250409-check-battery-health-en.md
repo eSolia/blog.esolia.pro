@@ -20,8 +20,7 @@ tags:
   - hardware
 comments: {}
 ---
-Every mobile device has a battery. And the battery condition will get gradually worse over time, lasting less time as you continue to use it. 
-Windows offers a useful feature to check the battery status of your device by simply inputting a single command on the command line. Read on for a quick tip to check it on Windows laptops. 
+Every mobile device has a battery. And the battery condition will get gradually worse over time, lasting less time as you continue to use it. Windows offers a useful feature to check the battery status of your device by simply inputting a single command on the command line. Read on for a quick tip to check it on Windows laptops. 
 
 <!--more-->
 
