@@ -1,6 +1,6 @@
 - key: Microsoft-365
   id: cat1
-  color: esoliablue
+  color: cyan
   image: /assets/cat1a-bg.jpg
   summary: >-
     Articles about Microsoft 365, including Exchange Online, SharePoint Online,
