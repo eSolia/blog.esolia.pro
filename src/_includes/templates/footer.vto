@@ -20,7 +20,7 @@
         <div class="-my-1 flex justify-center gap-x-6 flex-wrap">
           {{- for item of it.footernav.links }}
             <a
-              class="inline-block rounded-lg px-2 py-1 text-sm"
+              class="inline-block rounded-lg px-2 py-1 text-sm {{- if item.target === '_blank'  }} after:content-['_↗']{{ /if -}}"
               href="{{ item.href }}"
               aria_label="{{ item.aria_label }}"
               title="{{ item.title }}"

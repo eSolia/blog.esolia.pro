@@ -5,6 +5,8 @@ title: How to install this theme
 date: 2022-06-12
 author: Óscar Otero
 category: Network
+draft: true
+url: false
 tags:
   - Instructions
 ---

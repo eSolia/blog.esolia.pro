@@ -92,11 +92,9 @@
                     {{- for item of it.topnav.links }}
                       <li>
                         <a
-                          class="group relative block whitespace-nowrap px-3 py-2 transition text-zinc-50 dark:text-zinc-200 hover:text-sky-400 dark:hover:text-sky-500"
+                          class="group relative block whitespace-nowrap px-3 py-2 transition text-zinc-50 dark:text-zinc-200 hover:text-sky-400 dark:hover:text-sky-500 {{- if item.target === '_blank'  }} after:content-['_↗']{{ /if -}}"
                           href="{{ item.href }}"
-                          {{- if item.target }}target="{{ item.target }}"{{
-                            /if
-                          }}
+                          {{- if item.target }}target="{{ item.target }}"{{ /if -}}
                           aria-label="{{ item.aria_label }}"
                           title="{{ item.title }}"
                         >{{ item.text }}<span class="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-zinc-500/0 via-zinc-500/40 to-zinc-500/0 dark:from-zinc-400/0 dark:via-zinc-400/40 dark:to-zinc-400/0 opacity-0 group-hover:opacity-100 transition duration-300"></span>
@@ -133,11 +131,11 @@
                     {{- for item of it.topnav.links }}
                       <div class="mobile-menu__item space-y-4">
                         <a
-                          class="text-white hover:text-sky-400 text-5xl inline-block"
+                          class="text-white font-thin hover:text-sky-400 text-5xl inline-block {{- if item.target === '_blank'  }} after:content-['_↗']{{ /if -}}"
                           href="{{ item.href }}"
                           aria-label="{{ item.aria_label }}"
                           title="{{ item.title }}"
-                        ><span class="text-white font-thin">{{
+                        ><span class="text-white">{{
                             item.text
                             |> toUpperCase
                           }}</span>

@@ -31,7 +31,7 @@ footernav:
       title: サイトマップへのリンク
     - text: プライバシーポリシー
       href: https://esolia.co.jp/privacy
-      target: _self
+      target: _blank
       icon: privacy
       aria_label: サイト内リンク
       title: プライバシーポリシーへのリンク
@@ -99,7 +99,7 @@ en:
         title: Link to the Sitemap
       - text: Privacy Policy
         href: https://esolia.com/privacy
-        target: _self
+        target: _blank
         icon: privacy
         aria_label: Site internal link
         title: Link to the Privacy Policy
