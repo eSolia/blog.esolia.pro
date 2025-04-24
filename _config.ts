@@ -405,13 +405,21 @@ site.process([".html"], (pages) => {
   const siteUrl = new URL(location); // Get the base URL of your site
 
   for (const page of pages) {
-    // Use page.document to access the DOM
     const document = page.document;
 
     // Select all <a> tags with target="_blank"
     const links = document.querySelectorAll("a[target='_blank']");
 
     for (const link of links) {
+      // --- NEW CHECK ---
+      // Check if the link is inside an element with the class 'no-external-icon'
+      // The closest() method searches up the DOM tree for the first matching ancestor.
+      if (link.closest('.no-external-icon')) {
+        // If a matching ancestor is found, skip this link
+        continue;
+      }
+      // --- END NEW CHECK ---
+
       const href = link.getAttribute("href");
 
       // Skip if href is missing or is just a fragment link (e.g., #section)
@@ -420,24 +428,19 @@ site.process([".html"], (pages) => {
       }
 
       try {
-        // Create a URL object to easily parse the href relative to the current page URL
-        // This handles relative paths correctly.
         const linkUrl = new URL(href, site.options.url);
 
-        // Check if the link is external (different origin: protocol, hostname, or port)
-        // We also filter for http/https links, excluding mailto:, tel:, etc.
         const isExternal = (linkUrl.protocol === 'http:' || linkUrl.protocol === 'https:') &&
                            (linkUrl.protocol !== siteUrl.protocol ||
                             linkUrl.hostname !== siteUrl.hostname ||
-                            linkUrl.port !== siteUrl.port); // Compare against site's base URL
+                            linkUrl.port !== siteUrl.port);
 
         if (isExternal) {
-          // Add the class if it's an external link with target="_blank"
+          // Add the class if it's an external link with target="_blank" AND not excluded
           link.classList.add("after:content-['_↗']");
         }
 
       } catch (e) {
-        // Handle potential errors if href is malformed and cannot be parsed as a URL
         console.error(`Could not parse URL for link: ${href} on page ${page.src.path}`, e);
       }
     }

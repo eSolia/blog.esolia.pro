@@ -10,8 +10,8 @@ archive:
   description: 過去の記事を一覧でご紹介しています。カテゴリやタグを活用して、興味のある情報にすばやくアクセスできます。または、ページ上部のナビゲーションバーにある虫眼鏡アイコンから検索してください。
 social:
   share_placeholder: 役立つIT情報をお届け中！当ブログの最新ポストはこちら
-  share_ask: 一つお願いがあります！
-  share_title: SNSでこの記事をシェアしていただけますでしょうか？
+  share_ask: この記事が役に立ったと思ったら
+  share_title: SNSでシェアしてみませんか？
   linkedin_label: LinkedInでフォローする
   linkedin_share: LinkedInでシェアする
   linkedin_profile_url: https://www.linkedin.com/company/esolia
