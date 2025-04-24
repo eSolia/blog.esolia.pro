@@ -25,6 +25,8 @@
               aria_label="{{ item.aria_label }}"
               title="{{ item.title }}"
               {{- if item.target }}target="{{ item.target }}"{{ /if }}
+              {{- if item.target === '_blank' }}rel="noopener"{{ /if -}}
+              role="menuitem"
             >
               {{ item.text }}
               <span class="sr-only">({{ item.aria_label }})</span></a>
