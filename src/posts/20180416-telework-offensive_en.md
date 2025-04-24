@@ -26,7 +26,7 @@ comments: {}
 <!--more-->
 
 >**Telework** is a flexible working style using ICT (Information and Communication Technology), free from location or time constraints. <br>
-_Reference_: [Efforts to promote telework in Japan](http://www.soumu.go.jp/main_sosiki/joho_tsusin/eng/presentation/pdf/110908_1.pdf)
+_Reference_: [Efforts to promote telework in Japan](http://www.soumu.go.jp/main_sosiki/joho_tsusin/eng/presentation/pdf/110908_1.pdf){target="_blank" rel="noopener"}
 
 We usually use the words **remote access**, **remote user**, **work from home**, but those have the same meaning from the perspective of a flexible working style in the larger sense.
 
@@ -36,7 +36,7 @@ We usually use the words **remote access**, **remote user**, **work from home**,
 
 As you can see in below link (available only in Japanese), the percentage of teleworkers who work at home more than once a week is 3.9% in the 2014 fiscal year, according to Ministry of land, Infrastructure and Transport. This is a decrease of 0.6 points or 400,000 people compare with the previous year.
 
-(Reference: [雇用型在宅型テレワーカー数の割合](http://www.mlit.go.jp/report/press/toshi02_hh_000046.html))
+(Reference: [雇用型在宅型テレワーカー数の割合](http://www.mlit.go.jp/report/press/toshi02_hh_000046.html){target="_blank" rel="noopener"})
 
 The Japan government aims to increase teleworkers by 10% of total office workers by 2020, but this seems overly difficult to achieve.
 
@@ -101,16 +101,16 @@ First, you need to discuss how to implement Telework internally. Once your **"Te
 And you should note that, there may be subsidies available (such as the ones from the Japan gov't below) for small and medium-sized companies in order to proceed with Telework.
 
 - Ministry of Health, Labor and Welfare:
-   - [Telework Course Subsidy](http://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/jikan/syokubaisikitelework.html)
+   - [Telework Course Subsidy](http://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/jikan/syokubaisikitelework.html){target="_blank" rel="noopener"}
 - The Tokyo Metropolitan Government Bureau:
-   - [Work-life Balance Accelerator Subsidy](http://www.hataraku.metro.tokyo.jp/equal/ryoritu/josei/)
+   - [Work-life Balance Accelerator Subsidy](http://www.hataraku.metro.tokyo.jp/equal/ryoritu/josei/){target="_blank" rel="noopener"}
 
 ## Ask eSolia
 
 eSolia can help you to implement Telework, from consulting to installation and rollout of the ancillary systems involved.
 
-* [eSolia Cloud Database "PROdb"](http://esolia.com/prodb/)
-* [Efficient Business via IP Telephone, Cloud Phone Service](http://esolia.com/telephone/)
-* [Hire eSolia for Project, Procurement, Asset and Compliance Management](http://esolia.com/process/) 
+* [eSolia Cloud Database "PROdb"](http://esolia.com/prodb/){target="_blank" rel="noopener"}
+* [Efficient Business via IP Telephone, Cloud Phone Service](http://esolia.com/telephone/){target="_blank" rel="noopener"}
+* [Hire eSolia for Project, Procurement, Asset and Compliance Management](http://esolia.com/process/){target="_blank" rel="noopener"} 
 
-Please do not hesitate to [Contact Us](http://esolia.co.jp/info-request).
+Please do not hesitate to [Contact Us](http://esolia.co.jp/info-request){target="_blank" rel="noopener"}.

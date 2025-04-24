@@ -503,6 +503,10 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
 </figure>`,
         },
         {
+          label: "Secure External Link",
+          value: `[Link title](https://example.com){target="_blank" rel="noopener"}`,
+        },
+        {
           label: "TABLE skeleton with needed default classes",
           value: `<table class="not-prose w-full text-sm">
   <caption>
