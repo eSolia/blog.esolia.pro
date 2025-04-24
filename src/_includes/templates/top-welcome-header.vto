@@ -15,12 +15,13 @@
           <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             {{ i18n.home.welcome }}
           </p>
-          <div class="mt-6 flex gap-6">
+          <div class="mt-6 flex gap-6 no-external-icon">
             <a
               class="group -m-1 p-1"
               aria-label="{{ i18n.social.linkedin_label }}"
               href="{{ i18n.social.linkedin_profile_url }}"
               target="_blank"
+              rel="noopener"
             ><img
                 class="h-6 w-6 fill-sky-800 dark:fill-sky-600 transition hover:scale-110"
                 src='{{ "linkedin-logo" |> icon("phosphor", "duotone") }}'
@@ -31,6 +32,7 @@
               aria-label="{{ i18n.social.bluesky_label }}"
               href="{{ i18n.social.bluesky_profile_url }}"
               target="_blank"
+              rel="noopener"
             ><img
                 class="h-6 w-6 fill-sky-400 dark:fill-sky-300 transition hover:scale-110"
                 src='{{ "butterfly" |> icon("phosphor", "duotone") }}'
@@ -41,6 +43,7 @@
               aria-label="{{ i18n.social.twitter_label }}"
               href="{{ i18n.social.twitter_profile_url }}"
               target="_blank"
+              rel="noopener"
             ><img
                 class="h-6 w-6 fill-black-600 dark:fill-zinc-50 transition hover:scale-110"
                 src='{{ "x-logo" |> icon("phosphor", "duotone") }}'
@@ -51,6 +54,7 @@
               aria-label="{{ i18n.social.github_label }}"
               href="{{ i18n.social.github_profile_url }}"
               target="_blank"
+              rel="noopener"
             ><img
                 class="h-6 w-6 fill-green-600 dark:fill-green-500 transition hover:scale-110"
                 src='{{ "github-logo" |> icon("phosphor", "duotone") }}'

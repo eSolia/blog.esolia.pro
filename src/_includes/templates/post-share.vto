@@ -10,12 +10,13 @@
       <span class="underline underline-offset-4 decoration-fuchsia-500/60 decoration-wavy">{{ i18n.social.share_title }}</span>
     </p>
   </div>
-  <div class="mt-1 flex justify-center gap-x-4 pb-3">
+  <div class="mt-1 flex justify-center gap-x-4 pb-3 no-external-icon">
     <a
       class="group -m-1 p-1"
       aria-label="{{ i18n.social.linkedin_share }}"
       href="https://www.linkedin.com/sharing/share-offsite/?url={{ url }}"
       target="_blank"
+      rel="noopener"
     ><img
         class="size-6 fill-sky-800 dark:fill-sky-600 transition hover:scale-110"
         aria-hidden="true"
@@ -28,6 +29,7 @@
       aria-label="{{ i18n.social.bluesky_share }}"
       href="https://bsky.app/intent/compose?text={{ i18n.social.share_placeholder |> encodeURI() }}&url={{ url }}"
       target="_blank"
+      rel="noopener"
     ><img
         class="size-6 fill-sky-400 dark:fill-sky-300 transition hover:scale-110"
         aria-hidden="true"
@@ -40,6 +42,7 @@
       aria-label="{{ i18n.social.twitter_share }}"
       href="https://x.com/intent/post?text={{ i18n.social.share_placeholder |> encodeURI() }}&url={{ url }}"
       target="_blank"
+      rel="noopener"
     ><img
         class="size-6 fill-black-600 dark:fill-zinc-50 transition hover:scale-110"
         aria-hidden="true"
