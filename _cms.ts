@@ -385,13 +385,13 @@ cms.collection({
         let allCats = [];
         const staticCategoriesByLang = {
           ja: [
-            "マイクロソフト365",
+            "Microsoft-365",
             "セキュリティ",
             "ネットワーク",
             "クラウド",
             "トラブルシューティング",
             "AI活用",
-            "ウィンドウズ",
+            "Windows",
             "周辺機器",
             "その他",
           ],

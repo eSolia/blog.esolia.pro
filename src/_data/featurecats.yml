@@ -1,4 +1,4 @@
-- key: マイクロソフト365
+- key: Microsoft-365
   id: cat1
   color: cyan
   image: /assets/cat1a-bg.jpg
@@ -34,7 +34,7 @@
   image: /assets/cat6-bg.jpg
   summary: >-
     AIの使用に関する記事です。AIツールを効果的に使用するためのヒントやコツを含みます。これらの記事は、eSoliaの専門家がこれらの製品や技術に関する経験に基づいて執筆しています。
-- key: ウィンドウズ
+- key: Windows
   id: cat7
   color: sky
   image: /assets/cat7-bg.jpg

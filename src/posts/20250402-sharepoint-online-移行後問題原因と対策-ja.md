@@ -10,7 +10,7 @@ description: >-
   Onlineへ移行した後に『ファイルが開けない！』というトラブルに直面していませんか？本記事では、SPOのフォルダー構造やURL制限、アクセス管理の違いを解説し、実践的な対策を紹介します。検索性を向上させるためのメタデータ管理方法も詳しく解説！ 
 image: /uploads/blog-esolia-pro-default.png
 author: Ena Ishikawa
-category: マイクロソフト365
+category: Microsoft-365
 comments: {}
 date: 2025-04-10T01:07:00.000Z
 last_modified: 2025-04-22T06:34:00.000Z
