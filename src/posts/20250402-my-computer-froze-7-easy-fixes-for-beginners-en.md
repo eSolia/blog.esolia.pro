@@ -8,13 +8,14 @@ title: 'My Computer Froze! 7 Easy Fixes for Beginners '
 description: >-
   Here are seven easy fixes that beginners can try when their computer suddenly
   stops responding. 
-image: /uploads/blog-esolia-pro-default.png
+image: /uploads/202503a-pc-freeze-social-ja.png
 author: Shiori
 category: Troubleshooting
 comments: {}
 date: 2025-04-10T01:04:00.000Z
-last_modified: 2025-04-22T00:40:00.000Z
+last_modified: 2025-04-24T07:41:00.000Z
 tags: []
+image_top: /uploads/202503a-pc-freeze-top.png
 ---
 When your computer screen suddenly freezes while you're using it, it can be quite stressful, and frustrating especially if you’re busy. However, immediately forcing a shutdown or yanking the power plug can lead to data loss or make the situation worse. First, take a deep breath and stay calm. Then, try **the seven solutions** below. 
 

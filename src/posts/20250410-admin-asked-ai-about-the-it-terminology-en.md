@@ -5,13 +5,13 @@ featured: false
 lang: en
 id: 202503g-admin-asked-ai
 date: 2025-04-10T05:13:55.141Z
-last_modified: 2025-04-22T02:07:00.000Z
+last_modified: 2025-04-24T07:49:00.000Z
 title: UTP Cable? Cat Cable? RJ45 Connector? Admin asks AI about IT terminology
 description: >-
   What are the "UTP cable", "Cat cable" and “RJ-45 Connector” that are often
   seen on estimates for LAN cabling construction? Our admin team was curious, so
   they asked AI.
-image: /uploads/blog-esolia-pro-default.png
+image: /uploads/202503g-admin-asked-ai-social-ja.jpg
 author: Yanquan Ma
 category: AI-Usage
 tags:
@@ -20,6 +20,7 @@ tags:
   - RJ-45 connector
   - LAN Cabling
 comments: {}
+image_top: /uploads/202503g-admin-asked-ai-top.jpg
 ---
 How to Use AI to turn “Kind of Know” into “Truly Understand” for the IT terms you often see at work. This time, we’ll share a real example of how AI helped deepen understanding.
 

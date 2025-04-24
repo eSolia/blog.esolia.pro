@@ -5,10 +5,10 @@ featured: false
 lang: ja
 id: 202503g-admin-asked-ai
 date: 2025-04-09T02:08:56.295Z
-last_modified: 2025-04-22T06:46:00.000Z
+last_modified: 2025-04-24T07:48:00.000Z
 title: 'UTPケーブル? Catケーブル？RJ45コネクタ？Admin 担当者が不思議に思ったIT用語をAIに聞いてみた '
 description: 'LAN配線に関連するケーブル用語をAIに聞いた結果をご紹介します。 '
-image: /uploads/blog-esolia-pro-default.png
+image: /uploads/202503g-admin-asked-ai-social-ja.jpg
 author: 'Yanquan Ma '
 category: AI活用
 tags:
@@ -18,6 +18,7 @@ tags:
   - LAN配線
   - AI
 comments: {}
+image_top: /uploads/202503g-admin-asked-ai-top.jpg
 ---
 ー業務で見かけるIT用語、AIを使って「なんとなく知ってる」を「ちゃんとわかる」に変える方法。今回は、AIで理解を深めた実例をご紹介します。
 
