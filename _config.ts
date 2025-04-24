@@ -402,7 +402,7 @@ site.preprocess([".html"], (pages) => {
 });
 
 site.process([".html"], (pages) => {
-  const siteUrl = new URL(location); // Get the base URL of your site
+  const siteUrl = new URL("https://blog.esolia.pro"); // Get the base URL of your site
 
   for (const page of pages) {
     const document = page.document;
