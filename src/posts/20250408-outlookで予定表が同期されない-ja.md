@@ -9,8 +9,8 @@ last_modified: 2025-04-22T06:38:00.000Z
 title: Outlookで予定表が同期されない?!
 description: 'アプリ版OutLookのよくあるトラブルの解消法をご説明いたします。 '
 image: /uploads/blog-esolia-pro-default.png
-author: 'Kylie Cogley '
-category: マイクロソフト365
+author: 'Kylie Cogley'
+category: Microsoft-365
 tags:
   - Outlook
   - PCトラブル
