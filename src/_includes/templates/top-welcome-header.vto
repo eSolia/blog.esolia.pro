@@ -13,7 +13,7 @@
             {{# {{ metas.site }} #}}
           </h1>
           <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            {{ i18n.home.welcome }}
+            {{ i18n.home.welcome |> replace("YEARS_IN_BUSINESS", (new Date().getFullYear() - 1999)) }}
           </p>
           <div class="mt-6 flex gap-6 no-external-icon">
             <a
