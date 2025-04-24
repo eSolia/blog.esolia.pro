@@ -8,6 +8,7 @@ description: >-
   A quick security tip about the importance of keeping clear desk / clear screen
   in mind. 
 image: /uploads/blog-esolia-pro-default.png
+image_top: /uploads/blog-esolia-pro-default-top.png
 author: Rick Cogley
 category: Security
 tags:

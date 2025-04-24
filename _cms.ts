@@ -365,6 +365,18 @@ cms.collection({
       },
     },
     {
+      name: "image_top",
+      type: "file",
+      label: "トップ画像 Page Top Image",
+      description:
+        "トップで使う、ページの代表画像。アップロードして選択するか、デフォルトの画像を使用してください。<br>The image for the page used in the top page grid. Upload and select, or use the default.",
+      value: "/uploads/blog-esolia-pro-default-top.png",
+      uploads: "uploads",
+      attributes: {
+        accept: "image/*",
+      },
+    },
+    {
       name: "author",
       type: "text",
       label: "コンテンツの著者 Author of the Content",

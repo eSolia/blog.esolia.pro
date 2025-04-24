@@ -8,7 +8,7 @@
 <div
   class="mx-auto mt-2 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
 >
-  {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 6) }}
+  {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 9) }}
     <article class="flex flex-col items-start">
       <div class="relative w-full">
         {{
@@ -22,7 +22,8 @@
         >
         </div>
         <img
-          src="{{ if catImage }}{{ catImage }}{{ else }}/assets/cat0-bg.jpg{{ /if }}"
+          {{# src="{{ if catImage }}{{ catImage }}{{ else }}/assets/cat0-bg.jpg{{ /if }}" #}}
+          src="{{ if post.image_top }}{{ post.image_top }}{{ else }}/assets/blog-esolia-pro-default-top.png{{ /if }}"
           alt=""
           class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2 transition-opacity duration-300 filter dark:invert mix-blend-normal dark:mix-blend-luminosity"
           loading="lazy"

@@ -12,16 +12,17 @@ description: >-
   explain the differences in SPO's folder structure, URL limitations, access
   management, and give some practical solutions. Contains a detailed guide on
   metadata management to enhance searchability! 
-image: /uploads/blog-esolia-pro-default.png
+image: /uploads/202503b-sharepoint-migration-part1-social-ja.jpg
 author: Ena Ishikawa
 category: Microsoft-365
 comments: {}
 date: 2025-04-10T01:21:00.000Z
-last_modified: 2025-04-22T01:40:00.000Z
+last_modified: 2025-04-24T07:42:00.000Z
 tags:
   - spo
   - migration
   - troubleshooting
+image_top: /uploads/202503b-sharepoint-migration-part1-top.jpg
 ---
 Are you facing issues where files won't open **after migrating to SharePoint Online?** In this article, we explain the differences in SPO's folder structure, URL limitations, access management, and _give some practical troubleshooting solutions_. We also provide a detailed guide on metadata management to enhance searchability!
 

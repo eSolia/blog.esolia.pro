@@ -5,12 +5,12 @@ featured: false
 lang: en
 id: 202503f-laptop-battery-health
 date: 2025-04-09T01:07:46.664Z
-last_modified: 2025-04-22T00:24:00.000Z
+last_modified: 2025-04-24T07:47:00.000Z
 title: Tips for how to check your laptop battery health on Windows
 description: >-
   How to check your laptop battery health on Windows using a simple command line
   technique
-image: /uploads/blog-esolia-pro-default.png
+image: /uploads/202503f-laptop-battery-health-social-ja.jpg
 author: Kisetsu Yamada
 category: Troubleshooting
 tags:
@@ -19,6 +19,7 @@ tags:
   - laptop
   - hardware
 comments: {}
+image_top: /uploads/202503f-laptop-battery-health-top.jpg
 ---
 Every mobile device has a battery. And the battery condition will get gradually worse over time, lasting less time as you continue to use it. Windows offers a useful feature to check the battery status of your device by simply inputting a single command on the command line. Read on for a quick tip to check it on Windows laptops. 
 
