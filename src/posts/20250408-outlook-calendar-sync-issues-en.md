@@ -5,12 +5,12 @@ featured: false
 lang: en
 id: 202503e-outlook-calender-sync-issues
 date: 2025-04-08T07:31:31.905Z
-last_modified: 2025-04-22T00:48:00.000Z
+last_modified: 2025-04-25T06:24:00.000Z
 title: How to Fix Outlook Calendar Sync Issues
 description: >-
   Here are some methods to help resolve outlook calendar sync problems and
   ensure smoother scheduling.
-image: /uploads/blog-esolia-pro-default.png
+image: /uploads/202503e-outlook-calender-sync-issues-social-en.jpg
 author: 'Kylie Cogley '
 category: Microsoft-365
 tags:
@@ -19,6 +19,7 @@ tags:
   - Advanced Guide
   - Calendar
 comments: {}
+image_top: /uploads/202503e-outlook-calender-sync-issues-top.jpg
 ---
 If you use Outlook, you might occasionally encounter problems where your calendar doesn’t update or updating is delayed. This issue can lead to scheduling conflicts such as double bookings. Here are some methods to help resolve these problems and ensure smoother scheduling.
 

@@ -2,17 +2,17 @@
 lang: en
 id: 20250226-clear-desk
 date: 2025-02-26T01:56:29.381Z
-last_modified: 2025-03-22T00:40:00.000Z
+last_modified: 2025-04-25T08:28:00.000Z
 title: Are you doing Clear Desk and Clear Screen?
 description: >-
   A quick security tip about the importance of keeping clear desk / clear screen
   in mind. 
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/20250226-clear-desk-social-en.jpg
+image_top: /uploads/20250226-clear-desk-top.jpg
 author: Rick Cogley
 category: Security
 tags:
-  - "ISO-27001"
+  - ISO-27001
 comments: {}
 draft: false
 hot: true
