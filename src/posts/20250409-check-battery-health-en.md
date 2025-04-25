@@ -5,12 +5,12 @@ featured: false
 lang: en
 id: 202503f-laptop-battery-health
 date: 2025-04-09T01:07:46.664Z
-last_modified: 2025-04-24T07:47:00.000Z
+last_modified: 2025-04-25T08:40:00.000Z
 title: Tips for how to check your laptop battery health on Windows
 description: >-
   How to check your laptop battery health on Windows using a simple command line
   technique
-image: /uploads/202503f-laptop-battery-health-social-ja.jpg
+image: /uploads/202503f-laptop-battery-health-social-en.jpg
 author: Kisetsu Yamada
 category: Troubleshooting
 tags:

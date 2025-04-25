@@ -5,11 +5,11 @@ featured: false
 lang: ja
 id: 202503e-outlook-calender-sync-issues
 date: 2025-04-08T06:35:20.445Z
-last_modified: 2025-04-22T06:38:00.000Z
+last_modified: 2025-04-25T08:23:00.000Z
 title: Outlookで予定表が同期されない?!
 description: 'アプリ版OutLookのよくあるトラブルの解消法をご説明いたします。 '
-image: /uploads/blog-esolia-pro-default.png
-author: 'Kylie Cogley'
+image: /uploads/202503e-outlook-calender-sync-issues-social-ja.jpg
+author: Kylie Cogley
 category: Microsoft-365
 tags:
   - Outlook
@@ -17,6 +17,7 @@ tags:
   - 応用編
   - '予定表 '
 comments: {}
+image_top: /uploads/202503e-outlook-calender-sync-issues-top.jpg
 ---
 Outlookアプリを使っていると、予定表の更新が遅れる、または更新されないという問題が発生することがあります。これによりダブルブッキングなどのトラブルが起きることもありますが、今回はこうした問題を解決するためのいくつかの方法をご紹介します。
 

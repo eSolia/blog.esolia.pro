@@ -8,8 +8,8 @@ draft: false
 title: Telework Offensive!
 subtitle: It's not just a welfare matter; moving toward a practical telework offensive
 description: It's not just a welfare matter; moving toward a practical telework offensive
-image: /uploads/20180416a-telework-01.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/20180416a-social-en.jpg
+image_top: /uploads/20180416a-top.jpg
 category: Cloud
 tags:
   - Telework
@@ -19,8 +19,10 @@ tags:
   - Subsidies
   - Grants
   - Workplace
-last_modified: 2025-02-26T07:41:00.000Z
+last_modified: 2025-04-25T08:26:00.000Z
 comments: {}
+hot: false
+featured: false
 ---
 **Telework** is what we call telecommuting in Japan. The Ministry of Internal Affairs and Communications in Japan defines it as follows...
 

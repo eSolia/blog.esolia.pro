@@ -10,14 +10,14 @@ title: >-
 description: >-
   Discover useful shortcut keys for Windows and Office 365 to enhance
   productivity and streamline your workflow, starting today! 
-image: /uploads/blog-esolia-pro-default.png
+image: /uploads/202503c-essential-shortcuts-social-en.jpg
 author: Yorihisa Nakada
 category: Microsoft-365
 comments: {}
 date: 2025-03-28T03:12:00.000Z
-last_modified: 2025-04-24T07:44:00.000Z
+last_modified: 2025-04-25T08:36:00.000Z
 tags: []
-image_top: /uploads/blog-esolia-pro-default-top.png
+image_top: /uploads/202503c-essential-shortcuts-top.jpg
 ---
 Have you ever experienced something like this? You keep clicking through windows thinking, “Wait, where did that screen go?” Or you make a mistake and find yourself scrambling to figure out how to undo it. Sometimes you even slam your laptop shut when someone suddenly starts talking to you. Before you know it, a simple task ends up taking over 3 minutes. But what if I told you — _there’s a way to do that same task in just **one second**_? 
 

@@ -8,12 +8,12 @@ title: 'My Computer Froze! 7 Easy Fixes for Beginners '
 description: >-
   Here are seven easy fixes that beginners can try when their computer suddenly
   stops responding. 
-image: /uploads/202503a-pc-freeze-social-ja.png
+image: /uploads/202503a-pc-freeze-social-en.jpg
 author: Shiori
 category: Troubleshooting
 comments: {}
 date: 2025-04-10T01:04:00.000Z
-last_modified: 2025-04-24T07:41:00.000Z
+last_modified: 2025-04-25T08:32:00.000Z
 tags: []
 image_top: /uploads/202503a-pc-freeze-top.png
 ---
