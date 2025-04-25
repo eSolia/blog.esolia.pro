@@ -51,12 +51,12 @@ footernav:
 metas:
   lang: ja
   type: website
-  site: "イソリア プロ ブログ"
-  title: "=title || プロ ブログ ページ"
-  description: "=description || 株式会社イソリア ブログのページ"
+  site: "イソリア IT Tips ブログ"
+  title: "=title || イソリア IT Tips ブログ ページ"
+  description: "=description || 株式会社イソリア IT Tips ブログのページ"
   image: "=image || /assets/blog-esolia-pro-default.png"
   icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
-  keywords: ["イソリア", "ブログ", "ウェブログ", "プロ", "プロフェッショナル", "東京ITサービス", "日本語"]
+  keywords: ["イソリア", "ブログ", "ウェブログ", "プロ", "プロフェッショナル", "東京ITサービス", "日本語", "Tips"]
   twitter: "@esolia_inc"
   fediverse: "@esolia.com@bsky.brid.gy"
   color: ["#ffbc68", "#2d2f63"]
@@ -118,12 +118,12 @@ en:
   metas:
     lang: en
     type: website
-    site: "eSolia Pro Blog"
-    title: "=title || Pro Blog Page"
-    description: "=description || Blog page from eSolia Inc., Tokyo, Japan"
+    site: "eSolia IT Tips Blog"
+    title: "=title || eSolia IT Tips Blog Page"
+    description: "=description || IT Tips Blog page from eSolia Inc., Tokyo, Japan"
     image: "=image || /assets/blog-esolia-pro-default.png"
     icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
-    keywords: ["eSolia", "blog", "weblog", "pro", "professional", "tokyo it service", "japan", "english"]
+    keywords: ["eSolia", "blog", "tips", "weblog", "pro", "professional", "tokyo it service", "japan", "english"]
     twitter: "@esolia_inc"
     fediverse: "@esolia.com@bsky.brid.gy"
     color: ["#ffbc68", "#2d2f63"]
