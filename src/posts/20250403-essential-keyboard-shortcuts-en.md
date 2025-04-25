@@ -15,7 +15,7 @@ author: Yorihisa Nakada
 category: Microsoft-365
 comments: {}
 date: 2025-03-28T03:12:00.000Z
-last_modified: 2025-04-25T08:36:00.000Z
+last_modified: 2025-04-25T21:30:00.000Z
 tags: []
 image_top: /uploads/202503c-essential-shortcuts-top.jpg
 ---
@@ -214,7 +214,7 @@ Quiet time-savers for smart workers...
 Once you start using keyboard shortcuts, you’ll be surprised how much faster your work gets. Each shortcut may save just a few seconds, but when used many times a day, it really adds up. 
 
 **Knowing shortcuts isn’t enough — what matters is actually using them.** 
-Try picking just one shortcut that interests you and use it today. Even that small step can change the pace of your workflow. 
+Try picking just one shortcut that interests you and use it today. Even that small step can change the pace of your workflow. In fact, you can even try one right now in this site - press <kbd>Ctrl</kbd> + <kbd>k</kbd> if you're on Windows, or <kbd>Cmd</kbd> + <kbd>k</kbd> on Mac, to open the search popup.
 
 A little help from your fingertips might just make your workday smoother. 
 
