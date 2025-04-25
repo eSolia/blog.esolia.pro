@@ -75,7 +75,8 @@ search:
   filter_by_author: 著者でフィルター
   filter_by_tag: タグでフィルター
   filter_by_category: カテゴリーでフィルター
-  close_link: 閉じる
+  close_link: 閉じる (Esc)
+  tooltip: <kbd>Cmd</kbd>+<kbd>k</kbd> (Mac) または <br><kbd>Ctrl</kbd>+<kbd>k</kbd> (Win/Linux) <br>で検索
 comments:
   title: Comments
   description: |
