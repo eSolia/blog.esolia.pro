@@ -33,6 +33,8 @@ newsletter:
   placeholder: メールアドレス
   success: 登録完了しました！
   error: 登録に失敗しました
+  reference: https://blog.esolia.pro
+  thanks_url: https://blog.esolia.pro/thank-you/
 contact:
   title: 弊社サービスをご検討される場合
   button: お問い合わせ
