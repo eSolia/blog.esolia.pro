@@ -31,6 +31,8 @@ newsletter:
   placeholder: Email address
   success: Subscribed!
   error: Subscription failed
+  reference: https://blog.esolia.pro/en/
+  thanks_url: https://blog.esolia.pro/en/thank-you/
 contact:
   title: Considering our services?
   button: Contact us
