@@ -5,7 +5,7 @@ featured: false
 lang: en
 id: 202503d-Simple-Maintenance-Tips
 date: 2025-04-08T05:57:10.950Z
-last_modified: 2025-04-25T08:39:00.000Z
+last_modified: 2025-04-28T00:08:00.000Z
 title: 'Simple Maintenance Tips to keep your PC running smoothly '
 description: >-
   By performing simple maintenance regularly, you can maintain your PC's
@@ -13,7 +13,8 @@ description: >-
 image: /uploads/202503d-simple-maintenance-tips-social-en.jpg
 author: 'Sachiko Kosuge '
 category: Troubleshooting
-tags: []
+tags:
+  - Regular Maintenance
 comments: {}
 image_top: /uploads/202503d-simple-maintenance-tips-top.jpg
 ---
