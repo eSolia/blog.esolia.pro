@@ -5,11 +5,11 @@ featured: false
 lang: ja
 id: 202503g-admin-asked-ai
 date: 2025-04-09T02:08:56.295Z
-last_modified: 2025-04-24T07:48:00.000Z
+last_modified: 2025-04-28T16:24:00.000Z
 title: 'UTPケーブル? Catケーブル？RJ45コネクタ？Admin 担当者が不思議に思ったIT用語をAIに聞いてみた '
 description: 'LAN配線に関連するケーブル用語をAIに聞いた結果をご紹介します。 '
 image: /uploads/202503g-admin-asked-ai-social-ja.jpg
-author: 'Yanquan Ma '
+author: YM
 category: AI活用
 tags:
   - UTPケーブル

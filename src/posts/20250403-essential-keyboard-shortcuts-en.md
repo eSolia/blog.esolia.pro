@@ -11,11 +11,11 @@ description: >-
   Discover useful shortcut keys for Windows and Office 365 to enhance
   productivity and streamline your workflow, starting today! 
 image: /uploads/202503c-essential-shortcuts-social-en.jpg
-author: Yorihisa Nakada
+author: 'Rookie Engineer '
 category: Microsoft-365
 comments: {}
 date: 2025-03-28T03:12:00.000Z
-last_modified: 2025-04-25T21:30:00.000Z
+last_modified: 2025-04-28T16:23:00.000Z
 tags: []
 image_top: /uploads/202503c-essential-shortcuts-top.jpg
 ---
