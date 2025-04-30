@@ -55,7 +55,7 @@ import "npm:prismjs@1.29.0/components/prism-shell-session.js";
 import "npm:prismjs@1.29.0/components/prism-json5.js";
 
 // ERRORS: import purgecss from "lume/plugins/purgecss.ts";
-// import minify_html from "lume/plugins/minify_html.ts";
+import minify_html from "lume/plugins/minify_html.ts";
 // Change markdown-it configuration
 
 const markdown = {
@@ -206,7 +206,9 @@ site.use(googleFonts({
 
 site.use(attributes());
 site.use(picture(/* Options */));
-site.use(transformImages());
+site.use(transformImages({
+  cache: true, // Toggle cache
+}));
 
 site.use(prism({
   theme: [
@@ -318,7 +320,7 @@ site.use(cssBanner({
 }));
 site.use(shuffle());
 // ERRORS: site.use(purgecss());
-// site.use(minify_html());
+site.use(minify_html());
 site.use(inline());
 
 site.use(
