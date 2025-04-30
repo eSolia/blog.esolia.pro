@@ -11,7 +11,7 @@ description: >-
   Discover useful shortcut keys for Windows and Office 365 to enhance
   productivity and streamline your workflow, starting today! 
 image: /uploads/202503c-essential-shortcuts-social-en.jpg
-author: 'Rookie Engineer '
+author: 'YN'
 category: Microsoft-365
 comments: {}
 date: 2025-03-28T03:12:00.000Z
