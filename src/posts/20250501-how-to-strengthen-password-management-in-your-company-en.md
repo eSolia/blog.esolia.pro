@@ -58,7 +58,7 @@ Password managers such as Zetetic [Codebook](https://www.zetetic.net/codebook/){
   
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot of the main page in Zetetic Codebook" src="/uploads/202503h-password-management-(1).png" width="600px" transform-images="avif webp png jpeg 600@2">
-<figcaption class="text-left mt-2"><small>ex）the main page in Zetetic Codebook </small></figcaption>
+<figcaption class="text-left mt-2"><small>Fig）the main screen in Zetetic Codebook</small></figcaption>
 </figure>
 
 ### 4.Strengthen Access Control
