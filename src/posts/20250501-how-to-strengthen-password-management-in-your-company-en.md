@@ -49,7 +49,7 @@ MFA significantly reduces the risk of unauthorized access, even if a password is
 * Hardware tokens
 
 ### 3.Utilize a Password Manager 
-Password managers such as Zetetic [Codebook](https://www.zetetic.net/codebook/){target="_blank" rel="noopener" (eSolia’s choice) or 1Password help employees generate and store strong passwords securely, in an encrypted database application. Benefits include: 
+Password managers such as Zetetic [Codebook](https://www.zetetic.net/codebook/){target="_blank" rel="noopener"} (eSolia’s choice) or 1Password help employees generate and store strong passwords securely, in an encrypted database application. Benefits include: 
 
 * Automatic generation and secure storing of strong passwords
 * Preventing password reuse
