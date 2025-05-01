@@ -120,6 +120,10 @@ body article > div > p:first-of-type {
   @apply text-base md:text-lg lg:text-xl font-light leading-relaxed text-esoliablue-800 dark:text-esoliablue-200;
 }
 
+body article > div > figure > picture > img {
+  @apply shadow-md rounded-md;
+}
+
 /* MDN keyboard shortcut style for kbd tag */
 kbd {
   @apply bg-zinc-200 rounded border border-zinc-400 shadow-md text-zinc-800 inline-block text-[0.85em] font-semibold leading-none px-1 py-0.5 whitespace-nowrap
