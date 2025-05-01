@@ -30,7 +30,7 @@ import title from "https://deno.land/x/lume_markdown_plugins@v0.7.1/title.ts";
 import toc from "https://deno.land/x/lume_markdown_plugins@v0.8.0/toc.ts";
 import image from "https://deno.land/x/lume_markdown_plugins@v0.8.0/image.ts";
 import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnotes.ts";
-import { alert } from "npm:@mdit/plugin-alert@0.14.0";
+import { alert } from "npm:@mdit/plugin-alert@0.17.0";
 import multilanguage from "lume/plugins/multilanguage.ts";
 import icons from "lume/plugins/icons.ts";
 import brotli from "lume/plugins/brotli.ts";
