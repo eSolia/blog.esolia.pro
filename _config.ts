@@ -1,45 +1,18 @@
 import lume from "lume/mod.ts";
-import { getCurrentVersion } from "lume/core/utils/lume_version.ts";
+
+// Load First, order does not matter
+import attributes from "lume/plugins/attributes.ts";
 import date from "lume/plugins/date.ts";
 import { enUS } from "npm:date-fns/locale/en-US";
 import { ja } from "npm:date-fns/locale/ja";
 import { getGitDate } from "lume/core/utils/date.ts";
-import picture from "lume/plugins/picture.ts";
-import transformImages from "lume/plugins/transform_images.ts";
-import tailwindcss from "lume/plugins/tailwindcss.ts";
-// import lightningCss from "lume/plugins/lightningcss.ts";
-import googleFonts from "lume/plugins/google_fonts.ts";
-import attributes from "lume/plugins/attributes.ts";
-import esbuild from "lume/plugins/esbuild.ts";
-// import terser from "lume/plugins/terser.ts";
-import basePath from "lume/plugins/base_path.ts";
-// import slugifyUrls from "lume/plugins/slugify_urls.ts";
-// import jaconv from "npm:jaconv@1.0.4";
-import resolveUrls from "lume/plugins/resolve_urls.ts";
+import { time } from "node:console";
+import { getCurrentVersion } from "lume/core/utils/lume_version.ts";
+import readingInfo from "lume/plugins/reading_info.ts";
 import metas from "lume/plugins/metas.ts";
+import multilanguage from "lume/plugins/multilanguage.ts";
 import nav from "lume/plugins/nav.ts";
 import pagefind from "lume/plugins/pagefind.ts";
-import sitemap from "lume/plugins/sitemap.ts";
-import source_maps from "lume/plugins/source_maps.ts";
-// import sri from "lume/plugins/sri.ts";
-import favicon from "lume/plugins/favicon.ts";
-import feed from "lume/plugins/feed.ts";
-import readingInfo from "lume/plugins/reading_info.ts";
-import { merge } from "lume/core/utils/object.ts";
-import title from "https://deno.land/x/lume_markdown_plugins@v0.7.1/title.ts";
-import toc from "https://deno.land/x/lume_markdown_plugins@v0.8.0/toc.ts";
-import image from "https://deno.land/x/lume_markdown_plugins@v0.8.0/image.ts";
-import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnotes.ts";
-import { alert } from "npm:@mdit/plugin-alert@0.17.0";
-import multilanguage from "lume/plugins/multilanguage.ts";
-import icons from "lume/plugins/icons.ts";
-import brotli from "lume/plugins/brotli.ts";
-import cssBanner from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/css_banner.ts?3";
-import shuffle from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/shuffle.ts?3";
-import { time } from "node:console";
-import inline from "lume/plugins/inline.ts";
-import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
-
 import prism from "lume/plugins/prism.ts";
 import "npm:prismjs@1.29.0/components/prism-git.js";
 import "npm:prismjs@1.29.0/components/prism-json.js";
@@ -54,8 +27,49 @@ import "npm:prismjs@1.29.0/components/prism-powershell.js";
 import "npm:prismjs@1.29.0/components/prism-shell-session.js";
 import "npm:prismjs@1.29.0/components/prism-json5.js";
 
-// ERRORS: import purgecss from "lume/plugins/purgecss.ts";
+// CSS + JS + source maps
+import esbuild from "lume/plugins/esbuild.ts";
+import googleFonts from "lume/plugins/google_fonts.ts";
+import tailwindcss from "lume/plugins/tailwindcss.ts";
+import source_maps from "lume/plugins/source_maps.ts";
+
+// Modify URLs
+import basePath from "lume/plugins/base_path.ts";
+import resolveUrls from "lume/plugins/resolve_urls.ts";
+
+// Images
+import favicon from "lume/plugins/favicon.ts";
+import picture from "lume/plugins/picture.ts";
+import transformImages from "lume/plugins/transform_images.ts";
+
+// Markdown
+import title from "https://deno.land/x/lume_markdown_plugins@v0.7.1/title.ts";
+import toc from "https://deno.land/x/lume_markdown_plugins@v0.8.0/toc.ts";
+import image from "https://deno.land/x/lume_markdown_plugins@v0.8.0/image.ts";
+import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnotes.ts";
+import { alert } from "npm:@mdit/plugin-alert@0.17.0";
+
+// Utils
+import { merge } from "lume/core/utils/object.ts";
+import cssBanner from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/css_banner.ts?3";
+import shuffle from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/shuffle.ts?3";
+
+// Assets in HTML
+import icons from "lume/plugins/icons.ts";
+import inline from "lume/plugins/inline.ts";
+
+// Generate files with URLs
+import feed from "lume/plugins/feed.ts";
+import sitemap from "lume/plugins/sitemap.ts";
+
+// Checks
+import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
+
+// Final minification and compression 
 import minify_html from "lume/plugins/minify_html.ts";
+import brotli from "lume/plugins/brotli.ts";
+
+
 // Change markdown-it configuration
 
 const markdown = {
@@ -73,6 +87,37 @@ const site = lume({
 { markdown }
 );
 
+// Load First, order does not matter
+site.use(attributes());
+site.use(date({ locales: { enUS, ja } }));
+site.use(readingInfo());
+site.use(metas());
+site.use(multilanguage({
+  languages: ["ja", "en"],
+  defaultLanguage: "ja",
+}));
+site.use(nav());
+site.use(pagefind({
+  element: "#search",
+  resetStyles: false,
+}));
+site.use(prism({
+  theme: [
+    {
+      name: "default",
+      cssFile: "styles.css",
+      placeholder: "/* light-theme-here */"
+    },
+    {
+      name: "okaidia",
+      cssFile: "styles.css",
+      placeholder: "/* dark-theme-here */"
+    },
+  ]
+}));
+
+// CSS + JS + source maps
+site.use(esbuild());
 site.use(googleFonts({
   subsets: [
     "latin",
@@ -203,61 +248,14 @@ site.use(googleFonts({
       "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;600;700&display=swap",
   },
 }));
-
-site.use(attributes());
-site.use(picture(/* Options */));
-site.use(transformImages({
-  cache: true, // Toggle cache
-}));
-
-site.use(prism({
-  theme: [
-    {
-      name: "default",
-      cssFile: "styles.css",
-      placeholder: "/* light-theme-here */"
-    },
-    {
-      name: "okaidia",
-      cssFile: "styles.css",
-      placeholder: "/* dark-theme-here */"
-    },
-  ]
-}));
-
 site.use(tailwindcss());
-// site.use(lightningCss());
-// site.use(terser());
-
-site.use(basePath());
-site.use(title());
-site.use(toc());
-site.use(readingInfo());
-site.use(date({ locales: { enUS, ja } }));
-site.use(metas());
-site.use(image());
-site.use(footnotes());
-site.use(resolveUrls());
-// site.use(slugifyUrls({
-//   alphanumeric: false,
-//   transliterate: {
-//     ja: (text) => jaconv.toHebon(text),
-//   }
-// }));
-site.use(nav());
-site.use(pagefind({
-  element: "#search",
-  resetStyles: false,
-}));
-site.use(sitemap({
-  // query: "external_link=undefined",
-  lastmod: "lastmod",
-  priority: "priority",
-  filename: "sitemap.xml",
-  sort: "lastmod=desc",
-}));
 site.use(source_maps());
-// site.use(sri());
+
+// Modify URLs
+site.use(basePath());
+site.use(resolveUrls());
+
+// Images 
 site.use(favicon({
   favicons: [
     {
@@ -298,6 +296,29 @@ site.use(favicon({
     },
   ],
 }));
+site.use(picture(/* Options */));
+site.use(transformImages({
+  cache: true, // Toggle cache
+}));
+
+// Markdown
+site.use(title());
+site.use(toc());
+site.use(image());
+site.use(footnotes());
+site.hooks.addMarkdownItPlugin(alert);
+
+// Utils
+site.use(cssBanner({
+  message: "===rickcogley - css jokes are always in style===",
+}));
+site.use(shuffle());
+
+// Assets in HTML
+site.use(icons());
+site.use(inline());
+
+// Generate files with URLs
 site.use(feed({
   output: ["/feed.xml", "/feed.json"],
   query: "type=post",
@@ -309,20 +330,15 @@ site.use(feed({
     title: "=title",
   },
 }));
-site.use(multilanguage({
-  languages: ["ja", "en"],
-  defaultLanguage: "ja",
+site.use(sitemap({
+  // query: "external_link=undefined",
+  lastmod: "lastmod",
+  priority: "priority",
+  filename: "sitemap.xml",
+  sort: "lastmod=desc",
 }));
-site.use(icons());
-site.use(brotli());
-site.use(cssBanner({
-  message: "===rickcogley - css jokes are always in style===",
-}));
-site.use(shuffle());
-// ERRORS: site.use(purgecss());
-site.use(minify_html());
-site.use(inline());
 
+// Checks
 site.use(
   seo({
     output: "./_seo_report_en.json",
@@ -363,11 +379,14 @@ site.use(
   }),
 );
 
+// Optimize HTML
+site.use(minify_html());
+site.use(brotli());
+
 
 site.add([".css"]);
 site.add("fonts");
 site.add([".js", ".ts"]); // Add the files to bundle
-site.use(esbuild());
 site.add("manifest.json");
 site.add("uploads");
 site.add("assets");
@@ -449,8 +468,7 @@ site.process([".html"], (pages) => {
   }
 });
 
-// Alert plugin
-site.hooks.addMarkdownItPlugin(alert);
+
 
 // site.filter("tdate", (value: string | undefined, locale: string, timezone: string) => {
 //   if (!value) {
