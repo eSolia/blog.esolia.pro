@@ -1,6 +1,11 @@
 logo: /assets/logo_horiz_darkblue_bgtransparent.svg
 extra_head: []
 lang: ja
+site:
+  author: "イソリア"
+  title: "Tech IT Easy Blog"
+  description: "株式会社イソリア IT Tips ブログのページ"
+  isolang: "ja-JP"
 topnav:
   links: 
     - text: アーカイブ
@@ -51,9 +56,10 @@ footernav:
 metas:
   lang: ja
   type: website
-  site: "イソリア IT Tips ブログ"
-  title: "=title || イソリア IT Tips ブログ ページ"
-  description: "=description || 株式会社イソリア IT Tips ブログのページ"
+  site: "=site.title || イソリア Tech IT Easy Blog"
+  title: "=title || イソリア Tech IT Easy Blog ブログ ページ"
+  description: "=description || イソリア Tech IT Easy Blog ブログより、一つの記事"
+  author: "イソリア"
   image: "=image || /assets/blog-esolia-pro-default.png"
   icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
   keywords: ["イソリア", "ブログ", "ウェブログ", "プロ", "プロフェッショナル", "東京ITサービス", "日本語", "Tips"]
@@ -66,9 +72,28 @@ metas:
   "twitter:data1": "チーム イソリア"
   "twitter:label2": "読了目安"
   "twitter:data2": "$ .reading-info || 2 分"
+jsonLd:
+  "@type": WebSite
+  inLanguage: "=site.isolang"
+  isFamilyFriendly: true
+  url: =url
+  headline: =metas.title
+  name: =site.title
+  description: =metas.description
+  author:
+    "@type": Organization
+    name: =site.author
+  editor:
+      "@type": Organization
+      name: "=site.author"
 
 en:
   lang: en
+  site:
+    author: "eSolia"
+    title: "Tech IT Easy Blog"
+    description: "IT Tips Blog page from eSolia Inc., Tokyo, Japan"
+    isolang: "en-US"
   topnav:
     links: 
       - text: Archive
@@ -118,9 +143,10 @@ en:
   metas:
     lang: en
     type: website
-    site: "eSolia IT Tips Blog"
-    title: "=title || eSolia IT Tips Blog Page"
-    description: "=description || IT Tips Blog page from eSolia Inc., Tokyo, Japan"
+    site: "=site.title || eSolia Tech IT Easy Blog"
+    title: "=title || eSolia Tech IT Easy Blog Page"
+    description: "=description || An article from the Tech IT Easy Tips Blog page from eSolia Inc., Tokyo, Japan"
+    author: "eSolia"
     image: "=image || /assets/blog-esolia-pro-default.png"
     icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
     keywords: ["eSolia", "blog", "tips", "weblog", "pro", "professional", "tokyo it service", "japan", "english"]
@@ -133,3 +159,17 @@ en:
     "twitter:data1": "Team eSolia"
     "twitter:label2": "Reading Time"
     "twitter:data2": "$ .reading-info || 2 min"
+  jsonLd:
+    "@type": WebSite
+    inLanguage: "=site.isolang"
+    isFamilyFriendly: true
+    url: =url
+    headline: =metas.title
+    name: =site.title
+    description: =metas.description
+    author:
+      "@type": Organization
+      name: =site.author
+    editor:
+      "@type": Organization
+      name: "=site.author"

@@ -16,6 +16,15 @@ metas:
   "article:author": "=author"
   "article:section": "=article-type"
   "article:tag": "=tags" 
+jsonLd:
+  "@type": blogPosting
+  image: "=image || /assets/blog-esolia-pro-default.png"
+  "datePublished": "=date"
+  "dateModified": "=last_modified"
+  keywords: "=tags"
+  author:
+    "@type": Person
+    name: "=author"
 
 en: 
   lang: en
@@ -36,3 +45,12 @@ en:
     "article:author": "=author"
     "article:section": "=article-type"
     "article:tag": "=tags"
+  jsonLd:
+    "@type": blogPosting
+    image: "=image || /assets/blog-esolia-pro-default.png"
+    "datePublished": "=date"
+    "dateModified": "=last_modified"
+    keywords: "=tags"
+    author:
+      "@type": Person
+      name: "=author"
