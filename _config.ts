@@ -8,6 +8,7 @@ import { ja } from "npm:date-fns/locale/ja";
 import { getGitDate } from "lume/core/utils/date.ts";
 import { time } from "node:console";
 import { getCurrentVersion } from "lume/core/utils/lume_version.ts";
+import jsonLd from "lume/plugins/json_ld.ts";
 import readingInfo from "lume/plugins/reading_info.ts";
 import metas from "lume/plugins/metas.ts";
 import multilanguage from "lume/plugins/multilanguage.ts";
@@ -90,6 +91,7 @@ const site = lume({
 // Load First, order does not matter
 site.use(attributes());
 site.use(date({ locales: { enUS, ja } }));
+site.use(jsonLd());
 site.use(readingInfo());
 site.use(metas());
 site.use(multilanguage({

@@ -117,7 +117,7 @@
 }
 
 body article > div > p:first-of-type {
-  @apply text-base md:text-lg lg:text-xl font-light leading-relaxed text-esoliablue-800 dark:text-esoliablue-200;
+  @apply text-base text-lg lg:text-xl font-light leading-relaxed text-zinc-800 dark:text-zinc-200;
 }
 
 body article > div > figure > picture > img {

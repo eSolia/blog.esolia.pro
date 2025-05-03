@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ it.title || metas.title }} - {{ metas.site }}</title>
+    <title>{{ it.title || metas.title }} - {{ site.title }}</title>
 
     <meta name="supported-color-schemes" content="light dark">
     <meta
@@ -28,29 +28,17 @@
       rel="alternate"
       href="/feed.xml"
       type="application/atom+xml"
-      title="{{ metas.site }}"
+      title="{{ site.title }}"
     >
     <link
       rel="alternate"
       href="/feed.json"
       type="application/json"
-      title="{{ metas.site }}"
+      title="{{ site.title }}"
     >
     <link rel="canonical" href="{{ url |> url(true) }}">
     {{# Various js, such as Alpine and Fathom and the theme toggle script #}}
     <script src="/js/main.js?cb={{ cacheBuster }}" type="module" defer></script>
-
-    <!-- Splide CSS -->
-    {{# <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"
-    > #}}
-
-    <!-- Splide JS -->
-    {{# <script
-      src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"
-    ></script> #}}
-
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
     {{ it.extra_head?.join("\n") }}
   </head>
