@@ -37,6 +37,7 @@ import source_maps from "lume/plugins/source_maps.ts";
 // Modify URLs
 import basePath from "lume/plugins/base_path.ts";
 import resolveUrls from "lume/plugins/resolve_urls.ts";
+import checkUrls from "lume/plugins/check_urls.ts";
 
 // Images
 import favicon from "lume/plugins/favicon.ts";
@@ -256,6 +257,9 @@ site.use(source_maps());
 // Modify URLs
 site.use(basePath());
 site.use(resolveUrls());
+site.use(checkUrls({
+  external: true,
+}));
 
 // Images 
 site.use(favicon({
