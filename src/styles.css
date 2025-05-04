@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/container-queries";
+/* @plugin "tailwindcss-opentype"; */
 /* @plugin "daisyui@5.0.27"; */
 /* @plugin "flyonui@2.0.0"; */
 /* @plugin "tailwind-every-layout@latest"; */
@@ -70,6 +71,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --default-font-feature-settings: "kern" 1, "liga" 1, "clig" 1, "calt" 1, "palt" 0, "zero" 1, "sups" 0, "frac" 0, "ordn" 0;
+  --default-font-variant-ligatures: common-ligatures;
   --header-top: 1rem;
   --font-sans: textface, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
