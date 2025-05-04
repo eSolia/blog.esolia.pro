@@ -183,7 +183,7 @@
                   >
                     <span>
                       <img
-                        class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 transition hover:scale-110"
+                        class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 dark:fill-sky-300 dark:stroke-sky-500 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 dark:group-hover:fill-sky-400 dark:group-hover:stroke-sky-600 transition hover:scale-110"
                         src='{{ "magnifying-glass" |> icon("phosphor", "duotone") }}'
                         inline
                       />
@@ -208,14 +208,14 @@
                   >
                     <span x-show="!darkMode">
                       <img
-                        class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 transition hover:scale-110"
+                        class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-sky-400 group-hover:stroke-sky-600 transition hover:scale-110"
                         src='{{ "sun" |> icon("phosphor", "duotone") }}'
                         inline
                       />
                     </span>
                     <span x-show="darkMode">
                       <img
-                        class="h-5 w-5 fill-sky-300 stroke-sky-500 transition group-hover:fill-sky-400 group-hover:stroke-sky-700 transition hover:scale-110"
+                        class="h-5 w-5 fill-sky-300 stroke-sky-500 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 transition hover:scale-110"
                         src='{{ "moon-stars" |> icon("phosphor", "duotone") }}'
                         inline
                       />
