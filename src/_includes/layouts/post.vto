@@ -15,15 +15,15 @@ bodyClass: body-post
               </a>
               <article data-pagefind-body data-title="{{ title }}" data-pagefind-index-attrs="data-title">
                 <header class="flex flex-col -top-4">
-                  {{ include "templates/post-details.vto" { elapsed: elapseddays } }}
+                  {{# {{ include "templates/post-details.vto" { elapsed: elapseddays } }} #}}
                   <h1
-                    class="mt-6 text-3xl font-bold tracking-tight text-zinc-800 sm:text-4xl dark:text-zinc-100 subpixel-antialiased"
+                    class="mt-1 text-3xl font-bold tracking-tight text-zinc-800 sm:text-4xl dark:text-zinc-100 subpixel-antialiased"
                   >
                     {{ title }}
                   </h1>
 
                   {{ if toc.length }}
-                    <nav class="max-w-2xl mt-4 mr-auto bg-white prose prose-zinc dark:prose-invert dark:bg-zinc-800 p-6 rounded-lg shadow-md prose-a:transition">
+                    <nav class="max-w-2xl mt-4 mr-auto bg-zinc-50 prose prose-zinc dark:prose-invert dark:bg-zinc-800 p-6 rounded-lg shadow-md prose-a:transition">
                       <h2 class="mb-1 font-light">{{ i18n.nav.toc }}</h2>
                       <ul class="list-disc list-inside space-y-2 text-sm">
                         {{ for item of toc }}
@@ -61,8 +61,9 @@ bodyClass: body-post
                   </dl>
                 </aside>
                 {{ /if }}
+                {{ include "templates/post-details.vto" { elapsed: elapseddays } }}
                 {{ include "templates/post-share.vto" }}
-                {{ include "templates/post-image.vto" }}
+                {{# {{ include "templates/post-image.vto" }} #}}
                 {{# <nav class="page-pagination pagination">
                   <ul>
                     {{- set previousPost = search.previousPage(url, "type=post") }}
