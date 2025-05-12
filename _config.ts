@@ -65,7 +65,7 @@ import feed from "lume/plugins/feed.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 
 // Checks
-import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
+// import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
 
 // Final minification and compression 
 import minify_html from "lume/plugins/minify_html.ts";
@@ -345,45 +345,45 @@ site.use(sitemap({
 }));
 
 // Checks
-site.use(
-  seo({
-    output: "./_seo_report_en.json",
-    ignore: ["/admin/", "/assets/", "/404.html"],
-    lengthUnit: "character",
-    lengthLocale: "en",
-    ignoreAllButLocale: "en",
-    thresholdMetaDescriptionLength: 170,
-    thresholdContentMinimum: 3500,
-    thresholdContentMaximum: 20000,
-    thresholdLength: 80,
-    thresholdLengthPercentage: 0.7,
-    thresholdLengthForCWCheck: 35,
-    thresholdCommonWordsPercent: 45,
-    logOperations: false,
-  }),
-);
-import { japaneseCommonWords } from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/japanese_common_words.js";
-site.use(
-  seo({
-    output: "./_seo_report_ja.json",
-    ignore: ["/admin/", "/assets/", "/404.html"],
-    lengthUnit: "character",
-    lengthLocale: "ja",
-    ignoreAllButLocale: "ja",
-    thresholdMetaDescriptionLength: 170,
-    thresholdContentMinimum: 3500,
-    thresholdContentMaximum: 20000,
-    thresholdLength: 80,
-    thresholdLengthPercentage: 0.7,
-    thresholdLengthForCWCheck: 35,
-    thresholdCommonWordsPercent: 45,
-    logOperations: false,
-    userCommonWordSet: japaneseCommonWords,
-    commonWordPercentageCallback: function (input: string): number {
-      return (0.99);
-    },
-  }),
-);
+// site.use(
+//   seo({
+//     output: "./_seo_report_en.json",
+//     ignore: ["/admin/", "/assets/", "/404.html"],
+//     lengthUnit: "character",
+//     lengthLocale: "en",
+//     ignoreAllButLocale: "en",
+//     thresholdMetaDescriptionLength: 170,
+//     thresholdContentMinimum: 3500,
+//     thresholdContentMaximum: 20000,
+//     thresholdLength: 80,
+//     thresholdLengthPercentage: 0.7,
+//     thresholdLengthForCWCheck: 35,
+//     thresholdCommonWordsPercent: 45,
+//     logOperations: false,
+//   }),
+// );
+// import { japaneseCommonWords } from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/japanese_common_words.js";
+// site.use(
+//   seo({
+//     output: "./_seo_report_ja.json",
+//     ignore: ["/admin/", "/assets/", "/404.html"],
+//     lengthUnit: "character",
+//     lengthLocale: "ja",
+//     ignoreAllButLocale: "ja",
+//     thresholdMetaDescriptionLength: 170,
+//     thresholdContentMinimum: 3500,
+//     thresholdContentMaximum: 20000,
+//     thresholdLength: 80,
+//     thresholdLengthPercentage: 0.7,
+//     thresholdLengthForCWCheck: 35,
+//     thresholdCommonWordsPercent: 45,
+//     logOperations: false,
+//     userCommonWordSet: japaneseCommonWords,
+//     commonWordPercentageCallback: function (input: string): number {
+//       return (0.99);
+//     },
+//   }),
+// );
 
 // Optimize HTML
 site.use(minify_html());
