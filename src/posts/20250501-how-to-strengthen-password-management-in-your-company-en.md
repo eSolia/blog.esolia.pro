@@ -5,7 +5,7 @@ featured: false
 lang: en
 id: 202503h-password-management
 date: 2025-05-01T02:28:43.439Z
-last_modified: 2025-05-01T12:03:00.000Z
+last_modified: 2025-05-19T15:20:00.000Z
 title: >-
   Must-Read for IT Managers! How to Strengthen Password Management in Your
   Company 
@@ -13,8 +13,8 @@ description: >-
   Enhance your company's password management with practical strategies. Learn
   about MFA, password policies, and password managers to improve security. A
   must-read for IT managers and decision-makers. 
-image: /uploads/202503h-password-management-en.jpeg
-image_top: /uploads/202503h-password-management.jpeg
+image: /uploads/202503h-password-management-en2.jpeg
+image_top: /uploads/202503h-password-management2.jpeg
 author: Kabaya
 category: Security
 tags:

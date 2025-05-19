@@ -19,7 +19,7 @@ tags:
   - Subsidies
   - Grants
   - Workplace
-last_modified: 2025-05-19T10:04:00.000Z
+last_modified: 2025-05-19T15:14:00.000Z
 comments: {}
 hot: false
 featured: false
@@ -104,9 +104,9 @@ First, you need to discuss how to implement Telework internally. Once your **"Te
 And you should note that, there may be subsidies available (such as the ones from the Japan gov't below) for small and medium-sized companies in order to proceed with Telework.
 
 - Ministry of Health, Labor and Welfare:
-   - [Telework Course Subsidy](http://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/jikan/syokubaisikitelework.html){target="_blank" rel="noopener"}
+   - [Telework Course Subsidy](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/telework_zyosei_R3.html){target="_blank" rel="noopener"}
 - The Tokyo Metropolitan Government Bureau:
-   - [Work-life Balance Accelerator Subsidy](http://www.hataraku.metro.tokyo.jp/equal/ryoritu/josei/){target="_blank" rel="noopener"}
+   - [Work-life Balance Accelerator Subsidy](https://www.koyokankyo.shigotozaidan.or.jp/jigyo/telework/teletotal/total_joseikin.html){target="_blank" rel="noopener"}
 
 ## Ask eSolia
 
