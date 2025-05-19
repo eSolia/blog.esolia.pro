@@ -2,7 +2,7 @@
 lang: en
 id: 20180416a
 authorkey: enaishikawa
-author: Ena Ishikawa
+author: Ena
 date: 2018-04-15T22:07:27.000Z
 draft: false
 title: Telework Offensive!
@@ -19,7 +19,7 @@ tags:
   - Subsidies
   - Grants
   - Workplace
-last_modified: 2025-04-25T08:26:00.000Z
+last_modified: 2025-05-19T10:04:00.000Z
 comments: {}
 hot: false
 featured: false

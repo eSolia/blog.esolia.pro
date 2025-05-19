@@ -13,11 +13,11 @@ description: >-
   management, and give some practical solutions. Contains a detailed guide on
   metadata management to enhance searchability! 
 image: /uploads/202503b-sharepoint-migration-part1-social-en.jpg
-author: Ena Ishikawa
+author: Ena
 category: Microsoft-365
 comments: {}
 date: 2025-04-10T01:21:00.000Z
-last_modified: 2025-04-28T16:19:00.000Z
+last_modified: 2025-05-19T13:31:00.000Z
 tags:
   - spo
   - migration
@@ -102,7 +102,7 @@ So in the end, how can we avoid the above issues and use SPO efficiently?
 * **Split document libraries by use case** - keep folder structures as simple as possible.
 * **Leverage search functionality** - locate files without opening folders.
 * **Use shorter filenames** - prevent path length issues.
-* **Establish a naming convention** for consistency (e.g., if the convention is **"Date_Project"**, then you might name a folder "20250107-New-Year-Planning". )
+* **Establish a naming convention** for consistency (e.g., if the convention is **"Date_Project"**, then you might name a folder "20250107-ProjectName". )
 
 ## Summary 
 SPO migration projects don’t end with migration completion - they require ongoing adaptation to a more suitable operational model. By understanding SPO’s characteristics and establishing operational rules, companies can maximize the benefits of the cloud. One client shared with us:
