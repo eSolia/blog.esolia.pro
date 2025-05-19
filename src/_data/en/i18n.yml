@@ -9,6 +9,9 @@ home:
 archive: 
   title: Archive
   description: Browse our archive of past articles. Use categories and tags to quickly find the topics that interest you, or search from the magnifying glass icon in the navigation bar at the top of the page.
+  button: Browse All Posts
+  aria_label: Archive page link
+  url: /en/archive/
 social:
   share_placeholder: Check out this new post from eSolia's IT Tips Blog
   share_ask: Kindly do us a favor?

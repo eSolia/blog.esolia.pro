@@ -9,6 +9,9 @@ home:
 archive: 
   title: アーカイブ
   description: 過去の記事を一覧でご紹介しています。カテゴリやタグを活用して、興味のある情報にすばやくアクセスできます。または、ページ上部のナビゲーションバーにある虫眼鏡アイコンから検索してください。
+  button: 全ポストを見る
+  aria_label: アーカイブページへのリンク
+  url: /archive/
 social:
   share_placeholder: 役立つIT情報をお届け中！当ブログの最新ポストはこちら
   share_ask: この記事が役に立ったと思ったら
