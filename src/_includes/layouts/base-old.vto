@@ -37,7 +37,7 @@
     <script src="/js/main.js" type="module"></script>
     {{ it.extra_head?.join("\n") }}
   </head>
-  <body class="m-auto p-8 pb-32 max-w-6xl md:px-16 text-zinc-800 bg-zinc-50">
+  <body class="m-auto p-8 pb-32 max-w-6xl md:px-16 text-zinc-900 bg-zinc-50">
     {{ include "templates/top-nav.vto" }}
 
     <nav class="navbar">
@@ -158,7 +158,7 @@
         </div> #}}
       </div>
 
-      <main class="{{ it.bodyClass }}">
+      <main id="main-content" class="{{ it.bodyClass }}">
         {{ content }}
       </main>
     </div>

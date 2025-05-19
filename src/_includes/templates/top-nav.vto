@@ -18,7 +18,7 @@
                   loading="lazy"
                   fetchpriority="high"
                   decoding="async"
-                  class="-ml-4 w-64 object-cover dark:grayscale dark:invert dark:saturate-[.1] transition-opacity duration-300"
+                  class="-ml-5 w-64 object-cover dark:grayscale dark:invert dark:saturate-[.1] transition-opacity duration-300"
                   src="/assets/logo_horiz_darkblue_bgtransparent_2.svg"
                 /></a>
             </div>
@@ -29,7 +29,7 @@
   </div>
   <div
     id="top-nav-bg"
-    class="fixed top-0 z-10 h-20 pt-6 w-full bg-zinc-50/50 dark:bg-zinc-700/50 transition-all duration-700 shadow-xs"
+    class="fixed top-0 z-10 h-20 pt-6 w-full bg-zinc-50/50 dark:bg-zinc-700/50 transition-all duration-700 backdrop-blur shadow-xs"
   >
     <div class="top-(--header-top,--spacing(6)) w-full sm:px-8 fixed">
       <div class="mx-auto w-full max-w-7xl lg:px-8">
@@ -56,7 +56,7 @@
                 <div class="pointer-events-auto md:hidden relative">
                   <button
                     aria-label="Toggle menu"
-                    class="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm whitespace-nowrap font-medium text-zinc-800 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
+                    class="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm whitespace-nowrap font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
                     type="button"
                     x-data
                     @click="$dispatch('toggle-menu')"
@@ -130,29 +130,42 @@
                     x-bind:class="{'is-active' : open }"
                     :style="{ zIndex: zIndex }"
                   >
+                    {{ if alternates && alternates.length > 1 }}
+                    <div class="mobile-menu__item space-y-4">
+                    {{- for alt of alternates }}{{ if alt.lang !== lang }}
+                      <a
+                        class="bg-sky-700 hover:bg-sky-600 hover:text-white rounded-md p-4 text-5xl inline-block"
+                        href="{{ alt.url }}"
+                        title="{{ alt.title |> escape }}"
+                      >
+                        <span class="text-white font-thin">{{ if alt.lang == "ja" }}日本語{{ else }}ENGLISH{{ /if }}</span>
+                      </a>
+                      {{ /if }}{{ /for }}
+                    </div>
+                    {{ /if }} 
                     {{- for item of it.topnav.links }}
-                      <div class="mobile-menu__item space-y-4">
-                        <a
-                          class="text-white font-thin hover:text-sky-400 text-5xl inline-block {{- if item.target === '_blank'  }} after:content-['_↗']{{ /if -}}"
-                          href="{{ item.href }}"
-                          {{- if item.target === '_blank' }}rel="noopener"{{ /if -}}
-                          role="menuitem"
-                          aria-label="{{ item.aria_label }}"
-                          title="{{ item.title }}"
-                        ><span class="text-white">{{
-                            item.text
-                            |> toUpperCase
-                          }}</span>
-                          <span class="sr-only">({{ item.aria_label }})</span>
-                        </a>
-                      </div>
+                    <div class="mobile-menu__item space-y-4">
+                      <a
+                        class="text-white font-thin hover:text-sky-400 text-5xl inline-block {{- if item.target === '_blank'  }} after:content-['_↗']{{ /if -}}"
+                        href="{{ item.href }}"
+                        {{- if item.target === '_blank' }}rel="noopener"{{ /if -}}
+                        role="menuitem"
+                        aria-label="{{ item.aria_label }}"
+                        title="{{ item.title }}"
+                      ><span class="text-white">{{
+                          item.text
+                          |> toUpperCase
+                        }}</span>
+                        <span class="sr-only">({{ item.aria_label }})</span>
+                      </a>
+                    </div>
                     {{ /for -}}
                   </div>
                 </nav>
               </div>
               <div class="flex justify-end md:flex-1 z-50 space-x-1">
                 {{ if alternates && alternates.length > 1 }}
-                  <div class="pointer-events-auto z-50">
+                  <div class="pointer-events-auto z-50 hidden md:block">
                     <button
                       type="button"
                       aria-label="Toggle language"

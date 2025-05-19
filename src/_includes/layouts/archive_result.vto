@@ -3,7 +3,7 @@ layout: layouts/base.vto
 bodyClass: body-tag
 ---
 <!-- ===== archive_result.vto LAYOUT START ===== -->
-<main class="flex-auto">
+<main id="main-content" class="flex-auto">
   <div class="mt-16 sm:mt-32 sm:px-8">
     <div class="mx-auto w-full max-w-full lg:px-8">
       <div class="relative px-4 sm:px-8 lg:px-12">
@@ -11,11 +11,11 @@ bodyClass: body-tag
           <header class="max-w-2xl space-y-10">
             <div class=""><a href="/archive/">{{ i18n.nav.back }}</a></div>
             <h1
-              class="text-4xl font-thin tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100 subpixel-antialiased"
+              class="text-4xl font-thin tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-100 subpixel-antialiased"
             >
               {{ title }}
             </h1>
-            <p class="text-zinc-800 dark:text-zinc-200">{{ summary }}</p>
+            <p class="text-zinc-900 dark:text-zinc-200">{{ summary }}</p>
             {{
               include "templates/post-list.vto" { postslist: search.pages(search_query) }
             }}
