@@ -84,6 +84,7 @@
                 >
                 </div>
                 <nav class="pointer-events-auto hidden md:block">
+                  {{ if it.topnav.links.length }}
                   <ul
                     class="flex rounded-full bg-sky-700/90 px-3 text-sm font-medium ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10 divide-x-1 divide-zinc-50/50 dark:divide-zinc-200/50"
                     role="menubar"
@@ -103,7 +104,7 @@
                           <span class="sr-only"
                           >({{ item.aria_label }})</span></a>
                       </li>
-                    {{ /for -}}
+                    {{ /for -}}{{ /if }}
                   </ul>
                 </nav>
 
