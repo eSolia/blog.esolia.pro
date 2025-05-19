@@ -3,17 +3,11 @@ extra_head: []
 lang: ja
 site:
   author: "イソリア"
-  title: "Tech IT Easy Blog"
+  title: "Tech It Easy Blog"
   description: "株式会社イソリア IT Tips ブログのページ"
   isolang: "ja-JP"
 topnav:
   links: 
-    - text: アーカイブ
-      href: /archive
-      target: _self
-      icon: archive
-      aria_label: サイト内リンク
-      title: アーカイブページへのリンク
     - text: イソリア
       href: https://esolia.co.jp
       target: _blank
@@ -56,9 +50,9 @@ footernav:
 metas:
   lang: ja
   type: website
-  site: "=site.title || イソリア Tech IT Easy Blog"
-  title: "=title || イソリア Tech IT Easy Blog ブログ ページ"
-  description: "=description || イソリア Tech IT Easy Blog ブログより、一つの記事"
+  site: "=site.title || イソリア Tech It Easy Blog"
+  title: "=title || イソリア Tech It Easy Blog ブログ ページ"
+  description: "=description || イソリア Tech It Easy Blog ブログより、一つの記事"
   author: "イソリア"
   image: "=image || /assets/blog-esolia-pro-default.png"
   icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
@@ -91,17 +85,11 @@ en:
   lang: en
   site:
     author: "eSolia"
-    title: "Tech IT Easy Blog"
+    title: "Tech It Easy Blog"
     description: "IT Tips Blog page from eSolia Inc., Tokyo, Japan"
     isolang: "en-US"
   topnav:
     links: 
-      - text: Archive
-        href: /en/archive
-        target: _self
-        icon: archive
-        aria_label: Site internal link
-        title: Link to the Archive page
       - text: eSolia Inc.
         href: https://esolia.com
         target: _blank
@@ -143,8 +131,8 @@ en:
   metas:
     lang: en
     type: website
-    site: "=site.title || eSolia Tech IT Easy Blog"
-    title: "=title || eSolia Tech IT Easy Blog Page"
+    site: "=site.title || eSolia Tech It Easy Blog"
+    title: "=title || eSolia Tech It Easy Blog Page"
     description: "=description || An article from the Tech IT Easy Tips Blog page from eSolia Inc., Tokyo, Japan"
     author: "eSolia"
     image: "=image || /assets/blog-esolia-pro-default.png"
