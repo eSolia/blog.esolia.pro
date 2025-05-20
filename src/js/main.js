@@ -149,3 +149,30 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
+// For TOC details opening
+// This script will automatically open the Table of Contents (ToC) on medium and larger screens
+document.addEventListener('DOMContentLoaded', () => {
+    const tocDetails = document.getElementById('toc-details');
+    if (!tocDetails) {
+        console.warn('Table of Contents details element not found!');
+        return;
+    }
+    const handleDetailsState = () => {
+        const isMediumOrLargeScreen = window.matchMedia('(min-width: 768px)').matches;
+
+        if (isMediumOrLargeScreen) {
+            // On medium and larger screens:
+            // The 'open' attribute is set in the HTML. We DO NOT modify it here.
+            // This allows the user to freely open/close the ToC, and their action will persist.
+        } else {
+            // On smaller screens:
+            // Ensure the ToC is always closed by default (remove 'open' if present).
+            tocDetails.removeAttribute('open');
+        }
+    };
+    // Set initial state on page load
+    handleDetailsState();
+    // Re-evaluate state on window resize
+    window.addEventListener('resize', handleDetailsState);
+});

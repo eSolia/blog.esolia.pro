@@ -243,4 +243,20 @@ mark {
   transform: translateX(0);
 }
 
+/* TOC */
+/* Remove default padding some browsers apply to summary */
+summary {
+  padding: 0;
+}
+
+/* Optional: Adjust spacing between summary and content when open on small screens */
+details[open] > summary {
+  margin-bottom: 0.5rem; /* Or adjust as needed for your design */
+}
+
+/* Ensure the ul within details doesn't have unwanted top margin if prose changes its default */
+#toc-details ul {
+  margin-top: 0;
+}
+
 /* lume-google-fonts-here */
