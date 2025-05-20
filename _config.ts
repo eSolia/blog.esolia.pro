@@ -14,6 +14,7 @@ import metas from "lume/plugins/metas.ts";
 import multilanguage from "lume/plugins/multilanguage.ts";
 import nav from "lume/plugins/nav.ts";
 import pagefind from "lume/plugins/pagefind.ts";
+import plaintext from "lume/plugins/plaintext.ts";
 import prism from "lume/plugins/prism.ts";
 import "npm:prismjs@1.29.0/components/prism-git.js";
 import "npm:prismjs@1.29.0/components/prism-json.js";
@@ -104,6 +105,7 @@ site.use(pagefind({
   element: "#search",
   resetStyles: false,
 }));
+site.use(plaintext());
 site.use(prism({
   theme: [
     {
