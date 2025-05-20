@@ -1,3 +1,20 @@
+// Load this first
+(function() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/windows phone/i.test(userAgent)) {
+        document.body.classList.add('os-windows-phone');
+    } else if (/android/i.test(userAgent)) {
+        document.body.classList.add('os-android');
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        document.body.classList.add('os-ios');
+    } else if (/Mac/i.test(userAgent)) {
+        document.body.classList.add('os-mac');
+    } else if (/Win/i.test(userAgent)) { // This would catch most Windows desktops/laptops
+        document.body.classList.add('os-windows');
+    }
+})();
+
 // Function to load a script from a CDN with additional attributes
 function loadVendorScript(src, attributes, callback) {
   var script = document.createElement('script');
