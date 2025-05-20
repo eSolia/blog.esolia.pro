@@ -18,9 +18,9 @@
   }
 
   /* You could also style specific link states globally */
-  a:focus {
+  /* a:focus {
     @apply outline-none ring-2 ring-sky-700/50 ring-offset-2;
-  }
+  } */
 }
 @layer components {
   /* Apply base styles to tables with not-prose */
@@ -120,7 +120,7 @@
 }
 
 body article > div > p:first-of-type {
-  @apply text-base text-lg lg:text-xl font-light leading-relaxed text-zinc-900 dark:text-zinc-200;
+  @apply text-base text-lg lg:text-xl font-light leading-relaxed text-zinc-950 dark:text-zinc-200;
 }
 
 body article > div > figure > picture > img {
@@ -129,7 +129,7 @@ body article > div > figure > picture > img {
 
 /* MDN keyboard shortcut style for kbd tag */
 kbd {
-  @apply bg-zinc-200 rounded border border-zinc-400 shadow-md text-zinc-900 inline-block text-[0.85em] font-semibold leading-none px-1 py-0.5 whitespace-nowrap
+  @apply bg-zinc-200 rounded border border-zinc-400 shadow-md text-zinc-950 inline-block text-[0.85em] font-semibold leading-none px-1 py-0.5 whitespace-nowrap
 }
 
 /*----------------------------
@@ -241,6 +241,22 @@ mark {
 /* Hamburger アニメーション後のメニューの状態 */
 .mobile-menu.is-active {
   transform: translateX(0);
+}
+
+/* TOC */
+/* Remove default padding some browsers apply to summary */
+summary {
+  padding: 0;
+}
+
+/* Optional: Adjust spacing between summary and content when open on small screens */
+details[open] > summary {
+  margin-bottom: 0.5rem; /* Or adjust as needed for your design */
+}
+
+/* Ensure the ul within details doesn't have unwanted top margin if prose changes its default */
+#toc-details ul {
+  margin-top: 0;
 }
 
 /* lume-google-fonts-here */

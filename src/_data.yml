@@ -7,13 +7,7 @@ site:
   description: "株式会社イソリア IT Tips ブログのページ"
   isolang: "ja-JP"
 topnav:
-  links: 
-    - text: イソリア
-      href: https://esolia.co.jp
-      target: _blank
-      icon: building-office
-      aria_label: 外部リンク
-      title: イソリア社ウェブサイトへのリンク
+  links: []
 footernav:
   links: 
     - text: アーカイブ
@@ -89,13 +83,7 @@ en:
     description: "IT Tips Blog page from eSolia Inc., Tokyo, Japan"
     isolang: "en-US"
   topnav:
-    links: 
-      - text: eSolia Inc.
-        href: https://esolia.com
-        target: _blank
-        icon: building-office
-        aria_label: External link
-        title: Link to eSolia Inc. website
+    links: []
   footernav:
     links: 
       - text: Archive

@@ -1,6 +1,6 @@
 lang: en
 home:
-  welcome: Based in Tokyo and approaching YEARS_IN_BUSINESS years in business, bilingual IT outsourcing company <strong>eSolia</strong> shares practical, field-tested tips that are genuinely useful&mdash;drawn from years of hands-on experience.
+  welcome: Based in Tokyo and approaching YEARS_IN_BUSINESS years in business, bilingual IT outsourcing company <a href="https://esolia.com" target="_blank" ref="noopener"><strong>eSolia</strong></a> shares practical, field-tested tips that are genuinely useful&mdash;drawn from years of hands-on experience.
   company: eSolia
   company_long: eSolia Inc.
   company_address: Shiodome City Center 5F (Work Styling), 1-5-2 Higashi-Shimbashi, Minato-ku, Tokyo, Japan, 105-7105
@@ -9,6 +9,9 @@ home:
 archive: 
   title: Archive
   description: Browse our archive of past articles. Use categories and tags to quickly find the topics that interest you, or search from the magnifying glass icon in the navigation bar at the top of the page.
+  button: Browse All Posts
+  aria_label: Archive page link
+  url: /en/archive/
 social:
   share_placeholder: Check out this new post from eSolia's IT Tips Blog
   share_ask: Kindly do us a favor?

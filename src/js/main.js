@@ -20,14 +20,36 @@ window.addEventListener('scroll', () => {
   const topNavBG = document.getElementById('top-nav-bg');
   const scrollPosition = window.scrollY;
 
-  // Handle logo swap
-  if (scrollPosition > 10) {
-      largeLogo.classList.add('opacity-0');
-      smallLogo.classList.remove('opacity-0');
-  } else {
-      largeLogo.classList.remove('opacity-0');
-      smallLogo.classList.add('opacity-0');
+  // Check if the current screen size is 'md' (768px) or larger
+  // (Tailwind's default 'md' breakpoint is 768px)
+  const isLargeScreen = window.matchMedia('(min-width: 768px)').matches;
+
+  // --- Handle logo swap only for 'md' and larger screens ---
+  if (isLargeScreen) {
+    if (largeLogo && smallLogo) { // Defensive check
+      if (scrollPosition > 10) {
+        largeLogo.classList.remove('md:opacity-100'); // Remove large logo opacity
+        largeLogo.classList.add('opacity-0');    // Hide large logo
+        smallLogo.classList.remove('md:opacity-0'); // Show small logo
+      } else {
+        largeLogo.classList.remove('opacity-0'); // Show large logo
+        largeLogo.classList.add('md:opacity-100'); // Set large logo opacity
+        smallLogo.classList.add('md:opacity-0');    // Hide small logo
+      }
+    }
   }
+  // For small screens, the Tailwind CSS classes now handle visibility:
+  // - large-logo is `hidden` by default.
+  // - small-logo is `opacity-100` by default.
+  // So, no specific JS logic is needed for logos on small screens here.
+
+  // IMPORTANT: Keep these to ensure correct state on load and resize
+  window.addEventListener('DOMContentLoaded', () => {
+      window.dispatchEvent(new Event('scroll'));
+  });
+  window.addEventListener('resize', () => {
+      window.dispatchEvent(new Event('scroll'));
+  });
 
   // Handle nav opacity changes based on scroll position
   if (scrollPosition > 50) {
@@ -126,4 +148,31 @@ document.addEventListener('keydown', function(event) {
         pageFind.focus();
         }
     }
+});
+
+// For TOC details opening
+// This script will automatically open the Table of Contents (ToC) on medium and larger screens
+document.addEventListener('DOMContentLoaded', () => {
+    const tocDetails = document.getElementById('toc-details');
+    if (!tocDetails) {
+        console.warn('Table of Contents details element not found!');
+        return;
+    }
+    const handleDetailsState = () => {
+        const isMediumOrLargeScreen = window.matchMedia('(min-width: 768px)').matches;
+
+        if (isMediumOrLargeScreen) {
+            // On medium and larger screens:
+            // The 'open' attribute is set in the HTML. We DO NOT modify it here.
+            // This allows the user to freely open/close the ToC, and their action will persist.
+        } else {
+            // On smaller screens:
+            // Ensure the ToC is always closed by default (remove 'open' if present).
+            tocDetails.removeAttribute('open');
+        }
+    };
+    // Set initial state on page load
+    handleDetailsState();
+    // Re-evaluate state on window resize
+    window.addEventListener('resize', handleDetailsState);
 });

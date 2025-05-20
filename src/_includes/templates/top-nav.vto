@@ -18,7 +18,7 @@
                   loading="lazy"
                   fetchpriority="high"
                   decoding="async"
-                  class="-ml-5 w-64 object-cover dark:grayscale dark:invert dark:saturate-[.1] transition-opacity duration-300"
+                  class="-ml-5 w-64 object-cover dark:grayscale dark:invert dark:saturate-[.1] transition-opacity duration-300 opacity-0 hidden md:block md:opacity-100"
                   src="/assets/logo_horiz_darkblue_bgtransparent_2.svg"
                 /></a>
             </div>
@@ -48,7 +48,7 @@
                     loading="lazy"
                     fetchpriority="high"
                     decoding="async"
-                    class="w-12 object-cover rounded-md bg-white/90 dark:bg-white/10 dark:grayscale dark:invert dark:saturate-[.1] opacity-0 transition-opacity duration-300"
+                    class="w-12 object-cover rounded-md bg-white/90 dark:bg-white/10 dark:grayscale dark:invert dark:saturate-[.1] transition-opacity duration-300 block opacity-100 md:opacity-0"
                     src="/assets/symbol_darkblue_bgtransparent_2.svg"
                   /></a>
               </div>
@@ -56,7 +56,7 @@
                 <div class="pointer-events-auto md:hidden relative">
                   <button
                     aria-label="Toggle menu"
-                    class="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm whitespace-nowrap font-medium text-zinc-900 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
+                    class="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm whitespace-nowrap font-medium text-zinc-950 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
                     type="button"
                     x-data
                     @click="$dispatch('toggle-menu')"
@@ -84,6 +84,7 @@
                 >
                 </div>
                 <nav class="pointer-events-auto hidden md:block">
+                  {{ if it.topnav.links.length }}
                   <ul
                     class="flex rounded-full bg-sky-700/90 px-3 text-sm font-medium ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10 divide-x-1 divide-zinc-50/50 dark:divide-zinc-200/50"
                     role="menubar"
@@ -103,7 +104,7 @@
                           <span class="sr-only"
                           >({{ item.aria_label }})</span></a>
                       </li>
-                    {{ /for -}}
+                    {{ /for -}}{{ /if }}
                   </ul>
                 </nav>
 
@@ -196,14 +197,14 @@
                   >
                     <span>
                       <img
-                        class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 dark:fill-sky-300 dark:stroke-sky-500 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 dark:group-hover:fill-sky-400 dark:group-hover:stroke-sky-600 transition hover:scale-110"
+                        class="h-5 w-5 fill-sky-500 stroke-sky-800 dark:fill-sky-300 dark:stroke-sky-500 transition group-hover:fill-sky-600 group-hover:stroke-sky-900 dark:group-hover:fill-sky-400 dark:group-hover:stroke-sky-600 transition hover:scale-110"
                         src='{{ "magnifying-glass" |> icon("phosphor", "duotone") }}'
                         inline
                       />
                     </span>
                   </button>
                   <div
-                    class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-zinc-200 text-zinc-900 dark:bg-zinc-700 dark:text-zinc-200  text-sm rounded-md opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none z-50 whitespace-nowrap before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-8 before:border-x-transparent before:border-t-0 before:border-b-zinc-200 dark:before:border-b-zinc-700"
+                    class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-zinc-200 text-zinc-950 dark:bg-zinc-700 dark:text-zinc-200  text-sm rounded-md opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none z-50 whitespace-nowrap before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-8 before:border-x-transparent before:border-t-0 before:border-b-zinc-200 dark:before:border-b-zinc-700"
                   >
                     {{ i18n.search.tooltip }}
                   </div>

@@ -1,10 +1,4 @@
 <!-- ===== top-post-cards1.vto TEMPLATE START ===== -->
-{{# <div class="bg-white py-24 sm:py-32">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center">
-      <h2 class="text-4xl font-semibold tracking-tight text-balance text-zinc-900 sm:text-5xl">From the blog</h2>
-      <p class="mt-2 text-lg/8 text-zinc-600">Learn how to grow your business with our expert advice.</p>
-    </div> #}}
 <div
   class="mx-auto mt-2 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
 >
@@ -56,12 +50,12 @@
         </div>
         <div class="group relative">
           <h3
-            class="mt-3 text-lg/6 font-semibold text-zinc-900 group-hover:text-zinc-600"
+            class="mt-3 text-lg/6 font-semibold text-zinc-950 group-hover:text-zinc-600"
           >
             <a
               href="{{ post.url }}"
               data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}"
-              class="data-fatrigger text-zinc-900 hover:text-sky-500 dark:text-zinc-50 dark:hover:text-sky-500"
+              class="data-fatrigger text-zinc-950 hover:text-sky-500 dark:text-zinc-50 dark:hover:text-sky-500"
               {{ if post.url == url }}
                 aria-current="page"{{ /if }}
             >
@@ -72,7 +66,7 @@
                 </span>{{ /if }} #}}
             </a>
           </h3>
-          <p class="mt-5 line-clamp-3 text-sm/6 text-zinc-600 dark:text-zinc-300">
+          <p class="mt-5 line-clamp-3 text-sm/6 text-zinc-900 dark:text-zinc-300">
             {{ post.excerpt |> md(true) }}
           </p>
         </div>
@@ -80,7 +74,9 @@
     </article>
   {{ /for }}
 </div>
-{{# </div>
-</div> #}}
-
+<div class="mt-6 flex justify-left">
+  <a href="{{ i18n.archive.url }}" role="button" tabindex="0" aria-label="{{ i18n.archive.aria_label }}" class="inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold  outline-offset-2 text-zinc-50 bg-sky-500 transition hover:bg-sky-400 active:bg-sky-600 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50">
+    {{ i18n.archive.button }}
+  </a>
+</div>
 <!-- ===== top-post-cards1.vto TEMPLATE END ===== -->
