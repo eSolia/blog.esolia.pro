@@ -18,9 +18,9 @@
   }
 
   /* You could also style specific link states globally */
-  a:focus {
+  /* a:focus {
     @apply outline-none ring-2 ring-sky-700/50 ring-offset-2;
-  }
+  } */
 }
 @layer components {
   /* Apply base styles to tables with not-prose */
