@@ -49,7 +49,7 @@
   }
     /* Override the prose <a> tag hover classes */
   .prose :where(a) {
-    @apply hover:opacity-60;
+    @apply hover:opacity-70;
   }
 
   .prose figure + p {
