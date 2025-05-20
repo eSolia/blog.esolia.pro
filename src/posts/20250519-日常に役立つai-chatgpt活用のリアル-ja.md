@@ -5,11 +5,11 @@ featured: false
 lang: ja
 id: 202504a-everyday-ai
 date: 2025-05-19T04:51:57.844Z
-last_modified: 2025-05-19T14:40:00.000Z
+last_modified: 2025-05-20T18:03:00.000Z
 title: 日常に役立つAI：ChatGPT活用のリアル
 description: ChatGPTは、日常生活・学習・仕事など、さまざまな場面で活用できるツールです。日々の生活でどのようにAIを活用していけるか、実例とともに紹介します。
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202504a-everyday-ai-ja.jpeg
+image_top: /uploads/202504a-everyday-ai.jpeg
 author: KC
 category: AI活用
 tags:
@@ -18,11 +18,9 @@ tags:
   - 応用編
 comments: {}
 ---
-**ChatGPTの活用方法とは**
 AIが身近になった今、「ChatGPTって実際何ができるの？」と感じている方も多いのではないでしょうか。 
 ChatGPTは、日常生活・学習・仕事など、さまざまな場面で活用できるツールです。 
 ここでは、私自身が実際に使っている活用方法を中心にご紹介します。 
-<!--more-->
 
 ## 1. 疑問解決のサポート役に
 まず基本的な使い方としては、ちょっとした調べものや質問への答えを見つけることです。 
