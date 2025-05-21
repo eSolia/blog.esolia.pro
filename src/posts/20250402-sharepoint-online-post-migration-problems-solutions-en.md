@@ -1,7 +1,7 @@
 ---
-draft: false
+draft: true
 hot: false
-featured: true
+featured: false
 lang: en
 id: 202503b-sharepoint-migration-part1
 title: >-
@@ -17,7 +17,7 @@ author: Ena
 category: Microsoft-365
 comments: {}
 date: 2025-04-10T01:21:00.000Z
-last_modified: 2025-05-19T13:31:00.000Z
+last_modified: 2025-05-21T10:58:00.000Z
 tags:
   - spo
   - migration

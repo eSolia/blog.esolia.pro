@@ -1,7 +1,7 @@
 ---
-draft: false
+draft: true
 hot: false
-featured: true
+featured: false
 lang: ja
 id: 202503b-sharepoint-migration-part1
 title: SPO移行後にファイルが開けない？<br>原因と対策を徹底解説！Part1
@@ -13,7 +13,7 @@ author: Ena
 category: Microsoft-365
 comments: {}
 date: 2025-04-10T01:07:00.000Z
-last_modified: 2025-05-19T13:27:00.000Z
+last_modified: 2025-05-21T10:59:00.000Z
 tags: []
 image_top: /uploads/202503b-sharepoint-migration-part1-top.jpg
 ---
