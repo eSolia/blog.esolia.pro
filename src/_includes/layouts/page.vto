@@ -20,27 +20,8 @@ bodyClass: body-tag
                   >
                     {{ title }}
                   </h1>
-
                   {{# {{ if toc.length }}
-                    <nav class="max-w-2xl mt-4 mr-auto bg-white prose dark:prose-invert dark:bg-zinc-800 p-6 rounded-lg shadow-md">
-                      <h2 class="mb-1 font-light">{{ i18n.nav.toc }}</h2>
-                      <ul class="list-disc list-inside space-y-2 text-sm font-light">
-                        {{ for item of toc }}
-                        <li class="font-light">
-                          <a class="text-zinc-500 hover:text-sky-500" href="#{{ item.slug }}">{{ item.text }}</a>
-                          {{ if item.children.length }}
-                          <ul>
-                            {{ for child of item.children }}
-                            <li>
-                              <a href="#{{ child.slug }}">{{ child.text }}</a>
-                            </li>
-                            {{ /for }}
-                          </ul>
-                          {{ /if }}
-                        </li>
-                        {{ /for }}
-                      </ol>
-                    </nav>
+                    {{ include "templates/page-toc.vto" }}
                   {{ /if }} #}}
                 </header>
                 <div

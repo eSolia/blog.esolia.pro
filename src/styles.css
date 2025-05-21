@@ -49,7 +49,7 @@
   }
     /* Override the prose <a> tag hover classes */
   .prose :where(a) {
-    @apply hover:opacity-60;
+    @apply hover:opacity-70;
   }
 
   .prose figure + p {
@@ -135,6 +135,10 @@ body.os-windows article > div > p:first-of-type {
 
   /* font-medium (font-weight: 500) */
   /* @apply font-medium; */
+}
+
+body.os-windows header > nav {
+  @apply prose-a:font-normal;
 }
 
 body article > div > figure > picture > img {

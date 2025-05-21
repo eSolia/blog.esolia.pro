@@ -14,6 +14,7 @@ import metas from "lume/plugins/metas.ts";
 import multilanguage from "lume/plugins/multilanguage.ts";
 import nav from "lume/plugins/nav.ts";
 import pagefind from "lume/plugins/pagefind.ts";
+import plaintext from "lume/plugins/plaintext.ts";
 import prism from "lume/plugins/prism.ts";
 import "npm:prismjs@1.29.0/components/prism-git.js";
 import "npm:prismjs@1.29.0/components/prism-json.js";
@@ -68,7 +69,7 @@ import sitemap from "lume/plugins/sitemap.ts";
 // import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
 
 // Final minification and compression 
-import minify_html from "lume/plugins/minify_html.ts";
+// import minify_html from "lume/plugins/minify_html.ts";
 import brotli from "lume/plugins/brotli.ts";
 
 
@@ -104,6 +105,7 @@ site.use(pagefind({
   element: "#search",
   resetStyles: false,
 }));
+site.use(plaintext());
 site.use(prism({
   theme: [
     {
@@ -386,7 +388,7 @@ site.use(sitemap({
 // );
 
 // Optimize HTML
-site.use(minify_html());
+// site.use(minify_html());
 site.use(brotli());
 
 
