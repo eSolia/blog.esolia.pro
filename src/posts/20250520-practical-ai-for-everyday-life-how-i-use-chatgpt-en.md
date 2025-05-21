@@ -1,11 +1,11 @@
 ---
-draft: false
+draft: true
 hot: false
 featured: false
 lang: en
 id: 202504a-everyday-ai
 date: 2025-05-20T07:48:10.238Z
-last_modified: 2025-05-20T18:04:00.000Z
+last_modified: 2025-05-21T11:17:00.000Z
 title: 'Practical AI for Everyday Life: How I Use ChatGPT'
 description: >-
   ChatGPT is a tool that can be used in a wide range of situations. I’d like to
