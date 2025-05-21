@@ -2,7 +2,7 @@
 lang: en
 id: 20250226-clear-desk
 date: 2025-02-26T01:56:29.381Z
-last_modified: 2025-04-25T08:28:00.000Z
+last_modified: 2025-05-21T11:28:00.000Z
 title: Are you doing Clear Desk and Clear Screen?
 description: >-
   A quick security tip about the importance of keeping clear desk / clear screen
@@ -15,8 +15,8 @@ tags:
   - ISO-27001
 comments: {}
 draft: false
-hot: true
-featured: true
+hot: false
+featured: false
 ---
 One security policy that is probably used at most organizations is *"clear desk, clear screen"*. Are you aware and doing it? 
 
