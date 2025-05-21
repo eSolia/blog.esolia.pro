@@ -69,7 +69,7 @@ import sitemap from "lume/plugins/sitemap.ts";
 // import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
 
 // Final minification and compression 
-// import minify_html from "lume/plugins/minify_html.ts";
+import minify_html from "lume/plugins/minify_html.ts";
 import brotli from "lume/plugins/brotli.ts";
 
 
@@ -388,7 +388,7 @@ site.use(sitemap({
 // );
 
 // Optimize HTML
-// site.use(minify_html());
+site.use(minify_html());
 site.use(brotli());
 
 
