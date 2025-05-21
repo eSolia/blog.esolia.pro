@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 hot: false
 featured: false
 lang: en
@@ -13,7 +13,7 @@ author: Shiori
 category: Troubleshooting
 comments: {}
 date: 2025-04-10T01:04:00.000Z
-last_modified: 2025-04-28T00:06:00.000Z
+last_modified: 2025-05-21T11:12:00.000Z
 tags:
   - Bluescreen
   - BSOD
