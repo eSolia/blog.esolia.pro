@@ -102,8 +102,13 @@ site.use(multilanguage({
 }));
 site.use(nav());
 site.use(pagefind({
-  element: "#search",
-  resetStyles: false,
+  ui: {
+    containerId: "search",
+    showImages: false,
+    showEmptyFilters: true,
+    resetStyles: false,
+    showSubResults: true,
+  },
 }));
 site.use(plaintext());
 site.use(prism({
