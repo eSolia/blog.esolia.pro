@@ -17,14 +17,14 @@
         >
         </div> #}}
         <div
-          class="absolute inset-0 bg-white/10 dark:bg-zinc-800/60 rounded-2xl transition-opacity duration-300 mix-blend-luminosity dark:mix-blend-color"
+          class="absolute inset-0 bg-white/10 dark:bg-zinc-800/60 rounded-2xl mix-blend-luminosity dark:mix-blend-color"
         >
         </div>
         <img
           {{# src="{{ if catImage }}{{ catImage }}{{ else }}/assets/cat0-bg.jpg{{ /if }}" #}}
           src="{{ if post.image_top }}{{ post.image_top }}{{ else }}/assets/blog-esolia-pro-default-top.png{{ /if }}"
           alt=""
-          class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2 transition-all delay-50 duration-50 mix-blend-normal dark:mix-blend-luminosity group-hover:opacity-99"
+          class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2 transition-all duration-300 ease-in-out mix-blend-normal dark:mix-blend-luminosity group-hover:opacity-90"
           loading="lazy"
           fetchpriority="high"
           decoding="async"
@@ -55,7 +55,7 @@
             <a
               href="{{ post.url }}"
               data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}"
-              class="data-fatrigger text-zinc-950 group-hover:text-sky-500 dark:text-zinc-50 dark:group-hover:text-sky-500 transition-all delay-0 duration-50"
+              class="data-fatrigger text-zinc-950 group-hover:text-sky-500 dark:text-zinc-50 dark:group-hover:text-sky-500 transition-color duration-300 ease-in-out"
               {{ if post.url == url }}
                 aria-current="page"{{ /if }}
             >
