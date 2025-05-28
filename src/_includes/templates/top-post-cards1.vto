@@ -4,7 +4,7 @@
 >
   {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 6) }}
     <!-- == CARD == -->
-    <article class="flex flex-col items-start">
+    <article class="flex flex-col items-start group">
       <div class="relative w-full">
         {{
           set catColor = featurecats.find((item) => item.key === post.category)?.color
@@ -24,7 +24,7 @@
           {{# src="{{ if catImage }}{{ catImage }}{{ else }}/assets/cat0-bg.jpg{{ /if }}" #}}
           src="{{ if post.image_top }}{{ post.image_top }}{{ else }}/assets/blog-esolia-pro-default-top.png{{ /if }}"
           alt=""
-          class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2 transition-opacity duration-300 mix-blend-normal dark:mix-blend-luminosity"
+          class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2 transition-all delay-50 duration-50 mix-blend-normal dark:mix-blend-luminosity group-hover:opacity-99"
           loading="lazy"
           fetchpriority="high"
           decoding="async"
@@ -55,7 +55,7 @@
             <a
               href="{{ post.url }}"
               data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}"
-              class="data-fatrigger text-zinc-950 hover:text-sky-500 dark:text-zinc-50 dark:hover:text-sky-500"
+              class="data-fatrigger text-zinc-950 group-hover:text-sky-500 dark:text-zinc-50 dark:group-hover:text-sky-500 transition-all delay-0 duration-50"
               {{ if post.url == url }}
                 aria-current="page"{{ /if }}
             >
