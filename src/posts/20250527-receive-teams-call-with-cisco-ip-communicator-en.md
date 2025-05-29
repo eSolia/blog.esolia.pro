@@ -3,12 +3,11 @@ draft: true
 hot: false
 featured: false
 lang: en
-id: '202504c-cisco-ip-communicator-problem '
+id: '202504c-cisco-ip-communicator-problem'
 date: 2025-05-27T06:58:17.485Z
 last_modified: 2025-05-27T16:10:00.000Z
 title: >-
-  How to solve the problem where unable to pick up calls on Microsoft Teams
-  while opening Cisco IP Communicator
+  Picking up Teams calls while using Cisco IP Communicator
 description: How to solve the conflict between Cisco IP communicator & Microsoft Teams
 image: /uploads/202504c-cisco-ip-communicator-problem-en.jpeg
 image_top: /uploads/202504c-cisco-ip-communicator-problem.jpeg
@@ -20,9 +19,10 @@ tags:
   - Chat tool
 comments: {}
 ---
-Some of the companies use MS Teams as an internal chat tool while using a softphone application to receive external phone calls. 
 
-Here is the quick tip for solving the problem where we cannot join MS Teams meetings while using Cisco IP Communicator due to the functional conflict. 
+Some of the companies use MS Teams as an internal chat tool while using a softphone application to receive external phone calls. Here is the quick tip for solving the problem where we cannot join MS Teams meetings while using Cisco IP Communicator due to a functional conflict. 
+
+<!--more-->
 
 ## 1. About the issue
 

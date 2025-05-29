@@ -22,12 +22,11 @@ tags:
   - FileManagement
   - BusinessEfficiency
   - ITOperations
-  - Troubleshooting
 comments: {}
 ---
-In Part 1, we discussed an issue that commonly occurs when migrating to SharePoint Online (SPO): files failing to open when accessed through File Explorer. 
-This problem is often caused by exceeding SPO’s limits on folder depth and file name length. 
-In this article, we’ll focus on how to prevent such issues by using metadata management and adopting more efficient file management practices. 
+In Part 1, we discussed an issue that commonly occurs when migrating to SharePoint Online (SPO): files failing to open when accessed through File Explorer. This problem is often caused by exceeding SPO’s limits on folder depth and file name length. In this article, we’ll focus on how to prevent such issues by using metadata management and adopting more efficient file management practices. 
+
+<!--more-->
 
 ## 1. What is Metadata? 
 Metadata means "data about data"—in other words, it’s supplementary information that describes or gives context to other data. 

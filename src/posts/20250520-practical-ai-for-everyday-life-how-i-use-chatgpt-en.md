@@ -23,9 +23,9 @@ tags:
 comments: {}
 ---
 Now that AI has become a familiar part of our lives, many people may be wondering, 
-"What can ChatGPT actually do?" 
-ChatGPT is a tool that can be used in a wide range of situations—everyday life, learning, and work. 
-Here, I’d like to share some of the ways I personally use it. 
+"What can ChatGPT actually do?" ChatGPT is a tool that can be used in a wide range of situations—everyday life, learning, and work. Here, I’d like to share some of the ways I personally use it. 
+
+<!--more-->
 
 ## 1. As a Quick Question Solver 
 One of the most basic uses is asking questions or looking up small bits of information. 
