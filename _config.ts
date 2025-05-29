@@ -15,6 +15,7 @@ import multilanguage from "lume/plugins/multilanguage.ts";
 import nav from "lume/plugins/nav.ts";
 import pagefind from "lume/plugins/pagefind.ts";
 import plaintext from "lume/plugins/plaintext.ts";
+import redirects from "lume/plugins/redirects.ts";
 import prism from "lume/plugins/prism.ts";
 import "npm:prismjs@1.29.0/components/prism-git.js";
 import "npm:prismjs@1.29.0/components/prism-json.js";
@@ -111,6 +112,7 @@ site.use(pagefind({
   },
 }));
 site.use(plaintext());
+site.use(redirects());
 site.use(prism({
   theme: [
     {
