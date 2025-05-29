@@ -23,10 +23,9 @@ tags:
   - internal IT support
 comments: {}
 ---
-"All I wanted was to show part of my screen, but I fumbled with the tools again." 
-Have you ever had that moment? 
-Taking screenshots is one of the most common tasks in the workplace, but the best method actually depends on your purpose. 
-Here, we compare 3 useful screenshot methods on Windows and explain when each one shines. 
+"All I wanted was to show part of my screen, but I fumbled with the tools again. Have you ever had that moment? Taking screenshots is one of the most common tasks in the workplace, but the best method actually depends on your purpose. Here, we compare 3 useful screenshot methods on Windows and explain when each one shines. 
+
+<!--more-->
 
 ## 1. Snipping Tool – Best for clean captures and annotations 
 **Ideal for:** 
