@@ -19,6 +19,8 @@ tags:
   - Cat Cable
   - RJ-45 connector
   - LAN Cabling
+oldUrl:
+  - /2505ittermse
 comments: {}
 image_top: /uploads/202503g-admin-asked-ai-top.jpg
 ---

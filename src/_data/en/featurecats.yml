@@ -3,49 +3,37 @@
   color: cyan
   image: /assets/cat1a-bg.jpg
   summary: >-
-    Articles about Microsoft 365, including Exchange Online, SharePoint Online,
-    OneDrive for Business, and Microsoft Teams. These articles are written by
-    eSolia professionals based on their experience with these products.
+    This section offers troubleshooting tips and useful ways to utilize various Microsoft 365 tools, such as Outlook and Teams. You'll find solutions for common issues like "calendar not syncing" and practical shortcut keys you can use today to boost your work efficiency.
 - key: Security
   id: cat2
   color: esoliaamber
   image: /assets/cat2-bg.jpg
   summary: >-
-    Here are all the articles categorized under Security. These contain
-    practical advice about day-to-day security based on the experience of eSolia
-    professionals.
+    Here, we explain fundamental policies to prevent information leaks, essential for ISO 27001 compliance, along with workplace security rules like clear desk and clear screen policies. This content is ideal for anyone looking to understand the basics of IT security necessary for business operations.
 - key: Network
   id: cat3
   color: fuchsia
   image: /assets/cat3-bg.jpg
   summary: >-
-    Articles about networks, including LAN, WAN, and VPN. These articles are
-    written by eSolia professionals based on their experience with these
-    technologies.
+    This section provides easy-to-understand explanations of network device terminology, configuration examples, and ways to enhance comprehension using AI, making it accessible even for beginners. For instance, you'll learn about different types of LAN cables (UTP, Cat, RJ45 connectors), basic internal network configurations, and troubleshooting methods.
 - key: Cloud
   id: cat4
   color: lime
   image: /assets/cat4-bg.jpg
   summary: >-
-    All the articles about cloud computing, including IaaS, PaaS, and SaaS.
-    These articles are written by eSolia professionals based on their experience
-    with these technologies.
+    Discover information on implementing cloud tools and preparing your IT environment for evolving work styles like telework. From the definition of telework as "working from a distant location" to practical examples of remote work, you'll gain essential knowledge for today's business landscape.
 - key: Troubleshooting
   id: cat5
   color: emerald
   image: /assets/cat5-bg.jpg
   summary: >-
-    Articles about troubleshooting, including tips and tricks for diagnosing and
-    fixing common issues. These articles are written by eSolia professionals
-    based on their experience with these products.
+    This category is dedicated to solving common everyday IT issues. We offer quick tips that anyone can try immediately, including simple maintenance methods to keep your PC running smoothly and self-help steps for problems like slow performance or non-responsiveness.
 - key: AI-Usage
   id: cat6
   color: red
   image: /assets/cat6-bg.jpg
   summary: >-
-    Articles about AI usage, including tips and tricks for using AI tools
-    effectively. These articles are written by eSolia professionals based on
-    their experience with these products and technologies.
+    Learn how to integrate AI into your daily tasks and effectively transform "vague knowledge" into "thorough understanding" using AI. This section focuses on practical AI application tips, such as using AI to explain IT terms in an easy-to-understand way.
 - key: Windows
   id: cat7
   color: sky
@@ -58,5 +46,4 @@
   color: teal
   image: /assets/cat8-bg.jpg
   summary: >-
-    Articles about peripherals. These articles are written by eSolia
-    professionals based on their experience with these products.
+    This section covers peripheral devices used with PCs (printers, mice, keyboards, etc.), tips for extending battery life, and maintenance advice. We provide practical insights into essential knowledge for comfortable, long-term use of these everyday devices.

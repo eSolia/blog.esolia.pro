@@ -17,6 +17,8 @@ tags:
   - RJ-45 コネクタ
   - LAN配線
   - AI
+oldUrl:
+  - /2505ittermsj
 comments: {}
 image_top: /uploads/202503g-admin-asked-ai-top.jpg
 ---
