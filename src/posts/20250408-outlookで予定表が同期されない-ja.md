@@ -17,7 +17,7 @@ tags:
   - 応用編
   - 予定表
 oldUrl:
-  - /2505outlooksyncj
+  - /2505outlooksyncj/
 comments: {}
 image_top: /uploads/202503e-outlook-calender-sync-issues-top.jpg
 ---

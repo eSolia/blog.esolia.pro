@@ -13,8 +13,8 @@ author: Rick Cogley
 category: Security
 tags:
   - ISO-27001
-oldUrl:
-  - /2505cleardeske
+oldUrl: 
+  - /2505cleardeske/
 comments: {}
 draft: false
 hot: false

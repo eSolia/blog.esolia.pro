@@ -19,7 +19,7 @@ tags:
   - Advanced Guide
   - Calendar
 oldUrl:
-  - /2505outlooksynce
+  - /2505outlooksynce/
 comments: {}
 image_top: /uploads/202503e-outlook-calender-sync-issues-top.jpg
 ---
