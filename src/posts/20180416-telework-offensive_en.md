@@ -19,7 +19,7 @@ tags:
   - Subsidies
   - Grants
   - Workplace
-last_modified: 2025-05-19T15:14:00.000Z
+last_modified: 2025-05-29T16:34:00.000Z
 comments: {}
 hot: false
 featured: false
@@ -29,7 +29,7 @@ featured: false
 <!--more-->
 
 >**Telework** is a flexible working style using ICT (Information and Communication Technology), free from location or time constraints. <br>
-_Reference_: [Efforts to promote telework in Japan](http://www.soumu.go.jp/main_sosiki/joho_tsusin/eng/presentation/pdf/110908_1.pdf){target="_blank" rel="noopener"}
+_Reference_: [Efforts to promote telework in Japan](http://www.japan-telework.or.jp/intro/tw_about.html){target="_blank" rel="noopener"}
 
 We usually use the words **remote access**, **remote user**, **work from home**, but those have the same meaning from the perspective of a flexible working style in the larger sense.
 
