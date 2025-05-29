@@ -3,10 +3,10 @@ draft: true
 hot: false
 featured: false
 lang: en
-id: '202504b-screenshot-instantly '
+id: 202504b-screenshot-instantly
 date: 2025-05-22T07:06:23.489Z
 last_modified: 2025-05-22T17:12:00.000Z
-title: '3 Easy Ways to Take a Screenshot Instantly '
+title: '3 Easy Ways to Take a Screenshot Instantly'
 description: >-
   Learn the difference between Snipping Tool, Win + Shift + S, and PrintScreen.
   This post shows you 3 quick and handy ways to take screenshots and improve
@@ -40,7 +40,7 @@ Here, we compare 3 useful screenshot methods on Windows and explain when each on
 4. You can copy, save, or share from there
 
 <figure class="flex flex-col justify-start items-left">
-  <img alt="Screenshot of Snipping tool" src="/uploads/202504b-screenshot-instantly1-en.pn"  width="600px" transform-images="avif webp png jpeg 600@2">
+  <img alt="Screenshot of Snipping tool" src="/uploads/202504b-screenshot-instantly1-en.png"  width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot of Snipping tool" src="/uploads/202504b-screenshot-instantly2.png"  width="300px" transform-images="avif webp png jpeg 300@2">
