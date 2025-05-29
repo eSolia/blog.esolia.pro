@@ -3,8 +3,7 @@
   color: cyan
   image: /assets/cat1a-bg.jpg
   summary: >-
-    Microsoft 365に関する記事です。Exchange Online、SharePoint Online、OneDrive for
-    Business、Microsoft Teamsを含みます。これらの記事は、eSoliaの専門家がこれらの製品に関する経験に基づいて執筆しています。
+    Microsoft 365に関する記事です。Exchange Online、SharePoint Online、OneDrive for Business、Microsoft Teamsを含みます。これらの記事は、eSoliaの専門家がこれらの製品に関する経験に基づいて執筆しています。
 - key: セキュリティ
   id: cat2
   color: esoliaamber
