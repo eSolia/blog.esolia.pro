@@ -16,7 +16,7 @@ category: Troubleshooting
 tags:
   - Regular Maintenance
 oldUrl:
-  - /2505mainte
+  - /2505mainte/
 comments: {}
 image_top: /uploads/202503d-simple-maintenance-tips-top.jpg
 ---
