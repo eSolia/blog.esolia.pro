@@ -279,6 +279,17 @@ cms.collection({
       view: "Show Overrides",
     },
     {
+      name: "oldUrl",
+      type: "list",
+      label: "転送 Redirect",
+      description:
+        "変更前のurlや、ショートurl。最初と最後に英数半角スラッシュを忘れず。<br>The page url or urls before they changed, or an url intended to be used as a short url. Ensure there is a forward slash before and after",
+      view : "Show Overrides",
+      transform(value) {
+        return value?.map((redirect) => redirect.trim()); // Trim whitespace
+      },
+    },
+    {
       name: "lang",
       type: "select",
       label: "言語 Language",
