@@ -337,23 +337,47 @@ site.use(inline());
 site.use(feed({
   output: ["/feed.ja.xml", "/feed.ja.json"],
   query: "type=post lang=ja",
+  sort: "date=desc",
   info: {
-    title: "=metas.site",
-    description: "=metas.description",
+    title: "=site.title",
+    description: "=site.description",
+    published: new Date(),
+    lang: "ja",
+    hubs: undefined,
+    generator: true,
+    authorName: "株式会社イソリア",
   },
   items: {
-    title: "=title",
+    title: "=title", // title of the item
+    description: "=description", // description 
+    published: "=date", // publishing date 
+    updated: "=last_modified", // last update 
+    lang: "ja", // language 
+    image: "=image", // image 
+    authorName: "=author", // author 
   },
 }));
 site.use(feed({
   output: ["/feed.en.xml", "/feed.en.json"],
   query: "type=post lang=en",
+  sort: "date=desc",
   info: {
-    title: "=metas.site",
-    description: "=metas.description",
+    title: "=site.title",
+    description: "=site.description",
+    published: new Date(),
+    lang: "en",
+    hubs: undefined,
+    generator: true,
+    authorName: "eSolia Inc.",
   },
   items: {
-    title: "=title",
+    title: "=title", // title of the item
+    description: "=description", // description 
+    published: "=date", // publishing date 
+    updated: "=last_modified", // last update 
+    lang: "en", // language 
+    image: "=image", // image 
+    authorName: "=author", // author 
   },
 }));
 site.use(sitemap({
