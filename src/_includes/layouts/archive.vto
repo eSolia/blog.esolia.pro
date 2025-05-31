@@ -28,9 +28,9 @@ script: /js/fathom-post-list-event.js
                 class="size-6 fill-esoliaamber-400"
                 src='{{ "rss" |> icon("phosphor", "duotone") }}'
                 inline
-              ><span class="dark:invert">RSS:</span>&nbsp;<a class="" href="/feed.xml">Atom, </a>&nbsp;<a
+              ><span class="dark:invert">RSS:</span>&nbsp;<a class="" href="/feed.{{ lang }}.xml">Atom, </a>&nbsp;<a
                 class=""
-                href="/feed.json"
+                href="/feed.{{ lang }}.json"
               >JSON</a>
             </div>
             {{ if pagination.page === 1 }}

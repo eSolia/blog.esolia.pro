@@ -335,8 +335,19 @@ site.use(inline());
 
 // Generate files with URLs
 site.use(feed({
-  output: ["/feed.xml", "/feed.json"],
-  query: "type=post",
+  output: ["/feed.ja.xml", "/feed.ja.json"],
+  query: "type=post lang=ja",
+  info: {
+    title: "=metas.site",
+    description: "=metas.description",
+  },
+  items: {
+    title: "=title",
+  },
+}));
+site.use(feed({
+  output: ["/feed.en.xml", "/feed.en.json"],
+  query: "type=post lang=en",
   info: {
     title: "=metas.site",
     description: "=metas.description",
@@ -405,6 +416,7 @@ site.add([".js", ".ts"]); // Add the files to bundle
 site.add("manifest.json");
 site.add("uploads");
 site.add("assets");
+site.add("f36d0f5824b04fae955f338128bac96e.txt"); // indexnow
 // Mastodon comment system
 site.add(
   "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
