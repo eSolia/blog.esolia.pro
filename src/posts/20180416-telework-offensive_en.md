@@ -21,7 +21,7 @@ tags:
   - Workplace
 oldUrl:
   - /2505teleworke/
-last_modified: 2025-05-29T16:34:00.000Z
+last_modified: 2025-05-31T20:00:27.000Z
 comments: {}
 hot: false
 featured: false

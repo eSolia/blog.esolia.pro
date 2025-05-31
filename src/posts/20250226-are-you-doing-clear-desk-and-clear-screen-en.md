@@ -2,7 +2,7 @@
 lang: en
 id: 20250226-clear-desk
 date: 2025-02-26T01:56:29.381Z
-last_modified: 2025-05-21T11:28:00.000Z
+last_modified: 2025-05-31T20:00:27.000Z
 title: Are you doing Clear Desk and Clear Screen?
 description: >-
   A quick security tip about the importance of keeping clear desk / clear screen
