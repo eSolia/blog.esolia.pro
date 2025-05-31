@@ -405,6 +405,7 @@ site.add([".js", ".ts"]); // Add the files to bundle
 site.add("manifest.json");
 site.add("uploads");
 site.add("assets");
+site.add("f36d0f5824b04fae955f338128bac96e.txt"); // indexnow
 // Mastodon comment system
 site.add(
   "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
