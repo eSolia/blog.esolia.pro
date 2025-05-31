@@ -335,8 +335,19 @@ site.use(inline());
 
 // Generate files with URLs
 site.use(feed({
-  output: ["/feed.xml", "/feed.json"],
-  query: "type=post",
+  output: ["/feed.ja.xml", "/feed.ja.json"],
+  query: "type=post lang=ja",
+  info: {
+    title: "=metas.site",
+    description: "=metas.description",
+  },
+  items: {
+    title: "=title",
+  },
+}));
+site.use(feed({
+  output: ["/feed.en.xml", "/feed.en.json"],
+  query: "type=post lang=en",
   info: {
     title: "=metas.site",
     description: "=metas.description",
