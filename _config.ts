@@ -339,13 +339,13 @@ site.use(feed({
   query: "type=post lang=ja",
   sort: "date=desc",
   info: {
-    title: "=ja.site.title",
-    description: "=ja.site.description",
+    title: "=site.title",
+    description: "=site.description",
     published: new Date(),
     lang: "ja",
     hubs: undefined,
     generator: true,
-    authorName: "=ja.site.author",
+    authorName: "=site.author",
   },
   items: {
     title: "=title", // title of the item
