@@ -339,13 +339,13 @@ site.use(feed({
   query: "type=post lang=ja",
   sort: "date=desc",
   info: {
-    title: "=site.title",
-    description: "=site.description",
+    title: "=ja.site.title",
+    description: "=ja.site.description",
     published: new Date(),
     lang: "ja",
     hubs: undefined,
     generator: true,
-    authorName: "株式会社イソリア",
+    authorName: "=ja.site.author",
   },
   items: {
     title: "=title", // title of the item
@@ -362,13 +362,13 @@ site.use(feed({
   query: "type=post lang=en",
   sort: "date=desc",
   info: {
-    title: "=site.title",
-    description: "=site.description",
+    title: "=en.site.title",
+    description: "=en.site.description",
     published: new Date(),
     lang: "en",
     hubs: undefined,
     generator: true,
-    authorName: "eSolia Inc.",
+    authorName: "=en.site.author",
   },
   items: {
     title: "=title", // title of the item
