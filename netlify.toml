@@ -33,7 +33,6 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Permissions-Policy = "autoplay=(), camera=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=()"
     Link = "<https://blog.esolia.pro/feed.en.xml>; rel=alternate; type=application/atom+xml"
-    Link = "<https://blog.esolia.pro/feed.ja.xml>; rel=alternate; type=application/atom+xml"
     Link = "<https://blog.esolia.pro/sitemap.xml>; rel=sitemap"
     Link = "<https://blog.esolia.pro/robots.txt>; rel=robots"
     Link = "<https://pubsubhubbub.superfeedr.com/>; rel=hub"
