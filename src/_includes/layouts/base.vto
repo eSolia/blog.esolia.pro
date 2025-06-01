@@ -37,6 +37,9 @@
       title="{{ site.title }}"
     >
     <link rel="canonical" href="{{ url |> url(true) }}">
+    <link rel="self" href="{{ url |> url(true) }}">
+    <link rel="hub" href="https://pubsubhubbub.superfeedr.com/">
+    
     {{# Various js, such as Alpine and Fathom and the theme toggle script #}}
     <script src="/js/main.js?cb={{ cacheBuster }}" type="module" defer></script>
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
