@@ -260,7 +260,9 @@ site.use(googleFonts({
       "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;600;700&display=swap",
   },
 }));
-site.use(tailwindcss());
+site.use(tailwindcss({
+  minify: true
+}));
 site.use(source_maps());
 
 // Modify URLs
