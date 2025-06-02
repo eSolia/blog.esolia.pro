@@ -7,7 +7,7 @@ oldUrl:
 lang: ja
 id: 202504e-what-is-copilot
 date: 2025-06-02T05:00:35.603Z
-last_modified: 2025-06-02T17:39:00.000Z
+last_modified: 2025-06-02T22:40:00.000Z
 title: Microsoft Copilotってなに？
 description: Microsoft Copilotとは？WordやExcelなどで業務効率を上げるAI機能を、わかりやすく解説します。
 image: /uploads/blog-esolia-pro-default.png
@@ -51,7 +51,7 @@ Microsoft Copilot (コパイロット)は、AIによる情報の検索や文書�
   </thead>
   <tbody>
     <tr>
-      <td class="whitespace-nowrap"><strong>月額料金</strong></td>
+      <td><strong>月額料金</strong></td>
       <td>無料</td>
       <td>¥3,200（税抜、ユーザー／月）</td>
       <td>¥4,497（税抜、ユーザー／月、年契約）</td>
@@ -80,7 +80,7 @@ Microsoft Copilot (コパイロット)は、AIによる情報の検索や文書�
       <td>優先アクセス</td>
     </tr>
     <tr>
-      <td><strong>AI画像生成（ブースト）</strong></td>
+      <td class="whitespace-nowrap"><strong>AI画像生成（ブースト）</strong></td>
       <td>15ブースト／日</td>
       <td>100ブースト／日</td>
       <td>100ブースト／日</td>
