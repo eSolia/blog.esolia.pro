@@ -50,7 +50,7 @@ metas:
   author: "イソリア"
   image: "=image || /assets/blog-esolia-pro-default.png"
   icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
-  keywords: ["イソリア", "ブログ", "ウェブログ", "プロ", "プロフェッショナル", "東京ITサービス", "日本語", "Tips"]
+  keywords: ["イソリア", "Tech It Easy Blog", "ブログ", "Tips", "ウェブログ", "プロ", "プロフェッショナル", "東京ITサービス", "日本語", "バイリンガル", "M365", "Windows", "情報セキュリティ", "トラブルシューティング", "学習", "周辺機器"]
   twitter: "@esolia_inc"
   fediverse: "@esolia.com@bsky.brid.gy"
   color: ["#ffbc68", "#2d2f63"]
@@ -125,7 +125,7 @@ en:
     author: "eSolia"
     image: "=image || /assets/blog-esolia-pro-default.png"
     icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
-    keywords: ["eSolia", "blog", "tips", "weblog", "pro", "professional", "tokyo it service", "japan", "english"]
+    keywords: ["eSolia", "Tech It Easy Blog", "blog", "tips", "weblog", "pro", "professional", "tokyo it service", "japan", "english", "bilingual", "m365", "windows", "infosec", "troubleshooting", "learning", "peripherals"]
     twitter: "@esolia_inc"
     fediverse: "@esolia.com@bsky.brid.gy"
     color: ["#ffbc68", "#2d2f63"]
