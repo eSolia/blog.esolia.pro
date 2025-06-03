@@ -6,6 +6,7 @@ home:
   company_address: 〒105-7105 東京都港区東新橋1-5-2 汐留シティセンター5F（ワークスタイリング）
   skip_to_main_content_label: メインコンテンツへスキップ
   skip_to_main_content_aria: メインコンテンツへスキップするためのリンク
+  top_card_image_alt: 次のポストを表す選択画像
 archive: 
   title: アーカイブ
   description: 過去の記事を一覧でご紹介しています。カテゴリやタグを活用して、興味のある情報にすばやくアクセスできます。または、ページ上部のナビゲーションバーにある虫眼鏡アイコンから検索してください。
