@@ -9,6 +9,7 @@
   [context.deploy-preview]
     command = """
       curl -fsSL https://deno.land/x/install/install.sh | sh && \
+      export LUME_DRAFTS=true && \
       /opt/buildhome/.deno/bin/deno task build && \
       tree . > _site/esolia_blog_tree.txt && \
       envsubst < headers-dev > _site/_headers 
@@ -16,6 +17,7 @@
   [context.branch-deploy]
     command = """
       curl -fsSL https://deno.land/x/install/install.sh | sh && \
+      export LUME_DRAFTS=true && \
       /opt/buildhome/.deno/bin/deno task build && \
       tree . > _site/esolia_blog_tree.txt
       envsubst < headers-dev > _site/_headers
