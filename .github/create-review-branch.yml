@@ -1,0 +1,66 @@
+name: Create Review Branch for Drafts Review
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch_name:
+        description: 'Name of the branch to create (e.g., review)'
+        required: true
+        default: 'review'
+  push:
+    branches:
+      - main # This line triggers the workflow whenever anything is pushed to the 'main' branch
+
+jobs:
+  create_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        # For 'push' events, GITHUB_REF will already be 'refs/heads/main',
+        # but explicitly setting 'ref: main' ensures we're always pulling from main
+        # regardless of the specific commit that triggered the push.
+        uses: actions/checkout@v4
+        with:
+          ref: 'main' 
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Determine Branch Name
+        id: set_branch_name
+        run: |
+          # If triggered by workflow_dispatch, use the input.
+          # Otherwise (triggered by push), default to 'review'.
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "BRANCH_NAME=${{ github.event.inputs.branch_name }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "BRANCH_NAME=review" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Delete existing review branch (if it exists)
+        run: |
+          git push origin --delete ${{ steps.set_branch_name.outputs.BRANCH_NAME }} || true
+        shell: bash
+
+      - name: Create new review branch from main
+        run: |
+          git checkout -b ${{ steps.set_branch_name.outputs.BRANCH_NAME }}
+          git push origin ${{ steps.set_branch_name.outputs.BRANCH_NAME }}
+        shell: bash
+
+      - name: Trigger Netlify Deploy (Optional, Netlify should auto-detect)
+        # This step is often not strictly necessary as Netlify will usually
+        # detect the new branch push. However, it can be a good explicit
+        # way to ensure a deploy is triggered.
+        # Replace YOUR_NETLIFY_BUILD_HOOK_URL with your actual build hook.
+        # You can find this in Netlify Site Settings > Build & deploy > Build hooks.
+        # This build hook should be configured for your 'review' branch.
+        run: |
+          curl -X POST -d '{}' YOUR_NETLIFY_BUILD_HOOK_URL_FOR_REVIEW_BRANCH
+        env:
+          YOUR_NETLIFY_BUILD_HOOK_URL_FOR_REVIEW_BRANCH: ${{ secrets.NETLIFY_REVIEW_BUILD_HOOK }}
+        # Only run this if you have a specific build hook for the review branch
+        # otherwise Netlify's auto-detection on git push is enough.
+        if: ${{ secrets.NETLIFY_REVIEW_BUILD_HOOK != '' }}
