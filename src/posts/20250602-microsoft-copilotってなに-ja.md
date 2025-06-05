@@ -7,11 +7,11 @@ oldUrl:
 lang: ja
 id: 202504e-what-is-copilot
 date: 2025-06-02T05:00:35.603Z
-last_modified: 2025-06-02T22:40:00.000Z
+last_modified: 2025-06-05T13:35:00.000Z
 title: Microsoft Copilotってなに？
 description: Microsoft Copilotとは？WordやExcelなどで業務効率を上げるAI機能を、わかりやすく解説します。
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202504e-what-is-copilot-ja.jpeg
+image_top: /uploads/202504e-what-is-copilot.jpeg
 author: YM
 category: Microsoft-365
 tags:
@@ -119,9 +119,7 @@ Edgeブラウザを開くと、ブラウザの右上にはCopilotのマークが
 
 **3. Copilot in Windows（個人ユーザー向け）：** 
 主な機能はWindows統合、情報検索、タスク支援などとなります。Copilot in WindowsはWindows 11に標準搭載されているCopilotです。タスクバーに自動的にCopilotのマークが表示されていますので、そのマークをクリックするとCopilotとの会話を開始できます。
-<figure class="flex flex-col justify-start items-left">
-  <img class="shadow-lg rounded-lg" alt="Screenshot of Windows search" src="/uploads/202504e-what-is-copilot3-ja.png" width="500px" transform-images="avif webp png jpeg 500@2">
-</figure>
+
 タスクバー上で見つからないときは、検索ボックスから「Copilot」と入力して、Copilotのアプリが表示されるようになりますので、クリックして使用可能となります。 
 <figure class="flex flex-col justify-start items-left">
   <img class="shadow-lg rounded-lg" alt="Screenshot of Windows search" src="/uploads/202504e-what-is-copilot4-ja.png" width="500px" transform-images="avif webp png jpeg 500@2">
@@ -165,20 +163,30 @@ Edgeブラウザを開くと、ブラウザの右上にはCopilotのマークが
 以下のURLから確認できるライセンスを持つEntraアカウントユーザーはMicrosoft 365 Copilot Chatの利用が可能です。
 <a href="https://learn.microsoft.com/ja-jp/copilot/manage#microsoft-365--chat-eligibility" target="_blank" rel="noopener">Microsoft 365 Copilot チャットの資格</a>
 
-**まず、チャットを開きます**
+**チャットページを開きます**
 Microsoft 365 Copilotのウェブサイトから「Copilot Chatを試す」をクリックすると新しいウィンドウでCopilot Chatの画面が表示されます。 
-＜画像＞
-または、Edgeを開いて、検索バーの右側にCopilot365のマークがありますので、そのマークをクリックすると、Copilot Chatのウィンドウが表示されます。 
-＜画像＞
 
+または、Edgeを開いて、検索バーの右側にCopilot365のマークがありますので、そのマークをクリックすると、Copilot Chatのウィンドウが表示されます。 
+
+**Pagesで編集**
 Copilot Chatでは「**Pagesで編集**」という機能があり、このボタンをクリックすると、検索した内容をページとして生成され、表示中の画面の右側に表示され、ユーザー自身が編集したり（書式やスタイルの設定が可能）、他人に共有したりできます。 
-＜画像＞
-＜画像＞
+<figure class="flex flex-col justify-start items-left">
+  <img class="shadow-lg rounded-lg" alt="Screenshot of Copilot chat page" src="/uploads/202504e-what-is-copilot5-ja.png" width="700px" transform-images="avif webp png jpeg 700@2">
+</figure>
+
+<figure class="flex flex-col justify-start items-left">
+  <img class="shadow-lg rounded-lg" alt="Screenshot of Copilot chat page" src="/uploads/202504e-what-is-copilot6-ja.png" width="700px" transform-images="avif webp png jpeg 700@2">
+</figure>
+
 「**Pagesで編集**」ボタンの右側のドロップダウンボタンをクリックすると「**最新使用したページに追加**」という選択肢が出てきます。検索した内容を過去に作成したページに追加したい場合はこのボタンをクリックします。例えば、類似トピックの内容を一つのページに纏めたいときには、この機能を使用するのは良いでしょう。 
-＜画像＞
-＜画像＞
+<figure class="flex flex-col justify-start items-left">
+  <img class="shadow-lg rounded-lg" alt="Screenshot of Loop page" src="/uploads/202504e-what-is-copilot7-ja.png" width="700px" transform-images="avif webp png jpeg 700@2">
+</figure>
+
 そして、生成されたページはLoopのマイワークスペースにも自動的に追加されます。Loopに追加されたページの内容をチーム内で共有し、共同編集することが可能です。 
-＜画像＞
+<figure class="flex flex-col justify-start items-left">
+  <img class="shadow-lg rounded-lg" alt="Screenshot of Copilot chat page" src="/uploads/202504e-what-is-copilot8-ja.png" width="700px" transform-images="avif webp png jpeg 700@2">
+</figure>
 
 ### 3. 有料版の各アプリで利用できる機能の一例
 
