@@ -50,16 +50,16 @@ jobs:
         shell: bash
 
       - name: Trigger Netlify Deploy (Optional, Netlify should auto-detect)
-        # This step is often not strictly necessary as Netlify will usually
-        # detect the new branch push. However, it can be a good explicit
-        # way to ensure a deploy is triggered.
-        # Replace YOUR_NETLIFY_BUILD_HOOK_URL with your actual build hook.
-        # You can find this in Netlify Site Settings > Build & deploy > Build hooks.
-        # This build hook should be configured for your 'review' branch.
         run: |
-          curl -X POST -d '{}' YOUR_NETLIFY_BUILD_HOOK_URL_FOR_REVIEW_BRANCH
+          # Only attempt to curl if the environment variable is set.
+          # Use -s (silent) and -S (show errors) for cleaner output if it fails.
+          # The 'test -n' checks if the string is non-empty.
+          if test -n "${{ env.NETLIFY_PREVIEW_BUILD_HOOK }}"; then
+            echo "Triggering Netlify deploy for preview branch..."
+            curl -X POST -d '{}' "${{ env.NETLIFY_PREVIEW_BUILD_HOOK }}"
+          else
+            echo "NETLIFY_PREVIEW_BUILD_HOOK secret is not set or empty. Skipping Netlify deploy trigger."
+          fi
         env:
-          YOUR_NETLIFY_BUILD_HOOK_URL_FOR_REVIEW_BRANCH: ${{ secrets.NETLIFY_REVIEW_BUILD_HOOK }}
-        # Only run this if you have a specific build hook for the review branch
-        # otherwise Netlify's auto-detection on git push is enough.
-        if: ${{ secrets.NETLIFY_REVIEW_BUILD_HOOK != '' }}
+          NETLIFY_PREVIEW_BUILD_HOOK: ${{ secrets.NETLIFY_PREVIEW_BUILD_HOOK }}
+        # Removed the 'if' condition on the step itself, handling it inside 'run'
