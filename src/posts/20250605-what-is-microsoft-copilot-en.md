@@ -2,14 +2,15 @@
 draft: true
 hot: false
 featured: false
-oldUrl: []
+oldUrl:
+  - /202506cope/
 lang: en
 id: 202504e-what-is-copilot
 date: 2025-06-05T04:42:09.042Z
-last_modified: 2025-06-05T15:08:00.000Z
+last_modified: 2025-06-05T20:06:00.000Z
 title: What is Microsoft Copilot?
 description: >-
-  we introduce the basics of Microsoft Copilot, its pricing plans, how to use
+  We introduce the basics of Microsoft Copilot, its pricing plans, how to use
   the free version, and examples of how it can be used effectively.
 image: /uploads/202504e-what-is-copilot-en.jpeg
 image_top: /uploads/202504e-what-is-copilot.jpeg
@@ -17,13 +18,12 @@ author: YM
 category: Microsoft-365
 tags:
   - Copilot
-  - AIAssistant
+  - AI-Assistant
   - Efficiency
-  - AIandWork
+  - AI-at-Work
 comments: {}
 ---
-In recent years, various types of generative AI have evolved and are attracting attention from the public. 
-This time, we will introduce basic information about Microsoft Copilot, a generative AI tool developed by Microsoft, its fee structure, how to use the free version, and examples of how to use it. 
+In recent years, various types of generative AI have evolved and are attracting attention from the public. This time, we will introduce basic information about **Microsoft Copilot**, a generative AI tool developed by Microsoft, its fee structure, how to use the free version, and examples of how to use it. 
 
 <!--more-->
 
