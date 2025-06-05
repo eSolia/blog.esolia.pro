@@ -1,5 +1,4 @@
 name: Create Review Branch for Drafts Review
-
 on:
   workflow_dispatch:
     inputs:
