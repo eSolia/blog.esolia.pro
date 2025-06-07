@@ -1,7 +1,7 @@
 {
   "imports": {
-    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@c8e5609d81c42347078db2759b3cc75dfb4c6ae8/",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@a134eae6e5dc0c2f6910702f68321d7d89532c9e/",
+    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@bc84c3a61c5b6e572c90b494f54b0194997e759d/",
+    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@718683a5d718100ef5a19a891b61e151cee9c622/",
     "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.10/jsx-runtime.ts"
   },
   "tasks": {
@@ -28,7 +28,7 @@
       ]
     },
     "plugins": [
-      "https://cdn.jsdelivr.net/gh/lumeland/lume@c8e5609d81c42347078db2759b3cc75dfb4c6ae8/lint.ts"
+      "https://cdn.jsdelivr.net/gh/lumeland/lume@bc84c3a61c5b6e572c90b494f54b0194997e759d/lint.ts"
     ]
   },
   "fmt": {
@@ -37,6 +37,7 @@
     ]
   },
   "unstable": [
-    "temporal"
+    "temporal",
+    "fmt-component"
   ]
 }
