@@ -1,6 +1,6 @@
 {
   "imports": {
-    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@bc84c3a61c5b6e572c90b494f54b0194997e759d/",
+    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@dbf4c9cd7f4e5e2155ff45c15922fd82e280ada8/",
     "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@718683a5d718100ef5a19a891b61e151cee9c622/",
     "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.10/jsx-runtime.ts"
   },
@@ -28,7 +28,7 @@
       ]
     },
     "plugins": [
-      "https://cdn.jsdelivr.net/gh/lumeland/lume@bc84c3a61c5b6e572c90b494f54b0194997e759d/lint.ts"
+      "https://cdn.jsdelivr.net/gh/lumeland/lume@dbf4c9cd7f4e5e2155ff45c15922fd82e280ada8/lint.ts"
     ]
   },
   "fmt": {
