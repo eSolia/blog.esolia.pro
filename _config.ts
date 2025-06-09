@@ -432,9 +432,11 @@ site.use(sitemap({
 // );
 
 // Optimize HTML
-site.use(minify_html());
-site.use(brotli());
-
+const isDev = Deno.args.includes("-s");
+if (!isDev) {
+  site.use(minify_html());
+  site.use(brotli());
+}
 
 site.add([".css"]);
 site.add("fonts");
