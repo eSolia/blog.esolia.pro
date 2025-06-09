@@ -1,0 +1,51 @@
+---
+layout: layouts/page.vto
+title: Blogページ 一覧
+date: Git Last Modified
+description: "Index of the showcase page, showing a list of works with details."
+priority: 0.5
+type: index
+templateEngine: [vto]
+lang: ja
+url: /list/
+---
+<!-- ===== START LAYOUT: HOME ===== -->
+
+<article class="text-[0.5rem]">
+  <table class="">
+    <tr class="">
+      <th class="">Id</th>
+      <th class="">Title</th>
+      <th class="">Descn</th>
+      <th class="">URL</th>
+      <th class="">Redirect</th>
+      <th class="">Image</th>
+      <th class="">Author</th>
+      <th class="">Category</th>
+      <th class="">Draft</th>
+      <th class="">Hot</th>
+      <th class="">Date</th>
+      <th class="">Modified</th>
+    </tr>
+    {{ for item of search.pages(`type=post`, "date=desc") }}
+      <tr class="">
+        <td class="">{{ item.id }}</td>
+        <td class="">{{ item.title }}</td>
+        <td class="">{{ item.description }}</td>
+        <td class=""><a href="{{ item.url }}">{{ item.url }}</a></td>
+        <td class="">{{ item.oldUrl }}</td>
+        <td class="">{{ item.image }}</td>
+        <td class="">{{ item.author }}</td>
+        <td class="">{{ item.category }}</td>
+        <td class="">{{ item.draft }}</td>
+        <td class="">{{ item.hot }}</td>
+        <td class="">{{ item.date }}</td>
+        <td class="">{{ item.last_modified }}</td>
+      </tr>
+    {{ /for }}
+  </table>
+</article>
+
+
+
+<!-- ===== END LAYOUT: HOME ===== -->
