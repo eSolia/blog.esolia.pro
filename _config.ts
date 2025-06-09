@@ -43,6 +43,7 @@ import checkUrls from "lume/plugins/check_urls.ts";
 
 // Images
 import favicon from "lume/plugins/favicon.ts";
+import svgo from "lume/plugins/svgo.ts";
 import picture from "lume/plugins/picture.ts";
 import transformImages from "lume/plugins/transform_images.ts";
 
@@ -310,6 +311,7 @@ site.use(favicon({
     },
   ],
 }));
+site.use(svgo());
 site.use(picture(/* Options */));
 site.use(transformImages({
   cache: true, // Toggle cache
