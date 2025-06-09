@@ -2,6 +2,7 @@
 <div
   id="top-post-cards" class="mx-auto mt-2 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
 >
+  {{> let imageCounter = 0; }}
   {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 6) }}
     <!-- == CARD == -->
     <article class="flex flex-col items-start group">
@@ -25,10 +26,18 @@
           src="{{ if post.image_top }}{{ post.image_top }}{{ else }}/assets/blog-esolia-pro-default-top.png{{ /if }}"
           alt="{{ i18n.home.top_card_image_alt }} - {{ post.title }}"
           class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2 transition-all duration-300 ease-in-out mix-blend-normal dark:mix-blend-luminosity group-hover:opacity-90"
-          loading="lazy"
-          fetchpriority="high"
+          {{ if imageCounter < 3 }}
+            fetchpriority="high"
+            loading="eager"
+          {{ else }}
+            fetchpriority="auto"
+            loading="lazy"
+          {{ /if }}
           decoding="async"
-          transform-images="avif webp jpg 600@2 600@3"
+          width="600"
+          height="338"
+          transform-images="avif webp png jpeg 384@2 600@2 768@2 960@2 1152@2 1344@2 1440@2 1800@2 2016@2"
+          sizes="(max-width: 672px) 100vw, 384px"
         >
         <div
           class="absolute inset-0 rounded-2xl ring-1 ring-zinc-900/10 ring-inset"
@@ -72,6 +81,7 @@
         </div>
       </div>
     </article>
+    {{> imageCounter++; }}
   {{ /for }}
 </div>
 <div class="mt-6 flex justify-left">
