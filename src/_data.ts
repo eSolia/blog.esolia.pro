@@ -93,3 +93,4 @@ const recdZonedDateTime = sampleInstant.toZonedDateTimeISO(sampleTimezone);
 
   export const cacheBuster = `${Temporal.Now.instant().epochMilliseconds}`;
   console.log(`Cache buster: ${cacheBuster}`);
+  console.log(`Deno args: ${Deno.args}`);
