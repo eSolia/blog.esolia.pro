@@ -2,12 +2,8 @@
 {{ for post of postslist }}
   <article id="post-list" class="md:grid md:grid-cols-4 md:items-baseline">
     <div class="group relative flex flex-col items-start md:col-span-3">
-      <h2
-        class="text-base font-semibold tracking-tight text-zinc-950 dark:text-zinc-100"
-      >
-        <div
-          class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"
-        >
+      <h2 class="text-base font-semibold tracking-tight text-zinc-950 dark:text-zinc-100">
+        <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50">
         </div>
         <a
           href="{{ post.url }}"
@@ -36,9 +32,7 @@
         ><span
             class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
           ></span></span>{{ post.date |> date("DATE") }}</time>
-      <div
-        class="relative z-10 mt-2 text-sm/7 text-zinc-600 dark:text-zinc-200 truncate w-full"
-      >
+      <div class="relative z-10 mt-2 text-sm/7 text-zinc-600 dark:text-zinc-200 truncate w-full">
         {{ post.excerpt |> md(true) }}
       </div>
 

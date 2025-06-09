@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       branch_name:
-        description: 'Name of the branch to create (e.g., review)'
+        description: "Name of the branch to create (e.g., review)"
         required: true
-        default: 'review'
+        default: "review"
   push:
     branches:
       - main # This line triggers the workflow whenever anything is pushed to the 'main' branch
@@ -20,7 +20,7 @@ jobs:
         # regardless of the specific commit that triggered the push.
         uses: actions/checkout@v4
         with:
-          ref: 'main' 
+          ref: "main"
 
       - name: Configure Git
         run: |

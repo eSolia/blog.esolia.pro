@@ -10,10 +10,10 @@ script: /js/fathom-post-list-event.js
       <div class="relative px-4 sm:px-8 lg:px-12">
         <div id="archive" class="mx-auto max-w-2xl lg:max-w-5xl">
           <header class="max-w-2xl">
-            <h1
-              class="text-2xl 2xs:text-3xl sm:text-4xl lg:text-5xl tracking-tight text-zinc-950 dark:text-zinc-100"
-            >
-              <span class="font-semibold subpixel-antialiased">{{ site.title }}</span>
+            <h1 class="text-2xl 2xs:text-3xl sm:text-4xl lg:text-5xl tracking-tight text-zinc-950 dark:text-zinc-100">
+              <span class="font-semibold subpixel-antialiased">{{
+                site.title
+              }}</span>
               <br class="block md:hidden">
               <span
                 class="font-light text-esoliablue-800 dark:text-esoliablue-600"
@@ -28,7 +28,12 @@ script: /js/fathom-post-list-event.js
                 class="size-6 fill-esoliaamber-400"
                 src='{{ "rss" |> icon("phosphor", "duotone") }}'
                 inline
-              ><span class="dark:invert">RSS:</span>&nbsp;<a class="" href="/feed.{{ lang }}.xml">Atom, </a>&nbsp;<a
+              >
+              <span class="dark:invert">RSS:</span>&nbsp;<a
+                class=""
+                href="/feed.{{ lang }}.xml"
+              >Atom,
+              </a>&nbsp;<a
                 class=""
                 href="/feed.{{ lang }}.json"
               >JSON</a>
@@ -80,9 +85,7 @@ script: /js/fathom-post-list-event.js
           </header>
 
           <div class="mt-16 sm:mt-20">
-            <div
-              class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40"
-            >
+            <div class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
               <div class="flex max-w-3xl flex-col space-y-16">
                 {{ include "templates/post-list.vto" { postslist: results } }}
 

@@ -2,42 +2,52 @@
 
 # blog.esolia.pro
 
-This blog site is built and based on [`lume`](https://lume.land/), the "static site generator" for `deno`, and is hosted on [Netlify](https://netlify.com) as static files. In comparison to a database-driven site such as Wordpress, static sites are secure and high-performance.
+This blog site is built and based on [`lume`](https://lume.land/), the "static
+site generator" for `deno`, and is hosted on [Netlify](https://netlify.com) as
+static files. In comparison to a database-driven site such as Wordpress, static
+sites are secure and high-performance.
 
-This site is intended to share blog articles from eSolia Inc, such as: 
+This site is intended to share blog articles from eSolia Inc, such as:
 
-* tech tips
-* IT stories
-* informational articles 
-* tutorials
-* announcements
+- tech tips
+- IT stories
+- informational articles
+- tutorials
+- announcements
 
-It takes advantage of the multilanguage feature of `lume` to generate content pages in English and Japanese. In addition, it has: 
+It takes advantage of the multilanguage feature of `lume` to generate content
+pages in English and Japanese. In addition, it has:
 
-* tags (post keywords) and categories (post type)
-* RSS and JSON feeds
-* Sitemap and other SEO-related features such as comprehensive metadata
-* Instant content search engine
-* CMS for easy editing, and you can enter content in markdown or html
+- tags (post keywords) and categories (post type)
+- RSS and JSON feeds
+- Sitemap and other SEO-related features such as comprehensive metadata
+- Instant content search engine
+- CMS for easy editing, and you can enter content in markdown or html
 
-Thank you, [Óscar Otero](https://github.com/oscarotero), for lume and all your support on Discord. 🙏🏻
+Thank you, [Óscar Otero](https://github.com/oscarotero), for lume and all your
+support on Discord. 🙏🏻
 
 ## Mechanics
+
 ### CMS
 
-Log into the cms at https://cms.blog.esolia.pro/admin 
+Log into the cms at https://cms.blog.esolia.pro/admin
 
-If you make changes on a local clone of the repo and push, the cms won't get those automatically as of 2025 Feb. At this time you need to: 
+If you make changes on a local clone of the repo and push, the cms won't get
+those automatically as of 2025 Feb. At this time you need to:
 
 1. ssh to the vps, specifying the private key
 2. `cd www`
 3. `git pull`
 4. `systemctl restart lumecms`
 
-This pulls the changes from origin, and restarts lumecms. It takes 30 seconds for the UI to be refreshed. 
+This pulls the changes from origin, and restarts lumecms. It takes 30 seconds
+for the UI to be refreshed.
 
 ### Deno-related
-Install `deno` on your system and clone the repo to serve locally on localhost, for testing.
+
+Install `deno` on your system and clone the repo to serve locally on localhost,
+for testing.
 
 Serve locally:
 
@@ -52,7 +62,10 @@ Upgrade:
 ```
 
 ### Markdown "alerts"
-With just the markdown engine you can use "alerts", which come from the alert plugin to markdown-it allowing [github-style alerts](https://github.com/orgs/community/discussions/16925):
+
+With just the markdown engine you can use "alerts", which come from the alert
+plugin to markdown-it allowing
+[github-style alerts](https://github.com/orgs/community/discussions/16925):
 
 ```
 > [!NOTE]  
@@ -71,9 +84,10 @@ With just the markdown engine you can use "alerts", which come from the alert pl
 > Negative potential consequences of an action.
 ```
 
-All of these, and other codes you can use in authoring, are in the "Snippets" dropdown in the markdown editor, in the CMS.
+All of these, and other codes you can use in authoring, are in the "Snippets"
+dropdown in the markdown editor, in the CMS.
 
-Get info re current branch for pasting: 
+Get info re current branch for pasting:
 
 ```
 git log --format="%H%nAuthor: %an <%ae>%nDate:   %ad%n%n%s%n%b%n%n" origin/main..HEAD |pbcopy

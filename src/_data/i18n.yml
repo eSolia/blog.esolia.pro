@@ -7,7 +7,7 @@ home:
   skip_to_main_content_label: メインコンテンツへスキップ
   skip_to_main_content_aria: メインコンテンツへスキップするためのリンク
   top_card_image_alt: 次のポストを表す選択画像
-archive: 
+archive:
   title: アーカイブ
   description: 過去の記事を一覧でご紹介しています。カテゴリやタグを活用して、興味のある情報にすばやくアクセスできます。または、ページ上部のナビゲーションバーにある虫眼鏡アイコンから検索してください。
   button: 全ポストを見る
@@ -93,7 +93,7 @@ comments:
   description_all: |
     You can leave a comment by replying to <a href=":src:">this Mastodon post</a> or <a href=":bluesky:">this Bluesky post</a> from your own account.
   empty: No comments yet
-punctuation: 
+punctuation:
   open_quote: "『"
   close_quote: "』"
   open_single_quote: "「"

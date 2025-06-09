@@ -23,9 +23,22 @@
       {{ i18n.newsletter.description }}
     </p>
     <div class="mt-6 flex">
-      <input type="hidden" name="retURL" value="{{ i18n.newsletter.thanks_url }}" />
-      <input type="hidden" id="f_64244810_ID0EBB" name="f_64244810" type="text" value="{{ i18n.newsletter.reference }}" maxlength="1000">
-      <label for="f_64244897_ID0ES" class="sr-only">{{ i18n.newsletter.placeholder }}</label>
+      <input
+        type="hidden"
+        name="retURL"
+        value="{{ i18n.newsletter.thanks_url }}"
+      />
+      <input
+        type="hidden"
+        id="f_64244810_ID0EBB"
+        name="f_64244810"
+        type="text"
+        value="{{ i18n.newsletter.reference }}"
+        maxlength="1000"
+      >
+      <label for="f_64244897_ID0ES" class="sr-only">{{
+        i18n.newsletter.placeholder
+      }}</label>
       <input
         id="f_64244897_ID0ES"
         name="f_64244897"
@@ -36,8 +49,10 @@
         required
         class="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 focus:outline-hidden sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-sky-400 dark:focus:ring-sky-400/10 invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 peer"
       />
-      <span class="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
-            X
+      <span
+        class="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block"
+      >
+        X
       </span>
       <button
         class="ml-4 inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-500 transition hover:bg-sky-400 active:bg-sky-600 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50 group-invalid:pointer-events-none group-invalid:opacity-50"
@@ -50,20 +65,28 @@
   <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mt-6 lg:mt-0">
     <h2 class="flex text-sm font-semibold text-zinc-950 dark:text-zinc-100">
       <img
-      alt=""
-      loading="lazy"
-      decoding="async"
-      class="h-6 w-6 -m-0.75 fill-esoliaamber-500 dark:fill-amber-600"
-      src='{{ "question" |> icon("phosphor", "duotone") }}'
-      inline
-    >
-      <span class="ml-3">{{ i18n.contact.title}}</span>
+        alt=""
+        loading="lazy"
+        decoding="async"
+        class="h-6 w-6 -m-0.75 fill-esoliaamber-500 dark:fill-amber-600"
+        src='{{ "question" |> icon("phosphor", "duotone") }}'
+        inline
+      >
+      <span class="ml-3">{{ i18n.contact.title }}</span>
     </h2>
     <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
       {{ i18n.contact.description }}
     </p>
     <div class="mt-6 flex justify-center">
-      <a href="{{ i18n.contact.url }}" target="_blank" rel="noopener" role="button" tabindex="0" aria-label="{{ i18n.contact.aria_label }}" class="inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold  outline-offset-2 text-zinc-50 bg-sky-500 transition hover:bg-sky-400 active:bg-sky-600 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50">
+      <a
+        href="{{ i18n.contact.url }}"
+        target="_blank"
+        rel="noopener"
+        role="button"
+        tabindex="0"
+        aria-label="{{ i18n.contact.aria_label }}"
+        class="inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-500 transition hover:bg-sky-400 active:bg-sky-600 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50"
+      >
         {{ i18n.contact.button }}
       </a>
     </div>

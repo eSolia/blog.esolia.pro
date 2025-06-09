@@ -1,14 +1,14 @@
 body {
   .markdown-alert {
-  --color: currentColor;
+    --color: currentColor;
 
-  margin-block: 1.5rem;
-  padding: 0.5rem 1rem;
-  border-left: solid 4px var(--color);
-  border-radius: var(--radius-sm);
-  background-color: var(--bgcolor);
-  font: var(--font-sans);
-  color: var(--color-zinc-900);
+    margin-block: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-left: solid 4px var(--color);
+    border-radius: var(--radius-sm);
+    background-color: var(--bgcolor);
+    font: var(--font-sans);
+    color: var(--color-zinc-900);
     & li {
       line-height: 0.5rem;
     }
@@ -62,7 +62,7 @@ body {
   }
 }
 
-.dark  {
+.dark {
   .markdown-alert-title {
     color: var(--color-zinc-800);
   }

@@ -40,7 +40,7 @@
   font: var(--font-small);
   display: block;
   text-decoration: none;
-  margin-bottom: .1rem;
+  margin-bottom: 0.1rem;
   transition: opacity 200ms;
   width: fit-content;
 
@@ -55,7 +55,7 @@
     max-height: 70px;
   }
 
-  @media (min-width: 500px) AND (max-width: 959px) {
+  @media (min-width: 500px) and (max-width: 959px) {
     float: left;
     margin-right: 1rem;
     max-width: 150px;
