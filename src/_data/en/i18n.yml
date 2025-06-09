@@ -7,7 +7,7 @@ home:
   skip_to_main_content_label: Skip to main content
   skip_to_main_content_aria: Skip to main content skip link
   top_card_image_alt: Image selected to represent post
-archive: 
+archive:
   title: Archive
   description: Browse our archive of past articles. Use categories and tags to quickly find the topics that interest you, or search from the magnifying glass icon in the navigation bar at the top of the page.
   button: Browse All Posts
@@ -57,7 +57,7 @@ nav:
   next: Next →
   previous: ← Previous
   all_categories: All Categories
-  all_tags: All Tags 
+  all_tags: All Tags
   all_authors: All Authors
   all_posts: All Posts
   return_home: Return to Site Top
@@ -91,7 +91,7 @@ comments:
   description_all: |
     You can leave a comment by replying to <a href=":src:">this Mastodon post</a> or <a href=":bluesky:">this Bluesky post</a> from your own account.
   empty: No comments yet
-punctuation: 
+punctuation:
   open_quote: "“"
   close_quote: "”"
   open_single_quote: "‘"

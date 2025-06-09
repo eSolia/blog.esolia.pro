@@ -9,7 +9,7 @@ site:
 topnav:
   links: []
 footernav:
-  links: 
+  links:
     - text: アーカイブ
       href: /archive
       target: _self
@@ -50,7 +50,24 @@ metas:
   author: "イソリア"
   image: "=image || /assets/blog-esolia-pro-default.png"
   icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
-  keywords: ["イソリア", "Tech It Easy Blog", "ブログ", "Tips", "ウェブログ", "プロ", "プロフェッショナル", "東京ITサービス", "日本語", "バイリンガル", "M365", "Windows", "情報セキュリティ", "トラブルシューティング", "学習", "周辺機器"]
+  keywords: [
+    "イソリア",
+    "Tech It Easy Blog",
+    "ブログ",
+    "Tips",
+    "ウェブログ",
+    "プロ",
+    "プロフェッショナル",
+    "東京ITサービス",
+    "日本語",
+    "バイリンガル",
+    "M365",
+    "Windows",
+    "情報セキュリティ",
+    "トラブルシューティング",
+    "学習",
+    "周辺機器",
+  ]
   twitter: "@esolia_inc"
   fediverse: "@esolia.com@bsky.brid.gy"
   color: ["#ffbc68", "#2d2f63"]
@@ -72,8 +89,8 @@ jsonLd:
     "@type": Organization
     name: =site.author
   editor:
-      "@type": Organization
-      name: "=site.author"
+    "@type": Organization
+    name: "=site.author"
 
 en:
   lang: en
@@ -85,7 +102,7 @@ en:
   topnav:
     links: []
   footernav:
-    links: 
+    links:
       - text: Archive
         href: /archive
         target: _self
@@ -125,7 +142,25 @@ en:
     author: "eSolia"
     image: "=image || /assets/blog-esolia-pro-default.png"
     icon: "/assets/symbol_darkblue_bgtransparent_2.svg"
-    keywords: ["eSolia", "Tech It Easy Blog", "blog", "tips", "weblog", "pro", "professional", "tokyo it service", "japan", "english", "bilingual", "m365", "windows", "infosec", "troubleshooting", "learning", "peripherals"]
+    keywords: [
+      "eSolia",
+      "Tech It Easy Blog",
+      "blog",
+      "tips",
+      "weblog",
+      "pro",
+      "professional",
+      "tokyo it service",
+      "japan",
+      "english",
+      "bilingual",
+      "m365",
+      "windows",
+      "infosec",
+      "troubleshooting",
+      "learning",
+      "peripherals",
+    ]
     twitter: "@esolia_inc"
     fediverse: "@esolia.com@bsky.brid.gy"
     color: ["#ffbc68", "#2d2f63"]

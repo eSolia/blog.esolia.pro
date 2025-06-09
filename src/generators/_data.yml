@@ -8,13 +8,13 @@ metas:
   image: "=image || /assets/cat0-bg.jpg"
   keywords: "=tags"
   "twitter:data1": "=author"
-  "article:published_time":	"=date"
-  "article:modified_time": "=last_modified" 
+  "article:published_time": "=date"
+  "article:modified_time": "=last_modified"
   "article:author": "=author"
   "article:section": "=article-type"
-  "article:tag": "=tags" 
+  "article:tag": "=tags"
 
-en: 
+en:
   lang: en
   seo:
     skip_content: true
@@ -25,8 +25,8 @@ en:
     image: "=image || /assets/cat0-bg.jpg"
     keywords: "=tags"
     "twitter:data1": "=author"
-    "article:published_time":	"=date"
-    "article:modified_time": "=last_modified" 
+    "article:published_time": "=date"
+    "article:modified_time": "=last_modified"
     "article:author": "=author"
     "article:section": "=article-type"
     "article:tag": "=tags"

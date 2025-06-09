@@ -1,8 +1,9 @@
 <!-- ===== top-post-cards1.vto TEMPLATE START ===== -->
 <div
-  id="top-post-cards" class="mx-auto mt-2 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+  id="top-post-cards"
+  class="mx-auto mt-2 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
 >
-  {{> let imageCounter = 0; }}
+  {{> let imageCounter = 0 }}
   {{ for post of search.pages(`type=post lang=${lang}`, "date=desc", 6) }}
     <!-- == CARD == -->
     <article class="flex flex-col items-start group">
@@ -17,9 +18,7 @@
           class="absolute inset-0 bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500 opacity-80 rounded-2xl transition-opacity duration-300 mix-blend-color"
         >
         </div> #}}
-        <div
-          class="absolute inset-0 bg-white/10 dark:bg-zinc-800/60 rounded-2xl mix-blend-luminosity dark:mix-blend-color"
-        >
+        <div class="absolute inset-0 bg-white/10 dark:bg-zinc-800/60 rounded-2xl mix-blend-luminosity dark:mix-blend-color">
         </div>
         <img
           {{# src="{{ if catImage }}{{ catImage }}{{ else }}/assets/cat0-bg.jpg{{ /if }}" #}}
@@ -27,11 +26,9 @@
           alt="{{ i18n.home.top_card_image_alt }} - {{ post.title }}"
           class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2 transition-all duration-300 ease-in-out mix-blend-normal dark:mix-blend-luminosity group-hover:opacity-90"
           {{ if imageCounter < 3 }}
-            fetchpriority="high"
-            loading="eager"
+            fetchpriority="high" loading="eager"
           {{ else }}
-            fetchpriority="auto"
-            loading="lazy"
+            fetchpriority="auto" loading="lazy"
           {{ /if }}
           decoding="async"
           width="600"
@@ -39,9 +36,7 @@
           transform-images="avif webp png jpeg 384@2 600@2 768@2 960@2 1152@2 1344@2 1440@2 1800@2 2016@2"
           sizes="(max-width: 672px) 100vw, 384px"
         >
-        <div
-          class="absolute inset-0 rounded-2xl ring-1 ring-zinc-900/10 ring-inset"
-        >
+        <div class="absolute inset-0 rounded-2xl ring-1 ring-zinc-900/10 ring-inset">
         </div>
       </div>
       <div class="max-w-xl">
@@ -58,9 +53,7 @@
           }}
         </div>
         <div class="group relative">
-          <h3
-            class="mt-3 text-lg/6 font-semibold text-zinc-950 group-hover:text-zinc-600"
-          >
+          <h3 class="mt-3 text-lg/6 font-semibold text-zinc-950 group-hover:text-zinc-600">
             <a
               href="{{ post.url }}"
               data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}"
@@ -81,11 +74,17 @@
         </div>
       </div>
     </article>
-    {{> imageCounter++; }}
+    {{> imageCounter++ }}
   {{ /for }}
 </div>
 <div class="mt-6 flex justify-left">
-  <a href="{{ i18n.archive.url }}" role="button" tabindex="0" aria-label="{{ i18n.archive.aria_label }}" class="inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold  outline-offset-2 text-zinc-50 bg-sky-500 transition hover:bg-sky-400 active:bg-sky-600 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50">
+  <a
+    href="{{ i18n.archive.url }}"
+    role="button"
+    tabindex="0"
+    aria-label="{{ i18n.archive.aria_label }}"
+    class="inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-500 transition hover:bg-sky-400 active:bg-sky-600 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50"
+  >
     {{ i18n.archive.button }}
   </a>
 </div>

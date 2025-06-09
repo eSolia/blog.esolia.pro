@@ -43,6 +43,7 @@ import checkUrls from "lume/plugins/check_urls.ts";
 
 // Images
 import favicon from "lume/plugins/favicon.ts";
+import svgo from "lume/plugins/svgo.ts";
 import picture from "lume/plugins/picture.ts";
 import transformImages from "lume/plugins/transform_images.ts";
 
@@ -69,10 +70,9 @@ import sitemap from "lume/plugins/sitemap.ts";
 // Checks
 // import seo from "https://raw.githubusercontent.com/timthepost/cushytext/refs/heads/main/src/_plugins/seo/mod.ts";
 
-// Final minification and compression 
+// Final minification and compression
 import minify_html from "lume/plugins/minify_html.ts";
 import brotli from "lume/plugins/brotli.ts";
-
 
 // Change markdown-it configuration
 
@@ -87,9 +87,7 @@ const markdown = {
 const site = lume({
   src: "./src",
   location: new URL("https://blog.esolia.pro"),
-},
-{ markdown }
-);
+}, { markdown });
 
 // Load First, order does not matter
 site.use(attributes());
@@ -118,14 +116,14 @@ site.use(prism({
     {
       name: "default",
       cssFile: "styles.css",
-      placeholder: "/* light-theme-here */"
+      placeholder: "/* light-theme-here */",
     },
     {
       name: "okaidia",
       cssFile: "styles.css",
-      placeholder: "/* dark-theme-here */"
+      placeholder: "/* dark-theme-here */",
     },
-  ]
+  ],
 }));
 
 // CSS + JS + source maps
@@ -261,7 +259,7 @@ site.use(googleFonts({
   },
 }));
 site.use(tailwindcss({
-  minify: true
+  minify: true,
 }));
 site.use(source_maps());
 
@@ -272,7 +270,7 @@ site.use(checkUrls({
   external: true,
 }));
 
-// Images 
+// Images
 site.use(favicon({
   favicons: [
     {
@@ -313,6 +311,7 @@ site.use(favicon({
     },
   ],
 }));
+site.use(svgo());
 site.use(picture(/* Options */));
 site.use(transformImages({
   cache: true, // Toggle cache
@@ -351,12 +350,12 @@ site.use(feed({
   },
   items: {
     title: "=title", // title of the item
-    description: "=description", // description 
-    published: "=date", // publishing date 
-    updated: "=last_modified", // last update 
-    lang: "ja", // language 
-    image: "=image", // image 
-    authorName: "=author", // author 
+    description: "=description", // description
+    published: "=date", // publishing date
+    updated: "=last_modified", // last update
+    lang: "ja", // language
+    image: "=image", // image
+    authorName: "=author", // author
   },
 }));
 site.use(feed({
@@ -374,12 +373,12 @@ site.use(feed({
   },
   items: {
     title: "=title", // title of the item
-    description: "=description", // description 
-    published: "=date", // publishing date 
-    updated: "=last_modified", // last update 
-    lang: "en", // language 
-    image: "=image", // image 
-    authorName: "=author", // author 
+    description: "=description", // description
+    published: "=date", // publishing date
+    updated: "=last_modified", // last update
+    lang: "en", // language
+    image: "=image", // image
+    authorName: "=author", // author
   },
 }));
 site.use(sitemap({
@@ -490,7 +489,7 @@ site.process([".html"], (pages) => {
       // --- NEW CHECK ---
       // Check if the link is inside an element with the class 'no-external-icon'
       // The closest() method searches up the DOM tree for the first matching ancestor.
-      if (link.closest('.no-external-icon')) {
+      if (link.closest(".no-external-icon")) {
         // If a matching ancestor is found, skip this link
         continue;
       }
@@ -506,24 +505,25 @@ site.process([".html"], (pages) => {
       try {
         const linkUrl = new URL(href, site.options.url);
 
-        const isExternal = (linkUrl.protocol === 'http:' || linkUrl.protocol === 'https:') &&
-                           (linkUrl.protocol !== siteUrl.protocol ||
-                            linkUrl.hostname !== siteUrl.hostname ||
-                            linkUrl.port !== siteUrl.port);
+        const isExternal =
+          (linkUrl.protocol === "http:" || linkUrl.protocol === "https:") &&
+          (linkUrl.protocol !== siteUrl.protocol ||
+            linkUrl.hostname !== siteUrl.hostname ||
+            linkUrl.port !== siteUrl.port);
 
         if (isExternal) {
           // Add the class if it's an external link with target="_blank" AND not excluded
           link.classList.add("after:content-['_↗']");
         }
-
       } catch (e) {
-        console.error(`Could not parse URL for link: ${href} on page ${page.src.path}`, e);
+        console.error(
+          `Could not parse URL for link: ${href} on page ${page.src.path}`,
+          e,
+        );
       }
     }
   }
 });
-
-
 
 // site.filter("tdate", (value: string | undefined, locale: string, timezone: string) => {
 //   if (!value) {

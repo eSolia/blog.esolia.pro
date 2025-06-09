@@ -245,13 +245,13 @@ cms.collection({
   documentName(data) {
     // Ensure title is a string and sanitized
     let sanitizedTitle = "";
-    if (typeof data.title === 'string') {
+    if (typeof data.title === "string") {
       sanitizedTitle = data.title
         .trim() // Remove leading/trailing whitespace
         .toLowerCase() // Convert to lowercase (standard for slugs)
-        .replace(/[.,'"\/#!$%\^&\*;:{}=\`~()<>]/g, '') // Remove punctuation
-        .replace(/--+/g, '-') // Replace multiple hyphens with a single hyphen
-        .replace(/^-+|-+$/g, '') // Remove leading/trailing hyphens
+        .replace(/[.,'"\/#!$%\^&\*;:{}=\`~()<>]/g, "") // Remove punctuation
+        .replace(/--+/g, "-") // Replace multiple hyphens with a single hyphen
+        .replace(/^-+|-+$/g, "") // Remove leading/trailing hyphens
         .trim(); // One more time just in case
     } else {
       sanitizedTitle = "untitled"; // Fallback if title is not a string}
@@ -298,7 +298,7 @@ cms.collection({
       label: "転送 Redirect",
       description:
         "変更前のurlや、ショートurl。最初と最後に英数半角スラッシュを忘れず。<br>The page url or urls before they changed, or an url intended to be used as a short url. Ensure there is a forward slash before and after",
-      view : "Show Overrides",
+      view: "Show Overrides",
       transform(value) {
         return value?.map((redirect) => redirect.trim()); // Trim whitespace
       },
@@ -367,14 +367,14 @@ cms.collection({
       description:
         "ページの言語でのタイトル。ブラウザーのタブやページヘッダーに表示され、検索エンジンの結果にも使用されます。<br>Title in the language of the page, visible in browser tab and page header, and used in search engine results",
       transform(value) {
-        if (typeof value === 'string') {
+        if (typeof value === "string") {
           return value
             .trim() // Remove whitespace at ends
-            .replace(/[\/#$%\^\*;{}=\`~<>]/g, '') // Remove punctuation
-            .replace(/--+/g, '—') // Replace multiple hyphens with emdash
-            .replace(/^-+|-+$/g, '') // Remove leading/trailing hyphens
+            .replace(/[\/#$%\^\*;{}=\`~<>]/g, "") // Remove punctuation
+            .replace(/--+/g, "—") // Replace multiple hyphens with emdash
+            .replace(/^-+|-+$/g, "") // Remove leading/trailing hyphens
             .trim(); // One more time just in case
-          }
+        }
         return value;
       },
       attributes: {
@@ -469,7 +469,8 @@ cms.collection({
           const { lang } = docData;
           if (lang === "ja" || lang === "en") {
             const staticCats = staticCategoriesByLang[lang] || [];
-            const dynamicCats = site?.search.values("category", `lang=${lang}`) || [];
+            const dynamicCats =
+              site?.search.values("category", `lang=${lang}`) || [];
             allCats = [...staticCats, ...dynamicCats];
           }
           // If lang is not ja or en for some reason, or for new docs without lang yet
@@ -512,7 +513,8 @@ cms.collection({
           if (lang === "ja" || lang === "en") {
             const staticTags = staticTagsByLang[lang] || [];
             // console.log("staticTags (editing):", staticTags);
-            const dynamicTags = site.search.values("tags", `lang=${lang}`) || [];
+            const dynamicTags = site.search.values("tags", `lang=${lang}`) ||
+              [];
             // console.log("dynamicTags (editing):", dynamicTags);
             allTags = [...staticTags, ...dynamicTags];
           }
@@ -564,7 +566,8 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
         },
         {
           label: "Secure External Link",
-          value: `[Link title](https://example.com){target="_blank" rel="noopener"}`,
+          value:
+            `[Link title](https://example.com){target="_blank" rel="noopener"}`,
         },
         {
           label: "TABLE skeleton with needed default classes",

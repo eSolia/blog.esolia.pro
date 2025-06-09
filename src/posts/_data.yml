@@ -11,11 +11,11 @@ metas:
   image: "=image"
   keywords: "=tags"
   "twitter:data1": "=author"
-  "article:published_time":	"=date"
-  "article:modified_time": "=last_modified" 
+  "article:published_time": "=date"
+  "article:modified_time": "=last_modified"
   "article:author": "=author"
   "article:section": "=article-type"
-  "article:tag": "=tags" 
+  "article:tag": "=tags"
 jsonLd:
   "@type": blogPosting
   image: "=image || /assets/blog-esolia-pro-default.png"
@@ -26,13 +26,13 @@ jsonLd:
     "@type": Person
     name: "=author"
 
-en: 
+en:
   lang: en
   type: post
   layout: layouts/post.vto
   templateEngine:
-  - vto
-  - md
+    - vto
+    - md
   metas:
     type: blogPosting
     title: "=title"
@@ -40,8 +40,8 @@ en:
     image: "=image"
     keywords: "=tags"
     "twitter:data1": "=author"
-    "article:published_time":	"=date"
-    "article:modified_time": "=last_modified" 
+    "article:published_time": "=date"
+    "article:modified_time": "=last_modified"
     "article:author": "=author"
     "article:section": "=article-type"
     "article:tag": "=tags"

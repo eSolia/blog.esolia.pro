@@ -10,14 +10,28 @@ bodyClass: body-tag
         <div class="mx-auto max-w-2xl lg:max-w-5xl">
           <div class="xl:relative">
             <div class="mx-auto max-w-3xl">
-              <div class="hidden md:block"><a type="button" href="/{{ if lang === "en"}}en{{/if}}" aria-label="{{ i18n.nav.return_home }}" class="btn group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1  ring-zinc-900/5 transition lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-top-1.5 xl:left-0 xl:mt-0 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20">
-              <img class="size-6 stroke-zinc-300 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400" src="{{ "arrow-left" |> icon("phosphor", "duotone") }}" inline />
-              </a></div>
-              <article id="page" data-pagefind-body data-title="{{ title }}" data-pagefind-index-attrs="data-title">
+              <div class="hidden md:block">
+                <a
+                  type="button"
+                  href='/{{ if lang === "en"}}en{{/if}}'
+                  aria-label="{{ i18n.nav.return_home }}"
+                  class="btn group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-top-1.5 xl:left-0 xl:mt-0 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20"
+                >
+                  <img
+                    class="size-6 stroke-zinc-300 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400"
+                    src='{{ "arrow-left" |> icon("phosphor", "duotone") }}'
+                    inline
+                  />
+                </a>
+              </div>
+              <article
+                id="page"
+                data-pagefind-body
+                data-title="{{ title }}"
+                data-pagefind-index-attrs="data-title"
+              >
                 <header class="flex flex-col">
-                  <h1
-                    class="mt-0 text-3xl font-bold tracking-tight sm:text-4xl subpixel-antialiased bg-gradient-to-r from-esoliablue-700 via-sky-900 to-esoliablue-800 bg-clip-text text-transparent"
-                  >
+                  <h1 class="mt-0 text-3xl font-bold tracking-tight sm:text-4xl subpixel-antialiased bg-gradient-to-r from-esoliablue-700 via-sky-900 to-esoliablue-800 bg-clip-text text-transparent">
                     {{ title }}
                   </h1>
                   {{# {{ if toc.length }}
@@ -28,8 +42,7 @@ bodyClass: body-tag
                   class="prose max-w-[70ch] prose-zinc text-zinc-950 sm:prose-sm md:prose-base lg:prose-lg dark:prose-invert prose-a:underline prose-a:decoration-1 prose-a:transition mt-8"
                   data-mdx-content="true"
                 >
-                {{ content }}
-                
+                  {{ content }}
                 </div>
               </article>
             </div>
@@ -40,4 +53,3 @@ bodyClass: body-tag
   </div>
 </main>
 <!-- ===== page.vto LAYOUT END ===== -->
-
