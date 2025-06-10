@@ -1,4 +1,5 @@
 import lume from "lume/mod.ts";
+// import optimizePagefind from "./src/_processors/optimize_pagefind.js";
 
 // Load First, order does not matter
 import attributes from "lume/plugins/attributes.ts";
@@ -6,8 +7,8 @@ import date from "lume/plugins/date.ts";
 import { enUS } from "npm:date-fns/locale/en-US";
 import { ja } from "npm:date-fns/locale/ja";
 import { getGitDate } from "lume/core/utils/date.ts";
-import { time } from "node:console";
-import { getCurrentVersion } from "lume/core/utils/lume_version.ts";
+// import { time } from "node:console";
+// import { getCurrentVersion } from "lume/core/utils/lume_version.ts";
 import jsonLd from "lume/plugins/json_ld.ts";
 import readingInfo from "lume/plugins/reading_info.ts";
 import metas from "lume/plugins/metas.ts";
@@ -524,6 +525,8 @@ site.process([".html"], (pages) => {
     }
   }
 });
+
+// site.process([".html"], optimizePagefind());
 
 // site.filter("tdate", (value: string | undefined, locale: string, timezone: string) => {
 //   if (!value) {
