@@ -7,7 +7,7 @@ oldUrl:
 lang: en
 id: 202504e-what-is-copilot
 date: 2025-06-05T04:42:09.042Z
-last_modified: 2025-06-05T20:06:00.000Z
+last_modified: 2025-06-10T15:58:00.000Z
 title: What is Microsoft Copilot?
 description: >-
   We introduce the basics of Microsoft Copilot, its pricing plans, how to use
@@ -163,17 +163,19 @@ In addition, to avoid the risk of information leakage, please be careful not to 
 Entra account users with the following licenses can use Microsoft 365 Copilot Chat. 
  <a href="https://learn.microsoft.com/ja-jp/copilot/manage#microsoft-365--chat-eligibility" target="_blank" rel="noopener">Microsoft 365 Copilot Chat Eligibility</a> 
 
+**Open chat**
 When you click "Try Copilot Chat" from the Microsoft 365 Copilot website, the Copilot Chat screen will be displayed in a new window. 
 
 Alternatively, open Edge and see the Copilot365 mark on the right side of the search bar. Click on that mark and the Copilot Chat window will appear. 
 
+**Edit in Pages**
 Copilot Chat has a feature called “Edit in Pages.” Clicking this button will generate the searched content as a page, which will be displayed on the right side of the screen. The user can then edit it themselves (including formatting and styling) or share it with others. 
 <figure class="flex flex-col justify-start items-left">
   <img class="shadow-lg rounded-lg" alt="Screenshot of MS Copilot in Edge" src="/uploads/202504e-what-is-copilot3-en.png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
 
 <figure class="flex flex-col justify-start items-left">
-  <img class="shadow-lg rounded-lg" alt="Screenshot of MS Copilot in Edge" src="/uploads/202504e-what-is-copilot4-en.png" width="600px" transform-images="avif webp png jpeg 600@2">
+  <img class="shadow-lg rounded-lg" alt="Screenshot of MS Copilot in Edge" src="/uploads/202504e-what-is-copilot4-en.png" width="1000px" transform-images="avif webp png jpeg 1000@2">
 </figure>
 Click the drop-down button to the right of the "Edit in Pages" button and you'll see an option to "Add to Recent Pages." Click this button if you want to add the content you searched for to a page you've created in the past. 
 <figure class="flex flex-col justify-start items-left">

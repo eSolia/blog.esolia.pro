@@ -7,7 +7,7 @@ oldUrl:
 lang: ja
 id: 202504e-what-is-copilot
 date: 2025-06-02T05:00:35.603Z
-last_modified: 2025-06-05T13:35:00.000Z
+last_modified: 2025-06-10T15:53:00.000Z
 title: Microsoft Copilotってなに？
 description: Microsoft Copilotとは？WordやExcelなどで業務効率を上げるAI機能を、わかりやすく解説します。
 image: /uploads/202504e-what-is-copilot-ja.jpeg
@@ -163,7 +163,7 @@ Edgeブラウザを開くと、ブラウザの右上にはCopilotのマークが
 以下のURLから確認できるライセンスを持つEntraアカウントユーザーはMicrosoft 365 Copilot Chatの利用が可能です。
 <a href="https://learn.microsoft.com/ja-jp/copilot/manage#microsoft-365--chat-eligibility" target="_blank" rel="noopener">Microsoft 365 Copilot チャットの資格</a>
 
-**チャットページを開きます**
+**チャットページを開く**
 Microsoft 365 Copilotのウェブサイトから「Copilot Chatを試す」をクリックすると新しいウィンドウでCopilot Chatの画面が表示されます。 
 
 または、Edgeを開いて、検索バーの右側にCopilot365のマークがありますので、そのマークをクリックすると、Copilot Chatのウィンドウが表示されます。 
@@ -175,7 +175,7 @@ Copilot Chatでは「**Pagesで編集**」という機能があり、このボ�
 </figure>
 
 <figure class="flex flex-col justify-start items-left">
-  <img class="shadow-lg rounded-lg" alt="Screenshot of Copilot chat page" src="/uploads/202504e-what-is-copilot6-ja.png" width="700px" transform-images="avif webp png jpeg 700@2">
+  <img class="shadow-lg rounded-lg" alt="Screenshot of Copilot chat page" src="/uploads/202504e-what-is-copilot6-ja.png" width="1000px" transform-images="avif webp png jpeg 1000@2">
 </figure>
 
 「**Pagesで編集**」ボタンの右側のドロップダウンボタンをクリックすると「**最新使用したページに追加**」という選択肢が出てきます。検索した内容を過去に作成したページに追加したい場合はこのボタンをクリックします。例えば、類似トピックの内容を一つのページに纏めたいときには、この機能を使用するのは良いでしょう。 
