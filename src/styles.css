@@ -76,7 +76,7 @@
   --header-top: 1rem;
   --font-sans: textface, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono: codeface, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* eSolia Yellow Logo Color #FFBC68 is 500 */
   --color-esoliaamber-50: oklch(98.69% 0.021 95.28);
   --color-esoliaamber-100: oklch(97.31% 0.037 91.69);
