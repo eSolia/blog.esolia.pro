@@ -1,6 +1,6 @@
 ---
 draft: false
-hot: false
+hot: true
 featured: false
 lang: en
 id: 202503g-admin-asked-ai
