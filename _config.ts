@@ -1,5 +1,4 @@
 import lume from "lume/mod.ts";
-// import optimizePagefind from "./src/_processors/optimize_pagefind.js";
 
 // Load First, order does not matter
 import attributes from "lume/plugins/attributes.ts";
@@ -56,9 +55,7 @@ import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnote
 import { alert } from "npm:@mdit/plugin-alert@0.17.0";
 
 // Utils
-import { merge } from "lume/core/utils/object.ts";
-import cssBanner from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/css_banner.ts?3";
-import shuffle from "https://raw.githubusercontent.com/RickCogley/hibana/refs/heads/main/plugins/shuffle.ts?3";
+import { cssBanner, shuffle, deferPagefind, externalLinksIcon } from "https://raw.githubusercontent.com/RickCogley/hibana/v1.0.6/mod.ts";
 
 // Assets in HTML
 import icons from "lume/plugins/icons.ts";
@@ -477,56 +474,10 @@ site.preprocess([".html"], (pages) => {
   }
 });
 
-site.process([".html"], (pages) => {
-  const siteUrl = new URL("https://blog.esolia.pro"); // Get the base URL of your site
+site.process([".html"], deferPagefind());
+// pass the base url 
+site.process([".html"], externalLinksIcon("https://blog.esolia.pro"));
 
-  for (const page of pages) {
-    const document = page.document;
-
-    // Select all <a> tags with target="_blank"
-    const links = document.querySelectorAll("a[target='_blank']");
-
-    for (const link of links) {
-      // --- NEW CHECK ---
-      // Check if the link is inside an element with the class 'no-external-icon'
-      // The closest() method searches up the DOM tree for the first matching ancestor.
-      if (link.closest(".no-external-icon")) {
-        // If a matching ancestor is found, skip this link
-        continue;
-      }
-      // --- END NEW CHECK ---
-
-      const href = link.getAttribute("href");
-
-      // Skip if href is missing or is just a fragment link (e.g., #section)
-      if (!href || href.startsWith("#")) {
-        continue;
-      }
-
-      try {
-        const linkUrl = new URL(href, site.options.url);
-
-        const isExternal =
-          (linkUrl.protocol === "http:" || linkUrl.protocol === "https:") &&
-          (linkUrl.protocol !== siteUrl.protocol ||
-            linkUrl.hostname !== siteUrl.hostname ||
-            linkUrl.port !== siteUrl.port);
-
-        if (isExternal) {
-          // Add the class if it's an external link with target="_blank" AND not excluded
-          link.classList.add("after:content-['_↗']");
-        }
-      } catch (e) {
-        console.error(
-          `Could not parse URL for link: ${href} on page ${page.src.path}`,
-          e,
-        );
-      }
-    }
-  }
-});
-
-// site.process([".html"], optimizePagefind());
 
 // site.filter("tdate", (value: string | undefined, locale: string, timezone: string) => {
 //   if (!value) {
