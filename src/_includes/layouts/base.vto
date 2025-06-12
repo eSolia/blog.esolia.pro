@@ -18,6 +18,17 @@
       content="hsl(200, 98%, 39%)"
       media="(prefers-color-scheme: dark)"
     >
+
+    {{ include "templates/cdn-preconnect.vto" }}
+
+    {{ if lang === "ja" }}{{- include "templates/font-preload-ja.vto" -}}{{ /if }}
+    {{ if lang === "en" }}{{- include "templates/font-preload-en.vto" -}}{{ /if }}
+
+    <link 
+      rel="preload" 
+      href="/fonts-{{ lang }}.css"
+      as="style"
+    >
     <link 
       rel="stylesheet" 
       href="/fonts-{{ lang }}.css?cb={{ cacheBuster }}"
@@ -47,7 +58,7 @@
     {{# Various js, such as Alpine and Fathom and the theme toggle script #}}
     <script src="/js/main.js?cb={{ cacheBuster }}" type="module" defer></script>
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
-    {{ it.extra_head?.join("\n") }}
+    {{# {{ it.extra_head?.join("\n") }} #}}
   </head>
   <body class="flex h-full bg-zinc-50 dark:bg-black">
     {{ include "templates/skiplink.vto" }}
