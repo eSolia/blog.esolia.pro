@@ -55,7 +55,7 @@ import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnote
 import { alert } from "npm:@mdit/plugin-alert@0.17.0";
 
 // Utils
-import { cssBanner, shuffle, deferPagefind, externalLinksIcon } from "https://raw.githubusercontent.com/RickCogley/hibana/v1.0.6/mod.ts";
+import { cssBanner, shuffle, deferPagefind, externalLinksIcon } from "https://raw.githubusercontent.com/RickCogley/hibana/v1.0.9/mod.ts";
 
 // Assets in HTML
 import icons from "lume/plugins/icons.ts";
@@ -383,9 +383,14 @@ const sedFixFontpathJa = Deno.build.os === "darwin"
 // Register commands
 site.script("makeFontpathAbsoluteEn", sedFixFontpathEn);
 site.script("makeFontpathAbsoluteJa", sedFixFontpathJa);
+
 // Execute scripts after build
 site.addEventListener("afterBuild", "makeFontpathAbsoluteEn");
 site.addEventListener("afterBuild", "makeFontpathAbsoluteJa");
+
+// pass the base url 
+site.process([".html"], externalLinksIcon("https://blog.esolia.pro"));
+site.process([".html"], deferPagefind());
 
 // site.filter("tdate", (value: string | undefined, locale: string, timezone: string) => {
 //   if (!value) {
