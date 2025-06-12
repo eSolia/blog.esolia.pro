@@ -55,24 +55,24 @@
   --font-family-ui: "textface", -apple-system, system-ui, sans-serif;
   /* --font-family-display: var(--font-family-ui); */
   --font-family-display: "textface", -apple-system, system-ui, sans-serif;
-  --font-bold: 600;
+  --font-semibold: 600;
 
   --font-code: 0.9em/1.5 var(--font-family-code);
-  --font-display: var(--font-bold) clamp(2rem, 10vw, 4rem)/1 var(
+  --font-display: var(--font-semibold) clamp(2rem, 10vw, 4rem)/1 var(
     --font-family-display
   );
   --font-display-spacing: -0.02em;
-  --font-title: var(--font-bold) clamp(1.5rem, 8vw, 2rem)/1.2 var(
+  --font-title: var(--font-semibold) clamp(1.5rem, 8vw, 2rem)/1.2 var(
     --font-family-ui
   );
   --font-title-spacing: -0.015em;
   --font-body: clamp(1rem, 5vw, 1.125rem)/1.6 var(--font-family-ui);
-  --font-body-bold: var(--font-bold) var(--font-body);
+  --font-body-bold: var(--font-semibold) var(--font-body);
   --font-body-spacing: 0;
   --font-ui: 1rem/1.4 var(--font-family-ui);
-  --font-ui-bold: var(--font-bold) var(--font-ui);
+  --font-ui-bold: var(--font-semibold) var(--font-ui);
   --font-small: clamp(0.85rem, 4vw, 0.9rem)/1.4 var(--font-family-ui);
-  --font-small-bold: var(--font-bold) var(--font-small);
+  --font-small-bold: var(--font-semibold) var(--font-small);
 
   /* Space */
   --row-gap-xsmall: 1rem;

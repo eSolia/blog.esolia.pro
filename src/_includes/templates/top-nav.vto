@@ -143,7 +143,7 @@
                         href="{{ alt.url }}"
                         title="{{ alt.title |> escape }}"
                       >
-                        <span class="text-white font-thin">{{ if alt.lang == "ja" }}日本語{{ else }}ENGLISH{{ /if }}</span>
+                        <span class="text-white font-extralight">{{ if alt.lang == "ja" }}日本語{{ else }}ENGLISH{{ /if }}</span>
                       </a>
                       {{ /if }}{{ /for }}
                     </div>
@@ -151,7 +151,7 @@
                     {{- for item of it.topnav.links }}
                     <div class="mobile-menu__item space-y-4">
                       <a
-                        class="text-white font-thin hover:text-sky-400 text-5xl inline-block {{- if item.target === '_blank'  }} after:content-['_↗']{{ /if -}}"
+                        class="text-white font-extralight hover:text-sky-400 text-5xl inline-block {{- if item.target === '_blank'  }} after:content-['_↗']{{ /if -}}"
                         href="{{ item.href }}"
                         {{- if item.target === '_blank' }}rel="noopener"{{ /if -}}
                         role="menuitem"

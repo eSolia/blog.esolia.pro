@@ -24,7 +24,7 @@
     {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
     {{ if page }}
       <span
-        class="relative px-2 py-1 text-xs font-light text-zinc-400 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700"
+        class="relative px-2 py-1 text-xs font-extralight text-zinc-400 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700"
       >{{ i18n.post.by }}: <a
           class="no-underline text-zinc-400 dark:text-zinc-300"
           data-pagefind-filter="{{ i18n.search.filter_by_author }}"
@@ -32,13 +32,13 @@
         >{{ author }}</a></span>
     {{ else }}
       <span
-        class="relative px-2 py-1 text-xs font-light text-zinc-400 dark:text-zinc-300"
+        class="relative px-2 py-1 text-xs font-extralight text-zinc-400 dark:text-zinc-300"
       >{{ i18n.post.by }} {{ author }}</span>
     {{ /if }}
   {{ /if }}
   {{ if readingInfo !== "hide" }}
     <span
-      class="relative px-2 py-1 text-xs font-light text-zinc-400 dark:text-zinc-300"
+      class="relative px-2 py-1 text-xs font-extralight text-zinc-400 dark:text-zinc-300"
     >{{ i18n.post.reading_time }}: <span class="font-medium">{{
           it.readingInfo.minutes
         }}{{ if lang === "en" }}&nbsp;{{ /if }}{{

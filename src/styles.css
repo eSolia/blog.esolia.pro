@@ -116,13 +116,13 @@
 }
 
 .lede {
-  @apply text-lg font-light leading-relaxed;
+  @apply text-lg font-extralight leading-relaxed;
 }
 
 /* Default lede paragraph styles (Mac, Linux, etc.) */
 /* font-weight: 300; */
 body article > div > p:first-of-type {
-  @apply text-base text-lg lg:text-xl font-light leading-relaxed text-zinc-950 dark:text-zinc-200;
+  @apply text-base text-lg lg:text-xl font-extralight leading-relaxed text-zinc-950 dark:text-zinc-200;
 }
 
 /* Specific styles for Windows devices */
