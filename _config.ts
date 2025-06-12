@@ -125,14 +125,18 @@ site.use(prism({
 }));
 
 // CSS + JS + source maps
-site.use(esbuild());
+site.use(esbuild({
+  bundle: true,
+  splitting: true,
+  minify: true,
+}));
 site.use(googleFonts({
   cssFile: "fonts-ja.css",
   fontsFolder: "fonts-ja",
-  ignoredSubsets: ["cyrillic", "cyrillic-ext", "vietnamese"],
+  ignoredSubsets: ["cyrillic", "cyrillic-ext", "vietnamese", "latin-ext"],
   fonts: {
     textface:
-      "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;600;700&display=swap",
+      "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@200;400;500;600&display=swap",
     codeface:
       "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&display=swap",
   },
@@ -140,7 +144,7 @@ site.use(googleFonts({
 site.use(googleFonts({
   cssFile: "fonts-en.css",
   fontsFolder: "fonts-en",
-  ignoredSubsets: ["cyrillic", "cyrillic-ext", "vietnamese"],
+  ignoredSubsets: ["cyrillic", "cyrillic-ext", "vietnamese", "latin-ext", "greek"],
   fonts: {
     textface:
       "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap",
@@ -328,6 +332,7 @@ if (!isDev) {
 }
 
 site.add([".css"]);
+site.add([".svg"]);
 site.add("fonts");
 site.add([".js", ".ts"]); // Add the files to bundle
 site.add("manifest.json");
@@ -339,7 +344,7 @@ site.add(
   "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
   "/js/comments.js",
 );
-site.mergeKey("extra_head", "stringArray");
+// site.mergeKey("extra_head", "stringArray");
 
 site.ignore("*.DS_Store");
 site.ignore("keep-archive");
@@ -365,10 +370,6 @@ site.preprocess([".html"], (pages) => {
     }
   }
 });
-
-site.process([".html"], deferPagefind());
-// pass the base url 
-site.process([".html"], externalLinksIcon("https://blog.esolia.pro"));
 
 // Define bash script to fix English font URLs
 const sedFixFontpathEn = Deno.build.os === "darwin"
