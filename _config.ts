@@ -327,7 +327,15 @@ site.use(sitemap({
 // Optimize HTML
 const isDev = Deno.args.includes("-s");
 if (!isDev) {
-  site.use(minify_html());
+  site.use(minify_html({
+    extensions: [".html"],
+    options: {
+      keep_spaces_between_attributes: true,
+      do_not_minify_doctype: true,
+      keep_closing_tags: true,
+      keep_html_and_head_opening_tags: true,
+    },
+  }));
   site.use(brotli());
 }
 
