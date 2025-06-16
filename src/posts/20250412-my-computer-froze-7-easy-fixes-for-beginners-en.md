@@ -1,10 +1,10 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 lang: en
 id: 202503a-pc-freeze
-title: 'My Computer Froze! 7 Easy Fixes for Beginners '
+title: My Computer Froze! 7 Easy Fixes for Beginners
 description: >-
   Here are seven easy fixes that beginners can try when their computer suddenly
   stops responding. 
@@ -12,14 +12,16 @@ image: /uploads/202503a-pc-freeze-social-en.jpg
 author: Shiori
 category: Troubleshooting
 comments: {}
-date: 2025-04-10T01:04:00.000Z
-last_modified: 2025-05-21T11:12:00.000Z
+date: 2025-04-12T01:04:00.000Z
+last_modified: 2025-06-16T09:40:00.000Z
 tags:
   - Bluescreen
   - BSOD
   - Shutdown
   - Beginner
 image_top: /uploads/202503a-pc-freeze-top.png
+oldUrl:
+  - /posts/en/20250402-my-computer-froze-7-easy-fixes-for-beginners-en/
 ---
 When your computer screen suddenly freezes while you're using it, it can be quite stressful, and frustrating especially if you’re busy. However, immediately forcing a shutdown or yanking the power plug can lead to data loss or make the situation worse. First, take a deep breath and stay calm. Then, try **the seven solutions** below. 
 
