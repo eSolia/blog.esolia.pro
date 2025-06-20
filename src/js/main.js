@@ -120,8 +120,8 @@ document.addEventListener("alpine:init", () => {
 });
 
 // Load Mastodon Comments from a local file
-import Comments from "./comments.js";
-customElements.define("mastodon-comments", Comments);
+//import Comments from "./comments.js";
+//customElements.define("mastodon-comments", Comments);
 
 // Load Alpine.js with defer
 loadVendorScript(
