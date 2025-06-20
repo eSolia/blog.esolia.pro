@@ -55,7 +55,7 @@ import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnote
 import { alert } from "npm:@mdit/plugin-alert@0.17.0";
 
 // Utils
-import { cssBanner, shuffle, deferPagefind, externalLinksIcon } from "https://raw.githubusercontent.com/RickCogley/hibana/v1.0.9/mod.ts";
+import { cssBanner, shuffle, deferPagefind, externalLinksIcon } from "hibana/mod.ts";
 
 // Assets in HTML
 import icons from "lume/plugins/icons.ts";
@@ -348,10 +348,10 @@ site.add("uploads");
 site.add("assets");
 site.add("f36d0f5824b04fae955f338128bac96e.txt"); // indexnow
 // Mastodon comment system
-site.add(
-  "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
-  "/js/comments.js",
-);
+// site.add(
+//   "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
+//   "/js/comments.js",
+// );
 // site.mergeKey("extra_head", "stringArray");
 
 site.ignore("*.DS_Store");

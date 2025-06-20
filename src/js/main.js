@@ -1,3 +1,5 @@
+import { loadVendorScript } from "hibana/utils/dom_utils.ts";
+
 // Load this first
 (function () {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -14,21 +16,6 @@
     document.body.classList.add("os-windows");
   }
 })();
-
-// Function to load a script from a CDN with additional attributes
-function loadVendorScript(src, attributes, callback) {
-  var script = document.createElement("script");
-  script.src = src;
-  // script.async = true;
-  // Set additional attributes
-  for (var key in attributes) {
-    if (attributes.hasOwnProperty(key)) {
-      script.setAttribute(key, attributes[key]);
-    }
-  }
-  script.onload = callback;
-  document.head.appendChild(script);
-}
 
 // Swap logo on scroll and make nav bg more opaque
 window.addEventListener("scroll", () => {
@@ -120,8 +107,8 @@ document.addEventListener("alpine:init", () => {
 });
 
 // Load Mastodon Comments from a local file
-import Comments from "./comments.js";
-customElements.define("mastodon-comments", Comments);
+//import Comments from "./comments.js";
+//customElements.define("mastodon-comments", Comments);
 
 // Load Alpine.js with defer
 loadVendorScript(
