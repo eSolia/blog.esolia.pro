@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 lang: en
@@ -16,13 +16,14 @@ image: /uploads/202503b-sharepoint-migration-part1-social-en.jpg
 author: Ena
 category: Microsoft-365
 comments: {}
-date: 2025-04-10T01:21:00.000Z
-last_modified: 2025-05-21T10:58:00.000Z
+date: 2025-07-02T01:00:00.000Z
+last_modified: 2025-07-02T11:05:00.000Z
 tags:
   - spo
   - migration
   - troubleshooting
 image_top: /uploads/202503b-sharepoint-migration-part1-top.jpg
+oldUrl: []
 ---
 Are you facing issues where files won't open **after migrating to SharePoint Online?** In this article, we explain the differences in SPO's folder structure, URL limitations, access management, and _give some practical troubleshooting solutions_. We also provide a detailed guide on metadata management to enhance searchability!
 
