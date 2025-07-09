@@ -1,11 +1,11 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 lang: ja
 id: 202504d-sharepoint-migration-part2
-date: 2025-05-27T07:29:54.053Z
-last_modified: 2025-05-27T17:37:00.000Z
+date: 2025-07-09T00:15:00.000Z
+last_modified: 2025-07-09T09:10:00.000Z
 title: SharePoint Online移行後にファイルが開けない？Part2
 description: >-
   SharePoint
@@ -22,6 +22,7 @@ tags:
   - 業務効率化
   - IT運用
 comments: {}
+oldUrl: []
 ---
 Part 1では、SharePoint Online（SPO）に移行した際に発生する 「ファイルをエクスプローラから開こうとするとエラーが発生する問題」 について解説しました。 この問題の主な要因は、 フォルダー階層の深さやファイル名の長さがSPOの制約を超えてしまうことにありました。 今回は、そのような問題を未然に防ぐための「**メタデータ管理**」と「最適な運用方法」 に焦点を当てて解説していきたいと思います。 
 
