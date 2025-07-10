@@ -6,14 +6,14 @@ oldUrl: []
 lang: en
 id: 202506a-telework-offensive-2025
 date: 2025-07-10T02:36:54.421Z
-last_modified: 2025-07-10T11:38:00.000Z
+last_modified: 2025-07-10T13:27:00.000Z
 title: 2025 Edition Telework Offensive
 description: >-
   Telework is here to stay. As return-to-office trends grow, this 2025 edition
   reflects on the value of remote work and explores how IT professionals can
   support flexible workstyles. 
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202506a-telework-offensive-2025-en.jpeg
+image_top: /uploads/202506a-telework-offensive-2025.jpeg
 author: Ena
 category: Cloud
 tags: []
@@ -35,6 +35,9 @@ So, what's the current state of Telework in Tokyo?
 The Tokyo Metropolitan Government regularly surveys 10,000 companies within the city to assess the adoption of telework. 
 
 According to the 2024 survey (FY2024) targeting Tokyo-based companies with 30 or more employees, the telework adoption rate was 58.0%. This marks a slight decrease compared to the previous year's 60.1%. 
+<figure class="flex flex-col justify-start items-left">
+  <img class="shadow-lg rounded-lg" alt="Survey Results on Telework Implementation Rate" src="/uploads/202506a-telework-offensive-2025-1.png" width="700px" transform-images="avif webp png jpeg 700@2">
+</figure>
 
 [FY2024 Survey Report on Diverse Work Styles (Telework)](https://www.hataraku.metro.tokyo.lg.jp/hatarakikata/telework/teleworkjixtushirituchousa_4gatu.pdf){target="_blank" rel="noopener"}
 
@@ -71,6 +74,16 @@ Even with challenges and constraints, telework remains desirable because of the 
 3. Inclusivity and diverse work options
 * Enables people to build careers without relocating to major cities
 * People with disabilities or chronic health issues can work comfortably from home
-4．Digital transformation and workflow improvement
+4. Digital transformation and workflow improvement
 * Promotes paperless practices, cloud usage, and process optimization
 * Helps visualize who is doing what, reducing individual workload dependencies
+
+## In conclusion
+As IT professionals, our role spans a wide range of responsibilities. Through cross-functional communication, we can help solve challenges related to work styles and productivity—one issue at a time. 
+
+If you ever have concerns, ideas, or even vague hopes like “Wouldn’t it be nice if…,” don’t hesitate to reach out to your IT team. We’re here not just to fix problems, but to help shape better ways of working—for everyone. 
+
+**Various subsidies and grants**
+[Subsidy for Securing Human Resources (Telework Course) – Ministry of Health, Labor and Welfare (Japan) ](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/telework_zyosei_R3.html){target="_blank" rel="noopener"}
+
+[Telework Total Support Subsidy – Tokyo Metropolitan Government](https://www.koyokankyo.shigotozaidan.or.jp/jigyo/telework/teletotal/total_joseikin.html ){target="_blank" rel="noopener"}
