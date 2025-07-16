@@ -1,18 +1,18 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202506d-when-pc-soaked
-date: 2025-06-19T05:01:39.039Z
-last_modified: 2025-06-19T14:12:00.000Z
+date: 2025-07-16T00:30:00.000Z
+last_modified: 2025-07-16T09:43:00.000Z
 title: When Your PC Gets Soaked
 description: >-
   Learn what to do (and what not to do) when your PC gets wet, and how to report
   it properly to your IT department.
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202506d-when-pc-soaked-en.jpeg
+image_top: /uploads/202506d-when-pc-soaked.jpeg
 author: YN
 category: Troubleshooting
 tags:
@@ -64,4 +64,3 @@ Use cloud storage (like OneDrive or shared drives) regularly. This ensures your 
 Invest in a waterproof laptop sleeve or bag for commuting, especially during rainy seasons.
 Avoid placing beverages or humidifiers near your PC. Use cups with lids and keep liquids off your workspace entirely, if possible.
 Water damage is more common than you think. It’s not something to be ashamed of or afraid to report. What matters most is how you respond, how honestly you communicate, and how well you prevent it from happening again.
-
