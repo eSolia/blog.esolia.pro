@@ -1,11 +1,11 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 lang: en
 id: 202504a-everyday-ai
-date: 2025-05-20T07:48:10.238Z
-last_modified: 2025-05-21T11:17:00.000Z
+date: 2025-07-23T00:30:00.000Z
+last_modified: 2025-07-23T09:33:00.000Z
 title: 'Practical AI for Everyday Life: How I Use ChatGPT'
 description: >-
   ChatGPT is a tool that can be used in a wide range of situations. I’d like to
@@ -21,6 +21,7 @@ tags:
   - AICompanion
   - Advanced Guide
 comments: {}
+oldUrl: []
 ---
 Now that AI has become a familiar part of our lives, many people may be wondering, 
 "What can ChatGPT actually do?" ChatGPT is a tool that can be used in a wide range of situations—everyday life, learning, and work. Here, I’d like to share some of the ways I personally use it. 
