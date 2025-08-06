@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 lang: ja
 id: 202504c-cisco-ip-communicator-problem
-date: 2025-05-27T06:21:19.475Z
-last_modified: 2025-05-27T16:08:00.000Z
-title: 'Cisco IP Communicator起動中にTeamsコール受信する方法'
+date: 2025-08-06T00:32:00.000Z
+last_modified: 2025-08-06T09:32:00.000Z
+title: Cisco IP Communicator起動中にTeamsコール受信する方法
 description: Cisco IP CommunicatorとMicrosoft Teamsのアプリ相性不具合の解決方法を紹介します
 image: /uploads/202504c-cisco-ip-communicator-problem-ja.jpeg
 image_top: /uploads/202504c-cisco-ip-communicator-problem.jpeg
@@ -17,6 +17,7 @@ tags:
   - Cisco IP Communicator
   - チャットツール
 comments: {}
+oldUrl: []
 ---
 会社PCのチャットツールとしてMS Teamsを使いながら、電話を受けるためにソフトフォンアプリを利用しているという会社も少なくないかと思います。 今回は、チャットツールとして**Microsoft Teams**を利用しながら、電話用のソフトフォンアプリ**Cisco IP Communicator**を利用している環境で起こる不具合を解決する方法を紹介します。 
 
