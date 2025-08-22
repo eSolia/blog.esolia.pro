@@ -1,13 +1,13 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl:
   - /202506cope/
 lang: en
 id: 202504e-what-is-copilot
-date: 2025-06-05T04:42:09.042Z
-last_modified: 2025-07-10T13:46:00.000Z
+date: 2025-08-22T05:00:00.000Z
+last_modified: 2025-08-22T14:12:00.000Z
 title: What is Microsoft Copilot?
 description: >-
   We introduce the basics of Microsoft Copilot, its pricing plans, how to use

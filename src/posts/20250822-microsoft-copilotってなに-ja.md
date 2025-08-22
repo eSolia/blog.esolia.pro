@@ -1,13 +1,13 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl:
   - /202506copj/
 lang: ja
 id: 202504e-what-is-copilot
-date: 2025-06-02T05:00:35.603Z
-last_modified: 2025-07-10T13:36:00.000Z
+date: 2025-08-22T05:00:00.000Z
+last_modified: 2025-08-22T14:10:00.000Z
 title: Microsoft Copilotってなに？
 description: Microsoft Copilotとは？WordやExcelなどで業務効率を上げるAI機能を、わかりやすく解説します。
 image: /uploads/202504e-what-is-copilot-ja.jpeg
