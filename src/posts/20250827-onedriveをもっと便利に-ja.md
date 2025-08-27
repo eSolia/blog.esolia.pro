@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: ja
 id: 202504f-make-the-most-of-onedrive
-date: 2025-06-10T07:01:41.600Z
-last_modified: 2025-06-11T10:43:00.000Z
+date: 2025-08-27T00:30:00.000Z
+last_modified: 2025-08-27T09:27:00.000Z
 title: OneDriveをもっと便利に！SharePointとの違いもこれでスッキリ解決
 description: OneDriveとSharePointの違いを初心者向けにわかりやすく解説。基本から業務効率化の活用術までをまとめた実用ガイド。
 image: /uploads/202504f-make-the-most-of-onedrive-ja.jpeg

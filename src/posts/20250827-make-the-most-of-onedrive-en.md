@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202504f-make-the-most-of-onedrive
-date: 2025-06-11T01:45:43.637Z
-last_modified: 2025-06-11T11:17:00.000Z
+date: 2025-08-27T00:30:00.000Z
+last_modified: 2025-08-27T09:29:00.000Z
 title: Make the Most of OneDrive! Clearly Understand the Difference from SharePoint
 description: >-
   A beginner-friendly guide that clearly explains the differences between
