@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202506a-telework-offensive-2025
-date: 2025-07-10T02:36:54.421Z
-last_modified: 2025-07-10T13:27:00.000Z
+date: 2025-09-10T00:00:00.000Z
+last_modified: 2025-09-10T09:15:00.000Z
 title: 2025 Edition Telework Offensive
 description: >-
   Telework is here to stay. As return-to-office trends grow, this 2025 edition
