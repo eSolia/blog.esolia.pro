@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202506b-fix-internet-connection
-date: 2025-07-10T05:42:40.609Z
-last_modified: 2025-07-10T15:15:00.000Z
+date: 2025-10-01T01:30:00.000Z
+last_modified: 2025-10-01T10:39:00.000Z
 title: How to Fix a PC That Won’t Connect to the Internet
 description: >-
   Your PC suddenly can't connect to the internet? Neither Wi-Fi nor Ethernet is
@@ -111,4 +111,4 @@ Save this as a .bat file to keep a quick-fix tool on hand in case the issue retu
 Even when a network problem seems like a dead end, 
 **returning to the basics and resetting the entire network configuration** can often bring a system back to life. 
 
-If you're facing similar symptoms, we recommend trying the steps described here. 
+If you're facing similar symptoms, we recommend trying the steps described here.
