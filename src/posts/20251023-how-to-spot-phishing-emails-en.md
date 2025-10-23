@@ -1,14 +1,14 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202506c-phishing-emails
-date: 2025-07-17T08:32:58.665Z
-last_modified: 2025-07-17T17:50:00.000Z
+date: 2025-10-23T00:35:00.000Z
+last_modified: 2025-10-23T09:37:00.000Z
 title: How to Spot Phishing Emails
-description: We'll explain how even beginners can recognize phishing emails starting today! 
+description: We'll explain how even beginners can recognize phishing emails starting today!
 image: /uploads/202506c-phishing-emails-en.jpeg
 image_top: /uploads/202506c-phishing-emails.jpeg
 author: KC
@@ -71,5 +71,3 @@ For delivery notifications, instead of clicking links, visit the official websit
 ## Summary 
 Phishing emails can be highly deceptive, but a bit of caution goes a long way. 
 If you ever think, “Is this real…?” — stop, avoid downloading or clicking anything, and consult your IT department or someone you trust.
-
-
