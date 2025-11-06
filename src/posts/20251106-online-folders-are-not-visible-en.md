@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202506c-windows-sync-center
-date: 2025-07-22T06:34:51.201Z
-last_modified: 2025-07-22T16:01:00.000Z
+date: 2025-11-06T02:00:00.000Z
+last_modified: 2025-11-06T11:10:00.000Z
 title: >-
   A Tip for the issue where online folders are not visible due to Windows Sync
   Center
