@@ -1,13 +1,13 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202507b-windows11-features
-date: 2025-11-13T05:04:54.763Z
-last_modified: 2025-11-13T15:20:00.000Z
-title: Windows 11 Features
+date: 2025-11-20T01:37:00.000Z
+last_modified: 2025-11-20T10:39:00.000Z
+title: Must-Know Windows 11 Features After the Upgrade
 description: >-
   Discover useful new features to explore after upgrading to Windows 11. This
   beginner-friendly guide covers clipboard history, snap layouts, File Explorer
@@ -53,7 +53,7 @@ All of them are simple to use—try incorporating them into your workflow today.
 * Pin items to keep them permanently
 
 **How to open**
-Windows + V
+<kbd>Windows</kbd> + <kbd>V</kbd>
 
 It’s especially useful when you want to reuse something you copied earlier.
 Sometimes, when copy & paste doesn’t work for some reason, pasting from the clipboard works more reliably.
@@ -69,7 +69,7 @@ Sometimes, when copy & paste doesn’t work for some reason, pasting from the cl
 * Can insert kaomoji, symbols, and GIFs
 
 **How to open**
-Windows + .(period) or Windows + ; (semicolon)
+<kbd>Windows</kbd> + <kbd>.(period)</kbd> or <kbd>Windows</kbd> + <kbd>; (semicolon)</kbd> 
 
 It is integrated with the clipboard, so you can operate both from the same panel.
 
@@ -101,7 +101,7 @@ This feature allows you to switch between multiple folders within a single windo
 
 **How to open**
 1. Open File Explorer
-   Click the file icon on the taskbar or press Windows + E
+   Click the file icon on the taskbar or press <kbd>Windows</kbd> + <kbd>E</kbd>
 2. Click the “+” on the tab bar at the top
 
 <figure class="flex flex-col justify-start items-left">
