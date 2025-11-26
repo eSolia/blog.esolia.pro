@@ -6,7 +6,7 @@ oldUrl: []
 lang: ja
 id: 202507f-using-onedrive
 date: 2025-11-20T06:28:15.733Z
-last_modified: 2025-11-20T15:38:00.000Z
+last_modified: 2025-11-26T11:48:00.000Z
 title: OneDriveでファイルを共有
 description: OneDriveを利用したデータ共有の方法を紹介します。
 image: /uploads/blog-esolia-pro-default.png
@@ -29,22 +29,32 @@ Microsoftのクラウドストレージサービス「OneDrive」を利用して
 ## OneDrive共有のやり方 
 ### 共有する人の操作 
 1. 共有したいファイルをOneDriveフォルダ内に置く。今回の例ではファイル1つですが、いくつもファイルが入っているフォルダごとでも可能です。その場合は共有したいフォルダをOneDriveに置いてください。
-ここにScreenshot01を貼付
+<figure class="flex flex-col justify-start items-left">
+  <img alt="Screenshot of selecting documents in File Explorer" src="/uploads/202507f-using-onedrive-1.png" width="600px" transform-images="avif webp png jpeg 600@2">
+</figure>
 
 2. クリック > 共有を選択する。以下のようなウィンドウが表示されます。入力し終えたら右下の「送信」ボタンを押して完了です。 
 
-ここにScreenshot02を貼付 
+<figure class="flex flex-col justify-start items-left">
+  <img alt="Screenshot of Word document sharing settings" src="/uploads/202507f-using-onedrive-ja2.png" width="400px" transform-images="avif webp png jpeg 400@2">
+</figure>
 
   - 共有したい相手のメールアドレスを上部のウィンドウに入力します。 
   - 黄色ハイライトした目のマークを選択すると、相手にどのように共有するかを選択できます。共有した相手と一緒にデータを編集したい場合は編集可能、編集されたくない場合は表示可能など、用途に応じて選択してください。
 
 ### 共有された人の操作 
 3. このようなメールが届きますので、青いボタン「開く」を押します。 
-ここにScreenshot03を貼付 
+<figure class="flex flex-col justify-start items-left">
+  <img alt="Screenshot of shared file notification email" src="/uploads/202507f-using-onedrive-en3.png" width="400px" transform-images="avif webp png jpeg 400@2">
+</figure>
 Webブラウザが立ち上がり、メールアドレスの入力を求められるので、自身のアドレスを入力します。 
-ここにScreenshot04を貼付 
+<figure class="flex flex-col justify-start items-left">
+  <img alt="Screenshot of the Microsoft email verification prompt" src="/uploads/202507f-using-onedrive-ja4.png" width="400px" transform-images="avif webp png jpeg 400@2">
+</figure>
 入力したアドレス宛てにMicrosoftから検証コードがメールで送られます。メールを確認して数字を入力します。 
-ここにScreenshot05を貼付 
+<figure class="flex flex-col justify-start items-left">
+  <img alt="Screenshot showing the OneDrive verification code message" src="/uploads/202507f-using-onedrive-ja5.png" width="600px" transform-images="avif webp png jpeg 600@2">
+</figure>
 正しくコードを入力することで、共有されたデータを閲覧することができるようになります。これで共有方法は以上となります。 
 
 ## OneDriveのメリット 
@@ -59,4 +69,4 @@ USBなどでデータを送るのとは違い、特定のアカウントに電�
 * **インターネット接続が必須** 
 USBなどでデータを送るのとは違い、インターネットでの共有のため、必然的にインターネット接続が必要です。 
 * **どちらもMicrosoftアカウントが必要** 
-OneDriveを利用するためには、どちらもMicrosoftのアカウントを利用している必要があります。 
+OneDriveを利用するためには、どちらもMicrosoftのアカウントを利用している必要があります。
