@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: ja
 id: 202506d-teams-webinar
-date: 2025-07-22T07:34:08.103Z
-last_modified: 2025-07-22T17:04:00.000Z
+date: 2025-12-12T00:30:00.000Z
+last_modified: 2025-12-12T09:35:00.000Z
 title: Microsoft Teams Webinar の基本と活用ポイント
 description: >-
   Microsoft Teamsのウェビナー機能とは？本記事では、Teams
@@ -29,6 +29,7 @@ Microsoft Teamsのウェビナー機能は、企業や教育機関が大規模�
 
 ## Teams Webinarとは？
 Teams Webinarは、標準のTeams会議とは異なり、大規模なオンラインイベントを運営するのに適しています。 
+
 **主な特徴:** 
 - 最大1000人の参加が可能（Teams Premiumならさらに拡張可） 
 - 登録フォームを作成して参加者を管理 
