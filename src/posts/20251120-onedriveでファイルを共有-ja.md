@@ -6,7 +6,7 @@ oldUrl: []
 lang: ja
 id: 202507f-using-onedrive
 date: 2025-11-20T06:28:15.733Z
-last_modified: 2025-11-26T11:48:00.000Z
+last_modified: 2025-12-12T16:46:00.000Z
 title: OneDriveでファイルを共有
 description: OneDriveを利用したデータ共有の方法を紹介します。
 image: /uploads/blog-esolia-pro-default.png
@@ -33,7 +33,8 @@ Microsoftのクラウドストレージサービス「OneDrive」を利用して
   <img alt="Screenshot of selecting documents in File Explorer" src="/uploads/202507f-using-onedrive-1.png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
 
-2. クリック > 共有を選択する。以下のようなウィンドウが表示されます。入力し終えたら右下の「送信」ボタンを押して完了です。 
+2. 右クリック > 共有を選択する。
+   以下のようなウィンドウが表示されます。入力し終えたら右下の「送信」ボタンを押して完了です。 
 
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot of Word document sharing settings" src="/uploads/202507f-using-onedrive-ja2.png" width="400px" transform-images="avif webp png jpeg 400@2">
@@ -55,7 +56,8 @@ Webブラウザが立ち上がり、メールアドレスの入力を求めら�
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot showing the OneDrive verification code message" src="/uploads/202507f-using-onedrive-ja5.png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
-正しくコードを入力することで、共有されたデータを閲覧することができるようになります。これで共有方法は以上となります。 
+正しくコードを入力することで、共有されたデータを閲覧することができるようになります。
+これで共有方法は以上となります。 
 
 ## OneDriveのメリット 
 * **大きなデータでも送付ができる** 
