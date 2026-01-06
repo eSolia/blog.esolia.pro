@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202506e-adobe-pdf
-date: 2025-07-23T05:30:53.428Z
-last_modified: 2025-07-23T14:55:00.000Z
+date: 2026-01-06T02:55:00.000Z
+last_modified: 2026-01-06T11:56:00.000Z
 title: What is PDF? How is it related to Adobe Acrobat?
 description: We will explore the basics of PDFs and their relationship with Adobe Acrobat.
 image: /uploads/202506e-adobe-pdf-en.jpeg
