@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202506f-digital-detox
-date: 2025-07-23T04:30:24.559Z
-last_modified: 2025-07-23T13:42:00.000Z
+date: 2026-01-22T00:30:00.000Z
+last_modified: 2026-01-22T09:30:00.000Z
 title: Small Digital Detox Habits
 description: >-
   Introducing simple and sustainable digital detox tips practiced by an IT
