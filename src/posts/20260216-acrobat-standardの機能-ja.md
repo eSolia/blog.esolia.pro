@@ -6,7 +6,7 @@ oldUrl: []
 lang: ja
 id: 202507a-acrobat-standard
 date: 2026-02-16T06:42:19.197Z
-last_modified: 2026-02-16T16:50:00.000Z
+last_modified: 2026-02-16T17:01:00.000Z
 title: Acrobat Standardの機能
 description: Acrobat Readerとの違いから、活用機能、Acrobat Proとの比較まで
 image: /uploads/blog-esolia-pro-default.png
@@ -48,11 +48,12 @@ comments: {}
 1. 「編集」→「ページを整理」をクリック
 2. ページをドラッグして順序変更。下記スクリーンショットではページ２をページ１の前にドラッグしながら移動させる瞬間です
 <figure class="flex flex-col justify-start items-left">
-  <img alt="Screenshot of searching comand prompt on windows" src="/uploads/202507a-acrobat-standard-ja1.png" width="600px" transform-images="avif webp png jpeg 600@2">
+  <img alt="Screenshot of rearranging the document order in Acrobat " src="/uploads/202507a-acrobat-standard-ja1.png" width="500px" transform-images="avif webp png jpeg 500@2">
 </figure>
 3. 該当ページで右クリックすると、選択肢が表示され、他のファイルからのページ挿入、抽出して別ファイルとして保存が可能。該当ページの回転や削除も可能
+
 <figure class="flex flex-col justify-start items-left">
-  <img alt="Screenshot of searching comand prompt on windows" src="/uploads/202507a-acrobat-standard-ja2.png" width="600px" transform-images="avif webp png jpeg 600@2">
+  <img alt="Screenshot of right-clicking a document in Acrobat" src="/uploads/202507a-acrobat-standard-ja2.png" width="400px" transform-images="avif webp png jpeg 400@2">
 
 ### ②	セキュリティ管理
 * パスワード設定：PDFファイルにパスワードを設定し、閲覧を制限できます。受信者はパスワードを知らない限り内容を表示できないため、機密資料の管理に有効です。
@@ -76,8 +77,10 @@ Acrobat Standardでは、電子署名を依頼する機能も搭載されてい�
 1. 電子署名を行うPDFを開く
 2. 「電子サイン」→「電子サインを依頼」をクリック
 3. 署名してもうら方のアドレスと名前を記入。二人以上の署名で順番に署名が必要な場合、「受信者は順番に署名することが必要」に✓を付ける
+   
 <figure class="flex flex-col justify-start items-left">
-  <img alt="Screenshot of searching comand prompt on windows" src="/uploads/202507a-acrobat-standard-ja3.png" width="600px" transform-images="avif webp png jpeg 600@2">
+  <img alt="Screenshot of etting document restrictions in Acrobat" src="/uploads/202507a-acrobat-standard-ja3.png" width="500px" transform-images="avif webp png jpeg 500@2">
+  
 4. 署名フィールドの設定
 5. 署名してもらう方へのメッセージの入力、リマインダーの設定（必要があれば）、送信
 ※リマインダーを設定することで、署名されるまで署名者にリマインダーが自動的に届きます
