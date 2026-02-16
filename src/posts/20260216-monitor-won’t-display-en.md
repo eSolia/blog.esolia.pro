@@ -6,7 +6,7 @@ oldUrl: []
 lang: en
 id: 202507c-monitor-troubleshooting
 date: 2026-02-16T05:04:00.000Z
-last_modified: 2026-02-16T14:04:00.000Z
+last_modified: 2026-02-16T14:54:00.000Z
 title: >-
   What to Do When Your Monitor Won’t Display: Troubleshooting Tips from IT
   Support
@@ -14,8 +14,8 @@ description: >-
   Having trouble with your monitor not displaying? This guide walks you through
   real-world IT support steps to fix common screen issues—starting with simple
   power resets and ending with driver checks.
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202507c-monitor-troubleshooting-en.jpeg
+image_top: /uploads/202507c-monitor-troubleshooting.jpeg
 author: Kabaya
 category: Troubleshooting
 tags:
