@@ -6,14 +6,14 @@ oldUrl: []
 lang: en
 id: 202507g-it-professionals
 date: 2025-12-12T05:03:47.799Z
-last_modified: 2025-12-12T14:19:00.000Z
+last_modified: 2026-02-16T14:35:00.000Z
 title: Reflecting on the True Value of IT Professionals at the Heart of Tokyo Station
 description: >-
   What is the true value of IT project managers? Using Tokyo Station as a
   metaphor, this article explores how IT professionals coordinate, decide, and
   connect people—leveraging data and AI to move projects forward. 
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202507g-it-professionals-en.png
+image_top: /uploads/202507g-it-professionals.png
 author: Ena
 category: Other
 tags:

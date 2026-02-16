@@ -6,13 +6,13 @@ oldUrl: []
 lang: en
 id: 202507e-manage-your-passwords
 date: 2025-11-20T05:11:40.920Z
-last_modified: 2025-11-20T14:26:00.000Z
+last_modified: 2026-02-16T14:27:00.000Z
 title: How Should You Manage Your Passwords?
 description: >-
   We’ll look at how to manage passwords safely, and how to create stronger,
   harder-to-guess passwords — even for beginners. 
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202507e-manage-your-passwords-en.png
+image_top: /uploads/202507e-manage-your-passwords.png
 author: KC
 category: Security
 tags:

@@ -6,11 +6,11 @@ oldUrl: []
 lang: en
 id: 202508b-remove-usb
 date: 2025-12-12T05:53:12.585Z
-last_modified: 2025-12-12T16:18:00.000Z
+last_modified: 2026-02-16T14:40:00.000Z
 title: Is it safety to remove USB device?
 description: 'Is “Safely Remove Hardware and Eject Media” still necessary?  '
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202508b-remove-usb-en.png
+image_top: /uploads/202508b-remove-usb.png
 author: SK
 category: Windows
 tags:

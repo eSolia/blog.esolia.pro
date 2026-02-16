@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202507c-monitor-troubleshooting
-date: 2025-11-20T05:54:42.012Z
-last_modified: 2025-11-20T15:08:00.000Z
+date: 2026-02-16T05:04:00.000Z
+last_modified: 2026-02-16T14:04:00.000Z
 title: >-
   What to Do When Your Monitor Won’t Display: Troubleshooting Tips from IT
   Support
@@ -76,4 +76,4 @@ Over 80% of display issues can be fixed by doing one of the following:
 ## Summary: Start with Power, Cables, and Settings 
 Display issues are often caused by simple factors, and most of the time you can fix them by following the “unplug and replug” method and verifying display settings. 
 If that doesn’t work, proceed step by step by replacing cables, testing the dock, or updating system drivers. 
-You’d be surprised how many cases are resolved with just a simple reset, so give this checklist a try before calling IT support. 
+You’d be surprised how many cases are resolved with just a simple reset, so give this checklist a try before calling IT support.
