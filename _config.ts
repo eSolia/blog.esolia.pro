@@ -233,6 +233,7 @@ site.use(feed({
   output: ["/feed.ja.xml", "/feed.ja.json"],
   query: "type=post lang=ja",
   sort: "date=desc",
+  limit: 0,
   info: {
     title: "=site.title",
     description: "=site.description",
@@ -256,6 +257,7 @@ site.use(feed({
   output: ["/feed.en.xml", "/feed.en.json"],
   query: "type=post lang=en",
   sort: "date=desc",
+  limit: 0,
   info: {
     title: "=en.site.title",
     description: "=en.site.description",
