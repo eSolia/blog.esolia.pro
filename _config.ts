@@ -243,13 +243,13 @@ site.use(feed({
     authorName: "=site.author",
   },
   items: {
-    title: "=title", // title of the item
-    description: "=description", // description
-    published: "=date", // publishing date
-    updated: "=last_modified", // last update
-    lang: "ja", // language
-    image: "=image", // image
-    authorName: "=author", // author
+    title: "=title",
+    description: "=description",
+    published: "=date",
+    updated: "=last_modified",
+    lang: "ja",
+    image: "=image",
+    authorName: "=author",
   },
 }));
 site.use(feed({
@@ -266,15 +266,61 @@ site.use(feed({
     authorName: "=en.site.author",
   },
   items: {
-    title: "=title", // title of the item
-    description: "=description", // description
-    published: "=date", // publishing date
-    updated: "=last_modified", // last update
-    lang: "en", // language
-    image: "=image", // image
-    authorName: "=author", // author
+    title: "=title",
+    description: "=description",
+    published: "=date",
+    updated: "=last_modified",
+    lang: "en",
+    image: "=image",
+    authorName: "=author",
   },
 }));
+
+// Enrich JSON feeds with tags and summary from post metadata
+// (The feed plugin doesn't support custom fields, so we post-process)
+site.process(function enrichFeedJson() {
+  // Build lookup of post metadata keyed by full URL
+  const postMeta = new Map<
+    string,
+    { category: string; tags: string[]; description: string }
+  >();
+
+  for (const data of site.search.pages("type=post")) {
+    const fullUrl = site.url(data.url as string, true);
+    postMeta.set(fullUrl, {
+      category: (data.category as string) || "",
+      tags: (data.tags as string[]) || [],
+      description: (data.description as string) || "",
+    });
+  }
+
+  // Find and enrich JSON feed pages
+  for (const page of site.pages) {
+    const pageUrl = page.data.url as string;
+    if (pageUrl?.endsWith(".json") && pageUrl?.includes("feed")) {
+      try {
+        const content = page.content as string;
+        const feedJson = JSON.parse(content);
+        if (feedJson.items) {
+          for (const item of feedJson.items) {
+            const meta = postMeta.get(item.url);
+            if (meta) {
+              item.tags = meta.category
+                ? [meta.category, ...meta.tags]
+                : [...meta.tags];
+              if (meta.description) {
+                item.summary = meta.description;
+              }
+            }
+          }
+          page.content = JSON.stringify(feedJson);
+        }
+      } catch {
+        // Skip pages with non-parseable content
+      }
+    }
+  }
+});
 site.use(sitemap({
   // query: "external_link=undefined",
   lastmod: "lastmod",
