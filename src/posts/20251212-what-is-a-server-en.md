@@ -6,13 +6,13 @@ oldUrl: []
 lang: en
 id: 202508c-what-is-server
 date: 2025-12-12T06:47:19.392Z
-last_modified: 2025-12-12T16:05:00.000Z
+last_modified: 2026-03-02T16:48:00.000Z
 title: 'IT Terms You Think You Know: What Is a Server?'
 description: >-
   we’ll give a gentle and beginner-friendly explanation of the term “server,”
   which you might know the sound of, but not fully understand. 
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202508c-what-is-server-en.png
+image_top: /uploads/202508c-what-is-server.png
 author: KC
 category: Other
 tags:

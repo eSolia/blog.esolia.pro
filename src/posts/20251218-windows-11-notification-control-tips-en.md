@@ -6,14 +6,14 @@ oldUrl: []
 lang: en
 id: 202508e-notification-windows11
 date: 2025-12-18T06:28:52.786Z
-last_modified: 2025-12-18T17:18:00.000Z
+last_modified: 2026-03-02T16:18:00.000Z
 title: Windows 11 Notification Control Tips
 description: >-
   Boost your concentration and work efficiency by smartly controlling Windows 11
   notification settings! Learn how to block unnecessary alerts while ensuring
   you never miss important ones, along with key points to watch out for. 
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202508e-notification-windows11-en.png
+image_top: /uploads/202508e-notification-windows11.png
 author: Shiori
 category: Microsoft-365
 tags:
