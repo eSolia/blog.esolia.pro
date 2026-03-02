@@ -6,7 +6,7 @@ oldUrl: []
 lang: en
 id: 202507e-manage-your-passwords
 date: 2026-03-02T01:30:00.000Z
-last_modified: 2026-03-02T10:33:00.000Z
+last_modified: 2026-03-02T13:33:00.000Z
 title: How Should You Manage Your Passwords?
 description: >-
   We’ll look at how to manage passwords safely, and how to create stronger,
@@ -79,13 +79,14 @@ Example: Base word is “esolia”
 The stronger your passwords are, the harder they are to remember — that’s where password managers come in. 
 
 At Esolia, we use… 
-Our company uses a password management tool called **Codebook**, which helps store and manage passwords securely. 
+Our company uses a password management tool called **[Codebook](https://www.zetetic.net/codebook/){target="_blank" rel="noopener"}**, which helps store and manage passwords securely. 
 * Passwords are encrypted and stored safely 
 * You can sync data across your PC and mobile devices 
 * Includes a password generator 
 * Supports two-factor authentication (2FA) settings
 
-Other password managers include **Keeper**, **Bitwarden**, and **LastPass** — but please follow company guidelines when choosing tools. 
+Other password managers include **Keeper**, **Bitwarden** — but please follow company guidelines when choosing tools. 
+You can find more information about the Codebook subscription pricing [here](https://codebook.cloud/pricing?includeCommercial&coupon=ESOLIAREF25OFF){target="_blank" rel="noopener"}.
 
 ## 3 Basic Rules for Password Management 
 
@@ -100,4 +101,3 @@ Other password managers include **Keeper**, **Bitwarden**, and **LastPass** — 
 Passwords are like keys — and you wouldn’t want a door that opens with a coin. 
 Creating strong and secure passwords is the first step in protecting your data. 
 Make use of tools like Codebook to manage passwords safely, without relying on memory alone!
-
