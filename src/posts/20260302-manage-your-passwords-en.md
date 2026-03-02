@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202507e-manage-your-passwords
-date: 2025-11-20T05:11:40.920Z
-last_modified: 2026-02-16T14:27:00.000Z
+date: 2026-03-02T01:30:00.000Z
+last_modified: 2026-03-02T10:33:00.000Z
 title: How Should You Manage Your Passwords?
 description: >-
   We’ll look at how to manage passwords safely, and how to create stronger,
@@ -100,3 +100,4 @@ Other password managers include **Keeper**, **Bitwarden**, and **LastPass** — 
 Passwords are like keys — and you wouldn’t want a door that opens with a coin. 
 Creating strong and secure passwords is the first step in protecting your data. 
 Make use of tools like Codebook to manage passwords safely, without relying on memory alone!
+
