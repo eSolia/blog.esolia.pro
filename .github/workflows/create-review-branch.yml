@@ -3,24 +3,24 @@ on:
   workflow_dispatch:
     inputs:
       branch_name:
-        description: "Name of the branch to create (e.g., review)"
+        description: 'Name of the branch to create (e.g., review)'
         required: true
-        default: "review"
+        default: 'review'
   push:
     branches:
-      - main # This line triggers the workflow whenever anything is pushed to the 'main' branch
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   create_branch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main branch
-        # For 'push' events, GITHUB_REF will already be 'refs/heads/main',
-        # but explicitly setting 'ref: main' ensures we're always pulling from main
-        # regardless of the specific commit that triggered the push.
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
-          ref: "main"
+          ref: 'main'
 
       - name: Configure Git
         run: |
@@ -29,37 +29,36 @@ jobs:
 
       - name: Determine Branch Name
         id: set_branch_name
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_BRANCH: ${{ github.event.inputs.branch_name }}
         run: |
-          # If triggered by workflow_dispatch, use the input.
-          # Otherwise (triggered by push), default to 'review'.
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "BRANCH_NAME=${{ github.event.inputs.branch_name }}" >> "$GITHUB_OUTPUT"
+          if [ "$EVENT_NAME" == "workflow_dispatch" ]; then
+            echo "BRANCH_NAME=$INPUT_BRANCH" >> "$GITHUB_OUTPUT"
           else
             echo "BRANCH_NAME=review" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Delete existing review branch (if it exists)
+        env:
+          BRANCH_NAME: ${{ steps.set_branch_name.outputs.BRANCH_NAME }}
         run: |
-          git push origin --delete ${{ steps.set_branch_name.outputs.BRANCH_NAME }} || true
-        shell: bash
+          git push origin --delete "$BRANCH_NAME" || true
 
       - name: Create new review branch from main
+        env:
+          BRANCH_NAME: ${{ steps.set_branch_name.outputs.BRANCH_NAME }}
         run: |
-          git checkout -b ${{ steps.set_branch_name.outputs.BRANCH_NAME }}
-          git push origin ${{ steps.set_branch_name.outputs.BRANCH_NAME }}
-        shell: bash
+          git checkout -b "$BRANCH_NAME"
+          git push origin "$BRANCH_NAME"
 
-      - name: Trigger Netlify Deploy (Optional, Netlify should auto-detect)
+      - name: Trigger Netlify Deploy (Optional)
+        env:
+          NETLIFY_PREVIEW_BUILD_HOOK: ${{ secrets.NETLIFY_PREVIEW_BUILD_HOOK }}
         run: |
-          # Only attempt to curl if the environment variable is set.
-          # Use -s (silent) and -S (show errors) for cleaner output if it fails.
-          # The 'test -n' checks if the string is non-empty.
-          if test -n "${{ env.NETLIFY_PREVIEW_BUILD_HOOK }}"; then
+          if test -n "$NETLIFY_PREVIEW_BUILD_HOOK"; then
             echo "Triggering Netlify deploy for preview branch..."
-            curl -X POST -d '{}' "${{ env.NETLIFY_PREVIEW_BUILD_HOOK }}"
+            curl -X POST -d '{}' "$NETLIFY_PREVIEW_BUILD_HOOK"
           else
             echo "NETLIFY_PREVIEW_BUILD_HOOK secret is not set or empty. Skipping Netlify deploy trigger."
           fi
-        env:
-          NETLIFY_PREVIEW_BUILD_HOOK: ${{ secrets.NETLIFY_PREVIEW_BUILD_HOOK }}
-        # Removed the 'if' condition on the step itself, handling it inside 'run'
