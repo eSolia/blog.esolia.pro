@@ -6,7 +6,7 @@ oldUrl: []
 lang: en
 id: 202507a-acrobat-standard
 date: 2026-03-05T08:13:19.198Z
-last_modified: 2026-03-09T14:43:00.000Z
+last_modified: 2026-03-09T17:24:00.000Z
 title: Introducing Acrobat Standard features for use in administrative departments
 description: >-
   From differences with Acrobat Reader to useful features and comparison with
@@ -204,14 +204,13 @@ It is also possible to send a request for signatures in a specific order of thos
 **Convert PDF to Word/Excel/PowerPoint**: Use this when users want to convert a PDF that does not have the original data back to Word for editing, or when users want to convert a PDF quotation or report to Excel for compilation. However, please 
 note that there are limits to the accuracy of the conversion, and the format may not be reproduced accurately.
 
-* Examples of common problems
-**Character misalignment**: Line spacing, fonts, and paragraph settings are arranged differently from the PDF.
+**Examples of common problems**
+* Character misalignment: Line spacing, fonts, and paragraph settings are arranged differently from the PDF.
 Table collapse: Tables that look fine on the PDF will have rows and columns separated in Excel or Word. If lines are treated as images, they will not become cells.
-**Image misalignment or missing**: Graphs and shapes are not displayed in the correct place.
+* Image misalignment or missing: Graphs and shapes are not displayed in the correct place.
 Collapse of column or multiple layout: Text order is disrupted. It may be reconstructed into a single column.
 Please note that the converted file needs to be checked and reformatted. It is suitable for use as a means of extracting materials for re-editing, but if full reproduction is desired, it will be necessary to recreate the PDF from the original data.
-
-**Convert Office files to PDF**: Use this when users want to submit or distribute a document as an official document.
+* Convert Office files to PDF: Use this when users want to submit or distribute a document as an official document.
 
 {{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
 1. Convert the relevant file (Word/Excel/PowerPoint) via Acrobat.
@@ -220,10 +219,10 @@ Please note that the converted file needs to be checked and reformatted. It is s
 ## Main differences from Acrobat Pro
 The main differences between Acrobat Pro and Acrobat Pro are listed in the comparison table at the beginning of this document, but here are some features of Acrobat Pro.　
 
-**Masking of sensitive information**: Masks text and images with a black fill, searches for specific keywords in the entire document, and removes metadata and hidden information.
-**OCR (Optical Character Recognition)**: Text can be automatically read from scanned images and photo PDFs. For example, paper contracts and receipts can be digitized and made searchable.
-**PDF file difference comparison**: Automatically compares the contents of two PDF files and displays a list of differences (additions, deletions, and changes). For example, it can improve the efficiency of checking and reviewing the revised contents of contracts and company regulations.
-**Accessibility support**: PDFs can be created and verified for voice reading for the visually impaired.
+* Masking of sensitive information: Masks text and images with a black fill, searches for specific keywords in the entire document, and removes metadata and hidden information.
+* OCR (Optical Character Recognition): Text can be automatically read from scanned images and photo PDFs. For example, paper contracts and receipts can be digitized and made searchable.
+* PDF file difference comparison: Automatically compares the contents of two PDF files and displays a list of differences (additions, deletions, and changes). For example, it can improve the efficiency of checking and reviewing the revised contents of contracts and company regulations.
+* Accessibility support: PDFs can be created and verified for voice reading for the visually impaired.
 
 In environments where more advanced document management or the use of scanned documents is required, it may be worth considering using Acrobat Pro. But in that case, it is recommended to first verify that the plan includes the features required for your business needs, and then make a selection based on pricing considerations.
 
