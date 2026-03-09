@@ -6,7 +6,7 @@ oldUrl: []
 lang: ja
 id: 202507a-acrobat-standard
 date: 2026-02-16T06:42:19.197Z
-last_modified: 2026-03-05T17:10:00.000Z
+last_modified: 2026-03-09T14:52:00.000Z
 title: 管理部門で活用するAcrobat Standardの機能をご紹介
 description: Acrobat Readerとの違いから、活用機能、Acrobat Proとの比較まで
 image: /uploads/202507a-acrobat-standard-ja.png
@@ -151,21 +151,22 @@ comments: {}
   </tbody>
 </table>
 
-* Acrobat Reader：PDFの閲覧や注釈の追加に特価した無料ソフトです。
-* Acrobat Standard: PDFの編集、セキュリティ管理、署名依頼、変換などの操作が対応可能な有償ソフトです。
-* Acrobat Pro: Acrobat Standardのすべての機能に加えて、高度な文書管理機能を搭載しています。
-※詳細な違いは参考URL　[Acrobatプランを比較する](https://www.adobe.com/jp/acrobat/pricing/compare-versions.html){target="_blank" rel="noopener"} [Adobe Acrobatのプランと価格](https://www.adobe.com/jp/acrobat/pricing/business.html){target="_blank" rel="noopener"}をご覧ください。
+> [!NOTE]
+> Acrobat Reader：PDFの閲覧や注釈の追加に特価した無料ソフトです。
+> Acrobat Standard: PDFの編集、セキュリティ管理、署名依頼、変換などの操作が対応可能な有償ソフトです。
+> Acrobat Pro: Acrobat Standardのすべての機能に加えて、高度な文書管理機能を搭載しています。
+> ※詳細な違いは参考URL　[Acrobatプランを比較する](https://www.adobe.com/jp/acrobat/pricing/compare-versions.html){target="_blank" rel="noopener"} [Adobe Acrobatのプランと価格](https://www.adobe.com/jp/acrobat/pricing/business.html){target="_blank" rel="noopener"}をご覧ください。
 
 ## Acrobat Standardの使用頻度の高い主要機能
 ### ①	PDFの編集・更新
-* **テキストや画像の直接修正**：Adobe Acrobat Standardでは、PDFファイル内のテキストを直接編集可能です。レイアウトや書式を保ったまま、誤字脱字の修正や内容の追記・削除が可能です。または、PDF内の該当オブジェクト（テクストボックス・画像・スタンプなど）をドラッグして、位置を移動したり、サイズを変更したりすることが可能です。
+**テキストや画像の直接修正**：Adobe Acrobat Standardでは、PDFファイル内のテキストを直接編集可能です。レイアウトや書式を保ったまま、誤字脱字の修正や内容の追記・削除が可能です。または、PDF内の該当オブジェクト（テクストボックス・画像・スタンプなど）をドラッグして、位置を移動したり、サイズを変更したりすることが可能です。
 {{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}}操作
 1.	AcrobatでPDFを開く
 2.	「編集」ツールを選択
 3.	該当テキストをクリックし、直接入力・修正。
 　　または、該当オブジェクトをドラッグして一の移動やサイズ変更等を行う。
 
-* **ぺージの順序変更**・追加・抽出：PDF内のページ順の変更、別ファイルからのページ追加、特定ページの抽出保存などが簡単に行えます。
+**ぺージの順序変更**・追加・抽出：PDF内のページ順の変更、別ファイルからのページ追加、特定ページの抽出保存などが簡単に行えます。
 ※編集不可と設定されているPDFファイルでの変更はできませんので、ご注意ください。
 {{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}}操作
 1. 「編集」→「ページを整理」をクリック
@@ -174,21 +175,22 @@ comments: {}
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot of rearranging the document order in Acrobat " src="/uploads/202507a-acrobat-standard-ja1.png" width="500px" transform-images="avif webp png jpeg 500@2">
 </figure>
+
 3. 該当ページで右クリックすると、選択肢が表示され、他のファイルからのページ挿入、抽出して別ファイルとして保存が可能。該当ページの回転や削除も可能
 
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot of right-clicking a document in Acrobat" src="/uploads/202507a-acrobat-standard-ja2.png" width="400px" transform-images="avif webp png jpeg 400@2"></figure>
 
 ### ②	セキュリティ管理
-* **パスワード設定**：PDFファイルにパスワードを設定し、閲覧を制限できます。受信者はパスワードを知らない限り内容を表示できないため、機密資料の管理に有効です。
+**パスワード設定**：PDFファイルにパスワードを設定し、閲覧を制限できます。受信者はパスワードを知らない限り内容を表示できないため、機密資料の管理に有効です。
 {{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}}操作
 1.	「メニュー」→「パスワードを使用して保護」をクリック
 2.	「閲覧」→「詳細オプション」→「パスワードによる暗号化」をクリック
 3.	「文書を開くときにパスワードが必要」に✓をつけ、パスワードの入力
 
-* **編集や印刷の制限**：閲覧許可のほかに、「印刷不可」「コピー不可」「編集不可」といった制限を設定できます。誤操作や不正改ざんの防止に役立ちます。
+**編集や印刷の制限**：閲覧許可のほかに、「印刷不可」「コピー不可」「編集不可」といった制限を設定できます。誤操作や不正改ざんの防止に役立ちます。
 {{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}}操作
-1. 「「メニュー」→「パスワードを使用して保護」をクリック
+1. 「メニュー」→「パスワードを使用して保護」をクリック
 2. 「閲覧」→「詳細オプション」→「パスワードによる暗号化」をクリック
 3. 「文書の印刷及び編集を制限。これらの制限設定を変更するにはパスワードが必要」に✓を付ける。印刷と変更の許可を選択
 
