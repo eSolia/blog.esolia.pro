@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202507a-acrobat-standard
-date: 2026-03-05T08:13:19.198Z
-last_modified: 2026-03-09T17:24:00.000Z
+date: 2026-03-23T00:51:00.000Z
+last_modified: 2026-03-23T09:51:00.000Z
 title: Introducing Acrobat Standard features for use in administrative departments
 description: >-
   From differences with Acrobat Reader to useful features and comparison with

@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: ja
 id: 202507a-acrobat-standard
-date: 2026-02-16T06:42:19.197Z
-last_modified: 2026-03-09T17:28:00.000Z
+date: 2026-03-23T00:46:00.000Z
+last_modified: 2026-03-23T09:49:00.000Z
 title: 管理部門で活用するAcrobat Standardの機能をご紹介
 description: Acrobat Readerとの違いから、活用機能、Acrobat Proとの比較まで
 image: /uploads/202507a-acrobat-standard-ja.png
@@ -163,8 +163,7 @@ comments: {}
 {{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}}操作
 1.	AcrobatでPDFを開く
 2.	「編集」ツールを選択
-3.	該当テキストをクリックし、直接入力・修正。
-　　または、該当オブジェクトをドラッグして一の移動やサイズ変更等を行う。
+3.	該当テキストをクリックし、直接入力・修正。または、該当オブジェクトをドラッグして一の移動やサイズ変更等を行う。
 
 **ぺージの順序変更**・追加・抽出：PDF内のページ順の変更、別ファイルからのページ追加、特定ページの抽出保存などが簡単に行えます。
 ※編集不可と設定されているPDFファイルでの変更はできませんので、ご注意ください。
