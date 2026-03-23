@@ -6,7 +6,7 @@ oldUrl: []
 lang: en
 id: 202507a-acrobat-standard
 date: 2026-03-23T00:51:00.000Z
-last_modified: 2026-03-23T09:51:00.000Z
+last_modified: 2026-03-23T10:32:00.000Z
 title: Introducing Acrobat Standard features for use in administrative departments
 description: >-
   From differences with Acrobat Reader to useful features and comparison with
@@ -24,7 +24,7 @@ tags:
 comments: {}
 ---
 Building on our previous blog,["What is PDF? How is it related to Adobe Acrobat?"](https://blog.esolia.pro/posts/20260106-pdf%E3%81%AE%E5%9F%BA%E6%9C%AC-ja/){target="_blank" rel="noopener"}
-, which explored the relationship between PDF and Acrobat, this time we will introduce the key features of "Acrobat Standard" — a tool frequently used in our company's administrative document workflows — along with how it differs from Acrobat Reader and Acrobat Pro. By shifting from merely "**reading**" PDFs to "**editing and managing**" them, users can streamline daily operations, working more efficiently and securely.
+, which explored the relationship between PDF and Acrobat, this time we will introduce the key features of "Acrobat Standard" — a tool frequently used in our company's administrative document workflows — along with how it differs from Acrobat Reader and Acrobat Pro. By shifting from merely "**reading**" PDFs to "**editing and managing**" them, users can streamline daily operations, working more efficiently and securely. For detailed instructions with screenshots, please refer to the Japanese version.
 
 <!--more-->
 
