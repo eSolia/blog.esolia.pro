@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202507f-using-onedrive
-date: 2026-03-02T05:30:22.997Z
-last_modified: 2026-03-02T15:05:00.000Z
+date: 2026-04-06T00:47:00.000Z
+last_modified: 2026-04-06T09:47:00.000Z
 title: Let’s share your data using OneDrive!
 description: >-
   This article clearly explains how to securely and easily share files using

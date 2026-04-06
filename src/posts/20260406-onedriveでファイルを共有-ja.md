@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: ja
 id: 202507f-using-onedrive
-date: 2025-11-20T06:28:15.733Z
-last_modified: 2026-03-02T15:01:00.000Z
+date: 2026-04-06T00:45:00.000Z
+last_modified: 2026-04-06T09:45:00.000Z
 title: OneDriveでファイルを共有
 description: OneDriveを利用したデータ共有の方法を紹介します。
 image: /uploads/blog-esolia-pro-default.png
