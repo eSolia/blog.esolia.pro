@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "account_id": "ab2ac8ca4000c79ae4a66377276585be",
+  "name": "blog-esolia-pro",
+  "compatibility_date": "2026-05-01",
+  "assets": {
+    "directory": "./_site",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "head_sampling_rate": 1
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 1
+    }
+  }
+}

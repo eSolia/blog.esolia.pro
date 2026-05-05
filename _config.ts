@@ -55,7 +55,12 @@ import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnote
 import { alert } from "npm:@mdit/plugin-alert@0.17.0";
 
 // Utils
-import { cssBanner, shuffle, deferPagefind, externalLinksIcon } from "hibana/mod.ts";
+import {
+  cssBanner,
+  deferPagefind,
+  externalLinksIcon,
+  shuffle,
+} from "hibana/mod.ts";
 
 // Assets in HTML
 import icons from "lume/plugins/icons.ts";
@@ -144,7 +149,13 @@ site.use(googleFonts({
 site.use(googleFonts({
   cssFile: "fonts-en.css",
   fontsFolder: "fonts-en",
-  ignoredSubsets: ["cyrillic", "cyrillic-ext", "vietnamese", "latin-ext", "greek"],
+  ignoredSubsets: [
+    "cyrillic",
+    "cyrillic-ext",
+    "vietnamese",
+    "latin-ext",
+    "greek",
+  ],
   fonts: {
     textface:
       "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap",
@@ -395,6 +406,7 @@ site.add("manifest.json");
 site.add("uploads");
 site.add("assets");
 site.add("f36d0f5824b04fae955f338128bac96e.txt"); // indexnow
+site.add("_headers"); // Cloudflare Workers Static Assets headers config (404 handled via not_found_handling in wrangler.jsonc)
 // Mastodon comment system
 // site.add(
 //   "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
@@ -445,7 +457,7 @@ site.script("makeFontpathAbsoluteJa", sedFixFontpathJa);
 site.addEventListener("afterBuild", "makeFontpathAbsoluteEn");
 site.addEventListener("afterBuild", "makeFontpathAbsoluteJa");
 
-// pass the base url 
+// pass the base url
 site.process([".html"], externalLinksIcon("https://blog.esolia.pro"));
 site.process([".html"], deferPagefind());
 
