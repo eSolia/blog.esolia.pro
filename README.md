@@ -1,9 +1,8 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7bfb45da-9787-468c-bb64-158e43108f49/deploy-status)](https://app.netlify.com/sites/blog-esolia-pro/deploys)
-
 # blog.esolia.pro
 
 This blog site is built and based on [`lume`](https://lume.land/), the "static
-site generator" for `deno`, and is hosted on [Netlify](https://netlify.com) as
+site generator" for `deno`, and is hosted on
+[Cloudflare Workers](https://workers.cloudflare.com/) (Static Assets) as
 static files. In comparison to a database-driven site such as Wordpress, static
 sites are secure and high-performance.
 
