@@ -51,14 +51,3 @@ jobs:
         run: |
           git checkout -b "$BRANCH_NAME"
           git push origin "$BRANCH_NAME"
-
-      - name: Trigger Netlify Deploy (Optional)
-        env:
-          NETLIFY_PREVIEW_BUILD_HOOK: ${{ secrets.NETLIFY_PREVIEW_BUILD_HOOK }}
-        run: |
-          if test -n "$NETLIFY_PREVIEW_BUILD_HOOK"; then
-            echo "Triggering Netlify deploy for preview branch..."
-            curl -X POST -d '{}' "$NETLIFY_PREVIEW_BUILD_HOOK"
-          else
-            echo "NETLIFY_PREVIEW_BUILD_HOOK secret is not set or empty. Skipping Netlify deploy trigger."
-          fi
