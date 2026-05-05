@@ -2,10 +2,15 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "account_id": "ab2ac8ca4000c79ae4a66377276585be",
   "name": "blog-esolia-pro",
+  "main": "./worker/index.ts",
   "compatibility_date": "2026-05-01",
   "assets": {
     "directory": "./_site",
+    "binding": "ASSETS",
     "not_found_handling": "404-page"
+  },
+  "triggers": {
+    "crons": ["0 17 * * *"]
   },
   "observability": {
     "enabled": true,
