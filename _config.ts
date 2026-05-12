@@ -90,6 +90,10 @@ const markdown = {
 const site = lume({
   src: "./src",
   location: new URL("https://blog.esolia.pro"),
+  server: {
+    hostname: "127.0.0.1",
+    port: 3000,
+  },
 }, { markdown });
 
 // Load First, order does not matter
