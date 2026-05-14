@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202507g-it-professionals
-date: 2025-12-12T05:03:47.799Z
-last_modified: 2026-02-16T14:35:00.000Z
+date: 2026-05-14T05:10:00.000Z
+last_modified: 2026-05-14T14:10:00.000Z
 title: Reflecting on the True Value of IT Professionals at the Heart of Tokyo Station
 description: >-
   What is the true value of IT project managers? Using Tokyo Station as a
