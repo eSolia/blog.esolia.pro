@@ -14,7 +14,7 @@
     @apply text-zinc-500 dark:text-zinc-100 hover:text-sky-600 dark:hover:text-sky-400; /* Example base link styles */
     transition: color 0.15s ease-in-out;
     text-decoration-thickness: 1px; /* Set your desired default thickness here as well */
-    text-decoration-color: theme('colors.zinc.500'); /* Match the text color */
+    text-decoration-color: theme("colors.zinc.500"); /* Match the text color */
   }
 
   /* You could also style specific link states globally */
@@ -25,7 +25,7 @@
 @layer components {
   /* Apply base styles to tables with not-prose */
   table not-prose {
-    @apply table-fixed w-full text-left text-sm; 
+    @apply table-fixed w-full text-left text-sm;
   }
 
   table.not-prose thead {
@@ -47,7 +47,7 @@
   table.not-prose caption {
     @apply caption-bottom text-left p-2 text-xs text-zinc-400;
   }
-    /* Override the prose <a> tag hover classes */
+  /* Override the prose <a> tag hover classes */
   .prose :where(a) {
     @apply hover:opacity-70;
   }
@@ -71,12 +71,38 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --default-font-feature-settings: "kern" 1, "liga" 1, "clig" 1, "calt" 1, "palt" 0, "zero" 1, "sups" 0, "frac" 0, "ordn" 0;
+  --default-font-feature-settings:
+    "kern" 1,
+    "liga" 1,
+    "clig" 1,
+    "calt" 1,
+    "palt" 0,
+    "zero" 1,
+    "sups" 0,
+    "frac" 0,
+    "ordn" 0;
   --default-font-variant-ligatures: common-ligatures;
   --header-top: 1rem;
-  --font-sans: textface, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    textface,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: codeface, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono:
+    codeface,
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
   /* eSolia Yellow Logo Color #FFBC68 is 500 */
   --color-esoliaamber-50: oklch(98.69% 0.021 95.28);
   --color-esoliaamber-100: oklch(97.31% 0.037 91.69);
@@ -147,12 +173,12 @@ body article > div > figure > picture > img {
 
 /* MDN keyboard shortcut style for kbd tag */
 kbd {
-  @apply bg-zinc-200 rounded border border-zinc-400 shadow-md text-zinc-950 inline-block text-[0.85em] font-semibold leading-none px-1 py-0.5 whitespace-nowrap
+  @apply bg-zinc-200 rounded border border-zinc-400 shadow-md text-zinc-950 inline-block text-[0.85em] font-semibold leading-none px-1 py-0.5 whitespace-nowrap;
 }
 
 /*----------------------------
-* 検索ボックス via Lume Pagefind
-*----------------------------*/
+ * 検索ボックス via Lume Pagefind
+ *----------------------------*/
 :root {
   --pagefind-ui-scale: 1;
   --pagefind-ui-primary: var(--color-sky-500);
@@ -164,7 +190,15 @@ kbd {
   --pagefind-ui-border-radius: 8px;
   --pagefind-ui-image-border-radius: 8px;
   --pagefind-ui-image-box-ratio: 3 / 2;
-  --pagefind-ui-font: textface, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --pagefind-ui-font:
+    textface,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
   .dark {
     --pagefind-ui-primary: var(--color-sky-500);
     --pagefind-ui-text: var(--color-zinc-200);
@@ -178,18 +212,18 @@ kbd {
 }
 
 /*----------------------------
-* テキスト選択ハイライト
-*----------------------------*/
+ * テキスト選択ハイライト
+ *----------------------------*/
 mark {
   background-color: var(--color-sky-300);
 }
 :root {
   ::selection {
     background-color: var(--color-sky-300);
-    color: var(--color-zinc-900); 
+    color: var(--color-zinc-900);
   }
-  
-/* light-theme-here */
+
+  /* light-theme-here */
 
   .dark {
     ::selection {
@@ -197,15 +231,13 @@ mark {
       color: var(--color-zinc-900);
     }
 
-/* dark-theme-here */
-
+    /* dark-theme-here */
   }
 }
 
-
 /*----------------------------
-* Hamburger 開閉ボタン
-*----------------------------*/
+ * Hamburger 開閉ボタン
+ *----------------------------*/
 .mobile-menu-btn {
   position: fixed;
   top: 20px;
@@ -222,8 +254,8 @@ mark {
 }
 
 /*----------------------------
-* Hamburger Menu 本体
-*----------------------------*/
+ * Hamburger Menu 本体
+ *----------------------------*/
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -236,25 +268,30 @@ mark {
   align-items: center;
   justify-content: center;
   background: #808080;
-  background-color: rgba(85, 85, 85, 0.7); /* Gray background with 70% opacity */
+  background-color: rgba(
+    85,
+    85,
+    85,
+    0.7
+  ); /* Gray background with 70% opacity */
 }
-.mobile-menu__item{
+.mobile-menu__item {
   width: 100%;
   height: auto;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   text-align: center;
   color: #fff;
   box-sizing: border-box;
 }
 
 /*----------------------------
-* Hamburger アニメーション部分
-*----------------------------*/
+ * Hamburger アニメーション部分
+ *----------------------------*/
 
 /* Hamburger アニメーション前のメニューの状態 */
 .mobile-menu {
   transform: translateX(100vw);
-  transition: all .3s linear;
+  transition: all 0.3s linear;
 }
 /* Hamburger アニメーション後のメニューの状態 */
 .mobile-menu.is-active {

@@ -2,13 +2,13 @@ import { loadVendorScript } from "hibana/utils/dom_utils.ts";
 
 // Load this first
 (function () {
-  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const userAgent = navigator.userAgent || navigator.vendor || globalThis.opera;
 
   if (/windows phone/i.test(userAgent)) {
     document.body.classList.add("os-windows-phone");
   } else if (/android/i.test(userAgent)) {
     document.body.classList.add("os-android");
-  } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+  } else if (/iPad|iPhone|iPod/.test(userAgent) && !globalThis.MSStream) {
     document.body.classList.add("os-ios");
   } else if (/Mac/i.test(userAgent)) {
     document.body.classList.add("os-mac");
@@ -18,15 +18,15 @@ import { loadVendorScript } from "hibana/utils/dom_utils.ts";
 })();
 
 // Swap logo on scroll and make nav bg more opaque
-window.addEventListener("scroll", () => {
+globalThis.addEventListener("scroll", () => {
   const largeLogo = document.getElementById("large-logo");
   const smallLogo = document.getElementById("small-logo");
   const topNavBG = document.getElementById("top-nav-bg");
-  const scrollPosition = window.scrollY;
+  const scrollPosition = globalThis.scrollY;
 
   // Check if the current screen size is 'md' (768px) or larger
   // (Tailwind's default 'md' breakpoint is 768px)
-  const isLargeScreen = window.matchMedia("(min-width: 768px)").matches;
+  const isLargeScreen = globalThis.matchMedia("(min-width: 768px)").matches;
 
   // --- Handle logo swap only for 'md' and larger screens ---
   if (isLargeScreen) {
@@ -48,11 +48,11 @@ window.addEventListener("scroll", () => {
   // So, no specific JS logic is needed for logos on small screens here.
 
   // IMPORTANT: Keep these to ensure correct state on load and resize
-  window.addEventListener("DOMContentLoaded", () => {
-    window.dispatchEvent(new Event("scroll"));
+  globalThis.addEventListener("DOMContentLoaded", () => {
+    globalThis.dispatchEvent(new Event("scroll"));
   });
-  window.addEventListener("resize", () => {
-    window.dispatchEvent(new Event("scroll"));
+  globalThis.addEventListener("resize", () => {
+    globalThis.dispatchEvent(new Event("scroll"));
   });
 
   // Handle nav opacity changes based on scroll position
@@ -153,7 +153,7 @@ searchButton.onclick = function () { // Change the event listener target to the 
 close.onclick = function () {
   modal.style.display = "none";
 };
-window.onclick = function (event) {
+globalThis.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const handleDetailsState = () => {
     const isMediumOrLargeScreen =
-      window.matchMedia("(min-width: 768px)").matches;
+      globalThis.matchMedia("(min-width: 768px)").matches;
 
     if (isMediumOrLargeScreen) {
       // On medium and larger screens:
@@ -206,5 +206,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set initial state on page load
   handleDetailsState();
   // Re-evaluate state on window resize
-  window.addEventListener("resize", handleDetailsState);
+  globalThis.addEventListener("resize", handleDetailsState);
 });

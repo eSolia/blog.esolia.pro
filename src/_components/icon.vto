@@ -2,4 +2,8 @@
 {{ comp.icon({ name: "lightbulb", size: 6, color: "esoliaamber" }) }}
 #}}
 
-<img class="size-{{ size }} fill-{{ color }}-400 inline-block align-[-0.1em] mr-1" src="{{ name |> icon("phosphor", "duotone") }}" inline>
+<img
+  class="size-{{ size }} fill-{{ color }}-400 inline-block align-[-0.1em] mr-1"
+  src='{{ name |> icon("phosphor", "duotone") }}'
+  inline
+>

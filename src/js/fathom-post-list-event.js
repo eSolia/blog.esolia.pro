@@ -7,10 +7,10 @@
 //   });
 // });
 
-window.addEventListener("load", () => {
+globalThis.addEventListener("load", () => {
   document.querySelectorAll(".data-fatrigger").forEach((item) => {
-    item.addEventListener("click", (event) => {
-      let postId = item.getAttribute("data-faid");
+    item.addEventListener("click", () => {
+      const postId = item.getAttribute("data-faid");
       if (typeof fathom !== "undefined") {
         fathom.trackEvent(`post link click: ${postId}`);
       } else {
