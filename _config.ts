@@ -3,8 +3,8 @@ import lume from "lume/mod.ts";
 // Load First, order does not matter
 import attributes from "lume/plugins/attributes.ts";
 import date from "lume/plugins/date.ts";
-import { enUS } from "npm:date-fns/locale/en-US";
-import { ja } from "npm:date-fns/locale/ja";
+import { enUS } from "npm:date-fns@^4.1.0/locale/en-US";
+import { ja } from "npm:date-fns@^4.1.0/locale/ja";
 import { getGitDate } from "lume/core/utils/date.ts";
 // import { time } from "node:console";
 // import { getCurrentVersion } from "lume/core/utils/lume_version.ts";

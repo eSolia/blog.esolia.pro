@@ -1,8 +1,8 @@
 import lumeCMS from "lume/cms/mod.ts";
 import { Field } from "lume/cms/types.ts";
 
-const username = Deno.env.get("ESBLOG_U1")!;
-const password = Deno.env.get("ESBLOG_P1")!;
+const _username = Deno.env.get("ESBLOG_U1")!;
+const _password = Deno.env.get("ESBLOG_P1")!;
 
 const cms = lumeCMS({
   site: {
@@ -51,7 +51,7 @@ cms.upload({
 // Configure git
 cms.git();
 
-const url: Field = {
+const _url: Field = {
   name: "url",
   type: "text",
   description: "The public URL of the page. Leave empty to use the file path.",
@@ -70,6 +70,7 @@ const url: Field = {
     return value;
   },
 };
+// Note: _url field defined for future use; prefix with `_` satisfies no-unused-vars.
 
 cms.document({
   name: "featurecats-ja",

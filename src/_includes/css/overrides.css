@@ -48,9 +48,20 @@
 
   /* Fonts */
   --font-family-code:
-    Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console",
-    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-    "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+    Consolas,
+    Menlo,
+    Monaco,
+    "Andale Mono WT",
+    "Andale Mono",
+    "Lucida Console",
+    "Lucida Sans Typewriter",
+    "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono",
+    "Liberation Mono",
+    "Nimbus Mono L",
+    "Courier New",
+    Courier,
+    monospace;
   /* --font-family-ui: -apple-system, system-ui, sans-serif; */
   --font-family-ui: "textface", -apple-system, system-ui, sans-serif;
   /* --font-family-display: var(--font-family-ui); */

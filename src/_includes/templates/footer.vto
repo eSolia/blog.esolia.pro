@@ -27,7 +27,7 @@
               aria_label="{{ item.aria_label }}"
               title="{{ item.title }}"
               {{- if item.target }}target="{{ item.target }}"{{ /if }}
-              {{- if item.target === '_blank' }}rel="noopener"{{ /if -}}
+              {{- if item.target === "_blank" }}rel="noopener"{{ /if -}}
               role="menuitem"
             >
               {{ item.text }}
@@ -36,7 +36,9 @@
         </div>
       </nav>
     </div>
-    <div class="flex flex-col items-center border-t border-zinc-400/10 py-10 sm:flex-row-reverse sm:justify-between no-external-icon">
+    <div
+      class="flex flex-col items-center border-t border-zinc-400/10 py-10 sm:flex-row-reverse sm:justify-between no-external-icon"
+    >
       <div class="mt-6 flex flex-wrap gap-6">
         <a
           class="group -m-1 p-1"
