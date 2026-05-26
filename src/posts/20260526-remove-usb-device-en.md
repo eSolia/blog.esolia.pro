@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202508b-remove-usb
-date: 2025-12-12T05:53:12.585Z
-last_modified: 2026-02-16T14:40:00.000Z
+date: 2026-05-26T06:00:00.000Z
+last_modified: 2026-05-26T15:00:00.000Z
 title: Is it safety to remove USB device?
 description: 'Is “Safely Remove Hardware and Eject Media” still necessary?  '
 image: /uploads/202508b-remove-usb-en.png
