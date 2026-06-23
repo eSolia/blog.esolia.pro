@@ -1,7 +1,7 @@
 {
   "imports": {
     "lume/": "https://deno.land/x/lume@v3.2.5/",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.12.5/",
+    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.15.5/",
     "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.12/jsx-runtime.ts",
     "hibana/": "https://deno.land/x/hibana@v1.0.18/"
   },
@@ -11,7 +11,7 @@
     "build:cloudflare": "deno lint && deno fmt --check && deno task lume",
     "serve": "deno task lume -s",
     "update-deps": "deno run -A --quiet 'https://deno.land/x/nudd@v0.2.8/cli.ts' update plugins.ts deno.json",
-    "cms": "deno task lume cms"
+    "cms": "deno task lume -s"
   },
   "compilerOptions": {
     "types": [
