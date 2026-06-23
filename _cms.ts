@@ -1,8 +1,4 @@
 import lumeCMS from "lume/cms/mod.ts";
-import { Field } from "lume/cms/types.ts";
-
-const _username = Deno.env.get("ESBLOG_U1")!;
-const _password = Deno.env.get("ESBLOG_P1")!;
 
 const cms = lumeCMS({
   site: {
@@ -13,25 +9,12 @@ const cms = lumeCMS({
     <p>This is the CMS for eSolia's bilingual blog site, with posts in Japanese and English.</p>
     `,
   },
-  log: {
-    filename: "errors.log",
-  },
 });
 
-// Enable basicauth
-// cms.auth({
-//   method: "basic",
-//   users: {
-//     // foo: "bar",
-//     lume: "iscool",
-//     [username]: password,
-//   },
-// });
-
-// Enable basicauth
-cms.auth({
-  eSolia: "GoodStories!",
-});
+// Auth is enforced at the edge (Cloudflare Access on cms.blog.esolia.pro), NOT
+// in the CMS. Under Lume 3.2 the CMS only runs via `lume --serve`, whose
+// `isProduction` gate is always false, so the plugin never applies cms.auth().
+// Do not add cms.auth() here expecting it to protect the CMS — it does nothing.
 
 // Configure upload storage
 cms.upload({
@@ -50,27 +33,6 @@ cms.upload({
 
 // Configure git
 cms.git();
-
-const _url: Field = {
-  name: "url",
-  type: "text",
-  description: "The public URL of the page. Leave empty to use the file path.",
-  transform(value) {
-    if (!value) {
-      return;
-    }
-
-    if (!value.endsWith("/")) {
-      value += "/";
-    }
-    if (!value.startsWith("/")) {
-      value = "/" + value;
-    }
-
-    return value;
-  },
-};
-// Note: _url field defined for future use; prefix with `_` satisfies no-unused-vars.
 
 cms.document({
   name: "featurecats-ja",
@@ -301,7 +263,7 @@ cms.collection({
         "変更前のurlや、ショートurl。最初と最後に英数半角スラッシュを忘れず。<br>The page url or urls before they changed, or an url intended to be used as a short url. Ensure there is a forward slash before and after",
       view: "Show Overrides",
       transform(value) {
-        return value?.map((redirect) => redirect.trim()); // Trim whitespace
+        return value?.map((redirect: string) => redirect.trim()); // Trim whitespace
       },
     },
     {
@@ -345,7 +307,7 @@ cms.collection({
       label: "作成日 Created Date",
       description: "作成された日付<br>The date the page was posted",
       init(field) {
-        field.value = new Date().toISOString();
+        field.value = new Date();
       },
       attributes: {
         required: true,
@@ -402,7 +364,7 @@ cms.collection({
       transform(value) {
         return value?.trim(); // rem whitespace at ends
       },
-      uploads: "uploads",
+      upload: "uploads",
       attributes: {
         accept: "image/*",
       },
@@ -417,7 +379,7 @@ cms.collection({
       transform(value) {
         return value?.trim(); // rem whitespace at ends
       },
-      uploads: "uploads",
+      upload: "uploads",
       attributes: {
         accept: "image/*",
       },
@@ -438,10 +400,12 @@ cms.collection({
       label: "カテゴリー Category",
       description:
         "ページのカテゴリ（例：セキュリティ、クラウド など）。ページの言語で入力してください。<br>The page category (e.g. Security, Cloud, etc), in the language of the page",
+      // Populated dynamically in init(); 0.15.5 requires options to be present.
+      options: [],
       init(field, { data }, docData) {
         const site = data.site;
-        let allCats = [];
-        const staticCategoriesByLang = {
+        let allCats: string[] = [];
+        const staticCategoriesByLang: Record<string, string[]> = {
           ja: [
             "Microsoft-365",
             "セキュリティ",
@@ -490,15 +454,15 @@ cms.collection({
       description:
         "ページのタグ。ページの言語で入力してください。<br>The page tags, in the language of the page",
       transform(value) {
-        return value?.map((tag) => tag.trim()); // Trim whitespace
+        return value?.map((tag: string) => tag.trim()); // Trim whitespace
       },
       init(field, { data }, docData) {
         const site = data.site;
         // console.log("data:", data);
         // console.log("docData:", docData);
         // console.log("site:", site);
-        let allTags = [];
-        const staticTagsByLang = {
+        let allTags: string[] = [];
+        const staticTagsByLang: Record<string, string[]> = {
           ja: [
             "JIS-Q-27001",
           ],
