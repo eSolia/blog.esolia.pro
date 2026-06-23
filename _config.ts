@@ -1,3 +1,7 @@
+// Must be first: restores MD5 to crypto.subtle for Lume's favicon/cache hashing
+// on Deno 2.8+, which dropped MD5 from the native digest allowlist.
+import "./_md5_shim.ts";
+
 import lume from "lume/mod.ts";
 
 // Load First, order does not matter
@@ -101,7 +105,6 @@ site.use(attributes());
 site.use(date({ locales: { enUS, ja } }));
 site.use(jsonLd());
 site.use(readingInfo());
-site.use(metas());
 site.use(multilanguage({
   languages: ["ja", "en"],
   defaultLanguage: "ja",
@@ -135,9 +138,11 @@ site.use(prism({
 
 // CSS + JS + source maps
 site.use(esbuild({
-  bundle: true,
-  splitting: true,
-  minify: true,
+  options: {
+    bundle: true,
+    splitting: true,
+    minify: true,
+  },
 }));
 site.use(googleFonts({
   cssFile: "fonts-ja.css",
@@ -222,9 +227,11 @@ site.use(favicon({
 }));
 site.use(svgo());
 site.use(picture(/* Options */));
-site.use(transformImages({
-  cache: true, // Toggle cache
-}));
+site.use(transformImages());
+
+// metas runs after asset plugins (esbuild/fonts/tailwind/images/basePath) so it
+// sees final, processed URLs — required ordering per lume/plugin-order (Lume 3.2).
+site.use(metas());
 
 // Markdown
 site.use(title());
@@ -340,10 +347,15 @@ site.process(function enrichFeedJson() {
 });
 site.use(sitemap({
   // query: "external_link=undefined",
-  lastmod: "lastmod",
-  priority: "priority",
   filename: "sitemap.xml",
   sort: "lastmod=desc",
+  // lastmod/priority moved under `items` in Lume 3.2's sitemap plugin, which
+  // now requires a leading `=` to reference a page-data field (a bare string is
+  // treated as a literal). `lastmod` is the git-modified date set above.
+  items: {
+    lastmod: "=lastmod",
+    priority: "=priority",
+  },
 }));
 
 // Checks
