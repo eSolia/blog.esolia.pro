@@ -18,7 +18,7 @@ author: K.Y.
 category: Windows
 tags:
   - Copilot
-  - PC performance
+  - PC Performance
 comments: {}
 ---
 More and more people are using MS Copilot as a standard AI assistant tool for Windows PC. However, Copilot itself can sometimes slow down PC performance. Based on actual cases reported to IT help desk, we'll introduce the examples. Please check your company PC as well. 
