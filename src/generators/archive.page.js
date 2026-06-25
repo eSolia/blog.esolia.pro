@@ -2,6 +2,10 @@ export const layout = "layouts/archive.vto";
 export const lang = ["ja", "en"];
 
 export default function* ({ search, paginate, lang, i18n }) {
+  // Paginated archive listing isn't needed for the CMS editor preview. Skip it
+  // under the CMS (LUME_CMS=true) to shrink the rebuild window; the public
+  // Cloudflare build still generates it.
+  if (Deno.env.get("LUME_CMS") === "true") return;
   const posts = search.pages(`type=post lang=${lang}`, "date=desc");
 
   // Moved inside the default function to use the `lang` variable passed.
