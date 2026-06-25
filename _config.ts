@@ -100,6 +100,14 @@ const site = lume({
   },
 }, { markdown });
 
+// When Lume serves the CMS (`lume --serve` with _cms.ts), it sets LUME_CMS=true.
+// The CMS rebuilds the whole site on each save-triggered reload, and that ~50-80s
+// window is when cms.blog.esolia.pro briefly 502s. Search index, feeds, and the
+// sitemap are irrelevant to the editor preview, so skip them under the CMS to
+// shrink the rebuild. The production Cloudflare build (no LUME_CMS) still emits
+// everything.
+const isCms = Deno.env.get("LUME_CMS") === "true";
+
 // Load First, order does not matter
 site.use(attributes());
 site.use(date({ locales: { enUS, ja } }));
@@ -110,15 +118,17 @@ site.use(multilanguage({
   defaultLanguage: "ja",
 }));
 site.use(nav());
-site.use(pagefind({
-  ui: {
-    containerId: "search",
-    showImages: false,
-    showEmptyFilters: true,
-    resetStyles: false,
-    showSubResults: true,
-  },
-}));
+if (!isCms) {
+  site.use(pagefind({
+    ui: {
+      containerId: "search",
+      showImages: false,
+      showEmptyFilters: true,
+      resetStyles: false,
+      showSubResults: true,
+    },
+  }));
+}
 site.use(plaintext());
 site.use(redirects());
 site.use(prism({
@@ -251,112 +261,114 @@ site.use(icons());
 site.use(inline());
 
 // Generate files with URLs
-site.use(feed({
-  output: ["/feed.ja.xml", "/feed.ja.json"],
-  query: "type=post lang=ja",
-  sort: "date=desc",
-  limit: 0,
-  info: {
-    title: "=site.title",
-    description: "=site.description",
-    published: new Date(),
-    lang: "ja",
-    hubs: undefined,
-    generator: true,
-    authorName: "=site.author",
-  },
-  items: {
-    title: "=title",
-    description: "=description",
-    published: "=date",
-    updated: "=last_modified",
-    lang: "ja",
-    image: "=image",
-    authorName: "=author",
-  },
-}));
-site.use(feed({
-  output: ["/feed.en.xml", "/feed.en.json"],
-  query: "type=post lang=en",
-  sort: "date=desc",
-  limit: 0,
-  info: {
-    title: "=en.site.title",
-    description: "=en.site.description",
-    published: new Date(),
-    lang: "en",
-    hubs: undefined,
-    generator: true,
-    authorName: "=en.site.author",
-  },
-  items: {
-    title: "=title",
-    description: "=description",
-    published: "=date",
-    updated: "=last_modified",
-    lang: "en",
-    image: "=image",
-    authorName: "=author",
-  },
-}));
+if (!isCms) {
+  site.use(feed({
+    output: ["/feed.ja.xml", "/feed.ja.json"],
+    query: "type=post lang=ja",
+    sort: "date=desc",
+    limit: 0,
+    info: {
+      title: "=site.title",
+      description: "=site.description",
+      published: new Date(),
+      lang: "ja",
+      hubs: undefined,
+      generator: true,
+      authorName: "=site.author",
+    },
+    items: {
+      title: "=title",
+      description: "=description",
+      published: "=date",
+      updated: "=last_modified",
+      lang: "ja",
+      image: "=image",
+      authorName: "=author",
+    },
+  }));
+  site.use(feed({
+    output: ["/feed.en.xml", "/feed.en.json"],
+    query: "type=post lang=en",
+    sort: "date=desc",
+    limit: 0,
+    info: {
+      title: "=en.site.title",
+      description: "=en.site.description",
+      published: new Date(),
+      lang: "en",
+      hubs: undefined,
+      generator: true,
+      authorName: "=en.site.author",
+    },
+    items: {
+      title: "=title",
+      description: "=description",
+      published: "=date",
+      updated: "=last_modified",
+      lang: "en",
+      image: "=image",
+      authorName: "=author",
+    },
+  }));
 
-// Enrich JSON feeds with tags and summary from post metadata
-// (The feed plugin doesn't support custom fields, so we post-process)
-site.process(function enrichFeedJson() {
-  // Build lookup of post metadata keyed by full URL
-  const postMeta = new Map<
-    string,
-    { category: string; tags: string[]; description: string }
-  >();
+  // Enrich JSON feeds with tags and summary from post metadata
+  // (The feed plugin doesn't support custom fields, so we post-process)
+  site.process(function enrichFeedJson() {
+    // Build lookup of post metadata keyed by full URL
+    const postMeta = new Map<
+      string,
+      { category: string; tags: string[]; description: string }
+    >();
 
-  for (const data of site.search.pages("type=post")) {
-    const fullUrl = site.url(data.url as string, true);
-    postMeta.set(fullUrl, {
-      category: (data.category as string) || "",
-      tags: (data.tags as string[]) || [],
-      description: (data.description as string) || "",
-    });
-  }
+    for (const data of site.search.pages("type=post")) {
+      const fullUrl = site.url(data.url as string, true);
+      postMeta.set(fullUrl, {
+        category: (data.category as string) || "",
+        tags: (data.tags as string[]) || [],
+        description: (data.description as string) || "",
+      });
+    }
 
-  // Find and enrich JSON feed pages
-  for (const page of site.pages) {
-    const pageUrl = page.data.url as string;
-    if (pageUrl?.endsWith(".json") && pageUrl?.includes("feed")) {
-      try {
-        const content = page.content as string;
-        const feedJson = JSON.parse(content);
-        if (feedJson.items) {
-          for (const item of feedJson.items) {
-            const meta = postMeta.get(item.url);
-            if (meta) {
-              item.tags = meta.category
-                ? [meta.category, ...meta.tags]
-                : [...meta.tags];
-              if (meta.description) {
-                item.summary = meta.description;
+    // Find and enrich JSON feed pages
+    for (const page of site.pages) {
+      const pageUrl = page.data.url as string;
+      if (pageUrl?.endsWith(".json") && pageUrl?.includes("feed")) {
+        try {
+          const content = page.content as string;
+          const feedJson = JSON.parse(content);
+          if (feedJson.items) {
+            for (const item of feedJson.items) {
+              const meta = postMeta.get(item.url);
+              if (meta) {
+                item.tags = meta.category
+                  ? [meta.category, ...meta.tags]
+                  : [...meta.tags];
+                if (meta.description) {
+                  item.summary = meta.description;
+                }
               }
             }
+            page.content = JSON.stringify(feedJson);
           }
-          page.content = JSON.stringify(feedJson);
+        } catch {
+          // Skip pages with non-parseable content
         }
-      } catch {
-        // Skip pages with non-parseable content
       }
     }
-  }
-});
-site.use(sitemap({
-  // query: "external_link=undefined",
-  filename: "sitemap.xml",
-  sort: "lastmod=desc",
-  // lastmod/priority moved under `items` in Lume 3.2's sitemap plugin, which
-  // now requires a leading `=` to reference a page-data field (a bare string is
-  // treated as a literal). `lastmod` is the git-modified date set above.
-  items: {
-    lastmod: "=lastmod",
-    priority: "=priority",
-  },
-}));
+  });
+  site.use(sitemap({
+    // query: "external_link=undefined",
+    filename: "sitemap.xml",
+    sort: "lastmod=desc",
+    // lastmod/priority moved under `items` in Lume 3.2's sitemap plugin, which
+    // now requires a leading `=` to reference a page-data field (a bare string is
+    // treated as a literal). `lastmod` is the git-modified date set above.
+    items: {
+      lastmod: "=lastmod",
+      priority: "=priority",
+    },
+  }));
+}
 
 // Checks
 // site.use(
@@ -475,7 +487,9 @@ site.addEventListener("afterBuild", "makeFontpathAbsoluteJa");
 
 // pass the base url
 site.process([".html"], externalLinksIcon("https://blog.esolia.pro"));
-site.process([".html"], deferPagefind());
+if (!isCms) {
+  site.process([".html"], deferPagefind());
+}
 
 // site.filter("tdate", (value: string | undefined, locale: string, timezone: string) => {
 //   if (!value) {

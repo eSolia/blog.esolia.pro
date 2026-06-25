@@ -3,6 +3,10 @@ export const lang = ["ja", "en"];
 // export const id = "archiveresult";
 
 export default function* ({ search, lang, i18n, featuretags, featurecats }) {
+  // Per-tag/category archive pages (~68% of all pages) aren't needed for the CMS
+  // editor preview. Skip them under the CMS (LUME_CMS=true) to shrink the
+  // rebuild window; the public Cloudflare build still generates them.
+  if (Deno.env.get("LUME_CMS") === "true") return;
   // Generate a page for each tag
   for (const tag of search.values("tags", `lang=${lang}`)) {
     yield {
