@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202508d-power-on-pc
-date: 2025-12-18T05:07:36.938Z
-last_modified: 2026-03-02T16:27:00.000Z
+date: 2026-06-30 15:33:00
+last_modified: 2026-06-30 15:33:00
 title: >-
   How to Automatically Power On a PC After a Power Outage：Dell BIOS Setting
   Guide
