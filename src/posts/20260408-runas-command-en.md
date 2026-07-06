@@ -5,16 +5,16 @@ featured: false
 oldUrl: []
 lang: en
 id: 202509b-runas-command
-date: 2026-04-08T01:10:46.910Z
-last_modified: 2026-04-08T10:27:00.000Z
+date: 2026-04-08 01:10:00
+last_modified: 2026-07-06 15:19:00
 title: >-
   Understanding the runas Command - Running Apps with Another Account Without
   Logging Off
 description: >-
   Learn how to use the Windows runas command to run apps or admin consoles with
   admin rights only when needed, while working mainly as a standard user. 
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202509b-runas-command-en.png
+image_top: /uploads/202509b-runas-command.png
 author: Kabaya
 category: Windows
 tags:
@@ -82,4 +82,4 @@ This lets you stay logged in as a standard user while accessing admin tools only
 * runas lets you run programs as another user without logging off. 
 * For Device Manager, use cmd.exe /c to avoid the 740 error. 
 * Apps like Chrome can also run with admin privileges via runas. 
-* Avoid storing passwords in scripts. Follow safe operational rules. 
+* Avoid storing passwords in scripts. Follow safe operational rules.

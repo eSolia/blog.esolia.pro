@@ -5,15 +5,15 @@ featured: false
 oldUrl: []
 lang: en
 id: 202603a-copilot-pc-performance
-date: 2026-05-22T08:12:19.867Z
-last_modified: 2026-05-22T17:18:00.000Z
-title: Copilot PC performance
+date: 2026-05-22 08:12:00
+last_modified: 2026-07-06 15:29:00
+title: Copilot app affects your PC performance
 description: >-
   If your PC has been feeling slow lately, Copilot might be the unexpected
   cause. Learn how Copilot can impact CPU and memory usage on Windows, and how
   to close or disable it to improve performance.
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202603a-copilot-pc-performance-en.png
+image_top: /uploads/202603a-copilot-pc-performance.png
 author: K.Y.
 category: Windows
 tags:
@@ -48,4 +48,4 @@ Screenshot03を挿入
 
 Copilot within individual applications like Outlook or Word (Copilot add-in) will not be affected by this disabling. You can continue using Copilot within each respective application. 
 
-If you're experiencing performance issue on especially your company PC, it’s worth checking if Copilot is launching automatically and affecting the PC performance. 
+If you're experiencing performance issue on especially your company PC, it’s worth checking if Copilot is launching automatically and affecting the PC performance.

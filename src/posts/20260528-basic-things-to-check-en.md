@@ -5,14 +5,14 @@ featured: false
 oldUrl: []
 lang: en
 id: 202603d-basic-things-to-check
-date: 2026-05-28T07:32:45.089Z
-last_modified: 2026-05-28T16:40:00.000Z
+date: 2026-05-28 07:32:00
+last_modified: 2026-07-06 15:06:00
 title: Three Basic Things to Check When an Error Happens.
 description: >-
   A short guide on what to check first when an error happens. It covers message
   checks, your actions, and basic environment checks. 
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202603d-basic-things-to-check-en.png
+image_top: /uploads/202603d-basic-things-to-check.png
 author: SK
 category: Troubleshooting
 tags:
@@ -58,4 +58,4 @@ Also keep a quick note of what you tried -it speeds up support.
 * What you already tried (restart, different browser, etc.) 
 
 No deep technical knowledge required. 
-Clear, organized facts are what make support fast and effective. 
+Clear, organized facts are what make support fast and effective.

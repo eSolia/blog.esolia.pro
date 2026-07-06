@@ -5,15 +5,15 @@ featured: false
 oldUrl: []
 lang: en
 id: 202509c-email-attachment
-date: 2026-04-08T02:10:47.259Z
-last_modified: 2026-04-08T11:22:00.000Z
+date: 2026-04-08 02:10:00
+last_modified: 2026-07-06 15:22:00
 title: Email Attachment
 description: >-
   Explains the risks of ZIP bombs and macro viruses hidden in email attachments.
   Provides easy-to-understand guidance for beginners on how to identify them and
   practical countermeasures.
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202509c-email-attachment-en.png
+image_top: /uploads/202509c-email-attachment.png
 author: SK
 category: Security
 tags:
@@ -69,4 +69,3 @@ Attachment-based attacks don’t just affect individuals – they can compromise
 Attachments are useful, but they come with risks. 
 Before opening any file, ask yourself: “Who sent this?”,” What format is it?”, “Do I really need to open it?” 
 A moment of caution can protect your data and your team.
-

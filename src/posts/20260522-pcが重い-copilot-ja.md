@@ -5,13 +5,13 @@ featured: false
 oldUrl: []
 lang: ja
 id: 202603a-copilot-pc-performance
-date: 2026-05-22T07:31:37.662Z
-last_modified: 2026-05-22T17:05:00.000Z
+date: 2026-05-22 07:31:00
+last_modified: 2026-07-06 15:28:00
 title: 最近PCが重いと思ったら「Copilot」を終了させよう
 description: >-
   PCが重い原因は、意外にもCopilotかもしれません。WindowsでCopilotがメモリやCPUに与える影響と、終了・無効化する方法をわかりやすく解説します。
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202603a-copilot-pc-performance-ja.png
+image_top: /uploads/202603a-copilot-pc-performance.png
 author: K.Y.
 category: Windows
 tags:

@@ -5,15 +5,15 @@ featured: false
 oldUrl: []
 lang: en
 id: 202509a-keyboard-history
-date: 2026-05-19T05:55:33.537Z
-last_modified: 2026-05-19T15:44:00.000Z
+date: 2026-05-19 05:55:00
+last_modified: 2026-07-06 15:15:00
 title: Keyboard Layout History and the Role of Function Keys
 description: >-
   Explains the different types of keyboard layouts, the differences between
   Japanese and English keyboards, and the functions of the F1–F12 keys. Also
   introduces useful key operations to improve PC productivity.
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202509a-keyboard-history-en.png
+image_top: /uploads/202509a-keyboard-history.png
 author: YM
 category: Peripherals
 tags:
