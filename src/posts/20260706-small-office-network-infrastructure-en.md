@@ -6,7 +6,7 @@ oldUrl: []
 lang: en
 id: 202603f-small-office-infra
 date: 2026-07-06 07:31:00
-last_modified: 2026-07-06 16:45:00
+last_modified: 2026-07-07 13:26:00
 title: >-
   Key Points for Understanding a Small Office Network Infrastructure - How to
   Organize Your Network Even Without a Network Diagram
@@ -14,8 +14,8 @@ description: >-
   Learn how to understand a small office network even without a network diagram.
   This article explains practical steps for reviewing network infrastructure and
   assessing the impact of changes such as migrating from PPPoE to IPoE. 
-image: /uploads/blog-esolia-pro-default.png
-image_top: /uploads/blog-esolia-pro-default-top.png
+image: /uploads/202603f-small-office-infra-en.png
+image_top: /uploads/202603f-small-office-infra.png
 author: Kabaya
 tags:
   - NetworkInfrastructure
