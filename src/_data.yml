@@ -1,6 +1,11 @@
 logo: /assets/logo_horiz_darkblue_bgtransparent.svg
 extra_head: []
 lang: ja
+# Cloudflare Turnstile sitekey for the newsletter signup (public value).
+# Inherited by the en: subtree below, so one entry covers both locales.
+# TODO: replace placeholder with the real sitekey from the Turnstile dashboard
+# widget "blog-esolia-pro-newsletter" before deploying.
+turnstile_sitekey: "0x4AAAAAABhkr_JNco-SeAbS"
 site:
   author: "イソリア"
   title: "Tech It Easy Blog"

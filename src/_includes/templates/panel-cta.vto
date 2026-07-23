@@ -6,7 +6,7 @@
     method="post"
     id="newsletter"
     role="form"
-    action="https://pro.dbflex.net/secure/gateway.aspx?action=WebToRecord&amp;app=15331&amp;table=1510483"
+    action="/api/newsletter"
   >
     <h2 class="flex text-sm font-semibold text-zinc-950 dark:text-zinc-100">
       <img
@@ -22,26 +22,26 @@
     <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
       {{ i18n.newsletter.description }}
     </p>
+    {{# Locale tells the Worker which thank-you/reference/home URLs to use. #}}
+    <input type="hidden" name="locale" value="{{ lang }}" />
+    {{# Honeypot: hidden from users; bots that fill it are silently dropped. #}}
+    <input
+      type="text"
+      name="website"
+      tabindex="-1"
+      autocomplete="off"
+      aria-hidden="true"
+      class="hidden"
+    />
+    {{# Time trap: stamped with Date.now() on load by the script below. #}}
+    <input type="hidden" name="ts" value="" />
     <div class="mt-6 flex">
-      <input
-        type="hidden"
-        name="retURL"
-        value="{{ i18n.newsletter.thanks_url }}"
-      />
-      <input
-        type="hidden"
-        id="f_64244810_ID0EBB"
-        name="f_64244810"
-        type="text"
-        value="{{ i18n.newsletter.reference }}"
-        maxlength="1000"
-      >
       <label for="f_64244897_ID0ES" class="sr-only">{{
         i18n.newsletter.placeholder
       }}</label>
       <input
         id="f_64244897_ID0ES"
-        name="f_64244897"
+        name="email"
         value=""
         type="email"
         placeholder="{{ i18n.newsletter.placeholder }}"
@@ -61,6 +61,25 @@
         {{ i18n.newsletter.button }}
       </button>
     </div>
+    {{# Turnstile widget. interaction-only: invisible for normal visitors, only
+        challenges suspected bots, so the slim row above is untouched. Inside a
+        <form> it auto-injects the hidden cf-turnstile-response field. #}}
+    <div
+      class="cf-turnstile mt-3"
+      data-sitekey="{{ turnstile_sitekey }}"
+      data-appearance="interaction-only"
+      data-theme="auto"
+      data-size="flexible"
+      data-action="newsletter"
+    ></div>
+    {{# Shown when the Worker redirects back with ?newsletter=error. #}}
+    <p
+      id="newsletter-error"
+      class="mt-3 hidden text-sm text-red-500"
+      role="alert"
+    >
+      {{ i18n.newsletter.error }}
+    </p>
   </form>
   <div
     class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mt-6 lg:mt-0"
@@ -94,4 +113,23 @@
     </div>
   </div>
 </div>
+<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer
+></script>
+<script>
+(function () {
+  // Stamp the time-trap field so the Worker can reject impossibly fast bots.
+  var ts = document.querySelector('#newsletter input[name="ts"]');
+  if (ts) ts.value = String(Date.now());
+  // Reveal the error message when the Worker bounced us back with an error.
+  if (
+    new URLSearchParams(window.location.search).get("newsletter") === "error"
+  ) {
+    var err = document.getElementById("newsletter-error");
+    if (err) err.classList.remove("hidden");
+  }
+})();
+</script>
 <!-- ===== panel-cta.vto TEMPLATE END ===== -->
