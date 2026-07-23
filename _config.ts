@@ -489,6 +489,20 @@ site.addEventListener("afterBuild", "makeFontpathAbsoluteJa");
 site.process([".html"], externalLinksIcon("https://blog.esolia.pro"));
 if (!isCms) {
   site.process([".html"], deferPagefind());
+  // Pagefind's pagefind-ui.js is shipped as an ES module (it imports a shared
+  // ../chunk-*.js and sets window.PagefindUI). Lume's pagefind plugin injects it
+  // as a classic <script>, so the browser throws "Cannot use import statement
+  // outside a module" and PagefindUI never defines — breaking site search. Load
+  // it as a module; the init runs on DOMContentLoaded, which fires after the
+  // deferred module executes, so window.PagefindUI is ready in time.
+  site.process([".html"], (pages) => {
+    for (const page of pages) {
+      const script = page.document?.querySelector(
+        'script[src="/pagefind/pagefind-ui.js"]',
+      );
+      if (script) script.setAttribute("type", "module");
+    }
+  });
 }
 
 // site.filter("tdate", (value: string | undefined, locale: string, timezone: string) => {
