@@ -454,13 +454,22 @@ function subPage(
     `main{max-width:30rem;margin:1.5rem;padding:2rem;border-radius:1rem;` +
     `border:1px solid #e4e4e7;text-align:center}` +
     `@media(prefers-color-scheme:dark){main{border-color:#3f3f46}}` +
+    `.logo{margin:0 0 1.5rem}` +
+    `.logo img{height:28px;width:auto;display:inline-block}` +
+    // Dark-blue logo has no white variant; on the dark theme sit it on a white
+    // chip so it stays legible.
+    `@media(prefers-color-scheme:dark){.logo img{background:#fff;` +
+    `padding:.45rem .75rem;border-radius:.5rem}}` +
     `h1{font-size:1.15rem;margin:0 0 .75rem}` +
     `p{font-size:.95rem;line-height:1.65;color:#52525b;margin:0}` +
     `@media(prefers-color-scheme:dark){p{color:#a1a1aa}}` +
     `button{margin-top:1.25rem;padding:.6rem 1.4rem;font-size:.95rem;font-weight:600;` +
     `color:#fff;background:#0ea5e9;border:0;border-radius:.5rem;cursor:pointer}` +
     `button:hover{background:#0284c7}` +
-    `</style></head><body><main><h1>${title}</h1><p>${body}</p>${form}</main></body></html>`;
+    `</style></head><body><main>` +
+    `<p class="logo"><img src="/assets/logo_horiz_darkblue_bgtransparent.svg" ` +
+    `alt="eSolia" width="106" height="28"></p>` +
+    `<h1>${title}</h1><p>${body}</p>${form}</main></body></html>`;
   return new Response(html, {
     status,
     headers: { "Content-Type": "text/html;charset=UTF-8" },
