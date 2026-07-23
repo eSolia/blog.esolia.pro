@@ -104,11 +104,13 @@ export default {
 // endpoint as an open redirect or inject an arbitrary reference. Mirrors
 // ~/dev/esolia-2025 workers/contact-form.
 //
-// dbFlex writes use create.json (not upsert-on-match) because the Email column
-// is not marked unique yet — TeamDesk rejects match on a non-unique column
-// (code 3106). A pre-insert lookup gives friendly "already subscribed" feedback
-// and avoids duplicates in the normal case. See the follow-up issue to clean
-// the table, mark Email unique, and switch back to upsert.
+// dbFlex writes use create.json (not upsert-on-match). The Email column is
+// intentionally NOT marked unique: a legitimate re-subscribe adds a fresh row,
+// which doubles as an audit log of renewed consent — so a DB unique constraint
+// isn't an option. Instead this handler's pre-insert lookup (step 8) is the
+// dedup mechanism, branching on the record's state. TeamDesk would also reject
+// upsert-match on a non-unique column (code 3106), so create + lookup is the
+// permanent design here, not a stopgap.
 // ---------------------------------------------------------------------------
 
 const DBFLEX_API = "https://pro.dbflex.net/secure/api/v2/15331";
@@ -268,26 +270,42 @@ async function handleNewsletter(
   };
   const tablePath = `${DBFLEX_API}/${encodeURIComponent(NEWSLETTER_TABLE)}`;
 
-  // 8. Already-subscribed check. The Email column is not (yet) marked unique in
-  //    dbFlex, so TeamDesk upsert-on-match is rejected (code 3106). Until it is
-  //    (see follow-up issue), query for the address first: if it exists, tell
-  //    the visitor they're already subscribed instead of creating a duplicate.
-  //    On any query error we fall through to create — better a rare duplicate
-  //    than a lost signup. Small race window for two simultaneous first-time
-  //    signups of the same address; the eventual unique constraint mops it up.
-  //    Email is validated above (no quotes/spaces), so the filter string is safe.
+  // 8. Existing-record check, state-aware. The Email column is intentionally not
+  //    unique (re-subscribes add a fresh row as a consent log), so this lookup —
+  //    not a DB constraint — is the dedup. Query the address and branch on state:
+  //      - subscribed AND verified → confirmed subscriber ("exists").
+  //      - subscribed, not verified → "pending". dbFlex's daily nag re-sends the
+  //        confirmation at 3/7 days and auto-unsubscribes at 10, so we point them
+  //        back to that email rather than create a duplicate.
+  //      - only unsubscribed/auto-unsubscribed rows (Subscribed? false), or no
+  //        row at all → fall through and CREATE a fresh record, restarting a
+  //        clean verify + nag cycle (re-subscribe).
+  //    Fetch a few rows so multiple rows for one address (spam-era dupes, or the
+  //    old row from a re-subscribe) still resolve to the best state. On any query
+  //    error we fall through to create — better a rare duplicate than a lost
+  //    signup. Email is validated above, so the filter string is safe.
   try {
     const filter = encodeURIComponent(`[Email]="${email}"`);
     const found = await fetch(
-      `${tablePath}/select.json?filter=${filter}&top=1`,
+      `${tablePath}/select.json?filter=${filter}&top=5`,
       { headers: dbHeaders },
     );
     if (found.ok) {
-      const rows = (await found.json()) as unknown[];
-      if (Array.isArray(rows) && rows.length > 0) {
-        console.log("newsletter already subscribed", { locale });
+      const rows = (await found.json()) as Array<
+        { "Subscribed?"?: boolean; "Verified?"?: boolean }
+      >;
+      const subscribed = Array.isArray(rows)
+        ? rows.filter((r) => r["Subscribed?"] === true)
+        : [];
+      if (subscribed.some((r) => r["Verified?"] === true)) {
+        console.log("newsletter already subscribed (verified)", { locale });
         return redirect(l.home + "?newsletter=exists#panel-cta");
       }
+      if (subscribed.length > 0) {
+        console.log("newsletter pending verification", { locale });
+        return redirect(l.home + "?newsletter=pending#panel-cta");
+      }
+      // else: new, unsubscribed, or auto-unsubscribed → create fresh below.
     } else {
       console.error("newsletter dbFlex lookup failed", {
         locale,

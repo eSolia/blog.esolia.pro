@@ -37,6 +37,7 @@ newsletter:
   success: Subscribed!
   error: Subscription failed
   already: You're already subscribed with this email address.
+  pending: You're already registered but haven't confirmed yet. Please check your inbox (and spam) for the confirmation link — we'll also send a reminder.
   reference: https://blog.esolia.pro/en/
   thanks_url: https://blog.esolia.pro/en/thank-you/
 contact:
