@@ -466,10 +466,17 @@ function subPage(
     `button{margin-top:1.25rem;padding:.6rem 1.4rem;font-size:.95rem;font-weight:600;` +
     `color:#fff;background:#0ea5e9;border:0;border-radius:.5rem;cursor:pointer}` +
     `button:hover{background:#0284c7}` +
+    `.back{margin:1.5rem 0 0;font-size:.9rem}` +
+    `.back a{color:#0ea5e9;text-decoration:none}` +
+    `.back a:hover{text-decoration:underline}` +
     `</style></head><body><main>` +
     `<p class="logo"><img src="/assets/logo_horiz_darkblue_bgtransparent.svg" ` +
     `alt="eSolia" width="106" height="28"></p>` +
-    `<h1>${title}</h1><p>${body}</p>${form}</main></body></html>`;
+    `<h1>${title}</h1><p>${body}</p>${form}` +
+    `<p class="back"><a href="${LOCALES[loc].home}">${
+      loc === "en" ? "← Back to the blog" : "← ブログへ戻る"
+    }</a></p>` +
+    `</main></body></html>`;
   return new Response(html, {
     status,
     headers: { "Content-Type": "text/html;charset=UTF-8" },
