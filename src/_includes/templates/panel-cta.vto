@@ -89,6 +89,15 @@
     >
       {{ i18n.newsletter.already }}
     </p>
+    {{# Shown when the Worker redirects back with ?newsletter=pending
+        (registered but not yet verified). #}}
+    <p
+      id="newsletter-pending"
+      class="mt-3 hidden text-sm text-amber-600 dark:text-amber-400"
+      role="status"
+    >
+      {{ i18n.newsletter.pending }}
+    </p>
   </form>
   <div
     class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mt-6 lg:mt-0"
@@ -133,15 +142,10 @@
     var ts = document.querySelector('#newsletter input[name="ts"]');
     if (ts) ts.value = String(Date.now());
     // Reveal the matching message when the Worker bounced us back:
-    // ?newsletter=error (something failed) or =exists (already subscribed).
+    // ?newsletter=error | exists | pending → #newsletter-{state}.
     var state = new URLSearchParams(window.location.search).get("newsletter");
-    var msgId = state === "error"
-      ? "newsletter-error"
-      : state === "exists"
-      ? "newsletter-exists"
-      : null;
-    if (msgId) {
-      var msg = document.getElementById(msgId);
+    if (state === "error" || state === "exists" || state === "pending") {
+      var msg = document.getElementById("newsletter-" + state);
       if (msg) msg.classList.remove("hidden");
     }
   })();

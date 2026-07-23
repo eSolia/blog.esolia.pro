@@ -39,6 +39,7 @@ newsletter:
   success: 登録完了しました！
   error: 登録に失敗しました
   already: このメールアドレスは既にご登録済みです。
+  pending: 既にご登録いただいていますが、確認がまだ完了していません。受信トレイ（迷惑メールフォルダも）で確認メールのリンクをご確認ください。数日以内にリマインダーもお送りします。
   reference: https://blog.esolia.pro
   thanks_url: https://blog.esolia.pro/thank-you/
 contact:
