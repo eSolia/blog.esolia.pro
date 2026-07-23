@@ -66,6 +66,23 @@ export default {
         ? handleNewsletter(request, env)
         : Promise.resolve(new Response("Method Not Allowed", { status: 405 }));
     }
+    if (
+      url.pathname === "/api/newsletter/verify" ||
+      url.pathname === "/api/newsletter/unsubscribe"
+    ) {
+      const op: SubOp = url.pathname.endsWith("/unsubscribe")
+        ? "unsubscribe"
+        : "verify";
+      if (request.method === "GET") {
+        return renderConfirmPage(op, url, env);
+      }
+      if (request.method === "POST") {
+        return handleSubOp(op, request, env);
+      }
+      return Promise.resolve(
+        new Response("Method Not Allowed", { status: 405 }),
+      );
+    }
     return env.ASSETS.fetch(request);
   },
 
@@ -98,6 +115,17 @@ const DBFLEX_API = "https://pro.dbflex.net/secure/api/v2/15331";
 const NEWSLETTER_TABLE = "Email Newsletter Subscriber";
 const EMAIL_FIELD = "f_64244897";
 const REFERENCE_FIELD = "f_64244810";
+// Identifier + state fields for the verify/unsubscribe flow. "§ Id" is the
+// primary key, an AutoNumber with {GUID} format (32 hex, unguessable) for all
+// current records — used as the opaque token in the subscriber emails.
+const PK_COLUMN = "§ Id"; // TeamDesk filter/body column name
+const PK_FIELD = "f_64244793"; // same column, API field id (for update body)
+const SUBSCRIBED_FIELD = "f_64258005"; // "Subscribed?" checkbox
+const VERIFIED_FIELD = "f_64360375"; // "Verified?" checkbox
+// Accept a 32-hex GUID or a hyphenated UUID; rejects the legacy sequential
+// "ENS-YYYYMMDD-NNN" ids (they never receive new verify emails) and any junk.
+const PK_GUID_RE =
+  /^(?:[0-9A-Fa-f]{32}|[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})$/;
 
 // InfoSec: Stricter email regex — rejects consecutive dots, leading hyphens,
 // etc. (shared with the esolia-2025 contact-form Worker).
@@ -287,6 +315,250 @@ async function handleNewsletter(
 
   // 10. Success — full-page redirect to the existing thank-you page.
   return redirect(l.thanks);
+}
+
+// ---------------------------------------------------------------------------
+// Verify / unsubscribe handlers (double opt-in confirmation + unsubscribe)
+//
+// InfoSec: Replaces the public subops.html web-to-record. The link in the dbFlex
+// email carries only the record's primary key (§ Id, a {GUID}). A GET renders a
+// confirm page and NEVER mutates, so email security scanners / link-prefetchers
+// (Outlook Safe Links, Mimecast, Slack/Teams unfurls, AV) cannot auto-verify or
+// auto-unsubscribe. Mutation happens only on POST from the confirm button, and
+// the Worker sets the new state from the route — it trusts nothing else from the
+// URL (no Operation/Subscribed/Email params), closing the parameter-tampering
+// hole of the old flow. The 128-bit GUID gates lookups; malformed ids never hit
+// the API.
+// ---------------------------------------------------------------------------
+
+type SubOp = "verify" | "unsubscribe";
+type Loc = "ja" | "en";
+
+interface SubRecord {
+  "§ Id": string;
+  "Subscribed?": boolean;
+  "Verified?": boolean;
+  "Reference"?: string;
+}
+
+const SUB_STRINGS: Record<SubOp, Record<Loc, Record<string, string>>> = {
+  verify: {
+    ja: {
+      confirmTitle: "メール配信の登録確認",
+      confirmBody: "下のボタンを押して、メール配信の登録を確定してください。",
+      confirmButton: "登録を確定する",
+      successTitle: "登録が完了しました",
+      success: "ご登録ありがとうございます。メール配信の登録が確定されました。",
+      doneTitle: "確認済みです",
+      already: "このメールアドレスは既に確認済みです。",
+    },
+    en: {
+      confirmTitle: "Confirm your subscription",
+      confirmBody:
+        "Press the button below to confirm your newsletter subscription.",
+      confirmButton: "Confirm subscription",
+      successTitle: "Subscription confirmed",
+      success: "Thank you — your newsletter subscription is now confirmed.",
+      doneTitle: "Already confirmed",
+      already: "This email address has already been confirmed.",
+    },
+  },
+  unsubscribe: {
+    ja: {
+      confirmTitle: "配信停止の確認",
+      confirmBody: "下のボタンを押して、メール配信の停止を確定してください。",
+      confirmButton: "配信を停止する",
+      successTitle: "配信を停止しました",
+      success: "メール配信を停止しました。ご利用ありがとうございました。",
+      doneTitle: "停止済みです",
+      already: "このメールアドレスは既に配信停止済みです。",
+    },
+    en: {
+      confirmTitle: "Confirm unsubscribe",
+      confirmBody:
+        "Press the button below to confirm you want to stop receiving the newsletter.",
+      confirmButton: "Unsubscribe",
+      successTitle: "You've been unsubscribed",
+      success: "You will no longer receive the newsletter. Thank you.",
+      doneTitle: "Already unsubscribed",
+      already: "This email address is already unsubscribed.",
+    },
+  },
+};
+
+// Locale-neutral fallbacks (used when there's no record to infer locale from).
+const SUB_INVALID = {
+  ja: {
+    title: "リンクが無効です",
+    body: "このリンクは無効か、有効期限が切れています。",
+  },
+  en: {
+    title: "Invalid link",
+    body: "This link is invalid or has expired.",
+  },
+};
+const SUB_ERROR = {
+  ja: {
+    title: "エラーが発生しました",
+    body:
+      "処理中にエラーが発生しました。しばらくしてからもう一度お試しください。",
+  },
+  en: {
+    title: "Something went wrong",
+    body: "An error occurred. Please try again in a little while.",
+  },
+};
+
+function subDbHeaders(env: Env): Record<string, string> {
+  return {
+    "Authorization": `Bearer ${env.DBFLEX_API_KEY_01}`,
+    "Content-Type": "application/json",
+  };
+}
+
+function localeOf(rec: SubRecord): Loc {
+  return (rec.Reference ?? "").includes("/en") ? "en" : "ja";
+}
+
+// Self-contained, theme-aware HTML page for the verify/unsubscribe flow.
+function subPage(
+  loc: Loc,
+  title: string,
+  body: string,
+  form: string,
+  status = 200,
+): Response {
+  const html = `<!DOCTYPE html><html lang="${loc}"><head>` +
+    `<meta charset="utf-8">` +
+    `<meta name="viewport" content="width=device-width, initial-scale=1">` +
+    `<meta name="robots" content="noindex">` +
+    `<title>${title}</title><style>` +
+    `:root{color-scheme:light dark}` +
+    `body{margin:0;min-height:100vh;display:grid;place-items:center;` +
+    `font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;` +
+    `background:#fafafa;color:#18181b}` +
+    `@media(prefers-color-scheme:dark){body{background:#18181b;color:#e4e4e7}}` +
+    `main{max-width:30rem;margin:1.5rem;padding:2rem;border-radius:1rem;` +
+    `border:1px solid #e4e4e7;text-align:center}` +
+    `@media(prefers-color-scheme:dark){main{border-color:#3f3f46}}` +
+    `h1{font-size:1.15rem;margin:0 0 .75rem}` +
+    `p{font-size:.95rem;line-height:1.65;color:#52525b;margin:0}` +
+    `@media(prefers-color-scheme:dark){p{color:#a1a1aa}}` +
+    `button{margin-top:1.25rem;padding:.6rem 1.4rem;font-size:.95rem;font-weight:600;` +
+    `color:#fff;background:#0ea5e9;border:0;border-radius:.5rem;cursor:pointer}` +
+    `button:hover{background:#0284c7}` +
+    `</style></head><body><main><h1>${title}</h1><p>${body}</p>${form}</main></body></html>`;
+  return new Response(html, {
+    status,
+    headers: { "Content-Type": "text/html;charset=UTF-8" },
+  });
+}
+
+// Look a subscriber up by its primary key (§ Id GUID). Caller must have already
+// validated `guid` against PK_GUID_RE, so the filter string is injection-safe.
+async function lookupByGuid(guid: string, env: Env): Promise<SubRecord | null> {
+  const filter = encodeURIComponent(`[${PK_COLUMN}]="${guid}"`);
+  const url =
+    `${DBFLEX_API}/${encodeURIComponent(NEWSLETTER_TABLE)}/select.json` +
+    `?filter=${filter}&top=1`;
+  const resp = await fetch(url, { headers: subDbHeaders(env) });
+  if (!resp.ok) {
+    console.error("newsletter suboperation lookup failed", {
+      status: resp.status,
+    });
+    return null;
+  }
+  const rows = (await resp.json()) as SubRecord[];
+  return Array.isArray(rows) && rows.length > 0 ? rows[0] : null;
+}
+
+// GET — render a confirm page. Read-only: never mutates, so scanner prefetch is
+// harmless.
+async function renderConfirmPage(
+  op: SubOp,
+  url: URL,
+  env: Env,
+): Promise<Response> {
+  const guid = url.searchParams.get("guid") ?? "";
+  if (!PK_GUID_RE.test(guid)) {
+    return subPage("ja", SUB_INVALID.ja.title, SUB_INVALID.ja.body, "", 400);
+  }
+  const rec = await lookupByGuid(guid, env);
+  if (!rec) {
+    return subPage("ja", SUB_INVALID.ja.title, SUB_INVALID.ja.body, "", 404);
+  }
+  const loc = localeOf(rec);
+  const s = SUB_STRINGS[op][loc];
+  const already = op === "verify"
+    ? rec["Verified?"] === true
+    : rec["Subscribed?"] === false;
+  if (already) {
+    return subPage(loc, s.doneTitle, s.already, "");
+  }
+  const form = `<form method="POST" action="/api/newsletter/${op}">` +
+    `<input type="hidden" name="guid" value="${guid}">` +
+    `<button type="submit">${s.confirmButton}</button></form>`;
+  return subPage(loc, s.confirmTitle, s.confirmBody, form);
+}
+
+// POST — perform the state change. Trusts only the GUID; the new state is fixed
+// by the route (verify → Subscribed+Verified true; unsubscribe → Subscribed
+// false).
+async function handleSubOp(
+  op: SubOp,
+  request: Request,
+  env: Env,
+): Promise<Response> {
+  const clientIp = request.headers.get("CF-Connecting-IP") ?? "unknown";
+  const rl = await env.NEWSLETTER_LIMIT.limit({ key: `subop:${clientIp}` });
+  if (!rl.success) {
+    return subPage("ja", SUB_ERROR.ja.title, SUB_ERROR.ja.body, "", 429);
+  }
+  const form = await request.formData();
+  const guid = String(form.get("guid") ?? "");
+  if (!PK_GUID_RE.test(guid)) {
+    return subPage("ja", SUB_INVALID.ja.title, SUB_INVALID.ja.body, "", 400);
+  }
+  const rec = await lookupByGuid(guid, env);
+  if (!rec) {
+    return subPage("ja", SUB_INVALID.ja.title, SUB_INVALID.ja.body, "", 404);
+  }
+  const loc = localeOf(rec);
+  const s = SUB_STRINGS[op][loc];
+  const already = op === "verify"
+    ? rec["Verified?"] === true
+    : rec["Subscribed?"] === false;
+  if (already) {
+    return subPage(loc, s.doneTitle, s.already, "");
+  }
+
+  // Update by primary key (§ Id is the table's key column).
+  const fields = op === "verify"
+    ? { [SUBSCRIBED_FIELD]: true, [VERIFIED_FIELD]: true }
+    : { [SUBSCRIBED_FIELD]: false };
+  try {
+    const resp = await fetch(
+      `${DBFLEX_API}/${
+        encodeURIComponent(NEWSLETTER_TABLE)
+      }/update.json?workflow=1`,
+      {
+        method: "POST",
+        headers: subDbHeaders(env),
+        body: JSON.stringify([{ [PK_FIELD]: guid, ...fields }]),
+      },
+    );
+    if (!resp.ok) {
+      console.error(`newsletter ${op} update failed`, { status: resp.status });
+      return subPage(loc, SUB_ERROR[loc].title, SUB_ERROR[loc].body, "", 502);
+    }
+  } catch (error) {
+    console.error(
+      `newsletter ${op} update error`,
+      error instanceof Error ? error.message : "unknown",
+    );
+    return subPage(loc, SUB_ERROR[loc].title, SUB_ERROR[loc].body, "", 502);
+  }
+  return subPage(loc, s.successTitle, s.success, "");
 }
 
 async function triggerRebuild(env: Env): Promise<void> {
