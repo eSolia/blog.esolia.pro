@@ -81,6 +81,14 @@
     >
       {{ i18n.newsletter.error }}
     </p>
+    {{# Shown when the Worker redirects back with ?newsletter=exists. #}}
+    <p
+      id="newsletter-exists"
+      class="mt-3 hidden text-sm text-emerald-600 dark:text-emerald-400"
+      role="status"
+    >
+      {{ i18n.newsletter.already }}
+    </p>
   </form>
   <div
     class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mt-6 lg:mt-0"
@@ -124,12 +132,17 @@
     // Stamp the time-trap field so the Worker can reject impossibly fast bots.
     var ts = document.querySelector('#newsletter input[name="ts"]');
     if (ts) ts.value = String(Date.now());
-    // Reveal the error message when the Worker bounced us back with an error.
-    if (
-      new URLSearchParams(window.location.search).get("newsletter") === "error"
-    ) {
-      var err = document.getElementById("newsletter-error");
-      if (err) err.classList.remove("hidden");
+    // Reveal the matching message when the Worker bounced us back:
+    // ?newsletter=error (something failed) or =exists (already subscribed).
+    var state = new URLSearchParams(window.location.search).get("newsletter");
+    var msgId = state === "error"
+      ? "newsletter-error"
+      : state === "exists"
+      ? "newsletter-exists"
+      : null;
+    if (msgId) {
+      var msg = document.getElementById(msgId);
+      if (msg) msg.classList.remove("hidden");
     }
   })();
 </script>
