@@ -186,7 +186,7 @@ document.addEventListener("keydown", function (event) {
 document.addEventListener("DOMContentLoaded", () => {
   const tocDetails = document.getElementById("toc-details");
   if (!tocDetails) {
-    console.warn("Table of Contents details element not found!");
+    // No TOC on this page (home/listing pages) — nothing to do.
     return;
   }
   const handleDetailsState = () => {
