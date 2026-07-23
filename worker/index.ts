@@ -80,11 +80,18 @@ export default {
 // InfoSec: Defense-in-depth gate on the "Stay Informed" signup. In order:
 // origin allowlist, per-IP rate limit, honeypot + time-trap, Cloudflare
 // Turnstile siteverify, then server-side email validation. Only then does it
-// write to PROdb (dbFlex) via the AUTHENTICATED TeamDesk API v2 — not the old
-// public WebToRecord gateway. Every redirect target and the stored reference
-// URL are constructed server-side from a fixed allowlist, never read from the
-// request, so a caller cannot use this endpoint as an open redirect or inject
-// an arbitrary reference. Mirrors ~/dev/esolia-2025 workers/contact-form.
+// look up the address and create the record in PROdb (dbFlex) via the
+// AUTHENTICATED TeamDesk API v2 — not the old public WebToRecord gateway. Every
+// redirect target and the stored reference URL are constructed server-side from
+// a fixed allowlist, never read from the request, so a caller cannot use this
+// endpoint as an open redirect or inject an arbitrary reference. Mirrors
+// ~/dev/esolia-2025 workers/contact-form.
+//
+// dbFlex writes use create.json (not upsert-on-match) because the Email column
+// is not marked unique yet — TeamDesk rejects match on a non-unique column
+// (code 3106). A pre-insert lookup gives friendly "already subscribed" feedback
+// and avoids duplicates in the normal case. See the follow-up issue to clean
+// the table, mark Email unique, and switch back to upsert.
 // ---------------------------------------------------------------------------
 
 const DBFLEX_API = "https://pro.dbflex.net/secure/api/v2/15331";
@@ -214,24 +221,57 @@ async function handleNewsletter(
     return redirect(l.home + "?newsletter=error#panel-cta");
   }
 
-  // 8. Upsert to PROdb via the authenticated API. Matching on the email field
-  //    dedupes repeat signups. `reference` comes from the fixed LOCALES table.
-  const upsertUrl =
-    `${DBFLEX_API}/${encodeURIComponent(NEWSLETTER_TABLE)}/upsert.json` +
-    `?match=${EMAIL_FIELD}&workflow=1`;
+  const dbHeaders = {
+    "Authorization": `Bearer ${env.DBFLEX_API_KEY_01}`,
+    "Content-Type": "application/json",
+  };
+  const tablePath = `${DBFLEX_API}/${encodeURIComponent(NEWSLETTER_TABLE)}`;
+
+  // 8. Already-subscribed check. The Email column is not (yet) marked unique in
+  //    dbFlex, so TeamDesk upsert-on-match is rejected (code 3106). Until it is
+  //    (see follow-up issue), query for the address first: if it exists, tell
+  //    the visitor they're already subscribed instead of creating a duplicate.
+  //    On any query error we fall through to create — better a rare duplicate
+  //    than a lost signup. Small race window for two simultaneous first-time
+  //    signups of the same address; the eventual unique constraint mops it up.
+  //    Email is validated above (no quotes/spaces), so the filter string is safe.
   try {
-    const resp = await fetch(upsertUrl, {
+    const filter = encodeURIComponent(`[Email]="${email}"`);
+    const found = await fetch(
+      `${tablePath}/select.json?filter=${filter}&top=1`,
+      { headers: dbHeaders },
+    );
+    if (found.ok) {
+      const rows = (await found.json()) as unknown[];
+      if (Array.isArray(rows) && rows.length > 0) {
+        console.log("newsletter already subscribed", { locale });
+        return redirect(l.home + "?newsletter=exists#panel-cta");
+      }
+    } else {
+      console.error("newsletter dbFlex lookup failed", {
+        locale,
+        status: found.status,
+      });
+    }
+  } catch (error) {
+    console.error(
+      "newsletter dbFlex lookup error",
+      error instanceof Error ? error.message : "unknown",
+    );
+  }
+
+  // 9. Create the subscriber record via the authenticated API. `reference`
+  //    comes from the fixed LOCALES table, never the request.
+  try {
+    const resp = await fetch(`${tablePath}/create.json?workflow=1`, {
       method: "POST",
-      headers: {
-        "Authorization": `Bearer ${env.DBFLEX_API_KEY_01}`,
-        "Content-Type": "application/json",
-      },
+      headers: dbHeaders,
       body: JSON.stringify([
         { [EMAIL_FIELD]: email, [REFERENCE_FIELD]: l.reference },
       ]),
     });
     if (!resp.ok) {
-      console.error("newsletter dbFlex upsert failed", {
+      console.error("newsletter dbFlex create failed", {
         locale,
         status: resp.status,
       });
@@ -239,13 +279,13 @@ async function handleNewsletter(
     }
   } catch (error) {
     console.error(
-      "newsletter dbFlex upsert error",
+      "newsletter dbFlex create error",
       error instanceof Error ? error.message : "unknown",
     );
     return redirect(l.home + "?newsletter=error#panel-cta");
   }
 
-  // 9. Success — full-page redirect to the existing thank-you page.
+  // 10. Success — full-page redirect to the existing thank-you page.
   return redirect(l.thanks);
 }
 

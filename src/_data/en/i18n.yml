@@ -36,6 +36,7 @@ newsletter:
   placeholder: Email address
   success: Subscribed!
   error: Subscription failed
+  already: You're already subscribed with this email address.
   reference: https://blog.esolia.pro/en/
   thanks_url: https://blog.esolia.pro/en/thank-you/
 contact:
