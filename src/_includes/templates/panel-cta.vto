@@ -71,7 +71,8 @@
       data-theme="auto"
       data-size="flexible"
       data-action="newsletter"
-    ></div>
+    >
+    </div>
     {{# Shown when the Worker redirects back with ?newsletter=error. #}}
     <p
       id="newsletter-error"
@@ -119,17 +120,17 @@
   defer
 ></script>
 <script>
-(function () {
-  // Stamp the time-trap field so the Worker can reject impossibly fast bots.
-  var ts = document.querySelector('#newsletter input[name="ts"]');
-  if (ts) ts.value = String(Date.now());
-  // Reveal the error message when the Worker bounced us back with an error.
-  if (
-    new URLSearchParams(window.location.search).get("newsletter") === "error"
-  ) {
-    var err = document.getElementById("newsletter-error");
-    if (err) err.classList.remove("hidden");
-  }
-})();
+  (function () {
+    // Stamp the time-trap field so the Worker can reject impossibly fast bots.
+    var ts = document.querySelector('#newsletter input[name="ts"]');
+    if (ts) ts.value = String(Date.now());
+    // Reveal the error message when the Worker bounced us back with an error.
+    if (
+      new URLSearchParams(window.location.search).get("newsletter") === "error"
+    ) {
+      var err = document.getElementById("newsletter-error");
+      if (err) err.classList.remove("hidden");
+    }
+  })();
 </script>
 <!-- ===== panel-cta.vto TEMPLATE END ===== -->
