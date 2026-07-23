@@ -171,6 +171,16 @@ function redirect(location: string): Response {
   return new Response(null, { status: 303, headers: { Location: location } });
 }
 
+// Parse a form body without throwing on missing/garbled bodies (e.g. an empty
+// POST from a bot probe) — returns null instead of surfacing a 500.
+async function parseForm(request: Request): Promise<FormData | null> {
+  try {
+    return await request.formData();
+  } catch {
+    return null;
+  }
+}
+
 async function handleNewsletter(
   request: Request,
   env: Env,
@@ -192,7 +202,10 @@ async function handleNewsletter(
 
   // 3. Parse the form and resolve locale (never trusted for redirects below —
   //    only used to select from the fixed LOCALES table).
-  const form = await request.formData();
+  const form = await parseForm(request);
+  if (!form) {
+    return new Response("Bad Request", { status: 400 });
+  }
   const locale = form.get("locale") === "en" ? "en" : "ja";
   const l = LOCALES[locale];
 
@@ -514,8 +527,8 @@ async function handleSubOp(
   if (!rl.success) {
     return subPage("ja", SUB_ERROR.ja.title, SUB_ERROR.ja.body, "", 429);
   }
-  const form = await request.formData();
-  const guid = String(form.get("guid") ?? "");
+  const form = await parseForm(request);
+  const guid = form ? String(form.get("guid") ?? "") : "";
   if (!PK_GUID_RE.test(guid)) {
     return subPage("ja", SUB_INVALID.ja.title, SUB_INVALID.ja.body, "", 400);
   }
