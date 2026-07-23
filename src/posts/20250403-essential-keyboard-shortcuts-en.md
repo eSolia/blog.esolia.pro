@@ -6,31 +6,31 @@ lang: en
 id: 202503c-essential-shortcuts
 title: >-
   This Is Your First Step to Saving Time! Essential Shortcuts You Can Use
-  Starting Today 
+  Starting Today
 description: >-
   Discover useful shortcut keys for Windows and Office 365 to enhance
-  productivity and streamline your workflow, starting today! 
+  productivity and streamline your workflow, starting today!
 image: /uploads/202503c-essential-shortcuts-social-en.jpg
 author: 'YN'
 category: Microsoft-365
 comments: {}
 date: 2025-03-28T03:12:00.000Z
 last_modified: 2025-05-31T20:00:27.000Z
-tags: 
+tags:
   - shortcuts
 oldUrl:
   - /2505shortcutse/
 image_top: /uploads/202503c-essential-shortcuts-top.jpg
 ---
-Have you ever experienced something like this? You keep clicking through windows thinking, “Wait, where did that screen go?” Or you make a mistake and find yourself scrambling to figure out how to undo it. Sometimes you even slam your laptop shut when someone suddenly starts talking to you. Before you know it, a simple task ends up taking over 3 minutes. But what if I told you — _there’s a way to do that same task in just **one second**_? 
+Have you ever experienced something like this? You keep clicking through windows thinking, “Wait, where did that screen go?” Or you make a mistake and find yourself scrambling to figure out how to undo it. Sometimes you even slam your laptop shut when someone suddenly starts talking to you. Before you know it, a simple task ends up taking over 3 minutes. But what if I told you — _there’s a way to do that same task in just **one second**_?
 
 <!--more-->
 
-Here, we’ve gathered a collection of basic shortcuts you can start using right now. 
-No complicated steps, no advanced knowledge required. Just simple, practical shortcuts that feel intuitive — ones your fingers will remember for you. 
+Here, we’ve gathered a collection of basic shortcuts you can start using right now.
+No complicated steps, no advanced knowledge required. Just simple, practical shortcuts that feel intuitive — ones your fingers will remember for you.
 
 ## Useful Shortcut Keys for Windows
-### Basic operations 
+### Basic operations
 For relieving everyday little frustrations...
 
 <table class="not-prose w-full text-sm">
@@ -67,7 +67,7 @@ For relieving everyday little frustrations...
   </tbody>
 </table>
 
-### Boost productivity 
+### Boost productivity
 Quiet time-savers for smart workers...
 
 <table class="not-prose w-full text-sm">
@@ -99,14 +99,14 @@ Quiet time-savers for smart workers...
     </tr>
     <tr>
       <td><kbd>Win</kbd> + <kbd>.</kbd></td>
-      <td>Show a Emoji panel</td>
+      <td>Show an Emoji panel</td>
     </tr>
   </tbody>
 </table>
 
 
-## Shortcut Keys for Office 365 
-### Word 
+## Shortcut Keys for Office 365
+### Word
 
 <table class="not-prose w-full text-sm">
   <caption>
@@ -214,19 +214,17 @@ Quiet time-savers for smart workers...
   </tbody>
 </table>
 
-Once you start using keyboard shortcuts, you’ll be surprised how much faster your work gets. Each shortcut may save just a few seconds, but when used many times a day, it really adds up. 
+Once you start using keyboard shortcuts, you’ll be surprised how much faster your work gets. Each shortcut may save just a few seconds, but when used many times a day, it really adds up.
 
-**Knowing shortcuts isn’t enough — what matters is actually using them.** 
-Try picking just one shortcut that interests you and use it today. Even that small step can change the pace of your workflow. In fact, you can even try one right now in this site - press <kbd>Ctrl</kbd> + <kbd>k</kbd> if you're on Windows, or <kbd>Cmd</kbd> + <kbd>k</kbd> on Mac, to open the search popup.
+**Knowing shortcuts isn’t enough — what matters is actually using them.**
+Try picking just one shortcut that interests you and use it today. Even that small step can change the pace of your workflow. In fact, you can even try one right now on this site - press <kbd>Ctrl</kbd> + <kbd>k</kbd> if you're on Windows, or <kbd>Cmd</kbd> + <kbd>k</kbd> on Mac, to open the search popup.
 
-A little help from your fingertips might just make your workday smoother. 
+A little help from your fingertips might just make your workday smoother.
 
-![図形](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAANSURBVBhXY2BgYGAAAAAFAAGKM+MAAAAAAElFTkSuQmCC) 
-
-> [!TIP] 
+> [!TIP]
 > **Top 4 Shortcuts to Try Today:**
-> - <kbd>Alt</kbd> + <kbd>Tab</kbd>: Switch between windows 
-> - <kbd>Win</kbd> + <kbd>L</kbd>: Instantly lock your screen 
+> - <kbd>Alt</kbd> + <kbd>Tab</kbd>: Switch between windows
+> - <kbd>Win</kbd> + <kbd>L</kbd>: Instantly lock your screen
 > - <kbd>Win</kbd> + <kbd>V</kbd>: Show clipboard history
-> - <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>: Take a screenshot of a selected area  
+> - <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>: Take a screenshot of a selected area
 >  <br>

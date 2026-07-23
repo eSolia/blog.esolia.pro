@@ -69,7 +69,7 @@ Sometimes, when copy & paste doesn’t work for some reason, pasting from the cl
 * Can insert kaomoji, symbols, and GIFs
 
 **How to open**
-<kbd>Windows</kbd> + <kbd>.(period)</kbd> or <kbd>Windows</kbd> + <kbd>; (semicolon)</kbd> 
+<kbd>Windows</kbd> + <kbd>.(period)</kbd> or <kbd>Windows</kbd> + <kbd>; (semicolon)</kbd>
 
 It is integrated with the clipboard, so you can operate both from the same panel.
 
@@ -95,7 +95,6 @@ Snap Layouts allow you to neatly arrange multiple windows on your screen in pres
   <img alt="Screenshot of Snap layout" src="/uploads/202507b-windows11-features-3.png" width="400px" transform-images="avif webp png jpeg 400@2">
 </figure>
 
-
 ### File Explorer Tabs
 This feature allows you to switch between multiple folders within a single window using tabs—just like using a browser.
 
@@ -112,7 +111,7 @@ You can rearrange tabs by dragging them.
 When copying and pasting files, you can simply drag them between tabs to move them easily.
 
 Below are some related shortcuts that also work with browsers like Edge and Chrome.
-Once you memorize them, they’re extremely useful. give them a try!
+Once you memorize them, they’re extremely useful. Give them a try!
 
 <table class="not-prose w-full text-sm">
   <caption>
@@ -134,7 +133,7 @@ Once you memorize them, they’re extremely useful. give them a try!
       <td>Switch to the next tab</td>
     </tr>
     <tr>
-      <td><kbd>Ctrl</kbd> + <kbd>Shit</kbd>+ <kbd>Tab</kbd></td>
+      <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd>+ <kbd>Tab</kbd></td>
       <td>Switch to the previous tab</td>
     </tr>
     <tr>
@@ -159,7 +158,6 @@ Once you memorize them, they’re extremely useful. give them a try!
     </tr>
   </tbody>
 </table>
-
 
 ## Conclusion
 The clipboard, snap layouts, and File Explorer tabs introduced today are all simple yet highly effective features.

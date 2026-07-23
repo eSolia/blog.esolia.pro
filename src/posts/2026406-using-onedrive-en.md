@@ -23,8 +23,8 @@ tags:
   - DigitalTools
 comments: {}
 ---
-Many people use Microsoft's cloud storage service "**OneDrive**". It's convenient not only as a backup storage for your data, but also as a function for sharing data with others using. In this article, we'll show you how to share data with OneDrive. 
-*Some companies have rules that prohibit sharing with external parties. Please check beforehand. 
+Many people use Microsoft's cloud storage service "**OneDrive**". It's convenient not only as a backup storage for your data, but also as a function for sharing data with others. In this article, we'll show you how to share data with OneDrive.
+*Some companies have rules that prohibit sharing with external parties. Please check beforehand.
 
 <!--more-->
 
@@ -59,17 +59,17 @@ Microsoft will send you a verification code via email to your address. Check you
 
 Once you enter the correct verification code, you will be able to access and view the shared data.
 
-## Advantages of OneDrive 
+## Advantages of OneDrive
 * **You can send large data**
   OneDrive supports up to 250GB. (As of 2025)
-* **You can set permissions** 
+* **You can set permissions**
   You can select how you want others to handle the shared data such as view-only or editable.
-* **No risk of data loss or stolen** 
-  Since it does not use physical media such as USB sticks, there is no risk of physical leakage. It is sent as electronic data to only to the recipient over the Internet, so the data cannot be physically stolen by others.
+* **No risk of data loss or theft**
+  Since it does not use physical media such as USB sticks, there is no risk of physical leakage. It is sent as electronic data only to the recipient over the Internet, so the data cannot be physically stolen by others.
 
 ## Disadvantages of OneDrive
 - **Internet connection required**
-  Unlike sharing data via USB, both ends need the Internet connection.
+  Unlike sharing data via USB, both ends need an Internet connection.
 - **Both require a Microsoft account**
   In order to use OneDrive, both ends must have a Microsoft account.
 

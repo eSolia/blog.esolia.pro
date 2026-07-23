@@ -29,15 +29,15 @@ Have you ever had trouble saving a file because the pop-up window for selecting 
 A pop-up screen is a small window that appears only when needed, separate from your regular work screen. When you save a file, the standard Windows "Save As" dialog box appears. This window allows you to select the destination folder and enter the file name, so if it’s too large or too small, it can be difficult to use. This leads to the question: is it possible to adjust its size?
 
 ## Is it possible to adjust the window size?
-Because the Save dialog is displayed using the OS’s standard mechanism, it may not always be possible to resize it freely. In many cases, especially on older operating systems or legacy business application, the window size is fixed.
+Because the Save dialog is displayed using the OS’s standard mechanism, it may not always be possible to resize it freely. In many cases, especially on older operating systems or legacy business applications, the window size is fixed.
 However, in Windows 10 and later, improvements have been made to the Save dialog, and as a result, in most cases you can now adjust the window size. When the Save dialog is displayed in Explorer format (the same layout used to display files and folders in Windows Explorer), you can freely resize it by dragging any corner or the bottom-right edge of the window.
 
 <Procedure>
-1. Open the save pop-up.  
-2. Move the mouse cursor to the right edge or bottom-right corner of the screen.  
-3. Confirm that the cursor changes to “↔” or “↕”.  
-4. If it changes, drag to adjust the size.  
-※Please note that this operation may be disabled in some applications.  
+1. Open the save pop-up.
+2. Move the mouse cursor to the right edge or bottom-right corner of the screen.
+3. Confirm that the cursor changes to “↔” or “↕”.
+4. If it changes, drag to adjust the size.
+※Please note that this operation may be disabled in some applications.
 
 ## How to adjust the size of a window that fills the entire screen
 Now, let’s look at how to restore a “Save As” dialog box that has expanded to fill the entire screen.
@@ -71,7 +71,7 @@ Here are three ways to fix this problem.
   <img alt="Screenshot of a Windows“Save As”dialog box showing the file name field" src="/uploads/202508a-file-saving-popup-en4.png" width="500px" transform-images="avif webp png jpeg 500@2">
 </figure>
 
-### Method 3：Resize via “Hide Folders” button
+### Method 3: Resize via “Hide Folders” button
 1. Click the "Hide Folders" button located in the bottom-left corner of the maximized dialog box.
 
 <figure class="flex flex-col justify-start items-left">
@@ -81,7 +81,7 @@ Here are three ways to fix this problem.
 2. The dialog box will be restored from its maximized state, allowing you to resize the window by dragging its bottom-right corner.
 
 <figure class="flex flex-col justify-start items-left">
-  <img alt="Screenshot of a Windows“Save As”dialog box showing showing the file name and settings" src="/uploads/202508a-file-saving-popup-en6.png" width="500px" transform-images="avif webp png jpeg 500@2">
+  <img alt="Screenshot of a Windows“Save As”dialog box showing the file name and settings" src="/uploads/202508a-file-saving-popup-en6.png" width="500px" transform-images="avif webp png jpeg 500@2">
 </figure>
 
 3. Alternatively, clicking “Browse for Folder” in the above step will return the dialog box to a fixed size without maximizing it.

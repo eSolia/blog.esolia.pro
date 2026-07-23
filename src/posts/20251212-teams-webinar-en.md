@@ -23,39 +23,39 @@ tags:
   - Teams Webinar
 comments: {}
 ---
-Microsoft Teams Webinar is a powerful tool for hosting large-scale online events, ideal for businesses and educational institutions. In this quick IT Tips blog, we’ll explore how to set up and optimize your Teams Webinar effectively 
+Microsoft Teams Webinar is a powerful tool for hosting large-scale online events, ideal for businesses and educational institutions. In this quick IT Tips blog, we’ll explore how to set up and optimize your Teams Webinar effectively.
 <!--more-->
 
 ## What is Teams Webinar?
-Unlike regular Teams meetings, Teams Webinar is designed for large virtual events, offering features such as: 
-- Up to 1,000 attendees (expandable with Teams Premium) 
-- Registration forms to manage participants 
-- Role-based controls for presenters and attendees 
+Unlike regular Teams meetings, Teams Webinar is designed for large virtual events, offering features such as:
+- Up to 1,000 attendees (expandable with Teams Premium)
+- Registration forms to manage participants
+- Role-based controls for presenters and attendees
 - Q&A functionality for interactive discussions
 
-## How to Set Up a Webinar 
+## How to Set Up a Webinar
 
-**Step 1: Create a webinar from the Teams calendar** 
-- Open Teams and navigate to Calendar 
-- Click New Webinar 
-- Set the title, date, and time 
+**Step 1: Create a webinar from the Teams calendar**
+- Open Teams and navigate to Calendar
+- Click New Webinar
+- Set the title, date, and time
 
-**Step 2: Set up the registration form** 
-- In the Registration tab, customize the registration page 
-- Collect details like name, email, and organization 
-- Share the registration link via email or website 
+**Step 2: Set up the registration form**
+- In the Registration tab, customize the registration page
+- Collect details like name, email, and organization
+- Share the registration link via email or website
 
-**Step 3: Assign roles** 
-- Organizer: Manages the event settings 
-- Presenter: Leads the presentation 
+**Step 3: Assign roles**
+- Organizer: Manages the event settings
+- Presenter: Leads the presentation
 - Attendee: Can view but not interact (no speaking or screen sharing)
 
-## Tips for a Successful Webinar 
+## Tips for a Successful Webinar
 
 > [!NOTE]
-> ・Conduct a rehearsal: Test sessions with presenters to prevent technical issues 
-・Engage your audience by fostering interaction through Q&A features and polls 
-・Check camera & audio quality: Ensure clear visuals and sound for a professional experience 
-・Provide follow-up materials by sharing recordings and additional resources after the webinar 
+> ・Conduct a rehearsal: Test sessions with presenters to prevent technical issues
+・Engage your audience by fostering interaction through Q&A features and polls
+・Check camera & audio quality: Ensure clear visuals and sound for a professional experience
+・Provide follow-up materials by sharing recordings and additional resources after the webinar
 
 Microsoft Teams Webinar is a great tool for running large-scale virtual events smoothly. With the right setup and planning, you can enhance audience engagement and deliver a seamless experience.

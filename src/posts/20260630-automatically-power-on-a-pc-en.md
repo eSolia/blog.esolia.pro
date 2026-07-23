@@ -13,7 +13,7 @@ title: >-
 description: >-
   Learn how to configure Dell Optiplex BIOS settings so that your PC
   automatically powers on after power loss or updates. Includes a real-world
-  case using a warehouse PC as an SCCM distribution point. 
+  case using a warehouse PC as an SCCM distribution point.
 image: /uploads/202508d-power-on-pc-en.png
 image_top: /uploads/202508d-power-on-pc.png
 author: Kabaya
@@ -29,15 +29,15 @@ tags:
   - PowerSettings
 comments: {}
 ---
-In business environments, it's not uncommon to run into situations where a PC doesn't automatically restart after a Windows update, or remains powered off after a power outage. 
-This can become a real problem, especially for PCs used for remote access or unattended operations like surveillance or server-related tasks. 
-In this article, we’ll walk you through how to configure the BIOS setting on Dell Optiplex PCs (e.g., 7060) so that the system will automatically power on after power is restored. 
+In business environments, it's not uncommon to run into situations where a PC doesn't automatically restart after a Windows update, or remains powered off after a power outage.
+This can become a real problem, especially for PCs used for remote access or unattended operations like surveillance or server-related tasks.
+In this article, we’ll walk you through how to configure the BIOS setting on Dell Optiplex PCs (e.g., 7060) so that the system will automatically power on after power is restored.
 
 <!--more-->
 
 ## When This Setting is Useful
-* After a Windows update, you want the PC to restart automatically 
-* When the power cable is accidentally unplugged or there's a power cut 
+* After a Windows update, you want the PC to restart automatically
+* When the power cable is accidentally unplugged or there's a power cut
 * For systems that should always stay on or boot before office hours
 
 ## BIOS Feature: Auto Power On
@@ -66,26 +66,26 @@ Many Dell systems provide several power-related BIOS settings. Here are the key 
   </tbody>
 </table>
 
-In this article, we'll focus on **AC Recovery**. 
+In this article, we'll focus on **AC Recovery**.
 
 ## How to Configure AC Recovery (Dell Optiplex 7060)
-1. Turn on the PC and press <kbd>F2</kbd> repeatedly to enter the BIOS Setup 
-2. Go to 
-　[Power Management] > [AC Recovery] 
-3. Change the setting to: 
-　[Power On] 
-　(The default is usually [Off]) 
+1. Turn on the PC and press <kbd>F2</kbd> repeatedly to enter the BIOS Setup
+2. Go to
+　[Power Management] > [AC Recovery]
+3. Change the setting to:
+　[Power On]
+　(The default is usually [Off])
 4. Click [Apply] to save, then [Exit] to reboot
 
 ## Related Settings (Optional)
-* **Auto On Time**: Useful if you want the PC to power on at a fixed time (e.g., 9:00 AM) 
+* **Auto On Time**: Useful if you want the PC to power on at a fixed time (e.g., 9:00 AM)
 * **Wake on LAN**: Use this if you want to boot the PC via network commands
 
-## Real-World Example 
-At one client site, a desktop PC placed in a warehouse was being used as an SCCM Distribution Point server. 
-However, the PC often powered off unexpectedly due to various reasons, and each time the warehouse staff had to manually turn it back on. 
-After enabling the AC Recovery setting, the PC now automatically powers back on after power is restored—whether it’s due to a power outage, updates, or the power strip being switched off. 
-This eliminated the need for manual intervention by on-site staff. 
+## Real-World Example
+At one client site, a desktop PC placed in a warehouse was being used as an SCCM Distribution Point server.
+However, the PC often powered off unexpectedly due to various reasons, and each time the warehouse staff had to manually turn it back on.
+After enabling the AC Recovery setting, the PC now automatically powers back on after power is restored—whether it’s due to a power outage, updates, or the power strip being switched off.
+This eliminated the need for manual intervention by on-site staff.
 
 ## Summary
 <table class="not-prose w-full text-sm">
@@ -105,6 +105,6 @@ This eliminated the need for manual intervention by on-site staff.
   </tbody>
 </table>
 
-This small but powerful BIOS setting can save time, reduce manual effort, and help maintain system uptime—especially for systems that should stay available at all times. 
+This small but powerful BIOS setting can save time, reduce manual effort, and help maintain system uptime—especially for systems that should stay available at all times.
 
 Make sure to check and configure this on any critical PC you manage.
