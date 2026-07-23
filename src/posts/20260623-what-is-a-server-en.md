@@ -10,7 +10,7 @@ last_modified: 2026-06-23T05:20:53.000Z
 title: 'IT Terms You Think You Know: What Is a Server?'
 description: >-
   we’ll give a gentle and beginner-friendly explanation of the term “server,”
-  which you might know the sound of, but not fully understand. 
+  which you might know the sound of, but not fully understand.
 image: /uploads/202508c-what-is-server-en.png
 image_top: /uploads/202508c-what-is-server.png
 author: KC
@@ -25,29 +25,29 @@ A Simple Explanation of a Common IT Term: “Server.” You’ve probably heard 
 
 <!--more-->
 
-## Let’s Start with the Basics: What Is a Server? 
-A **server** is, in short, **a computer that provides services to other devices.** 
-It responds to requests and delivers information or functionality — basically, it plays the role of a “host” that serves others. 
-For example: 
-* Want to view a webpage? → A server sends that page to your device 
-* Want to send an email?  → A server delivers the email to the recipient 
+## Let’s Start with the Basics: What Is a Server?
+A **server** is, in short, **a computer that provides services to other devices.**
+It responds to requests and delivers information or functionality — basically, it plays the role of a “host” that serves others.
+For example:
+* Want to view a webpage? → A server sends that page to your device
+* Want to send an email?  → A server delivers the email to the recipient
 * Want to share a file?　 → A server stores the file and lets others access it
-  
+
 In short, everything from browsing websites to sending emails relies on servers working behind the scenes.
 
-## What’s the Difference Between a Server and a Client? 
-The word “**client**” often comes up alongside “server.” 
-A client is the device that **receives the service**, like your computer or smartphone. 
-For example: 
-* When you search something on Google from your phone → your device is the client 
-* The Google system that returns the search results   → that’s the server 
+## What’s the Difference Between a Server and a Client?
+The word “**client**” often comes up alongside “server.”
+A client is the device that **receives the service**, like your computer or smartphone.
+For example:
+* When you search something on Google from your phone → your device is the client
+* The Google system that returns the search results   → that’s the server
 It’s a “**client makes a request, server responds**” kind of relationship.
 
-## So, Where Are Servers Located? 
-You might have never seen one in person, but servers can be found in many places: 
-* A company’s office server room 
-* Data centers 
-* The cloud (e.g., AWS, Microsoft Azure) 
+## So, Where Are Servers Located?
+You might have never seen one in person, but servers can be found in many places:
+* A company’s office server room
+* Data centers
+* The cloud (e.g., AWS, Microsoft Azure)
 Recently, more companies are moving to **cloud servers**, meaning they don’t need to manage physical machines in-house anymore.
 
 **Examples of Servers You Might Use Without Realizing**
@@ -76,8 +76,8 @@ Recently, more companies are moving to **cloud servers**, meaning they don’t n
 
 In short: if something is quietly **providing something to others**, it’s probably a server!
 
-## Summary 
-A **server** isn’t something overly complicated — it’s just a computer that provides services. 
-Even if you weren’t aware of it before, servers are quietly working as the “unsung heroes” behind the internet and our internal systems. 
-Doesn’t it feel satisfying to finally understand what you kind of already thought you knew? 
+## Summary
+A **server** isn’t something overly complicated — it’s just a computer that provides services.
+Even if you weren’t aware of it before, servers are quietly working as the “unsung heroes” behind the internet and our internal systems.
+Doesn’t it feel satisfying to finally understand what you kind of already thought you knew?
 Take this chance to dive a little deeper into familiar IT terms!

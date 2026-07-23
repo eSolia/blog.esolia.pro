@@ -31,13 +31,13 @@ If you use Outlook, you might occasionally encounter problems where your calenda
 The first thing you should try is using **Outlook on the web**. This is the simplest and most reliable way to avoid sync issues. Since the web version has different sync timings than the app, it can help prevent problems that occur in the app. If you notice that updates aren’t reflecting or there’s a delay in the app, always check the web version first.
 
 ## Clear the Cache
-Another effective method is to **clear the cache**. Outlook app creates a local file called an **OST file** that helps you access emails, calendar, and contacts even when you're offline. Over time, if you’ve been using Outlook for a long time or manage a large number of calendars, the OST file can become quite large, which may lead to syncing problems. 
+Another effective method is to **clear the cache**. The Outlook app creates a local file called an **OST file** that helps you access emails, calendar, and contacts even when you're offline. Over time, if you’ve been using Outlook for a long time or manage a large number of calendars, the OST file can become quite large, which may lead to syncing problems.
 
 ### How to Delete the OST File
 Follow these steps to delete the OST file in the Classic version of Outlook:
 
 1. Open the **File tab**
-2. Select **Account Settings** 
+2. Select **Account Settings**
 3. Click on **Account Settings** again
 4. Choose **Data Files**
 5. Click on the OST file and select **Open File Location**
@@ -47,21 +47,21 @@ Follow these steps to delete the OST file in the Classic version of Outlook:
   <img alt="Screenshot of Outlook settings" src="/uploads/202503e-outlook-calender-sync-issues-en.png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
 
-7. Delete the OST file. (Even if you delete the OST file, Outlook will re-create it automatically.) 
+7. Delete the OST file. (Even if you delete the OST file, Outlook will re-create it automatically.)
 
 Additionally, rebuilding your profile can help resolve syncing issues. Here’s how to do it:
 
 1. Open **Control Panel** and go to **Mail (Microsoft Outlook)**
 2. Click **Show Profiles**
-3. Delete the current profile 
+3. Delete the current profile
 4. Create a new profile and give it a slightly different name
 
 
 > [!CAUTION]
-> After deleting the OST file and rebuilding your profile, it might take several hours for emails and other data to sync back to your app. This method doesn’t always resolve the issue, but it can help in many cases. 
+> After deleting the OST file and rebuilding your profile, it might take several hours for emails and other data to sync back to your app. This method doesn’t always resolve the issue, but it can help in many cases.
 
 ## Check Manually
-Although the first two methods are effective, delays in syncing can still occur because the information is transmitted over the internet. In time-sensitive situations or when you have conflicting appointments, the most reliable way to avoid issues is to **check manually.** 
+Although the first two methods are effective, delays in syncing can still occur because the information is transmitted over the internet. In time-sensitive situations or when you have conflicting appointments, the most reliable way to avoid issues is to **check manually.**
 
 While this may seem old-fashioned, directly confirming with the calendar owner or manager ensures that the schedule is accurate, preventing double bookings and other mistakes.
 

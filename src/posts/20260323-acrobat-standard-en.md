@@ -168,11 +168,11 @@ Building on our previous blog,["What is PDF? How is it related to Adobe Acrobat?
 2. Select the "Edit" tool.
 3. Click the relevant text and enter or correct it directly. Or drag the relevant object to move it around or change its size.
 
-**Reorder, add, and extract pages**: Uses can easily change the page order within a PDF, add pages from another file, extract and save specific pages, and more.
+**Reorder, add, and extract pages**: Users can easily change the page order within a PDF, add pages from another file, extract and save specific pages, and more.
 *Please note that changes cannot be made in PDF files that have been marked as non-editable.
 {{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
 1. Click "Edit" → "Organize Pages".
-2. Drag pages to change the order. 
+2. Drag pages to change the order.
 3. By right-clicking on a page, users can insert a page from another file, extract a page from another file, and save it as a separate file. Rotation and deletion of the relevant page are also possible.
 
 ### ② Security Management
@@ -201,7 +201,7 @@ It is also possible to send a request for signatures in a specific order of thos
 *By setting a reminder, the signer will automatically receive reminders until the document is signed.
 
 ### ④ Ability to convert between PDF and Office formats
-**Convert PDF to Word/Excel/PowerPoint**: Use this when users want to convert a PDF that does not have the original data back to Word for editing, or when users want to convert a PDF quotation or report to Excel for compilation. However, please 
+**Convert PDF to Word/Excel/PowerPoint**: Use this when users want to convert a PDF that does not have the original data back to Word for editing, or when users want to convert a PDF quotation or report to Excel for compilation. However, please
 note that there are limits to the accuracy of the conversion, and the format may not be reproduced accurately.
 
 **Examples of common problems**
@@ -217,7 +217,7 @@ Please note that the converted file needs to be checked and reformatted. It is s
 2. Or use the "Save as PDF" option in the Office app.
 
 ## Main differences from Acrobat Pro
-The main differences between Acrobat Pro and Acrobat Pro are listed in the comparison table at the beginning of this document, but here are some features of Acrobat Pro.　
+The main differences between Acrobat Standard and Acrobat Pro are listed in the comparison table at the beginning of this document, but here are some features of Acrobat Pro.
 
 * Masking of sensitive information: Masks text and images with a black fill, searches for specific keywords in the entire document, and removes metadata and hidden information.
 * OCR (Optical Character Recognition): Text can be automatically read from scanned images and photo PDFs. For example, paper contracts and receipts can be digitized and made searchable.
