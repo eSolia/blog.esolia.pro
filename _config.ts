@@ -467,14 +467,23 @@ site.preprocess([".md"], (pages) => {
 // (see wrangler.jsonc) re-runs the build each night, so each scheduled post is
 // revealed automatically once its date arrives — no manual step needed.
 //
-// Drafts are shown when LUME_DRAFTS is set (the local dev server and the CMS),
-// so editors can still preview future-dated posts before they go live.
+// Future-dated posts are revealed (gate disabled) in three cases:
+//   1. LUME_DRAFTS is set — the local dev server and the CMS, so editors can
+//      preview scheduled posts before they go live.
+//   2. The build is a Cloudflare Workers preview build (WORKERS_CI_BRANCH set
+//      to anything other than the production branch), so branch preview URLs
+//      show scheduled posts for review. Note this only lifts the future-date
+//      gate; genuine `draft: true` posts stay hidden even on preview builds.
+// Production builds on the main branch keep the gate on.
 //
 // InfoSec: no security impact — controls only build-time content visibility.
-const showScheduledDrafts =
-  (Deno.env.get("LUME_DRAFTS") ?? "").toLowerCase() ===
-    "true" ||
-  Deno.env.get("LUME_DRAFTS") === "1";
+const productionBranch = "main";
+const ciBranch = Deno.env.get("WORKERS_CI_BRANCH");
+const isPreviewBuild = ciBranch !== undefined && ciBranch !== productionBranch;
+const lumeDrafts = (Deno.env.get("LUME_DRAFTS") ?? "").toLowerCase();
+const showScheduledDrafts = lumeDrafts === "true" ||
+  lumeDrafts === "1" ||
+  isPreviewBuild;
 if (!showScheduledDrafts) {
   site.addEventListener("beforeRender", ({ pages }) => {
     const now = Date.now();
