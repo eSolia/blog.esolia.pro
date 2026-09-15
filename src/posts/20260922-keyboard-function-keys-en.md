@@ -165,9 +165,12 @@ Here are some common Fn key combinations:
  <kbd>Fn</kbd> + <kbd>Spacebar</kbd> (toggle keyboard backlight on/off)
  <kbd>Fn</kbd> + <kbd>F9</kbd> (enable/disable touchpad)
  <kbd>Fn</kbd> + <kbd>Esc</kbd> (Fn lock — on some models, this switches the priority between the F1–F12 keys’ default functions and their extended functions)
-Note: The exact key assignments vary depending on the manufacturer and model.
 
-By mastering these Fn key combinations, you can quickly control essential hardware functions without the need to open complicated settings menus.
+> [!NOTE]
+> The exact key assignments vary depending on the manufacturer and model.
+
+> [!TIP]
+> By mastering these Fn key combinations, you can quickly control essential hardware functions without the need to open complicated settings menus.
 
 ## Conclusion
 Since we use computer keyboards every day, understanding why they are designed the way they are can make them more convenient and efficient to use. The keys you press without thinking, or the functions you see but have never tried, may carry historical reasons or tips for improving your workflow.

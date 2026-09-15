@@ -53,7 +53,8 @@ runas /user:DOMAIN\AdminAccount "cmd.exe /c mmc devmgmt.msc"
 * DOMAIN\AdminAccount = your admin account (or PCName\Administrator for local accounts)
 * After entering the password, Device Manager opens with admin rights
 
-Why it’s useful: You don’t need to log off and log on as an admin every time, saving time and effort.
+> [!TIP]
+> You don’t need to log off and log on as an admin every time, saving time and effort.
 
 ## Example 2: Opening Chrome as an Admin
 Sometimes, I need to access admin web consoles like Exchange Admin Center or Intune.
@@ -64,7 +65,9 @@ runas /user:admin_account@example.com "C:\ProgramFiles\Google\Chrome\Application
 ```
 
 * After entering the password, that Chrome session runs with admin privileges
-* Important: The Chrome installation path (C:\Program Files\Google\Chrome\Application\) may vary depending on the device. Adjust the path as needed.
+
+> [!NOTE]
+> The Chrome installation path (`C:\Program Files\Google\Chrome\Application\`) may vary depending on the device. Adjust the path as needed.
 
 This lets you stay logged in as a standard user while accessing admin tools only when necessary.
 
@@ -72,6 +75,9 @@ This lets you stay logged in as a standard user while accessing admin tools only
 * Can I store the password in a script? → Not recommended. Storing in plain text is a security risk.
 * Can I use /savecred? → Possible, but it has security risks. Always follow your company policy.
 * What about UAC? → runas doesn’t handle all UAC prompts. If you get a 740 error, use cmd.exe /c or consider alternatives like Task Scheduler.
+
+> [!CAUTION]
+> Never hard-code an admin password in a batch file or script — plain-text credentials are a serious security risk. The `/savecred` option caches the password after the first use, which also increases exposure. Always follow your organization's security policy.
 
 ## Practical tips
 * Batch files: Create a .bat for frequently used commands. Double-click and enter the password.

@@ -68,4 +68,6 @@ Attachment-based attacks don’t just affect individuals – they can compromise
 ## Think Before You Click
 Attachments are useful, but they come with risks.
 Before opening any file, ask yourself: “Who sent this?”, “What format is it?”, “Do I really need to open it?”
-A moment of caution can protect your data and your team.
+
+> [!CAUTION]
+> A moment of caution can protect your data and your team. When in doubt, check with your IT team before opening.
