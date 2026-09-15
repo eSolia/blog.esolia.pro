@@ -457,6 +457,40 @@ site.preprocess([".md"], (pages) => {
   }
 });
 
+// Future-date gating for scheduled posts.
+//
+// Lume's built-in draft filter runs at load time, so it cannot act on a post's
+// `date`. Instead, right before render we drop any post whose `date` is still
+// in the future from the pages array. Removing it here (the same splice pattern
+// Lume's own multilanguage plugin uses) keeps it out of the rendered output,
+// the search index, the feeds, and the sitemap alike. The daily rebuild cron
+// (see wrangler.jsonc) re-runs the build each night, so each scheduled post is
+// revealed automatically once its date arrives — no manual step needed.
+//
+// Drafts are shown when LUME_DRAFTS is set (the local dev server and the CMS),
+// so editors can still preview future-dated posts before they go live.
+//
+// InfoSec: no security impact — controls only build-time content visibility.
+const showScheduledDrafts =
+  (Deno.env.get("LUME_DRAFTS") ?? "").toLowerCase() ===
+    "true" ||
+  Deno.env.get("LUME_DRAFTS") === "1";
+if (!showScheduledDrafts) {
+  site.addEventListener("beforeRender", ({ pages }) => {
+    const now = Date.now();
+    for (const page of [...pages]) {
+      const date = page.data.date;
+      if (
+        page.data.type === "post" &&
+        date instanceof Date &&
+        date.getTime() > now
+      ) {
+        pages.splice(pages.indexOf(page), 1);
+      }
+    }
+  });
+}
+
 site.preprocess([".html"], (pages) => {
   for (const page of pages) {
     const src = page.src.entry?.src;

@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202509d-remote-environment
-date: 2026-05-19 07:35:00
-last_modified: 2026-07-06 15:26:00
+date: 2026-10-13 00:00:00
+last_modified: 2026-09-16 12:00:00
 title: >-
   Stay Focused While Working from Home! How to Create a Comfortable Digital
   Environment

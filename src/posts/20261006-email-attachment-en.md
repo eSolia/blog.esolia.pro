@@ -1,13 +1,13 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202509c-email-attachment
-date: 2026-04-08 02:10:00
-last_modified: 2026-07-06 15:22:00
-title: Email Attachment
+date: 2026-10-06 00:00:00
+last_modified: 2026-09-16 12:00:00
+title: The Hidden Dangers of Email Attachment
 description: >-
   Explains the risks of ZIP bombs and macro viruses hidden in email attachments.
   Provides easy-to-understand guidance for beginners on how to identify them and

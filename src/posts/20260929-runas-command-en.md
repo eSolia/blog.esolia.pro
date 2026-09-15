@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202509b-runas-command
-date: 2026-04-08 01:10:00
-last_modified: 2026-07-06 15:19:00
+date: 2026-09-29 00:00:00
+last_modified: 2026-09-16 12:00:00
 title: >-
   Understanding the runas Command - Running Apps with Another Account Without
   Logging Off

@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202509a-keyboard-history
-date: 2026-05-19 05:55:00
-last_modified: 2026-07-06 15:15:00
+date: 2026-09-22 00:00:00
+last_modified: 2026-09-16 12:00:00
 title: Keyboard Layout History and the Role of Function Keys
 description: >-
   Explains the different types of keyboard layouts, the differences between
@@ -158,13 +158,13 @@ On laptops and compact keyboards, you’ll often find the Fn key (short for Func
 Unlike a full-size desktop keyboard, laptops have physical space constraints, which limit the number of keys available. The Fn key solves this by giving a single key two different roles. Like the Shift or Ctrl keys, the Fn key doesn’t work on its own; it must be pressed in combination with another key.
 
 Here are some common Fn key combinations:
-* Adjusting screen brightness: <kbd>Windows</kbd> + <kbd>F5</kbd> (darker) / <kbd>Windows</kbd> + <kbd>F6</kbd> (brighter)
-* Controlling volume: <kbd>Windows</kbd> + <kbd>F2</kbd> (volume down) / <kbd>Windows</kbd> + <kbd>F3</kbd> (volume up) / <kbd>Windows</kbd> + <kbd>F1</kbd> (mute toggle)
-* Switching display output: <kbd>Windows</kbd> + <kbd>F7</kbd> (toggle between laptop screen, external display, or duplicate mode) / <kbd>Windows</kbd> + <kbd>F8</kbd> (projector output, etc.)
+* Adjusting screen brightness: <kbd>Fn</kbd> + <kbd>F5</kbd> (darker) / <kbd>Fn</kbd> + <kbd>F6</kbd> (brighter)
+* Controlling volume: <kbd>Fn</kbd> + <kbd>F2</kbd> (volume down) / <kbd>Fn</kbd> + <kbd>F3</kbd> (volume up) / <kbd>Fn</kbd> + <kbd>F1</kbd> (mute toggle)
+* Switching display output: <kbd>Fn</kbd> + <kbd>F7</kbd> (toggle between laptop screen, external display, or duplicate mode) / <kbd>Fn</kbd> + <kbd>F8</kbd> (projector output, etc.)
 * Other convenient functions:
- <kbd>Windows</kbd> + <kbd>Spacebar</kbd> (toggle keyboard backlight on/off)
- <kbd>Windows</kbd> + <kbd>F9</kbd> (enable/disable touchpad)
- <kbd>Windows</kbd> + <kbd>Esc</kbd> (Fn lock — on some models, this switches the priority between the F1–F12 keys’ default functions and their extended functions)
+ <kbd>Fn</kbd> + <kbd>Spacebar</kbd> (toggle keyboard backlight on/off)
+ <kbd>Fn</kbd> + <kbd>F9</kbd> (enable/disable touchpad)
+ <kbd>Fn</kbd> + <kbd>Esc</kbd> (Fn lock — on some models, this switches the priority between the F1–F12 keys’ default functions and their extended functions)
 Note: The exact key assignments vary depending on the manufacturer and model.
 
 By mastering these Fn key combinations, you can quickly control essential hardware functions without the need to open complicated settings menus.
