@@ -61,7 +61,7 @@ Sometimes, I need to access admin web consoles like Exchange Admin Center or Int
 In those cases, I use runas to launch Chrome with my admin account:
 
 ```cmd
-runas /user:admin_account@example.com "C:\ProgramFiles\Google\Chrome\Application\chrome.exe"
+runas /user:admin_account@example.com "C:\Program Files\Google\Chrome\Application\chrome.exe"
 ```
 
 * After entering the password, that Chrome session runs with admin privileges

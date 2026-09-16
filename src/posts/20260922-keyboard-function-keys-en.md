@@ -38,7 +38,7 @@ The origins of this layout date back to the 1870s, when Christopher Sholes and h
 According to one theory, Sholes addressed this issue by deliberately spacing apart the typebars of commonly used letter combinations (such as “TH” or “HE” in English). This arrangement slowed down typing speed to some extent but helped reduce the risk of typebar collisions and jams.
 
 Thus, a layout born as a workaround for the technological limitations of its time has, through social inertia and its status as a de facto standard, continued to dominate the world—even nearly 150 years later in the digital age.
-[※Reference URL: QWERTY layout ](https://ja.wikipedia.org/wiki/QWERTY%E9%85%8D%E5%88%97){target="_blank" rel="noopener"}
+[Reference: QWERTY layout (Wikipedia)](https://en.wikipedia.org/wiki/QWERTY){target="_blank" rel="noopener"}
 
 ## The DVORAK Layout
 In the 1930s, Dr. August Dvorak focused on the inefficiencies of the QWERTY layout and set out to design a more logical and ergonomic alternative. The DVORAK layout was created with careful consideration of letter frequency in English and human ergonomics.
@@ -49,7 +49,7 @@ The key features of the DVORAK layout include:
 * Increasing the proportion of words that require alternating hands, which helps improve typing speed.
 
 According to Dr. Dvorak’s own studies, the layout offered potential benefits such as greater typing efficiency and reduced fatigue compared to QWERTY. However, due to QWERTY’s dominant market share and users’ familiarity with it, the DVORAK layout never achieved widespread adoption. Today, it is still supported as a standard option on major operating systems and continues to be used by a niche group of efficiency-focused typists and programmers.
-[※Reference URL:DVORAK Layout](https://ja.wikipedia.org/wiki/Dvorak%E9%85%8D%E5%88%97){target="_blank" rel="noopener"}
+[Reference: Dvorak layout (Wikipedia)](https://en.wikipedia.org/wiki/Dvorak_keyboard_layout){target="_blank" rel="noopener"}
 
 ## The JIS Layout
 In Japan, the most widely used keyboard is the JIS layout, which is defined by the Japanese Industrial Standards (JIS). It was specifically designed to improve the efficiency of Japanese text input.
