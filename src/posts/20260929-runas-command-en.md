@@ -56,20 +56,27 @@ runas /user:DOMAIN\AdminAccount "cmd.exe /c mmc devmgmt.msc"
 > [!TIP]
 > You don’t need to log off and log on as an admin every time, saving time and effort.
 
-## Example 2: Opening Chrome as an Admin
-Sometimes, I need to access admin web consoles like Exchange Admin Center or Intune.
-In those cases, I use runas to launch Chrome with my admin account:
+## Example 2: Opening Another Console as an Admin
+I use the same trick for other administrative tools. For example, to open the Services console under my admin account and restart or reconfigure a Windows service:
 
 ```cmd
-runas /user:admin_account@example.com "C:\Program Files\Google\Chrome\Application\chrome.exe"
+runas /user:DOMAIN\AdminAccount "cmd.exe /c mmc services.msc"
 ```
 
-* After entering the password, that Chrome session runs with admin privileges
+* The console opens running as the admin account, so I can manage services without switching my whole session.
+* Swap `services.msc` for whichever console you need — for example `compmgmt.msc` (Computer Management) or `eventvwr.msc` (Event Viewer).
 
-> [!NOTE]
-> The Chrome installation path (`C:\Program Files\Google\Chrome\Application\`) may vary depending on the device. Adjust the path as needed.
+## Example 3: Keeping Admin Browsing in a Separate Session
+Sometimes I want to sign in to a web console — the Microsoft 365 admin center, Intune, or the Exchange admin center — with a dedicated admin account, without disturbing my everyday browser login. `runas` can launch a browser under a different Windows account so it runs in its own isolated profile:
 
-This lets you stay logged in as a standard user while accessing admin tools only when necessary.
+```cmd
+runas /user:DOMAIN\AdminAccount "cmd.exe /c start chrome --user-data-dir=%LocalAppData%\ChromeAdmin"
+```
+
+> [!CAUTION]
+> Launching the browser as a different Windows user only isolates the **browser session** — it does **not** grant admin rights in a web console. What you can do in Intune or the Exchange admin center depends entirely on the account you **sign in with in the browser**, not on the Windows account that started it. Chrome also shares one instance per profile, so pass a separate `--user-data-dir` (as above) to force a truly separate session; otherwise it may just open a tab in your existing window.
+
+For everyday use, a separate Chrome profile or an InPrivate window is often simpler than `runas` — reach for `runas` when you specifically want the browser to run under a different Windows account.
 
 ## Common Questions / Tips
 * Can I store the password in a script? → Not recommended. Storing in plain text is a security risk.
@@ -87,5 +94,5 @@ This lets you stay logged in as a standard user while accessing admin tools only
 ## Summary
 * runas lets you run programs as another user without logging off.
 * For Device Manager, use cmd.exe /c to avoid the 740 error.
-* Apps like Chrome can also run with admin privileges via runas.
+* Other consoles, and even a browser session, can run under an admin account too — but a browser's web-console access depends on the account you sign in with, not on runas.
 * Avoid storing passwords in scripts. Follow safe operational rules.
