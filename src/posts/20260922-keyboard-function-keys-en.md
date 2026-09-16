@@ -62,6 +62,8 @@ These design choices strongly support the unique process of Japanese text entry,
 
 On the other hand, the internationally common US layout does not include these Japan-specific keys. As a result, it has fewer keys overall, giving it a simpler and cleaner appearance. Its symbol placement is also considered more suitable for programming languages, and the standardized key arrangement appeals to programmers, users who frequently type in English, and PC enthusiasts who prefer a uniform layout.
 
+Once you have written in Japanese on a JIS keyboard, it is hard to go back. The dedicated 英数 (alphanumeric) and かな (kana) keys sit on either side of the spacebar, so switching between English and Japanese is a single thumb tap rather than a key combination—a small thing that quietly adds up over a long day of writing. The flip side is that a JIS machine can be surprisingly hard to hand to an English speaker: the symbols land in unfamiliar places (the semicolon and colon sit side by side, for example, instead of a Shift apart), and muscle memory from a US layout suddenly stops helping. Neither layout is really “better”—each is simply tuned to the language its typist reaches for most.
+
 ## The Role of Function Keys
 Function keys are the keys labeled F1 through F12, usually located on the top row of the keyboard. They are used to perform specific functions, either on their own or in combination with other keys.
 
