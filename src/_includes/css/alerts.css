@@ -10,7 +10,7 @@ body {
     font: var(--font-sans);
     color: var(--color-zinc-900);
     & li {
-      line-height: 0.5rem;
+      line-height: 1.5;
     }
 
     & :last-child {
