@@ -59,6 +59,9 @@ Macro viruses are embedded in Word or Excel files and activate when the document
 > ・Set Office to “Disable VBA macros with notification” in your settings.
 >  (File > Options > Trust Center > Trust Center Settings) > Macro setting
 
+## How Microsoft 365 helps
+Since most of us work in Microsoft 365, it helps to know that Outlook and Exchange Online already screen attachments for you. Exchange Online Protection (EOP) scans every incoming attachment for known malware and automatically blocks risky executable file types, and Zero-hour Auto Purge (ZAP) can pull a malicious message out of your mailbox even after it has been delivered. If your organization has Microsoft Defender for Office 365 (included with Business Premium and E5), Safe Attachments goes a step further and opens unknown files in an isolated sandbox to check how they behave before they ever reach you. Modern Office apps also block VBA macros in files that come from the internet by default. These layers stop a great deal — but they are not a guarantee, so the habits above still matter.
+
 ## Share and Report
 Attachment-based attacks don’t just affect individuals – they can compromise entire departments. Early detection and communication are key.
 * If something feels off, consult your IT team before opening
