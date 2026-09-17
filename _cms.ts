@@ -19,6 +19,7 @@ const cms = lumeCMS({
 // Configure upload storage
 cms.upload({
   name: "uploads",
+  icon: "image",
   label: "Upload files and images for posts",
   description: "Upload files and images to the uploads folder, for post use",
   store: "src:uploads",
@@ -26,6 +27,7 @@ cms.upload({
 
 cms.upload({
   name: "assets",
+  icon: "stack",
   label: "Upload files and images for system",
   description: "Upload files and images to the assets folder, for non-post use",
   store: "src:assets",
@@ -36,6 +38,7 @@ cms.git();
 
 cms.document({
   name: "featurecats-ja",
+  icon: "squares-four",
   type: "object",
   label: "ブログポストの注目カテゴリ",
   description:
@@ -60,6 +63,7 @@ cms.document({
 
 cms.document({
   name: "featuretags-ja",
+  icon: "tag",
   type: "object",
   label: "ブログポストの注目タグ",
   description:
@@ -82,6 +86,7 @@ cms.document({
 
 cms.document({
   name: "featurecats-en",
+  icon: "squares-four",
   type: "object",
   label: "Blog Post Featured Categories",
   description:
@@ -106,6 +111,7 @@ cms.document({
 
 cms.document({
   name: "featuretags-en",
+  icon: "tag",
   type: "object",
   label: "Blog Post Featured Tags",
   description:
@@ -201,6 +207,7 @@ cms.document({
 
 cms.collection({
   name: "posts",
+  icon: "newspaper",
   label: "ブログポスト Blog posts",
   description:
     "日本語と英語のブログポストを編集する<br>Edit blog posts in Japanese and English",
