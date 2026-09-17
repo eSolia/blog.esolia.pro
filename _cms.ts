@@ -40,128 +40,96 @@ cms.git();
 cms.document({
   name: "featurecats-ja",
   icon: "squares-four",
-  type: "object",
+  type: "object-list",
   label: "ブログポストの注目カテゴリ",
   description:
     "良いSEOを確保するために、ブログポストで使われている特別に選択した注目カテゴリ情報を編集する",
   store: "src:_data/featurecats.yml",
   fields: [
+    "key: text",
+    "id: text",
     {
-      type: "object-list",
-      name: "[]",
-      label: "カテゴリ",
-      description: "注目カテゴリを編集する",
-      fields: [
-        "key: text",
-        "id: text",
-        {
-          name: "color",
-          type: "select",
-          label: "色 Color",
-          description:
-            "カテゴリの色（Tailwindの色名）。一覧から選んでください。<br>The category color (a Tailwind color name). Pick from the list.",
-          options: [
-            "cyan",
-            "emerald",
-            "esoliaamber",
-            "fuchsia",
-            "lime",
-            "red",
-            "sky",
-            "teal",
-          ],
-        },
-        { name: "image", type: "file", upload: "assets" },
-        "summary: markdown",
+      name: "color",
+      type: "select",
+      label: "色 Color",
+      description:
+        "カテゴリの色（Tailwindの色名）。一覧から選んでください。<br>The category color (a Tailwind color name). Pick from the list.",
+      options: [
+        "cyan",
+        "emerald",
+        "esoliaamber",
+        "fuchsia",
+        "lime",
+        "red",
+        "sky",
+        "teal",
       ],
     },
+    { name: "image", type: "file", upload: "assets" },
+    "summary: markdown",
   ],
 });
 
 cms.document({
   name: "featuretags-ja",
   icon: "tag",
-  type: "object",
+  type: "object-list",
   label: "ブログポストの注目タグ",
   description:
     "良いSEOを確保するために、ブログポストで使われている特別に選択した注目タグ情報を編集する",
   store: "src:_data/featuretags.yml",
   fields: [
-    {
-      type: "object-list",
-      name: "[]",
-      label: "タグ",
-      description: "注目タグを編集する",
-      fields: [
-        "key: text",
-        "id: text",
-        "summary: markdown",
-      ],
-    },
+    "key: text",
+    "id: text",
+    "summary: markdown",
   ],
 });
 
 cms.document({
   name: "featurecats-en",
   icon: "squares-four",
-  type: "object",
+  type: "object-list",
   label: "Blog Post Featured Categories",
   description:
     "To ensure good SEO, edit the information for these specially selected and featured categories, for blog posts.",
   store: "src:_data/en/featurecats.yml",
   fields: [
+    "key: text",
+    "id: text",
     {
-      type: "object-list",
-      name: "[]",
-      label: "Category",
-      description: "Edit Category.",
-      fields: [
-        "key: text",
-        "id: text",
-        {
-          name: "color",
-          type: "select",
-          label: "色 Color",
-          description:
-            "カテゴリの色（Tailwindの色名）。一覧から選んでください。<br>The category color (a Tailwind color name). Pick from the list.",
-          options: [
-            "cyan",
-            "emerald",
-            "esoliaamber",
-            "fuchsia",
-            "lime",
-            "red",
-            "sky",
-            "teal",
-          ],
-        },
-        { name: "image", type: "file", upload: "assets" },
-        "summary: markdown",
+      name: "color",
+      type: "select",
+      label: "色 Color",
+      description:
+        "カテゴリの色（Tailwindの色名）。一覧から選んでください。<br>The category color (a Tailwind color name). Pick from the list.",
+      options: [
+        "cyan",
+        "emerald",
+        "esoliaamber",
+        "fuchsia",
+        "lime",
+        "red",
+        "sky",
+        "teal",
       ],
     },
+    { name: "image", type: "file", upload: "assets" },
+    "summary: markdown",
   ],
 });
 
 cms.document({
   name: "featuretags-en",
   icon: "tag",
-  type: "object",
+  type: "object-list",
   label: "Blog Post Featured Tags",
   description:
     "To ensure good SEO, edit the information for these specially selected and featured tags, for blog posts.",
   store: "src:_data/en/featuretags.yml",
   fields: [
-    {
-      type: "object-list",
-      name: "[]",
-      label: "Tag",
-      description: "Edit Tag.",
-      fields: [
-        "key: text",
-        "id: text",
-        "summary: markdown",
-      ],
-    },
+    "key: text",
+    "id: text",
+    "summary: markdown",
   ],
 });
 
