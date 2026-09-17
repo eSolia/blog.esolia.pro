@@ -59,27 +59,22 @@ const INSTRUCTIONS = [
 ].join("\n");
 
 const TEXT = {
-  copy: "翻訳用にコピー Copy for translation",
+  copy: "Copy for translation",
   copyTitle:
-    "タイトル・説明・カテゴリ・タグ・本文を翻訳指示付きでクリップボードにコピーします。Claude Team などに貼り付けて翻訳してください。\n" +
     "Copies the title, description, category, tags and content with a translation instruction. Paste it into Claude Team (or another translator).",
-  copied: "コピーしました Copied for translation",
+  copied: "Copied for translation",
   copyFallback:
-    "クリップボードに書き込めませんでした。下のテキストを全選択してコピーしてください。\n" +
     "Could not write to the clipboard. Select all of the text below and copy it.",
-  paste: "翻訳を貼り付け Paste translation",
+  paste: "Paste translation",
   pasteTitle:
-    "翻訳結果を貼り付けて、タイトル・説明・カテゴリ・タグ・本文に反映します。反映後に内容を確認して保存してください。\n" +
     "Paste the translated reply to fill the title, description, category, tags and content. Review, then Save changes.",
-  dialogHeading: "翻訳を貼り付け Paste translation",
-  dialogHelp: "Claude の返答をそのまま貼り付けて「反映」を押してください。\n" +
-    "Paste the reply exactly as returned, then click Apply.",
-  apply: "反映 Apply",
-  applied:
-    "反映しました。内容を確認して「Save changes」で保存してください。 Applied. Review, then click Save changes.",
+  dialogHeading: "Paste translation",
+  dialogHelp: "Paste the reply exactly as returned, then click Apply.",
+  apply: "Apply",
+  applied: "Applied. Review, then click Save changes.",
   appliedContentOnly:
-    "セクション区切りが見つからなかったため、本文のみ反映しました。 No section markers found, so only the content was replaced.",
-  empty: "貼り付けたテキストが空です。 The pasted text is empty.",
+    "No section markers found, so only the content was replaced.",
+  empty: "The pasted text is empty.",
 };
 
 /** True when the edit form belongs to the posts collection. */

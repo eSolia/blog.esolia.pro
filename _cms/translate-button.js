@@ -24,24 +24,21 @@ const BUTTON_CLASS = "translate-button";
 
 const LABELS = {
   en: {
-    button: "英語版を作成 Create English version",
+    button: "Create English version",
     icon: "translate",
   },
   ja: {
-    button: "日本語版を作成 Create Japanese version",
+    button: "Create Japanese version",
     icon: "translate",
   },
 };
 
 const TITLE =
-  "この投稿を同じIDで反対言語のドラフトとして複製します。先に保存してください。" +
-  "\nDuplicates this post as a draft in the other language with the same ID, so the two are linked. Save first.";
+  "Duplicates this post as a draft in the other language with the same ID, so the two are linked. Save first.";
 
-const EXISTS_MESSAGE =
-  "翻訳版はすでに存在します。 A translation already exists:";
+const EXISTS_MESSAGE = "A translation already exists:";
 
-const SAVING_MESSAGE =
-  "翻訳版を作成中… Creating translation… (サイトを再構築中 site is rebuilding)";
+const SAVING_MESSAGE = "Creating translation… (the site is rebuilding)";
 
 /** Parse `/admin/collection/posts/<file>/edit` into the file name, or null. */
 function currentPostFile(form) {

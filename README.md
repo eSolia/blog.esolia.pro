@@ -46,7 +46,7 @@ for the UI to be refreshed.
 #### Create translation button
 
 On a post's edit page, the "..." menu has a "Create English version" /
-"日本語版を作成" button. It duplicates the current post as its twin in the other
+"Create Japanese version" button. It duplicates the current post as its twin in the other
 language: same `id` (so the two are linked), `lang` flipped, `draft` on, file
 name suffix swapped (`-ja.md` to `-en.md` or back). The URL override, redirect
 list and social comment links are not copied. Save the post first; the copy is
@@ -59,10 +59,10 @@ the CMS pages via the `extraHead` option in `_cms.ts`.
 The same menu has two clipboard buttons for translating with Claude Team (no
 API usage):
 
-1. **翻訳用にコピー Copy for translation** copies a bundle: a translation
+1. **Copy for translation** copies a bundle: a translation
    instruction plus the title, description, category, tags and content
    Markdown, each under a `=== SECTION ===` marker. Paste it into Claude Team.
-2. **翻訳を貼り付け Paste translation** opens a dialog. Paste Claude's reply
+2. **Paste translation** opens a dialog. Paste Claude's reply
    as returned and click Apply: the sections are written back into the fields
    (category snapped to the fixed per-language list, tags one per line). A
    reply without markers replaces the content only. Nothing is saved until you
