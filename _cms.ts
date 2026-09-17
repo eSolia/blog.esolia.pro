@@ -21,7 +21,7 @@ cms.upload({
   name: "uploads",
   icon: "image",
   label: "Upload files and images for posts",
-  description: "Upload files and images to the uploads folder, for post use",
+  description: "Upload files and images to the uploads folder, for post use.",
   store: "src:uploads",
 });
 
@@ -29,7 +29,8 @@ cms.upload({
   name: "assets",
   icon: "stack",
   label: "Upload files and images for system",
-  description: "Upload files and images to the assets folder, for non-post use",
+  description:
+    "Upload files and images to the assets folder, for non-post use.",
   store: "src:assets",
 });
 
@@ -106,14 +107,14 @@ cms.document({
   type: "object",
   label: "Blog Post Featured Categories",
   description:
-    "To ensure good SEO, edit the information for these specially selected and featured categories, for blog posts",
+    "To ensure good SEO, edit the information for these specially selected and featured categories, for blog posts.",
   store: "src:_data/en/featurecats.yml",
   fields: [
     {
       type: "object-list",
       name: "[]",
       label: "Category",
-      description: "Edit Category",
+      description: "Edit Category.",
       fields: [
         "key: text",
         "id: text",
@@ -147,14 +148,14 @@ cms.document({
   type: "object",
   label: "Blog Post Featured Tags",
   description:
-    "To ensure good SEO, edit the information for these specially selected and featured tags, for blog posts",
+    "To ensure good SEO, edit the information for these specially selected and featured tags, for blog posts.",
   store: "src:_data/en/featuretags.yml",
   fields: [
     {
       type: "object-list",
       name: "[]",
       label: "Tag",
-      description: "Edit Tag",
+      description: "Edit Tag.",
       fields: [
         "key: text",
         "id: text",
@@ -242,7 +243,7 @@ cms.collection({
   icon: "newspaper",
   label: "ブログポスト Blog posts",
   description:
-    "日本語と英語のブログポストを編集する<br>Edit blog posts in Japanese and English",
+    "日本語と英語のブログポストを編集する<br>Edit blog posts in Japanese and English.",
   store: "src:posts/*.md",
   documentName(data) {
     // Ensure title is a string and sanitized
@@ -301,7 +302,7 @@ cms.collection({
       type: "list",
       label: "転送 Redirect",
       description:
-        "変更前のurlや、ショートurl。最初と最後に英数半角スラッシュを忘れず。<br>The page url or urls before they changed, or an url intended to be used as a short url. Ensure there is a forward slash before and after",
+        "変更前のurlや、ショートurl。最初と最後に英数半角スラッシュを忘れず。<br>The page url or urls before they changed, or an url intended to be used as a short url. Ensure there is a forward slash before and after.",
       view: "Show Overrides",
       transform(value) {
         return value?.map((redirect: string) => redirect.trim()); // Trim whitespace
@@ -312,7 +313,7 @@ cms.collection({
       type: "select",
       label: "言語 Language",
       description:
-        "コンテンツの言語を選択する<br>Select the language of the page content",
+        "コンテンツの言語を選択する<br>Select the language of the page content.",
       attributes: {
         required: true,
       },
@@ -371,7 +372,7 @@ cms.collection({
       type: "text",
       label: "ページ・タイトル Page Title",
       description:
-        "ページの言語でのタイトル。ブラウザーのタブやページヘッダーに表示され、検索エンジンの結果にも使用されます。<br>Title in the language of the page, visible in browser tab and page header, and used in search engine results",
+        "ページの言語でのタイトル。ブラウザーのタブやページヘッダーに表示され、検索エンジンの結果にも使用されます。<br>Title in the language of the page, visible in browser tab and page header, and used in search engine results.",
       transform(value) {
         if (typeof value === "string") {
           return value
@@ -432,7 +433,7 @@ cms.collection({
       type: "text",
       label: "コンテンツの著者 Author of the Content",
       description:
-        "コンテンツの言語で、署名に表示される著者のフルネーム。<br>The author's full name as it should appear in the byline, in the language of the content",
+        "コンテンツの言語で、署名に表示される著者のフルネーム。<br>The author's full name as it should appear in the byline, in the language of the content.",
       init(field, { data }) {
         field.options = data.site?.search.values("author");
       },
@@ -442,7 +443,7 @@ cms.collection({
       type: "select",
       label: "カテゴリー Category",
       description:
-        "ページのカテゴリ（例：セキュリティ、クラウド など）。ページの言語で入力してください。<br>The page category (e.g. Security, Cloud, etc), in the language of the page",
+        "ページのカテゴリ（例：セキュリティ、クラウド など）。ページの言語で入力してください。<br>The page category (e.g. Security, Cloud, etc), in the language of the page.",
       // Populated dynamically in init(); 0.15.5 requires options to be present.
       options: [],
       init(field, { data }, docData) {
@@ -567,7 +568,7 @@ cms.collection({
 ## STRUCTURE STARTS FROM HEADER 2
 REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_. Use the Insert Snippet button to add code snippets, images, tables, icons, etc. You can also use HTML tags if you need to, but at first, try line breaks. Use \<br\> sparingly, as we want to control formatting via css.`,
       description:
-        "ページの主要なコンテンツ。ページの言語で記述し、Markdown および HTML でフォーマットしてください。<br>The main content of the page, in the language of the page, formatted in markdown and HTML",
+        "ページの主要なコンテンツ。ページの言語で記述し、Markdown および HTML でフォーマットしてください。<br>The main content of the page, in the language of the page, formatted in markdown and HTML.",
       snippets: [
         {
           label: "Figure with Image",
