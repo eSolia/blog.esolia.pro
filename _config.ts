@@ -484,6 +484,14 @@ const lumeDrafts = (Deno.env.get("LUME_DRAFTS") ?? "").toLowerCase();
 const showScheduledDrafts = lumeDrafts === "true" ||
   lumeDrafts === "1" ||
   isPreviewBuild;
+// eSolia and its readers are in Japan (UTC+9). Frontmatter dates are parsed as
+// UTC and displayed as their date in UTC (e.g. `2026-09-22 00:00:00` shows as
+// Sep 22), so reveal a post from the start of that calendar date in JST — not
+// in UTC — by shifting the threshold back 9 hours. Without this, a post dated
+// Sep 22 would only un-hide at Sep 22 09:00 JST (00:00 UTC), which the 02:00 JST
+// nightly rebuild misses, delaying it a full day. With the shift it goes live at
+// the first rebuild on or after Sep 22 00:00 JST.
+const REVEAL_TZ_OFFSET_MS = 9 * 60 * 60 * 1000;
 if (!showScheduledDrafts) {
   site.addEventListener("beforeRender", ({ pages }) => {
     const now = Date.now();
@@ -492,7 +500,7 @@ if (!showScheduledDrafts) {
       if (
         page.data.type === "post" &&
         date instanceof Date &&
-        date.getTime() > now
+        date.getTime() - REVEAL_TZ_OFFSET_MS > now
       ) {
         pages.splice(pages.indexOf(page), 1);
       }
