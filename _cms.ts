@@ -229,14 +229,16 @@ cms.collection({
       name: "draft",
       type: "checkbox",
       label: "ドラフト Draft",
-      description: "If checked, the post will not be published.",
+      description:
+        "チェックすると下書き扱いになり、公開サイトには表示されません。公開の準備ができたらチェックを外してください（日付での予約公開にもチェックを外す必要があります）。<br>If checked, the post is a draft and will not appear on the live site. Uncheck it when ready to publish — also required for date-based scheduling to work.",
       view: "Show Flags",
     },
     {
       name: "hot",
       type: "checkbox",
       label: "ホット Hot",
-      description: "If checked, the post will be marked as popular in the UI.",
+      description:
+        "チェックすると、サイト上で「人気（Hot）」として強調表示されます。<br>If checked, the post is flagged as “hot”/popular in the site UI.",
       view: "Show Flags",
     },
     {
@@ -244,7 +246,7 @@ cms.collection({
       type: "checkbox",
       label: "特集 Featured",
       description:
-        "If checked, the post will be included in the featured list in the UI.",
+        "チェックすると、トップページなどの注目記事一覧に含まれます。<br>If checked, the post is included in the featured list on the site.",
       view: "Show Flags",
     },
     {
@@ -252,7 +254,7 @@ cms.collection({
       type: "url",
       label: "URL",
       description:
-        "The public URL of the page. Leave empty to use the file path",
+        "公開URLの上書き。通常は空欄のままにして、ファイルパスから自動生成させてください。<br>Override the public URL. Normally leave this empty so it is derived from the file path.",
       view: "Show Overrides",
     },
     {
@@ -305,7 +307,8 @@ cms.collection({
       name: "date",
       type: "datetime",
       label: "作成日 Created Date",
-      description: "作成された日付<br>The date the page was posted",
+      description:
+        "この投稿の公開日です。未来の日付を設定すると予約投稿になり、その日にサイトが自動リビルドされる（毎晩・日本時間）タイミングで公開されます。当日または過去の日付なら次回のリビルドで公開されます。公開するには「ドラフト」のチェックを外してください。この日付は記事に表示され、記事の並び順にも使われます。<br>The date this post is published. Set a future date to schedule it — the post goes live on that day when the site rebuilds (nightly, Japan time). A today/past date publishes at the next rebuild. Make sure “Draft” is unchecked. This date is also shown on the post and controls its sort order.",
       init(field) {
         field.value = new Date();
       },
@@ -318,7 +321,7 @@ cms.collection({
       type: "current-datetime",
       label: "最終更新 Last Modified",
       description:
-        "最終的に更新された日付<br>The date the page was last modified",
+        "保存するたびに自動で更新されます（編集不可）。<br>Updated automatically each time you save; read-only.",
       attributes: {
         readonly: true,
       },
@@ -349,7 +352,7 @@ cms.collection({
       type: "textarea",
       label: "ページ・ディスクリプション Page Description",
       description:
-        "ページの言語でのディスクリプション。ページソース<head>で見えて、検索結果で表示される。<br>Description in the language of the page, visible in page source <head>, and used in search engine results",
+        "検索結果やSNSシェアに表示される要約。ページの言語で、120〜160文字程度を目安に記入してください。<br>A summary shown in search results and social shares. Write it in the page's language; aim for roughly 120–160 characters.",
       attributes: {
         required: true,
       },
@@ -359,7 +362,7 @@ cms.collection({
       type: "file",
       label: "ページ画像 Page Image",
       description:
-        "ページの代表画像。ソーシャルメディアで共有する際に表示されます。アップロードして選択するか、デフォルトの画像を使用してください。<br>The image to feature for the page, visible in social media shares. Upload and select, or use the default.",
+        "SNSでシェアされたときに表示される代表画像（OGP画像／推奨サイズ 1200×630px）。アップロードして選択するか、デフォルトのままでも構いません。<br>The social-share (Open Graph) image for the page — recommended size 1200×630px. Upload and select one, or leave the default.",
       value: "/uploads/blog-esolia-pro-default.png",
       transform(value) {
         return value?.trim(); // rem whitespace at ends
@@ -374,7 +377,7 @@ cms.collection({
       type: "file",
       label: "トップ画像 Page Top Image",
       description:
-        "トップで使う、ページの代表画像。アップロードして選択するか、デフォルトの画像を使用してください。<br>The image for the page used in the top page grid. Upload and select, or use the default.",
+        "トップページのグリッドに表示される画像（横長・推奨 1200×630px 前後）。アップロードして選択するか、デフォルトのままでも構いません。<br>The image shown in the top-page grid (landscape, ~1200×630px recommended). Upload and select one, or leave the default.",
       value: "/uploads/blog-esolia-pro-default-top.png",
       transform(value) {
         return value?.trim(); // rem whitespace at ends
@@ -452,7 +455,7 @@ cms.collection({
       type: "list",
       label: "タグ Tags",
       description:
-        "ページのタグ。ページの言語で入力してください。<br>The page tags, in the language of the page",
+        "ページのタグ。ページの言語で入力し、先頭の「#」は付けないでください。一覧から選ぶか、新しく入力できます（複数可）。<br>The page tags, in the language of the page. Do not include a leading “#”. Pick from the list or type new ones (multiple allowed).",
       transform(value) {
         return value?.map((tag: string) => tag.trim()); // Trim whitespace
       },
