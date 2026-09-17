@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202509a-keyboard-history
-date: 2026-05-19 05:55:00
-last_modified: 2026-07-06 15:15:00
+date: 2026-09-22 00:00:00
+last_modified: 2026-09-16 12:00:00
 title: Keyboard Layout History and the Role of Function Keys
 description: >-
   Explains the different types of keyboard layouts, the differences between
@@ -38,7 +38,7 @@ The origins of this layout date back to the 1870s, when Christopher Sholes and h
 According to one theory, Sholes addressed this issue by deliberately spacing apart the typebars of commonly used letter combinations (such as “TH” or “HE” in English). This arrangement slowed down typing speed to some extent but helped reduce the risk of typebar collisions and jams.
 
 Thus, a layout born as a workaround for the technological limitations of its time has, through social inertia and its status as a de facto standard, continued to dominate the world—even nearly 150 years later in the digital age.
-[※Reference URL: QWERTY layout ](https://ja.wikipedia.org/wiki/QWERTY%E9%85%8D%E5%88%97){target="_blank" rel="noopener"}
+[Reference: QWERTY layout (Wikipedia)](https://en.wikipedia.org/wiki/QWERTY){target="_blank" rel="noopener"}
 
 ## The DVORAK Layout
 In the 1930s, Dr. August Dvorak focused on the inefficiencies of the QWERTY layout and set out to design a more logical and ergonomic alternative. The DVORAK layout was created with careful consideration of letter frequency in English and human ergonomics.
@@ -49,7 +49,7 @@ The key features of the DVORAK layout include:
 * Increasing the proportion of words that require alternating hands, which helps improve typing speed.
 
 According to Dr. Dvorak’s own studies, the layout offered potential benefits such as greater typing efficiency and reduced fatigue compared to QWERTY. However, due to QWERTY’s dominant market share and users’ familiarity with it, the DVORAK layout never achieved widespread adoption. Today, it is still supported as a standard option on major operating systems and continues to be used by a niche group of efficiency-focused typists and programmers.
-[※Reference URL:DVORAK Layout](https://ja.wikipedia.org/wiki/Dvorak%E9%85%8D%E5%88%97){target="_blank" rel="noopener"}
+[Reference: Dvorak layout (Wikipedia)](https://en.wikipedia.org/wiki/Dvorak_keyboard_layout){target="_blank" rel="noopener"}
 
 ## The JIS Layout
 In Japan, the most widely used keyboard is the JIS layout, which is defined by the Japanese Industrial Standards (JIS). It was specifically designed to improve the efficiency of Japanese text input.
@@ -61,6 +61,8 @@ The main features of the JIS layout are:
 These design choices strongly support the unique process of Japanese text entry, especially kanji conversion in both romaji input and kana input methods.
 
 On the other hand, the internationally common US layout does not include these Japan-specific keys. As a result, it has fewer keys overall, giving it a simpler and cleaner appearance. Its symbol placement is also considered more suitable for programming languages, and the standardized key arrangement appeals to programmers, users who frequently type in English, and PC enthusiasts who prefer a uniform layout.
+
+Once you have written in Japanese on a JIS keyboard, it is hard to go back. The dedicated 英数 (alphanumeric) and かな (kana) keys sit on either side of the spacebar, so switching between English and Japanese is a single thumb tap rather than a key combination—a small thing that quietly adds up over a long day of writing. The flip side is that a JIS machine can be surprisingly hard to hand to an English speaker: the symbols land in unfamiliar places (the semicolon and colon sit side by side, for example, instead of a Shift apart), and muscle memory from a US layout suddenly stops helping. Neither layout is really “better”—each is simply tuned to the language its typist reaches for most.
 
 ## The Role of Function Keys
 Function keys are the keys labeled F1 through F12, usually located on the top row of the keyboard. They are used to perform specific functions, either on their own or in combination with other keys.
@@ -158,16 +160,19 @@ On laptops and compact keyboards, you’ll often find the Fn key (short for Func
 Unlike a full-size desktop keyboard, laptops have physical space constraints, which limit the number of keys available. The Fn key solves this by giving a single key two different roles. Like the Shift or Ctrl keys, the Fn key doesn’t work on its own; it must be pressed in combination with another key.
 
 Here are some common Fn key combinations:
-* Adjusting screen brightness: <kbd>Windows</kbd> + <kbd>F5</kbd> (darker) / <kbd>Windows</kbd> + <kbd>F6</kbd> (brighter)
-* Controlling volume: <kbd>Windows</kbd> + <kbd>F2</kbd> (volume down) / <kbd>Windows</kbd> + <kbd>F3</kbd> (volume up) / <kbd>Windows</kbd> + <kbd>F1</kbd> (mute toggle)
-* Switching display output: <kbd>Windows</kbd> + <kbd>F7</kbd> (toggle between laptop screen, external display, or duplicate mode) / <kbd>Windows</kbd> + <kbd>F8</kbd> (projector output, etc.)
+* Adjusting screen brightness: <kbd>Fn</kbd> + <kbd>F5</kbd> (darker) / <kbd>Fn</kbd> + <kbd>F6</kbd> (brighter)
+* Controlling volume: <kbd>Fn</kbd> + <kbd>F2</kbd> (volume down) / <kbd>Fn</kbd> + <kbd>F3</kbd> (volume up) / <kbd>Fn</kbd> + <kbd>F1</kbd> (mute toggle)
+* Switching display output: <kbd>Fn</kbd> + <kbd>F7</kbd> (toggle between laptop screen, external display, or duplicate mode) / <kbd>Fn</kbd> + <kbd>F8</kbd> (projector output, etc.)
 * Other convenient functions:
- <kbd>Windows</kbd> + <kbd>Spacebar</kbd> (toggle keyboard backlight on/off)
- <kbd>Windows</kbd> + <kbd>F9</kbd> (enable/disable touchpad)
- <kbd>Windows</kbd> + <kbd>Esc</kbd> (Fn lock — on some models, this switches the priority between the F1–F12 keys’ default functions and their extended functions)
-Note: The exact key assignments vary depending on the manufacturer and model.
+ <kbd>Fn</kbd> + <kbd>Spacebar</kbd> (toggle keyboard backlight on/off)
+ <kbd>Fn</kbd> + <kbd>F9</kbd> (enable/disable touchpad)
+ <kbd>Fn</kbd> + <kbd>Esc</kbd> (Fn lock — on some models, this switches the priority between the F1–F12 keys’ default functions and their extended functions)
 
-By mastering these Fn key combinations, you can quickly control essential hardware functions without the need to open complicated settings menus.
+> [!NOTE]
+> The exact key assignments vary depending on the manufacturer and model.
+
+> [!TIP]
+> By mastering these Fn key combinations, you can quickly control essential hardware functions without the need to open complicated settings menus.
 
 ## Conclusion
 Since we use computer keyboards every day, understanding why they are designed the way they are can make them more convenient and efficient to use. The keys you press without thinking, or the functions you see but have never tried, may carry historical reasons or tips for improving your workflow.

@@ -457,6 +457,57 @@ site.preprocess([".md"], (pages) => {
   }
 });
 
+// Future-date gating for scheduled posts.
+//
+// Lume's built-in draft filter runs at load time, so it cannot act on a post's
+// `date`. Instead, right before render we drop any post whose `date` is still
+// in the future from the pages array. Removing it here (the same splice pattern
+// Lume's own multilanguage plugin uses) keeps it out of the rendered output,
+// the search index, the feeds, and the sitemap alike. The daily rebuild cron
+// (see wrangler.jsonc) re-runs the build each night, so each scheduled post is
+// revealed automatically once its date arrives — no manual step needed.
+//
+// Future-dated posts are revealed (gate disabled) in three cases:
+//   1. LUME_DRAFTS is set — the local dev server and the CMS, so editors can
+//      preview scheduled posts before they go live.
+//   2. The build is a Cloudflare Workers preview build (WORKERS_CI_BRANCH set
+//      to anything other than the production branch), so branch preview URLs
+//      show scheduled posts for review. Note this only lifts the future-date
+//      gate; genuine `draft: true` posts stay hidden even on preview builds.
+// Production builds on the main branch keep the gate on.
+//
+// InfoSec: no security impact — controls only build-time content visibility.
+const productionBranch = "main";
+const ciBranch = Deno.env.get("WORKERS_CI_BRANCH");
+const isPreviewBuild = ciBranch !== undefined && ciBranch !== productionBranch;
+const lumeDrafts = (Deno.env.get("LUME_DRAFTS") ?? "").toLowerCase();
+const showScheduledDrafts = lumeDrafts === "true" ||
+  lumeDrafts === "1" ||
+  isPreviewBuild;
+// eSolia and its readers are in Japan (UTC+9). Frontmatter dates are parsed as
+// UTC and displayed as their date in UTC (e.g. `2026-09-22 00:00:00` shows as
+// Sep 22), so reveal a post from the start of that calendar date in JST — not
+// in UTC — by shifting the threshold back 9 hours. Without this, a post dated
+// Sep 22 would only un-hide at Sep 22 09:00 JST (00:00 UTC), which the 02:00 JST
+// nightly rebuild misses, delaying it a full day. With the shift it goes live at
+// the first rebuild on or after Sep 22 00:00 JST.
+const REVEAL_TZ_OFFSET_MS = 9 * 60 * 60 * 1000;
+if (!showScheduledDrafts) {
+  site.addEventListener("beforeRender", ({ pages }) => {
+    const now = Date.now();
+    for (const page of [...pages]) {
+      const date = page.data.date;
+      if (
+        page.data.type === "post" &&
+        date instanceof Date &&
+        date.getTime() - REVEAL_TZ_OFFSET_MS > now
+      ) {
+        pages.splice(pages.indexOf(page), 1);
+      }
+    }
+  });
+}
+
 site.preprocess([".html"], (pages) => {
   for (const page of pages) {
     const src = page.src.entry?.src;
