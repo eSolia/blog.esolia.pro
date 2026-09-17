@@ -43,6 +43,17 @@ those automatically as of 2025 Feb. At this time you need to:
 This pulls the changes from origin, and restarts lumecms. It takes 30 seconds
 for the UI to be refreshed.
 
+#### Create translation button
+
+On a post's edit page, the "..." menu has a "Create English version" /
+"日本語版を作成" button. It duplicates the current post as its twin in the other
+language: same `id` (so the two are linked), `lang` flipped, `draft` on, file
+name suffix swapped (`-ja.md` to `-en.md` or back). The URL override, redirect
+list and social comment links are not copied. Save the post first; the copy is
+made from the form as shown. If the twin file already exists, the button refuses
+and links to it. The implementation is `_cms/translate-button.js`, inlined into
+the CMS pages via the `extraHead` option in `_cms.ts`.
+
 ### Deno-related
 
 Install `deno` on your system and clone the repo to serve locally on localhost,
