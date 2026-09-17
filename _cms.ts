@@ -53,7 +53,23 @@ cms.document({
       fields: [
         "key: text",
         "id: text",
-        "color: text",
+        {
+          name: "color",
+          type: "select",
+          label: "色 Color",
+          description:
+            "カテゴリの色（Tailwindの色名）。一覧から選んでください。<br>The category color (a Tailwind color name). Pick from the list.",
+          options: [
+            "cyan",
+            "emerald",
+            "esoliaamber",
+            "fuchsia",
+            "lime",
+            "red",
+            "sky",
+            "teal",
+          ],
+        },
         { name: "image", type: "file", upload: "assets" },
         "summary: markdown",
       ],
@@ -101,7 +117,23 @@ cms.document({
       fields: [
         "key: text",
         "id: text",
-        "color: text",
+        {
+          name: "color",
+          type: "select",
+          label: "色 Color",
+          description:
+            "カテゴリの色（Tailwindの色名）。一覧から選んでください。<br>The category color (a Tailwind color name). Pick from the list.",
+          options: [
+            "cyan",
+            "emerald",
+            "esoliaamber",
+            "fuchsia",
+            "lime",
+            "red",
+            "sky",
+            "teal",
+          ],
+        },
         { name: "image", type: "file", upload: "assets" },
         "summary: markdown",
       ],
@@ -329,6 +361,7 @@ cms.collection({
       label: "最終更新 Last Modified",
       description:
         "保存するたびに自動で更新されます（編集不可）。<br>Updated automatically each time you save; read-only.",
+      view: "Show Meta",
       attributes: {
         readonly: true,
       },
@@ -505,6 +538,10 @@ cms.collection({
     {
       name: "comments",
       type: "object",
+      label: "コメント Comments",
+      description:
+        "この記事に対応するSNS投稿へのリンク（任意）。<br>Links to the matching social posts for this article (optional).",
+      view: "Show Meta",
       fields: [
         {
           name: "src",
