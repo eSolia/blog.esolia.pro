@@ -1,11 +1,15 @@
 import lumeCMS from "lume/cms/mod.ts";
 
-// Browser-side extension that adds a "Create translation" button to the post
-// editor (see _cms/translate-button.js). Inlined into the CMS <head> because
-// the admin base path is only known at runtime and the script reads it from
-// the page itself. Module scripts run in document order, after the CMS UI.
-const translateButton = await Deno.readTextFile(
-  new URL("./_cms/translate-button.js", import.meta.url),
+// Browser-side extensions for the post editor, inlined into the CMS <head>
+// because the admin base path is only known at runtime and the scripts read
+// it from the page itself. Module scripts run in document order, after the
+// CMS UI, and in the order listed here.
+//   translate-button.js      "Create translation" (opposite-language twin)
+//   translation-clipboard.js "Copy for translation" / "Paste translation"
+const extensions = await Promise.all(
+  ["translate-button.js", "translation-clipboard.js"].map((file) =>
+    Deno.readTextFile(new URL(`./_cms/${file}`, import.meta.url))
+  ),
 );
 
 const cms = lumeCMS({
@@ -17,7 +21,9 @@ const cms = lumeCMS({
     <p>This is the CMS for eSolia's bilingual blog site, with posts in Japanese and English.</p>
     `,
   },
-  extraHead: `<script type="module">${translateButton}</script>`,
+  extraHead: extensions
+    .map((code) => `<script type="module">${code}</script>`)
+    .join("\n"),
 });
 
 // Auth is enforced at the edge (Cloudflare Access on cms.blog.esolia.pro), NOT
