@@ -1,0 +1,60 @@
+name: Update Deno dependencies
+
+# Dependabot only covers the devcontainers ecosystem for this repo and cannot
+# track deno.land/x, jsr:, or npm: imports. This job runs `deno task update-deps`
+# (nudd) on a schedule and opens a PR so those updates get surfaced for review.
+# The Cloudflare Workers build validates the change on the PR branch.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC (15:00 JST)
+  workflow_dispatch: {}
+
+# Least privilege: only what is needed to push a branch and open a PR.
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-deps
+  cancel-in-progress: false
+
+jobs:
+  update-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Update dependencies
+        run: deno task update-deps
+
+      - name: Open or update pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No dependency updates found."
+            exit 0
+          fi
+          branch="automated/update-deps"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add -A
+          git commit \
+            -m "chore: update Deno dependencies" \
+            -m "Automated bump via \`deno task update-deps\`. Review each dependency's changelog and the Cloudflare preview build before merging." \
+            -m "InfoSec: dependency version updates; review for security-relevant changes."
+          git push --force origin "$branch"
+          if ! gh pr view "$branch" >/dev/null 2>&1; then
+            gh pr create --base main --head "$branch" \
+              --title "chore: update Deno dependencies" \
+              --body "Automated dependency update from \`deno task update-deps\`. Review each bump (changelogs) and confirm the Cloudflare preview build is green before merging."
+          fi
