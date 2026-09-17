@@ -54,6 +54,24 @@ made from the form as shown. If the twin file already exists, the button refuses
 and links to it. The implementation is `_cms/translate-button.js`, inlined into
 the CMS pages via the `extraHead` option in `_cms.ts`.
 
+#### Copy for translation / Paste translation
+
+The same menu has two clipboard buttons for translating with Claude Team (no
+API usage):
+
+1. **翻訳用にコピー Copy for translation** copies a bundle: a translation
+   instruction plus the title, description, category, tags and content
+   Markdown, each under a `=== SECTION ===` marker. Paste it into Claude Team.
+2. **翻訳を貼り付け Paste translation** opens a dialog. Paste Claude's reply
+   as returned and click Apply: the sections are written back into the fields
+   (category snapped to the fixed per-language list, tags one per line). A
+   reply without markers replaces the content only. Nothing is saved until you
+   click Save changes.
+
+Typical flow: finish the post, save, Create translation, Copy for translation,
+translate in Claude Team, Paste translation, review, save. Implementation:
+`_cms/translation-clipboard.js`.
+
 ### Deno-related
 
 Install `deno` on your system and clone the repo to serve locally on localhost,
