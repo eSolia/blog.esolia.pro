@@ -1,9 +1,24 @@
-{{# Use: 
-{{ comp.icon({ name: "lightbulb", size: 6, color: "esoliaamber" }) }}
-#}}
+{{# Inline SVG icon for use in post markdown, so authors can drop a Phosphor
+    icon into a sentence without writing HTML.
 
-<img
-  class="size-{{ size }} fill-{{ color }}-400 inline-block align-[-0.1em] mr-1"
-  src='{{ name |> icon("phosphor", "duotone") }}'
-  inline
->
+    Use:
+      {{ comp.icon({ name: "lightbulb", size: 6, color: "esoliaamber" }) }}
+
+    MUST stay on a single line. This tag is emitted into markdown, and the
+    markdown-it options in _config.ts set `breaks: true`, which turns every
+    newline into a <br>. When this component was written across several lines,
+    those <br> landed *inside* the tag and split it apart, so markdown-it no
+    longer recognized it as HTML — it rendered the attributes as visible text,
+    and `typographer: true` then curled the quotes for good measure. That is
+    what readers saw: a literal `<img class=“size-4 …” src=‘…’ inline` in the
+    middle of a paragraph, on every icon in every post that used this.
+
+    Keep the attributes on one line and both problems disappear: markdown-it
+    parses it as inline HTML, leaves the quotes alone, and Lume's inline plugin
+    swaps the whole tag for the SVG at build time.
+
+    `deno fmt` wraps this back onto four lines given the chance, which silently
+    reintroduces the bug — so src/_components is excluded from fmt in
+    deno.json. Do not remove that exclusion without moving this markup
+    somewhere the formatter cannot reach. #}}
+<img class="size-{{ size }} fill-{{ color }}-400 inline-block align-[-0.1em] mr-1" src="{{ name |> icon('phosphor', 'duotone') }}" inline>
