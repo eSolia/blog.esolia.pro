@@ -225,6 +225,29 @@ site.process((pages) => {
   }
 });
 
+// picture() and transformImages() MUST run BEFORE basePath(), which is the
+// opposite of what lume/plugin-order wants — hence the suppression.
+//
+// picture records each <img src> and later matches it against every file's
+// `outputPath` to tag which images need variants built (plugins/picture.ts,
+// `processPictureImages`). base_path rewrites src to /blog/uploads/… but does
+// NOT restructure the output, so outputPath stays /uploads/…. In Lume's
+// mandated order the two never match: no file is tagged, transformImages
+// reports "No images to transform found", no variant is built, and every
+// srcset points at files that do not exist. That is broken images on every
+// listing page, and it is silent — a warning, not an error.
+//
+// Running picture first means it sees and matches the unprefixed /uploads/…
+// path, the variants get built, and base_path then prefixes both `src` and
+// `srcset` afterwards (modify_urls handles srcset and imagesrcset explicitly).
+//
+// This ordering was equally wrong before the /blog move, but harmless: with no
+// path on `location`, base_path was a no-op and left src alone. Giving
+// `location` a path is what turned it into a visible bug.
+site.use(picture(/* Options */));
+site.use(transformImages());
+
+// deno-lint-ignore lume/plugin-order
 site.use(basePath());
 site.use(resolveUrls());
 // site.use(checkUrls({
@@ -273,8 +296,6 @@ site.use(favicon({
   ],
 }));
 site.use(svgo());
-site.use(picture(/* Options */));
-site.use(transformImages());
 
 // metas runs after asset plugins (esbuild/fonts/tailwind/images/basePath) so it
 // sees final, processed URLs — required ordering per lume/plugin-order (Lume 3.2).
