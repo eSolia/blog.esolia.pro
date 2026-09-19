@@ -87,6 +87,7 @@ search:
   filter_by_category: カテゴリーでフィルター
   close_link: 閉じる (Esc)
   tooltip: <kbd>Cmd</kbd>+<kbd>k</kbd> (Mac) または <br><kbd>Ctrl</kbd>+<kbd>k</kbd> (Win/Linux) <br>で検索
+  dialog_label: サイト内検索
 
 # Header link out to the corporate site. Absolute on purpose: a root-relative
 # "/" would be rewritten to "/blog/" by Lume's base_path plugin, since the blog

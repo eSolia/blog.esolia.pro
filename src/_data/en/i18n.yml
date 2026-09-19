@@ -85,6 +85,7 @@ search:
   filter_by_category: Filter by Category
   close_link: Close (Esc)
   tooltip: <kbd>Cmd</kbd>+<kbd>k</kbd> (Mac) or <br><kbd>Ctrl</kbd>+<kbd>k</kbd> (Win/Linux) <br>to Search
+  dialog_label: Search this site
 
 # See the note in the ja file: absolute URL on purpose, base_path would prefix
 # a root-relative one with /blog.

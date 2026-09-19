@@ -27,10 +27,13 @@
   } */
 }
 @layer components {
-  /* Apply base styles to tables with not-prose */
-  table not-prose {
-    @apply table-fixed w-full text-left text-sm;
-  }
+  /* No `table.not-prose` base rule here on purpose. One existed, written
+     `table not-prose` — a descendant selector looking for a <not-prose>
+     element, of which there are none — so it never applied. Repairing the
+     typo would have introduced table-fixed and text-align:left to 38 tables
+     that have never had them; the w-full and text-sm it also carried are
+     already on every one of those tables as inline classes. Removed rather
+     than fixed: the rules below are the ones doing the work. */
 
   table.not-prose thead {
     @apply bg-zinc-50 text-zinc-700 dark:bg-zinc-600 dark:text-zinc-300 text-left;
