@@ -148,21 +148,40 @@ const DISPOSABLE_DOMAINS = new Set([
   "sharklasers.com",
 ]);
 
+// The public path prefix the blog is served under. esolia-2025's Worker
+// forwards esolia.co.jp/blog/* over a service binding and strips the prefix
+// before dispatch, so this Worker never *receives* it and its own routing
+// below stays unprefixed. But every URL it emits for the browser — redirect
+// targets, form actions, asset references — has to carry it, and Lume's
+// base_path plugin cannot see Worker code. Hence this constant.
+const PUBLIC_BASE = "/blog";
+const PUBLIC_ORIGIN = "https://esolia.co.jp";
+
+// Redirect targets and the stored reference URL. Absolute and fixed
+// server-side by design (see the InfoSec note above) — never read from the
+// request, so they cannot be used as an open redirect.
 const LOCALES = {
   ja: {
-    reference: "https://blog.esolia.pro",
-    thanks: "https://blog.esolia.pro/thank-you/",
-    home: "https://blog.esolia.pro/",
+    reference: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/`,
+    thanks: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/thank-you/`,
+    home: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/`,
   },
   en: {
-    reference: "https://blog.esolia.pro/en/",
-    thanks: "https://blog.esolia.pro/en/thank-you/",
-    home: "https://blog.esolia.pro/en/",
+    reference: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/en/`,
+    thanks: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/en/thank-you/`,
+    home: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/en/`,
   },
 } as const;
 
-// InfoSec: Only accept form posts originating from our own site.
-const ALLOWED_ORIGINS = new Set(["https://blog.esolia.pro"]);
+// InfoSec: Only accept form posts originating from our own site. The browser
+// sends the *page* origin, which post-move is esolia.co.jp — the old host is
+// kept so signups still work while the 301 drains and for any cached page
+// still served from blog.esolia.pro. Note Origin is a scheme+host+port only,
+// with no path, so /blog cannot appear here.
+const ALLOWED_ORIGINS = new Set([
+  PUBLIC_ORIGIN,
+  "https://blog.esolia.pro",
+]);
 
 interface TurnstileResponse {
   success: boolean;
@@ -488,7 +507,7 @@ function subPage(
     `.back a{color:#0ea5e9;text-decoration:none}` +
     `.back a:hover{text-decoration:underline}` +
     `</style></head><body><main>` +
-    `<p class="logo"><img src="/assets/logo_horiz_darkblue_bgtransparent.svg" ` +
+    `<p class="logo"><img src="${PUBLIC_BASE}/assets/logo_horiz_darkblue_bgtransparent.svg" ` +
     `alt="eSolia" width="106" height="28"></p>` +
     `<h1>${title}</h1><p>${body}</p>${form}` +
     `<p class="back"><a href="${LOCALES[loc].home}">${
@@ -542,7 +561,8 @@ async function renderConfirmPage(
   if (already) {
     return subPage(loc, s.doneTitle, s.already, "");
   }
-  const form = `<form method="POST" action="/api/newsletter/${op}">` +
+  const form =
+    `<form method="POST" action="${PUBLIC_BASE}/api/newsletter/${op}">` +
     `<input type="hidden" name="guid" value="${guid}">` +
     `<button type="submit">${s.confirmButton}</button></form>`;
   return subPage(loc, s.confirmTitle, s.confirmBody, form);
