@@ -142,17 +142,38 @@ ordering is a trap. The sibling legacy paths (`/post/`, `/posts/`, `/en/post/`,
 pointed at the old host too; they now redirect internally to `/blog/` and
 `/blog/en/`, one hop instead of two.
 
-**5. Repoint this repo's own links to the blog.** Nav (`TopNav`, `MobileMenu`),
-footer (`i18n/translations.ts`), homepage (`LatestBlogPosts`), article pages
-(`RelatedBlogPosts`), the 404 page (`+error.svelte`), the WebMCP tool
-descriptions, and the build-time feed fetch in `scripts/fetch-blog.mts`. The
-three explicit `trackOutbound('blog.esolia.pro')` calls go with them: those
-links are same-origin now, so the events were simply false, and the global
-outbound tracker in `+layout.svelte` already stops firing for them by itself.
+**5. Repoint this repo's own links to the blog, and present them as internal.**
+Nav (`TopNav`, `MobileMenu`), footer (`i18n/translations.ts`), homepage
+(`LatestBlogPosts`), article pages (`RelatedBlogPosts`), the 404 page
+(`+error.svelte`), the search results, the WebMCP tool descriptions, and the
+build-time feed fetch in `scripts/fetch-blog.mts`. The three explicit
+`trackOutbound('blog.esolia.pro')` calls go with them: those links are
+same-origin now, so the events were simply false, and the global outbound
+tracker in `+layout.svelte` already stops firing for them by itself.
 
-Note the links keep `target="_blank"`. That is now load-bearing rather than
-cosmetic: `/blog/*` is served by another Worker and is not a SvelteKit route, so
-these must be full page loads, not client-side navigations.
+The external-link arrows and new-tab behavior are gone. What replaces them is
+`data-sveltekit-reload`, because the full page load is still required: `/blog/*`
+is served by another Worker and is not a SvelteKit route, so the client router
+has nothing to resolve. Two traps found doing this:
+
+- Footer links needed a **separate `reload` flag rather than reusing
+  `external`**, because `external` also suppresses the `/en` href prefix.
+  Without the distinction, a non-external `/blog/en/` becomes `/en/blog/en/`.
+- `SearchModal`'s `navigateTo` took an `external` boolean that its four call
+  sites each computed differently (`layout === 'blog'` in two,
+  `url.startsWith('http')` in the others). Both classifications break once blog
+  URLs are same-origin absolute — one opens a same-origin link in a new tab, the
+  other hands `/blog/*` to `goto()`, which cannot resolve it. It now decides
+  from the URL itself. That needed `isBlogPath` on the client, and SvelteKit
+  refuses `$lib/server/*` imports from client code, hence `$lib/blog-path.ts`.
+
+**6. Normalize the cached blog feed.** `content/data/blog/*.json` held
+`blog.esolia.pro` item, id and image URLs. Rewriting the JSON does not hold:
+`prebuild` refetches and writes them straight back, so `scripts/fetch-blog.mts`
+normalizes on write instead. Verified against the #500 preview that the
+rewritten URLs resolve through the forwarder — and that this holds even before
+the blog side deploys, because `uploads/` and `posts/` sit at the same paths
+either way.
 
 ## Manual work — not code, will not arrive via a PR
 
