@@ -247,15 +247,14 @@ Purge the `esolia.co.jp` cache after step 2 so the edge is not holding a 404 for
 
 ### 5. Decisions to make deliberately, not by default
 
-- **Content-Signal and bot policy.** Once the blog is served from this origin,
-  `esolia.co.jp/robots.txt` governs it and the blog's own robots.txt (at
-  `/blog/robots.txt`) is inert. That means esolia-2025's
-  `Content-Signal: search=yes, ai-input=yes, ai-train=no`, its
+- ~~**Content-Signal and bot policy.**~~ **Decided: yes, it applies to the blog
+  too.** Confirmed 2026-09-19. Once the blog is served from this origin,
+  `esolia.co.jp/robots.txt` governs it — so
+  `Content-Signal: search=yes, ai-input=yes, ai-train=no` and the
   `Applebot-Extended` / `Bytespider` / `CCBot` / `Google-Extended` /
-  `meta-externalagent` / `cohere-ai` blocks, and its
-  `Disallow: /technical/security-acknowledgments/` now all apply to blog
-  content. Probably desirable — but confirm it is what you want for the blog,
-  because it is a policy change smuggled in by a routing change.
+  `meta-externalagent` / `cohere-ai` blocks now cover blog content. That needed
+  no code change to take effect; what #317 adds is the blog's own matching
+  robots.txt, for the windows where the blog is reached directly. See below.
 - ~~**Content-Security-Policy.**~~ **Decided: the blog gets its own CSP.** Done
   in #317, browser-tested — see "CSP" below. Not esolia-2025's policy applied to
   the forwarded response: the blog's own, in its own `_headers`, so it is
@@ -266,6 +265,42 @@ Purge the `esolia.co.jp` cache after step 2 so the edge is not holding a 404 for
   gone from the nav, footer, homepage cards, related posts, the 404 page and the
   search results, replaced by `data-sveltekit-reload` so the necessary full page
   load survives.
+
+### Content-Signal — mirrored onto the blog (2026-09-19)
+
+Applying esolia-2025's policy to blog content needs no code: robots.txt is read
+only at the origin root, so once `/blog/*` is served from `esolia.co.jp`, that
+file governs it and the blog's own — at `/blog/robots.txt` — is inert.
+
+The blog nevertheless gets its own matching `src/robots.txt`, because "inert" is
+only true while the blog is reached _through_ the forwarder. It is authoritative
+whenever the blog is reached directly, which is two real windows: every request
+until the Redirect Rule goes live, and again during a rollback. Before this, the
+blog's robots.txt was a bare `Sitemap:` line — no Content-Signal, no bot blocks
+— so blog content sat unprotected in exactly those windows. Lume's sitemap
+plugin appends its `Sitemap:` line to whatever the file already contains, so the
+two coexist.
+
+Verified against the live `esolia.co.jp/robots.txt`: the `Content-Signal` line
+and all six `User-agent` blocks are byte-identical. The only difference is
+esolia-2025's two `Disallow: /technical/security-acknowledgments/` lines, which
+name paths the blog does not have.
+
+**Keep the two in sync by hand.** They are in different repos and different
+formats — a static file here, a prerendered route
+(`src/routes/robots.txt/+server.ts`) there — and nothing enforces the match.
+Both files carry a comment saying so.
+
+Two optional extras, deliberately not taken because they would make the two
+policies diverge rather than converge:
+
+- **`use=reference`**, Cloudflare's `content-use` extension to Content Signals
+  (`use=immediate` / `reference` / `full`). esolia-2025 does not set it; adding
+  it to the blog alone would be a divergence. If wanted, add it to both.
+- **`Disallow: /blog/api/`** in esolia-2025's robots.txt. The verify and
+  unsubscribe endpoints do a dbFlex lookup on GET. They are already `noindex`
+  and documented as safe against scanner prefetch, and their links only ever
+  appear in email, so this is hardening rather than a fix.
 
 ### CSP — added to the blog and browser-tested (2026-09-19)
 

@@ -1,0 +1,43 @@
+# The blog is served at esolia.co.jp/blog, and robots.txt is read only at the
+# origin root — so for crawlers reaching it there, THIS file is inert and
+# esolia.co.jp/robots.txt governs blog content. It is kept anyway, and kept in
+# sync, because it IS authoritative whenever the blog is reached directly: for
+# as long as blog.esolia.pro serves before its Redirect Rule goes live, and
+# again during a rollback. Without it, blog content would sit unprotected in
+# exactly those windows.
+#
+# Keep this policy identical to esolia-2025's src/routes/robots.txt/+server.ts.
+# Lume's sitemap plugin appends the Sitemap: line to whatever is here.
+
+# Default: allow all standard crawlers
+User-agent: *
+Allow: /
+# Content-Signal: AI-usage preferences (https://contentsignals.org/, draft-romm-aipref-contentsignals)
+# search=yes      — search engines may index and rank
+# ai-input=yes    — agents may use content as runtime input (RAG, browsing, citations)
+# ai-train=no     — content must not be used to train generative models
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+# Allow major AI bots (discovery and recommendations outweigh content risk)
+# GPTBot — ChatGPT / SearchGPT
+# ClaudeBot — Anthropic Claude
+# PerplexityBot — Perplexity AI search
+
+# Block AI training/scraping bots with no search benefit
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /

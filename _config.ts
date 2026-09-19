@@ -471,6 +471,9 @@ site.add("manifest.json");
 site.add("uploads");
 site.add("assets");
 site.add("f36d0f5824b04fae955f338128bac96e.txt"); // indexnow
+// The Content-Signal / AI-bot policy, mirrored from esolia-2025. Lume's
+// sitemap plugin appends the Sitemap: line to whatever this file contains.
+site.add("robots.txt");
 site.add("_headers"); // Cloudflare Workers Static Assets headers config (404 handled via not_found_handling in wrangler.jsonc)
 // Mastodon comment system
 // site.add(
