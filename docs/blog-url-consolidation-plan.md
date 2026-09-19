@@ -229,11 +229,11 @@ So under `deno task cms` the base path is empty, preview is served from the
 server root, and `base_path` stays a no-op — the CMS preview is unaffected by
 this change and the systemd unit needs no edit.
 
-## Found while building — four things the plan missed
+## Found while building — six things the plan missed
 
-Setting `location` exposed four places the `/blog` prefix does not reach on its
-own. All are blog-side and all are fixed on this branch. Three are regressions
-the location change itself causes; the fourth is a stale constant.
+Setting `location` exposed six places the `/blog` prefix does not reach on its
+own. All are blog-side and all are fixed on this branch. Four are regressions
+the location change itself causes; the rest are stale constants.
 
 1. **Font CSS — every web font 404s.** `googleFonts` emits relative
    `url("fonts-en/…")`, which `base_path` skips (it only rewrites URLs starting
@@ -257,26 +257,89 @@ the location change itself causes; the fourth is a stale constant.
    made relative to the manifest's own URL instead, which resolves correctly at
    either location and needs no build machinery.
 
-4. **`externalLinksIcon("https://blog.esolia.pro")`** still named the old
-   origin, so post-move it would mark same-site links external and
-   `esolia.co.jp` links internal. Updated.
+4. **The Worker's own rendered HTML — double opt-in and unsubscribe break.**
+   `base_path` cannot see Worker code, and beyond the two constants the plan
+   identified, `renderConfirmPage` emits
+   `<form method="POST" action="/api/newsletter/{op}">`. That page is served at
+   `esolia.co.jp/blog/api/newsletter/verify`, so a root-relative action resolves
+   to `esolia.co.jp/api/newsletter/verify` — esolia-2025, not the blog. The
+   confirm button 404s, which breaks double opt-in and unsubscribe. Same for
+   that page's `<img src="/assets/logo…">`. Both now go through a `PUBLIC_BASE`
+   constant, which the `LOCALES` values are built from too.
 
-`_site/_headers` deliberately keeps its root-relative patterns (`/fonts-*/*`,
-`/assets/*`, `/uploads/*`). The prefix is stripped before the blog Worker
-dispatches, so its asset handler still sees unprefixed paths.
+5. **`externalLinksIcon("https://blog.esolia.pro")`** still named the old
+   origin, so post-move it would mark same-site links external and
+   `esolia.co.jp` links internal. Now read from `site.options.location`. Note it
+   compares hostname only, so `esolia.co.jp/info-request/` stops getting the
+   external-link arrow — correct, it is the same site now.
+
+6. **Stale self-references.** Six posts cross-link to other posts as absolute
+   `blog.esolia.pro` URLs (made root-relative, which also stops them rendering
+   with the external-link arrow); `reference`/`thanks_url` in both `i18n.yml`
+   files, which are dead keys superseded by the Worker's `LOCALES`; and
+   `_cms.ts`'s site URL, the "view site" link editors click out of Lume CMS.
+
+### Checked and deliberately unchanged
+
+- **`_site/_headers`** keeps its root-relative patterns (`/fonts-*/*`,
+  `/assets/*`, `/uploads/*`). The prefix is stripped before the blog Worker
+  dispatches, so its asset handler still sees unprefixed paths.
+- **`wrangler.jsonc`'s `run_worker_first: ["/api/*"]`**, for the same reason.
+- **The Worker's own route matching** (`url.pathname === "/api/newsletter"`),
+  for the same reason. The asymmetry is the whole point of `PUBLIC_BASE`: what
+  the Worker _receives_ is unprefixed, what it _emits_ is not.
+
+### Also verified — no action needed
+
+**Turnstile.** The `blog-esolia-pro-newsletter` widget enforces a hostname
+allowlist, and post-move it renders on `esolia.co.jp` pages — a missing hostname
+would have failed siteverify and blocked every signup, with the same
+silent-failure signature as the `ALLOWED_ORIGINS` bug. Checked via
+`GET /accounts/{account_id}/challenges/widgets`: its domains are already
+`blog.esolia.pro`, `esolia.co.jp`, `localhost`. Nothing to do, but it was a live
+dependency and the plan did not list it.
+
+### Out of repo — still to do
+
+The **verify/unsubscribe links in the dbFlex/PROdb email templates** are
+absolute `blog.esolia.pro` URLs. They keep working through the 301 (they are
+GETs), so this is not urgent, but they should be repointed to avoid the hop.
+Dashboard work, like the Redirect Rule.
 
 ## Verification
+
+Confirmed in the local build output on this branch — these are the items that
+can be checked before anything is deployed:
+
+- [x] Canonical and hreflang on a ja post and its en twin point to
+      `esolia.co.jp/blog/…`
+- [x] `sitemap.xml` carries absolute `esolia.co.jp/blog/*` `<loc>` and
+      `xhtml:link` pairs
+- [x] Feeds carry absolute `esolia.co.jp/blog/*` URLs
+- [x] The blog's own `robots.txt` points at
+      `https://esolia.co.jp/blog/sitemap.xml` (dead once served under /blog —
+      hence the esolia-2025 directive)
+- [x] Newsletter `<form action>` is `/blog/api/newsletter`, on both pages that
+      carry the form
+- [x] Assets, icons and favicons resolve under `/blog/`
+- [x] Font CSS references `/blog/fonts-{en,ja}/…`
+- [x] Pagefind's UI script keeps its `type="module"`
+- [x] No `blog.esolia.pro` anywhere in the built HTML
+- [x] Turnstile widget hostnames already include `esolia.co.jp`
+
+Needs the deploy and the esolia-2025 side:
 
 - [ ] `esolia.co.jp/blog/` and a deep post URL render with correct CSS and
       images
 - [ ] `blog.esolia.pro/<path>` 301s to `esolia.co.jp/blog/<path>`, query
       preserved
 - [ ] Newsletter signup completes end-to-end from an `esolia.co.jp` page
-- [ ] `esolia.co.jp/blog/sitemap.xml` returns absolute `esolia.co.jp/blog/*`
-      URLs
+- [ ] Double opt-in **and** unsubscribe complete end-to-end — the confirm-page
+      form action was broken and is easy to miss, since the signup path works
+      without it
+- [ ] `esolia.co.jp/blog/sitemap.xml` is reachable and matches the above
 - [ ] `esolia.co.jp/robots.txt` lists both sitemaps
-- [ ] Canonical and hreflang tags on a ja post and its en twin point to new URLs
-- [ ] Feeds validate and carry new URLs
+- [ ] PWA manifest installs with the right icons and a `/blog/` start URL
 - [ ] CMS preview at `cms.blog.esolia.pro` still renders correctly
 - [ ] CI green in both repos; no new Dependabot alerts
 
