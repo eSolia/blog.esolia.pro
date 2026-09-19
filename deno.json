@@ -23,7 +23,8 @@
   },
   "lint": {
     "exclude": [
-      "./_site"
+      "./_site",
+      "./archive"
     ],
     "rules": {
       "tags": [
@@ -40,6 +41,7 @@
   "fmt": {
     "exclude": [
       "./_site",
+      "./archive",
       "./src/posts",
       "./src/uploads",
       "./src/assets",

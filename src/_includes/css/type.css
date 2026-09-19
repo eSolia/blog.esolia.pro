@@ -1,0 +1,124 @@
+/*
+ * Text setting for a bilingual site.
+ *
+ * This is the live typography layer. An earlier one existed at
+ * css/typography.css but was only ever imported by styles.oldcss, which Lume
+ * never processed — none of it was in effect. It is kept in archive/ and its
+ * English hyphenation setup is recovered below, since that part was good work
+ * that simply was never wired in.
+ *
+ * `html[lang]` is set correctly per page ("ja" / "en"), so :lang() selectors
+ * work and are used in preference to class hooks.
+ */
+
+@layer base {
+  /* ---- Orphans and ragging -------------------------------------------- */
+
+  /* Headings read better balanced across their lines than filled greedily. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  /* `pretty` asks the browser to avoid leaving a single short fragment on the
+     last line. Japanese is where this shows most: a stranded single kana like
+     「は」 reads as a mistake rather than a wrap. Ignored by browsers that do
+     not support it, so there is nothing to guard. */
+  p,
+  li,
+  dd,
+  figcaption,
+  blockquote,
+  summary {
+    text-wrap: pretty;
+  }
+
+  /* ---- English --------------------------------------------------------- */
+
+  /* Recovered from the archived layer. The limits matter as much as the
+     switch: without them, `hyphens: auto` will break two-letter fragments off
+     the end of a line and hyphenate several lines in a row. */
+  :lang(en) {
+    hyphens: auto;
+    hyphenate-character: "-";
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-zone: 8%;
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-lines: 2;
+  }
+
+  /* Do not hyphenate things that are not prose. A broken identifier is worse
+     than a long line. */
+  :lang(en) code,
+  :lang(en) kbd,
+  :lang(en) samp,
+  :lang(en) pre,
+  :lang(en) .font-mono {
+    hyphens: none;
+  }
+
+  /* ---- Japanese -------------------------------------------------------- */
+
+  :lang(ja) {
+    /* Hyphenation does not apply to Japanese; leaving it on lets the engine
+       hyphenate embedded Latin words mid-sentence, which looks wrong in a
+       Japanese line. */
+    hyphens: none;
+
+    /* Kinsoku shori. `strict` keeps small kana (ゃゅょっ), the prolonged sound
+       mark ー and closing punctuation from starting a line, and stops opening
+       brackets ending one. `normal` permits some of those breaks. */
+    line-break: strict;
+
+    /* Japanese has no inter-word spaces, so the default already breaks between
+       characters. This is only for the exception: a long unbroken Latin run
+       such as a URL, which would otherwise overflow its container. */
+    overflow-wrap: break-word;
+  }
+
+  /* Trim the built-in side bearings around CJK brackets and punctuation, so
+     「…」and 、。do not leave a gap wide enough to look like a space.
+     Progressive enhancement — no effect where unsupported. */
+  :lang(ja) {
+    text-spacing-trim: auto;
+  }
+
+  /* Proportional kana metrics. Applied to display text rather than body copy:
+     it tightens the loose spacing that full-width kana leave around ー and
+     small kana, which is most visible at large sizes, and is a matter of taste
+     at reading sizes. */
+  :lang(ja) h1,
+  :lang(ja) h2,
+  :lang(ja) h3 {
+    font-feature-settings: "palt" 1;
+  }
+}
+
+/*
+ * Keep the external-link arrow glued to its link text.
+ *
+ * hibana's externalLinksIcon adds the Tailwind class `after:content-['_↗']`,
+ * where `_` is Tailwind's stand-in for a space — so the generated content is a
+ * normal space followed by ↗, and a line can break at that space, stranding
+ * the arrow at the start of the next line. In Japanese it is worse than in
+ * English: there are break opportunities between almost every pair of
+ * characters, so the arrow lands alone far more often.
+ *
+ * Replacing the space with U+00A0 removes the break opportunity, so the arrow
+ * always travels with the last character of the link.
+ *
+ * Deliberately NOT inside @layer base: Tailwind's `utilities` layer outranks
+ * `base`, so a layered override would lose to the class it is overriding.
+ * Unlayered rules beat every layer, which is what makes this stick. The
+ * attribute-substring selector avoids escaping `:` `[` `'` in the class name.
+ */
+[class*="after:content-['_↗']"]::after {
+  content: "\00a0↗";
+}

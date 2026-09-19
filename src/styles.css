@@ -7,6 +7,7 @@
 /* @plugin "flyonui@2.0.0"; */
 /* @plugin "tailwind-every-layout@latest"; */
 @import "css/alerts.css";
+@import "css/type.css";
 /* @import "css/vendor/splidejs/splide-skyblue.min.css"; */
 
 @layer base {
@@ -74,6 +75,33 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  /* Fluid type scale.
+   *
+   * Replaces stepped breakpoint chains. The measured problem with the steps
+   * was not that any size was wrong, but that nothing happened between them:
+   * the hero h1 snapped 36px -> 48px at sm and then never moved again all the
+   * way to 1536px, and the post h1 climbed through five separate steps.
+   * Anchors below are taken from the sizes already in use, so small screens
+   * are unchanged and the scale simply keeps going where it used to stop.
+   *
+   * Line heights are unitless so they track the fluid size instead of pinning
+   * it at whatever the breakpoint happened to be.
+   */
+
+  /* Hero heading: 36px at <=375, ~48px at 1024, 56px from ~1400 up. */
+  --text-fluid-display: clamp(2.25rem, 1.75rem + 2vw, 3.5rem);
+  --text-fluid-display--line-height: 1.1;
+
+  /* Post title: was text-xl -> 2xl -> 3xl -> 4xl -> 5xl across five
+     breakpoints. Same 20px start and 48px end, continuous in between. */
+  --text-fluid-title: clamp(1.25rem, 0.7rem + 2.4vw, 3rem);
+  --text-fluid-title--line-height: 1.2;
+
+  /* Card title: was a flat 18px at every width, phone to 27-inch display.
+     Deliberately a narrow range — these sit in a grid and should stay calm. */
+  --text-fluid-card: clamp(1.125rem, 1.05rem + 0.3vw, 1.375rem);
+  --text-fluid-card--line-height: 1.35;
+
   --default-font-feature-settings:
     "kern" 1,
     "liga" 1,
