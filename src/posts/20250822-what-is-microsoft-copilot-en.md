@@ -147,7 +147,7 @@ Example: "Please summarize XX based on the contents of this [file name]."
 
 It is not always necessary to enter all four elements, but you will get a clearer answer if you include one of them. In addition, if you are not satisfied with the first answer and modify the prompt while interacting with Copilot, you can obtain a more accurate output.
 
-For example, in our blog post ["UTP cable? Cat cable? RJ45 connector? Admin staff asked AI about IT terms they were curious about,"](https://blog.esolia.pro/en/posts/20250410-admin-asked-ai-about-the-it-terminology-en/){target="_blank" rel="noopener"} the first prompt was "What is a UTP cable?", and the next prompt was "What are UTP cable, Cat cable, and RJ45 connector? Please explain it in an easy-to-understand way for people without IT knowledge."  
+For example, in our blog post ["UTP cable? Cat cable? RJ45 connector? Admin staff asked AI about IT terms they were curious about,"](/en/posts/20250410-admin-asked-ai-about-the-it-terminology-en/){target="_blank" rel="noopener"} the first prompt was "What is a UTP cable?", and the next prompt was "What are UTP cable, Cat cable, and RJ45 connector? Please explain it in an easy-to-understand way for people without IT knowledge."  
 In this way, by clarifying ambiguous parts and changing your perspective, you can convey your request to Copilot multiple times and arrive at the answer your users are looking for.
 
 In addition, to avoid the risk of information leakage, please be careful not to include important information such as highly confidential information or personal information in the prompts of generative AI including Copilot.

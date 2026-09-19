@@ -16,7 +16,7 @@ const cms = lumeCMS({
   site: {
     name: "イソリアブログ eSolia Blog",
     description: "Edit the content of the eSolia blog site.",
-    url: "https://blog.esolia.pro",
+    url: "https://esolia.co.jp/blog",
     body: `
     <p>This is the CMS for eSolia's bilingual blog site, with posts in Japanese and English.</p>
     `,

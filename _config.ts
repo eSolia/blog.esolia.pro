@@ -93,7 +93,14 @@ const markdown = {
 
 const site = lume({
   src: "./src",
-  location: new URL("https://blog.esolia.pro"),
+  // The blog is served from esolia.co.jp/blog: esolia-2025's Worker forwards
+  // /blog/* over a service binding, stripping the prefix before dispatch. The
+  // `/blog` path here is what drives `base_path` (below) to prefix every
+  // root-relative URL in the built HTML, and what `metas()` builds canonicals
+  // and hreflang from. `_site/` layout is unchanged — the prefix exists only in
+  // the emitted URLs. Note `lume -s` overwrites this with http://hostname:port
+  // (see core/utils/cli_options.ts), so the CMS preview is unaffected.
+  location: new URL("https://esolia.co.jp/blog"),
   server: {
     hostname: "127.0.0.1",
     port: 3000,
@@ -188,6 +195,36 @@ site.use(tailwindcss({
 site.use(source_maps());
 
 // Modify URLs
+
+// googleFonts emits document-relative `url("fonts-xx/…")` in its @font-face
+// rules, which resolves against the page using the stylesheet and so breaks on
+// any URL below the root. It also creates the stylesheet page from inside its
+// own `site.process()`, i.e. after Lume has already fixed the page list for
+// extension-filtered processors — so `[".css"]` processors never see it, and
+// that includes the one `base_path` installs. Hence the explicit `site.url()`
+// here (which yields `/blog/fonts-xx/`) rather than leaving the prefix to
+// `base_path`, and hence an unfiltered `site.process` so the page is in scope.
+//
+// This replaces two `afterBuild` sed scripts. `afterBuild` ran long after
+// `base_path`, so their output was an unprefixed `/fonts-xx/…` that 404s
+// under /blog. Doing it in-pipeline also drops the hardcoded `_site/` dest and
+// the darwin/linux sed divergence.
+//
+// The optional quote group is not polish: tailwindcss(minify) has already
+// stripped the quotes by this point (`url(fonts-ja/…)`), and cssBanner puts
+// them back further down the pipeline. Match both forms or this silently
+// no-ops — which is what a quotes-only pattern does here.
+site.process((pages) => {
+  for (const page of pages) {
+    if (!/^\/fonts-(?:en|ja)\.css$/.test(page.data.url ?? "")) continue;
+    page.text = page.text.replace(
+      /url\((["']?)(fonts-(?:en|ja))\//g,
+      (_match, quote: string, folder: string) =>
+        `url(${quote}${site.url(`/${folder}/`)}`,
+    );
+  }
+});
+
 site.use(basePath());
 site.use(resolveUrls());
 // site.use(checkUrls({
@@ -434,6 +471,9 @@ site.add("manifest.json");
 site.add("uploads");
 site.add("assets");
 site.add("f36d0f5824b04fae955f338128bac96e.txt"); // indexnow
+// The Content-Signal / AI-bot policy, mirrored from esolia-2025. Lume's
+// sitemap plugin appends the Sitemap: line to whatever this file contains.
+site.add("robots.txt");
 site.add("_headers"); // Cloudflare Workers Static Assets headers config (404 handled via not_found_handling in wrangler.jsonc)
 // Mastodon comment system
 // site.add(
@@ -518,26 +558,8 @@ site.preprocess([".html"], (pages) => {
   }
 });
 
-// Define bash script to fix English font URLs
-const sedFixFontpathEn = Deno.build.os === "darwin"
-  ? "sed -i '' 's|url(\"fonts-en/|url(\"/fonts-en/|g' _site/fonts-en.css"
-  : "sed -i 's|url(\"fonts-en/|url(\"/fonts-en/|g' _site/fonts-en.css";
-
-// Define bash script to fix Japanese font URLs
-const sedFixFontpathJa = Deno.build.os === "darwin"
-  ? "sed -i '' 's|url(\"fonts-ja/|url(\"/fonts-ja/|g' _site/fonts-ja.css"
-  : "sed -i 's|url(\"fonts-ja/|url(\"/fonts-ja/|g' _site/fonts-ja.css";
-
-// Register commands
-site.script("makeFontpathAbsoluteEn", sedFixFontpathEn);
-site.script("makeFontpathAbsoluteJa", sedFixFontpathJa);
-
-// Execute scripts after build
-site.addEventListener("afterBuild", "makeFontpathAbsoluteEn");
-site.addEventListener("afterBuild", "makeFontpathAbsoluteJa");
-
 // pass the base url
-site.process([".html"], externalLinksIcon("https://blog.esolia.pro"));
+site.process([".html"], externalLinksIcon(site.options.location.href));
 if (!isCms) {
   site.process([".html"], deferPagefind());
   // Pagefind's pagefind-ui.js is shipped as an ES module (it imports a shared
@@ -549,7 +571,7 @@ if (!isCms) {
   site.process([".html"], (pages) => {
     for (const page of pages) {
       const script = page.document?.querySelector(
-        'script[src="/pagefind/pagefind-ui.js"]',
+        `script[src="${site.url("/pagefind/pagefind-ui.js")}"]`,
       );
       if (script) script.setAttribute("type", "module");
     }

@@ -148,21 +148,48 @@ const DISPOSABLE_DOMAINS = new Set([
   "sharklasers.com",
 ]);
 
+// The public path prefix the blog is served under. esolia-2025's Worker
+// forwards esolia.co.jp/blog/* over a service binding and strips the prefix
+// before dispatch, so this Worker never *receives* it and its own routing
+// below stays unprefixed. But every URL it emits for the browser — redirect
+// targets, form actions, asset references — has to carry it, and Lume's
+// base_path plugin cannot see Worker code. Hence this constant.
+const PUBLIC_BASE = "/blog";
+const PUBLIC_ORIGIN = "https://esolia.co.jp";
+
+// Redirect targets and the stored reference URL. Absolute and fixed
+// server-side by design (see the InfoSec note above) — never read from the
+// request, so they cannot be used as an open redirect.
 const LOCALES = {
   ja: {
-    reference: "https://blog.esolia.pro",
-    thanks: "https://blog.esolia.pro/thank-you/",
-    home: "https://blog.esolia.pro/",
+    reference: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/`,
+    thanks: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/thank-you/`,
+    home: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/`,
   },
   en: {
-    reference: "https://blog.esolia.pro/en/",
-    thanks: "https://blog.esolia.pro/en/thank-you/",
-    home: "https://blog.esolia.pro/en/",
+    reference: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/en/`,
+    thanks: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/en/thank-you/`,
+    home: `${PUBLIC_ORIGIN}${PUBLIC_BASE}/en/`,
   },
 } as const;
 
-// InfoSec: Only accept form posts originating from our own site.
-const ALLOWED_ORIGINS = new Set(["https://blog.esolia.pro"]);
+// InfoSec: Only accept form posts originating from our own site. The browser
+// sends the *page* origin, which post-move is esolia.co.jp. Note Origin is a
+// scheme+host+port only, with no path, so /blog never appears here.
+//
+// The old host is kept for requests that reach this Worker directly — which is
+// every request until the Redirect Rule goes live, and again during a
+// rollback. It is NOT a safety net for forwarded requests: esolia-2025 is a
+// SvelteKit app, and SvelteKit's own CSRF protection rejects any cross-origin
+// POST before its hooks run, so a forwarded POST carrying
+// Origin: https://blog.esolia.pro never gets this far. Verified against the
+// #500 preview: a mismatched Origin returns SvelteKit's "Cross-site POST form
+// submissions are forbidden", a matching one returns this handler's bare
+// "Forbidden". Two gates post-move, the outer one stricter than this.
+const ALLOWED_ORIGINS = new Set([
+  PUBLIC_ORIGIN,
+  "https://blog.esolia.pro",
+]);
 
 interface TurnstileResponse {
   success: boolean;
@@ -452,6 +479,28 @@ function localeOf(rec: SubRecord): Loc {
 }
 
 // Self-contained, theme-aware HTML page for the verify/unsubscribe flow.
+// InfoSec: `_headers` is applied by the static-assets layer, so it never
+// reaches a Response this Worker builds itself — these pages would otherwise
+// carry no security headers at all. The CSP is deliberately tighter than the
+// site-wide one in src/_headers: these pages load no scripts and no external
+// resources, so everything except the inline <style> above and a same-origin
+// logo can be denied outright. Keep it that way; if this page ever needs a
+// script, give it a hash rather than widening to 'unsafe-inline'.
+const SUB_PAGE_HEADERS: Record<string, string> = {
+  "Content-Security-Policy": [
+    "default-src 'none'",
+    "img-src 'self'",
+    "style-src 'unsafe-inline'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+    "base-uri 'none'",
+  ].join("; "),
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+};
+
 function subPage(
   loc: Loc,
   title: string,
@@ -488,7 +537,7 @@ function subPage(
     `.back a{color:#0ea5e9;text-decoration:none}` +
     `.back a:hover{text-decoration:underline}` +
     `</style></head><body><main>` +
-    `<p class="logo"><img src="/assets/logo_horiz_darkblue_bgtransparent.svg" ` +
+    `<p class="logo"><img src="${PUBLIC_BASE}/assets/logo_horiz_darkblue_bgtransparent.svg" ` +
     `alt="eSolia" width="106" height="28"></p>` +
     `<h1>${title}</h1><p>${body}</p>${form}` +
     `<p class="back"><a href="${LOCALES[loc].home}">${
@@ -497,7 +546,7 @@ function subPage(
     `</main></body></html>`;
   return new Response(html, {
     status,
-    headers: { "Content-Type": "text/html;charset=UTF-8" },
+    headers: { "Content-Type": "text/html;charset=UTF-8", ...SUB_PAGE_HEADERS },
   });
 }
 
@@ -542,7 +591,8 @@ async function renderConfirmPage(
   if (already) {
     return subPage(loc, s.doneTitle, s.already, "");
   }
-  const form = `<form method="POST" action="/api/newsletter/${op}">` +
+  const form =
+    `<form method="POST" action="${PUBLIC_BASE}/api/newsletter/${op}">` +
     `<input type="hidden" name="guid" value="${guid}">` +
     `<button type="submit">${s.confirmButton}</button></form>`;
   return subPage(loc, s.confirmTitle, s.confirmBody, form);

@@ -22,7 +22,7 @@ tags:
   - Adobe Reader
 comments: {}
 ---
-前回、[「PDFって何？ Adobe Acrobatとの関係は？」](https://blog.esolia.pro/posts/20260106-pdf%E3%81%AE%E5%9F%BA%E6%9C%AC-ja/){target="_blank" rel="noopener"}ではPDFとAcrobatの関係性を探っていきましたが、今回、当社管理部門の文書業務で使用頻度の高い「Acrobat Standard」主要機能、「Acrobat Reader、Acrobat Proとの違い」と合わせてご紹介いたします。PDFを“**読むだけ**”から“**編集・管理する**”へと進化させることで、日々の業務をより効率的・安全に行うことが可能になります。
+前回、[「PDFって何？ Adobe Acrobatとの関係は？」](/posts/20260106-pdf%E3%81%AE%E5%9F%BA%E6%9C%AC-ja/){target="_blank" rel="noopener"}ではPDFとAcrobatの関係性を探っていきましたが、今回、当社管理部門の文書業務で使用頻度の高い「Acrobat Standard」主要機能、「Acrobat Reader、Acrobat Proとの違い」と合わせてご紹介いたします。PDFを“**読むだけ**”から“**編集・管理する**”へと進化させることで、日々の業務をより効率的・安全に行うことが可能になります。
 
 <!--more-->
 

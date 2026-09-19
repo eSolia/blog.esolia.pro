@@ -23,7 +23,7 @@ tags:
   - PDF
 comments: {}
 ---
-Building on our previous blog,["What is PDF? How is it related to Adobe Acrobat?"](https://blog.esolia.pro/posts/20260106-pdf%E3%81%AE%E5%9F%BA%E6%9C%AC-ja/){target="_blank" rel="noopener"}
+Building on our previous blog,["What is PDF? How is it related to Adobe Acrobat?"](/posts/20260106-pdf%E3%81%AE%E5%9F%BA%E6%9C%AC-ja/){target="_blank" rel="noopener"}
 , which explored the relationship between PDF and Acrobat, this time we will introduce the key features of "Acrobat Standard" — a tool frequently used in our company's administrative document workflows — along with how it differs from Acrobat Reader and Acrobat Pro. By shifting from merely "**reading**" PDFs to "**editing and managing**" them, users can streamline daily operations, working more efficiently and securely. For detailed instructions with screenshots, please refer to the Japanese version.
 
 <!--more-->
