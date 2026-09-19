@@ -1,7 +1,7 @@
 # Consolidating the blog onto `esolia.co.jp/blog`
 
-**Status:** proposed · **Date:** 2026-09-19 · **Repos:** `blog.esolia.pro`,
-`esolia-2025`
+**Status:** in progress (blog side) · **Date:** 2026-09-19 · **Repos:**
+`blog.esolia.pro`, `esolia-2025`
 
 Move the blog from `blog.esolia.pro` to `esolia.co.jp/blog` by edge-routing the
 **existing Lume build** from the main site's Worker. No site rewrite, no CMS
@@ -84,10 +84,13 @@ Note this does **not** restructure `_site/` — output stays at `posts/foo/`, no
   `https://blog.esolia.pro/...` URLs. Post-move a signup bounces the user back
   to the old host and through the 301. Update to the `/blog` paths.
 
-**3. Verify `<form action>`** in the built HTML. If `base_path` does not rewrite
-form actions, the newsletter form on a page at `esolia.co.jp/blog/...` posts to
-`/api/newsletter`, which lands on esolia-2025 rather than the blog. If so,
-hardcode the action to `/blog/api/newsletter`.
+**3. `<form action>` — no change needed.** `base_path` rewrites it; verified in
+the build. See "Open questions — answered" below.
+
+**4. Four post-`base_path` gaps** — the font CSS `sed` scripts, the Pagefind
+`type="module"` selector, the static `manifest.json`, and `externalLinksIcon`'s
+hardcoded origin. Found by building; all fixed on the branch. See "Found while
+building" below.
 
 ## Change set — `esolia-2025`
 
@@ -190,19 +193,77 @@ Answerable by inspection; confirmed 2026-09-19:
   `Sitemap: https://esolia.co.jp/sitemap.xml`. Add a second directive for the
   blog sitemap; do not replace.
 
-## Open questions — verify on the branch
+## Open questions — answered on the branch (2026-09-19)
 
-Neither is answerable without setting `location` and building, so these are the
-first commits on the feature branch rather than gates before it. Record the
-answers in the PR: they are change-management evidence.
+Both resolved by setting `location` to `https://esolia.co.jp/blog` and building.
+Evidence below; both answers are **no further work required**.
 
-1. **Does `base_path` rewrite `<form action>`?** Build, then grep the output
-   HTML for the newsletter form's action attribute. Decides change #3 above.
-2. **Does `lume -s` already override `location`?** The working-tree
-   `_site/robots.txt` reads `Sitemap: http://127.0.0.1:3000/sitemap.xml`, which
-   suggests yes — meaning CMS preview keeps working without an env override. If
-   not, make `location` conditional on a `LUME_LOCATION` env var set in the
-   systemd unit, or preview renders with every asset 404ing.
+**1. Does `base_path` rewrite `<form action>`? — Yes. Change #3 is dropped.**
+
+`base_path` delegates to `modify_urls`, whose link scanner
+(`core/utils/dom_links.ts`) carries `action: "form[action]"` in its selector
+table alongside `href`, `src`, `poster` and the two `srcset` variants. So the
+form action is rewritten like any other root-relative URL.
+
+Confirmed in the build — the only `action="/…"` in the whole of `_site/`:
+
+```
+$ grep -rhoE 'action="/[^"]*"' --include="*.html" _site/ | sort -u
+action="/blog/api/newsletter"
+```
+
+The newsletter form appears on `index.html` and `en/index.html` only, and both
+post to `/blog/api/newsletter`. No hardcoded action needed.
+
+**2. Does `lume -s` already override `location`? — Yes. No `LUME_LOCATION` env
+var needed, and none was built.**
+
+`getOptionsFromCli` (`core/utils/cli_options.ts`) branches on `--serve`/`-s`. In
+serve mode it **unconditionally** assigns
+`options.location = new URL("http://" + hostname + ":" + port)` unless an
+explicit `--location` is passed, discarding whatever `_config.ts` set. In build
+mode it keeps the config value. The working-tree `_site/robots.txt` reading
+`Sitemap: http://127.0.0.1:3000/sitemap.xml` was exactly this.
+
+So under `deno task cms` the base path is empty, preview is served from the
+server root, and `base_path` stays a no-op — the CMS preview is unaffected by
+this change and the systemd unit needs no edit.
+
+## Found while building — four things the plan missed
+
+Setting `location` exposed four places the `/blog` prefix does not reach on its
+own. All are blog-side and all are fixed on this branch. Three are regressions
+the location change itself causes; the fourth is a stale constant.
+
+1. **Font CSS — every web font 404s.** `googleFonts` emits relative
+   `url("fonts-en/…")`, which `base_path` skips (it only rewrites URLs starting
+   with `/`). Two `afterBuild` `sed` scripts then made them root-absolute
+   `/fonts-en/…` — but `afterBuild` runs long after `base_path`, so the prefix
+   was never applied. Replaced with a `site.process([".css"])` step registered
+   **before** `basePath()`, so `base_path` does the prefixing. This also drops
+   the hardcoded `_site/` path and the darwin/linux `sed` divergence.
+
+2. **Pagefind — site search breaks.** The step that adds `type="module"` to
+   Pagefind's UI script selects on `script[src="/pagefind/pagefind-ui.js"]` and
+   runs after `base_path`, by which point the src is `/blog/pagefind/…`. The
+   selector silently matched nothing and the script loaded as a classic script,
+   which is the exact "Cannot use import statement outside a module" failure the
+   step exists to prevent. Selector now derives from `site.url()`.
+
+3. **PWA manifest — icons 404, `start_url` leaves the blog.** `manifest.json` is
+   a static copy, and `modify_urls` only touches `.html` and `.css`, so its
+   `start_url: "/"` and `/favicon.svg`-style icon paths stayed root-absolute —
+   resolving against `esolia.co.jp/` rather than `esolia.co.jp/blog/`. Paths
+   made relative to the manifest's own URL instead, which resolves correctly at
+   either location and needs no build machinery.
+
+4. **`externalLinksIcon("https://blog.esolia.pro")`** still named the old
+   origin, so post-move it would mark same-site links external and
+   `esolia.co.jp` links internal. Updated.
+
+`_site/_headers` deliberately keeps its root-relative patterns (`/fonts-*/*`,
+`/assets/*`, `/uploads/*`). The prefix is stripped before the blog Worker
+dispatches, so its asset handler still sees unprefixed paths.
 
 ## Verification
 
