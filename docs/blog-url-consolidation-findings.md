@@ -397,12 +397,46 @@ each width do work — media queries resolve against the iframe. But the site's
 own `X-Frame-Options: DENY` and `frame-ancestors 'none'` block that, so the
 build has to be served without those headers for the measurement.
 
+### Pass 6 — `comp.icon` rendered as literal text (found in production)
+
+Reported by Rick from a live page, not by any check here — worth noting, because
+none of the passes above would have caught it. The broken output was valid HTML
+containing visible text; nothing 404s, nothing errors, and the accessibility and
+structured-data passes had no reason to look at paragraph prose.
+
+`src/_components/icon.vto` — the component that lets staff drop a Phosphor icon
+into post markdown — emitted its `<img>` tag across four lines. Post markdown
+runs with `breaks: true` and `typographer: true`. So:
+
+1. `breaks: true` turned the newlines _inside_ the tag into `<br>`, splitting
+   the tag apart;
+2. markdown-it therefore stopped recognizing it as inline HTML and rendered the
+   attributes as visible text;
+3. `typographer: true` curled the quotes on the way out;
+4. the orphaned `>` at the end started a `<blockquote>`, swallowing the rest of
+   the sentence.
+
+Readers saw `<img class="size-4 ..." src="..." inline` mid-paragraph. **67
+occurrences across 10 posts** (five ja/en pairs).
+
+The fix is to keep the tag on one line. The part worth remembering is the second
+half: **`deno fmt` wraps it straight back to four lines**, and CI runs
+`deno lint && deno fmt --check && deno task lume`, so the next formatting run
+would have silently restored the bug with nothing failing anywhere. A one-line
+fix here is not stable unless the formatter is told to leave it alone —
+`src/_components` is now excluded from `fmt`, with the reason written into the
+component itself so it travels with the code.
+
+This is the same shape as the migration bugs in Part 1: **a silent failure in a
+build that reports success.** The difference is only where it surfaced. Issue
+#324, PR #325.
+
 ### Remaining
 
-Accessibility, structured data, AI discoverability, dead source and typography
-are done. Still open: **CSS review**, **hero area design** (a subtle tech motif
-at the upper right), and **JS organization** (a small surface — 318 lines total,
-210 of them `src/js/main.js`).
+Accessibility, structured data, AI discoverability, dead source, typography and
+JS organization are done — the last of those landed with the search dialog's
+focus management in PR #323. Still open: **CSS review** and **hero area design**
+(a subtle tech motif at the upper right).
 
 Worth judging on screen rather than in a diff, now that the typography layer is
 deployed: `text-spacing-trim` and `palt` on a real Japanese post, and the
