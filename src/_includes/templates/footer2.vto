@@ -14,11 +14,11 @@
                   <a
                     class="whitespace-nowrap transition hover:text-teal-500 dark:hover:text-teal-400"
                     href="{{ item.href }}"
-                    aria_label="{{ item.aria_label }}"
                     title="{{ item.title }}"
                     {{- if item.target }}target="{{ item.target }}"{{ /if }}
                   >{{ item.text }}
-                    <span class="sr-only">({{ item.aria_label }})</span></a>
+                    {{ if item.target === "_blank" }}<span class="sr-only">
+                        ({{ i18n.nav.new_tab }})</span>{{ /if }}</a>
                 {{ /for -}}
               </div>
               <p class="text-sm text-zinc-400 dark:text-zinc-500">

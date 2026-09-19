@@ -118,7 +118,6 @@ const isCms = Deno.env.get("LUME_CMS") === "true";
 // Load First, order does not matter
 site.use(attributes());
 site.use(date({ locales: { enUS, ja } }));
-site.use(jsonLd());
 site.use(readingInfo());
 site.use(multilanguage({
   languages: ["ja", "en"],
@@ -300,6 +299,81 @@ site.use(svgo());
 // metas runs after asset plugins (esbuild/fonts/tailwind/images/basePath) so it
 // sees final, processed URLs — required ordering per lume/plugin-order (Lume 3.2).
 site.use(metas());
+
+// jsonLd must run here for exactly the same reason, and used to run near the
+// top of this file, before basePath. base_path does not rewrite the contents of
+// a <script type="application/ld+json"> block — modify_urls only touches href,
+// src, srcset, imagesrcset and form action — so every structured-data `url` and
+// `image` was emitted without the /blog prefix. On a post that meant advertising
+// a URL that 301s and an image that 404s, to every consumer of structured data,
+// while the og: tags right next to it were correct because metas already ran
+// late. Same class of bug as the font CSS, Pagefind and picture ordering.
+site.use(jsonLd());
+
+// Re-apply the base path to first-party URLs inside the JSON-LD.
+//
+// json_ld resolves each URL with `new URL(value, site.url(data.url, true))`.
+// The base it passes is correct (…/blog/en/posts/x/), but the values coming
+// from `=url` and `=image` are ROOT-relative ("/en/posts/x/"), and a
+// root-relative path resolves against the origin and discards the base path.
+// Result: structured data advertised https://esolia.co.jp/en/posts/x/ (a 301)
+// and an image at /uploads/… (a 404), while the og: tags beside it were right,
+// because metas resolves differently. Moving this plugin later does not help —
+// the value is wrong before ordering ever comes into it.
+//
+// Only keys that name a first-party resource are rewritten. `sameAs` is
+// deliberately excluded: those are external profile URLs and prefixing them
+// would corrupt them.
+const JSONLD_FIRST_PARTY_KEYS = new Set([
+  "url",
+  "image",
+  "@id",
+  "logo",
+  "contentUrl",
+  "thumbnailUrl",
+]);
+
+site.process([".html"], (pages) => {
+  const base = site.url("/"); // "/blog/" in production, "/" under `lume -s`
+  if (base === "/") return;
+  const origin = site.options.location.origin;
+  const unprefixed = `${origin}/`;
+  const prefixed = `${origin}${base}`;
+
+  const rewrite = (key: string | undefined, value: unknown): unknown => {
+    if (Array.isArray(value)) return value.map((v) => rewrite(key, v));
+    if (value && typeof value === "object") {
+      return Object.fromEntries(
+        Object.entries(value as Record<string, unknown>).map((
+          [k, v],
+        ) => [k, rewrite(k, v)]),
+      );
+    }
+    if (
+      typeof value === "string" && key && JSONLD_FIRST_PARTY_KEYS.has(key) &&
+      value.startsWith(unprefixed) && !value.startsWith(prefixed)
+    ) {
+      return prefixed + value.slice(unprefixed.length);
+    }
+    return value;
+  };
+
+  for (const page of pages) {
+    const scripts = page.document?.querySelectorAll(
+      'script[type="application/ld+json"]',
+    );
+    for (const el of scripts ?? []) {
+      const raw = el.textContent;
+      if (!raw) continue;
+      try {
+        el.textContent = JSON.stringify(rewrite(undefined, JSON.parse(raw)));
+      } catch {
+        // Malformed JSON-LD is the json_ld plugin's problem, not ours; leave it
+        // untouched rather than replacing it with something worse.
+      }
+    }
+  }
+});
 
 // Markdown
 site.use(title());

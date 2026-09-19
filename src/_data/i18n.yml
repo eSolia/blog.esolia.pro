@@ -69,6 +69,7 @@ nav:
   logo_symbol_alt: サイトのトップへリンクするイソリア社シンボルタイプのロゴマーク
   mobile_nav_name: メニュー
   aria_label: ナビゲーションメニューのリンク
+  new_tab: 新しいタブで開きます
 post:
   by: 著者
   reading_time: 読了目安
