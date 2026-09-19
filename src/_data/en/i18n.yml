@@ -67,6 +67,7 @@ nav:
   logo_symbol_alt: eSolia symbol-type logo linking to site top
   mobile_nav_name: Menu
   aria_label: Navigation menu links
+  new_tab: opens in a new tab
 post:
   by: by
   reading_time: Reading Time

@@ -11,7 +11,10 @@
 
 @layer base {
   a {
-    @apply text-zinc-500 dark:text-zinc-100 hover:text-sky-600 dark:hover:text-sky-400; /* Example base link styles */
+    /* zinc-500 measured 4.39:1 on the zinc-100 surfaces used for cards and the
+       TOC — just under the 4.5:1 that body-size text needs. zinc-600 clears it
+       and is visually almost identical. */
+    @apply text-zinc-600 dark:text-zinc-100 hover:text-sky-600 dark:hover:text-sky-400;
     transition: color 0.15s ease-in-out;
     text-decoration-thickness: 1px; /* Set your desired default thickness here as well */
     text-decoration-color: theme("colors.zinc.500"); /* Match the text color */

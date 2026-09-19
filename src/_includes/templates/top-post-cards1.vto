@@ -57,7 +57,10 @@
           }}
         </div>
         <div class="group relative">
-          <h3
+          {{# h2, not h3: these cards sit directly under the page h1, so an h3
+              skips a level and axe flags heading-order. Each card is a
+              top-level item on the listing page. #}}
+          <h2
             class="mt-3 text-lg/6 font-semibold text-zinc-950 group-hover:text-zinc-600"
           >
             <a
@@ -73,7 +76,7 @@
                   {{ i18n.post.hot }}
                 </span>{{ /if }} #}}
             </a>
-          </h3>
+          </h2>
           <p
             class="mt-5 line-clamp-3 text-sm/6 text-zinc-900 dark:text-zinc-300"
           >
@@ -91,7 +94,7 @@
     role="button"
     tabindex="0"
     aria-label="{{ i18n.archive.aria_label }}"
-    class="inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-500 transition hover:bg-sky-400 active:bg-sky-600 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50"
+    class="inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-700 transition hover:bg-sky-600 active:bg-sky-800 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50"
   >
     {{ i18n.archive.button }}
   </a>

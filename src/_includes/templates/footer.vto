@@ -24,14 +24,13 @@
             <a
               class="inline-block rounded-lg px-2 py-1 text-sm {{- if item.target === '_blank' }} after:content-['_↗']{{ /if -}}"
               href="{{ item.href }}"
-              aria_label="{{ item.aria_label }}"
               title="{{ item.title }}"
               {{- if item.target }}target="{{ item.target }}"{{ /if }}
               {{- if item.target === "_blank" }}rel="noopener"{{ /if -}}
-              role="menuitem"
             >
               {{ item.text }}
-              <span class="sr-only">({{ item.aria_label }})</span></a>
+              {{ if item.target === "_blank" }}<span class="sr-only">
+                  ({{ i18n.nav.new_tab }})</span>{{ /if }}</a>
           {{ /for -}}
         </div>
       </nav>
@@ -85,10 +84,12 @@
             inline
           ></a>
       </div>
-      <p class="mt-6 text-sm text-zinc-500 sm:mt-0 text-center sm:text-left">
+      <p
+        class="mt-6 text-sm text-zinc-600 dark:text-zinc-400 sm:mt-0 text-center sm:text-left"
+      >
         ©{{ new Date().getFullYear() }}
         {{ i18n.home.company_long }} All rights reserved.<br>
-        <span class="text-xs text-zinc-400">{{
+        <span class="text-xs text-zinc-600 dark:text-zinc-400">{{
           i18n.home.company_address
         }}</span>
       </p>

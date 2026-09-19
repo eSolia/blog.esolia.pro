@@ -87,8 +87,11 @@
                   style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; display: none"
                 >
                 </div>
-                <nav class="pointer-events-auto hidden md:block">
-                  {{ if it.topnav.links.length }}
+                {{ if it.topnav.links.length }}
+                <nav
+                  class="pointer-events-auto hidden md:block"
+                  aria-label="{{ i18n.nav.aria_label }}"
+                >
                   <ul
                     class="flex rounded-full bg-sky-700/90 px-3 text-sm font-medium ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10 divide-x-1 divide-zinc-50/50 dark:divide-zinc-200/50"
                     role="menubar"
@@ -108,9 +111,10 @@
                           <span class="sr-only"
                           >({{ item.aria_label }})</span></a>
                       </li>
-                    {{ /for -}}{{ /if }}
+                    {{ /for -}}
                   </ul>
                 </nav>
+                {{ /if }}
 
                 <nav
                   class="pointer-events-auto md:hidden"
@@ -196,24 +200,25 @@
                   </div>
                 </div>
                 {{ if alternates && alternates.length > 1 }}
+                  {{# The language switch is a link, not a button: it navigates.
+                      It used to be an <a> nested inside a <button>, which axe
+                      flags as nested-interactive (serious) — two focusable
+                      controls in one place, with assistive tech announcing a
+                      button that is really a link. The <a> now carries the
+                      styling directly. hreflang and lang let a screen reader
+                      switch voice for the target language. #}}
                   <div class="pointer-events-auto z-50 hidden md:block">
-                    <button
-                      type="button"
-                      aria-label="Toggle language"
-                      class="group rounded-full bg-sky-700/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium dark:group-hover:text-zinc-100"
-                    >
-                      {{- for alt of alternates }}{{ if alt.lang !== lang }}
-                          <a
-                            class="group text-zinc-50 dark:text-zinc-200 hover:text-esoliaamber-400 dark:hover:text-esoliaamber-500"
-                            href="{{ alt.url }}"
-                            title="{{ alt.title |> escape }}"
-                          >
-                            {{ if alt.lang == "ja" }}日本語{{ else }}English{{
-                              /if
-                            }}<span class="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-zinc-500/0 via-zinc-500/40 to-zinc-500/0 dark:from-zinc-400/0 dark:via-zinc-400/40 dark:to-zinc-400/0 opacity-0 group-hover:opacity-100 transition duration-300"></span>
-                          </a>
-                        {{ /if }}{{ /for }}
-                    </button>
+                    {{- for alt of alternates }}{{ if alt.lang !== lang }}
+                        <a
+                          class="group relative block rounded-full bg-sky-800/95 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium text-zinc-50 dark:text-zinc-200 hover:text-esoliaamber-400 dark:hover:text-esoliaamber-500"
+                          href="{{ alt.url }}"
+                          hreflang="{{ alt.lang }}"
+                          lang="{{ alt.lang }}"
+                          title="{{ alt.title |> escape }}"
+                        >{{ if alt.lang == "ja" }}日本語{{ else }}English{{
+                          /if
+                        }}<span class="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-zinc-500/0 via-zinc-500/40 to-zinc-500/0 dark:from-zinc-400/0 dark:via-zinc-400/40 dark:to-zinc-400/0 opacity-0 group-hover:opacity-100 transition duration-300"></span></a>
+                      {{ /if }}{{ /for }}
                   </div>
                 {{ /if }}
                 <div
