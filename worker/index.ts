@@ -479,6 +479,28 @@ function localeOf(rec: SubRecord): Loc {
 }
 
 // Self-contained, theme-aware HTML page for the verify/unsubscribe flow.
+// InfoSec: `_headers` is applied by the static-assets layer, so it never
+// reaches a Response this Worker builds itself — these pages would otherwise
+// carry no security headers at all. The CSP is deliberately tighter than the
+// site-wide one in src/_headers: these pages load no scripts and no external
+// resources, so everything except the inline <style> above and a same-origin
+// logo can be denied outright. Keep it that way; if this page ever needs a
+// script, give it a hash rather than widening to 'unsafe-inline'.
+const SUB_PAGE_HEADERS: Record<string, string> = {
+  "Content-Security-Policy": [
+    "default-src 'none'",
+    "img-src 'self'",
+    "style-src 'unsafe-inline'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+    "base-uri 'none'",
+  ].join("; "),
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+};
+
 function subPage(
   loc: Loc,
   title: string,
@@ -524,7 +546,7 @@ function subPage(
     `</main></body></html>`;
   return new Response(html, {
     status,
-    headers: { "Content-Type": "text/html;charset=UTF-8" },
+    headers: { "Content-Type": "text/html;charset=UTF-8", ...SUB_PAGE_HEADERS },
   });
 }
 

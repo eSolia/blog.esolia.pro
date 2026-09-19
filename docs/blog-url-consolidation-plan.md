@@ -235,21 +235,76 @@ Purge the `esolia.co.jp` cache after step 2 so the edge is not holding a 404 for
   `Disallow: /technical/security-acknowledgments/` now all apply to blog
   content. Probably desirable — but confirm it is what you want for the blog,
   because it is a policy change smuggled in by a routing change.
-- **Content-Security-Policy.** #499 returns the blog's response unmodified, so
-  blog pages keep the blog's own `_headers` and get **no CSP**, exactly as today
-  at `blog.esolia.pro`. No regression, but now that they are served from
-  `esolia.co.jp` the inconsistency is more visible. Applying esolia-2025's CSP
-  to them looks feasible on paper — `cdn.jsdelivr.net`, `cdn.usefathom.com` and
-  `challenges.cloudflare.com` are already allowed, Pagefind needs
-  `'wasm-unsafe-eval'` which is present, and the newsletter form action is
-  `'self'` — but it would need real browser testing of search, Turnstile and
-  signup before being switched on. Deliberately deferred.
-- **`target="_blank"` on the blog links.** The nav, footer, homepage and
-  related-posts links to the blog still open in a new tab and are still flagged
-  `external`, which is now factually wrong but is also load-bearing: `/blog/*`
-  is another Worker's, not a SvelteKit route, so those clicks must be full page
-  loads rather than client-side navigations. Changing the presentation is a UX
-  call; if you do, keep the full page load (`data-sveltekit-reload`).
+- ~~**Content-Security-Policy.**~~ **Decided: the blog gets its own CSP.** Done
+  in #317, browser-tested — see "CSP" below. Not esolia-2025's policy applied to
+  the forwarded response: the blog's own, in its own `_headers`, so it is
+  protected the same way whether it is reached through the forwarder or
+  directly.
+- ~~**`target="_blank"` on the blog links.**~~ **Decided: present them as
+  internal.** Done in #500 — the external-link arrows and new-tab behavior are
+  gone from the nav, footer, homepage cards, related posts, the 404 page and the
+  search results, replaced by `data-sveltekit-reload` so the necessary full page
+  load survives.
+
+### CSP — added to the blog and browser-tested (2026-09-19)
+
+The blog had no Content-Security-Policy, at either hostname. It has one now, in
+its own `src/_headers`, so it applies whether the blog is reached through the
+forwarder or directly, and it survives the service-binding hop because #500
+returns the response unmodified.
+
+```
+default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'
+'wasm-unsafe-eval' https://cdn.jsdelivr.net https://cdn.usefathom.com
+https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline';
+font-src 'self'; img-src 'self' data: https://cdn.usefathom.com;
+connect-src 'self' https://cdn.usefathom.com;
+frame-src https://challenges.cloudflare.com; frame-ancestors 'none';
+base-uri 'self'; form-action 'self'; object-src 'none'
+```
+
+`'unsafe-inline'` and `'unsafe-eval'` are not laziness: the blog is static HTML
+served from the assets layer, so there is no per-request step in which to mint a
+nonce, and Alpine.js needs `eval`. Hashes were considered and rejected as too
+brittle against a rebuild. It matches what esolia-2025 already allows.
+
+Tested under `wrangler dev` with a real browser, checking
+`securitypolicyviolation` events rather than eyeballing the page:
+
+| Exercised                                          | Result                            |
+| -------------------------------------------------- | --------------------------------- |
+| Fathom script, and its **image beacon**            | loads                             |
+| Alpine.js from jsdelivr (needs `'unsafe-eval'`)    | loads                             |
+| Pagefind: WASM init, index fetch, a real query     | 3 results returned                |
+| Pagefind UI script keeps `type="module"`           | `window.PagefindUI` is a function |
+| Self-hosted webfonts                               | 6 faces loaded                    |
+| Every image on a post page                         | 0 broken                          |
+| Turnstile `render()` + hidden response field       | renders, **no violations**        |
+| Newsletter `<form action>`                         | `'self'`, allowed                 |
+| Negative control: fetch/img to an arbitrary origin | blocked, as intended              |
+
+**One real bug the testing caught**, which a paper review had missed: Fathom
+falls back to an **image** beacon, so `img-src` needs
+`https://cdn.usefathom.com`. The first policy had a deliberately tight
+`img-src 'self' data:` — tighter than esolia-2025's
+`img-src 'self' data: https:` — and silently broke analytics. The browser
+reported it; a page-render check would not have.
+
+A caveat for whoever tests this next: `https://cdn.usefathom.com/` with no path
+301s to `https://usefathom.com/`, which the policy does not allow, so probing
+that bare URL reports a violation that says nothing about the real beacon. Use
+the full `?h=…&sid=…` form.
+
+**Worker-rendered pages get their own, much stricter policy.** `_headers` is
+applied by the static-assets layer and never reaches a Response the Worker
+builds itself, so the verify/unsubscribe confirm pages had no security headers
+at all. They now carry
+`default-src 'none'; img-src 'self'; style-src
+'unsafe-inline'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'`
+plus HSTS, `nosniff`, `X-Frame-Options` and `Referrer-Policy`. They load no
+scripts and no external resources, so everything else is denied outright.
+Verified in the browser: the inline `<style>` applies and even a same-origin
+`fetch()` is blocked.
 
 ### 6. Analytics — verify, probably nothing to do
 
