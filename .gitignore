@@ -10,3 +10,12 @@ _seo_report_en.json
 _seo_report_ja.json
 errors.log
 .dev.vars
+
+# direnv — may hold environment secrets
+.envrc
+
+# Wrangler local state and cache
+.wrangler/
+
+# Playwright MCP session artifacts
+.playwright-mcp/
