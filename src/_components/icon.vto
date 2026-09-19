@@ -15,5 +15,10 @@
 
     Keep the attributes on one line and both problems disappear: markdown-it
     parses it as inline HTML, leaves the quotes alone, and Lume's inline plugin
-    swaps the whole tag for the SVG at build time. #}}
+    swaps the whole tag for the SVG at build time.
+
+    `deno fmt` wraps this back onto four lines given the chance, which silently
+    reintroduces the bug — so src/_components is excluded from fmt in
+    deno.json. Do not remove that exclusion without moving this markup
+    somewhere the formatter cannot reach. #}}
 <img class="size-{{ size }} fill-{{ color }}-400 inline-block align-[-0.1em] mr-1" src="{{ name |> icon('phosphor', 'duotone') }}" inline>

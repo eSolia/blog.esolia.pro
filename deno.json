@@ -42,6 +42,7 @@
     "exclude": [
       "./_site",
       "./archive",
+      "./src/_components",
       "./src/posts",
       "./src/uploads",
       "./src/assets",
