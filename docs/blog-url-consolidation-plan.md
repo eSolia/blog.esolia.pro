@@ -129,16 +129,154 @@ over the binding.
 Sitemap: https://esolia.co.jp/blog/sitemap.xml
 ```
 
-## Cloudflare configuration
+**4. Remove the `/blog` → `blog.esolia.pro` redirect — this one is a blocker.**
+Found while implementing; the plan had missed it entirely.
+`src/lib/content/redirects.ts` already maps `/blog` and `/blog/` to
+`https://blog.esolia.pro`. Combined with the new Redirect Rule on that zone,
+which sends `/*` straight back to `esolia.co.jp/blog/*`, that is an **infinite
+redirect loop** on the blog's own front door. The forwarder dispatches ahead of
+the redirect map, so it wins either way — but the entries are removed rather
+than shadowed, because a stale rule that is only harmless by accident of
+ordering is a trap. The sibling legacy paths (`/post/`, `/posts/`, `/en/post/`,
+`/en/posts/`, `/en/blog`, `/en/blog/`, and the `/post/*`/`/posts/*` prefix rule)
+pointed at the old host too; they now redirect internally to `/blog/` and
+`/blog/en/`, one hop instead of two.
 
-**Redirect Rule** on the `blog.esolia.pro` zone — not code. Redirect rules run
-before Workers in the request pipeline:
+**5. Repoint this repo's own links to the blog.** Nav (`TopNav`, `MobileMenu`),
+footer (`i18n/translations.ts`), homepage (`LatestBlogPosts`), article pages
+(`RelatedBlogPosts`), the 404 page (`+error.svelte`), the WebMCP tool
+descriptions, and the build-time feed fetch in `scripts/fetch-blog.mts`. The
+three explicit `trackOutbound('blog.esolia.pro')` calls go with them: those
+links are same-origin now, so the events were simply false, and the global
+outbound tracker in `+layout.svelte` already stops firing for them by itself.
+
+Note the links keep `target="_blank"`. That is now load-bearing rather than
+cosmetic: `/blog/*` is served by another Worker and is not a SvelteKit route, so
+these must be full page loads, not client-side navigations.
+
+## Manual work — not code, will not arrive via a PR
+
+Everything in this section has to be done by hand in a dashboard or console.
+None of it is covered by the two implementation PRs, and two items are
+**blocking**: the deploy order and the Redirect Rule.
+
+### Deploy order (do not reorder)
+
+The two PRs are safe to merge in either order, but they must **deploy** in this
+one. Between steps 1 and 2 the blog is briefly broken at both hostnames — pick a
+quiet window and keep the gap short.
+
+1. **Deploy the blog side** (`blog.esolia.pro` PR #317). Its output now carries
+   `/blog`-prefixed URLs, so `blog.esolia.pro` itself starts serving pages whose
+   assets and links point at a path that host does not have. Expected, and the
+   reason not to sit here.
+2. **Deploy the esolia-2025 side** (#499). `esolia.co.jp/blog/*` starts working.
+   Verify it before step 3 — this is the last point where rollback costs
+   nothing.
+3. **Add the Redirect Rule** (below). Old URLs start funnelling to the new ones.
+
+Rolling back is the same list in reverse; see **Rollback**.
+
+### 1. Cloudflare — Redirect Rule on the `blog.esolia.pro` zone
+
+Redirect rules run before Workers in the request pipeline, so this takes
+precedence over the blog Worker still bound to that hostname.
 
 ```
 blog.esolia.pro/*  →  https://esolia.co.jp/blog/$1     301, preserve query
 ```
 
-Paths map 1:1, so this is a pure prefix addition. Keep it permanently.
+Paths map 1:1, so this is a pure prefix addition. Keep it permanently — it is
+the primary SEO signal for the move, not a temporary measure.
+
+**Do not add this before step 2.** With the old `/blog` → `blog.esolia.pro`
+redirect that used to live in esolia-2025's redirect map, this rule would have
+formed an infinite loop; #499 removes that entry, so the loop is gone, but the
+rule still needs the forwarder live or every old URL lands on a 404.
+
+### 2. Cloudflare — cache
+
+Purge the `esolia.co.jp` cache after step 2 so the edge is not holding a 404 for
+`/blog/*` from before the forwarder existed.
+
+### 3. dbFlex / PROdb
+
+- **Newsletter email templates.** The verify and unsubscribe links are absolute
+  `blog.esolia.pro` URLs. They keep working through the 301 (they are GETs), so
+  this is a hop to remove rather than a break — but the whole point of the move
+  is not to depend on the old hostname. Repoint to
+  `https://esolia.co.jp/blog/api/newsletter/{verify,unsubscribe}?guid=…`.
+- **The blog-launch news item** (app 15331, webinfo). Its ja and en text both
+  link to `https://blog.esolia.pro`. It reaches the site through
+  `src/_data/_tdcache/webinfo.json`, which `pnpm generate:prodb` regenerates
+  from dbFlex, so editing the repo copy is pointless — fix it at source.
+
+### 4. Google Search Console
+
+- **Keep the `blog.esolia.pro` property.** It is how the old URLs are watched as
+  they drain; do not delete it.
+- **Submit `https://esolia.co.jp/blog/sitemap.xml`** under the `esolia.co.jp`
+  property.
+- **Try the Change of Address tool**, expecting it to refuse. It is built for
+  domain-to-domain moves and will most likely reject a subdirectory target. The
+  301s are the primary signal and are sufficient on their own.
+- Optionally do the same sitemap submission in **Bing Webmaster Tools** — Bing
+  is what surfaced the duplicate-hostname problem in
+  [esolia-2025#351](https://github.com/eSolia/esolia-2025/issues/351).
+
+### 5. Decisions to make deliberately, not by default
+
+- **Content-Signal and bot policy.** Once the blog is served from this origin,
+  `esolia.co.jp/robots.txt` governs it and the blog's own robots.txt (at
+  `/blog/robots.txt`) is inert. That means esolia-2025's
+  `Content-Signal: search=yes, ai-input=yes, ai-train=no`, its
+  `Applebot-Extended` / `Bytespider` / `CCBot` / `Google-Extended` /
+  `meta-externalagent` / `cohere-ai` blocks, and its
+  `Disallow: /technical/security-acknowledgments/` now all apply to blog
+  content. Probably desirable — but confirm it is what you want for the blog,
+  because it is a policy change smuggled in by a routing change.
+- **Content-Security-Policy.** #499 returns the blog's response unmodified, so
+  blog pages keep the blog's own `_headers` and get **no CSP**, exactly as today
+  at `blog.esolia.pro`. No regression, but now that they are served from
+  `esolia.co.jp` the inconsistency is more visible. Applying esolia-2025's CSP
+  to them looks feasible on paper — `cdn.jsdelivr.net`, `cdn.usefathom.com` and
+  `challenges.cloudflare.com` are already allowed, Pagefind needs
+  `'wasm-unsafe-eval'` which is present, and the newsletter form action is
+  `'self'` — but it would need real browser testing of search, Turnstile and
+  signup before being switched on. Deliberately deferred.
+- **`target="_blank"` on the blog links.** The nav, footer, homepage and
+  related-posts links to the blog still open in a new tab and are still flagged
+  `external`, which is now factually wrong but is also load-bearing: `/blog/*`
+  is another Worker's, not a SvelteKit route, so those clicks must be full page
+  loads rather than client-side navigations. Changing the presentation is a UX
+  call; if you do, keep the full page load (`data-sveltekit-reload`).
+
+### 6. Analytics — verify, probably nothing to do
+
+Fathom site `OIXGEUHR` (the blog) is keyed by site ID in the page, not by
+hostname, so blog pageviews keep landing in the blog's own Fathom site even
+though they now arrive as `esolia.co.jp/blog/*`. Two things to be aware of
+rather than fix:
+
+- Reported paths change from `/posts/x` to `/blog/posts/x`, so historical path
+  comparisons in that site break at the cutover.
+- If that Fathom site has a domain restriction configured, add `esolia.co.jp`.
+
+The explicit `Outbound: blog.esolia.pro` events are removed in #499 — they were
+firing on what are now same-origin links, and the global outbound tracker in
+`+layout.svelte` correctly stops firing for them on its own.
+
+### 7. Checked — nothing to do
+
+- **Turnstile.** The `blog-esolia-pro-newsletter` widget enforces a hostname
+  allowlist and post-move renders on `esolia.co.jp` pages. A missing hostname
+  would have failed siteverify and blocked **every** signup, with the same
+  silent signature as the `ALLOWED_ORIGINS` bug. Verified via
+  `GET /accounts/{account_id}/challenges/widgets`: its domains are already
+  `blog.esolia.pro`, `esolia.co.jp`, `localhost`.
+- **IndexNow.** The key file is served at `/blog/f36d….txt`, and IndexNow
+  accepts a key hosted in a subdirectory as authorization for URLs in that
+  subdirectory — so it still covers `esolia.co.jp/blog/*`.
 
 ## SEO plan
 
@@ -345,11 +483,25 @@ Needs the deploy and the esolia-2025 side:
 
 ## Rollback
 
-Every step is reversible and none touches content:
+Every step is reversible and none touches content. Reverse the deploy order:
 
-1. Disable the `/blog/*` forwarder in esolia-2025 (or remove the binding).
-2. Revert `location` in `_config.ts` and redeploy — `base_path` returns to a
-   no-op.
-3. Delete the Redirect Rule; `blog.esolia.pro` serves directly again.
+1. **Delete the Redirect Rule** first, so `blog.esolia.pro` starts serving again
+   instead of bouncing to a path that is about to stop working.
+2. **Disable the `/blog/*` forwarder** in esolia-2025 (or remove the binding).
+3. **Revert `location` in `_config.ts`** and redeploy — `base_path` returns to a
+   no-op and the output is byte-for-byte what it is today.
+
+Reverting the two PRs is enough for steps 2 and 3; step 1 is dashboard work.
+
+Two things do not roll back automatically and are worth knowing before starting,
+though neither is damaging:
+
+- **Google will have seen the 301s.** Undoing them after more than a few days
+  means a second move as far as search engines are concerned. The window for a
+  free rollback is short — hours, not weeks. This is the real reason to verify
+  at step 2 of the deploy order, before the Redirect Rule goes live.
+- **PROdb newsletter records** created after the cutover carry the new
+  `reference` URL. Harmless — it is a stored provenance field, not a link
+  anything follows.
 
 The markdown never moved, so there is nothing to migrate back.
