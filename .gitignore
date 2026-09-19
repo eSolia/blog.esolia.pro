@@ -11,7 +11,7 @@ _seo_report_ja.json
 errors.log
 .dev.vars
 
-# direnv — may hold environment secrets
+# direnv - may hold environment secrets
 .envrc
 
 # Wrangler local state and cache
