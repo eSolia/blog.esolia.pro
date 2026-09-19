@@ -19,7 +19,7 @@ category: Cloud
 tags: []
 comments: {}
 ---
-In my 2018 blog post [**Telework Offensive,**](https://blog.esolia.pro/en/posts/20180416-telework-offensive_en/){target="_blank" rel="noopener"} I shared thoughts on the potential of flexible work styles. At the time, the idea of large-scale telework seemed distant—long before the world was struck by the COVID-19 pandemic in 2020.
+In my 2018 blog post [**Telework Offensive,**](/en/posts/20180416-telework-offensive_en/){target="_blank" rel="noopener"} I shared thoughts on the potential of flexible work styles. At the time, the idea of large-scale telework seemed distant—long before the world was struck by the COVID-19 pandemic in 2020.
 
 <!--more-->
 
