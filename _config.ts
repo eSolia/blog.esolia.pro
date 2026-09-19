@@ -93,7 +93,14 @@ const markdown = {
 
 const site = lume({
   src: "./src",
-  location: new URL("https://blog.esolia.pro"),
+  // The blog is served from esolia.co.jp/blog: esolia-2025's Worker forwards
+  // /blog/* over a service binding, stripping the prefix before dispatch. The
+  // `/blog` path here is what drives `base_path` (below) to prefix every
+  // root-relative URL in the built HTML, and what `metas()` builds canonicals
+  // and hreflang from. `_site/` layout is unchanged — the prefix exists only in
+  // the emitted URLs. Note `lume -s` overwrites this with http://hostname:port
+  // (see core/utils/cli_options.ts), so the CMS preview is unaffected.
+  location: new URL("https://esolia.co.jp/blog"),
   server: {
     hostname: "127.0.0.1",
     port: 3000,
