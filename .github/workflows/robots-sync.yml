@@ -1,0 +1,43 @@
+name: robots.txt policy sync
+
+# The blog is served at esolia.co.jp/blog, and robots.txt is read only at the
+# origin root — so esolia-2025's file is the one crawlers obey for blog
+# content, and this repo's copy matters only when the blog is reached directly
+# (before the blog.esolia.pro Redirect Rule goes live, and during a rollback).
+# Two files, two repos, two formats, nothing else connecting them. This job is
+# the something else: it fails if the Content-Signal line or the AI-bot
+# User-agent blocks drift apart.
+#
+# Schedule and manual only, deliberately not on push or pull_request. Rolling
+# out a policy change means two deploys, and between them the two files
+# legitimately differ; a push trigger would just cry wolf on every such change.
+# A weekly check catches real drift — someone editing one and forgetting the
+# other — without that noise. Run it by hand after any policy change.
+
+on:
+  schedule:
+    - cron: "30 6 * * 1" # Mondays 06:30 UTC (15:30 JST), after update-deps
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: robots-sync
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      # Exit 1 = the policies drifted. Exit 2 = esolia.co.jp could not be
+      # reached, which is not a policy problem; the script keeps them distinct
+      # so an outage is not mistaken for a change.
+      - name: Compare policy against esolia.co.jp/robots.txt
+        run: deno task check:robots

@@ -6,17 +6,30 @@
 # again during a rollback. Without it, blog content would sit unprotected in
 # exactly those windows.
 #
-# Keep this policy identical to esolia-2025's src/routes/robots.txt/+server.ts.
+# KEEP THE POLICY IDENTICAL to esolia-2025's src/routes/robots.txt/+server.ts:
+# the Content-Signal line and the AI-bot User-agent blocks must match exactly.
+# The robots-sync workflow in this repo compares against the live
+# esolia.co.jp/robots.txt weekly and fails if they diverge (`deno task
+# check:robots` runs the same check locally). The Disallow lines are
+# intentionally per-site and are not compared.
 # Lume's sitemap plugin appends the Sitemap: line to whatever is here.
 
 # Default: allow all standard crawlers
 User-agent: *
 Allow: /
+# The newsletter verify/unsubscribe endpoints do a database lookup on GET.
+# They are noindex and safe against prefetch, and their links only ever appear
+# in email, so there is nothing here for a crawler to find. (Served under
+# /blog/api/ through the forwarder; esolia-2025's robots.txt disallows that
+# path, which is the one crawlers actually read.)
+Disallow: /api/
 # Content-Signal: AI-usage preferences (https://contentsignals.org/, draft-romm-aipref-contentsignals)
-# search=yes      — search engines may index and rank
-# ai-input=yes    — agents may use content as runtime input (RAG, browsing, citations)
-# ai-train=no     — content must not be used to train generative models
-Content-Signal: search=yes, ai-input=yes, ai-train=no
+# search=yes       — search engines may index and rank
+# ai-input=yes     — agents may use content as runtime input (RAG, browsing, citations)
+# ai-train=no      — content must not be used to train generative models
+# use=reference    — index, excerpt and link back; do not reproduce wholesale
+#                    (Cloudflare's content-use extension to Content Signals)
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 
 # Allow major AI bots (discovery and recommendations outweigh content risk)
 # GPTBot — ChatGPT / SearchGPT
