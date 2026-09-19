@@ -5,7 +5,7 @@ templateEngine:
   - vto
   - md
 metas:
-  type: blogPosting
+  type: article
   title: "=title"
   description: "=description"
   image: "=image"
@@ -17,7 +17,7 @@ metas:
   "article:section": "=article-type"
   "article:tag": "=tags"
 jsonLd:
-  "@type": blogPosting
+  "@type": BlogPosting
   image: "=image || /assets/blog-esolia-pro-default.png"
   "datePublished": "=date"
   "dateModified": "=last_modified"
@@ -25,6 +25,9 @@ jsonLd:
   author:
     "@type": Person
     name: "=author"
+  publisher:
+    "@type": Organization
+    name: "=site.author"
 
 en:
   lang: en
@@ -34,7 +37,7 @@ en:
     - vto
     - md
   metas:
-    type: blogPosting
+    type: article
     title: "=title"
     description: "=description"
     image: "=image"
@@ -46,7 +49,7 @@ en:
     "article:section": "=article-type"
     "article:tag": "=tags"
   jsonLd:
-    "@type": blogPosting
+    "@type": BlogPosting
     image: "=image || /assets/blog-esolia-pro-default.png"
     "datePublished": "=date"
     "dateModified": "=last_modified"
@@ -54,3 +57,6 @@ en:
     author:
       "@type": Person
       name: "=author"
+    publisher:
+      "@type": Organization
+      name: "=site.author"
