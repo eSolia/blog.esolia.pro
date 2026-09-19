@@ -1,6 +1,6 @@
 lang: en
 home:
-  welcome: Based in Tokyo and approaching YEARS_IN_BUSINESS years in business, bilingual IT outsourcing company <a href="https://esolia.com" target="_blank" ref="noopener"><strong>eSolia</strong></a> shares practical, field-tested tips that are genuinely useful&mdash;drawn from years of hands-on experience.
+  welcome: Based in Tokyo with YEARS_IN_BUSINESS_APPROX years in business, bilingual IT outsourcing company <a href="https://esolia.co.jp/en/" target="_blank" ref="noopener"><strong>eSolia</strong></a> shares practical, field-tested tips that are genuinely useful&mdash;drawn from years of hands-on experience.
   company: eSolia
   company_long: eSolia Inc.
   company_address: Shiodome City Center 5F (Work Styling), 1-5-2 Higashi-Shimbashi, Minato-ku, Tokyo, Japan, 105-7105
@@ -43,7 +43,7 @@ newsletter:
 contact:
   title: Considering our services?
   button: Contact us
-  url: https://esolia.com/info-request/
+  url: https://esolia.co.jp/en/about/info-request/
   aria_label: Contact us via eSolia main site
   description: |
     Please click the button to contact us via our main site. We will get back to you from there. We look forward to assisting you!
@@ -84,6 +84,13 @@ search:
   filter_by_category: Filter by Category
   close_link: Close (Esc)
   tooltip: <kbd>Cmd</kbd>+<kbd>k</kbd> (Mac) or <br><kbd>Ctrl</kbd>+<kbd>k</kbd> (Win/Linux) <br>to Search
+
+# See the note in the ja file: absolute URL on purpose, base_path would prefix
+# a root-relative one with /blog.
+mainsite:
+  url: https://esolia.co.jp/en/
+  label: eSolia main site
+  tooltip: Go to the eSolia main site
 comments:
   title: Comments
   description: |

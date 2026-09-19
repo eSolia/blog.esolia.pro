@@ -1,6 +1,6 @@
 lang: ja
 home:
-  welcome: 東京を拠点にYEARS_IN_BUSINESS周年を迎え、バイリンガルITアウトソーシングを提供する<a href="https://esolia.co.jp" target="_blank" ref="noopener"><strong>イソリア</strong></a>は<br class="hidden md:inline">長年の経験をもとに現場の視点で選んだ「知って得するTips」を紹介しています。
+  welcome: 東京を拠点にYEARS_IN_BUSINESS_APPROXの実績を持ち、バイリンガルITアウトソーシングを提供する<a href="https://esolia.co.jp/" target="_blank" ref="noopener"><strong>イソリア</strong></a>は<br class="hidden md:inline">長年の経験をもとに現場の視点で選んだ「知って得するTips」を紹介しています。
   company: イソリア
   company_long: 株式会社イソリア
   company_address: 〒105-7105 東京都港区東新橋1-5-2 汐留シティセンター5F（ワークスタイリング）
@@ -46,7 +46,7 @@ contact:
   title: 弊社サービスをご検討される場合
   button: お問い合わせ
   aria_label: 当社本サイトにてお問い合わせをする
-  url: https://esolia.co.jp/info-request/
+  url: https://esolia.co.jp/about/info-request/
   description: |
     サービス導入をご検討の際は、ぜひ本サイトのフォームよりお問い合わせください。担当より迅速にご連絡いたします。
 nav:
@@ -86,6 +86,14 @@ search:
   filter_by_category: カテゴリーでフィルター
   close_link: 閉じる (Esc)
   tooltip: <kbd>Cmd</kbd>+<kbd>k</kbd> (Mac) または <br><kbd>Ctrl</kbd>+<kbd>k</kbd> (Win/Linux) <br>で検索
+
+# Header link out to the corporate site. Absolute on purpose: a root-relative
+# "/" would be rewritten to "/blog/" by Lume's base_path plugin, since the blog
+# is served from esolia.co.jp/blog.
+mainsite:
+  url: https://esolia.co.jp/
+  label: イソリア本サイト
+  tooltip: イソリアの本サイトへ
 comments:
   title: Comments
   description: |
