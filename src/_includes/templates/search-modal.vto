@@ -1,13 +1,26 @@
 <!-- ===== search-modal.vto TEMPLATE START ===== -->
+{{# role/aria-modal tell assistive tech this is a dialog and that the page
+    behind it is inert while it is open. The JS in main.js flips aria-hidden
+    and traps Tab inside; neither works without the element being announced as
+    a dialog in the first place. #}}
 <div
   id="searchModal"
   class="fixed top-0 left-0 z-1000 w-full h-full overflow-auto hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="{{ i18n.search.dialog_label }}"
+  aria-hidden="true"
 >
   <div
     class="relative w-3/4 h-3/4 mx-auto mt-24 overflow-auto p-5 bg-white/95 dark:bg-zinc-800/95 border border-zinc-100 dark:border-zinc-700/40 rounded-lg shadow-md"
   >
     <div class="block text-right items-right font-semibold text-sm">
-      <a id="modal-close" href="#">{{ i18n.search.close_link }}</a>
+      {{# A button, not <a href="#">: closing a dialog is an action, not a
+          navigation. The anchor also jumped the page to the top and appended
+          "#" to the URL on every close. #}}
+      <button id="modal-close" type="button" class="cursor-pointer">
+        {{ i18n.search.close_link }}
+      </button>
       <div id="search" class="text-left mt-6" tabindex="0"></div>
     </div>
   </div>

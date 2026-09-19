@@ -138,48 +138,94 @@ buttons.forEach((button) => {
 });
 
 // Search modal
-const modal = document.getElementById("searchModal");
-const searchButton = document.getElementById("search-button"); // Select the button by its ID
-const close = document.getElementById("modal-close");
+//
+// Rewritten from a set of `.onclick =` assignments into one guarded module.
+// Three things it now does that it did not before:
+//
+//   - Guards on the elements. The old code assigned `searchButton.onclick`
+//     unconditionally, so a page without the button would throw a TypeError
+//     and take out everything after it in this file, including the TOC
+//     handler. Nothing shipped that way — the only pages lacking the button
+//     are redirect stubs that never load this script — but the failure mode
+//     was one missing element away.
+//   - `addEventListener` instead of assignment, which does not clobber other
+//     handlers on the same target.
+//   - Focus management, below.
+const searchModal = document.getElementById("searchModal");
+const searchButton = document.getElementById("search-button");
+const searchClose = document.getElementById("modal-close");
 
-searchButton.onclick = function () { // Change the event listener target to the button
-  modal.style.display = "block";
-  // Focus on the Pagefind input if it exists after the modal is shown
-  const pageFind = modal.querySelector(".pagefind-ui__search-input");
-  if (pageFind) {
-    pageFind.focus();
-  }
-};
-close.onclick = function () {
-  modal.style.display = "none";
-};
-globalThis.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
-// Close modal on Escape key press
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape" || event.keyCode === 27) { // Check for Escape key
-    if (modal.style.display === "block") {
-      modal.style.display = "none";
-    }
-  }
-});
-// Open modal on Cmd+K (Mac) or Ctrl+K (Windows/Linux)
-document.addEventListener("keydown", function (event) {
-  const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
-  const isCmdOrCtrl = isMac ? event.metaKey : event.ctrlKey;
+if (searchModal && searchButton) {
+  // What had focus before the dialog opened, so it can be handed back on
+  // close. Without this, closing the modal drops focus to the top of the
+  // document and a keyboard user loses their place entirely.
+  let lastFocused = null;
 
-  if (isCmdOrCtrl && event.key === "k") {
-    event.preventDefault(); // Prevent browser's default search shortcut
-    modal.style.display = "block";
-    const pageFind = modal.querySelector(".pagefind-ui__search-input");
-    if (pageFind) {
-      pageFind.focus();
+  const isOpen = () => searchModal.style.display === "block";
+
+  const focusablesIn = (root) =>
+    [...root.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])',
+    )].filter((el) => el.offsetParent !== null);
+
+  const openSearch = () => {
+    lastFocused = document.activeElement;
+    searchModal.style.display = "block";
+    searchModal.setAttribute("aria-hidden", "false");
+    // Pagefind builds its input lazily, so it may not exist on first open.
+    const input = searchModal.querySelector(".pagefind-ui__search-input");
+    (input ?? focusablesIn(searchModal)[0] ?? searchModal).focus();
+  };
+
+  const closeSearch = () => {
+    searchModal.style.display = "none";
+    searchModal.setAttribute("aria-hidden", "true");
+    if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
+    lastFocused = null;
+  };
+
+  searchButton.addEventListener("click", openSearch);
+  searchClose?.addEventListener("click", closeSearch);
+
+  // Click on the backdrop itself, not on the dialog content inside it.
+  searchModal.addEventListener("click", (event) => {
+    if (event.target === searchModal) closeSearch();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    // Cmd+K on macOS, Ctrl+K elsewhere. Checking both modifiers avoids
+    // navigator.platform, which is deprecated and lies under emulation.
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      openSearch();
+      return;
     }
-  }
-});
+
+    if (!isOpen()) return;
+
+    if (event.key === "Escape") {
+      closeSearch();
+      return;
+    }
+
+    // Trap Tab inside the dialog. A dialog the user can tab out of, while the
+    // page behind it stays interactive, is worse than no dialog: focus goes
+    // somewhere invisible and there is no way back.
+    if (event.key === "Tab") {
+      const items = focusablesIn(searchModal);
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+}
 
 // For TOC details opening
 // This script will automatically open the Table of Contents (ToC) on medium and larger screens
