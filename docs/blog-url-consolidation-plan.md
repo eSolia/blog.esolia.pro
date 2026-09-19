@@ -266,6 +266,50 @@ The explicit `Outbound: blog.esolia.pro` events are removed in #499 — they wer
 firing on what are now same-origin links, and the global outbound tracker in
 `+layout.svelte` correctly stops firing for them on its own.
 
+### Verified live against the #500 preview deployment (2026-09-19)
+
+The Cloudflare preview build for #500 carries the real service binding, so the
+routing half was tested end to end before either side merged. The blog Worker in
+production still emits unprefixed URLs — #317 is not deployed — so pages come
+back correct but unstyled, which is itself the deploy-order dependency made
+visible.
+
+| Request                                          | Result                                                            |
+| ------------------------------------------------ | ----------------------------------------------------------------- |
+| `/blog/`                                         | 200, `ホーム - Tech It Easy Blog` — binding and prefix strip work |
+| `/blog`                                          | 301 → `/blog/`, same origin, no loop                              |
+| `/blog/en/posts/20180416-telework-offensive_en/` | 200                                                               |
+| `/blog/posts/20180416-%E6%94%BB…-ja/`            | 200 — percent-encoded ja path survives the strip                  |
+| `/blog/fonts-ja.css`                             | 200 `text/css` — assets resolve over the binding                  |
+| `/blog/sitemap.xml`, `/blog/feed.ja.xml`         | 200 `application/xml`                                             |
+| `/blog/no-such-page/`                            | 404 from the blog's own handler                                   |
+| `/blogging/`                                     | 404 from esolia-2025 — not captured by the forwarder              |
+
+**A gate nobody had written down: SvelteKit's CSRF protection now sits in front
+of the blog.** It rejects any cross-origin POST _before_ `hooks.server.ts` runs,
+so it applies to `/blog/api/*` too. Proven by the two error messages being
+distinguishable:
+
+- `Origin` ≠ app origin → `Cross-site POST form submissions are forbidden`
+  (SvelteKit; the forwarder never ran)
+- `Origin` = app origin → `Forbidden` (the blog Worker's own allowlist check,
+  reached with method and `Origin` intact)
+
+Two consequences:
+
+- **The newsletter POST works in production**, where the page is at
+  `esolia.co.jp/blog/…` and posts to the same origin. Both gates pass.
+- **The blog's `ALLOWED_ORIGINS` entry for the old host is not a transition
+  safety net**, as it was originally described. A forwarded POST carrying
+  `Origin: https://blog.esolia.pro` is stopped by SvelteKit first. The entry
+  still earns its place for requests that hit the blog Worker _directly_ — every
+  request until the Redirect Rule goes live, and again during a rollback — so it
+  stays, with the comment in `worker/index.ts` corrected.
+
+Not tested, and not testable without deploying: the end-to-end signup, double
+opt-in and unsubscribe, which need the blog's new `esolia.co.jp` origin
+allowlist live.
+
 ### 7. Checked — nothing to do
 
 - **Turnstile.** The `blog-esolia-pro-newsletter` widget enforces a hostname

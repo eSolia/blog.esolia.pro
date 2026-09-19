@@ -174,10 +174,18 @@ const LOCALES = {
 } as const;
 
 // InfoSec: Only accept form posts originating from our own site. The browser
-// sends the *page* origin, which post-move is esolia.co.jp — the old host is
-// kept so signups still work while the 301 drains and for any cached page
-// still served from blog.esolia.pro. Note Origin is a scheme+host+port only,
-// with no path, so /blog cannot appear here.
+// sends the *page* origin, which post-move is esolia.co.jp. Note Origin is a
+// scheme+host+port only, with no path, so /blog never appears here.
+//
+// The old host is kept for requests that reach this Worker directly — which is
+// every request until the Redirect Rule goes live, and again during a
+// rollback. It is NOT a safety net for forwarded requests: esolia-2025 is a
+// SvelteKit app, and SvelteKit's own CSRF protection rejects any cross-origin
+// POST before its hooks run, so a forwarded POST carrying
+// Origin: https://blog.esolia.pro never gets this far. Verified against the
+// #500 preview: a mismatched Origin returns SvelteKit's "Cross-site POST form
+// submissions are forbidden", a matching one returns this handler's bare
+// "Forbidden". Two gates post-move, the outer one stricter than this.
 const ALLOWED_ORIGINS = new Set([
   PUBLIC_ORIGIN,
   "https://blog.esolia.pro",
