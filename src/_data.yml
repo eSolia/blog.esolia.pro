@@ -28,7 +28,7 @@ footernav:
       aria_label: サイト内リンク
       title: サイトマップへのリンク
     - text: プライバシーポリシー
-      href: https://esolia.co.jp/privacy
+      href: https://esolia.co.jp/legal/privacy/
       target: _blank
       icon: privacy
       aria_label: サイト内リンク
@@ -40,7 +40,7 @@ footernav:
       aria_label: 外部リンク
       title: 当サイトのGitHubリポジトリへのリンク
     - text: イソリア
-      href: https://esolia.co.jp
+      href: https://esolia.co.jp/
       target: _blank
       icon: building-office
       aria_label: 外部リンク
@@ -121,7 +121,7 @@ en:
         aria_label: Site internal link
         title: Link to the Sitemap
       - text: Privacy Policy
-        href: https://esolia.com/privacy
+        href: https://esolia.co.jp/en/legal/privacy/
         target: _blank
         icon: privacy
         aria_label: Site internal link
@@ -133,7 +133,7 @@ en:
         aria_label: External link
         title: Link to the GitHub Repository for this site
       - text: eSolia
-        href: https://esolia.com
+        href: https://esolia.co.jp/en/
         target: _blank
         icon: building-office
         aria_label: External link

@@ -169,6 +169,32 @@
                 </nav>
               </div>
               <div class="flex justify-end md:flex-1 z-50 space-x-1">
+                {{# Link out to the corporate site. An <a>, not a <button>, so
+                    it behaves like a link (middle-click, open in new tab). The
+                    href is absolute by necessity: base_path rewrites anything
+                    root-relative to /blog/*, and this needs to leave the blog. #}}
+                <div class="pointer-events-auto z-50 relative group">
+                  <a
+                    href="{{ i18n.mainsite.url }}"
+                    aria-label="{{ i18n.mainsite.label }}"
+                    class="group block rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50"
+                  >
+                    <span>
+                      <img
+                        class="h-5 w-5 fill-sky-500 stroke-sky-800 dark:fill-sky-300 dark:stroke-sky-500 transition group-hover:fill-sky-600 group-hover:stroke-sky-900 dark:group-hover:fill-sky-400 dark:group-hover:stroke-sky-600 hover:scale-110"
+                        src='{{ "buildings" |> icon("phosphor", "duotone") }}'
+                        alt=""
+                        aria-hidden="true"
+                        inline
+                      />
+                    </span>
+                  </a>
+                  <div
+                    class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-zinc-200 text-zinc-950 dark:bg-zinc-700 dark:text-zinc-200 text-sm rounded-md opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none z-50 whitespace-nowrap before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-8 before:border-x-transparent before:border-t-0 before:border-b-zinc-200 dark:before:border-b-zinc-700"
+                  >
+                    {{ i18n.mainsite.tooltip }}
+                  </div>
+                </div>
                 {{ if alternates && alternates.length > 1 }}
                   <div class="pointer-events-auto z-50 hidden md:block">
                     <button

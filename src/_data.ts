@@ -105,3 +105,15 @@ console.log(
 export const cacheBuster = `${Temporal.Now.instant().epochMilliseconds}`;
 console.log(`Cache buster: ${cacheBuster}`);
 console.log(`Deno args: ${Deno.args}`);
+
+// Years-in-business text, exposed to templates as `yearsInBusiness`. Keyed by
+// language because the phrasing differs structurally, not just lexically:
+// English needs "more than 27" / "almost 28", Japanese needs 27年以上 / 約28年.
+// See src/_years_in_business.ts for why a bare year subtraction is not enough.
+import { buildText, computeYearsInfo } from "./_years_in_business.ts";
+
+const yearsInfo = computeYearsInfo();
+export const yearsInBusiness = buildText(yearsInfo.years, yearsInfo.phase);
+console.log(
+  `Years in business: ${yearsInfo.years} (${yearsInfo.phase}) -> en "${yearsInBusiness.en.approx}" / ja "${yearsInBusiness.ja.approx}"`,
+);
