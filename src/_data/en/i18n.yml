@@ -107,3 +107,9 @@ punctuation:
   close_quote: "”"
   open_single_quote: "‘"
   close_single_quote: "’"
+alert:
+  note: Note
+  tip: Tip
+  important: Important
+  warning: Warning
+  caution: Caution
