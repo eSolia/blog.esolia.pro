@@ -1,45 +1,15 @@
 <!-- ===== font-preload-ja.vto TEMPLATE START ===== -->
-{{# Subset buckets covering above-the-fold JA content (hiragana, katakana,
-    common kanji, JP punctuation, Latin). Bucket numbers track fonts-ja.css —
-    update both when the font subset bundle is regenerated. #}}
+{{# Latin only, deliberately, and it is now a single file.
+
+    Which CJK subsets a page needs depends entirely on its content, and the
+    blog's top page is a variable list of posts, so preloading kanji buckets
+    is guesswork that goes stale as soon as the posts change. The Latin slice
+    is the exception: the site chrome is Latin, and Japanese posts are full of
+    Latin — product names, "AI", "IT", numerals — so it is needed on every
+    page. The CJK subsets are left to ordinary CSS-driven discovery. #}}
 <link
   rel="preload"
-  href="/fonts-ja/textface-normal-400-[237].woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin="anonymous"
->
-<link
-  rel="preload"
-  href="/fonts-ja/textface-normal-400-[238].woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin="anonymous"
->
-<link
-  rel="preload"
-  href="/fonts-ja/textface-normal-400-[239].woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin="anonymous"
->
-<link
-  rel="preload"
-  href="/fonts-ja/textface-normal-600-[477].woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin="anonymous"
->
-<link
-  rel="preload"
-  href="/fonts-ja/textface-normal-600-[478].woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin="anonymous"
->
-<link
-  rel="preload"
-  href="/fonts-ja/textface-normal-600-[479].woff2"
+  href="/fonts-ja/textface-100-normal-100-700-latin.woff2"
   as="font"
   type="font/woff2"
   crossorigin="anonymous"

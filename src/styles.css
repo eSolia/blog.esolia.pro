@@ -121,8 +121,13 @@
     "ordn" 0;
   --default-font-variant-ligatures: common-ligatures;
   --header-top: 1rem;
+  /* `jpface` sits behind `textface` so the browser resolves each glyph by
+     coverage: Plex has no kana or kanji, so Japanese falls through to Noto
+     Sans JP automatically, mid-sentence, with no markup or scripting. On the
+     EN side jpface simply never loads. */
   --font-sans:
     textface,
+    jpface,
     ui-sans-serif,
     system-ui,
     sans-serif,
@@ -230,6 +235,7 @@ kbd {
   --pagefind-ui-image-box-ratio: 3 / 2;
   --pagefind-ui-font:
     textface,
+    jpface,
     ui-sans-serif,
     system-ui,
     sans-serif,
