@@ -1,0 +1,105 @@
+<!-- ===== hero-circuit.vto TEMPLATE START ===== -->
+{{# Decorative circuit-trace underlay for the home hero.
+
+    Anchored to the top-right corner and faded concentrically outward, so the
+    denser artwork sits in the corner and dissolves before it reaches the
+    headline. The fade is a CSS mask rather than baked-in opacity, so the
+    traces stay one flat colour and the falloff can be tuned without
+    redrawing.
+
+    Built from an SVG <pattern> rather than a fixed drawing: the tile repeats
+    to fill whatever box it is given, so it cannot stretch, crop awkwardly or
+    run out at wide viewports.
+
+    Purely decorative — aria-hidden, pointer-events: none, and it carries no
+    information that is not also in the text. #}}
+<div class="hero-circuit" aria-hidden="true">
+  <svg width="100%" height="100%" preserveAspectRatio="xMaxYMin slice">
+    <defs>
+      <pattern
+        id="hero-circuit-tile"
+        width="120"
+        height="120"
+        patternUnits="userSpaceOnUse"
+      >
+        {{# Traces: orthogonal runs with 45-degree jogs, the way a real board
+            routes them. Stroke, never fill, so line weight stays even. #}}
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M0 18 H34 l14 14 H120" />
+          <path d="M0 58 H14 l16 -16 H62 l18 18 H120" />
+          <path d="M0 96 H46 l14 -14 H120" />
+          <path d="M28 0 V26 l14 14 V120" />
+          <path d="M88 0 V44 l-14 14 V120" />
+          <path d="M108 32 h12" />
+          <path d="M60 82 v38" />
+        </g>
+        {{# Vias and pads. A couple filled, a couple open, so the grid reads as
+            a board rather than as graph paper. #}}
+        <g fill="currentColor" stroke="none">
+          <circle cx="48" cy="32" r="2.75" />
+          <circle cx="80" cy="60" r="2.75" />
+          <circle cx="60" cy="82" r="2.75" />
+        </g>
+        <g fill="none" stroke="currentColor" stroke-width="1.25">
+          <circle cx="28" cy="26" r="3.5" />
+          <circle cx="108" cy="32" r="3.5" />
+          <circle cx="14" cy="58" r="3.5" />
+        </g>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#hero-circuit-tile)" />
+  </svg>
+</div>
+
+{{# A single trace pulled out of the circuit field and run back to the mark.
+
+    Anchored at the LEFT, beside the symbol, and dissolving to the right. That
+    direction matters: the alternative — drawing a line between the circuit
+    and the logo — means connecting two points that move independently as the
+    window resizes, so it would line up at one width and miss at every other.
+    Anchored at one end and faded at the other, there is no meeting point to
+    get wrong; the fade does the joining.
+
+    It terminates in a pad, the way a real trace lands on a component, so the
+    mark reads as something the board connects to. #}}
+<div class="hero-strand" aria-hidden="true">
+  <svg
+    viewBox="0 0 700 120"
+    preserveAspectRatio="xMinYMid meet"
+    width="100%"
+    height="100%"
+  >
+    <g
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M14 60 H132 l26 -26 H352 l30 30 H700" />
+      <path d="M352 34 v-18" />
+      <path d="M478 64 v26 h64" />
+    </g>
+    <g fill="currentColor" stroke="none">
+      <circle cx="352" cy="34" r="3.2" />
+      <circle cx="478" cy="64" r="3.2" />
+    </g>
+    {{# The landing pad, beside the mark. #}}
+    <circle
+      cx="14"
+      cy="60"
+      r="6.5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.6"
+    />
+    <circle cx="14" cy="60" r="2.4" fill="currentColor" />
+  </svg>
+</div>
+<!-- ===== hero-circuit.vto TEMPLATE END ===== -->

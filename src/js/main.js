@@ -30,20 +30,38 @@ globalThis.addEventListener("scroll", () => {
   const topNavBG = document.getElementById("top-nav-bg");
   const scrollPosition = globalThis.scrollY;
 
+  // Masthead fade, linked to scroll position rather than triggered by it.
+  //
+  // A threshold plus a CSS transition looked abrupt: crossing 10px ran the
+  // whole fade on a timer, so it played out the same way whether you nudged
+  // the wheel or flung the page. Driving a 1..0 factor straight from
+  // scrollY means the artwork fades exactly as far as you have scrolled, and
+  // comes back just as gradually on the way up.
+  //
+  // One property on the root, read by both the symbol and the connector, so
+  // this is a single write per scroll event rather than one per element.
+  const HERO_FADE_DISTANCE = 200;
+  const heroFade = Math.max(0, 1 - scrollPosition / HERO_FADE_DISTANCE);
+  document.documentElement.style.setProperty(
+    "--hero-scroll-fade",
+    heroFade.toFixed(3),
+  );
+
   // Check if the current screen size is 'md' (768px) or larger
   // (Tailwind's default 'md' breakpoint is 768px)
   const isLargeScreen = globalThis.matchMedia("(min-width: 768px)").matches;
 
   // --- Handle logo swap only for 'md' and larger screens ---
+  //
+  // Only the small nav symbol is toggled here. The hero symbol fades from
+  // `--hero-scroll-fade` above; it cannot use Tailwind's opacity utilities,
+  // because `.hero-symbol` sets opacity from the shared masthead ink and is
+  // unlayered, so it outranks them and the utilities did nothing.
   if (isLargeScreen) {
     if (largeLogo && smallLogo) { // Defensive check
       if (scrollPosition > 10) {
-        largeLogo.classList.remove("md:opacity-100"); // Remove large logo opacity
-        largeLogo.classList.add("opacity-0"); // Hide large logo
         smallLogo.classList.remove("md:opacity-0"); // Show small logo
       } else {
-        largeLogo.classList.remove("opacity-0"); // Show large logo
-        largeLogo.classList.add("md:opacity-100"); // Set large logo opacity
         smallLogo.classList.add("md:opacity-0"); // Hide small logo
       }
     }

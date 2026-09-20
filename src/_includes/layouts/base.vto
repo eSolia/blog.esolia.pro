@@ -68,11 +68,27 @@
     {{ include "templates/skiplink.vto" }}
     <!-- Container start -->
     <div class="flex w-full">
-      <div class="fixed inset-0 flex justify-center sm:px-8">
+      {{# This fixed layer spans the whole viewport; the white sheet below only
+          covers the middle of it. So a texture painted here shows ONLY in the
+          left and right gutters — the sheet is opaque and hides the rest. No
+          extra elements, and nothing to keep in sync with the sheet's width. #}}
+      <div class="page-gutters fixed inset-0 flex justify-center sm:px-8">
         <div class="flex w-full max-w-7xl lg:px-8">
+          {{# This empty sheet is the white page panel. It is a fixed backdrop
+              behind all content, which is why selecting divs in the content
+              tree never highlights it.
+
+              The home page's circuit underlay lives here rather than in the
+              hero, because this is the box whose top-right corner it should
+              start from. Being in the backdrop also means it paints behind
+              everything without any z-index wrangling — the content column is
+              a later sibling of this whole fixed layer. #}}
           <div
-            class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"
+            class="relative overflow-hidden w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"
           >
+            {{ if id == "home" }}
+              {{ include "templates/hero-circuit.vto" }}
+            {{ /if }}
           </div>
         </div>
       </div>

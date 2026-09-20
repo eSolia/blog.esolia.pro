@@ -6,7 +6,14 @@
       <div class="relative px-4 sm:px-8 lg:px-12">
         <div class="mx-auto max-w-2xl lg:max-w-5xl">
           <div class="top-(--avatar-top,--spacing(3)) w-full">
-            <div class="relative mt-12">
+            {{# Pulled up and left toward the sheet's corner. The circuit
+                underlay anchors the top-right, so a larger mark here gives the
+                composition two corner anchors with the headline in the
+                diagonal between them. It also makes the scroll swap read as
+                intentional: this symbol shrinks into the nav symbol at
+                roughly the same place, instead of a wordmark dissolving and a
+                symbol appearing somewhere else. #}}
+            <div class="relative mt-12 md:mt-1 md:-ml-20">
               <a
                 aria-label="{{ i18n.nav.return_home }}"
                 type="button"
@@ -18,10 +25,11 @@
                   fetchpriority="high"
                   loading="eager"
                   decoding="async"
-                  class="-ml-5 w-64 object-cover dark:grayscale dark:invert dark:saturate-[.1] transition-opacity duration-300 opacity-0 hidden md:block md:opacity-100"
-                  src="/assets/logo_horiz_darkblue_bgtransparent_2.svg"
-                  height="195"
-                  width="531"
+                  class="hero-symbol w-28 md:w-44 hidden md:block"
+                  src="/assets/symbol_currentcolor.svg"
+                  height="170"
+                  width="170"
+                  inline
                 /></a>
             </div>
           </div>
