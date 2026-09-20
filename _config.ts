@@ -160,15 +160,39 @@ site.use(esbuild({
     minify: true,
   },
 }));
+// The JA font CSS is assembled from TWO calls, because `subsets` and
+// `ignoredSubsets` apply per call rather than per family, and the two families
+// need opposite treatment. Both write to fonts-ja.css.
+//
+// Call 1 — the Latin half. IBM Plex Sans (not Plex Sans JP), Latin subset only.
+// This is the same face the English side uses, so Latin inside Japanese text —
+// product names, "AI", "IT", numerals, the whole site chrome — renders
+// identically on both sides instead of being a second typeface.
 site.use(googleFonts({
   cssFile: "fonts-ja.css",
   fontsFolder: "fonts-ja",
-  ignoredSubsets: ["cyrillic", "cyrillic-ext", "vietnamese", "latin-ext"],
+  subsets: ["latin"],
   fonts: {
     textface:
-      "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@200;400;500;600&display=swap",
+      "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap",
     codeface:
       "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&display=swap",
+  },
+}));
+// Call 2 — the Japanese half. Noto Sans JP is one of only 8 JA families on
+// Google Fonts with a variable axis, so one set of subsets covers every weight
+// instead of one set per weight (IBM Plex Sans JP has no variable axis, which
+// is why four weights of it cost 6.2MB and 487 files).
+//
+// Its own Latin/cyrillic/vietnamese subsets are dropped: Plex owns Latin via
+// the font stack, so downloading Noto's would be dead weight that never wins.
+site.use(googleFonts({
+  cssFile: "fonts-ja.css",
+  fontsFolder: "fonts-ja",
+  ignoredSubsets: ["latin", "latin-ext", "cyrillic", "vietnamese"],
+  fonts: {
+    jpface:
+      "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap",
   },
 }));
 site.use(googleFonts({
