@@ -190,8 +190,7 @@ Building on our previous blog,["What is PDF? How is it related to Adobe Acrobat?
 To make a secured PDF unsecured, go to Security > Security Properties > Security Methods and select “No Security".
 
 ### ③ Request for electronic signature
-Acrobat Standard also comes with a feature for requesting electronic signatures. Users can send a PDF file to the other parties and have them fill out the signature field.
-It is also possible to send a request for signatures in a specific order of those who will sign.
+Acrobat Standard also comes with a feature for requesting electronic signatures. Users can send a PDF file to the other parties and have them fill out the signature field. It is also possible to send a request for signatures in a specific order of those who will sign.
 {{ comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
 1. Open the PDF you want to electronically sign.
 2. Click "Electronic Signature" → "Request an electronic signature."
@@ -208,8 +207,7 @@ note that there are limits to the accuracy of the conversion, and the format may
 * Character misalignment: Line spacing, fonts, and paragraph settings are arranged differently from the PDF.
 Table collapse: Tables that look fine on the PDF will have rows and columns separated in Excel or Word. If lines are treated as images, they will not become cells.
 * Image misalignment or missing: Graphs and shapes are not displayed in the correct place.
-Collapse of column or multiple layout: Text order is disrupted. It may be reconstructed into a single column.
-Please note that the converted file needs to be checked and reformatted. It is suitable for use as a means of extracting materials for re-editing, but if full reproduction is desired, it will be necessary to recreate the PDF from the original data.
+Collapse of column or multiple layout: Text order is disrupted. It may be reconstructed into a single column. Please note that the converted file needs to be checked and reformatted. It is suitable for use as a means of extracting materials for re-editing, but if full reproduction is desired, it will be necessary to recreate the PDF from the original data.
 * Convert Office files to PDF: Use this when users want to submit or distribute a document as an official document.
 
 {{ comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
@@ -227,7 +225,5 @@ The main differences between Acrobat Standard and Acrobat Pro are listed in the 
 In environments where more advanced document management or the use of scanned documents is required, it may be worth considering using Acrobat Pro. But in that case, it is recommended to first verify that the plan includes the features required for your business needs, and then make a selection based on pricing considerations.
 
 ## Conclusion
-In this blog, we have introduced the most frequently used functions by our administration department. Acrobat Standard has the functions of Acrobat Reader, which is “PDF viewing software,” plus multifunctional tools for improving operational efficiency, strengthening information management, and digitizing approval flows.
-Our company has been promoting paperless operations since 2022 by utilizing Acrobat's functions. Please refer to [the Adobe Acrobat Quick Reference Guide](https://helpx.adobe.com/jp/acrobat/using/hayawakari-guide.html){target="_blank" rel="noopener"}
-for basic operations and an explanation of how to use each feature of Acrobat, if necessary.
-If you are considering implementing Adobe products, please contact eSolia.
+In this blog, we have introduced the most frequently used functions by our administration department. Acrobat Standard has the functions of Acrobat Reader, which is “PDF viewing software,” plus multifunctional tools for improving operational efficiency, strengthening information management, and digitizing approval flows. Our company has been promoting paperless operations since 2022 by utilizing Acrobat's functions. Please refer to [the Adobe Acrobat Quick Reference Guide](https://helpx.adobe.com/jp/acrobat/using/hayawakari-guide.html){target="_blank" rel="noopener"}
+for basic operations and an explanation of how to use each feature of Acrobat, if necessary. If you are considering implementing Adobe products, please contact eSolia.

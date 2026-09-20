@@ -31,8 +31,7 @@ Then came the pandemic. As the government declared a state of emergency, society
 Today, hybrid work—combining remote and in-office days—has become second nature for most of our team. It's safe to say that for many, a work style without telework is no longer imaginable.
 
 ## Current State of Telework
-So, what's the current state of Telework in Tokyo?
-The Tokyo Metropolitan Government regularly surveys 10,000 companies within the city to assess the adoption of telework.
+So, what's the current state of Telework in Tokyo? The Tokyo Metropolitan Government regularly surveys 10,000 companies within the city to assess the adoption of telework.
 
 According to the 2024 survey (FY2024) targeting Tokyo-based companies with 30 or more employees, the telework adoption rate was 58.0%. This marks a slight decrease compared to the previous year's 60.1%.
 <figure class="flex flex-col justify-start items-left">
@@ -58,12 +57,10 @@ With the pandemic easing, many companies—including foreign-owned firms—have 
 2. Difficulty concentrating due to home environment
 3. Lack of visibility leading to fears of unfair evaluations
 
-So, how should we evolve our working styles from here?
-Reflecting on the thoughts I shared back in 2018, I believe now is the perfect time to revisit what telework truly means.
+So, how should we evolve our working styles from here? Reflecting on the thoughts I shared back in 2018, I believe now is the perfect time to revisit what telework truly means.
 
 ## Yes, We Still Want to Telework!
-Yes—many people still sincerely want to continue working remotely.
-Even with challenges and constraints, telework remains desirable because of the significant benefits it offers:
+Yes—many people still sincerely want to continue working remotely. Even with challenges and constraints, telework remains desirable because of the significant benefits it offers:
 
 1. Saving time and mental energy by eliminating commutes
 * Two hours saved each day can be used for self-care or productivity

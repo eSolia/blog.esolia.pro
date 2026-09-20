@@ -111,15 +111,13 @@ Please note that in order to use Microsoft 365 Copilot, you will first need to s
 The main functions are web search, text generation, and image generation. It is available when you access <a href="https://www.microsoft.com/ja-jp/microsoft-copilot/for-individuals?form=MA13YT" target="_blank" rel="noopener">Microsoft Copilot</a>
 
 **2. Copilot in Edge (for individual users):**
-The main features are browser integration and the ability to save and share answers.
-When you open the Edge browser, you will see the Copilot mark in the top right corner of the browser. If you click on that mark, a "Chat" window will appear on the right side of the browser, and you can start a conversation with Copilot.
+The main features are browser integration and the ability to save and share answers. When you open the Edge browser, you will see the Copilot mark in the top right corner of the browser. If you click on that mark, a "Chat" window will appear on the right side of the browser, and you can start a conversation with Copilot.
 <figure class="flex flex-col justify-start items-left">
   <img class="shadow-lg rounded-lg" alt="Screenshot of MS Copilot in Edge" src="/uploads/202504e-what-is-copilot1-en.png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
 
 **3. Copilot in Windows (for individual users):**
-The main features are Windows integration, information search, task assistance, etc. Copilot in Windows is the standard Copilot for Windows 11. The Copilot mark is automatically displayed on the taskbar, and you can start a conversation with Copilot by clicking on the mark.
-If you cannot find it on the taskbar, enter "Copilot" in the search box and the Copilot app will be displayed, so you can click on it to use it.
+The main features are Windows integration, information search, task assistance, etc. Copilot in Windows is the standard Copilot for Windows 11. The Copilot mark is automatically displayed on the taskbar, and you can start a conversation with Copilot by clicking on the mark. If you cannot find it on the taskbar, enter "Copilot" in the search box and the Copilot app will be displayed, so you can click on it to use it.
 <figure class="flex flex-col justify-start items-left">
   <img class="shadow-lg rounded-lg" alt="Screenshot of MS Copilot in Edge" src="/uploads/202504e-what-is-copilot2-en.png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
@@ -138,17 +136,14 @@ Example: A question like "Please conduct market research on XX and perform a com
 Example: "Make a trip plan" is unlikely to give the users the answer they are looking for. If a question is asked like "When, who, where, budget XX yen, XX days, XX nights, staying at XX hotel," Copilot will be able to grasp more accurate information and provide an answer based on the information the user is looking for.
 
 **Expectation**: The form of the desired output. By telling Copilot “In what format you want the answer to be," you can use the information more efficiently.
-Example: "Please narrow down the report to three main points in bullet points."
-Example: "Please create this travel plan for children."
+Example: "Please narrow down the report to three main points in bullet points." Example: "Please create this travel plan for children."
 
 **Source**: What information will be used in Copilot. By specifying the information to be referenced by Copilot, you can increase the reliability of the information and eliminate unintended information.
-Example: "Please explain about XX based on the information published in (website URL)."
-Example: "Please summarize XX based on the contents of this [file name]."
+Example: "Please explain about XX based on the information published in (website URL)." Example: "Please summarize XX based on the contents of this [file name]."
 
 It is not always necessary to enter all four elements, but you will get a clearer answer if you include one of them. In addition, if you are not satisfied with the first answer and modify the prompt while interacting with Copilot, you can obtain a more accurate output.
 
-For example, in our blog post ["UTP cable? Cat cable? RJ45 connector? Admin staff asked AI about IT terms they were curious about,"](/en/posts/20250410-admin-asked-ai-about-the-it-terminology-en/){target="_blank" rel="noopener"} the first prompt was "What is a UTP cable?", and the next prompt was "What are UTP cable, Cat cable, and RJ45 connector? Please explain it in an easy-to-understand way for people without IT knowledge."  
-In this way, by clarifying ambiguous parts and changing your perspective, you can convey your request to Copilot multiple times and arrive at the answer your users are looking for.
+For example, in our blog post ["UTP cable? Cat cable? RJ45 connector? Admin staff asked AI about IT terms they were curious about,"](/en/posts/20250410-admin-asked-ai-about-the-it-terminology-en/){target="_blank" rel="noopener"} the first prompt was "What is a UTP cable?", and the next prompt was "What are UTP cable, Cat cable, and RJ45 connector? Please explain it in an easy-to-understand way for people without IT knowledge." In this way, by clarifying ambiguous parts and changing your perspective, you can convey your request to Copilot multiple times and arrive at the answer your users are looking for.
 
 In addition, to avoid the risk of information leakage, please be careful not to include important information such as highly confidential information or personal information in the prompts of generative AI including Copilot.
 
@@ -190,13 +185,6 @@ The generated page will also be automatically added to your Loop “My Workspace
 
 ### 3. Examples of features available for each application in the paid version:
 
-Word<a href="https://support.microsoft.com/ja-jp/copilot-word" rel="noopener">(Copilot in Word)</a>: taking minutes, creating proposals, etc.
-Excel<a href="https://support.microsoft.com/ja-JP/copilot-excel?" rel="noopener">(Copilot in Excel)</a>: automatic tabulation, chart generation, etc.
-PowerPoint<a href="https://support.microsoft.com/ja-jp/copilot-powerpoint" rel="noopener">(Copilot in PowerPoint)</a>: automatically generate data-based documents, etc.  
-Outlook<a href="https://support.microsoft.com/ja-jp/copilot-outlook" rel="noopener">(Copilot in Outlook)</a>: organize email, create drafts, summarize thread content, etc.
-OneNote<a href="https://support.microsoft.com/ja-jp/copilot-onenote" rel="noopener">(Copilot in OneNote)</a>: summarize notes, suggest ideas, etc.
-Teams<a href="https://support.microsoft.com/ja-jp/copilot-teams" rel="noopener">(Copilot in Teams)</a>: take meeting minutes, organize key points, etc.
-Loop<a href="https://support.microsoft.com/ja-jp/copilot-loop" rel="noopener">(Copilot in Loop)</a>: summarize pages, paste into PowerPoint, etc.
+Word<a href="https://support.microsoft.com/ja-jp/copilot-word" rel="noopener">(Copilot in Word)</a>: taking minutes, creating proposals, etc. Excel<a href="https://support.microsoft.com/ja-JP/copilot-excel?" rel="noopener">(Copilot in Excel)</a>: automatic tabulation, chart generation, etc. PowerPoint<a href="https://support.microsoft.com/ja-jp/copilot-powerpoint" rel="noopener">(Copilot in PowerPoint)</a>: automatically generate data-based documents, etc. Outlook<a href="https://support.microsoft.com/ja-jp/copilot-outlook" rel="noopener">(Copilot in Outlook)</a>: organize email, create drafts, summarize thread content, etc. OneNote<a href="https://support.microsoft.com/ja-jp/copilot-onenote" rel="noopener">(Copilot in OneNote)</a>: summarize notes, suggest ideas, etc. Teams<a href="https://support.microsoft.com/ja-jp/copilot-teams" rel="noopener">(Copilot in Teams)</a>: take meeting minutes, organize key points, etc. Loop<a href="https://support.microsoft.com/ja-jp/copilot-loop" rel="noopener">(Copilot in Loop)</a>: summarize pages, paste into PowerPoint, etc.
 
-Above is an introduction to Copilot. If you haven't used Copilot yet, please give it a try.
-However, Copilot is only intended to support users as a tool to enhance creativity and productivity, so be careful not to rely on it too much. Users must judge and reconfirm the authenticity of the information and the originality of the text. Don't just rely on the information provided; be sure to check and make your own judgments.
+Above is an introduction to Copilot. If you haven't used Copilot yet, please give it a try. However, Copilot is only intended to support users as a tool to enhance creativity and productivity, so be careful not to rely on it too much. Users must judge and reconfirm the authenticity of the information and the originality of the text. Don't just rely on the information provided; be sure to check and make your own judgments.

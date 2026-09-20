@@ -25,8 +25,7 @@ tags:
   - JIS layout
 comments: {}
 ---
-The keyboard we use every day without a second thought. While we take typing for granted, haven't you ever wondered, “Why are the keys arranged this way?” or “What are the F1 to F12 keys for?” or “What exactly is the Fn key?”
-This time, let's explore how the keyboard layout evolved into its current form and delve into the roles of the function keys and the Fn key.
+The keyboard we use every day without a second thought. While we take typing for granted, haven't you ever wondered, “Why are the keys arranged this way?” or “What are the F1 to F12 keys for?” or “What exactly is the Fn key?” This time, let's explore how the keyboard layout evolved into its current form and delve into the roles of the function keys and the Fn key.
 
 <!--more-->
 
@@ -175,5 +174,4 @@ Here are some common Fn key combinations:
 > By mastering these Fn key combinations, you can quickly control essential hardware functions without the need to open complicated settings menus.
 
 ## Conclusion
-Since we use computer keyboards every day, understanding why they are designed the way they are can make them more convenient and efficient to use. The keys you press without thinking, or the functions you see but have never tried, may carry historical reasons or tips for improving your workflow.
-Take this opportunity to explore and familiarize yourself with the functions of the function keys on your own keyboard—you might discover some useful shortcuts you hadn’t noticed before.
+Since we use computer keyboards every day, understanding why they are designed the way they are can make them more convenient and efficient to use. The keys you press without thinking, or the functions you see but have never tried, may carry historical reasons or tips for improving your workflow. Take this opportunity to explore and familiarize yourself with the functions of the function keys on your own keyboard—you might discover some useful shortcuts you hadn’t noticed before.

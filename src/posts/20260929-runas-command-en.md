@@ -29,9 +29,7 @@ tags:
 comments: {}
 ---
 In day-to-day IT support, situations often come up like:
-“I normally work with a standard user account, but sometimes I need admin rights to uninstall drivers or access admin web consoles.”
-Logging off and switching accounts every time is tedious. That’s where the built-in Windows **runas command** comes in handy.
-It lets you run programs using an admin account only when needed, without changing your main login.
+“I normally work with a standard user account, but sometimes I need admin rights to uninstall drivers or access admin web consoles.” Logging off and switching accounts every time is tedious. That’s where the built-in Windows **runas command** comes in handy. It lets you run programs using an admin account only when needed, without changing your main login.
 
 <!--more-->
 
@@ -44,8 +42,7 @@ It lets you run programs using an admin account only when needed, without changi
 > runas runs the program as another user. It does not automatically handle UAC elevation in all cases. Sometimes you need to use cmd.exe /c as an intermediary.
 
 ## Example 1: Opening Device Manager as an Admin
-In my daily IT support, I sometimes uninstall and reinstall drivers on user PCs.
-To uninstall a device, admin rights are required, so I use runas to open Device Manager:
+In my daily IT support, I sometimes uninstall and reinstall drivers on user PCs. To uninstall a device, admin rights are required, so I use runas to open Device Manager:
 
 ```cmd
 runas /user:DOMAIN\AdminAccount "cmd.exe /c mmc devmgmt.msc"

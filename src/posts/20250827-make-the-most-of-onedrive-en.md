@@ -22,8 +22,7 @@ tags:
   - FileManagement
 comments: {}
 ---
-Just started using Microsoft 365 and wondering, “What’s the difference between OneDrive and SharePoint?”
-In this article, we’ll explain the basics of OneDrive and SharePoint, how to use them effectively, and how to distinguish between the two—clearly and simply for beginners.
+Just started using Microsoft 365 and wondering, “What’s the difference between OneDrive and SharePoint?” In this article, we’ll explain the basics of OneDrive and SharePoint, how to use them effectively, and how to distinguish between the two—clearly and simply for beginners.
 
 <!--more-->
 
@@ -90,8 +89,7 @@ For example, payroll documents for the finance team can be restricted from gener
 3. **Content management**: Rich features like version control, metadata tagging, and search make it easy to organize large volumes of documents.
 4. **Integrated workflows**: Connect with tools like Power Automate to streamline business processes.
 
-“Where are my Teams files saved—OneDrive or SharePoint?”
-It depends on how you're sharing:
+“Where are my Teams files saved—OneDrive or SharePoint?” It depends on how you're sharing:
 <table class="not-prose w-full text-sm">
   <thead>
     <tr>
@@ -120,5 +118,4 @@ In other words, the storage location changes based on the sharing method. OneDri
 * Use OneDrive for files you manage individually.
 * Use SharePoint for files shared and organized across a team.
   
-Though they may seem similar, understanding their roles helps prevent lost files and sharing mistakes—leading to smoother, more efficient work.
-We hope the OneDrive tips shared here come in handy in your daily tasks!
+Though they may seem similar, understanding their roles helps prevent lost files and sharing mistakes—leading to smoother, more efficient work. We hope the OneDrive tips shared here come in handy in your daily tasks!

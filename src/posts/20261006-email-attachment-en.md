@@ -24,9 +24,7 @@ tags:
   - Macrovirus
 comments: {}
 ---
-Have you ever opened an email attachment without thinking twice?
-Files labeled “Invoice”, “Report”, or “Meeting materials” may look routine — but some are cleverly disguised traps that can cause system failures or data breaches.
-This post highlights two common threats in corporate environments: ZIP bombs and macro viruses.
+Have you ever opened an email attachment without thinking twice? Files labeled “Invoice”, “Report”, or “Meeting materials” may look routine — but some are cleverly disguised traps that can cause system failures or data breaches. This post highlights two common threats in corporate environments: ZIP bombs and macro viruses.
 
 <!--more-->
 
@@ -68,8 +66,7 @@ Attachment-based attacks don’t just affect individuals – they can compromise
 * Share alerts with colleagues — similar emails may be circulating
 
 ## Think Before You Click
-Attachments are useful, but they come with risks.
-Before opening any file, ask yourself: “Who sent this?”, “What format is it?”, “Do I really need to open it?”
+Attachments are useful, but they come with risks. Before opening any file, ask yourself: “Who sent this?”, “What format is it?”, “Do I really need to open it?”
 
 > [!CAUTION]
 > A moment of caution can protect your data and your team. When in doubt, check with your IT team before opening.

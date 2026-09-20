@@ -27,10 +27,7 @@ tags:
   - Command Prompt
 comments: {}
 ---
-“It was working fine yesterday... but for some reason, I can't connect to the internet today.”
-If you work in IT support, you've likely heard this line more times than you can count.
-Sudden, unexplained network issues are a common headache.
-This article shares a real-life case in which a laptop suddenly couldn’t connect via Wi-Fi or wired LAN—along with the specific recovery steps that worked in the end.
+“It was working fine yesterday... but for some reason, I can't connect to the internet today.” If you work in IT support, you've likely heard this line more times than you can count. Sudden, unexplained network issues are a common headache. This article shares a real-life case in which a laptop suddenly couldn’t connect via Wi-Fi or wired LAN—along with the specific recovery steps that worked in the end.
 
 <!--more-->
 

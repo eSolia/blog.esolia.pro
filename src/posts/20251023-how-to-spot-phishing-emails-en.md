@@ -39,12 +39,10 @@ Here are some typical patterns:
 Here are five practical tips to help you identify phishing emails:
 
 **1. Check the sender’s email address**
-Look at the actual email address, not just the display name.
-For example, an email claiming to be from your bank might come from something like abc123@gmail.com or a random string of meaningless characters. These are red flags.
+Look at the actual email address, not just the display name. For example, an email claiming to be from your bank might come from something like abc123@gmail.com or a random string of meaningless characters. These are red flags.
 
 **2. Watch for awkward or unnatural language**
-Poor grammar or odd phrasing often indicate phishing.
-Example: “Your account will suspended! Immediate response require necessary.”
+Poor grammar or odd phrasing often indicate phishing. Example: “Your account will suspended! Immediate response require necessary.”
 
 **3. Inspect the link URLs**
 Hover over any links to verify the actual destination:
@@ -60,8 +58,7 @@ Phishing emails often pressure recipients:
 Attachments such as .zip, .exe, or macro-enabled files are especially risky and should not be opened.
 
 ## What to Do if You Receive a Suspicious Email
-If possible, delete the email without opening it.
-If you've already opened it:
+If possible, delete the email without opening it. If you've already opened it:
 * Do not click on any links or open attachments.
 * Contact your IT department immediately.
 * Run a full scan using security software.
@@ -69,5 +66,4 @@ If you've already opened it:
 For delivery notifications, instead of clicking links, visit the official website or app directly and check your account for any notices.
 
 ## Summary
-Phishing emails can be highly deceptive, but a bit of caution goes a long way.
-If you ever think, “Is this real…?” — stop, avoid downloading or clicking anything, and consult your IT department or someone you trust.
+Phishing emails can be highly deceptive, but a bit of caution goes a long way. If you ever think, “Is this real…?” — stop, avoid downloading or clicking anything, and consult your IT department or someone you trust.

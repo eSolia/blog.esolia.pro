@@ -24,10 +24,7 @@ tags:
   - Focus
 comments: {}
 ---
-Notifications that suddenly pop up from the edge of the screen while you’re working on your PC.
-Email alerts, Teams messages, Windows Update notices—while convenient, they can also break your concentration.
-However, turning off notifications indiscriminately comes with the risk of missing important alerts or business communications.
-In this article, we’ll show you how to effectively control notification settings in Windows 11, along with some common pitfalls to watch out for.
+Notifications that suddenly pop up from the edge of the screen while you’re working on your PC. Email alerts, Teams messages, Windows Update notices—while convenient, they can also break your concentration. However, turning off notifications indiscriminately comes with the risk of missing important alerts or business communications. In this article, we’ll show you how to effectively control notification settings in Windows 11, along with some common pitfalls to watch out for.
 
 <!--more-->
 
@@ -55,8 +52,7 @@ On the same screen, select unnecessary apps under **Notifications from apps and 
 → Useful for preventing shoulder surfing when you’re out or using a shared PC.
 
 ## Manage Notifications While Staying Focused with “Focus”
-In Windows 11, **Focus** replaces the old “Focus Assist.”
-Focus suppresses notifications and badge alerts for a specified period, helping you concentrate on your work.
+In Windows 11, **Focus** replaces the old “Focus Assist.” Focus suppresses notifications and badge alerts for a specified period, helping you concentrate on your work.
 
 #### How to Use Focus
 1. Go to Settings → System → Focus

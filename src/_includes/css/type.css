@@ -41,15 +41,23 @@
 
   /* Recovered from the archived layer. The limits matter as much as the
      switch: without them, `hyphens: auto` will break two-letter fragments off
-     the end of a line and hyphenate several lines in a row. */
+     the end of a line and hyphenate several lines in a row.
+
+     `hyphenate-limit-chars` was 6 3 3, which let six-letter words split — the
+     visible case was "during" breaking as "dur-/ing", which reads as an error
+     rather than a wrap. 8 4 3 keeps hyphenation for genuinely long words,
+     where it earns its place by evening out the rag, and leaves short ones
+     alone. Posts set `breaks: true`, so a hard line break often lands mid-
+     paragraph and the fragment after it is short; hyphenating those made the
+     rag look shredded. */
   :lang(en) {
     hyphens: auto;
     hyphenate-character: "-";
-    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-chars: 8 4 3;
     hyphenate-limit-lines: 2;
     hyphenate-limit-zone: 8%;
     -webkit-hyphens: auto;
-    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-before: 4;
     -webkit-hyphenate-limit-after: 3;
     -webkit-hyphenate-limit-lines: 2;
   }
