@@ -207,28 +207,6 @@
                     {{ i18n.mainsite.tooltip }}
                   </div>
                 </div>
-                {{ if alternates && alternates.length > 1 }}
-                  {{# The language switch is a link, not a button: it navigates.
-                      It used to be an <a> nested inside a <button>, which axe
-                      flags as nested-interactive (serious) — two focusable
-                      controls in one place, with assistive tech announcing a
-                      button that is really a link. The <a> now carries the
-                      styling directly. hreflang and lang let a screen reader
-                      switch voice for the target language. #}}
-                  <div class="pointer-events-auto z-50 hidden md:block">
-                    {{- for alt of alternates }}{{ if alt.lang !== lang }}
-                        <a
-                          class="group relative block rounded-full bg-sky-800/95 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium text-zinc-50 dark:text-zinc-200 hover:text-esoliaamber-400 dark:hover:text-esoliaamber-500"
-                          href="{{ alt.url }}"
-                          hreflang="{{ alt.lang }}"
-                          lang="{{ alt.lang }}"
-                          title="{{ alt.title |> escape }}"
-                        >{{ if alt.lang == "ja" }}日本語{{ else }}English{{
-                          /if
-                        }}<span class="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-zinc-500/0 via-zinc-500/40 to-zinc-500/0 dark:from-zinc-400/0 dark:via-zinc-400/40 dark:to-zinc-400/0 opacity-0 group-hover:opacity-100 transition duration-300"></span></a>
-                      {{ /if }}{{ /for }}
-                  </div>
-                {{ /if }}
                 <div
                   class="pointer-events-auto z-50 relative group"
                 >
@@ -279,6 +257,31 @@
                     </span>
                   </button>
                 </div>
+                {{# Last in the row on purpose: this is the only wide pill among
+                    round icon buttons, and mid-group it read as an odd lump
+                    between them. At the end it anchors the row instead. #}}
+                {{ if alternates && alternates.length > 1 }}
+                  {{# The language switch is a link, not a button: it navigates.
+                      It used to be an <a> nested inside a <button>, which axe
+                      flags as nested-interactive (serious) — two focusable
+                      controls in one place, with assistive tech announcing a
+                      button that is really a link. The <a> now carries the
+                      styling directly. hreflang and lang let a screen reader
+                      switch voice for the target language. #}}
+                  <div class="pointer-events-auto z-50 hidden md:block">
+                    {{- for alt of alternates }}{{ if alt.lang !== lang }}
+                        <a
+                          class="group relative block rounded-full bg-sky-800/95 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium text-zinc-50 dark:text-zinc-200 hover:text-esoliaamber-400 dark:hover:text-esoliaamber-500"
+                          href="{{ alt.url }}"
+                          hreflang="{{ alt.lang }}"
+                          lang="{{ alt.lang }}"
+                          title="{{ alt.title |> escape }}"
+                        >{{ if alt.lang == "ja" }}日本語{{ else }}English{{
+                          /if
+                        }}<span class="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-zinc-500/0 via-zinc-500/40 to-zinc-500/0 dark:from-zinc-400/0 dark:via-zinc-400/40 dark:to-zinc-400/0 opacity-0 group-hover:opacity-100 transition duration-300"></span></a>
+                      {{ /if }}{{ /for }}
+                  </div>
+                {{ /if }}
               </div>
             </div>
           </div>
