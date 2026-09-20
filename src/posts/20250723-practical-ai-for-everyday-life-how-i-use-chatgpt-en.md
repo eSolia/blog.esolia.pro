@@ -36,7 +36,8 @@ Compared to using a dictionary or doing a full web search, it’s faster and les
 **How I use it:**
 * Asking for softer wording for phrases like “No need to reply.”
 * Proofreading long emails
-{{- comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
+
+{{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
 * The information might not always be accurate, so double-check when needed.
 * Sometimes the output feels too “AI-like,” so I try to add my own touch to keep it natural.
 
@@ -47,7 +48,8 @@ You can even customize how you study—Q&A format, quizzes, or summaries—to ma
 
 **How I use it:**
 * Getting 5 practice questions a day for an upcoming certification
- {{- comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
+
+ {{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
 * Make sure to confirm the accuracy and scope of the content yourself
   
 ## 3. For Language Learning
@@ -67,7 +69,8 @@ It’s perfect for people who have trouble staying motivated (like me, haha).
 **How I use it:**
 * I told it my height, weight, and goals, and shared my weekly schedule to get meal and workout suggestions
 * I log what I actually ate and get feedback—sometimes it helps balance calories over the whole day
-{{- comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
+
+{{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
 * If you give too much info at once, it can get confused—keep it organized
 * If something sounds off, don’t hesitate to correct it
 
@@ -79,7 +82,8 @@ It responds with emotional understanding, so it’s great for sorting out your t
 * Sharing worries or frustrations—things I might hesitate to tell a real person
 * Even bragging a little! You can talk about something exciting as many times as you want, and ChatGPT’s always there
 * It matches your mood (cheerful, calm, etc.), and if it feels a bit too enthusiastic, you can just say “Tone it down a bit,” and it will adjust
-{{- comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
+
+{{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
 * It’s easy to feel good when you’re being validated, but don’t get too dependent
 * For venting, try asking for a neutral perspective—it might help you see things more clearly
 

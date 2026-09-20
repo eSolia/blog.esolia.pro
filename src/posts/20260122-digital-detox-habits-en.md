@@ -49,21 +49,21 @@ Personally, I think having a relaxed mindset like “let’s just cut back a lit
 Here are some small things I do to avoid becoming overwhelmed by information:
 
 ### At Work
-{{- comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Use paper intentionally**
+{{ comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Use paper intentionally**
 Instead of using a smartphone app, I write down quick notes with pen and paper. Especially when I feel stuck, writing things out on a blank sheet helps organize my thoughts.
 It also gives a good impression to others—like I’m focused and taking things seriously.
 
-{{- comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Keep my desktop clean**
+{{ comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Keep my desktop clean**
 Has your desktop ever gotten cluttered without you realizing it?
 I make it a habit to tidy up from time to time, removing unnecessary files, shortcuts, and apps.
 A clean desktop reduces visual noise and encourages better file management. It also helps improve work efficiency.
 
-{{- comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Use noise-canceling earphones as earplugs on the commute**
+{{ comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Use noise-canceling earphones as earplugs on the commute**
 Commuter trains can be overloaded with information—noise, crowds, and advertisements.
 I intentionally don’t play music or podcasts, and just use the noise-canceling function. Surprisingly, that alone helps me feel calm. Regular earplugs work well too.
 
 ### On Days Off and During Daily Life
-{{- comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Use iPhone’s Screen Time feature**
+{{ comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Use iPhone’s Screen Time feature**
 The Screen Time feature on the iPhone lets you set daily time limits for specific apps.
 When you hit the limit, a prompt appears with options like “Close now,” “One more minute,” “Remind me in 15 minutes,” or “Ignore for today.”
 It’s easy to feel like you haven’t spent much time on your phone, but Screen Time makes you aware of just how much time you’re actually using.
@@ -75,16 +75,16 @@ It’s easy to feel like you haven’t spent much time on your phone, but Screen
 3. Select the apps you want to limit
 4. Set your preferred time
 
-{{- comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Carry a book with you**
+{{ comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Carry a book with you**
 Having a book on hand helps prevent me from reaching for my phone out of boredom.
 I choose something with a bit of weight, like a paperback, so I feel more motivated to read it—after all, I brought it with me.
 
-{{- comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Don’t charge devices by the bed**
+{{ comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Don’t charge devices by the bed**
 When I charge my smartphone or smartwatch by my bed, I notice a big difference in how refreshed I feel in the morning compared to when I keep them away.
 I can’t explain it scientifically, but I’ve found I feel less sleepy and foggy during the day.
 Try it—it might work for you too.
 
-{{- comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Plan offline time without your phone or PC**
+{{ comp.icon({ name: "check-fat", size: 4, color: "sky" }) -}}**Plan offline time without your phone or PC**
 On weekends, I plan activities that don’t require digital devices.
 Walking or jogging is a great option—it’s free, refreshing, and helps you reset.
 

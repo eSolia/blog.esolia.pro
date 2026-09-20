@@ -558,7 +558,9 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
           value: `<figure class="flex flex-col justify-start items-left">
   <img class="shadow-lg rounded-lg" alt="EXPLAIN TO SCREENREADER USER" src="/uploads/blog-esolia-pro-default.png" width="1000px" transform-images="avif webp png jpeg 1000@2">
   <figcaption class="text-left mt-2"><small><em>Fig: ADD YOUR CAPTION HERE</em></small></figcaption>
-</figure>`,
+</figure>
+
+`,
         },
         {
           label: "Secure External Link",
@@ -587,11 +589,19 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
       <td>Value B</td>
     </tr>
   </tbody>
-</table>`,
+</table>
+
+`,
         },
         {
+          // No left trim. `{{-` strips whitespace backwards, including the
+          // blank line that separates this from the block above it. Vento
+          // runs before markdown, so markdown-it never sees that blank line
+          // and the icon gets absorbed into the preceding heading, list item
+          // or HTML block. The right trim stays: it glues the icon to the
+          // text the author types after it. See issue #326.
           label: "Icon",
-          value: `{{- comp.icon({ name: "fire", size: 4, color: "red" }) -}}`,
+          value: `{{ comp.icon({ name: "fire", size: 4, color: "red" }) -}}`,
         },
         {
           label: "NOTE (Info highlight)",

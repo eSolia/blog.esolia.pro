@@ -66,7 +66,7 @@ Share Point Onlineにおけるメタデータとは、サイトやライブラ�
   <img alt="Screenshot of documents list on Sharepoint" src="/uploads/202504d-sharepoint-migration-part2-2-ja.png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
 
-{{- comp.icon({ name: "lightbulb", size: 4, color: "yellow" }) -}}上記メタデータのポイント 
+{{ comp.icon({ name: "lightbulb", size: 4, color: "yellow" }) -}}上記メタデータのポイント 
 **カテゴリー**：「提案書」「契約書」「報告書」などが色付きで視覚的に分かりやすくしています。 
 **名前**：ファイル名は事前に名前付けルールを設けておいた方が良いでしょう。 
 **クライアント**：フォルダーで管理せずともメタデータならクライアントでソートする事が可能です。 
@@ -77,7 +77,7 @@ Share Point Onlineにおけるメタデータとは、サイトやライブラ�
 ## 3. なぜメタデータ管理？
 次に、なぜメタデータ管理をお勧めするのか改めて比較表を使ってお伝えしたいと思います。 
 
-{{- comp.icon({ name: "push-pin", size: 4, color: "black" }) -}}従来のフォルダー管理 vs. メタデータ管理
+{{ comp.icon({ name: "push-pin", size: 4, color: "black" }) -}}従来のフォルダー管理 vs. メタデータ管理
 <table class="not-prose w-full text-sm">
   <thead>
     <tr class="bg-blue-100">
@@ -110,15 +110,15 @@ Share Point Onlineにおけるメタデータとは、サイトやライブラ�
   </tbody>
 </table>
 
-{{- comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**検索性**：従来のフォルダー管理ではフォルダーを一つずつ開いて、該当のファイルを探しに行きます。しかし、メタデータ管理では、あらかじめファイルに紐づけられているメタデータのキーワードを入れれば瞬時に該当のファイルを見つける事ができます。 
-{{- comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**アクセス管理**：メタデータで分類し、ライブラリーを分けて管理すればアクセス制御もしやすくなります。
-{{- comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**URLの制約**：フォルダー階層が深くなるとどんどん長くなるURLもメタデータで管理すればURLが長くならずにすみます。 
-{{- comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}} **共有・コラボ**：メタデータのよって、「部署」「プロジェクト」「文書の種類」等で横断的に分類できる為、チーム横断の情報共有等もスムーズになります。 
+{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**検索性**：従来のフォルダー管理ではフォルダーを一つずつ開いて、該当のファイルを探しに行きます。しかし、メタデータ管理では、あらかじめファイルに紐づけられているメタデータのキーワードを入れれば瞬時に該当のファイルを見つける事ができます。 
+{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**アクセス管理**：メタデータで分類し、ライブラリーを分けて管理すればアクセス制御もしやすくなります。
+{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**URLの制約**：フォルダー階層が深くなるとどんどん長くなるURLもメタデータで管理すればURLが長くならずにすみます。 
+{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}} **共有・コラボ**：メタデータのよって、「部署」「プロジェクト」「文書の種類」等で横断的に分類できる為、チーム横断の情報共有等もスムーズになります。 
 
 このように、メタデータを上手に使う事で、良いことづくめのメタデータによるファイル管理ですが、従来のフォルダー管理に慣れてしまっている場合、習慣を変えることはなかなか難しいかもしれません。 
 SPOを効率的に利用する為には、運用フローの見直しから行うことをお勧めします。 
 
-{{- comp.icon({ name: "push-pin", size: 4, color: "black" }) -}}従来の管理方法 vs. SPOの推奨管理方法 
+{{ comp.icon({ name: "push-pin", size: 4, color: "black" }) -}}従来の管理方法 vs. SPOの推奨管理方法 
 <table class="not-prose w-full text-sm">
   <thead>
     <tr class="bg-blue-100">
@@ -141,7 +141,8 @@ SPOを効率的に利用する為には、運用フローの見直しから行�
     </tr>
   </tbody>
 </table>
-{{- comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}} フォルダーを減らし、メタデータでファイルを管理することで、運用の柔軟性を確保できます！
+
+{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}} フォルダーを減らし、メタデータでファイルを管理することで、運用の柔軟性を確保できます！
 
 ## 4. まとめ
 このように、メタデータ管理を取り入れることで、これまで行っていたフォルダー構造に縛られない柔軟なファイル管理が可能となります。 

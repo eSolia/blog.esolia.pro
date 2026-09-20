@@ -36,25 +36,25 @@ image_top: /uploads/202503g-admin-asked-ai-top.jpg
 ## AIへの最初の質問
 まず初めに、シンプルな質問を3種類のAIに聞いてみました。
 
-{{- comp.icon({ name: "chat-centered-dots", size: 4, color: "sky" }) -}}AIに対する質問文：**UTPケーブルって何**
+{{ comp.icon({ name: "chat-centered-dots", size: 4, color: "sky" }) -}}AIに対する質問文：**UTPケーブルって何**
 
 添付PDFに纏めたように、どのAIからも検索結果は大差ないように見えます。テキストに出てくるようなIT用語の説明を纏めたものという印象です。
 
 専門知識を含めたテキストを読むより理解しやすい文書でありますが、個人的にもっとシンプルな説明がほしいと思いました。
 
-{{- comp.icon({ name: "file-pdf", size: 4, color: "red" }) -}}
+{{ comp.icon({ name: "file-pdf", size: 4, color: "red" }) -}}
 [UTPケーブルって何-AIの回答](/uploads/excel-20250307-「utpケーブルって何」によるaiの回答(jpn).pdf)
 
 ## AIへの質問方法を変更後
 そこで、もう少し詳細に、レベル感を踏まえた質問をしてみました。すると、AIからの回答に少し変化がありました。 
 
-{{- comp.icon({ name: "chat-centered-dots", size: 4, color: "sky" }) -}}AIに対する質問文：**UTPケーブル、Catケーブル、RJ45コネクタって何？ＩＴ知識のない人にわかりやすく説明してほしい** 
+{{ comp.icon({ name: "chat-centered-dots", size: 4, color: "sky" }) -}}AIに対する質問文：**UTPケーブル、Catケーブル、RJ45コネクタって何？ＩＴ知識のない人にわかりやすく説明してほしい** 
 
-{{- comp.icon({ name: "brain", size: 4, color: "pink" }) -}}**ChatGPT(無料版)** ：「推論」機能をオンにしたうえで質問。上記表にある説明文を要約した形での回答が表示されました。「推論」機能に基づくAIが出した回答の根拠を見ることができ、非常に興味深いものと感じました。説明の内容に関しては、難しい用語を箇条書きで纏めてあり、長々とした説明文を読むより、パッと内容を確認・理解できる印象を受けました。 
+{{ comp.icon({ name: "brain", size: 4, color: "pink" }) -}}**ChatGPT(無料版)** ：「推論」機能をオンにしたうえで質問。上記表にある説明文を要約した形での回答が表示されました。「推論」機能に基づくAIが出した回答の根拠を見ることができ、非常に興味深いものと感じました。説明の内容に関しては、難しい用語を箇条書きで纏めてあり、長々とした説明文を読むより、パッと内容を確認・理解できる印象を受けました。 
 
-{{- comp.icon({ name: "lightbulb-filament", size: 4, color: "yellow" }) -}}**Copilot(無料版）**：UTPケーブルを「電気コード」、CatケーブルをUTPの性能を示す「速度メーター」、RJ45コネクタは接続するための「コンセントプラグ」、という一般ユーザーやIT初心者にとってわかりやすい説明が出ました。 
+{{ comp.icon({ name: "lightbulb-filament", size: 4, color: "yellow" }) -}}**Copilot(無料版）**：UTPケーブルを「電気コード」、CatケーブルをUTPの性能を示す「速度メーター」、RJ45コネクタは接続するための「コンセントプラグ」、という一般ユーザーやIT初心者にとってわかりやすい説明が出ました。 
 
-{{- comp.icon({ name: "smiley-wink", size: 4, color: "emerald" }) -}}**DeepSeek(日本語版モバイルアプリ版)**：「深く考える（R1）」機能をオンにしたうえで質問。
+{{ comp.icon({ name: "smiley-wink", size: 4, color: "emerald" }) -}}**DeepSeek(日本語版モバイルアプリ版)**：「深く考える（R1）」機能をオンにしたうえで質問。
 
 まず、ChatGPTと同様、解説文を出すまでの理論を確認することができ、質問者の真意を模索・考慮したうえで回答を出そうとしていることがわかりました。 
 
@@ -64,11 +64,11 @@ image_top: /uploads/202503g-admin-asked-ai-top.jpg
 
 回答をそれぞれキャラクター風にまとめるとこのようなイメージでしょうか。 
 
-{{- comp.icon({ name: "brain", size: 4, color: "pink" }) -}}ChatGPT「UTPケーブルは、ツイストペア構造の～…難しめだけど箇条書きで要点まとめておいたよ！」 
+{{ comp.icon({ name: "brain", size: 4, color: "pink" }) -}}ChatGPT「UTPケーブルは、ツイストペア構造の～…難しめだけど箇条書きで要点まとめておいたよ！」 
 
-{{- comp.icon({ name: "lightbulb-filament", size: 4, color: "yellow" }) -}}Copilot「UTPは“電気コード”ってイメージ！Catケーブルは“性能を示す速度メーター”みたいなもんかな。」 
+{{ comp.icon({ name: "lightbulb-filament", size: 4, color: "yellow" }) -}}Copilot「UTPは“電気コード”ってイメージ！Catケーブルは“性能を示す速度メーター”みたいなもんかな。」 
 
-{{- comp.icon({ name: "smiley-wink", size: 4, color: "emerald" }) -}}DeepSeek「ふむふむ、質問者さんの意図は…なるほど、“LANケーブルの世代”を知りたいのね。じゃあ図解してみるよ！」 
+{{ comp.icon({ name: "smiley-wink", size: 4, color: "emerald" }) -}}DeepSeek「ふむふむ、質問者さんの意図は…なるほど、“LANケーブルの世代”を知りたいのね。じゃあ図解してみるよ！」 
 
 理解しやすい回答を得られましたので、実際に回答を確認したい場合は上記の質問文を使ってみてください。
 

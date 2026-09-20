@@ -163,27 +163,27 @@ Building on our previous blog,["What is PDF? How is it related to Adobe Acrobat?
 ### ① Editing and updating PDF
 **Direct correction of text and images**: With Adobe Acrobat Standard, you can directly edit text in PDF files. Users can correct typos and add or delete content while maintaining the layout and format. Users can also drag the relevant object in the PDF (text box, image, stamp, etc.) to move it or change its size.
 
-{{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
+{{ comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
 1. Open the PDF in Acrobat.
 2. Select the "Edit" tool.
 3. Click the relevant text and enter or correct it directly. Or drag the relevant object to move it around or change its size.
 
 **Reorder, add, and extract pages**: Users can easily change the page order within a PDF, add pages from another file, extract and save specific pages, and more.
 *Please note that changes cannot be made in PDF files that have been marked as non-editable.
-{{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
+{{ comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
 1. Click "Edit" → "Organize Pages".
 2. Drag pages to change the order.
 3. By right-clicking on a page, users can insert a page from another file, extract a page from another file, and save it as a separate file. Rotation and deletion of the relevant page are also possible.
 
 ### ② Security Management
 **Password setting**: Users can set a password for a PDF file to restrict viewing. This is effective for managing confidential materials, as the recipient cannot view the contents unless they know the password.
-{{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
+{{ comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
 1. Click "Menu" → "Protect with password".
 2. Click "View" → "Advanced options" → "Encrypt with password".
 3. Check "Require password to open document" and enter the password.
 
 **Restrict editing and printing**: In addition to viewing permission, users can set restrictions such as "No printing," "No copying," and "No editing." This is useful for preventing accidental operation and unauthorized tampering.
-{{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
+{{ comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
 1. Click "Menu" → "Protect with password."
 2. Click "Viewing" → "Advanced options" → "Encrypt with password."
 3. Check "Restrict printing and editing of document. A password is required to change these restriction settings." Select whether to allow printing and changes.
@@ -192,7 +192,7 @@ To make a secured PDF unsecured, go to Security > Security Properties > Security
 ### ③ Request for electronic signature
 Acrobat Standard also comes with a feature for requesting electronic signatures. Users can send a PDF file to the other parties and have them fill out the signature field.
 It is also possible to send a request for signatures in a specific order of those who will sign.
-{{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
+{{ comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
 1. Open the PDF you want to electronically sign.
 2. Click "Electronic Signature" → "Request an electronic signature."
 3. Enter the address and name of the person to be signed. If more than one person needs to sign in order, check "Recipients must sign in order."
@@ -212,7 +212,7 @@ Collapse of column or multiple layout: Text order is disrupted. It may be recons
 Please note that the converted file needs to be checked and reformatted. It is suitable for use as a means of extracting materials for re-editing, but if full reproduction is desired, it will be necessary to recreate the PDF from the original data.
 * Convert Office files to PDF: Use this when users want to submit or distribute a document as an official document.
 
-{{- comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
+{{ comp.icon({ name: "cursor-click", size: 4, color: "blue" }) -}} How to Operate
 1. Convert the relevant file (Word/Excel/PowerPoint) via Acrobat.
 2. Or use the "Save as PDF" option in the Office app.
 
