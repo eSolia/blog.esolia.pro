@@ -53,14 +53,6 @@ globalThis.addEventListener("scroll", () => {
   // - small-logo is `opacity-100` by default.
   // So, no specific JS logic is needed for logos on small screens here.
 
-  // IMPORTANT: Keep these to ensure correct state on load and resize
-  globalThis.addEventListener("DOMContentLoaded", () => {
-    globalThis.dispatchEvent(new Event("scroll"));
-  });
-  globalThis.addEventListener("resize", () => {
-    globalThis.dispatchEvent(new Event("scroll"));
-  });
-
   // Handle nav opacity changes based on scroll position
   if (scrollPosition > 50) {
     topNavBG.classList.remove(
@@ -96,6 +88,28 @@ globalThis.addEventListener("scroll", () => {
     topNavBG.classList.add("bg-zinc-50/50", "dark:bg-zinc-700/50");
   }
 });
+
+// Sync the nav and logo to the current scroll position once at startup, and
+// again on resize — the logo swap is breakpoint-dependent, so crossing the md
+// boundary has to be re-evaluated.
+//
+// These two registrations used to sit INSIDE the scroll callback above, so
+// every scroll event added another pair: 50 scroll events registered 50
+// DOMContentLoaded and 50 resize listeners. Worse, each accumulated resize
+// listener re-dispatched `scroll`, so one resize after a page of scrolling
+// fanned out multiplicatively. At module scope they are registered exactly
+// once, which is what the original comment intended.
+const syncNavToScroll = () => globalThis.dispatchEvent(new Event("scroll"));
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", syncNavToScroll, {
+    once: true,
+  });
+} else {
+  syncNavToScroll();
+}
+
+globalThis.addEventListener("resize", syncNavToScroll);
 
 // Theme Toggle with Alpine.js
 document.addEventListener("alpine:init", () => {
