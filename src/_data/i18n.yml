@@ -110,3 +110,22 @@ punctuation:
   close_quote: "』"
   open_single_quote: "「"
   close_single_quote: "」"
+alert:
+  # Callout labels for the GitHub-style alert syntax (> [!NOTE] etc).
+  #
+  # `警告` and `注意` are taken from the JIS Z 8051 / ISO/IEC Guide 51 severity
+  # ladder (危険 > 警告 > 注意), which Japanese readers already parse by
+  # instinct and which matches the upstream semantics: WARNING is "act now to
+  # avoid a problem", CAUTION is "be aware of a negative outcome".
+  #
+  # NOTE is `補足`, deliberately not `注意`. Several style guides render NOTE
+  # as 注意, which then leaves CAUTION with nowhere to go and collapses two
+  # distinct levels into one word.
+  #
+  # TIP is `ヒント`. `チップ` is a gratuity or a poker chip and never carries
+  # this sense.
+  note: 補足
+  tip: ヒント
+  important: 重要
+  warning: 警告
+  caution: 注意

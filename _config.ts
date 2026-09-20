@@ -404,7 +404,45 @@ site.use(title());
 site.use(toc());
 site.use(image());
 site.use(footnotes());
-site.hooks.addMarkdownItPlugin(alert);
+// Alert callout titles, localized per page.
+//
+// The plugin hard-codes the English word from the markup (`> [!NOTE]` renders
+// "Note"), so a Japanese post showed an English label. `titleRender` gets the
+// markdown-it `env`, which Lume populates with the page's data, so the label
+// can be resolved from that page's own i18n strings — no second plugin
+// registration and no post-processing pass over the built HTML.
+//
+// Note the option is `titleRender`, not `titleRenderer`: the published docs
+// use the longer name, but 0.17.0 reads the shorter one. Passing
+// `titleRenderer` silently does nothing.
+interface AlertToken {
+  markup: string;
+  content: string;
+}
+interface AlertEnv {
+  data?: { page?: { data?: { i18n?: { alert?: Record<string, string> } } } };
+}
+
+site.hooks.addMarkdownItPlugin(alert, {
+  titleRender(
+    tokens: AlertToken[],
+    index: number,
+    _options: unknown,
+    env: AlertEnv | undefined,
+  ): string {
+    const token = tokens[index];
+    const key = (token.markup ?? "").toLowerCase();
+    // Fall back to the word the author typed, so an unrecognized or
+    // untranslated alert degrades to the English label rather than to empty.
+    const label = env?.data?.page?.data?.i18n?.alert?.[key] ??
+      token.content ?? key;
+    const escaped = label
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;");
+    return `<p class="markdown-alert-title">${escaped}</p>`;
+  },
+});
 
 // Utils
 site.use(cssBanner({
