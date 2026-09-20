@@ -73,6 +73,8 @@ post:
   reading_time: Reading Time
   minutes: min
   hot: Hot
+  photo_credit: "Photo:"
+  photo_credit_on: on
 search:
   by_author: Authored by
   by_tag: Tag

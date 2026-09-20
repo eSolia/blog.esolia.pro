@@ -42,6 +42,32 @@
           class="absolute inset-0 rounded-2xl ring-1 ring-zinc-900/10 ring-inset"
         >
         </div>
+        {{# Photo credit over the thumbnail.
+
+            Text, not a link, deliberately. The card title carries a stretched
+            link (the `absolute inset-0` span below), so the whole card is one
+            click target — a link here would either sit under that span and be
+            unclickable, or punch through it and leave two competing targets in
+            one card. The linked credit lives on the post page, where there is
+            no stretched link to fight.
+
+            `pointer-events-none` keeps it from intercepting the card click at
+            all, and the gradient scrim gives the text something to sit on,
+            since it has to stay legible over an arbitrary photograph. #}}
+        {{ if post.image_credit && post.image_credit.name }}
+          <div
+            class="pointer-events-none absolute inset-x-0 bottom-0 rounded-b-2xl bg-linear-to-t from-black/45 to-transparent pt-6 pb-2 pr-3 text-right"
+          >
+            <span class="text-[0.65rem] font-extralight text-white/80">
+              {{ i18n.post.photo_credit }} {{ post.image_credit.name }}{{
+                if post.image_credit.source
+              }}
+                {{ i18n.post.photo_credit_on }} {{ post.image_credit.source }}{{
+                /if
+              }}
+            </span>
+          </div>
+        {{ /if }}
       </div>
       <div class="max-w-xl">
         <div class="z-10">

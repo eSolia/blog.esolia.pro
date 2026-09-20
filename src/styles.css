@@ -541,6 +541,22 @@ details[open] > summary {
   opacity: calc(0.68 * var(--hero-scroll-fade, 1));
 }
 
+/* The full-colour mark on post pages carries its own colours, so it takes no
+   tint — and it sits closer to full strength, because a post page has none of
+   the home page's decoration to sit back from. */
+.hero-symbol--brand {
+  color: inherit;
+  opacity: calc(0.9 * var(--hero-scroll-fade, 1));
+}
+
+.hero-symbol--brand:hover {
+  opacity: calc(1 * var(--hero-scroll-fade, 1));
+}
+
+.dark .hero-symbol--brand {
+  opacity: calc(0.85 * var(--hero-scroll-fade, 1));
+}
+
 .dark .hero-symbol {
   opacity: calc(0.34 * var(--hero-scroll-fade, 1));
 }
@@ -603,4 +619,32 @@ details[open] > summary {
   .hero-strand {
     display: none;
   }
+}
+
+/*----------------------------
+  Inline code: no decorative backticks
+  ----------------------------
+
+  Tailwind Typography draws literal backticks around inline <code> with
+  ::before/::after. The markdown has already been parsed by then, so `winget`
+  renders WITH visible backticks — which reads as though the backticks failed
+  to parse, when in fact they parsed correctly and prose added ornamental ones
+  back on top. The monospace face and tinted background already mark inline
+  code; the punctuation is redundant beside them.
+
+  Deliberately NOT inside `@layer components`: that is where this override
+  first went, and it lost. Tailwind's prose styles outrank that layer, so the
+  rule sat in the stylesheet doing nothing. Unlayered rules beat every layer,
+  which is what makes this stick — same reason as the external-link arrow fix
+  in css/type.css.
+*/
+.prose
+  :where(code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::before,
+.prose
+  :where(code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::after {
+  content: none;
 }

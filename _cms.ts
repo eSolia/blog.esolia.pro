@@ -412,6 +412,48 @@ cms.collection({
       },
     },
     {
+      // Photo credit. An object rather than one free-text line so the parts
+      // stay machine-readable — the template links the name and the source
+      // separately, and a later pass can audit which posts still lack one.
+      //
+      // Every part is optional by design: an author who only knows the
+      // photographer's name can record that much instead of leaving it blank.
+      name: "image_credit",
+      type: "object",
+      label: "画像クレジット Image Credit",
+      description:
+        "写真の出典。分かる範囲で構いません。名前だけでも記録してください。<br>Where the image came from. Fill in whatever you know — even just a name is better than nothing.",
+      fields: [
+        {
+          name: "name",
+          type: "text",
+          label: "撮影者 Photographer",
+          description:
+            "例: Frames For Your Heart<br>e.g. Frames For Your Heart",
+        },
+        {
+          name: "url",
+          type: "url",
+          label: "撮影者のURL Photographer URL",
+          description:
+            "撮影者のプロフィールページ。<br>The photographer's profile page.",
+        },
+        {
+          name: "source",
+          type: "text",
+          label: "提供元 Source",
+          description: "例: Unsplash, Pexels<br>e.g. Unsplash, Pexels",
+        },
+        {
+          name: "source_url",
+          type: "url",
+          label: "画像のURL Image URL",
+          description:
+            "その画像のページ（提供元サイト内）。<br>The image's own page on the source site.",
+        },
+      ],
+    },
+    {
       name: "author",
       type: "text",
       label: "コンテンツの著者 Author of the Content",
