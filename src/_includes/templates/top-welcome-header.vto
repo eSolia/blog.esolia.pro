@@ -1,11 +1,18 @@
 <!-- ===== top-welcome-header.vto TEMPLATE START ===== -->
-<div id="top-welcome-header" class="mt-6 sm:px-8">
+{{# `md:mt-0` closes the 24px gap under the symbol at desktop, where the
+    symbol now sits in the sheet's corner and the title should read as part of
+    the same block rather than a separate item below it. The mt-6 stays below
+    md, where the symbol is small and the spacing is doing real work. #}}
+<div id="top-welcome-header" class="mt-6 md:mt-0 sm:px-8">
+  {{# The circuit underlay used to live here. It now sits inside the white
+      backdrop panel in base.vto, which is the box its top-right corner should
+      align to. #}}
   <div class="mx-auto w-full max-w-7xl lg:px-8">
     <div class="relative px-4 sm:px-8 lg:px-12">
       <div class="mx-auto max-w-2xl lg:max-w-5xl">
         <div class="max-w-2xl">
           <h1
-            class="text-fluid-display tracking-tight font-semibold text-esoliablue-900 dark:text-zinc-100"
+            class="hero-title text-fluid-display tracking-tight font-semibold"
           >
             {{# <span class="font-extralight">{{ i18n.home.company }}</span>
             <br class="block sm:hidden"> #}}

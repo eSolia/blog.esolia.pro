@@ -357,3 +357,250 @@ details[open] > summary {
 }
 
 /* lume-google-fonts-here */
+
+/*----------------------------
+  Hero circuit underlay
+  ----------------------------
+
+  Decorative PCB-trace artwork in the top-right of the home page. The SVG is
+  in templates/hero-circuit.vto; it is mounted inside the white backdrop panel
+  in base.vto.
+
+  That panel is an empty `fixed inset-0` sheet painted behind all content, so
+  anchoring here does three things at once: the artwork starts at the panel's
+  true top-right corner rather than below the hero text, it aligns to the
+  panel's edges instead of the wrapper's padding box (which sat 2rem further
+  out, in the grey gutter), and it needs no z-index at all, because the whole
+  content column is a later sibling of this fixed layer.
+
+  Being fixed, it stays with the sheet while content scrolls over it — the
+  artwork behaves like something printed on the paper rather than pasted onto
+  the hero.
+
+  Two things do the work:
+
+  - `mask-image` fades the traces concentrically from the corner. Using a mask
+    rather than baked-in opacity keeps the SVG one flat colour, so the falloff
+    can be retuned without redrawing.
+
+  - `color` drives the stroke, because the SVG paints with `currentColor`, so
+    the light and dark variants are a one-line change each.
+
+  Hidden below `lg`: at narrow widths the headline wraps into the same corner
+  and the two fight. It is decoration, so dropping it beats shrinking it.
+*/
+.hero-circuit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(66rem, 82%);
+  height: min(52rem, 100%);
+  display: none;
+  pointer-events: none;
+  color: var(--color-esoliablue-900);
+
+  /* Deliberately faint. This is a texture on the paper, not an illustration —
+     it should register only once the eye has finished with the headline. */
+  opacity: 0.1;
+
+  /* Explicit radius, and a long tail. Left to its default the circle is sized
+     to `farthest-corner`, so the near stops covered a large area and the
+     artwork read as flat graph paper rather than something emanating from the
+     corner. The intermediate stops let it reach well across the sheet before
+     it disappears, instead of stopping abruptly past the headline. */
+  --hero-circuit-fade: radial-gradient(
+    circle 62rem at 100% 0%,
+    #000 0%,
+    #000 16%,
+    rgb(0 0 0 / 62%) 38%,
+    rgb(0 0 0 / 34%) 56%,
+    rgb(0 0 0 / 14%) 72%,
+    transparent 88%
+  );
+
+  mask-image: var(--hero-circuit-fade);
+  -webkit-mask-image: var(--hero-circuit-fade);
+}
+
+@media (min-width: 1024px) {
+  .hero-circuit {
+    display: block;
+  }
+}
+
+/* Dark mode needs more opacity to read at all against a dark field, and a
+   cooler, lighter stroke so it stays behind the text rather than glowing. */
+.dark .hero-circuit {
+  color: var(--color-esoliablue-300);
+  opacity: 0.13;
+}
+
+/* The artwork is inert decoration, but it still adds visual noise. Honour a
+   reduced-motion preference as a reduced-nonessential-visuals signal too. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-circuit {
+    display: none;
+  }
+}
+
+/*----------------------------
+  Page gutter texture
+  ----------------------------
+
+  The blank columns either side of the white sheet, on wide screens.
+
+  Painted on the fixed backdrop layer that the sheet sits inside, so it shows
+  only where the sheet does not cover — no extra elements, and nothing that
+  has to be kept in sync with the sheet's width as the window changes.
+
+  Those gutters only exist above the max-w-7xl cap (1280px), so below that
+  there is nothing to texture and the rule does not apply. The dot grid is
+  deliberately near-invisible: it should read as paper stock, not as pattern.
+*/
+@media (min-width: 1280px) {
+  .page-gutters {
+    /* The opacity lives in the dot colour, not on the layer: this same layer
+       also contains the white sheet, so fading the layer would tint the whole
+       page rather than just the gutters. */
+    background-image: radial-gradient(
+      color-mix(in oklab, var(--color-esoliablue-900) 7%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+
+  .dark .page-gutters {
+    background-image: radial-gradient(
+      color-mix(in oklab, var(--color-esoliablue-300) 9%, transparent) 1px,
+      transparent 1px
+    );
+  }
+}
+
+/*----------------------------
+  Hero symbol
+  ----------------------------
+
+  The hero mark is the symbol rather than the horizontal wordmark: the page
+  title already says "Tech It Easy Blog", so the wordmark was repeating in
+  picture form what the h1 says in words, and sitting at full brand strength
+  while doing it.
+
+  The asset is the flat grey symbol, which needs no dark-mode filter trick —
+  the previous wordmark relied on `grayscale invert saturate-[.1]` to fake a
+  light version of a dark-blue mark, which is why it never quite matched
+  anything else on the page.
+*/
+/* One ink for the whole masthead.
+
+   The symbol and the title are the SAME colour — the symbol is just that ink
+   at lower strength. Deriving both from a single token is what makes them
+   read as a set rather than as two things that happen to be greyish, and it
+   means they cannot drift apart when the theme changes.
+
+   The hue is esoliablue pulled most of the way toward neutral: grey enough to
+   sit back from the content below, with enough brand undertone left that it
+   is not a flat slate. */
+:root {
+  /* Mostly neutral, with just enough brand undertone to avoid flat slate.
+
+     The grey anchor is zinc-700, not zinc-500: dropping the blue share alone
+     would have made this greyer AND lighter, since zinc-500 is mid-grey. A
+     darker anchor keeps the weight while the hue goes neutral. */
+  --hero-ink: color-mix(
+    in oklab,
+    var(--color-esoliablue-900) 32%,
+    var(--color-zinc-700)
+  );
+}
+
+.dark {
+  --hero-ink: color-mix(
+    in oklab,
+    var(--color-esoliablue-300) 28%,
+    var(--color-zinc-300)
+  );
+}
+
+.hero-title {
+  color: var(--hero-ink);
+}
+
+.hero-symbol {
+  color: var(--hero-ink);
+
+  /* Scaled by `--hero-scroll-fade`, which main.js drives from scroll position
+     (1 at the top, 0 once scrolled past the fade distance). No transition:
+     the value updates continuously as you scroll, so a transition would only
+     lag behind the pointer. The fallback of 1 means it renders at full
+     strength if the script never runs. */
+  opacity: calc(0.42 * var(--hero-scroll-fade, 1));
+}
+
+.hero-symbol:hover {
+  opacity: calc(0.68 * var(--hero-scroll-fade, 1));
+}
+
+.dark .hero-symbol {
+  opacity: calc(0.34 * var(--hero-scroll-fade, 1));
+}
+
+/*----------------------------
+  Hero strand
+  ----------------------------
+
+  One trace running from the circuit field back to the symbol.
+
+  Anchored at the LEFT, beside the mark, and faded out to the right. Drawing
+  a line BETWEEN the circuit and the logo would mean joining two points that
+  move independently as the window resizes — correct at one width, missing at
+  every other. Anchored at one end and dissolved at the other, there is no
+  meeting point to get wrong.
+
+  It shares `--hero-ink` with the symbol and the title, so the trace and the
+  thing it lands on are the same colour by construction, in both themes.
+
+  Positioned from the panel's left edge, which is where the symbol is also
+  positioned from, so the two keep their relationship at every width.
+*/
+.hero-strand {
+  position: absolute;
+  left: 10.5rem;
+  top: 9rem;
+  width: 42rem;
+  height: 7.5rem;
+  display: none;
+  pointer-events: none;
+  color: var(--hero-ink);
+  opacity: calc(0.3 * var(--hero-scroll-fade, 1));
+
+  --hero-strand-fade: linear-gradient(
+    to right,
+    #000 0%,
+    #000 22%,
+    rgb(0 0 0 / 45%) 48%,
+    rgb(0 0 0 / 14%) 66%,
+    transparent 80%
+  );
+
+  mask-image: var(--hero-strand-fade);
+  -webkit-mask-image: var(--hero-strand-fade);
+}
+
+/* Shown only where the circuit field is shown, and where there is room to the
+   left of the headline for it to run. */
+@media (min-width: 1024px) {
+  .hero-strand {
+    display: block;
+  }
+}
+
+.dark .hero-strand {
+  opacity: calc(0.26 * var(--hero-scroll-fade, 1));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-strand {
+    display: none;
+  }
+}
