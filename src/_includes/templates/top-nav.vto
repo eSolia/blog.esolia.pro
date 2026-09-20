@@ -25,11 +25,25 @@
                   fetchpriority="high"
                   loading="eager"
                   decoding="async"
-                  class="hero-symbol w-28 md:w-44 hidden md:block"
-                  src="/assets/symbol_currentcolor.svg"
+                  {{# Grey on the home page, full colour on posts.
+
+                      The home page carries the circuit underlay, the gutter
+                      texture and the shared masthead ink, so a coloured mark
+                      there would be the one loud thing in a quiet
+                      composition. A post page has none of that decoration, so
+                      the colour is what keeps the top of the page from
+                      reading as bare.
+
+                      The two need different assets, not just a different
+                      tint: the brand mark is two-tone (#2D2F63 with one
+                      #FFBC68 leaf), and the currentColor version flattens to
+                      a single colour by design. Only the grey one is inlined,
+                      since only it needs CSS tinting. #}}
+                  class="hero-symbol {{ if bodyClass === "body-post" }}hero-symbol--brand {{ /if }}w-28 md:w-44 hidden md:block"
+                  src="{{ if bodyClass === "body-post" }}/assets/symbol_darkblue_bgtransparent_2.svg{{ else }}/assets/symbol_currentcolor.svg{{ /if }}"
                   height="170"
                   width="170"
-                  inline
+                  {{ if bodyClass !== "body-post" }}inline{{ /if }}
                 /></a>
             </div>
           </div>
