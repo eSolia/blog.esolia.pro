@@ -41,8 +41,16 @@ bodyClass: body-post
                     {{ include "templates/page-toc.vto" }}
                   {{ /if }}
                 </header>
+                {{# The prose size modifiers are mobile-first on purpose. They
+                    used to read `sm:prose-sm md:prose-base lg:prose-lg`, which
+                    left NO size below 640px — so narrow screens fell back to
+                    full `prose`, the largest of the three, and then SHRANK at
+                    the sm breakpoint. The h2 ladder ran 24 -> 20 -> 24 -> 30px
+                    while the h1 rose smoothly on its clamp, so below 640px the
+                    h2 was larger than the h1 it sat under. Keep `prose-sm`
+                    unprefixed. #}}
                 <div
-                  class="prose max-w-[70ch] prose-zinc text-zinc-950 dark:text-zinc-100 sm:prose-sm md:prose-base lg:prose-lg dark:prose-invert prose-a:underline prose-a:decoration-1 prose-a:transition mt-8"
+                  class="prose max-w-[70ch] prose-zinc text-zinc-950 dark:text-zinc-100 prose-sm md:prose-base lg:prose-lg dark:prose-invert prose-a:underline prose-a:decoration-1 prose-a:transition mt-8"
                   data-mdx-content="true"
                 >
                   {{ content }}

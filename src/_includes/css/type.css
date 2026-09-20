@@ -93,9 +93,16 @@
 
   /* Trim the built-in side bearings around CJK brackets and punctuation, so
      「…」and 、。do not leave a gap wide enough to look like a space.
+
+     The value must be `trim-start`, not `auto`. `auto` is not in the value
+     set for this property, so Chrome drops the whole declaration — measured
+     on a real Japanese string, `auto` computes to `normal` and renders
+     identically to no rule at all (523.7px), while `trim-start` actually
+     trims (507.7px). This rule was inert from the day it was written.
+
      Progressive enhancement — no effect where unsupported. */
   :lang(ja) {
-    text-spacing-trim: auto;
+    text-spacing-trim: trim-start;
   }
 
   /* Proportional kana metrics. Applied to display text rather than body copy:

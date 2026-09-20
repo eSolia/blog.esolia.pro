@@ -97,7 +97,11 @@
 
   /* Post title: was text-xl -> 2xl -> 3xl -> 4xl -> 5xl across five
      breakpoints. Same 20px start and 48px end, continuous in between. */
-  --text-fluid-title: clamp(1.25rem, 0.7rem + 2.4vw, 3rem);
+  /* Floor raised 1.25rem -> 1.375rem: at 320px the clamp pins to its
+     minimum, and 20px read more like bold body copy than a title. The
+     h1 box is 288px wide there, so 22px still wraps to two balanced
+     lines with no overflow. The floor now holds to about 450px. */
+  --text-fluid-title: clamp(1.375rem, 0.7rem + 2.4vw, 3rem);
   --text-fluid-title--line-height: 1.2;
 
   /* Card title: was a flat 18px at every width, phone to 27-inch display.
