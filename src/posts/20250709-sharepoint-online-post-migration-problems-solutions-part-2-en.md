@@ -30,8 +30,7 @@ In Part 1, we discussed an issue that commonly occurs when migrating to SharePoi
 <!--more-->
 
 ## 1. What is Metadata?
-Metadata means "data about data"—in other words, it’s supplementary information that describes or gives context to other data.
-For example, when you take a photo with your smartphone, the image itself is the data. But the background details, like when and where it was taken, are metadata.
+Metadata means "data about data"—in other words, it’s supplementary information that describes or gives context to other data. For example, when you take a photo with your smartphone, the image itself is the data. But the background details, like when and where it was taken, are metadata.
 
 Typical metadata for photos might include:
 * The date and time the photo was taken
@@ -41,9 +40,7 @@ Typical metadata for photos might include:
 * File format (e.g., JPEG, PNG)
   
 Here’s an example:
-When you take a photo with your smartphone, metadata such as the date, location, camera specs, and image details are automatically saved with it.
-Hopefully, this gives you a general idea of what metadata is.
-Let’s now take a look at how metadata is used in SharePoint Online.
+When you take a photo with your smartphone, metadata such as the date, location, camera specs, and image details are automatically saved with it. Hopefully, this gives you a general idea of what metadata is. Let’s now take a look at how metadata is used in SharePoint Online.
 
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot of photo information on iPhone" src="/uploads/202504d-sharepoint-migration-part2-1.png" width="500px" transform-images="avif webp png jpeg 500@2">
@@ -115,8 +112,7 @@ Let’s compare traditional folder management with metadata management to better
 {{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**URL Length**: Flat structures prevent long URLs and potential errors.
 {{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**Collaboration**: Metadata enables cross-functional sharing by classifying content by department, project, or document type.
 
-While metadata brings major improvements, switching away from traditional folder habits can be challenging.
-To make the most of SharePoint Online, we recommend rethinking your current workflows.
+While metadata brings major improvements, switching away from traditional folder habits can be challenging. To make the most of SharePoint Online, we recommend rethinking your current workflows.
 
 {{ comp.icon({ name: "push-pin", size: 4, color: "black" }) -}}**Traditional vs. Recommended Management in SPO**
 

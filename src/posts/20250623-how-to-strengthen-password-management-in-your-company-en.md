@@ -63,14 +63,12 @@ Password managers such as Zetetic [Codebook](https://www.zetetic.net/codebook/){
 </figure>
 
 ### 4.Strengthen Access Control
-Apply **the Principle of Least Privilege (PoLP)** by granting only necessary access rights, and consider “Just in Time” access rights allocation solutions, such as M365 PIM.
-Additionally:
+Apply **the Principle of Least Privilege (PoLP)** by granting only necessary access rights, and consider “Just in Time” access rights allocation solutions, such as M365 PIM. Additionally:
 * Regularly review access permissions
 * Properly manage accounts of former or transferred employees
 
 ### 5.Employee Education and Regular Security Training
-Password security is not just an IT issue; all employees should understand its importance.
-Conduct training on:
+Password security is not just an IT issue; all employees should understand its importance. Conduct training on:
 * Identifying phishing emails
 * Raising awareness of security best practices
 * Simulated attacks to test employees’ responses

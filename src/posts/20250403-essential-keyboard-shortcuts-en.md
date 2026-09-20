@@ -26,8 +26,7 @@ Have you ever experienced something like this? You keep clicking through windows
 
 <!--more-->
 
-Here, we’ve gathered a collection of basic shortcuts you can start using right now.
-No complicated steps, no advanced knowledge required. Just simple, practical shortcuts that feel intuitive — ones your fingers will remember for you.
+Here, we’ve gathered a collection of basic shortcuts you can start using right now. No complicated steps, no advanced knowledge required. Just simple, practical shortcuts that feel intuitive — ones your fingers will remember for you.
 
 ## Useful Shortcut Keys for Windows
 ### Basic operations

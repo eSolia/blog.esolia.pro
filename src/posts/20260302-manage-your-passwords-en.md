@@ -22,11 +22,7 @@ tags:
 comments: {}
 ---
 A Beginner-Friendly Guide to Password Management
-Do you reuse the same password for multiple accounts?
-Or do you tend to choose something easy to remember?
-Passwords are essential keys that protect our personal and professional information.
-But if they’re easy for you to remember, they might also be easy for others to guess.
-In this article, we’ll look at how to manage passwords safely, and how to create stronger, harder-to-guess passwords — even for beginners.
+Do you reuse the same password for multiple accounts? Or do you tend to choose something easy to remember? Passwords are essential keys that protect our personal and professional information. But if they’re easy for you to remember, they might also be easy for others to guess. In this article, we’ll look at how to manage passwords safely, and how to create stronger, harder-to-guess passwords — even for beginners.
 
 <!--more-->
 
@@ -39,8 +35,7 @@ Here are some common cases where passwords are at risk:
 In recent years, **credential stuffing attacks** (where attackers use leaked IDs and passwords from other services) have become more common — so it’s more important than ever to strengthen your password habits.
 
 ## How to Create Strong but Memorable Passwords
-Random strings are strong — but hard to remember.
-Luckily, with a few simple rules, you can create passwords that are both secure and memorable.
+Random strings are strong — but hard to remember. Luckily, with a few simple rules, you can create passwords that are both secure and memorable.
 
 Example: Base word is “esolia”
 <table class="not-prose w-full text-sm">
@@ -85,8 +80,7 @@ Our company uses a password management tool called **[Codebook](https://www.zete
 * Includes a password generator
 * Supports two-factor authentication (2FA) settings
 
-Other password managers include **Keeper**, **Bitwarden** — but please follow company guidelines when choosing tools.
-You can find more information about the Codebook subscription pricing [here](https://codebook.cloud/pricing?includeCommercial&coupon=ESOLIAREF25OFF){target="_blank" rel="noopener"}.
+Other password managers include **Keeper**, **Bitwarden** — but please follow company guidelines when choosing tools. You can find more information about the Codebook subscription pricing [here](https://codebook.cloud/pricing?includeCommercial&coupon=ESOLIAREF25OFF){target="_blank" rel="noopener"}.
 
 ## 3 Basic Rules for Password Management
 
@@ -98,6 +92,4 @@ You can find more information about the Codebook subscription pricing [here](htt
  → Adds an extra layer of protection, even if your password is compromised
 
 ## Summary
-Passwords are like keys — and you wouldn’t want a door that opens with a coin.
-Creating strong and secure passwords is the first step in protecting your data.
-Make use of tools like Codebook to manage passwords safely, without relying on memory alone!
+Passwords are like keys — and you wouldn’t want a door that opens with a coin. Creating strong and secure passwords is the first step in protecting your data. Make use of tools like Codebook to manage passwords safely, without relying on memory alone!

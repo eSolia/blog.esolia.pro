@@ -29,8 +29,7 @@ Have you ever had trouble saving a file because the pop-up window for selecting 
 A pop-up screen is a small window that appears only when needed, separate from your regular work screen. When you save a file, the standard Windows "Save As" dialog box appears. This window allows you to select the destination folder and enter the file name, so if it’s too large or too small, it can be difficult to use. This leads to the question: is it possible to adjust its size?
 
 ## Is it possible to adjust the window size?
-Because the Save dialog is displayed using the OS’s standard mechanism, it may not always be possible to resize it freely. In many cases, especially on older operating systems or legacy business applications, the window size is fixed.
-However, in Windows 10 and later, improvements have been made to the Save dialog, and as a result, in most cases you can now adjust the window size. When the Save dialog is displayed in Explorer format (the same layout used to display files and folders in Windows Explorer), you can freely resize it by dragging any corner or the bottom-right edge of the window.
+Because the Save dialog is displayed using the OS’s standard mechanism, it may not always be possible to resize it freely. In many cases, especially on older operating systems or legacy business applications, the window size is fixed. However, in Windows 10 and later, improvements have been made to the Save dialog, and as a result, in most cases you can now adjust the window size. When the Save dialog is displayed in Explorer format (the same layout used to display files and folders in Windows Explorer), you can freely resize it by dragging any corner or the bottom-right edge of the window.
 
 <Procedure>
 1. Open the save pop-up.
@@ -40,9 +39,7 @@ However, in Windows 10 and later, improvements have been made to the Save dialog
 ※Please note that this operation may be disabled in some applications.
 
 ## How to adjust the size of a window that fills the entire screen
-Now, let’s look at how to restore a “Save As” dialog box that has expanded to fill the entire screen.
-As shown in the screenshot below, once it appears in this enlarged state, it will open in the same size the next time as well. I used to run into this issue quite often.
-Here are three ways to fix this problem.
+Now, let’s look at how to restore a “Save As” dialog box that has expanded to fill the entire screen. As shown in the screenshot below, once it appears in this enlarged state, it will open in the same size the next time as well. I used to run into this issue quite often. Here are three ways to fix this problem.
 
 ### Method 1: Double-click the title bar
 1. When a dialog box is maximized, you cannot adjust its size by dragging the cursor over the bottom right corner of the dialog box.
@@ -95,6 +92,4 @@ Here are three ways to fix this problem.
 </figure>
 
 ## Conclusion
-In many apps, if you manually change the size or position of the "Save As" window, it will often appear in the same state the next time you launch it. In some apps, the window may be initialized (its position and size reset) the next time you launch it.
-In most cases, you can change the size of the save screen to suit your needs, and making small adjustments can significantly reduce the stress of your work.
-I hope the information in this article will be useful if you’ve been experiencing issues with the size of the Save dialog box.
+In many apps, if you manually change the size or position of the "Save As" window, it will often appear in the same state the next time you launch it. In some apps, the window may be initialized (its position and size reset) the next time you launch it. In most cases, you can change the size of the save screen to suit your needs, and making small adjustments can significantly reduce the stress of your work. I hope the information in this article will be useful if you’ve been experiencing issues with the size of the Save dialog box.

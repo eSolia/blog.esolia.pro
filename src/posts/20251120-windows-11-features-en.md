@@ -23,9 +23,7 @@ tags:
   - WindowsTips
 comments: {}
 ---
-Many people have likely upgraded their company PCs to Windows 11 or replaced their home computers, as support for Microsoft Windows 10 will end on October 14, 2025.
-Since I work in IT support, I wanted to get familiar with Windows 11 before our users did, so I completed the upgrade around last summer.
-After using it for about a year, I personally feel that the UI is easier to navigate and that it includes many useful new features. In this article, I’ll briefly introduce some of the convenient features in Windows 11.
+Many people have likely upgraded their company PCs to Windows 11 or replaced their home computers, as support for Microsoft Windows 10 will end on October 14, 2025. Since I work in IT support, I wanted to get familiar with Windows 11 before our users did, so I completed the upgrade around last summer. After using it for about a year, I personally feel that the UI is easier to navigate and that it includes many useful new features. In this article, I’ll briefly introduce some of the convenient features in Windows 11.
 
 <!--more-->
 
@@ -37,13 +35,10 @@ As of October 14, 2025, PCs running Windows 10 will continue to function, but Mi
 * Feature updates
 * Security updates or patches
 
-In other words, once support ends, vulnerabilities will no longer be addressed, which increases the risk of becoming a target of cyberattacks such as viruses or malware.
-For this reason, many companies are upgrading end-user PCs before the support deadline.
-Even for home users, unless you use your PC strictly offline, it can pose a significant risk. This is a good opportunity to consider upgrading or replacing your device.
+In other words, once support ends, vulnerabilities will no longer be addressed, which increases the risk of becoming a target of cyberattacks such as viruses or malware. For this reason, many companies are upgrading end-user PCs before the support deadline. Even for home users, unless you use your PC strictly offline, it can pose a significant risk. This is a good opportunity to consider upgrading or replacing your device.
 
 ## Three Useful Features
-From here, I’ll highlight some features that truly shine in Windows 11.
-All of them are simple to use—try incorporating them into your workflow today.
+From here, I’ll highlight some features that truly shine in Windows 11. All of them are simple to use—try incorporating them into your workflow today.
 
 ### Clipboard & Emoji Panel
 **The Clipboard** allows you to save copied content (text, images, etc.) as history and paste it later.
@@ -55,8 +50,7 @@ All of them are simple to use—try incorporating them into your workflow today.
 **How to open**
 <kbd>Windows</kbd> + <kbd>V</kbd>
 
-It’s especially useful when you want to reuse something you copied earlier.
-Sometimes, when copy & paste doesn’t work for some reason, pasting from the clipboard works more reliably.
+It’s especially useful when you want to reuse something you copied earlier. Sometimes, when copy & paste doesn’t work for some reason, pasting from the clipboard works more reliably.
 
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot of Clip board" src="/uploads/202507b-windows11-features-en1.png" width="400px" transform-images="avif webp png jpeg 400@2">
@@ -107,11 +101,9 @@ This feature allows you to switch between multiple folders within a single windo
   <img alt="Screenshot of tabs on explorer" src="/uploads/202507b-windows11-features-en4.png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
 
-You can rearrange tabs by dragging them.
-When copying and pasting files, you can simply drag them between tabs to move them easily.
+You can rearrange tabs by dragging them. When copying and pasting files, you can simply drag them between tabs to move them easily.
 
-Below are some related shortcuts that also work with browsers like Edge and Chrome.
-Once you memorize them, they’re extremely useful. Give them a try!
+Below are some related shortcuts that also work with browsers like Edge and Chrome. Once you memorize them, they’re extremely useful. Give them a try!
 
 <table class="not-prose w-full text-sm">
   <caption>
@@ -160,5 +152,4 @@ Once you memorize them, they’re extremely useful. Give them a try!
 </table>
 
 ## Conclusion
-The clipboard, snap layouts, and File Explorer tabs introduced today are all simple yet highly effective features.
-Now that you’ve upgraded, try making the most of these new tools for a more comfortable and secure PC experience.
+The clipboard, snap layouts, and File Explorer tabs introduced today are all simple yet highly effective features. Now that you’ve upgraded, try making the most of these new tools for a more comfortable and secure PC experience.

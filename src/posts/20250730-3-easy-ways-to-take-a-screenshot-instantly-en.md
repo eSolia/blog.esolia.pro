@@ -47,8 +47,7 @@ oldUrl: []
 </figure>
 
 **Personal Note:**
-I often use this tool when I need a clean capture with comments.
-Its intuitive interface makes editing and saving images quick and easy.
+I often use this tool when I need a clean capture with comments. Its intuitive interface makes editing and saving images quick and easy.
 
 ## 2. Win + Shift + S – Fast and flexible partial capture
 
@@ -70,9 +69,7 @@ Its intuitive interface makes editing and saving images quick and easy.
 </figure>
 
 **Personal Note:**
-Since I discovered this shortcut, I rarely use the Snipping Tool anymore.
-What I love is that a thumbnail appears in the corner after the screenshot – click it, and you're instantly in edit mode where you can highlight or draw on it.
-It saves time and makes explanations so much clearer.
+Since I discovered this shortcut, I rarely use the Snipping Tool anymore. What I love is that a thumbnail appears in the corner after the screenshot – click it, and you're instantly in edit mode where you can highlight or draw on it. It saves time and makes explanations so much clearer.
 
 ## 3. PrintScreen Key – Capture the entire screen at once
 
@@ -91,12 +88,10 @@ It saves time and makes explanations so much clearer.
 </figure>
 
 **Personal Note:**
-Still the simplest way to capture everything.
-But you’ll often need to crop it afterward if you only want part of the image.
+Still the simplest way to capture everything. But you’ll often need to crop it afterward if you only want part of the image.
 
 ## Bonus: Use "Win + V" to access clipboard history
-If you’ve taken multiple screenshots and want to reuse a previous one, press "Win + V" to open clipboard history.
-This little-known feature lets you manage and reuse recent screenshots with ease.
+If you’ve taken multiple screenshots and want to reuse a previous one, press "Win + V" to open clipboard history. This little-known feature lets you manage and reuse recent screenshots with ease.
 
 <figure class="flex flex-col justify-start items-left">
   <img alt="Screenshot of Clip board" src="/uploads/202504b-screenshot-instantly6.png"  width="500px" transform-images="avif webp png jpeg 500@2">
@@ -134,7 +129,6 @@ This little-known feature lets you manage and reuse recent screenshots with ease
   </tbody>
 </table>
 
-Try out each method once and pick the one that feels most comfortable for you.
-Once you've got the hang of it, sharing screenshots becomes quick and easy.
+Try out each method once and pick the one that feels most comfortable for you. Once you've got the hang of it, sharing screenshots becomes quick and easy.
 **Personally, I rely on “Win + Shift + S” – it’s fast, intuitive, and super handy.**
 Give it a try and see which one works best for you!

@@ -27,8 +27,7 @@ tags:
 comments: {}
 ---
 One of the most common IT helpdesk tickets is: "My monitor suddenly stopped working…"
-Especially in setups with dual monitors and docking stations, the cause is often simple and can be resolved in just a few steps.
-This article outlines a practical checklist used by IT professionals for resolving monitor display issues quickly and efficiently.
+Especially in setups with dual monitors and docking stations, the cause is often simple and can be resolved in just a few steps. This article outlines a practical checklist used by IT professionals for resolving monitor display issues quickly and efficiently.
 
 <!--more-->
 
@@ -74,6 +73,4 @@ Over 80% of display issues can be fixed by doing one of the following:
   - Use a known working monitor or PC to cross-test and identify whether the issue lies with the PC or monitor
 
 ## Summary: Start with Power, Cables, and Settings
-Display issues are often caused by simple factors, and most of the time you can fix them by following the “unplug and replug” method and verifying display settings.
-If that doesn’t work, proceed step by step by replacing cables, testing the dock, or updating system drivers.
-You’d be surprised how many cases are resolved with just a simple reset, so give this checklist a try before calling IT support.
+Display issues are often caused by simple factors, and most of the time you can fix them by following the “unplug and replug” method and verifying display settings. If that doesn’t work, proceed step by step by replacing cables, testing the dock, or updating system drivers. You’d be surprised how many cases are resolved with just a simple reset, so give this checklist a try before calling IT support.

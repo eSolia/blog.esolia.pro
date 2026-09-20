@@ -27,8 +27,7 @@ A Simple Explanation of a Common IT Term: “Server.” You’ve probably heard 
 
 ## Let’s Start with the Basics: What Is a Server?
 A **server** is, in short, **a computer that provides services to other devices.**
-It responds to requests and delivers information or functionality — basically, it plays the role of a “host” that serves others.
-For example:
+It responds to requests and delivers information or functionality — basically, it plays the role of a “host” that serves others. For example:
 * Want to view a webpage? → A server sends that page to your device
 * Want to send an email?  → A server delivers the email to the recipient
 * Want to share a file?　 → A server stores the file and lets others access it
@@ -36,9 +35,7 @@ For example:
 In short, everything from browsing websites to sending emails relies on servers working behind the scenes.
 
 ## What’s the Difference Between a Server and a Client?
-The word “**client**” often comes up alongside “server.”
-A client is the device that **receives the service**, like your computer or smartphone.
-For example:
+The word “**client**” often comes up alongside “server.” A client is the device that **receives the service**, like your computer or smartphone. For example:
 * When you search something on Google from your phone → your device is the client
 * The Google system that returns the search results   → that’s the server
 It’s a “**client makes a request, server responds**” kind of relationship.
@@ -77,7 +74,4 @@ Recently, more companies are moving to **cloud servers**, meaning they don’t n
 In short: if something is quietly **providing something to others**, it’s probably a server!
 
 ## Summary
-A **server** isn’t something overly complicated — it’s just a computer that provides services.
-Even if you weren’t aware of it before, servers are quietly working as the “unsung heroes” behind the internet and our internal systems.
-Doesn’t it feel satisfying to finally understand what you kind of already thought you knew?
-Take this chance to dive a little deeper into familiar IT terms!
+A **server** isn’t something overly complicated — it’s just a computer that provides services. Even if you weren’t aware of it before, servers are quietly working as the “unsung heroes” behind the internet and our internal systems. Doesn’t it feel satisfying to finally understand what you kind of already thought you knew? Take this chance to dive a little deeper into familiar IT terms!
