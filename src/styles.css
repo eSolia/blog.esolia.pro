@@ -8,7 +8,6 @@
 /* @plugin "tailwind-every-layout@latest"; */
 @import "css/alerts.css";
 @import "css/type.css";
-/* @import "css/vendor/splidejs/splide-skyblue.min.css"; */
 
 @layer base {
   a {
@@ -184,14 +183,13 @@
   --color-esoliapaleyellow-950: oklch(44.52% 0.092 98.87);
 }
 
-.lede {
-  @apply text-lg font-extralight leading-relaxed;
-}
-
 /* Default lede paragraph styles (Mac, Linux, etc.) */
 /* font-weight: 300; */
 body article > div > p:first-of-type {
-  @apply text-base text-lg lg:text-xl font-extralight leading-relaxed text-zinc-950 dark:text-zinc-200;
+  /* `text-base` was here too, ahead of `text-lg`. Both set font-size, so
+     the first was emitted and immediately overridden by the second in the
+     same rule — visible as a duplicated `font-size` in the built CSS. */
+  @apply text-lg lg:text-xl font-extralight leading-relaxed text-zinc-950 dark:text-zinc-200;
 }
 
 /* Specific styles for Windows devices */

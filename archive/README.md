@@ -89,3 +89,15 @@ Japanese had only `hyphens: none`. Anything new should also consider
 `line-break` for kinsoku shori, `font-feature-settings: "palt"` for
 proportional kana spacing, `text-spacing-trim` for CJK punctuation, and
 `overflow-wrap` for long URLs.
+
+## Splide carousel (added 2026-09-20)
+
+`slider1.vto` and `splide-skyblue.min.css` were the markup and theme for a
+Splide carousel on the two index pages. Both index pages still referenced the
+template, but only from inside a Vento comment (`{{# ... #}}`), so it never
+rendered; the stylesheet's `@import` in `styles.css` was likewise commented
+out. The class names appear in **0** built pages.
+
+Kept rather than deleted because the markup is a working reference if a
+carousel is wanted again — though see issue #191, which proposes a CSS-only
+carousel instead of reintroducing the dependency.
