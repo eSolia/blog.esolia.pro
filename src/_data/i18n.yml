@@ -75,6 +75,8 @@ post:
   reading_time: 読了目安
   minutes: 分
   hot: 人気
+  photo_credit: 写真
+  photo_credit_on: ・
 search:
   by_author: 著者
   by_tag: タグ
