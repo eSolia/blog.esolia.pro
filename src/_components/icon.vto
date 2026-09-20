@@ -1,24 +1,34 @@
 {{# Inline SVG icon for use in post markdown, so authors can drop a Phosphor
     icon into a sentence without writing HTML.
 
-    Use:
-      {{ comp.icon({ name: "lightbulb", size: 6, color: "esoliaamber" }) }}
+    Use, in a post, with a right trim so the icon hugs the text after it:
+      comp.icon({ name: "lightbulb", size: 4, color: "esoliaamber" })
 
-    MUST stay on a single line. This tag is emitted into markdown, and the
-    markdown-it options in _config.ts set `breaks: true`, which turns every
-    newline into a <br>. When this component was written across several lines,
-    those <br> landed *inside* the tag and split it apart, so markdown-it no
-    longer recognized it as HTML — it rendered the attributes as visible text,
-    and `typographer: true` then curled the quotes for good measure. That is
-    what readers saw: a literal `<img class=“size-4 …” src=‘…’ inline` in the
-    middle of a paragraph, on every icon in every post that used this.
+    WHITESPACE CONTRACT: this component must render to exactly the img tag —
+    no leading newline, no trailing newline. Two separate failures follow if it
+    does not, and both are silent.
 
-    Keep the attributes on one line and both problems disappear: markdown-it
-    parses it as inline HTML, leaves the quotes alone, and Lume's inline plugin
-    swaps the whole tag for the SVG at build time.
+      * A leading newline puts the tag at the start of its own line. Markdown
+        then sees a complete open tag alone on a line, which is a CommonMark
+        HTML block (condition 7). The block runs to the next blank line and
+        swallows whatever follows, so bold markup after it renders as literal
+        asterisks.
 
-    `deno fmt` wraps this back onto four lines given the chance, which silently
-    reintroduces the bug — so src/_components is excluded from fmt in
-    deno.json. Do not remove that exclusion without moving this markup
-    somewhere the formatter cannot reach. #}}
+      * A trailing newline does the same thing, one line later.
+
+    Authors used to work around this with trim markers on both sides of the
+    call in posts. The right trim is harmless, but the LEFT trim strips
+    backwards past the blank line that separates the call from the block above
+    it, so the icon got absorbed into the preceding heading, list item or
+    figure. That was issue #326.
+
+    So the whitespace is controlled here instead, in one place:
+      - the trim marker on this comment's closing tag removes the newline that
+        would otherwise follow it;
+      - the file deliberately ends WITHOUT a trailing newline.
+
+    Keep both. src/_components is excluded from `deno fmt` in deno.json partly
+    for this reason — the formatter would re-add the trailing newline, and also
+    re-wrap the tag below onto several lines, which breaks it a third way
+    (issue #324). -#}}
 <img class="size-{{ size }} fill-{{ color }}-400 inline-block align-[-0.1em] mr-1" src="{{ name |> icon('phosphor', 'duotone') }}" inline>
