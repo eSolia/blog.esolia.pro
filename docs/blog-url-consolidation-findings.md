@@ -324,10 +324,125 @@ actively misleading once a separate thing called **the blog** appeared on the
 same origin. `/articles/` is **The eSolian**, a named publication with its own
 masthead — articles, insights and case studies. Both are now named properly.
 
+### Pass 4 — dead source
+
+The entire custom CSS layer was unreachable. Nine partials were imported only by
+`src/styles.oldcss`, which is not a `.css` file, so `site.add([".css"])` never
+matched it and Lume never processed it. None of it had ever been in effect — the
+English hyphenation setup, the Japanese `hyphens` rule, `text-wrap` on headings,
+the article heading scale, the letter-spacing variables. Twelve unreferenced
+templates and layouts alongside it, mostly earlier drafts superseded by a
+sibling.
+
+Twenty-one files moved to `archive/`, outside `src/`. Two lessons recorded in
+`archive/README.md`:
+
+- **A filename search is the wrong instrument for Lume components.** Templates,
+  layouts and stylesheets all reference by path, so searching for the filename
+  is correct for them. Components are used as `comp.icon({ … })`, which never
+  contains the filename. `_components/icon.vto` was archived by mistake on that
+  basis; the build failed loudly and it was restored.
+- **A naive hash of the built HTML cannot verify "nothing changed".** `_data.ts`
+  stamps a fresh `cacheBuster` into every build, so two builds of byte-identical
+  source hash differently. Strip `?cb=<digits>` first. With that, 2754 files and
+  hash `60a55b08` before and after.
+
+Also worth knowing: `src/generators/*.page.js` look unreferenced to any grep
+because Lume auto-discovers `*.page.js` by convention rather than importing it.
+They are live.
+
+### Pass 5 — typography
+
+The blog had no typography CSS in effect (see pass 4). A live layer now exists
+at `src/_includes/css/type.css`, recovering the English hyphenation work from
+the archived file and adding Japanese handling it never had:
+`line-break:
+strict` for kinsoku shori, `overflow-wrap: break-word` for long
+Latin runs, `text-spacing-trim: auto` for CJK punctuation, and `palt` on
+`h1`–`h3` where loose full-width kana spacing actually shows.
+
+**Two orphan bugs, both caught by looking at the rendered page rather than the
+code.** A single 「は」 stranded on its own line in the ja hero — not a wrap
+artifact but a hardcoded `<br class="hidden md:inline">` that assumed the text
+would wrap at a particular point. And the external-link arrow could wrap away
+from its link: hibana's `externalLinksIcon` emits `after:content-['_↗']`, where
+`_` is Tailwind's stand-in for a space, so a break can land between text and
+arrow. Japanese makes it far likelier, since there is a break opportunity
+between almost every pair of characters. Fixed with `U+00A0`.
+
+That override had to be **unlayered**: Tailwind's `utilities` layer outranks
+`base`, so `@layer base` loses to the very class it overrides. Unlayered rules
+beat every layer.
+
+**The responsive sweep found no overflow at all** — 8 widths × 2 languages, zero
+at every one, later re-confirmed at 320–1920 across ja, en and a post page. What
+it did find was a scale that stepped and then stopped:
+
+|         | Before                                   | After               |
+| ------- | ---------------------------------------- | ------------------- |
+| Hero h1 | 36px, snap to 48px at `sm`, flat to 1536 | 36 → 56, continuous |
+| Post h1 | five breakpoints (`xl`→`5xl`)            | 20 → 48, continuous |
+| Card h2 | flat 18px, phone to 27-inch              | 18 → 22             |
+
+Nine breakpoint declarations became three `clamp()` tokens in `@theme`, anchored
+to the sizes already in use. That is why tuning felt fiddly: with steps, every
+intermediate width is served by whichever step it lands in, so the fix always
+looks like adding another breakpoint.
+
+**Measurement note.** The first attempt at the sweep was invalid: constraining
+`document.documentElement.style.width` does not move the viewport, so media
+queries never fire and `fixed` elements still measure against the real window.
+It reported 1408px of overflow that did not exist. Same-origin iframes sized to
+each width do work — media queries resolve against the iframe. But the site's
+own `X-Frame-Options: DENY` and `frame-ancestors 'none'` block that, so the
+build has to be served without those headers for the measurement.
+
+### Pass 6 — `comp.icon` rendered as literal text (found in production)
+
+Reported by Rick from a live page, not by any check here — worth noting, because
+none of the passes above would have caught it. The broken output was valid HTML
+containing visible text; nothing 404s, nothing errors, and the accessibility and
+structured-data passes had no reason to look at paragraph prose.
+
+`src/_components/icon.vto` — the component that lets staff drop a Phosphor icon
+into post markdown — emitted its `<img>` tag across four lines. Post markdown
+runs with `breaks: true` and `typographer: true`. So:
+
+1. `breaks: true` turned the newlines _inside_ the tag into `<br>`, splitting
+   the tag apart;
+2. markdown-it therefore stopped recognizing it as inline HTML and rendered the
+   attributes as visible text;
+3. `typographer: true` curled the quotes on the way out;
+4. the orphaned `>` at the end started a `<blockquote>`, swallowing the rest of
+   the sentence.
+
+Readers saw `<img class="size-4 ..." src="..." inline` mid-paragraph. **67
+occurrences across 10 posts** (five ja/en pairs).
+
+The fix is to keep the tag on one line. The part worth remembering is the second
+half: **`deno fmt` wraps it straight back to four lines**, and CI runs
+`deno lint && deno fmt --check && deno task lume`, so the next formatting run
+would have silently restored the bug with nothing failing anywhere. A one-line
+fix here is not stable unless the formatter is told to leave it alone —
+`src/_components` is now excluded from `fmt`, with the reason written into the
+component itself so it travels with the code.
+
+This is the same shape as the migration bugs in Part 1: **a silent failure in a
+build that reports success.** The difference is only where it surfaced. Issue
+#324, PR #325.
+
 ### Remaining
 
-Typography (ja + en — hyphenation, orphans, CJK line-breaking), CSS review, hero
-area design, JS organization.
+Accessibility, structured data, AI discoverability, dead source, typography and
+JS organization are done — the last of those landed with the search dialog's
+focus management in PR #323. Still open: **CSS review** and **hero area design**
+(a subtle tech motif at the upper right).
+
+Worth judging on screen rather than in a diff, now that the typography layer is
+deployed: `text-spacing-trim` and `palt` on a real Japanese post, and the
+640–1024 band where the hero h1 is now 41–48px rather than a flat 48. The latter
+is taste, not measurement — raising the `clamp()` intercept from `1.75rem`
+restores the old size.
 
 Carried into those passes:
 
