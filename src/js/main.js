@@ -1,18 +1,24 @@
 import { loadVendorScript } from "hibana/utils/dom_utils.ts";
 
-// Load this first
+// Load this first.
+//
+// Only Windows is tagged, because only `body.os-windows` has any CSS behind
+// it: three rules in styles.css that bump the lede and nav to a heavier
+// weight, working around text rendering thin and blurry on Windows. The
+// earlier version of this block also tagged Windows Phone, Android, iOS and
+// macOS, but nothing ever styled those four classes, so they were dead hooks.
+//
+// `globalThis.opera` went with them — that was for Presto-era Opera, which
+// has not existed since 2013 — as did the Windows Phone branch, which
+// Microsoft stopped supporting in 2019.
+//
+// This is user-agent sniffing, which is normally the wrong tool. It is kept
+// because the problem it solves is a platform font-rasterization difference
+// that no feature query can detect.
 (function () {
-  const userAgent = navigator.userAgent || navigator.vendor || globalThis.opera;
+  const userAgent = navigator.userAgent || navigator.vendor;
 
-  if (/windows phone/i.test(userAgent)) {
-    document.body.classList.add("os-windows-phone");
-  } else if (/android/i.test(userAgent)) {
-    document.body.classList.add("os-android");
-  } else if (/iPad|iPhone|iPod/.test(userAgent) && !globalThis.MSStream) {
-    document.body.classList.add("os-ios");
-  } else if (/Mac/i.test(userAgent)) {
-    document.body.classList.add("os-mac");
-  } else if (/Win/i.test(userAgent)) { // This would catch most Windows desktops/laptops
+  if (/Win/i.test(userAgent)) {
     document.body.classList.add("os-windows");
   }
 })();
