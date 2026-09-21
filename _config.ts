@@ -440,7 +440,48 @@ interface AlertEnv {
   data?: { page?: { data?: { i18n?: { alert?: Record<string, string> } } } };
 }
 
+// `howto` is ours, not a GitHub alert type. It rides on this plugin rather
+// than on a new markdown-it container because the plugin already tokenizes
+// its body as markdown, so an author writes an ordinary numbered list and
+// gets a real <ol> — which is the whole point. Authors were previously
+// writing `{{ comp.icon(...) }} How to Operate` followed by a bare list, and
+// under CommonMark that list is a lazy continuation of the preceding
+// paragraph: it rendered as "<br> 1." literal text, not a list at all.
+const ALERT_NAMES = [
+  "note",
+  "tip",
+  "important",
+  "warning",
+  "caution",
+  "howto",
+];
+
+/** The wrapper class and element differ for `howto`; everything else is a GitHub-style callout. */
+function alertKind(tokens: AlertToken[], index: number): string {
+  return (tokens[index].markup ?? "").toLowerCase();
+}
+
 site.hooks.addMarkdownItPlugin(alert, {
+  alertNames: ALERT_NAMES,
+
+  // A procedure is a section of steps, not an aside, so `howto` gets
+  // <section> + <ol> rather than the callout <div>. There is no dedicated
+  // HTML element for a procedure; <ol> is the semantic part and the plugin
+  // produces it from the author's markdown. The <section> is left unnamed on
+  // purpose: these repeat many times per page, so giving each one an
+  // accessible name would flood a screen reader's landmark and heading lists
+  // with identical entries.
+  openRenderer(tokens: AlertToken[], index: number): string {
+    const kind = alertKind(tokens, index);
+    return kind === "howto"
+      ? `<section class="howto">`
+      : `<div class="markdown-alert markdown-alert-${kind}">`;
+  },
+
+  closeRenderer(tokens: AlertToken[], index: number): string {
+    return alertKind(tokens, index) === "howto" ? `</section>` : `</div>`;
+  },
+
   titleRenderer(
     tokens: AlertToken[],
     index: number,
@@ -448,7 +489,7 @@ site.hooks.addMarkdownItPlugin(alert, {
     env: AlertEnv | undefined,
   ): string {
     const token = tokens[index];
-    const key = (token.markup ?? "").toLowerCase();
+    const key = alertKind(tokens, index);
     // Fall back to the word the author typed, so an unrecognized or
     // untranslated alert degrades to the English label rather than to empty.
     const label = env?.data?.page?.data?.i18n?.alert?.[key] ??
@@ -457,7 +498,8 @@ site.hooks.addMarkdownItPlugin(alert, {
       .replaceAll("&", "&amp;")
       .replaceAll("<", "&lt;")
       .replaceAll(">", "&gt;");
-    return `<p class="markdown-alert-title">${escaped}</p>`;
+    const cls = key === "howto" ? "howto-title" : "markdown-alert-title";
+    return `<p class="${cls}">${escaped}</p>`;
   },
 });
 

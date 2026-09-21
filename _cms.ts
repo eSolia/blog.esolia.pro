@@ -646,6 +646,17 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
           value: `{{ comp.icon({ name: "fire", size: 4, color: "red" }) -}}`,
         },
         {
+          // Steps go INSIDE the blockquote, each line prefixed with "> ".
+          // A bare list after the marker is a CommonMark lazy continuation of
+          // the preceding paragraph and renders as literal "1." text, which is
+          // exactly the bug this snippet exists to stop authors reproducing.
+          label: "HOW TO (Step-by-step procedure)",
+          value: `> [!HOWTO]
+> 1. {$}
+> 2.
+> 3.`,
+        },
+        {
           label: "NOTE (Info highlight)",
           value: `> [!NOTE]
 > {$}`,
