@@ -4,15 +4,17 @@ bodyClass: body-tag
 ---
 <!-- ===== archive_result.vto LAYOUT START ===== -->
 <main id="main-content" class="flex-auto">
-  {{# Category pages lead with a full-width hero; tag and author pages keep the
-      plain heading. The hero sits OUTSIDE the usual max-w-5xl text column so it
+  {{# Category and tag pages lead with a full-width hero; author pages keep
+      the plain heading. The hero sits OUTSIDE the usual max-w-5xl text column so it
       can span the white sheet edge to edge between the gutters — a banner inset
       to the text column reads as a stray graphic rather than a page header. #}}
-  {{ if type === "category" && heroArt }}
+  {{ if (type === "category" || type === "tag") && heroArt }}
     <div class="mt-16 sm:mt-24 sm:px-8">
       <div class="mx-auto w-full max-w-7xl lg:px-8">
         <div class="px-4 sm:px-8 lg:px-12">
-          <div class="category-hero">
+          <div
+            class='category-hero{{ if type === "tag" }} category-hero--tag{{ /if }}'
+          >
             <img
               class="category-hero-art"
               src="{{ heroArt }}"
@@ -26,7 +28,7 @@ bodyClass: body-tag
                 the same plain `color` value the CMS already collects, so an
                 editor types "violet" rather than a Tailwind class. #}}
             <div
-              class="category-hero-tint bg-{{ if color }}{{ color }}{{ else }}zinc{{ /if }}-600"
+              class='category-hero-tint bg-{{ if type === "tag" }}zinc-700{{ else }}{{ if color }}{{ color }}{{ else }}zinc{{ /if }}-600{{ /if }}'
             >
             </div>
             {{# Decorative only. The nav's linked logo is hidden on this page
@@ -46,7 +48,9 @@ bodyClass: body-tag
                   quotes, which suit the small inline heading on tag and author
                   pages but read as a quotation at hero scale. The CATEGORY:
                   eyebrow above already frames the name. #}}
-              <span class="category-hero-title-name">{{ category }}</span>
+              <span class="category-hero-title-name">{{ if type === "tag" }}{{
+                    tag
+                  }}{{ else }}{{ category }}{{ /if }}</span>
             </h1>
           </div>
         </div>
@@ -55,7 +59,7 @@ bodyClass: body-tag
   {{ /if }}
 
   <div
-    class='{{ if type === "category" && heroArt }}mt-8{{ else }}mt-16 sm:mt-32{{ /if }} sm:px-8'
+    class='{{ if (type === "category" || type === "tag") && heroArt }}mt-8{{ else }}mt-16 sm:mt-32{{ /if }} sm:px-8'
   >
     <div class="mx-auto w-full max-w-full lg:px-8">
       <div class="relative px-4 sm:px-8 lg:px-12">
@@ -83,8 +87,9 @@ bodyClass: body-tag
                 {{ i18n.archive.back }}
               </a>
             </div>
-            {{# On category pages the hero already carries the heading. #}}
-            {{ if type !== "category" || !heroArt }}
+            {{# The hero already carries the heading on category and tag
+                pages. #}}
+            {{ if !((type === "category" || type === "tag") && heroArt) }}
               <h1
                 class="text-2xl 2xs:text-3xl sm:text-4xl lg:text-5xl tracking-tight text-zinc-950 dark:text-zinc-100 subpixel-antialiased"
               >

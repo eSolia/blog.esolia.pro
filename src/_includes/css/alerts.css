@@ -525,3 +525,54 @@ body {
     );
   }
 }
+
+/* Tag heroes: same band, different family.
+ *
+ * No colour, on purpose. Colour is what marks a category, and categories are
+ * the axis that takes precedence — a palette for tags would blur exactly the
+ * distinction the taxonomy relies on. A neutral tint over the schematic artwork
+ * keeps tags reading as the finer, second tier.
+ *
+ * Shorter than a category band too, which reinforces the same hierarchy.
+ */
+body {
+  .category-hero--tag {
+    min-height: clamp(8rem, 5rem + 11vw, 13rem);
+
+    /* The schematic artwork is line work, not masses, so a heavy tint erases
+       it. Lighter tint, stronger shade under the heading instead. */
+    & .category-hero-tint {
+      opacity: 0.62;
+    }
+
+    &::after {
+      background: linear-gradient(
+        105deg,
+        rgb(0 0 0 / 68%) 0%,
+        rgb(0 0 0 / 40%) 34%,
+        rgb(0 0 0 / 6%) 70%,
+        transparent 100%
+      );
+    }
+
+    & .category-hero-art {
+      /* Less scale than the ribbons: the grid reads as skewed if pushed. */
+      scale: 1.06;
+    }
+
+    & .category-hero-mark {
+      opacity: 0.34;
+      height: 76%;
+    }
+
+    & .category-hero-title-name {
+      font-size: clamp(1.4rem, 0.9rem + 3vw, 2.75rem);
+    }
+  }
+}
+
+.dark {
+  .category-hero--tag .category-hero-tint {
+    opacity: 0.3;
+  }
+}

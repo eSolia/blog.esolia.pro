@@ -218,6 +218,118 @@ ${shapes.join("\n")}
 `;
 }
 
+/**
+ * The tag style: schematic rather than flowing.
+ *
+ * Tags deliberately do NOT get the ribbon artwork or a colour. Colour is what
+ * marks a category, and categories are the coarse axis that takes precedence —
+ * giving tags their own palette would blur exactly the distinction the taxonomy
+ * depends on. A different pattern family and a neutral treatment keep tags
+ * reading as the finer, second tier.
+ *
+ * Concentric arcs, a faint measuring grid and a few nodes: closer to the
+ * circuit underlay on the home page than to the category ribbons.
+ */
+function tagArtwork(index: number): string {
+  const rand = rng(0x85EBCA6B ^ (index * 374761393));
+  const shapes: string[] = [];
+
+  // Faint grid, the ground the rest sits on.
+  const cell = 60 + Math.floor(rand() * 70);
+  const grid: string[] = [];
+  for (let x = 0; x <= WIDTH; x += cell) {
+    grid.push(`M ${x} 0 V ${HEIGHT}`);
+  }
+  for (let y = 0; y <= HEIGHT; y += cell) {
+    grid.push(`M 0 ${y} H ${WIDTH}`);
+  }
+  shapes.push(
+    `<path d="${
+      grid.join(" ")
+    }" fill="none" stroke="rgb(120,120,130)" stroke-width="1" opacity="0.24"/>`,
+  );
+
+  // Two or three arc fans, radiating from origins placed off the canvas so only
+  // the sweep shows rather than a bullseye.
+  const fans = 2 + Math.floor(rand() * 2);
+  for (let f = 0; f < fans; f++) {
+    const cx = WIDTH * (-0.15 + rand() * 1.3);
+    const cy = HEIGHT * (rand() < 0.5 ? -0.5 - rand() : 1.5 + rand());
+    const rings = 10 + Math.floor(rand() * 16);
+    const gap = 26 + rand() * 48;
+    const base = 120 + rand() * 260;
+    const tone = 70 + Math.floor(rand() * 45);
+    const arcs: string[] = [];
+    for (let i = 0; i < rings; i++) {
+      const rad = base + i * gap;
+      // Full circles; the viewBox crops them into sweeps.
+      arcs.push(
+        `<circle cx="${r(cx)}" cy="${r(cy)}" r="${
+          r(rad)
+        }" fill="none" stroke="rgb(${tone},${tone},${
+          tone + 10
+        })" stroke-width="${(1.4 + rand() * 2.2).toFixed(1)}" opacity="${
+          (0.2 + 0.45 * (1 - i / rings)).toFixed(2)
+        }"/>`,
+      );
+    }
+    shapes.push(`<g>${arcs.join("")}</g>`);
+  }
+
+  // A couple of soft wedges for weight, so the band is not only line work.
+  const wedges = 2 + Math.floor(rand() * 2);
+  for (let w = 0; w < wedges; w++) {
+    const x = WIDTH * rand();
+    const width = WIDTH * (0.18 + rand() * 0.35);
+    const skew = HEIGHT * (0.3 + rand() * 0.9) * (rand() < 0.5 ? -1 : 1);
+    const tone = 125 + Math.floor(rand() * 60);
+    shapes.push(
+      `<path d="M ${r(x)} ${-50} L ${r(x + width)} ${-50} L ${
+        r(x + width + skew)
+      } ${HEIGHT + 50} L ${r(x + skew)} ${
+        HEIGHT + 50
+      } Z" fill="rgb(${tone},${tone},${tone + 6})" opacity="${
+        (0.16 + rand() * 0.22).toFixed(2)
+      }"/>`,
+    );
+  }
+
+  // Nodes on the grid, like measurement points.
+  for (let i = 0; i < 7; i++) {
+    const cx = Math.round((rand() * WIDTH) / cell) * cell;
+    const cy = Math.round((rand() * HEIGHT) / cell) * cell;
+    const rad = (2.5 + rand() * 5).toFixed(1);
+    shapes.push(
+      `<circle cx="${cx}" cy="${cy}" r="${rad}" fill="rgb(105,105,115)" opacity="${
+        (0.22 + rand() * 0.3).toFixed(2)
+      }"/>`,
+    );
+  }
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${WIDTH} ${HEIGHT}" width="${WIDTH}" height="${HEIGHT}" preserveAspectRatio="xMidYMid slice" role="presentation">
+<rect width="${WIDTH}" height="${HEIGHT}" fill="rgb(244,244,246)"/>
+${shapes.join("\n")}
+</svg>
+`;
+}
+
+/** How many tag designs. 100-odd tags share these, which is fine: decorative. */
+export const TAG_POOL = 32;
+
+/** Same quarterly-salted derivation as categories, over the tag's own pool. */
+export function tagArtFor(tagName: string, when = new Date()): string {
+  const quarter = `${when.getUTCFullYear()}Q${
+    Math.floor(when.getUTCMonth() / 3) + 1
+  }`;
+  let h = 2166136261;
+  for (const ch of `tag:${tagName}:${quarter}`) {
+    h ^= ch.codePointAt(0)!;
+    h = Math.imul(h, 16777619);
+  }
+  const n = ((h >>> 0) % TAG_POOL) + 1;
+  return `${ART_BASE}/tag-${String(n).padStart(2, "0")}.svg`;
+}
+
 if (import.meta.main) {
   await Deno.mkdir(OUT_DIR, { recursive: true });
   let total = 0;
@@ -227,7 +339,15 @@ if (import.meta.main) {
     await Deno.writeTextFile(path, artwork(i));
     total += (await Deno.stat(path)).size;
   }
+  let tagTotal = 0;
+  for (let i = 1; i <= TAG_POOL; i++) {
+    const path = `${OUT_DIR}/tag-${String(i).padStart(2, "0")}.svg`;
+    await Deno.writeTextFile(path, tagArtwork(i));
+    tagTotal += (await Deno.stat(path)).size;
+  }
   console.log(
-    `  ${POOL} designs in ${OUT_DIR}, ${(total / 1024).toFixed(0)} KB total`,
+    `  ${POOL} category designs, ${(total / 1024).toFixed(0)} KB\n` +
+      `  ${TAG_POOL} tag designs, ${(tagTotal / 1024).toFixed(0)} KB\n` +
+      `  in ${OUT_DIR}`,
   );
 }

@@ -17,7 +17,7 @@
                 showing this one too would put two eSolia symbols on the page
                 within a few hundred pixels of each other. #}}
             <div
-              class="relative mt-12 md:mt-1 md:-ml-20{{ if type === "category" }} hidden{{ /if }}"
+              class="relative mt-12 md:mt-1 md:-ml-20{{ if type === "category" || type === "tag" }} hidden{{ /if }}"
             >
               <a
                 aria-label="{{ i18n.nav.return_home }}"

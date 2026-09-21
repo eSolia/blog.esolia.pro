@@ -1,4 +1,4 @@
-import { artFor } from "../../scripts/gen-category-art.ts";
+import { artFor, tagArtFor } from "../../scripts/gen-category-art.ts";
 
 export const layout = "layouts/archive_result.vto";
 export const lang = ["ja", "en"];
@@ -28,6 +28,8 @@ export default function* (
     yield {
       ...featuretags.find((item) => item.key === tag), // <- Add the id and summary etc from featuretags
       url: `/archive/${tag}/`,
+      // Tags get the schematic artwork and no colour — see tagArtFor().
+      heroArt: tagArtFor(tag),
       // Percent-encode the retired name. The redirects plugin splits each
       // oldUrl on whitespace to allow an optional trailing status code, so a
       // name like "internal IT support" is read as a path plus the status
