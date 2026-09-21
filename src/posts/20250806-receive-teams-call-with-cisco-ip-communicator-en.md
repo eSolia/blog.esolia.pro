@@ -15,7 +15,7 @@ category: Microsoft-365
 tags:
   - Microsoft Teams
   - Cisco IP Communicator
-  - Chat tool
+  - Chat Tool
 comments: {}
 oldUrl: []
 ---

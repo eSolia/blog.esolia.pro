@@ -14,10 +14,10 @@ image: /uploads/202503f-laptop-battery-health-social-en.jpg
 author: K.Y.
 category: Troubleshooting
 tags:
-  - battery
-  - health check
-  - laptop
-  - hardware
+  - Battery
+  - Health Check
+  - Laptop
+  - Hardware
 comments: {}
 image_top: /uploads/202503f-laptop-battery-health-top.jpg
 oldUrl:

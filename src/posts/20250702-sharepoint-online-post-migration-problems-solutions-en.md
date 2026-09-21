@@ -19,9 +19,9 @@ comments: {}
 date: 2025-07-02T01:00:00.000Z
 last_modified: 2025-07-02T11:05:00.000Z
 tags:
-  - spo
-  - migration
-  - troubleshooting
+  - SharePoint Online
+  - Migration
+  - Troubleshooting
 image_top: /uploads/202503b-sharepoint-migration-part1-top.jpg
 oldUrl: []
 ---

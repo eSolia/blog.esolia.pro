@@ -17,11 +17,10 @@ image_top: /uploads/202603b-restarting-pc.png
 author: KC
 category: Troubleshooting
 tags:
-  - IT Basics
-  - PC Troubles
+  - IT Literacy
+  - Troubleshooting
   - PC Performance
-  - TechForBeginners
-  - BeginnerFriendly
+  - Beginners
 comments: {}
 ---
 When your computer starts acting strangely, IT support often gives a very simple suggestion: “Please try restarting your computer.” It might sound too simple to be effective, but in reality, many common PC issues can be resolved with a restart. In this article, we’ll explain why restarting works and how it differs from shutting down your computer.

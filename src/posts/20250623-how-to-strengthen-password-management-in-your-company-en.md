@@ -19,8 +19,7 @@ author: Kabaya
 category: Security
 tags:
   - Cybersecurity
-  - IT Management
-  - Corporate Security
+  - IT Operations
 comments: {}
 oldUrl: []
 ---

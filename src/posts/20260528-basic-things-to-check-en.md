@@ -16,10 +16,9 @@ image_top: /uploads/202603d-basic-things-to-check.png
 author: SK
 category: Troubleshooting
 tags:
-  - ErrorFixing
-  - BasicChecks
-  - TechForBeginners
-  - ITLiteracy
+  - Troubleshooting
+  - Beginners
+  - IT Literacy
 comments: {}
 ---
 When an error occurs during daily work, it is easy to repeat actions or react immediately. However, checking a few key points before acting can make a significant difference in how quickly the issue is resolved. This article briefly summarizes three points to check first.

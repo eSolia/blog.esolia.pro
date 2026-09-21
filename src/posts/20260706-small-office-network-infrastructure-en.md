@@ -18,14 +18,14 @@ image: /uploads/202603f-small-office-infra-en.png
 image_top: /uploads/202603f-small-office-infra.png
 author: Kabaya
 tags:
-  - NetworkInfrastructure
-  - SmallOffice
+  - Network Infrastructure
+  - Small Office
   - VPN
   - IPoE
   - PPPoE
-  - ITInfrastructure
-  - ITOperations
-  - ITSupport
+  - IT Infrastructure
+  - IT Operations
+  - IT Support
 comments: {}
 ---
 "We may want to change our Internet connection from PPPoE to IPoE." This was a request I recently received. Although I was familiar with the terms PPPoE and IPoE, I realized I needed to better understand what would actually change and how the existing network environment might be affected. As I investigated the environment, one thing became clear: having a good understanding of your network topology makes it much easier to assess the impact of any infrastructure changes. In this article, I'd like to share the approach I took to understand a small office network, even without a complete network diagram.

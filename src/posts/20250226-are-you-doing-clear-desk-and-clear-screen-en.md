@@ -12,7 +12,7 @@ image_top: /uploads/20250226-clear-desk-top.jpg
 author: Rick Cogley
 category: Security
 tags:
-  - ISO-27001
+  - ISO 27001
 oldUrl:
   - /2505cleardeske/
 comments: {}

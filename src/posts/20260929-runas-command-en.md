@@ -19,13 +19,12 @@ author: Kabaya
 category: Windows
 tags:
   - Runas
-  - AdminRights
-  - ITSupport
-  - BeginnerFriendly
-  - DeviceManager
+  - Admin Rights
+  - IT Support
+  - Beginners
+  - Device Manager
   - Chrome
-  - BusinessEfficiency
-  - InternalIT
+  - Productivity
 comments: {}
 ---
 In day-to-day IT support, situations often come up like:

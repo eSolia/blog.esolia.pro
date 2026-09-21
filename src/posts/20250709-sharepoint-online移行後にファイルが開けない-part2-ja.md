@@ -15,8 +15,8 @@ image_top: /uploads/202504d-sharepoint-migration-part2.jpeg
 author: Ena
 category: Microsoft-365
 tags:
-  - SharePointOnline
-  - Microsoft365
+  - SharePoint Online
+  - Microsoft 365
   - クラウド移行
   - ファイル管理
   - 業務効率化

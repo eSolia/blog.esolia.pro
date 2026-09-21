@@ -14,10 +14,8 @@ image_top: /uploads/202507a-acrobat-standard.png
 author: YM
 category: その他
 tags:
-  - Adobe
-  - アドビ
+  - Adobe Acrobat
   - Adobe Standard
-  - アドビスタンダード
   - Acrobat Pro
   - Adobe Reader
 comments: {}

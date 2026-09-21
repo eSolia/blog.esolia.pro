@@ -16,9 +16,9 @@ image_top: /uploads/202507e-manage-your-passwords.png
 author: KC
 category: Security
 tags:
-  - ForBeginners
-  - PasswordManagement
-  - CyberSecurityTips
+  - Beginners
+  - Password Management
+  - Cybersecurity
 comments: {}
 ---
 A Beginner-Friendly Guide to Password Management

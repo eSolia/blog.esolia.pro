@@ -16,13 +16,12 @@ image: /uploads/202603c-adobe-scan-en.png
 image_top: /uploads/202603c-adobe-scan.png
 author: YM
 tags:
-  - DocumentScanning
+  - Document Scanning
   - PDF
-  - DocumentScanner
-  - ScanToPDF
+  - Document Scanner
+  - Scan to PDF
   - Paperless
   - Productivity
-  - WorkSmarter
 comments: {}
 ---
 Have you ever wanted to quickly convert documents into PDFs when you don’t have access to a multifunction printer, or when you can’t use one right away? Of course, taking a photo of the document with your smartphone is one option, but shadows, camera shake, and uneven image quality can often make the result less than ideal. I’ve experienced that myself. That’s where the app [Adobe Scan](https://www.adobe.com/jp/acrobat/mobile/scanner-app.html){target="_blank" rel="noopener"} comes in handy for easily creating PDFs. I personally use it privately when I find it a bit inconvenient to start up a PC and scan documents. I also use it at work in situations where I can’t access a multifunction printer or when I want to save time by avoiding a trip to the copier.

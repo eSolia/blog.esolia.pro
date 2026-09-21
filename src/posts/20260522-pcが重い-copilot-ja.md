@@ -16,7 +16,7 @@ author: K.Y.
 category: Windows
 tags:
   - Copilot
-  - Office365
+  - Office 365
   - PCパフォーマンス
 comments: {}
 ---

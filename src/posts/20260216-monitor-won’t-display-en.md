@@ -19,11 +19,11 @@ image_top: /uploads/202507c-monitor-troubleshooting.jpeg
 author: Kabaya
 category: Troubleshooting
 tags:
-  - Display issues
-  - Docking station
-  - HDMI cable
+  - Display Issues
+  - Docking Station
+  - HDMI Cable
   - Office PC
-  - End-user tips
+  - Beginners
 comments: {}
 ---
 One of the most common IT helpdesk tickets is: "My monitor suddenly stopped working…"

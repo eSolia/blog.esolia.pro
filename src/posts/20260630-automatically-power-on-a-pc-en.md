@@ -19,14 +19,14 @@ image_top: /uploads/202508d-power-on-pc.png
 author: Kabaya
 category: Troubleshooting
 tags:
-  - BIOSSettings
+  - BIOS Settings
   - Dell
-  - AutoPowerOn
-  - ACRecovery
-  - PCManagement
-  - PowerOutageRecovery
-  - ITAdminTips
-  - PowerSettings
+  - Auto Power On
+  - AC Recovery
+  - PC Management
+  - Power Outage Recovery
+  - IT Operations
+  - Power Settings
 comments: {}
 ---
 In business environments, it's not uncommon to run into situations where a PC doesn't automatically restart after a Windows update, or remains powered off after a power outage. This can become a real problem, especially for PCs used for remote access or unattended operations like surveillance or server-related tasks. In this article, we’ll walk you through how to configure the BIOS setting on Dell Optiplex PCs (e.g., 7060) so that the system will automatically power on after power is restored.

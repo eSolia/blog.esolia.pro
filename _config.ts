@@ -16,6 +16,7 @@ import jsonLd from "lume/plugins/json_ld.ts";
 import readingInfo from "lume/plugins/reading_info.ts";
 import metas from "lume/plugins/metas.ts";
 import multilanguage from "lume/plugins/multilanguage.ts";
+import { parse as parseYaml } from "lume/deps/yaml.ts";
 import nav from "lume/plugins/nav.ts";
 import pagefind from "lume/plugins/pagefind.ts";
 import plaintext from "lume/plugins/plaintext.ts";
@@ -123,6 +124,55 @@ site.use(multilanguage({
   languages: ["ja", "en"],
   defaultLanguage: "ja",
 }));
+// Canonical tags.
+//
+// src/_data/tagaliases.yml lists every retired tag name and the tag that
+// replaced it. This rewrites `tags` on every page so a retired name can never
+// become a live tag again, whichever way the content was authored — the CMS,
+// a direct edit, or a copy-paste from an older post.
+//
+// It is not only tidiness. A retired name that comes back generates a tag page
+// at the same URL as its own redirect, and Lume fails the build with a
+// duplicate output path. Normalising here means an author simply cannot
+// produce that state.
+//
+// A preprocessor rather than a processor: this has to run before the tag,
+// author and category pages are generated from `search.values("tags")`.
+const tagAliases = parseYaml(
+  await Deno.readTextFile(
+    new URL("./src/_data/tagaliases.yml", import.meta.url),
+  ),
+) as Record<string, Record<string, string[]>>;
+
+/** retired name -> canonical, per language */
+const canonicalTag: Record<string, Record<string, string>> = {};
+for (const [lang, groups] of Object.entries(tagAliases ?? {})) {
+  canonicalTag[lang] = {};
+  for (const [canon, retired] of Object.entries(groups ?? {})) {
+    for (const old of retired ?? []) canonicalTag[lang][old] = canon;
+  }
+}
+
+site.preprocess([".md"], (pages) => {
+  for (const page of pages) {
+    const map = canonicalTag[page.data.lang as string];
+    const tags = page.data.tags;
+    if (!map || !Array.isArray(tags)) continue;
+
+    const seen = new Set<string>();
+    const canonical: string[] = [];
+    for (const tag of tags) {
+      const name = map[tag as string] ?? (tag as string);
+      // Two retired names can collapse onto the same canonical tag, so dedupe.
+      if (!seen.has(name)) {
+        seen.add(name);
+        canonical.push(name);
+      }
+    }
+    page.data.tags = canonical;
+  }
+});
+
 site.use(nav());
 if (!isCms) {
   site.use(pagefind({

@@ -20,9 +20,9 @@ tags:
   - Keyboard
   - Function Keys
   - Fn Keys
-  - QWERTY layout
-  - Dvorak layout
-  - JIS layout
+  - QWERTY Layout
+  - Dvorak Layout
+  - JIS Layout
 comments: {}
 ---
 The keyboard we use every day without a second thought. While we take typing for granted, haven't you ever wondered, “Why are the keys arranged this way?” or “What are the F1 to F12 keys for?” or “What exactly is the Fn key?” This time, let's explore how the keyboard layout evolved into its current form and delve into the roles of the function keys and the Fn key.

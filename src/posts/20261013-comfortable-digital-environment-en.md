@@ -19,10 +19,9 @@ image_top: /uploads/202509d-remote-environment.png
 author: Shiori
 category: Other
 tags:
-  - WorkFromHome
-  - RemoteWork
-  - DigitalFatigue
-  - WorkspaceImprovement
+  - Remote Work
+  - Digital Fatigue
+  - Workspace Improvement
 comments: {}
 ---
 Since the pandemic, working from home has become the new normal. Without commuting, many people feel they have more time and find it easier to maintain a healthy work-life balance, which can even boost motivation. On the other hand, remote work often brings new challenges: eye strain, shoulder and back pain, lack of focus, and feeling overwhelmed by too much information—what we might call “digital fatigue.” In this article, I’ll share some practical IT-based tips to help you create a comfortable, “fatigue-free” work-from-home environment.

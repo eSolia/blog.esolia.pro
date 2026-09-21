@@ -17,7 +17,7 @@ tags:
   - USB
   - Data Management
   - IT Literacy
-  - Computer Beginners
+  - Beginners
   - Gadgets
   - Data Protection
 comments: {}

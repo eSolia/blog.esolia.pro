@@ -16,9 +16,9 @@ author: KC
 category: AI-Usage
 tags:
   - ChatGPT
-  - AIinEverydayLife
-  - StudyWithAI
-  - AICompanion
+  - AI in Everyday Life
+  - Study with AI
+  - AI Companion
   - Advanced Guide
 comments: {}
 oldUrl: []

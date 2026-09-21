@@ -19,7 +19,7 @@ category: Microsoft-365
 tags:
   - OneDrive
   - SharePoint
-  - FileManagement
+  - File Management
 comments: {}
 ---
 Just started using Microsoft 365 and wondering, “What’s the difference between OneDrive and SharePoint?” In this article, we’ll explain the basics of OneDrive and SharePoint, how to use them effectively, and how to distinguish between the two—clearly and simply for beginners.

@@ -17,7 +17,7 @@ comments: {}
 date: 2025-03-28T03:12:00.000Z
 last_modified: 2025-05-31T20:00:27.000Z
 tags:
-  - shortcuts
+  - Shortcuts
 oldUrl:
   - /2505shortcutse/
 image_top: /uploads/202503c-essential-shortcuts-top.jpg

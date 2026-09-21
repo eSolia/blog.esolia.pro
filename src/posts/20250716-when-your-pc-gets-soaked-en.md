@@ -17,8 +17,7 @@ author: YN
 category: Troubleshooting
 tags:
   - Water Damage
-  - PC Trouble
-  - First Aid
+  - Troubleshooting
   - IT Support
   - Business Continuity
   - Device Repair

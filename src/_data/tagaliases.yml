@@ -1,0 +1,211 @@
+# Retired tag names, mapped to the canonical tag that replaced them.
+#
+# Two things consume this file:
+#
+# 1. `archive_result.page.js` turns each entry into an `oldUrl` on the
+#    canonical tag's page, so Lume's redirects plugin emits a 301 from the
+#    retired name's URL. Without that, consolidating a tag silently 404s every
+#    link and bookmark pointing at the old one.
+#
+# 2. `_config.ts` canonicalises `tags` on every page at build time. That is the
+#    important half: if an author types a retired name — from memory, from an
+#    old post, or by picking it out of a stale autocomplete — it is rewritten
+#    to the canonical tag instead of resurrecting the retired one. A
+#    resurrected name would also collide with its own redirect and break the
+#    build, so this is load-bearing, not cosmetic.
+#
+# Only names that actually existed as tags are listed. Names differing from
+# their canonical ONLY by letter case are deliberately excluded: the redirect
+# page and the canonical page would occupy the same path on a case-insensitive
+# filesystem, which fails the build. Case-only changes still get canonicalised
+# by (2); they just get no redirect.
+en:
+  "AC Recovery":
+    - "ACRecovery"
+  "AI Assistant":
+    - "AI-Assistant"
+  "AI Companion":
+    - "AICompanion"
+  "AI at Work":
+    - "AI-at-Work"
+  "AI in Everyday Life":
+    - "AIinEverydayLife"
+  "Admin Rights":
+    - "AdminRights"
+  "Adobe Acrobat":
+    - "Acrobat"
+    - "Adobe"
+    - "AdobeAcrobat"
+  "Adobe Reader":
+    - "AdobeReader"
+  "Adobe Standard":
+    - "AdobeStanderd"
+  "Auto Power On":
+    - "AutoPowerOn"
+  "BIOS Settings":
+    - "BIOSSettings"
+  "Beginners":
+    - "Beginner"
+    - "BeginnerFriendly"
+    - "Computer Beginners"
+    - "End-user tips"
+    - "ForBeginners"
+    - "TechForBeginners"
+  "Blue Screen":
+    - "Bluescreen"
+  "Cloud Migration":
+    - "CloudMigration"
+  "Cloud Storage":
+    - "CloudStorage"
+  "Cross-Functional Coordination":
+    - "Cross-FunctionalCoordination"
+  "Cybersecurity":
+    - "Corporate Security"
+    - "Cyber-security"
+    - "CyberSecurityTips"
+  "Device Manager":
+    - "DeviceManager"
+  "Digital Fatigue":
+    - "DigitalFatigue"
+  "Digital Tools":
+    - "DigitalTools"
+  "Document Scanner":
+    - "DocumentScanner"
+  "Document Scanning":
+    - "DocumentScanning"
+  "File Explorer":
+    - "Exlorer"
+  "File Management":
+    - "File saving"
+    - "FileManagement"
+  "File Sharing":
+    - "FileSharing"
+  "ISO 27001":
+    - "ISO-27001"
+  "IT Infrastructure":
+    - "ITInfrastructure"
+  "IT Literacy":
+    - "IT Basics"
+    - "ITLiteracy"
+    - "TechBasics"
+  "IT Operations":
+    - "IT Management"
+    - "ITAdminTips"
+    - "ITOperations"
+    - "ITStrategy"
+  "IT Support":
+    - "HelpDesk"
+    - "ITSupport"
+    - "In-House IT"
+    - "InHouseIT"
+    - "InternalIT"
+    - "internal IT support"
+  "Macro Virus":
+    - "Macrovirus"
+  "Microsoft 365":
+    - "Microsoft365"
+  "Network Infrastructure":
+    - "NetworkInfrastructure"
+  "Notification Settings":
+    - "NotificationSettings"
+  "PC Management":
+    - "PCManagement"
+  "Password Management":
+    - "PasswordManagement"
+  "Power Outage Recovery":
+    - "PowerOutageRecovery"
+  "Power Settings":
+    - "PowerSettings"
+  "Productivity":
+    - "BusinessEfficiency"
+    - "Efficiency"
+    - "WorkEfficiency"
+    - "WorkSmart"
+    - "WorkSmarter"
+  "Remote Work":
+    - "At-home work"
+    - "Home-based teleworkers"
+    - "RemoteWork"
+    - "Telework"
+    - "WorkFromHome"
+  "Scan to PDF":
+    - "ScanToPDF"
+  "Server Explained":
+    - "ServerExplained"
+  "SharePoint Online":
+    - "SharePointOnline"
+    - "spo"
+  "Small Office":
+    - "SmallOffice"
+  "Snap Layout":
+    - "Snaprayout"
+  "Study with AI":
+    - "StudyWithAI"
+  "Troubleshooting":
+    - "BasicChecks"
+    - "ErrorFixing"
+    - "First Aid"
+    - "PC Trouble"
+    - "PC Troubles"
+  "Windows 10":
+    - "Windows10"
+  "Windows 11":
+    - "Windows11"
+  "Windows Tips":
+    - "WindowsTips"
+  "Workspace Improvement":
+    - "WorkspaceImprovement"
+  "Zip File":
+    - "Zipfile"
+ja:
+  "Adobe Acrobat":
+    - "Acrobat"
+    - "Adobe"
+    - "アドビ"
+  "Adobe Standard":
+    - "アドビスタンダード"
+  "ITリテラシー":
+    - "IT基礎"
+    - "IT基礎用語"
+  "IT運用":
+    - "IT管理"
+    - "IT管理者向け"
+    - "PC管理"
+  "JIS Q 27001":
+    - "JIS-Q-27001"
+  "Microsoft 365":
+    - "Microsoft365"
+  "Office 365":
+    - "Office365"
+  "PCトラブル":
+    - "エラー対応"
+    - "パソコントラブル"
+    - "初期対応"
+  "SharePoint Online":
+    - "SharePointOnline"
+  "テレワーク":
+    - "ハイブリットワーク"
+    - "リモートワーク"
+    - "在宅型テレワーカー"
+    - "在宅業務"
+  "初心者向け":
+    - "PC初心者"
+    - "わかりやすいIT解説"
+    - "一般ユーザー向け"
+    - "初心者"
+  "情報セキュリティ":
+    - "サイバーセキュリティ"
+    - "企業セキュリティ"
+  "業務効率化":
+    - "IT効率化"
+    - "生産性向上"
+  "社内IT":
+    - "1人情シス"
+    - "ITサポート"
+    - "ITサポート業務"
+    - "IT部門"
+    - "ヘルプデスク"
+    - "情シス"
+    - "社内ITサポート"
+    - "社内IT担当"
+    - "社内サポート"
