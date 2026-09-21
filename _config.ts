@@ -52,10 +52,10 @@ import picture from "lume/plugins/picture.ts";
 import transformImages from "lume/plugins/transform_images.ts";
 
 // Markdown
-import title from "https://deno.land/x/lume_markdown_plugins@v0.11.0/title.ts";
-import toc from "https://deno.land/x/lume_markdown_plugins@v0.11.0/toc.ts";
-import image from "https://deno.land/x/lume_markdown_plugins@v0.11.0/image.ts";
-import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.11.0/footnotes.ts";
+import title from "https://deno.land/x/lume_markdown_plugins@v0.12.0/title.ts";
+import toc from "https://deno.land/x/lume_markdown_plugins@v0.12.0/toc.ts";
+import image from "https://deno.land/x/lume_markdown_plugins@v0.12.0/image.ts";
+import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.12.0/footnotes.ts";
 import { alert } from "npm:@mdit/plugin-alert@2.0.1";
 
 // Utils
