@@ -16,11 +16,11 @@ image_top: /uploads/202504b-screenshot-instantly.jpeg
 author: Kabaya
 category: Windows
 tags:
-  - screenshot
+  - Screenshot
   - Snipping Tool
-  - Windows shortcut
-  - IT tips
-  - internal IT support
+  - Windows Shortcut
+  - IT Tips
+  - IT Support
 comments: {}
 oldUrl: []
 ---

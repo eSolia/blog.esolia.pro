@@ -18,9 +18,9 @@ author: Shiori
 category: Windows
 tags:
   - Clipboard
-  - Snaprayout
-  - Exlorer
-  - WindowsTips
+  - Snap Layout
+  - File Explorer
+  - Windows Tips
 comments: {}
 ---
 Many people have likely upgraded their company PCs to Windows 11 or replaced their home computers, as support for Microsoft Windows 10 will end on October 14, 2025. Since I work in IT support, I wanted to get familiar with Windows 11 before our users did, so I completed the upgrade around last summer. After using it for about a year, I personally feel that the UI is easier to navigate and that it includes many useful new features. In this article, I’ll briefly introduce some of the convenient features in Windows 11.

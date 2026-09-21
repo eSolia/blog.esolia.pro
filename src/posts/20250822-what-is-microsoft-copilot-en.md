@@ -18,9 +18,9 @@ author: YM
 category: Microsoft-365
 tags:
   - Copilot
-  - AI-Assistant
-  - Efficiency
-  - AI-at-Work
+  - AI Assistant
+  - Productivity
+  - AI at Work
 comments: {}
 ---
 In recent years, various types of generative AI have evolved and are attracting attention from the public. This time, we will introduce basic information about **Microsoft Copilot**, a generative AI tool developed by Microsoft, its fee structure, how to use the free version, and examples of how to use it.

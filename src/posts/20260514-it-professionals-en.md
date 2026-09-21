@@ -18,10 +18,10 @@ author: Ena
 category: Other
 tags:
   - IT Project Management
-  - In-House IT
+  - IT Support
   - Data-Driven
-  - Cross-FunctionalCoordination
-  - ITStrategy
+  - Cross-Functional Coordination
+  - IT Operations
   - DX
 comments: {}
 ---

@@ -16,11 +16,10 @@ image_top: /uploads/202507f-using-onedrive.png
 author: K.Y.
 category: Microsoft-365
 tags:
-  - FileSharing
-  - CloudStorage
-  - WorkSmart
+  - File Sharing
+  - Cloud Storage
   - Productivity
-  - DigitalTools
+  - Digital Tools
 comments: {}
 ---
 Many people use Microsoft's cloud storage service "**OneDrive**". It's convenient not only as a backup storage for your data, but also as a function for sharing data with others. In this article, we'll show you how to share data with OneDrive.

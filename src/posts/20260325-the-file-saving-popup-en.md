@@ -16,9 +16,9 @@ image_top: /uploads/202508a-file-saving-popup.png
 author: YM
 category: Troubleshooting
 tags:
-  - File saving
-  - Pop-up screen
-  - Beginner
+  - File Management
+  - Pop-up Screen
+  - Beginners
 comments: {}
 ---
 Have you ever had trouble saving a file because the pop-up window for selecting the save location was maximized and you couldn't change its size? Here's how to adjust the size of the “Save As” window and change the size of a maximized window.

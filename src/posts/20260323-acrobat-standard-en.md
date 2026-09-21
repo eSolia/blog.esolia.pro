@@ -16,10 +16,9 @@ image_top: /uploads/202507a-acrobat-standard.png
 author: YM
 category: Other
 tags:
-  - Adobe
-  - AdobeStanderd
-  - AdobeAcrobat
-  - AdobeReader
+  - Adobe Acrobat
+  - Adobe Standard
+  - Adobe Reader
   - PDF
 comments: {}
 ---

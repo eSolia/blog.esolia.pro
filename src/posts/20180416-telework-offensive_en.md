@@ -12,10 +12,8 @@ image: /uploads/20180416a-social-en.jpg
 image_top: /uploads/20180416a-top.jpg
 category: Cloud
 tags:
-  - Telework
-  - Work-life balance
-  - Home-based teleworkers
-  - At-home work
+  - Remote Work
+  - Work-life Balance
   - Subsidies
   - Grants
   - Workplace

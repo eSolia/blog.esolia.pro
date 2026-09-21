@@ -16,12 +16,12 @@ image_top: /uploads/202504d-sharepoint-migration-part2.jpeg
 author: Ena
 category: Microsoft-365
 tags:
-  - SharePointOnline
-  - Microsoft365
-  - CloudMigration
-  - FileManagement
-  - BusinessEfficiency
-  - ITOperations
+  - SharePoint Online
+  - Microsoft 365
+  - Cloud Migration
+  - File Management
+  - Productivity
+  - IT Operations
 comments: {}
 oldUrl: []
 ---

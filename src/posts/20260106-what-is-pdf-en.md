@@ -15,8 +15,7 @@ author: YM
 category: Other
 tags:
   - PDF
-  - Acrobat
-  - Adobe
+  - Adobe Acrobat
 comments: {}
 ---
 In our daily lives and business settings, there's hardly a day when we don't encounter PDF files. From email attachments and downloadable materials on websites to e-books, they're used everywhere as a matter of course. While many associate PDF with Acrobat (PDF＝Acrobat?), what exactly is the relationship between them? This time, we'll explore the connection between PDF and Acrobat.

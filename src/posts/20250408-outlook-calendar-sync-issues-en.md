@@ -15,7 +15,7 @@ author: KC
 category: Microsoft-365
 tags:
   - Outlook
-  - PC Troubles
+  - Troubleshooting
   - Advanced Guide
   - Calendar
 oldUrl:

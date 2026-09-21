@@ -15,7 +15,7 @@ author: KC
 category: Security
 tags:
   - Phishing Email
-  - Cyber-security
+  - Cybersecurity
   - Spam Protection
   - Beginners
 comments: {}

@@ -15,10 +15,10 @@ comments: {}
 date: 2025-04-12T01:04:00.000Z
 last_modified: 2025-06-16T09:51:00.000Z
 tags:
-  - Bluescreen
+  - Blue Screen
   - BSOD
   - Shutdown
-  - Beginner
+  - Beginners
 image_top: /uploads/202503a-pc-freeze-top.png
 oldUrl:
   - /en/posts/20250402-my-computer-froze-7-easy-fixes-for-beginners-en/

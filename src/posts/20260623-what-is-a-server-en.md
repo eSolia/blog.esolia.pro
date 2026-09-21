@@ -16,9 +16,9 @@ image_top: /uploads/202508c-what-is-server.png
 author: KC
 category: Other
 tags:
-  - ForBeginners
-  - TechBasics
-  - ServerExplained
+  - Beginners
+  - IT Literacy
+  - Server Explained
 comments: {}
 ---
 A Simple Explanation of a Common IT Term: “Server.” You’ve probably heard the word many times, but when someone asks, “Can you explain what it is?” — many people find themselves at a loss for words. In this article, we’ll give a gentle and beginner-friendly explanation of the term “server,” which you might know the sound of, but not fully understand.

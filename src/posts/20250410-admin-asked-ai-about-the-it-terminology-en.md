@@ -17,7 +17,7 @@ category: AI-Usage
 tags:
   - UTP Cable
   - Cat Cable
-  - RJ-45 connector
+  - RJ-45 Connector
   - LAN Cabling
 oldUrl:
   - /2505ittermse/

@@ -17,10 +17,10 @@ image_top: /uploads/202508e-notification-windows11.png
 author: Shiori
 category: Microsoft-365
 tags:
-  - Windows11
-  - NotificationSettings
-  - WorkEfficiency
-  - RemoteWork
+  - Windows 11
+  - Notification Settings
+  - Productivity
+  - Remote Work
   - Focus
 comments: {}
 ---

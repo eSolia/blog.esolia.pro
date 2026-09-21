@@ -17,11 +17,10 @@ image_top: /uploads/202509c-email-attachment.png
 author: SK
 category: Security
 tags:
-  - Zipfile
+  - Zip File
   - Cybersecurity
-  - Corporate Security
   - Macro
-  - Macrovirus
+  - Macro Virus
 comments: {}
 ---
 Have you ever opened an email attachment without thinking twice? Files labeled “Invoice”, “Report”, or “Meeting materials” may look routine — but some are cleverly disguised traps that can cause system failures or data breaches. This post highlights two common threats in corporate environments: ZIP bombs and macro viruses.

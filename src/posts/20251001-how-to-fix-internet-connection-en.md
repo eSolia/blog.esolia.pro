@@ -19,7 +19,7 @@ category: Troubleshooting
 tags:
   - Network
   - Internet Connection
-  - Windows10
+  - Windows 10
   - Surface
   - Wi-Fi Issues
   - Ethernet

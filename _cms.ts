@@ -1,4 +1,31 @@
 import lumeCMS from "lume/cms/mod.ts";
+import { parse as parseYaml } from "lume/deps/yaml.ts";
+
+// Canonical tags, enforced at save time.
+//
+// src/_data/tagaliases.yml lists every retired tag name and the tag that
+// replaced it. The build canonicalises tags too (see _config.ts), but doing it
+// here as well means the MARKDOWN FILE is corrected, not just the rendered
+// page — otherwise an author who picks a retired name out of the autocomplete
+// sees it come back every time they reopen the post.
+//
+// The two languages are merged into one lookup. That is safe because no
+// retired name maps to different canonical tags in Japanese and English;
+// `Adobe` and `Acrobat`, the only names appearing in both, resolve to
+// `Adobe Acrobat` either way. The CMS field transform does not receive the
+// document's language, so a single map is also the only workable shape.
+const tagAliasGroups = parseYaml(
+  await Deno.readTextFile(
+    new URL("./src/_data/tagaliases.yml", import.meta.url),
+  ),
+) as Record<string, Record<string, string[]>>;
+
+const CANONICAL_TAG = new Map<string, string>();
+for (const groups of Object.values(tagAliasGroups ?? {})) {
+  for (const [canonical, retired] of Object.entries(groups ?? {})) {
+    for (const old of retired ?? []) CANONICAL_TAG.set(old, canonical);
+  }
+}
 
 // Browser-side extensions for the post editor, inlined into the CMS <head>
 // because the admin base path is only known at runtime and the scripts read
@@ -521,9 +548,23 @@ cms.collection({
       type: "list",
       label: "タグ Tags",
       description:
-        "ページのタグ。ページの言語で入力し、先頭の「#」は付けないでください。一覧から選ぶか、新しく入力できます（複数可）。<br>The page tags, in the language of the page. Do not include a leading “#”. Pick from the list or type new ones (multiple allowed).",
+        "ページのタグ。<strong>まず一覧から選んでください。</strong>同じ意味のタグが増えると読者が記事を見つけにくくなります。一覧に無い場合のみ新規作成してください。ページの言語で入力し、先頭の「#」は付けないでください（複数可）。<br><strong>Pick from the list first.</strong> Near-duplicate tags make posts harder to find — the list is the shared vocabulary. Only create a new tag when nothing in the list fits. Use the page's language and no leading “#” (multiple allowed). Retired tag names are corrected automatically on save.",
       transform(value) {
-        return value?.map((tag: string) => tag.trim()); // Trim whitespace
+        if (!value) return value;
+        const seen = new Set<string>();
+        const tags: string[] = [];
+        for (const raw of value as string[]) {
+          const trimmed = raw.trim();
+          if (!trimmed) continue;
+          // Rewrite retired names to the tag that replaced them, so a stale
+          // pick from the autocomplete cannot resurrect a consolidated tag.
+          const canonical = CANONICAL_TAG.get(trimmed) ?? trimmed;
+          // Two retired names can collapse onto the same canonical tag.
+          if (seen.has(canonical)) continue;
+          seen.add(canonical);
+          tags.push(canonical);
+        }
+        return tags;
       },
       init(field, { data }, docData) {
         const site = data.site;
