@@ -19,9 +19,12 @@
             <span class="subpixel-antialiased">{{ site.title }}</span>
           </h1>
           <p class="mt-6 text-base text-zinc-950 dark:text-zinc-400">
+            {{# Site-authored i18n with a deliberate link and <strong>; the one
+                substituted value comes from site data, not from any author. #}}
             {{
               i18n.home.welcome
               |> replace("YEARS_IN_BUSINESS_APPROX", yearsInBusiness[lang].approx)
+              |> safe
             }}
           </p>
           {{# {{ include "templates/socialicons.vto" }} #}}

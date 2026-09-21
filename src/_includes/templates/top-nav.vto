@@ -164,7 +164,7 @@
                   <div
                     class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-zinc-200 text-zinc-950 dark:bg-zinc-700 dark:text-zinc-200  text-sm rounded-md opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none z-50 whitespace-nowrap before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-8 before:border-x-transparent before:border-t-0 before:border-b-zinc-200 dark:before:border-b-zinc-700"
                   >
-                    {{ i18n.search.tooltip }}
+                    {{ i18n.search.tooltip |> safe }}{{# site-authored i18n; contains <kbd> and <br> by design #}}
                   </div>
                 </div>
                 <div
@@ -212,7 +212,10 @@
                           href="{{ alt.url }}"
                           hreflang="{{ alt.lang }}"
                           lang="{{ alt.lang }}"
-                          title="{{ alt.title |> escape }}"
+                          {{# No `|> escape` here: autoescape is on, and an explicit
+                              escape on top of it double-escapes — a title with "&"
+                              showed "&amp;" in the tooltip. #}}
+                          title="{{ alt.title }}"
                         >{{ if alt.lang == "ja" }}日本語{{ else }}English{{
                           /if
                         }}<span class="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-zinc-500/0 via-zinc-500/40 to-zinc-500/0 dark:from-zinc-400/0 dark:via-zinc-400/40 dark:to-zinc-400/0 opacity-0 group-hover:opacity-100 transition duration-300"></span></a>
@@ -389,7 +392,7 @@
                   href="{{ alt.url }}"
                   hreflang="{{ alt.lang }}"
                   lang="{{ alt.lang }}"
-                  title="{{ alt.title |> escape }}"
+                  title="{{ alt.title }}"
                 >{{ if alt.lang == "ja" }}日本語{{ else }}English{{ /if }}</a>
               {{ /if }}{{ /for }}
           {{ /if }}
