@@ -410,6 +410,29 @@ site.use(metas());
 // late. Same class of bug as the font CSS, Pagefind and picture ordering.
 site.use(jsonLd());
 
+// InfoSec: JSON for an inline <script> element.
+//
+// JSON.stringify does NOT make a value safe to place inside <script>. Script
+// contents are raw text, so a string containing "</script>" closes the element
+// early and whatever follows runs as markup. Every JSON-LD block here carries
+// author-supplied text — titles, descriptions, author names, photo credits —
+// and both processors below re-serialise it, so a post titled
+// `x</script><script>alert(1)</script>` executed script on the published page.
+// Verified by building exactly that, before this was added. (OWASP A03.)
+//
+// Escaping `<`, `>` and `&` as \uXXXX yields JSON that parses to the identical
+// value but can never form a closing tag. U+2028 and U+2029 are escaped too:
+// they are legal in JSON strings but were line terminators in JavaScript
+// source, which matters to any consumer that evaluates rather than parses.
+function scriptSafeJson(value: unknown): string {
+  return JSON.stringify(value)
+    .replaceAll("<", "\\u003c")
+    .replaceAll(">", "\\u003e")
+    .replaceAll("&", "\\u0026")
+    .replaceAll("\u2028", "\\u2028")
+    .replaceAll("\u2029", "\\u2029");
+}
+
 // Re-apply the base path to first-party URLs inside the JSON-LD.
 //
 // json_ld resolves each URL with `new URL(value, site.url(data.url, true))`.
@@ -466,10 +489,70 @@ site.process([".html"], (pages) => {
       const raw = el.textContent;
       if (!raw) continue;
       try {
-        el.textContent = JSON.stringify(rewrite(undefined, JSON.parse(raw)));
+        el.textContent = scriptSafeJson(rewrite(undefined, JSON.parse(raw)));
       } catch {
         // Malformed JSON-LD is the json_ld plugin's problem, not ours; leave it
         // untouched rather than replacing it with something worse.
+      }
+    }
+  }
+});
+
+// Photo credit, carried in structured data rather than on the page.
+//
+// The post page does not display the credited photo (`image` is the Open
+// Graph card, `image_top` the index thumbnail), so a visible credit there named
+// an image the reader could not see. It lives here instead: `image` is upgraded
+// from a bare URL to a schema.org ImageObject carrying the credit, which is
+// what Google reads for image licence details.
+//
+// Registered after the base-path fixup above, so `image` is already the
+// correct prefixed URL by the time it is wrapped. The credit's own links are
+// external (the photographer, the source page) and correctly left alone by
+// that fixup — they neither match its keys nor start with this origin.
+//
+// Only when `image_credit.name` is set. Without a credit the plain URL stays,
+// which is valid and all a crawler needs.
+interface ImageCredit {
+  name?: string;
+  url?: string;
+  source?: string;
+  source_url?: string;
+}
+
+site.process([".html"], (pages) => {
+  for (const page of pages) {
+    const credit = page.data.image_credit as ImageCredit | undefined;
+    if (!credit?.name) continue;
+
+    const scripts = page.document?.querySelectorAll(
+      'script[type="application/ld+json"]',
+    );
+    for (const el of scripts ?? []) {
+      const raw = el.textContent;
+      if (!raw) continue;
+      try {
+        const data = JSON.parse(raw);
+        if (typeof data.image !== "string") continue;
+        data.image = {
+          "@type": "ImageObject",
+          contentUrl: data.image,
+          url: data.image,
+          creditText: [credit.name, credit.source].filter(Boolean).join(
+            " / ",
+          ),
+          creator: {
+            "@type": "Person",
+            name: credit.name,
+            ...(credit.url ? { url: credit.url } : {}),
+          },
+          ...(credit.source_url
+            ? { acquireLicensePage: credit.source_url }
+            : {}),
+        };
+        el.textContent = scriptSafeJson(data);
+      } catch {
+        // As above: leave malformed JSON-LD alone.
       }
     }
   }
