@@ -59,8 +59,9 @@ Building on our previous blog,["What is PDF? How is it related to Adobe Acrobat?
   </tbody>
 </table>
 
-*Prices shown are for the Group edition.
-*Purchases through eSolia are available with annual prepaid payment only.
+> [!NOTE]
+> Prices shown are for the Group edition.
+> Purchases through eSolia are available with annual prepaid payment only.
 
 <table class="not-prose w-full text-sm">
   <thead>
@@ -157,7 +158,7 @@ Building on our previous blog,["What is PDF? How is it related to Adobe Acrobat?
 > **Acrobat Reader**: Free software specially designed for viewing PDFs and adding annotations.
 > **Acrobat Standard**: Paid software that supports PDF editing, security management, signature requests, conversion, and other operations.
 > **Acrobat Pro**: All the features of Acrobat Standard plus advanced document management features.
-> *For detailed differences, please see the reference URL [Compare Acrobat Plans](https://www.adobe.com/jp/acrobat/pricing/compare-versions.html){target="_blank" rel="noopener"} [Adobe Acrobat Plans and Pricing](https://www.adobe.com/jp/acrobat/pricing/business.html){target="_blank" rel="noopener"}
+> For detailed differences, please see the reference URL [Compare Acrobat Plans](https://www.adobe.com/jp/acrobat/pricing/compare-versions.html){target="_blank" rel="noopener"} [Adobe Acrobat Plans and Pricing](https://www.adobe.com/jp/acrobat/pricing/business.html){target="_blank" rel="noopener"}
 
 ## Frequently used key features of Acrobat Standard
 ### ① Editing and updating PDF
@@ -168,8 +169,9 @@ Building on our previous blog,["What is PDF? How is it related to Adobe Acrobat?
 > 2. Select the "Edit" tool.
 > 3. Click the relevant text and enter or correct it directly. Or drag the relevant object to move it around or change its size.
 
-**Reorder, add, and extract pages**: Users can easily change the page order within a PDF, add pages from another file, extract and save specific pages, and more.
-*Please note that changes cannot be made in PDF files that have been marked as non-editable.
+**Reorder, add, and extract pages**: Users can easily change the page order within a PDF, add pages from another file, extract and save specific pages, and more.[^1]
+
+[^1]: Changes cannot be made in PDF files that have been marked as non-editable.
 > [!HOWTO]
 > 1. Click "Edit" → "Organize Pages".
 > 2. Drag pages to change the order.
@@ -197,20 +199,24 @@ Acrobat Standard also comes with a feature for requesting electronic signatures.
 > 2. Click "Electronic Signature" → "Request an electronic signature."
 > 3. Enter the address and name of the person to be signed. If more than one person needs to sign in order, check "Recipients must sign in order."
 > 4. Set up the signature field.
-> 5. Enter a message for the person signing, set a reminder (if necessary), and send.
+> 5. Enter a message for the person signing, set a reminder (if necessary), and send.[^2]
 
-*By setting a reminder, the signer will automatically receive reminders until the document is signed.
+[^2]: By setting a reminder, the signer will automatically receive reminders until the document is signed.
+
 
 ### ④ Ability to convert between PDF and Office formats
-**Convert PDF to Word/Excel/PowerPoint**: Use this when users want to convert a PDF that does not have the original data back to Word for editing, or when users want to convert a PDF quotation or report to Excel for compilation. However, please
-note that there are limits to the accuracy of the conversion, and the format may not be reproduced accurately.
+**Convert PDF to Word/Excel/PowerPoint**: Use this when users want to convert a PDF that does not have the original data back to Word for editing, or when users want to convert a PDF quotation or report to Excel for compilation. However, please note that there are limits to the accuracy of the conversion, and the format may not be reproduced accurately.
 
 **Examples of common problems**
-* Character misalignment: Line spacing, fonts, and paragraph settings are arranged differently from the PDF.
-Table collapse: Tables that look fine on the PDF will have rows and columns separated in Excel or Word. If lines are treated as images, they will not become cells.
-* Image misalignment or missing: Graphs and shapes are not displayed in the correct place.
-Collapse of column or multiple layout: Text order is disrupted. It may be reconstructed into a single column. Please note that the converted file needs to be checked and reformatted. It is suitable for use as a means of extracting materials for re-editing, but if full reproduction is desired, it will be necessary to recreate the PDF from the original data.
-* Convert Office files to PDF: Use this when users want to submit or distribute a document as an official document.
+
+- Character misalignment: Line spacing, fonts, and paragraph settings are arranged differently from the PDF.
+- Table collapse: Tables that look fine on the PDF will have rows and columns separated in Excel or Word. If lines are treated as images, they will not become cells.
+- Image misalignment or missing: Graphs and shapes are not displayed in the correct place.
+- Collapse of column or multiple layout: Text order is disrupted. It may be reconstructed into a single column.
+
+Please note that the converted file needs to be checked and reformatted. It is suitable for use as a means of extracting materials for re-editing, but if full reproduction is desired, it will be necessary to recreate the PDF from the original data.
+
+**Convert Office files to PDF**: Use this when users want to submit or distribute a document as an official document.
 
 > [!HOWTO]
 > 1. Convert the relevant file (Word/Excel/PowerPoint) via Acrobat.
@@ -219,10 +225,10 @@ Collapse of column or multiple layout: Text order is disrupted. It may be recons
 ## Main differences from Acrobat Pro
 The main differences between Acrobat Standard and Acrobat Pro are listed in the comparison table at the beginning of this document, but here are some features of Acrobat Pro.
 
-* Masking of sensitive information: Masks text and images with a black fill, searches for specific keywords in the entire document, and removes metadata and hidden information.
-* OCR (Optical Character Recognition): Text can be automatically read from scanned images and photo PDFs. For example, paper contracts and receipts can be digitized and made searchable.
-* PDF file difference comparison: Automatically compares the contents of two PDF files and displays a list of differences (additions, deletions, and changes). For example, it can improve the efficiency of checking and reviewing the revised contents of contracts and company regulations.
-* Accessibility support: PDFs can be created and verified for voice reading for the visually impaired.
+- Masking of sensitive information: Masks text and images with a black fill, searches for specific keywords in the entire document, and removes metadata and hidden information.
+- OCR (Optical Character Recognition): Text can be automatically read from scanned images and photo PDFs. For example, paper contracts and receipts can be digitized and made searchable.
+- PDF file difference comparison: Automatically compares the contents of two PDF files and displays a list of differences (additions, deletions, and changes). For example, it can improve the efficiency of checking and reviewing the revised contents of contracts and company regulations.
+- Accessibility support: PDFs can be created and verified for voice reading for the visually impaired.
 
 In environments where more advanced document management or the use of scanned documents is required, it may be worth considering using Acrobat Pro. But in that case, it is recommended to first verify that the plan includes the features required for your business needs, and then make a selection based on pricing considerations.
 

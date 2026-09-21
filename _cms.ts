@@ -657,6 +657,42 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
 > 3.`,
         },
         {
+          // Both halves in one insert, because a footnote needs a marker AND a
+          // definition and the editor can only insert at the cursor.
+          //
+          // The definition does NOT have to live at the end of the document.
+          // markdown-it lifts any "[^n]: ..." line out of the flow and renders
+          // it in the notes block at the foot of the page, so keeping it
+          // directly under the paragraph it belongs to is both valid and much
+          // easier to maintain — the note travels with its paragraph when text
+          // is moved around.
+          //
+          // Renumber by hand if a footnote is inserted before an existing one;
+          // the label is what the reader sees.
+          label: "FOOTNOTE (marker + note)",
+          value: `[^1]
+
+[^1]: {$}`,
+        },
+        {
+          // Both halves in one insert, because a footnote needs a marker AND a
+          // definition, and the editor can only insert at the cursor.
+          //
+          // The definition does NOT have to sit at the end of the document.
+          // markdown-it lifts any "[^n]: ..." line out of the flow and renders
+          // it in the notes block at the foot of the page, so keeping it
+          // directly under the paragraph it belongs to is both valid and much
+          // easier to maintain — the note travels with its paragraph when text
+          // gets moved around.
+          //
+          // Renumber by hand if a footnote is inserted before an existing one:
+          // the label is what the reader sees.
+          label: "FOOTNOTE (marker + note)",
+          value: `[^1]
+
+[^1]: {$}`,
+        },
+        {
           label: "NOTE (Info highlight)",
           value: `> [!NOTE]
 > {$}`,
