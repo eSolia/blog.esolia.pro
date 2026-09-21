@@ -106,7 +106,34 @@ const site = lume({
     hostname: "127.0.0.1",
     port: 3000,
   },
-}, { markdown });
+}, {
+  markdown,
+  // InfoSec: escape every template interpolation by default. (OWASP A03)
+  //
+  // Lume's default is `autoescape: false`, so every `{{ value }}` rendered
+  // author-supplied text as raw markup. A post titled
+  // `x</script><script>alert(2)</script>` produced a live script in the post
+  // <h1> — verified by building exactly that. The CSP does not stop it
+  // (script-src allows 'unsafe-inline') and the blog shares the esolia.co.jp
+  // origin with the main site, so this was worth closing properly. See #366.
+  //
+  // With this on, output that is deliberately HTML has to opt out with
+  // `|> safe`, and each of those carries a comment saying why its value is
+  // trusted. That inversion is the point: raw output becomes the exception a
+  // reviewer can see, instead of the default nobody notices.
+  //
+  // All three options are passed rather than just `autoescape`, so this cannot
+  // depend on the plugin deep-merging them. `useWith: true` is what lets
+  // templates write `{{ title }}` instead of `{{ it.title }}`; losing it would
+  // break every template in the site at once.
+  vento: {
+    options: {
+      dataVarname: "it",
+      useWith: true,
+      autoescape: true,
+    },
+  },
+});
 
 // When Lume serves the CMS (`lume --serve` with _cms.ts), it sets LUME_CMS=true.
 // The CMS rebuilds the whole site on each save-triggered reload, and that ~50-80s

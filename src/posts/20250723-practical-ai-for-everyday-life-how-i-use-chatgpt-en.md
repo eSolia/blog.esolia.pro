@@ -35,7 +35,7 @@ One of the most basic uses is asking questions or looking up small bits of infor
 * Asking for softer wording for phrases like “No need to reply.”
 * Proofreading long emails
 
-{{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
+{{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) |> safe -}}**Things to keep in mind:**
 * The information might not always be accurate, so double-check when needed.
 * Sometimes the output feels too “AI-like,” so I try to add my own touch to keep it natural.
 
@@ -45,7 +45,7 @@ ChatGPT is also a great partner for anyone studying for certifications. For exam
 **How I use it:**
 * Getting 5 practice questions a day for an upcoming certification
 
- {{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
+ {{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) |> safe -}}**Things to keep in mind:**
 * Make sure to confirm the accuracy and scope of the content yourself
   
 ## 3. For Language Learning
@@ -61,7 +61,7 @@ ChatGPT can help you with health goals like dieting, too. If you provide your he
 * I told it my height, weight, and goals, and shared my weekly schedule to get meal and workout suggestions
 * I log what I actually ate and get feedback—sometimes it helps balance calories over the whole day
 
-{{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
+{{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) |> safe -}}**Things to keep in mind:**
 * If you give too much info at once, it can get confused—keep it organized
 * If something sounds off, don’t hesitate to correct it
 
@@ -73,7 +73,7 @@ One surprising but helpful use is simply talking to ChatGPT. It responds with em
 * Even bragging a little! You can talk about something exciting as many times as you want, and ChatGPT’s always there
 * It matches your mood (cheerful, calm, etc.), and if it feels a bit too enthusiastic, you can just say “Tone it down a bit,” and it will adjust
 
-{{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) -}}**Things to keep in mind:**
+{{ comp.icon({ name: "warning-diamond", size: 4, color: "amber" }) |> safe -}}**Things to keep in mind:**
 * It’s easy to feel good when you’re being validated, but don’t get too dependent
 * For venting, try asking for a neutral perspective—it might help you see things more clearly
 

@@ -106,7 +106,8 @@
           <p
             class="mt-5 line-clamp-3 text-sm/6 text-zinc-900 dark:text-zinc-300"
           >
-            {{ post.excerpt |> md(true) }}
+            {{# Rendered markdown, trusted like the post body it is cut from. #}}
+            {{ post.excerpt |> md(true) |> safe }}
           </p>
         </div>
       </div>

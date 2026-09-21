@@ -697,8 +697,15 @@ REPLACE ME. Enter your content here, using **markdown** formatting of _any kind_
           // and the icon gets absorbed into the preceding heading, list item
           // or HTML block. The right trim stays: it glues the icon to the
           // text the author types after it. See issue #326.
+          //
+          // `|> safe` is required. Autoescape is on site-wide (#366), and the
+          // component returns markup, so without it the icon renders as
+          // literal "<img ...>" text. It fails visibly rather than unsafely —
+          // the component's own interpolations are escaped — but it would
+          // look broken, so the snippet carries it and authors never type it.
           label: "Icon",
-          value: `{{ comp.icon({ name: "fire", size: 4, color: "red" }) -}}`,
+          value:
+            `{{ comp.icon({ name: "fire", size: 4, color: "red" }) |> safe -}}`,
         },
         {
           // Steps go INSIDE the blockquote, each line prefixed with "> ".

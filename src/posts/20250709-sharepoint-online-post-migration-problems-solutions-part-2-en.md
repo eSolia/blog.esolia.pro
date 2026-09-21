@@ -63,7 +63,7 @@ But in SharePoint Online, metadata makes file searching much easier and more dyn
   <img class="shadow-lg rounded-lg" alt="Screenshot of documents list on SharePoint" src="/uploads/202504d-sharepoint-migration-part2-2-en.png" width="600px" transform-images="avif webp png jpeg 600@2">
 </figure>
 
-{{ comp.icon({ name: "lightbulb", size: 4, color: "yellow" }) -}}**Key Metadata Fields and Their Benefits:**
+{{ comp.icon({ name: "lightbulb", size: 4, color: "yellow" }) |> safe -}}**Key Metadata Fields and Their Benefits:**
 
 **Category**: Labels like "Proposal," "Contract," or "Report" are color-coded and easy to identify.
 **File Name**: Using a naming convention is recommended.
@@ -106,14 +106,14 @@ Let’s compare traditional folder management with metadata management to better
   </tbody>
 </table>
 
-{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**Searchability**: Instead of opening folders one by one, you can instantly locate files using metadata keywords.
-{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**Access Control**: Dividing libraries based on metadata (like departments or confidentiality) helps streamline permissions.
-{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**URL Length**: Flat structures prevent long URLs and potential errors.
-{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**Collaboration**: Metadata enables cross-functional sharing by classifying content by department, project, or document type.
+{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) |> safe -}}**Searchability**: Instead of opening folders one by one, you can instantly locate files using metadata keywords.
+{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) |> safe -}}**Access Control**: Dividing libraries based on metadata (like departments or confidentiality) helps streamline permissions.
+{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) |> safe -}}**URL Length**: Flat structures prevent long URLs and potential errors.
+{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) |> safe -}}**Collaboration**: Metadata enables cross-functional sharing by classifying content by department, project, or document type.
 
 While metadata brings major improvements, switching away from traditional folder habits can be challenging. To make the most of SharePoint Online, we recommend rethinking your current workflows.
 
-{{ comp.icon({ name: "push-pin", size: 4, color: "black" }) -}}**Traditional vs. Recommended Management in SPO**
+{{ comp.icon({ name: "push-pin", size: 4, color: "black" }) |> safe -}}**Traditional vs. Recommended Management in SPO**
 
 <table class="not-prose w-full text-sm">
   <thead>
@@ -138,7 +138,7 @@ While metadata brings major improvements, switching away from traditional folder
   </tbody>
 </table>
 
-{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) -}}**Reducing folder dependency and managing files with metadata adds flexibility to your operations!**
+{{ comp.icon({ name: "arrow-fat-right", size: 4, color: "black" }) |> safe -}}**Reducing folder dependency and managing files with metadata adds flexibility to your operations!**
 
 ## 4. Conclusion
 By adopting metadata management, you can free yourself from rigid folder structures and move toward more flexible, modern file organization.

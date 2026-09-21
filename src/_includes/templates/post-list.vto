@@ -39,7 +39,8 @@
       <div
         class="relative z-10 mt-2 text-sm/7 text-zinc-600 dark:text-zinc-200 truncate w-full"
       >
-        {{ post.excerpt |> md(true) }}
+        {{# Rendered markdown, trusted like the post body it is cut from. #}}
+        {{ post.excerpt |> md(true) |> safe }}
       </div>
 
       {{

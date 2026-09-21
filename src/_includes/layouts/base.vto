@@ -96,7 +96,7 @@
         {{ include "templates/top-nav.vto" }}
         <div class="flex-none" style="height: var(--content-offset)"></div>
 
-        {{ content }}
+        {{ content |> safe }}
 
         <!-- Current page: {{ url }} -->
         {{ include "templates/footer.vto" }}

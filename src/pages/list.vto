@@ -37,8 +37,11 @@ url: /list/
         <td class="">{{ item.image }}</td>
         <td class="">{{ item.author }}</td>
         <td class="">{{ item.category }}</td>
-        <td class="">{{ item.draft }}</td>
-        <td class="">{{ item.hot }}</td>
+        {{# Booleans spelled out: with autoescape on, Vento renders a falsy value
+            as an empty string, so `false` became a blank cell while `true` still
+            printed — lossy, and inconsistent between the two states. #}}
+        <td class="">{{ item.draft ? "true" : "false" }}</td>
+        <td class="">{{ item.hot ? "true" : "false" }}</td>
         <td class="">{{ item.date }}</td>
         <td class="">{{ item.last_modified }}</td>
       </tr>
