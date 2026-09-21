@@ -277,69 +277,6 @@ mark {
   }
 }
 
-/*----------------------------
- * Hamburger 開閉ボタン
- *----------------------------*/
-.mobile-menu-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background: #fff; */
-  color: #fff;
-  border: none;
-}
-
-/*----------------------------
- * Hamburger Menu 本体
- *----------------------------*/
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 999;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #808080;
-  background-color: rgba(
-    85,
-    85,
-    85,
-    0.7
-  ); /* Gray background with 70% opacity */
-}
-.mobile-menu__item {
-  width: 100%;
-  height: auto;
-  padding: 0.5em 1em;
-  text-align: center;
-  color: #fff;
-  box-sizing: border-box;
-}
-
-/*----------------------------
- * Hamburger アニメーション部分
- *----------------------------*/
-
-/* Hamburger アニメーション前のメニューの状態 */
-.mobile-menu {
-  transform: translateX(100vw);
-  transition: all 0.3s linear;
-}
-/* Hamburger アニメーション後のメニューの状態 */
-.mobile-menu.is-active {
-  transform: translateX(0);
-}
-
 /* TOC */
 /* Remove default padding some browsers apply to summary */
 summary {

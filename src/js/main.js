@@ -131,6 +131,58 @@ globalThis.addEventListener("resize", syncNavToScroll);
 
 // Theme Toggle with Alpine.js
 document.addEventListener("alpine:init", () => {
+  // Drawer navigation for narrow viewports.
+  //
+  // The focus handling here is the part that matters. A dialog that traps
+  // nothing lets Tab walk out into the page behind it, which for a screen
+  // reader or keyboard user means the menu is still "open" while focus is
+  // somewhere they cannot see. The search modal got this treatment in #323;
+  // this menu never did.
+  Alpine.data("mobileMenu", () => ({
+    open: false,
+    lastFocused: null,
+
+    toggle() {
+      this.open ? this.close() : this.show();
+    },
+
+    show() {
+      this.lastFocused = document.activeElement;
+      this.open = true;
+      // The panel is behind an x-show transition, so wait for it to exist
+      // before moving focus into it.
+      this.$nextTick(() => this.$refs.closeBtn?.focus());
+      document.body.style.overflow = "hidden";
+    },
+
+    close() {
+      if (!this.open) return;
+      this.open = false;
+      document.body.style.overflow = "";
+      // Return focus to whatever opened the drawer, not to the top of the
+      // document — otherwise the user loses their place.
+      this.lastFocused?.focus?.();
+    },
+
+    // Keep Tab inside the panel while it is open.
+    trapFocus(event) {
+      if (event.key !== "Tab" || !this.open) return;
+      const focusable = this.$refs.panel?.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    },
+  }));
+
   Alpine.data("themeToggle", () => ({
     darkMode: localStorage.getItem("darkMode") === "true" || false,
     init() {
