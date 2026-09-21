@@ -89,6 +89,30 @@ Upgrade:
 > deno task lume upgrade
 ```
 
+### Cloudflare build environment
+
+The production build runs on Cloudflare Workers Builds, and **the Deno version
+it uses is a dashboard setting, not a file in this repo**. It is recorded here
+because nothing in version control reveals it:
+
+> Workers → `blog-esolia-pro` → Settings → Build → Variables and Secrets
+>
+> ```
+> DENO_VERSION = 2.8.2
+> ```
+
+This matters because Lume 3.3.0+ implements HMR via the Node module hooks API
+and imports `registerHooks` from `node:module`. Deno 2.7.x does not provide it,
+so the build dies with `ERR_MODULE_NOT_FOUND` before rendering a single page.
+2.8.1 is the first version that has it.
+
+Cloudflare Workers Builds does **not** read `.tool-versions`, and the Deno
+version is not covered in its build image docs, so the dashboard variable is
+the only lever. If a Lume upgrade ever fails on Cloudflare while building
+cleanly on a developer machine, check this first — and note that a local
+`deno` will usually be much newer than the build's, which hides the problem.
+Reproduce with a matching version via `dvm install <version>`.
+
 ### Markdown "alerts"
 
 With just the markdown engine you can use "alerts", which come from the alert
