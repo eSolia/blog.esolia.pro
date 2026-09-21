@@ -21,18 +21,18 @@ import pagefind from "lume/plugins/pagefind.ts";
 import plaintext from "lume/plugins/plaintext.ts";
 import redirects from "lume/plugins/redirects.ts";
 import prism from "lume/plugins/prism.ts";
-import "npm:prismjs@1.29.0/components/prism-git.js";
-import "npm:prismjs@1.29.0/components/prism-json.js";
-import "npm:prismjs@1.29.0/components/prism-markup.js";
-import "npm:prismjs@1.29.0/components/prism-sql.js";
-import "npm:prismjs@1.29.0/components/prism-yaml.js";
-import "npm:prismjs@1.29.0/components/prism-bash.js";
-import "npm:prismjs@1.29.0/components/prism-css.js";
-import "npm:prismjs@1.29.0/components/prism-javascript.js";
-import "npm:prismjs@1.29.0/components/prism-typescript.js";
-import "npm:prismjs@1.29.0/components/prism-powershell.js";
-import "npm:prismjs@1.29.0/components/prism-shell-session.js";
-import "npm:prismjs@1.29.0/components/prism-json5.js";
+import "npm:prismjs@1.30.0/components/prism-git.js";
+import "npm:prismjs@1.30.0/components/prism-json.js";
+import "npm:prismjs@1.30.0/components/prism-markup.js";
+import "npm:prismjs@1.30.0/components/prism-sql.js";
+import "npm:prismjs@1.30.0/components/prism-yaml.js";
+import "npm:prismjs@1.30.0/components/prism-bash.js";
+import "npm:prismjs@1.30.0/components/prism-css.js";
+import "npm:prismjs@1.30.0/components/prism-javascript.js";
+import "npm:prismjs@1.30.0/components/prism-typescript.js";
+import "npm:prismjs@1.30.0/components/prism-powershell.js";
+import "npm:prismjs@1.30.0/components/prism-shell-session.js";
+import "npm:prismjs@1.30.0/components/prism-json5.js";
 
 // CSS + JS + source maps
 import esbuild from "lume/plugins/esbuild.ts";
@@ -52,11 +52,11 @@ import picture from "lume/plugins/picture.ts";
 import transformImages from "lume/plugins/transform_images.ts";
 
 // Markdown
-import title from "https://deno.land/x/lume_markdown_plugins@v0.8.0/title.ts";
-import toc from "https://deno.land/x/lume_markdown_plugins@v0.8.0/toc.ts";
-import image from "https://deno.land/x/lume_markdown_plugins@v0.8.0/image.ts";
-import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.8.0/footnotes.ts";
-import { alert } from "npm:@mdit/plugin-alert@0.17.0";
+import title from "https://deno.land/x/lume_markdown_plugins@v0.11.0/title.ts";
+import toc from "https://deno.land/x/lume_markdown_plugins@v0.11.0/toc.ts";
+import image from "https://deno.land/x/lume_markdown_plugins@v0.11.0/image.ts";
+import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.11.0/footnotes.ts";
+import { alert } from "npm:@mdit/plugin-alert@2.0.1";
 
 // Utils
 import {
@@ -401,20 +401,37 @@ site.process([".html"], (pages) => {
 
 // Markdown
 site.use(title());
+// Pinned to 0.11.0 deliberately — do not bump without reading this.
+//
+// 0.11.1 switched the heading slugifier to Lume's, whose `alphanumeric: true`
+// default strips every non-ASCII character. That collapsed all Japanese
+// headings to the collision-counter IDs `h_`, `h_-`, `h_--1` … — meaningless
+// as anchors and, worse, ORDER-dependent: inserting one heading renumbered
+// every anchor below it, silently breaking links previously shared into the
+// page. 0.11.1 also began prefixing any slug not starting with an ASCII
+// letter with `h_`, which no slugify option can opt out of.
+//
+// 0.11.0 still resolves `defaults.slugify` to the plugin's own
+// `encodeURIComponent(text.trim().toLowerCase().replace(/\s+/g, "-"))`, which
+// is what every existing anchor on this site was built with. Staying here
+// keeps all of them byte-identical while still taking the footnote fixes from
+// 0.9.0 through 0.11.0.
 site.use(toc());
 site.use(image());
 site.use(footnotes());
 // Alert callout titles, localized per page.
 //
 // The plugin hard-codes the English word from the markup (`> [!NOTE]` renders
-// "Note"), so a Japanese post showed an English label. `titleRender` gets the
-// markdown-it `env`, which Lume populates with the page's data, so the label
-// can be resolved from that page's own i18n strings — no second plugin
+// "Note"), so a Japanese post showed an English label. `titleRenderer` gets
+// the markdown-it `env`, which Lume populates with the page's data, so the
+// label can be resolved from that page's own i18n strings — no second plugin
 // registration and no post-processing pass over the built HTML.
 //
-// Note the option is `titleRender`, not `titleRenderer`: the published docs
-// use the longer name, but 0.17.0 reads the shorter one. Passing
-// `titleRenderer` silently does nothing.
+// The option name is version-sensitive and fails silently when wrong. 0.17.0
+// read `titleRender` while its docs said `titleRenderer`; 2.0.1 reads
+// `titleRenderer`, matching the docs again. Passing the wrong one does not
+// error — the titles just revert to the English defaults. If this is ever
+// bumped again, check which name the shipped code actually reads.
 interface AlertToken {
   markup: string;
   content: string;
@@ -424,7 +441,7 @@ interface AlertEnv {
 }
 
 site.hooks.addMarkdownItPlugin(alert, {
-  titleRender(
+  titleRenderer(
     tokens: AlertToken[],
     index: number,
     _options: unknown,

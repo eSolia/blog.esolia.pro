@@ -1,9 +1,9 @@
 {
   "imports": {
-    "lume/": "https://deno.land/x/lume@v3.2.5/",
+    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@v3.3.1/",
     "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.15.9/",
-    "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.12/jsx-runtime.ts",
-    "hibana/": "https://deno.land/x/hibana@v1.0.18/"
+    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.15/jsx-runtime.ts",
+    "hibana/": "https://deno.land/x/hibana@v1.3.0/"
   },
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
@@ -35,7 +35,7 @@
       ]
     },
     "plugins": [
-      "https://deno.land/x/lume@v3.2.5/lint.ts"
+      "https://cdn.jsdelivr.net/gh/lumeland/lume@v3.3.1/lint.ts"
     ]
   },
   "fmt": {
