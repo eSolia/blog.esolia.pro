@@ -39,11 +39,7 @@
   {{ if readingInfo !== "hide" }}
     <span
       class="relative px-2 py-1 text-xs font-extralight text-zinc-600 dark:text-zinc-300"
-    >{{ i18n.post.reading_time }}: <span class="font-medium">{{
-          it.readingInfo.minutes
-        }}{{ if lang === "en" }}&nbsp;{{ /if }}{{
-          i18n.post.minutes
-        }}</span></span>
+    >{{ i18n.post.reading_time }}: <span class="font-medium">{{ it.readingInfo.minutes }}{{ if lang === "en" }}&nbsp;{{ /if }}{{ i18n.post.minutes }}</span></span>
   {{ /if }}
   {{ if hot }}<span
       class="relative rounded-md px-2 py-1 text-[0.6rem] font-medium bg-esoliaamber-500 ring-1 ring-esoliaamber-900/30 ring-inset text-esoliaamber-950"

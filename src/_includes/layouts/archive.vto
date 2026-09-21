@@ -13,9 +13,7 @@ script: /js/fathom-post-list-event.js
             <h1
               class="text-2xl 2xs:text-3xl sm:text-4xl lg:text-5xl tracking-tight text-zinc-950 dark:text-zinc-100"
             >
-              <span class="font-semibold subpixel-antialiased">{{
-                site.title
-              }}</span>
+              <span class="font-semibold subpixel-antialiased">{{ site.title }}</span>
               <br class="block md:hidden">
               <span
                 class="font-extralight text-esoliablue-900 dark:text-esoliablue-600"
@@ -99,12 +97,8 @@ script: /js/fathom-post-list-event.js
                         >
                           {{# Both labels are rendered; CSS swaps them on
                               [open] so the control does not need script. #}}
-                          <span class="tag-disclosure-more">{{
-                              i18n.archive.show_all_tags
-                            }} ({{ pageTags.length }})</span>
-                          <span class="tag-disclosure-less">{{
-                            i18n.archive.show_fewer_tags
-                          }}</span>
+                          <span class="tag-disclosure-more">{{ i18n.archive.show_all_tags }} ({{ pageTags.length }})</span>
+                          <span class="tag-disclosure-less">{{ i18n.archive.show_fewer_tags }}</span>
                         </summary>
                         <ul class="flex flex-wrap space-x-2 space-y-2 mt-2">
                           {{ for page of pageTags.slice(tagLimit) }}
@@ -136,9 +130,7 @@ script: /js/fathom-post-list-event.js
                     <ul>
                       {{- if pagination.previous }}
                         <li class="pagination-prev">
-                          <a href="{{ pagination.previous }}" rel="prev">{{
-                            i18n.nav.previous
-                          }}</a>
+                          <a href="{{ pagination.previous }}" rel="prev">{{ i18n.nav.previous }}</a>
                         </li>
                       {{ /if }}
 
@@ -148,9 +140,7 @@ script: /js/fathom-post-list-event.js
 
                       {{- if pagination.next }}
                         <li class="pagination-next">
-                          <a href="{{ pagination.next }}" rel="next">{{
-                            i18n.nav.next
-                          }}</a>
+                          <a href="{{ pagination.next }}" rel="next">{{ i18n.nav.next }}</a>
                         </li>
                       {{ /if }}
                     </ul>
