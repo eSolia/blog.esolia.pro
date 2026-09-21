@@ -12,7 +12,7 @@ description: >-
   Copy, paste, and lose it a moment later. A clipboard manager keeps a history
   so you can go back — here are the Windows options, and the security question
   worth asking before you install one.
-image: /uploads/202609a-clipboard-managers.jpg
+image: /uploads/202609a-clipboard-managers-en.png
 image_top: /uploads/202609a-clipboard-managers.jpg
 image_credit:
   name: Frames For Your Heart
