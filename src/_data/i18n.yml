@@ -134,3 +134,5 @@ alert:
   important: 重要
   warning: 警告
   caution: 注意
+  # Our own callout, not a GitHub alert type: a step-by-step procedure.
+  howto: 操作方法

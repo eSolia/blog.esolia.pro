@@ -92,3 +92,94 @@ body {
     --img: url('data:image/svg+xml;charset-UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="hsl(0, 100%, 70%)" viewBox="0 0 256 256"><path d="M120,136V80a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0ZM232,91.55v72.9a15.86,15.86,0,0,1-4.69,11.31l-51.55,51.55A15.86,15.86,0,0,1,164.45,232H91.55a15.86,15.86,0,0,1-11.31-4.69L28.69,175.76A15.86,15.86,0,0,1,24,164.45V91.55a15.86,15.86,0,0,1,4.69-11.31L80.24,28.69A15.86,15.86,0,0,1,91.55,24h72.9a15.86,15.86,0,0,1,11.31,4.69l51.55,51.55A15.86,15.86,0,0,1,232,91.55Zm-16,0L164.45,40H91.55L40,91.55v72.9L91.55,216h72.9L216,164.45ZM128,160a12,12,0,1,0,12,12A12,12,0,0,0,128,160Z"></path></svg>');
   }
 }
+
+/* --- Procedure blocks ------------------------------------------------------
+ *
+ * `> [!HOWTO]` renders as <section class="howto"> rather than an alert <div>.
+ * It is deliberately NOT styled like the callouts above: those interrupt the
+ * reader to warn or advise, while a procedure is part of the main flow and
+ * should read as a continuation of the paragraph that introduces it.
+ *
+ * The generous margin-block is the point of the whole component. Authors used
+ * to write an icon, the words "How to Operate", and then a bare list, all of
+ * which collapsed against the paragraph above with no separation at all.
+ */
+body {
+  .howto {
+    --howto-rule: var(--color-zinc-300);
+
+    margin-block: 2rem 2.25rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--howto-rule);
+    border-radius: var(--radius-md);
+    background-color: var(--color-zinc-50);
+    font: var(--font-sans);
+
+    /* The list is the reason this block exists, so let it breathe. Prose
+     * styles already indent it; this only adjusts rhythm inside the box. */
+    & ol,
+    & ul {
+      margin-block: 0.5rem 0;
+      padding-inline-start: 1.5rem;
+    }
+
+    & li {
+      line-height: 1.6;
+      margin-block: 0.35rem;
+
+      &::marker {
+        color: var(--color-sky-700);
+        font-weight: 600;
+      }
+    }
+
+    & :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .howto-title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5em;
+    font: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    color: var(--color-sky-800);
+
+    /* Phosphor `list-numbers`, taken verbatim from the published asset.
+     * An ordered list is what this block actually is, and the glyph stays
+     * legible at 20px — the hand-assembled cursor-click that was here first
+     * was not real Phosphor path data and read as noise at this size. */
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      flex: none;
+      background: url('data:image/svg+xml;charset-UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="hsl(200, 90%, 30%)" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H104a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM104,72H216a8,8,0,0,0,0-16H104a8,8,0,0,0,0,16ZM216,184H104a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM43.58,55.16,48,52.94V104a8,8,0,0,0,16,0V40a8,8,0,0,0-11.58-7.16l-16,8a8,8,0,0,0,7.16,14.32ZM79.77,156.72a23.73,23.73,0,0,0-9.6-15.95,24.86,24.86,0,0,0-34.11,4.7,23.63,23.63,0,0,0-3.57,6.46,8,8,0,1,0,15,5.47,7.84,7.84,0,0,1,1.18-2.13,8.76,8.76,0,0,1,12-1.59A7.91,7.91,0,0,1,63.93,159a7.64,7.64,0,0,1-1.57,5.78,1,1,0,0,0-.08.11L33.59,203.21A8,8,0,0,0,40,216H72a8,8,0,0,0,0-16H56l19.08-25.53A23.47,23.47,0,0,0,79.77,156.72Z"></path></svg>')
+        no-repeat center center;
+    }
+  }
+}
+
+.dark {
+  .howto {
+    --howto-rule: var(--color-zinc-600);
+    background-color: var(--color-zinc-800);
+  }
+
+  .howto-title {
+    color: var(--color-sky-300);
+
+    &::before {
+      background-image: url('data:image/svg+xml;charset-UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="hsl(200, 85%, 70%)" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H104a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM104,72H216a8,8,0,0,0,0-16H104a8,8,0,0,0,0,16ZM216,184H104a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM43.58,55.16,48,52.94V104a8,8,0,0,0,16,0V40a8,8,0,0,0-11.58-7.16l-16,8a8,8,0,0,0,7.16,14.32ZM79.77,156.72a23.73,23.73,0,0,0-9.6-15.95,24.86,24.86,0,0,0-34.11,4.7,23.63,23.63,0,0,0-3.57,6.46,8,8,0,1,0,15,5.47,7.84,7.84,0,0,1,1.18-2.13,8.76,8.76,0,0,1,12-1.59A7.91,7.91,0,0,1,63.93,159a7.64,7.64,0,0,1-1.57,5.78,1,1,0,0,0-.08.11L33.59,203.21A8,8,0,0,0,40,216H72a8,8,0,0,0,0-16H56l19.08-25.53A23.47,23.47,0,0,0,79.77,156.72Z"></path></svg>');
+    }
+  }
+
+  .howto li::marker {
+    color: var(--color-sky-400);
+  }
+}
