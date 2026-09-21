@@ -52,6 +52,6 @@
 - key: 文書管理
   id: cat10
   color: amber
-  image: /assets/cat0-bg.jpg
+  image: /assets/cat2b-bg.jpg
   summary: >-
     業務文書の作成・編集・管理について。PDFとAdobe Acrobatを中心に、そもそもPDFとは何かという基本から、管理部門で日常的に使う編集・セキュリティ・署名の機能まで紹介しています。
