@@ -1,0 +1,45 @@
+name: Checks
+
+# Lint and format-check live here rather than in the Cloudflare build.
+#
+# They used to run as part of `build:cloudflare`, which meant a formatting nit
+# could block a production deploy, and the deploy was welded to whichever Deno
+# version the build command happened to install. `deno fmt` output is not stable
+# across Deno minors — 2.9 normalises `{{ expr}}` to `{{ expr }}` and stops
+# breaking Vento expressions across lines, so a repo formatted with 2.8 fails
+# `fmt --check` under 2.9 and vice versa. Tying that to the deploy made the two
+# versions impossible to change independently.
+#
+# Here the version is pinned explicitly and visible in the repo, and a failure
+# blocks the PR rather than the site.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v2
+        with:
+          # Pinned, not a range. The formatter's output depends on it, so a
+          # floating version would make this job disagree with developers'
+          # machines the moment Deno ships a formatting change.
+          deno-version: v2.9.6
+
+      - name: Lint
+        run: deno lint
+
+      - name: Format check
+        run: deno fmt --check

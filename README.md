@@ -97,18 +97,13 @@ is hardcoded in the dashboard build command**, not in this repo:
 > Workers → `blog-esolia-pro` → Settings → Build → Build command
 >
 > ```
-> curl -fsSL https://deno.land/install.sh | sh -s v2.8.2 && $HOME/.deno/bin/deno task build:cloudflare
+> curl -fsSL https://deno.land/install.sh | sh -s v2.9.6 && $HOME/.deno/bin/deno task build:cloudflare
 > ```
 
 The `sh -s v<version>` argument is the pin. It is recorded here because nothing
 in version control reveals it, and because the failure it causes is confusing:
-the build installs its own Deno, so a developer machine with a newer Deno
+the build installs its own Deno, so a developer machine with a different Deno
 builds happily while Cloudflare fails.
-
-This matters because Lume 3.3.0+ implements HMR via the Node module hooks API
-and imports `registerHooks` from `node:module`. Deno 2.7.x does not provide it,
-so the build dies with `ERR_MODULE_NOT_FOUND` before rendering a single page.
-2.8.1 is the first version that has it.
 
 Two things that look like they should control this but **do not**: a
 `DENO_VERSION` build variable (not one of the build image's supported version
@@ -119,8 +114,16 @@ tried. The build command is the only lever.
 Note also that `vars` in `wrangler.jsonc` are **runtime** variables for the
 Worker and have no effect on the build.
 
+**Lint and format-check are deliberately not part of this build.** They run in
+`.github/workflows/checks.yml` instead, against a pinned Deno. They used to run
+inside `build:cloudflare`, which meant a formatting nit could block a
+production deploy, and — worse — welded the deploy to one Deno version:
+`deno fmt` output is not stable across minors, so a repo formatted with 2.8
+fails `fmt --check` under 2.9 and vice versa. With the checks moved out, the
+build command's version can be changed independently.
+
 To reproduce a build failure locally with a matching Deno:
-`dvm install 2.7.14 && ~/.dvm/versions/2.7.14/deno task build:cloudflare`.
+`dvm install 2.9.6 && ~/.dvm/versions/2.9.6/deno task build:cloudflare`.
 
 ### Markdown "alerts"
 

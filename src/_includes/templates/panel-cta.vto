@@ -36,9 +36,7 @@
     {{# Time trap: stamped with Date.now() on load by the script below. #}}
     <input type="hidden" name="ts" value="" />
     <div class="mt-6 flex">
-      <label for="f_64244897_ID0ES" class="sr-only">{{
-        i18n.newsletter.placeholder
-      }}</label>
+      <label for="f_64244897_ID0ES" class="sr-only">{{ i18n.newsletter.placeholder }}</label>
       <input
         id="f_64244897_ID0ES"
         name="email"
@@ -137,17 +135,17 @@
   defer
 ></script>
 <script>
-  (function () {
-    // Stamp the time-trap field so the Worker can reject impossibly fast bots.
-    var ts = document.querySelector('#newsletter input[name="ts"]');
-    if (ts) ts.value = String(Date.now());
-    // Reveal the matching message when the Worker bounced us back:
-    // ?newsletter=error | exists | pending → #newsletter-{state}.
-    var state = new URLSearchParams(window.location.search).get("newsletter");
-    if (state === "error" || state === "exists" || state === "pending") {
-      var msg = document.getElementById("newsletter-" + state);
-      if (msg) msg.classList.remove("hidden");
-    }
-  })();
+(function () {
+  // Stamp the time-trap field so the Worker can reject impossibly fast bots.
+  var ts = document.querySelector('#newsletter input[name="ts"]');
+  if (ts) ts.value = String(Date.now());
+  // Reveal the matching message when the Worker bounced us back:
+  // ?newsletter=error | exists | pending → #newsletter-{state}.
+  var state = new URLSearchParams(window.location.search).get("newsletter");
+  if (state === "error" || state === "exists" || state === "pending") {
+    var msg = document.getElementById("newsletter-" + state);
+    if (msg) msg.classList.remove("hidden");
+  }
+})();
 </script>
 <!-- ===== panel-cta.vto TEMPLATE END ===== -->

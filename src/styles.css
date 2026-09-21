@@ -14,7 +14,8 @@
     /* zinc-500 measured 4.39:1 on the zinc-100 surfaces used for cards and the
        TOC — just under the 4.5:1 that body-size text needs. zinc-600 clears it
        and is visually almost identical. */
-    @apply text-zinc-600 dark:text-zinc-100 hover:text-sky-600 dark:hover:text-sky-400;
+    @apply text-zinc-600 dark:text-zinc-100 hover:text-sky-600
+      dark:hover:text-sky-400;
     transition: color 0.15s ease-in-out;
     text-decoration-thickness: 1px; /* Set your desired default thickness here as well */
     text-decoration-color: theme("colors.zinc.500"); /* Match the text color */
@@ -35,7 +36,8 @@
      than fixed: the rules below are the ones doing the work. */
 
   table.not-prose thead {
-    @apply bg-zinc-50 text-zinc-700 dark:bg-zinc-600 dark:text-zinc-300 text-left;
+    @apply bg-zinc-50 text-zinc-700 dark:bg-zinc-600 dark:text-zinc-300
+      text-left;
   }
 
   table.not-prose th,
@@ -189,7 +191,8 @@ body article > div > p:first-of-type {
   /* `text-base` was here too, ahead of `text-lg`. Both set font-size, so
      the first was emitted and immediately overridden by the second in the
      same rule — visible as a duplicated `font-size` in the built CSS. */
-  @apply text-lg lg:text-xl font-extralight leading-relaxed text-zinc-950 dark:text-zinc-200;
+  @apply text-lg lg:text-xl font-extralight leading-relaxed text-zinc-950
+    dark:text-zinc-200;
 }
 
 /* Specific styles for Windows devices */
@@ -214,7 +217,9 @@ body article > div > figure > picture > img {
 
 /* MDN keyboard shortcut style for kbd tag */
 kbd {
-  @apply bg-zinc-200 rounded border border-zinc-400 shadow-md text-zinc-950 inline-block text-[0.85em] font-semibold leading-none px-1 py-0.5 whitespace-nowrap;
+  @apply bg-zinc-200 rounded border border-zinc-400 shadow-md text-zinc-950
+    inline-block text-[0.85em] font-semibold leading-none px-1 py-0.5
+    whitespace-nowrap;
 }
 
 /*----------------------------
@@ -575,13 +580,7 @@ details[open] > summary {
   which is what makes this stick — same reason as the external-link arrow fix
   in css/type.css.
 */
-.prose
-  :where(code):not(
-    :where([class~="not-prose"], [class~="not-prose"] *)
-  )::before,
-.prose
-  :where(code):not(
-    :where([class~="not-prose"], [class~="not-prose"] *)
-  )::after {
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
   content: none;
 }
