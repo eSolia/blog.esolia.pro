@@ -47,3 +47,19 @@
   image: /assets/cat8-bg.jpg
   summary: >-
     This section covers peripheral devices used with PCs (printers, mice, keyboards, etc.), tips for extending battery life, and maintenance advice. We provide practical insights into essential knowledge for comfortable, long-term use of these everyday devices.
+- key: Ways of Working
+  id: cat9
+  color: violet
+  image: /assets/cat9-bg.jpg
+  summary: >-
+    Articles about how we work rather than which tool we use: keeping focus
+    while working from home, stepping away from screens deliberately, and what
+    the people who run IT actually contribute beyond the technology itself.
+- key: Documents
+  id: cat10
+  color: amber
+  image: /assets/cat0-bg.jpg
+  summary: >-
+    Creating, editing and managing business documents. PDF and Adobe Acrobat
+    feature heavily here, from what the format actually is to the editing,
+    security and signature features used day to day in administrative work.

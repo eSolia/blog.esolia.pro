@@ -14,7 +14,7 @@ description: >-
 image: /uploads/202506f-digital-detox-en.jpeg
 image_top: /uploads/202506f-digital-detox.jpeg
 author: Shiori
-category: Other
+category: Ways of Working
 tags:
   - Digital Detox
   - Screentime

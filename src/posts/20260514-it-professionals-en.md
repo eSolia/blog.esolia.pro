@@ -15,7 +15,7 @@ description: >-
 image: /uploads/202507g-it-professionals-en.png
 image_top: /uploads/202507g-it-professionals.png
 author: Ena
-category: Other
+category: Ways of Working
 tags:
   - IT Project Management
   - IT Support

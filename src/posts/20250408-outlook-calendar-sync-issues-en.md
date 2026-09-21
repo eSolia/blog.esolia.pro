@@ -12,7 +12,7 @@ description: >-
   ensure smoother scheduling.
 image: /uploads/202503e-outlook-calender-sync-issues-social-en.jpg
 author: KC
-category: Microsoft-365
+category: Troubleshooting
 tags:
   - Outlook
   - Advanced Guide

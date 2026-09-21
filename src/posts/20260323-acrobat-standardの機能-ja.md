@@ -12,7 +12,7 @@ description: Acrobat Readerとの違いから、活用機能、Acrobat Proとの
 image: /uploads/202507a-acrobat-standard-ja.png
 image_top: /uploads/202507a-acrobat-standard.png
 author: YM
-category: その他
+category: 文書管理
 tags:
   - Adobe Acrobat
   - Adobe Standard
