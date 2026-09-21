@@ -178,7 +178,7 @@ en:
         aria_label: External link
         title: Privacy Policy
       - text: Sitemap
-        href: /en/sitemap.xml
+        href: /sitemap.xml
         target: _self
         icon: tree-structure
         aria_label: Site internal link
