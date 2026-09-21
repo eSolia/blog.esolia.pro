@@ -16,7 +16,6 @@ image_top: /uploads/202603d-basic-things-to-check.png
 author: SK
 category: Troubleshooting
 tags:
-  - Troubleshooting
   - Beginners
   - IT Literacy
 comments: {}

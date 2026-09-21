@@ -1,49 +1,86 @@
 - key: Microsoft-365
   id: cat1
   color: cyan
-  image: /assets/cat1a-bg.jpg
   summary: >-
-    This section offers troubleshooting tips and useful ways to utilize various Microsoft 365 tools, such as Outlook and Teams. You'll find solutions for common issues like "calendar not syncing" and practical shortcut keys you can use today to boost your work efficiency.
+    Outlook, Teams, OneDrive, SharePoint and Copilot — the tools most of our
+    clients live in all day. Practical fixes for the problems that actually come
+    up, like files that will not open after a SharePoint migration or a calendar
+    that refuses to sync, alongside guides to getting more out of features you
+    may already be paying for.
 - key: Security
   id: cat2
   color: esoliaamber
-  image: /assets/cat2-bg.jpg
   summary: >-
-    Here, we explain fundamental policies to prevent information leaks, essential for ISO 27001 compliance, along with workplace security rules like clear desk and clear screen policies. This content is ideal for anyone looking to understand the basics of IT security necessary for business operations.
+    The everyday security habits that protect a business, explained without
+    jargon. Spotting a phishing email before you click, managing passwords in a
+    way people will actually stick to, keeping a clear desk and clear screen,
+    and understanding why an email attachment can be more dangerous than it
+    looks. Grounded in the ISO 27001 practices we follow ourselves.
 - key: Network
   id: cat3
   color: fuchsia
-  image: /assets/cat3-bg.jpg
   summary: >-
-    This section provides easy-to-understand explanations of network device terminology, configuration examples, and ways to enhance comprehension using AI, making it accessible even for beginners. For instance, you'll learn about different types of LAN cables (UTP, Cat, RJ45 connectors), basic internal network configurations, and troubleshooting methods.
+    How the plumbing works, for people who are not network engineers. Cabling
+    and connectors explained in plain terms, what a server actually is and does,
+    how a small office network fits together, and where things typically go
+    wrong. Useful background for anyone who has nodded along in a meeting
+    without quite following.
 - key: Cloud
   id: cat4
   color: lime
-  image: /assets/cat4-bg.jpg
   summary: >-
-    Discover information on implementing cloud tools and preparing your IT environment for evolving work styles like telework. From the definition of telework as "working from a distant location" to practical examples of remote work, you'll gain essential knowledge for today's business landscape.
+    Working from anywhere, and the IT that makes it possible. Cloud tools,
+    remote access and the shift in how offices operate — including our own
+    long-running look at proactive telework in Japan, and what changed between
+    the first wave and today.
 - key: Troubleshooting
   id: cat5
   color: emerald
-  image: /assets/cat5-bg.jpg
   summary: >-
-    This category is dedicated to solving common everyday IT issues. We offer quick tips that anyone can try immediately, including simple maintenance methods to keep your PC running smoothly and self-help steps for problems like slow performance or non-responsiveness.
+    When something stops working, start here. Step-by-step fixes for the
+    failures we see most: a frozen PC, no internet, a laptop battery that will
+    not hold charge, a dialog that has swallowed the screen, or a machine that
+    took a drink. Written so a non-specialist can follow them without calling
+    for help.
 - key: AI-Usage
   id: cat6
   color: red
-  image: /assets/cat6-bg.jpg
   summary: >-
-    Learn how to integrate AI into your daily tasks and effectively transform "vague knowledge" into "thorough understanding" using AI. This section focuses on practical AI application tips, such as using AI to explain IT terms in an easy-to-understand way.
+    Using AI as a working tool rather than a novelty. How to turn a vague
+    understanding of an IT term into a real one by asking the right questions,
+    and honest accounts of where ChatGPT and similar tools genuinely save time
+    in day-to-day work — and where they do not.
 - key: Windows
   id: cat7
   color: sky
-  image: /assets/cat7-bg.jpg
   summary: >-
-    Articles about Windows. These articles are written by eSolia professionals
-    based on their experience with the OS.
+    Getting more out of Windows, from features people miss to habits that save
+    time every day. Screenshots without extra software, clipboard history beyond
+    Win + V, what actually changed after the Windows 11 upgrade, whether it is
+    safe to pull out a USB drive, and what Copilot does to your machine's
+    performance.
 - key: Peripherals
   id: cat8
   color: teal
-  image: /assets/cat8-bg.jpg
   summary: >-
-    This section covers peripheral devices used with PCs (printers, mice, keyboards, etc.), tips for extending battery life, and maintenance advice. We provide practical insights into essential knowledge for comfortable, long-term use of these everyday devices.
+    The hardware on and around the desk: keyboards, monitors, docks, cables and
+    batteries. Why keyboard layouts and function keys ended up the way they did,
+    how to keep equipment working longer, and what to check when a device that
+    should just work does not.
+- key: Ways of Working
+  id: cat9
+  color: violet
+  summary: >-
+    How we work, rather than which tool we use. Keeping focus while working from
+    home, stepping away from the screen on purpose, setting up a workspace that
+    does not wear you down, and a look at what the people who run IT actually
+    contribute beyond the technology itself.
+- key: Documents
+  id: cat10
+  color: amber
+  summary: >-
+    Creating, editing and managing business documents. Mostly PDF and Adobe
+    Acrobat — what the format actually is and why it behaves as it does, plus
+    the editing, page-handling, security and signature features that
+    administrative teams use day to day, and the limits worth knowing before you
+    rely on them.

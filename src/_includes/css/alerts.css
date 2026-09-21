@@ -381,3 +381,198 @@ body {
     display: inline;
   }
 }
+
+/* --- Category hero band ----------------------------------------------------
+ *
+ * The artwork is monochrome and shared from a pool of 24; the category colour
+ * is what distinguishes one banner from another. Tinting in CSS rather than
+ * baking colour into the files means a new category needs no new asset — pick a
+ * colour and the artwork assigns itself (see artFor()).
+ *
+ * Three stacked layers, in order: artwork, colour, shade.
+ *
+ * The colour layer multiplies, which keeps the contour lines and ribbon edges
+ * showing through — a flat translucent wash at the same strength flattens them
+ * back into the haze this artwork was redrawn to avoid.
+ *
+ * The shade layer is a diagonal black gradient anchored bottom-left, under the
+ * heading. It does two jobs: it guarantees the heading's contrast regardless of
+ * which of the 24 designs landed and which colour the category uses, and it
+ * stops the band reading as a flat rectangle of colour.
+ */
+body {
+  .category-hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    min-height: clamp(11rem, 7rem + 16vw, 20rem);
+    background-color: var(--color-zinc-200);
+    isolation: isolate;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 6%), 0 12px 32px -12px rgb(0 0 0 / 28%);
+  }
+
+  .category-hero-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    /* Scaled past the frame so the crop lands mid-composition rather than
+       showing the calmer edges of the artwork. */
+    scale: 1.15;
+  }
+
+  .category-hero-tint {
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+  }
+
+  .category-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgb(0 0 0 / 62%) 0%,
+      rgb(0 0 0 / 34%) 38%,
+      rgb(0 0 0 / 4%) 72%,
+      transparent 100%
+    );
+  }
+
+  .category-hero-mark {
+    position: absolute;
+    inset-inline-end: clamp(0.5rem, 2.5vw, 2rem);
+    inset-block-start: 50%;
+    translate: 0 -50%;
+    height: 92%;
+    width: auto;
+    margin: 0;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  .category-hero-title {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: clamp(1.25rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 3.25rem);
+    max-width: min(100%, 48rem);
+    /* Keep the heading clear of the mark on the right. */
+    padding-inline-end: 26%;
+    font: var(--font-sans);
+    line-height: 1.05;
+    color: white;
+  }
+
+  .category-hero-title-label {
+    display: block;
+    margin-block-end: 0.35em;
+    font-weight: 600;
+    font-size: clamp(0.7rem, 0.62rem + 0.3vw, 0.85rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .category-hero-title-name {
+    display: block;
+    font-weight: 800;
+    font-size: clamp(1.75rem, 1rem + 4.5vw, 4rem);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  @media (width < 40rem) {
+    .category-hero-mark {
+      opacity: 0.3;
+    }
+
+    .category-hero-title {
+      padding-inline-end: 18%;
+    }
+  }
+}
+
+.dark {
+  .category-hero {
+    background-color: var(--color-zinc-800);
+  }
+
+  /* Multiply over a dark page turns the artwork to mud, so screen the tint and
+     let the pale artwork carry the light instead. */
+  .category-hero-tint {
+    mix-blend-mode: screen;
+    opacity: 0.4;
+  }
+
+  .category-hero-art {
+    opacity: 0.6;
+  }
+
+  .category-hero::after {
+    background: linear-gradient(
+      105deg,
+      rgb(0 0 0 / 68%) 0%,
+      rgb(0 0 0 / 42%) 40%,
+      rgb(0 0 0 / 10%) 75%,
+      transparent 100%
+    );
+  }
+}
+
+/* Tag heroes: same band, different family.
+ *
+ * No colour, on purpose. Colour is what marks a category, and categories are
+ * the axis that takes precedence — a palette for tags would blur exactly the
+ * distinction the taxonomy relies on. A neutral tint over the schematic artwork
+ * keeps tags reading as the finer, second tier.
+ *
+ * Shorter than a category band too, which reinforces the same hierarchy.
+ */
+body {
+  .category-hero--tag {
+    min-height: clamp(8rem, 5rem + 11vw, 13rem);
+
+    /* The schematic artwork is line work, not masses, so a heavy tint erases
+       it. Lighter tint, stronger shade under the heading instead. */
+    & .category-hero-tint {
+      opacity: 0.62;
+    }
+
+    &::after {
+      background: linear-gradient(
+        105deg,
+        rgb(0 0 0 / 68%) 0%,
+        rgb(0 0 0 / 40%) 34%,
+        rgb(0 0 0 / 6%) 70%,
+        transparent 100%
+      );
+    }
+
+    & .category-hero-art {
+      /* Less scale than the ribbons: the grid reads as skewed if pushed. */
+      scale: 1.06;
+    }
+
+    & .category-hero-mark {
+      opacity: 0.34;
+      height: 76%;
+    }
+
+    & .category-hero-title-name {
+      font-size: clamp(1.4rem, 0.9rem + 3vw, 2.75rem);
+    }
+  }
+}
+
+.dark {
+  .category-hero--tag .category-hero-tint {
+    opacity: 0.3;
+  }
+}

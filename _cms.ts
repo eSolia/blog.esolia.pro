@@ -107,7 +107,6 @@ cms.document({
         "teal",
       ],
     },
-    { name: "image", type: "file", upload: "assets" },
     "summary: markdown",
   ],
 });
@@ -155,7 +154,6 @@ cms.document({
         "teal",
       ],
     },
-    { name: "image", type: "file", upload: "assets" },
     "summary: markdown",
   ],
 });
@@ -599,7 +597,23 @@ cms.collection({
           const dynamicTags = site.search.values("tags") || [];
           allTags = [...allStaticTags, ...dynamicTags];
         }
-        field.options = [...new Set(allTags)]; // Deduplicate tags
+        // Categories are the coarse axis, tags the fine one. Offering a
+        // category name in the tag picker is how duplicates like
+        // "Troubleshooting" and "Windows" got into the tag list in the first
+        // place, so those names are withheld here. The build strips them too
+        // (see _config.ts); this stops the author being offered them at all,
+        // which is the friendlier half of the fix.
+        const taxonomyKey = (value: string) =>
+          value.replace(/[\s\-_]/g, "").toLowerCase();
+        const categoryNames = new Set(
+          (docData?.lang
+            ? site.search.values("category", `lang=${docData.lang}`)
+            : site.search.values("category") || [])
+            .map((c: string) => taxonomyKey(c)),
+        );
+
+        field.options = [...new Set(allTags)] // Deduplicate tags
+          .filter((tag: string) => !categoryNames.has(taxonomyKey(tag)));
       },
     },
     {

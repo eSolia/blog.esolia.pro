@@ -17,7 +17,7 @@ description: >-
 image: /uploads/202509d-remote-environment-en.png
 image_top: /uploads/202509d-remote-environment.png
 author: Shiori
-category: Other
+category: Ways of Working
 tags:
   - Remote Work
   - Digital Fatigue

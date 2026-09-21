@@ -14,7 +14,7 @@ description: >-
 image: /uploads/202508c-what-is-server-en.png
 image_top: /uploads/202508c-what-is-server.png
 author: KC
-category: Other
+category: Network
 tags:
   - Beginners
   - IT Literacy

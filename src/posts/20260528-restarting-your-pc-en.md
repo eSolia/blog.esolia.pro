@@ -18,7 +18,6 @@ author: KC
 category: Troubleshooting
 tags:
   - IT Literacy
-  - Troubleshooting
   - PC Performance
   - Beginners
 comments: {}

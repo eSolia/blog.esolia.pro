@@ -14,7 +14,7 @@ description: >-
 image: /uploads/202507a-acrobat-standard-en.png
 image_top: /uploads/202507a-acrobat-standard.png
 author: YM
-category: Other
+category: Documents
 tags:
   - Adobe Acrobat
   - Adobe Standard

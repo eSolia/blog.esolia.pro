@@ -4,7 +4,63 @@ bodyClass: body-tag
 ---
 <!-- ===== archive_result.vto LAYOUT START ===== -->
 <main id="main-content" class="flex-auto">
-  <div class="mt-16 sm:mt-32 sm:px-8">
+  {{# Category and tag pages lead with a full-width hero; author pages keep
+      the plain heading. The hero sits OUTSIDE the usual max-w-5xl text column so it
+      can span the white sheet edge to edge between the gutters — a banner inset
+      to the text column reads as a stray graphic rather than a page header. #}}
+  {{ if (type === "category" || type === "tag") && heroArt }}
+    <div class="mt-16 sm:mt-24 sm:px-8">
+      <div class="mx-auto w-full max-w-7xl lg:px-8">
+        <div class="px-4 sm:px-8 lg:px-12">
+          <div
+            class='category-hero{{ if type === "tag" }} category-hero--tag{{ /if }}'
+          >
+            <img
+              class="category-hero-art"
+              src="{{ heroArt }}"
+              alt=""
+              aria-hidden="true"
+              fetchpriority="high"
+              decoding="async"
+            >
+            {{# The artwork is monochrome and shared from a pool; the category
+                colour is what tells one banner from another. Tinted here from
+                the same plain `color` value the CMS already collects, so an
+                editor types "violet" rather than a Tailwind class. #}}
+            <div
+              class='category-hero-tint bg-{{ if type === "tag" }}zinc-700{{ else }}{{ if color }}{{ color }}{{ else }}zinc{{ /if }}-600{{ /if }}'
+            >
+            </div>
+            {{# Decorative only. The nav's linked logo is hidden on this page
+                type precisely so this one can stand in for it, and a second
+                link to the same destination would be a duplicate for anyone
+                navigating by landmark. #}}
+            <img
+              class="category-hero-mark"
+              src="/assets/symbol_white_bgtransparent.svg"
+              alt=""
+              aria-hidden="true"
+              decoding="async"
+            >
+            <h1 class="category-hero-title">
+              <span class="category-hero-title-label">{{ title }}</span>
+              {{# `category`, not `subtitle`: subtitle wraps the name in curly
+                  quotes, which suit the small inline heading on tag and author
+                  pages but read as a quotation at hero scale. The CATEGORY:
+                  eyebrow above already frames the name. #}}
+              <span class="category-hero-title-name">{{ if type === "tag" }}{{
+                    tag
+                  }}{{ else }}{{ category }}{{ /if }}</span>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{ /if }}
+
+  <div
+    class='{{ if (type === "category" || type === "tag") && heroArt }}mt-8{{ else }}mt-16 sm:mt-32{{ /if }} sm:px-8'
+  >
     <div class="mx-auto w-full max-w-full lg:px-8">
       <div class="relative px-4 sm:px-8 lg:px-12">
         <div class="mx-auto max-w-2xl lg:max-w-5xl">
@@ -31,15 +87,19 @@ bodyClass: body-tag
                 {{ i18n.archive.back }}
               </a>
             </div>
-            <h1
-              class="text-2xl 2xs:text-3xl sm:text-4xl lg:text-5xl tracking-tight text-zinc-950 dark:text-zinc-100 subpixel-antialiased"
-            >
-              <span
-                class="font-extralight text-esoliablue-800 dark:text-esoliablue-600"
-              >{{ title }}</span>
-              <br class="block md:hidden">
-              <span class="font-semibold">{{ subtitle }}</span>
-            </h1>
+            {{# The hero already carries the heading on category and tag
+                pages. #}}
+            {{ if !((type === "category" || type === "tag") && heroArt) }}
+              <h1
+                class="text-2xl 2xs:text-3xl sm:text-4xl lg:text-5xl tracking-tight text-zinc-950 dark:text-zinc-100 subpixel-antialiased"
+              >
+                <span
+                  class="font-extralight text-esoliablue-800 dark:text-esoliablue-600"
+                >{{ title }}</span>
+                <br class="block md:hidden">
+                <span class="font-semibold">{{ subtitle }}</span>
+              </h1>
+            {{ /if }}
             <p class="text-zinc-950 dark:text-zinc-200">{{ summary }}</p>
             {{
               include "templates/post-list.vto" { postslist: search.pages(search_query) }
