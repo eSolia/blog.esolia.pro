@@ -59,44 +59,16 @@
     {{ /if }}
   {{ /for }}
 </div>
-{{# Photo credit for the post's image.
+{{# No photo credit here, deliberately.
 
-    Rendered here, with the rest of the post meta, because the image itself is
-    not shown on the post page — `image` is the Open Graph card and `image_top`
-    is the index thumbnail, so there is no picture to caption. The credit still
-    has to appear somewhere the reader can see it, and this is where the other
-    provenance lives.
+    The post page never shows the credited photo: `image` is the Open Graph
+    card and `image_top` the index thumbnail. A visible "Photo: X on Unsplash"
+    therefore credited an image the reader could not see, sitting next to
+    screenshots they could — and they naturally read it as crediting one of
+    those.
 
-    Every part is optional. A name alone renders as plain text; add a url and
-    it becomes a link; add a source and it reads "Photo by X on Unsplash".
-    That way an author who only knows half the details can still record what
-    they know instead of leaving the field blank. #}}
-{{ if image_credit && image_credit.name }}
-  <div class="mt-2 text-xs font-extralight text-zinc-500 dark:text-zinc-400">
-    {{ i18n.post.photo_credit }}
-    {{ if image_credit.url }}
-      <a
-        href="{{ image_credit.url }}"
-        target="_blank"
-        rel="noopener"
-        class="underline decoration-1"
-      >{{ image_credit.name }}</a>
-    {{ else }}
-      {{ image_credit.name }}
-    {{ /if }}
-    {{ if image_credit.source }}
-      {{ i18n.post.photo_credit_on }}
-      {{ if image_credit.source_url }}
-        <a
-          href="{{ image_credit.source_url }}"
-          target="_blank"
-          rel="noopener"
-          class="underline decoration-1"
-        >{{ image_credit.source }}</a>
-      {{ else }}
-        {{ image_credit.source }}
-      {{ /if }}
-    {{ /if }}
-  </div>
-{{ /if }}
+    The rule now is: show a credit only where its photo is visible. Index cards
+    display the photo, so top-post-cards1.vto keeps the overlay credit. Here the
+    credit lives in metadata instead — `image_credit` in frontmatter, carried
+    into JSON-LD as a schema.org ImageObject by a processor in _config.ts. #}}
 <!-- ===== post-details.vto TEMPLATE END ===== -->
