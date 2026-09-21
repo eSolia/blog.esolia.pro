@@ -411,7 +411,7 @@ cms.collection({
       type: "file",
       label: "ページ画像 Page Image",
       description:
-        "SNSでシェアされたときに表示される代表画像（OGP画像／推奨サイズ 1200×630px）。アップロードして選択するか、デフォルトのままでも構いません。<br>The social-share (Open Graph) image for the page — recommended size 1200×630px. Upload and select one, or leave the default.",
+        "SNSでシェアされたときに表示される代表画像（OGP画像／1200×630px）。デフォルトのままにすると、トップ画像とタイトルから自動で作成されます（色は直近の投稿と重ならないよう自動選択）。プレビューの記事末尾で確認できます。独自の画像を使う場合のみアップロードしてください。<br>The social-share (Open Graph) image, 1200×630px. Leave it at the default and one is made automatically from the top image and title, in a color chosen to differ from recent posts. Check it at the end of the post in the preview. Upload an image only to use your own instead.",
       value: "/uploads/blog-esolia-pro-default.png",
       transform(value) {
         return value?.trim(); // rem whitespace at ends
