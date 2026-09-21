@@ -51,10 +51,26 @@ jobs:
           git commit \
             -m "chore: update Deno dependencies" \
             -m "Automated bump via \`deno task update-deps\`. Review each dependency's changelog and the Cloudflare preview build before merging." \
+            -m "NOTE: lume_markdown_plugins is deliberately pinned at v0.11.0. Bumping it to v0.11.1+ silently rewrites every Japanese heading anchor. See the comment above site.use(toc()) in _config.ts before accepting that bump." \
             -m "InfoSec: dependency version updates; review for security-relevant changes."
           git push --force origin "$branch"
+          # Built with echo rather than an inline string so the rendered body
+          # carries no leading indentation (4+ spaces would become a code block).
+          {
+            echo "Automated dependency update from \`deno task update-deps\`. Review each bump (changelogs) and confirm the Cloudflare preview build is green before merging."
+            echo
+            echo "> [!WARNING]"
+            echo "> \`lume_markdown_plugins\` is pinned at \`v0.11.0\` on purpose. 0.11.1 switched to"
+            echo "> Lume's slugifier, which strips non-ASCII characters and rewrites every Japanese"
+            echo "> heading anchor into a meaningless, order-dependent \`h_\` / \`h_-1\` ID. That breaks"
+            echo "> every existing deep link, silently, with no build error. If this PR bumps that"
+            echo "> dependency, revert that hunk. See the comment above \`site.use(toc())\` in"
+            echo "> \`_config.ts\`."
+          } > "$RUNNER_TEMP/pr-body.md"
           if ! gh pr view "$branch" >/dev/null 2>&1; then
             gh pr create --base main --head "$branch" \
               --title "chore: update Deno dependencies" \
-              --body "Automated dependency update from \`deno task update-deps\`. Review each bump (changelogs) and confirm the Cloudflare preview build is green before merging."
+              --body-file "$RUNNER_TEMP/pr-body.md"
+          else
+            gh pr edit "$branch" --body-file "$RUNNER_TEMP/pr-body.md"
           fi
