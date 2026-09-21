@@ -13,7 +13,12 @@
                 intentional: this symbol shrinks into the nav symbol at
                 roughly the same place, instead of a wordmark dissolving and a
                 symbol appearing somewhere else. #}}
-            <div class="relative mt-12 md:mt-1 md:-ml-20">
+            {{# Category pages carry the mark inside their own hero band, so
+                showing this one too would put two eSolia symbols on the page
+                within a few hundred pixels of each other. #}}
+            <div
+              class="relative mt-12 md:mt-1 md:-ml-20{{ if type === "category" }} hidden{{ /if }}"
+            >
               <a
                 aria-label="{{ i18n.nav.return_home }}"
                 type="button"

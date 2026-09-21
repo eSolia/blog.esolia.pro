@@ -1,3 +1,5 @@
+import { artFor } from "../../scripts/gen-category-art.ts";
+
 export const layout = "layouts/archive_result.vto";
 export const lang = ["ja", "en"];
 // export const id = "archiveresult";
@@ -60,6 +62,11 @@ export default function* (
     yield {
       ...featurecats.find((item) => item.key === category), // <- Add the id and summary etc from featurecats
       url: `/category/${category}/`,
+      // Hero artwork, derived rather than stored: a new category needs a
+      // colour and nothing else. See artFor() for why the quarter is folded in.
+      heroArt: artFor(
+        featurecats.find((item) => item.key === category)?.id ?? category,
+      ),
       title: `${i18n.search.by_category}:`,
       subtitle:
         `${i18n.punctuation.open_quote}${category}${i18n.punctuation.close_quote}`,
