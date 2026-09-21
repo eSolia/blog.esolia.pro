@@ -3,7 +3,7 @@
   "account_id": "ab2ac8ca4000c79ae4a66377276585be",
   "name": "blog-esolia-pro",
   "main": "./worker/index.ts",
-  "compatibility_date": "2026-05-01",
+  "compatibility_date": "2026-09-21",
   "assets": {
     "directory": "./_site",
     "binding": "ASSETS",
