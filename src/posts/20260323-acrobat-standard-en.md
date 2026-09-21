@@ -169,7 +169,9 @@ Building on our previous blog,["What is PDF? How is it related to Adobe Acrobat?
 > 2. Select the "Edit" tool.
 > 3. Click the relevant text and enter or correct it directly. Or drag the relevant object to move it around or change its size.
 
-**Reorder, add, and extract pages**: Users can easily change the page order within a PDF, add pages from another file, extract and save specific pages, and more.[^noedit]
+**Reorder, add, and extract pages**: Users can easily change the page order within a PDF, add pages from another file, extract and save specific pages, and more.[^1]
+
+[^1]: Changes cannot be made in PDF files that have been marked as non-editable.
 > [!HOWTO]
 > 1. Click "Edit" → "Organize Pages".
 > 2. Drag pages to change the order.
@@ -197,7 +199,9 @@ Acrobat Standard also comes with a feature for requesting electronic signatures.
 > 2. Click "Electronic Signature" → "Request an electronic signature."
 > 3. Enter the address and name of the person to be signed. If more than one person needs to sign in order, check "Recipients must sign in order."
 > 4. Set up the signature field.
-> 5. Enter a message for the person signing, set a reminder (if necessary), and send.[^reminder]
+> 5. Enter a message for the person signing, set a reminder (if necessary), and send.[^2]
+
+[^2]: By setting a reminder, the signer will automatically receive reminders until the document is signed.
 
 
 ### ④ Ability to convert between PDF and Office formats
@@ -231,7 +235,3 @@ In environments where more advanced document management or the use of scanned do
 ## Conclusion
 In this blog, we have introduced the most frequently used functions by our administration department. Acrobat Standard has the functions of Acrobat Reader, which is “PDF viewing software,” plus multifunctional tools for improving operational efficiency, strengthening information management, and digitizing approval flows. Our company has been promoting paperless operations since 2022 by utilizing Acrobat's functions. Please refer to [the Adobe Acrobat Quick Reference Guide](https://helpx.adobe.com/jp/acrobat/using/hayawakari-guide.html){target="_blank" rel="noopener"}
 for basic operations and an explanation of how to use each feature of Acrobat, if necessary. If you are considering implementing Adobe products, please contact eSolia.
-
-[^noedit]: Changes cannot be made in PDF files that have been marked as non-editable.
-
-[^reminder]: By setting a reminder, the signer will automatically receive reminders until the document is signed.
