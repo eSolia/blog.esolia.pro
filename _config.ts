@@ -153,16 +153,42 @@ for (const [lang, groups] of Object.entries(tagAliases ?? {})) {
   }
 }
 
+/** Loose match, so "Microsoft 365" and "Microsoft-365" count as the same name. */
+function taxonomyKey(value: string): string {
+  return value.replace(/[\s\-_]/g, "").toLowerCase();
+}
+
 site.preprocess([".md"], (pages) => {
+  // Categories are the coarse axis and tags the fine one, so a tag must never
+  // repeat a category name. Authors kept adding "Troubleshooting" or "Windows"
+  // as tags when those already exist as categories, which pushes duplicates of
+  // the category list into the tag list and makes the tag cloud useless for
+  // finding anything specific.
+  //
+  // The category set is collected from the pages themselves rather than
+  // hard-coded, so adding a category automatically reserves its name.
+  const categories: Record<string, Set<string>> = {};
   for (const page of pages) {
-    const map = canonicalTag[page.data.lang as string];
+    const lang = page.data.lang as string;
+    const category = page.data.category as string | undefined;
+    if (!lang || !category) continue;
+    (categories[lang] ??= new Set()).add(taxonomyKey(category));
+  }
+
+  for (const page of pages) {
+    const lang = page.data.lang as string;
+    const map = canonicalTag[lang];
+    const reserved = categories[lang];
     const tags = page.data.tags;
-    if (!map || !Array.isArray(tags)) continue;
+    if (!Array.isArray(tags)) continue;
 
     const seen = new Set<string>();
     const canonical: string[] = [];
     for (const tag of tags) {
-      const name = map[tag as string] ?? (tag as string);
+      const name = map?.[tag as string] ?? (tag as string);
+      // A tag that names a category adds nothing: the post is already listed
+      // under that category, and the duplicate only clutters the tag list.
+      if (reserved?.has(taxonomyKey(name))) continue;
       // Two retired names can collapse onto the same canonical tag, so dedupe.
       if (!seen.has(name)) {
         seen.add(name);

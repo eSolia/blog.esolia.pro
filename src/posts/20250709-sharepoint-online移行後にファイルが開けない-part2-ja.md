@@ -16,7 +16,6 @@ author: Ena
 category: Microsoft-365
 tags:
   - SharePoint Online
-  - Microsoft 365
   - クラウド移行
   - ファイル管理
   - 業務効率化

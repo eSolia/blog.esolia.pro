@@ -17,7 +17,6 @@ author: Ena
 category: Microsoft-365
 tags:
   - SharePoint Online
-  - Microsoft 365
   - Cloud Migration
   - File Management
   - Productivity

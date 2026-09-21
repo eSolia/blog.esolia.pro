@@ -17,7 +17,6 @@ author: YN
 category: Troubleshooting
 tags:
   - Water Damage
-  - Troubleshooting
   - IT Support
   - Business Continuity
   - Device Repair
