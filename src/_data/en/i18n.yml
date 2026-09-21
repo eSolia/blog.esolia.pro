@@ -13,6 +13,9 @@ archive:
   button: Browse All Posts
   aria_label: Archive page link
   url: /en/archive/
+  back: Back to the archive
+  show_all_tags: Show all tags
+  show_fewer_tags: Show fewer tags
 social:
   share_placeholder: Check out this new post from eSolia's IT Tips Blog
   share_ask: Kindly do us a favor?

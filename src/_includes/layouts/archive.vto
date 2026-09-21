@@ -66,12 +66,23 @@ script: /js/fathom-post-list-event.js
               {{ /if }}
 
               {{ set pageTags = search.pages(`type=tag lang=${lang}`, "tag") }}
+              {{ set tagLimit = 16 }}
               {{ if pageTags.length }}
+                {{# Authors have generated well over a hundred distinct tags,
+                    most used exactly once, so the full list buried everything
+                    below it on the page. Only the first `tagLimit` are shown;
+                    the rest sit behind a disclosure.
+
+                    <details>/<summary> rather than Alpine on purpose: it needs
+                    no JavaScript, is keyboard and screen-reader accessible
+                    with no ARIA of our own, and cannot flash open before a
+                    script initialises. (The `x-cloak` used elsewhere in this
+                    codebase has no backing CSS and is inert — see issue #357.) #}}
                 <div class="text-zinc-500 ml-1 mt-4">
                   <nav class="">
                     <h2>{{ i18n.search.tags }}:</h2>
                     <ul class="flex flex-wrap space-x-2 space-y-2">
-                      {{ for page of pageTags }}
+                      {{ for page of pageTags.slice(0, tagLimit) }}
                         <li>
                           <a
                             href="{{ page.url }}"
@@ -80,6 +91,33 @@ script: /js/fathom-post-list-event.js
                         </li>
                       {{ /for }}
                     </ul>
+
+                    {{ if pageTags.length > tagLimit }}
+                      <details class="tag-disclosure mt-2">
+                        <summary
+                          class="inline-flex items-center gap-1.5 cursor-pointer rounded-md px-2 py-1 text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 select-none"
+                        >
+                          {{# Both labels are rendered; CSS swaps them on
+                              [open] so the control does not need script. #}}
+                          <span class="tag-disclosure-more">{{
+                              i18n.archive.show_all_tags
+                            }} ({{ pageTags.length }})</span>
+                          <span class="tag-disclosure-less">{{
+                            i18n.archive.show_fewer_tags
+                          }}</span>
+                        </summary>
+                        <ul class="flex flex-wrap space-x-2 space-y-2 mt-2">
+                          {{ for page of pageTags.slice(tagLimit) }}
+                            <li>
+                              <a
+                                href="{{ page.url }}"
+                                class="rounded-md bg-zinc-50 dark:bg-zinc-700 px-2 py-1 text-xs font-medium text-zinc-900 dark:text-zinc-50 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 dark:hover:bg-zinc-500 no-underline whitespace-nowrap"
+                              >{{ page.tag }}</a>
+                            </li>
+                          {{ /for }}
+                        </ul>
+                      </details>
+                    {{ /if }}
                   </nav>
                 </div>
               {{ /if }}

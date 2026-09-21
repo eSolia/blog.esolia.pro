@@ -336,3 +336,48 @@ html[lang="ja"] .footnotes::before {
     }
   }
 }
+
+/* --- Tag disclosure on the archive page -----------------------------------
+ *
+ * Swaps the summary label between "show all" and "show fewer" purely on the
+ * [open] attribute, so the control needs no JavaScript and cannot desync from
+ * the element's real state.
+ */
+body {
+  .tag-disclosure > summary {
+    /* Replace the default triangle with our own caret below. */
+    list-style: none;
+  }
+
+  .tag-disclosure > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .tag-disclosure > summary::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-inline: 4px solid transparent;
+    border-block-start: 5px solid currentColor;
+    transition: transform 150ms ease;
+  }
+
+  .tag-disclosure[open] > summary::before {
+    transform: rotate(180deg);
+  }
+
+  .tag-disclosure > summary:focus-visible {
+    outline: 2px solid var(--color-sky-600);
+    outline-offset: 2px;
+  }
+
+  .tag-disclosure .tag-disclosure-less,
+  .tag-disclosure[open] .tag-disclosure-more {
+    display: none;
+  }
+
+  .tag-disclosure[open] .tag-disclosure-less {
+    display: inline;
+  }
+}

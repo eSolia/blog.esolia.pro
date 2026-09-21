@@ -13,6 +13,9 @@ archive:
   button: 全ポストを見る
   aria_label: アーカイブページへのリンク
   url: /archive/
+  back: アーカイブへ戻る
+  show_all_tags: すべてのタグを表示
+  show_fewer_tags: タグの表示を減らす
 social:
   share_placeholder: 役立つIT情報をお届け中！当ブログの最新ポストはこちら
   share_ask: この記事が役に立ったと思ったら
