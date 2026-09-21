@@ -92,26 +92,35 @@ Upgrade:
 ### Cloudflare build environment
 
 The production build runs on Cloudflare Workers Builds, and **the Deno version
-it uses is a dashboard setting, not a file in this repo**. It is recorded here
-because nothing in version control reveals it:
+is hardcoded in the dashboard build command**, not in this repo:
 
-> Workers → `blog-esolia-pro` → Settings → Build → Variables and Secrets
+> Workers → `blog-esolia-pro` → Settings → Build → Build command
 >
 > ```
-> DENO_VERSION = 2.8.2
+> curl -fsSL https://deno.land/install.sh | sh -s v2.8.2 && $HOME/.deno/bin/deno task build:cloudflare
 > ```
+
+The `sh -s v<version>` argument is the pin. It is recorded here because nothing
+in version control reveals it, and because the failure it causes is confusing:
+the build installs its own Deno, so a developer machine with a newer Deno
+builds happily while Cloudflare fails.
 
 This matters because Lume 3.3.0+ implements HMR via the Node module hooks API
 and imports `registerHooks` from `node:module`. Deno 2.7.x does not provide it,
 so the build dies with `ERR_MODULE_NOT_FOUND` before rendering a single page.
 2.8.1 is the first version that has it.
 
-Cloudflare Workers Builds does **not** read `.tool-versions`, and the Deno
-version is not covered in its build image docs, so the dashboard variable is
-the only lever. If a Lume upgrade ever fails on Cloudflare while building
-cleanly on a developer machine, check this first — and note that a local
-`deno` will usually be much newer than the build's, which hides the problem.
-Reproduce with a matching version via `dvm install <version>`.
+Two things that look like they should control this but **do not**: a
+`DENO_VERSION` build variable (not one of the build image's supported version
+overrides — those are `GO_`, `NODE_`, `PYTHON_`, `RUBY_`, `BUN_`, `HUGO_`,
+`YARN_` and `PNPM_VERSION`) and a `.tool-versions` file (not read). Both were
+tried. The build command is the only lever.
+
+Note also that `vars` in `wrangler.jsonc` are **runtime** variables for the
+Worker and have no effect on the build.
+
+To reproduce a build failure locally with a matching Deno:
+`dvm install 2.7.14 && ~/.dvm/versions/2.7.14/deno task build:cloudflare`.
 
 ### Markdown "alerts"
 
