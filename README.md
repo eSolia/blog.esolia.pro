@@ -43,6 +43,25 @@ those automatically as of 2025 Feb. At this time you need to:
 This pulls the changes from origin, and restarts lumecms. It takes 30 seconds
 for the UI to be refreshed.
 
+#### Social cards
+
+A post with no card of its own (Page Image left at the default, empty, or the
+same file as the top image) gets one generated at build time: the top photo
+under a color wash, the title in white, and the eSolia mark. The code is in
+`scripts/og/`, wired in by a preprocessor in `_config.ts`.
+
+- **Nothing is committed.** The card is rebuilt every build, so changing the
+  top image or title updates it.
+- **The color rotates.** It is chosen not to repeat any of the four posts
+  before it, reading the colors of the team's hand-made cards from the images,
+  so consecutive posts in a social feed don't all look the same. Every wash
+  holds at least 4.4:1 contrast with the white title.
+- **Authors can check it.** In the CMS preview (and branch preview builds) the
+  end of each post shows its social card, marked preview only. It is never
+  shown on the live site. Drafts are left out of the color history, so the
+  preview shows the same card production will build.
+- **Hand-made cards win.** Set Page Image to use your own card instead.
+
 #### Create translation button
 
 On a post's edit page, the "..." menu has a "Create English version" /

@@ -17,6 +17,9 @@ import readingInfo from "lume/plugins/reading_info.ts";
 import metas from "lume/plugins/metas.ts";
 import multilanguage from "lume/plugins/multilanguage.ts";
 import { parse as parseYaml } from "lume/deps/yaml.ts";
+import { Page } from "lume/core/file.ts";
+import { renderCard } from "./scripts/og/card.ts";
+import { cardColor, LOOKBACK, pickColor } from "./scripts/og/palette.ts";
 import nav from "lume/plugins/nav.ts";
 import pagefind from "lume/plugins/pagefind.ts";
 import plaintext from "lume/plugins/plaintext.ts";
@@ -899,6 +902,147 @@ site.preprocess([".md"], (pages) => {
   }
 });
 
+// Generated social cards.
+//
+// A post needs an `image` for its Open Graph card, feed entry, JSON-LD and the
+// esolia.co.jp home grid. The team makes these by hand; when a post has none,
+// or its `image` is just its `image_top` photo, one is generated here from the
+// photo and title (scripts/og/card.ts). It is rebuilt every build, so changing
+// the photo or title updates the card, and nothing is committed.
+//
+// The CMS pre-fills both image fields with placeholders, so the placeholder
+// `image` counts as "no card", and a placeholder `image_top` as "no photo" (the
+// post keeps the placeholder card).
+//
+// The wash color is chosen to differ from the posts published just before
+// (scripts/og/palette.ts), reading the hand-made cards' colors from the images,
+// so consecutive cards in a social feed don't all come out the same.
+//
+// InfoSec: reads only repo files named in post front matter, resolved inside
+// the source directory; output is a PNG, no user text reaches markup.
+const PLACEHOLDER_CARD = "/uploads/blog-esolia-pro-default.png";
+const PLACEHOLDER_PHOTO = "/uploads/blog-esolia-pro-default-top.png";
+const cardCache = new Map<string, Uint8Array>();
+const cardColorCache = new Map<string, string>();
+
+site.preprocess([".md"], async (pages, allPages) => {
+  interface Entry {
+    date: number;
+    draft: boolean;
+    pages: Page[];
+    /** Existing hand-made card, or undefined if one must be generated. */
+    card?: string;
+    photo?: string;
+  }
+  const posts = new Map<string, Entry>();
+  for (const page of pages) {
+    const data = page.data;
+    if (data.type !== "post" || !(data.date instanceof Date)) continue;
+    const id = (data.id as string | undefined) ?? page.src.path;
+    const entry = posts.get(id) ??
+      { date: data.date.getTime(), draft: false, pages: [] as Page[] };
+    if (data.draft) entry.draft = true;
+    entry.pages.push(page);
+    const image = data.image as string | undefined;
+    const photo = data.image_top as string | undefined;
+    if (image && image !== photo && image !== PLACEHOLDER_CARD) {
+      entry.card ??= image;
+    } else if (photo && photo !== PLACEHOLDER_PHOTO) entry.photo ??= photo;
+    posts.set(id, entry);
+  }
+
+  // Resolved only inside the source directory, so front matter cannot point
+  // the build at arbitrary files.
+  const srcRoot = site.src();
+  const local = (url: string) => {
+    const path = site.src(url);
+    return path.startsWith(srcRoot + "/") ? path : undefined;
+  };
+
+  const order = [...posts.entries()].sort((a, b) => a[1].date - b[1].date);
+  // History is counted over published posts only. Drafts are loaded in the
+  // CMS and dev server but never in production, so letting them into the
+  // history would give the CMS preview a different color from the live card.
+  const published = order.filter(([, e]) => !e.draft);
+  const needsCard = (e: Entry) => !e.card && e.photo !== undefined;
+
+  // Where each card-less post sits in the published sequence: its own index,
+  // or for a draft, where it will land once published.
+  const targets = order.flatMap(([id, e]) => {
+    if (!needsCard(e)) return [];
+    const at = e.draft
+      ? published.filter(([, p]) => p.date <= e.date).length
+      : published.findIndex(([key]) => key === id);
+    return [{ id, entry: e, at }];
+  });
+  if (!targets.length) return;
+
+  // Colors of published posts, resolved lazily: a hand-made card is read from
+  // the image, a generated one is picked from the posts before it.
+  const colorAt = new Map<number, string | undefined>();
+  const history = async (at: number) => {
+    const colors: string[] = [];
+    for (let j = Math.max(0, at - LOOKBACK); j < at; j++) {
+      const color = await colorOf(j);
+      if (color) colors.push(color);
+    }
+    return colors;
+  };
+  const colorOf = async (j: number): Promise<string | undefined> => {
+    if (colorAt.has(j)) return colorAt.get(j);
+    const [id, entry] = published[j];
+    let color: string | undefined;
+    if (entry.card) {
+      const path = local(entry.card);
+      color = path && cardColorCache.get(path);
+      if (path && !color) {
+        try {
+          color = await cardColor(path);
+          cardColorCache.set(path, color);
+        } catch {
+          // Not a local image; nothing to avoid.
+        }
+      }
+    } else if (entry.photo) {
+      color = pickColor(id, await history(j));
+    }
+    colorAt.set(j, color);
+    return color;
+  };
+
+  for (const { id, entry, at } of targets) {
+    const photoPath = local(entry.photo!);
+    if (!photoPath) continue;
+    const color = entry.draft
+      ? pickColor(id, await history(at))
+      : await colorOf(at);
+    if (!color) continue;
+
+    let stamp: string;
+    try {
+      const info = await Deno.stat(photoPath);
+      stamp = `${info.mtime?.getTime()}:${info.size}`;
+    } catch {
+      console.warn(`[og] ${id}: photo not found, ${entry.photo}`);
+      continue;
+    }
+    for (const page of entry.pages) {
+      const lang = page.data.lang as string;
+      const title = page.data.title as string;
+      const key = [photoPath, stamp, title, lang, color].join("\n");
+      let content = cardCache.get(key);
+      if (!content) {
+        content = await renderCard({ photoPath, title, lang, color });
+        cardCache.set(key, content);
+      }
+      const url = `/uploads/og/${id}-${lang}.jpg`;
+      allPages.push(Page.create({ url, content }));
+      page.data.image = url;
+      page.data.image_generated = true;
+    }
+  }
+});
+
 // Future-date gating for scheduled posts.
 //
 // Lume's built-in draft filter runs at load time, so it cannot act on a post's
@@ -949,6 +1093,11 @@ if (!showScheduledDrafts) {
     }
   });
 }
+
+// Authors preview in the CMS and on branch preview builds, the same places
+// scheduled posts are revealed; there the post page shows its social card
+// (templates/social-card-preview.vto) so it can be checked before publishing.
+site.data("cardPreview", showScheduledDrafts);
 
 site.preprocess([".html"], (pages) => {
   for (const page of pages) {
