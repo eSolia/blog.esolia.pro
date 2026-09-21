@@ -70,6 +70,8 @@ nav:
   mobile_nav_name: メニュー
   aria_label: ナビゲーションメニューのリンク
   new_tab: 新しいタブで開きます
+  toggle_theme: ライト・ダークテーマを切り替え
+  footer_nav_label: クイックリンク
 post:
   by: 著者
   reading_time: 読了目安
@@ -90,6 +92,7 @@ search:
   close_link: 閉じる (Esc)
   tooltip: <kbd>Cmd</kbd>+<kbd>k</kbd> (Mac) または <br><kbd>Ctrl</kbd>+<kbd>k</kbd> (Win/Linux) <br>で検索
   dialog_label: サイト内検索
+  open_search: 検索を開く
 
 # Header link out to the corporate site. Absolute on purpose: a root-relative
 # "/" would be rewritten to "/blog/" by Lume's base_path plugin, since the blog

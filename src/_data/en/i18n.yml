@@ -68,6 +68,8 @@ nav:
   mobile_nav_name: Menu
   aria_label: Navigation menu links
   new_tab: opens in a new tab
+  toggle_theme: Toggle light or dark theme
+  footer_nav_label: Quick links
 post:
   by: by
   reading_time: Reading Time
@@ -88,6 +90,7 @@ search:
   close_link: Close (Esc)
   tooltip: <kbd>Cmd</kbd>+<kbd>k</kbd> (Mac) or <br><kbd>Ctrl</kbd>+<kbd>k</kbd> (Win/Linux) <br>to Search
   dialog_label: Search this site
+  open_search: Open search
 
 # See the note in the ja file: absolute URL on purpose, base_path would prefix
 # a root-relative one with /blog.
