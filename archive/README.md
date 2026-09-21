@@ -101,3 +101,19 @@ out. The class names appear in **0** built pages.
 Kept rather than deleted because the markup is a working reference if a
 carousel is wanted again — though see issue #191, which proposes a CSS-only
 carousel instead of reintroducing the dependency.
+
+## Category background images (2026-09-21)
+
+`src/assets/cat*-bg.jpg` — 22 AI-generated square images, built as a proposal
+for per-category main images that was not adopted. The `image:` field they fed
+had already stopped being read: `top-post-cards1.vto` assigned it to `catImage`,
+but the only line using that variable was inside a Vento comment, so cards were
+falling back to `blog-esolia-pro-default-top.png` regardless.
+
+Category and tag pages now carry a hero band whose artwork is generated as SVG
+by `scripts/gen-category-art.ts` and assigned by hash, so these are not needed
+even in principle: they are square, mostly 1024x1024 and one only 300x300, and a
+hero band wants a wide image.
+
+`cat0-bg.jpg` stayed in `src/assets/` — it is the fallback Open Graph image for
+archive listing pages, set in `src/generators/_data.yml`, and is still live.

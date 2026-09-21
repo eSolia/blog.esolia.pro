@@ -107,7 +107,6 @@ cms.document({
         "teal",
       ],
     },
-    { name: "image", type: "file", upload: "assets" },
     "summary: markdown",
   ],
 });
@@ -155,7 +154,6 @@ cms.document({
         "teal",
       ],
     },
-    { name: "image", type: "file", upload: "assets" },
     "summary: markdown",
   ],
 });

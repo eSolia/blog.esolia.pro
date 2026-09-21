@@ -1,7 +1,6 @@
 - key: Microsoft-365
   id: cat1
   color: cyan
-  image: /assets/cat1a-bg.jpg
   summary: >-
     Outlook, Teams, OneDrive, SharePoint and Copilot — the tools most of our
     clients live in all day. Practical fixes for the problems that actually come
@@ -11,7 +10,6 @@
 - key: Security
   id: cat2
   color: esoliaamber
-  image: /assets/cat2-bg.jpg
   summary: >-
     The everyday security habits that protect a business, explained without
     jargon. Spotting a phishing email before you click, managing passwords in a
@@ -21,7 +19,6 @@
 - key: Network
   id: cat3
   color: fuchsia
-  image: /assets/cat3-bg.jpg
   summary: >-
     How the plumbing works, for people who are not network engineers. Cabling
     and connectors explained in plain terms, what a server actually is and does,
@@ -31,7 +28,6 @@
 - key: Cloud
   id: cat4
   color: lime
-  image: /assets/cat4-bg.jpg
   summary: >-
     Working from anywhere, and the IT that makes it possible. Cloud tools,
     remote access and the shift in how offices operate — including our own
@@ -40,7 +36,6 @@
 - key: Troubleshooting
   id: cat5
   color: emerald
-  image: /assets/cat5-bg.jpg
   summary: >-
     When something stops working, start here. Step-by-step fixes for the
     failures we see most: a frozen PC, no internet, a laptop battery that will
@@ -50,7 +45,6 @@
 - key: AI-Usage
   id: cat6
   color: red
-  image: /assets/cat6-bg.jpg
   summary: >-
     Using AI as a working tool rather than a novelty. How to turn a vague
     understanding of an IT term into a real one by asking the right questions,
@@ -59,7 +53,6 @@
 - key: Windows
   id: cat7
   color: sky
-  image: /assets/cat7-bg.jpg
   summary: >-
     Getting more out of Windows, from features people miss to habits that save
     time every day. Screenshots without extra software, clipboard history beyond
@@ -69,7 +62,6 @@
 - key: Peripherals
   id: cat8
   color: teal
-  image: /assets/cat8-bg.jpg
   summary: >-
     The hardware on and around the desk: keyboards, monitors, docks, cables and
     batteries. Why keyboard layouts and function keys ended up the way they did,
@@ -78,7 +70,6 @@
 - key: Ways of Working
   id: cat9
   color: violet
-  image: /assets/cat9-bg.jpg
   summary: >-
     How we work, rather than which tool we use. Keeping focus while working from
     home, stepping away from the screen on purpose, setting up a workspace that
@@ -87,7 +78,6 @@
 - key: Documents
   id: cat10
   color: amber
-  image: /assets/cat2b-bg.jpg
   summary: >-
     Creating, editing and managing business documents. Mostly PDF and Adobe
     Acrobat — what the format actually is and why it behaves as it does, plus
