@@ -373,8 +373,16 @@ site.process((pages) => {
 // This ordering was equally wrong before the /blog move, but harmless: with no
 // path on `location`, base_path was a no-op and left src alone. Giving
 // `location` a path is what turned it into a visible bug.
-site.use(picture(/* Options */));
-site.use(transformImages());
+//
+// Skipped under the CMS. The editor preview needs no responsive variants: each
+// <img> keeps its original src, and the `transform-images` attribute is simply
+// left unused. The variants were three quarters of the files the CMS rebuilt
+// (1,483 of ~2,000), and that rebuild runs after every Publish, Save state and
+// Update, because LumeCMS restarts Lume for those. Production is unchanged.
+if (!isCms) {
+  site.use(picture(/* Options */));
+  site.use(transformImages());
+}
 
 // deno-lint-ignore lume/plugin-order
 site.use(basePath());
@@ -1112,15 +1120,20 @@ if (!showScheduledDrafts) {
 // (templates/social-card-preview.vto) so it can be checked before publishing.
 site.data("cardPreview", showScheduledDrafts);
 
-site.preprocess([".html"], (pages) => {
-  for (const page of pages) {
-    const src = page.src.entry?.src;
-    if (src) {
-      page.data.lastmod = getGitDate("modified", src);
-      page.data.created = getGitDate("created", src);
+// Git dates for the sitemap's lastmod. Two `git log` calls per page, about
+// 125ms, which made them most of the CMS rebuild (~11s of ~17s). The CMS skips
+// the sitemap, so it skips these too.
+if (!isCms) {
+  site.preprocess([".html"], (pages) => {
+    for (const page of pages) {
+      const src = page.src.entry?.src;
+      if (src) {
+        page.data.lastmod = getGitDate("modified", src);
+        page.data.created = getGitDate("created", src);
+      }
     }
-  }
-});
+  });
+}
 
 // pass the base url
 site.process([".html"], externalLinksIcon(site.options.location.href));
