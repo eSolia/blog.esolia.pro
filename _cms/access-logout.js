@@ -11,8 +11,15 @@
 //
 // Cloudflare's own logged-out page has no link back, so the logout is called
 // in the background (the browser applies the cookie it clears) and our own
-// page is shown with a "Log in again" button to /admin/. If that call fails,
-// fall back to navigating to Cloudflare's page.
+// page is shown with a "Log in again" button to /admin/.
+//
+// Access answers the logout with a redirect to the team domain, which is
+// cross-origin, so following it makes fetch() reject even though the cookie
+// is already cleared. `redirect: "manual"` stops there; the opaque redirect
+// counts as success. Whatever happens, our page is shown: its button goes
+// through Access, so if the session somehow survived, the worst case is being
+// let straight back in. Navigating to the logout URL again is never right; by
+// then the cookie is gone and Cloudflare shows "No Access cookie found".
 //
 // The button's inline onclick runs at the target, so a capturing listener on
 // the document sees the click first and can stop it. Only when served through
@@ -56,12 +63,15 @@ if (!LOCAL.includes(location.hostname)) {
         const response = await fetch(LOGOUT, {
           credentials: "same-origin",
           cache: "no-store",
+          redirect: "manual",
         });
-        if (!response.ok) throw new Error(`logout ${response.status}`);
-        loggedOutPage();
-      } catch {
-        location.assign(LOGOUT);
+        if (response.type !== "opaqueredirect" && !response.ok) {
+          console.warn(`[cms] Access logout answered ${response.status}`);
+        }
+      } catch (error) {
+        console.warn("[cms] Access logout request failed", error);
       }
+      loggedOutPage();
     },
     { capture: true },
   );
