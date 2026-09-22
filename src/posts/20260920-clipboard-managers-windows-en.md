@@ -6,7 +6,7 @@ oldUrl: []
 lang: en
 id: 202609a-clipboard-managers
 date: 2026-09-20 09:00:00
-last_modified: 2026-09-22 11:25:00
+last_modified: 2026-09-22 17:47:00
 title: 'If Win + V Is Not Enough: Clipboard Managers for Windows'
 description: >-
   Copy, paste, and lose it a moment later. A clipboard manager keeps a history
@@ -23,7 +23,6 @@ author: Rick Cogley
 category: Windows
 tags:
   - Productivity
-  - Windows
   - Beginners
 comments: {}
 ---
