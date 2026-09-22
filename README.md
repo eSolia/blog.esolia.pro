@@ -45,7 +45,7 @@ for the UI to be refreshed.
 
 #### Social cards
 
-A post with no card of its own (Page Image left at the default, empty, or the
+A post with no card of its own (Social Card left at the default, empty, or the
 same file as the top image) gets one generated at build time: the top photo
 under a color wash, the title in white, and the eSolia mark. The code is in
 `scripts/og/`, wired in by a preprocessor in `_config.ts`.
@@ -60,7 +60,9 @@ under a color wash, the title in white, and the eSolia mark. The code is in
   end of each post shows its social card, marked preview only. It is never
   shown on the live site. Drafts are left out of the color history, so the
   preview shows the same card production will build.
-- **Hand-made cards win.** Set Page Image to use your own card instead.
+- **Hand-made cards win.** Upload to Social Card to use your own card
+  instead. In the CMS the image fields run in fill-in order: ① Top Image, ②
+  Image Credit, ③ Social Card.
 
 #### Create translation button
 

@@ -929,10 +929,10 @@ site.preprocess([".md"], async (pages, allPages) => {
   interface Entry {
     date: number;
     draft: boolean;
-    pages: Page[];
-    /** Existing hand-made card, or undefined if one must be generated. */
+    /** A hand-made card from any language version; sets the post's color. */
     card?: string;
-    photo?: string;
+    /** Language versions with no card of their own, and their photos. */
+    needs: { page: Page; photo: string }[];
   }
   const posts = new Map<string, Entry>();
   for (const page of pages) {
@@ -940,14 +940,17 @@ site.preprocess([".md"], async (pages, allPages) => {
     if (data.type !== "post" || !(data.date instanceof Date)) continue;
     const id = (data.id as string | undefined) ?? page.src.path;
     const entry = posts.get(id) ??
-      { date: data.date.getTime(), draft: false, pages: [] as Page[] };
+      { date: data.date.getTime(), draft: false, needs: [] };
     if (data.draft) entry.draft = true;
-    entry.pages.push(page);
+    // Decided per language version: one can have a hand-made card while its
+    // translation does not.
     const image = data.image as string | undefined;
     const photo = data.image_top as string | undefined;
     if (image && image !== photo && image !== PLACEHOLDER_CARD) {
       entry.card ??= image;
-    } else if (photo && photo !== PLACEHOLDER_PHOTO) entry.photo ??= photo;
+    } else if (photo && photo !== PLACEHOLDER_PHOTO) {
+      entry.needs.push({ page, photo });
+    }
     posts.set(id, entry);
   }
 
@@ -964,18 +967,32 @@ site.preprocess([".md"], async (pages, allPages) => {
   // CMS and dev server but never in production, so letting them into the
   // history would give the CMS preview a different color from the live card.
   const published = order.filter(([, e]) => !e.draft);
-  const needsCard = (e: Entry) => !e.card && e.photo !== undefined;
 
   // Where each card-less post sits in the published sequence: its own index,
   // or for a draft, where it will land once published.
   const targets = order.flatMap(([id, e]) => {
-    if (!needsCard(e)) return [];
+    if (!e.needs.length) return [];
     const at = e.draft
       ? published.filter(([, p]) => p.date <= e.date).length
       : published.findIndex(([key]) => key === id);
     return [{ id, entry: e, at }];
   });
   if (!targets.length) return;
+
+  const handMadeColor = async (card: string) => {
+    const path = local(card);
+    if (!path) return undefined;
+    let color = cardColorCache.get(path);
+    if (!color) {
+      try {
+        color = await cardColor(path);
+        cardColorCache.set(path, color);
+      } catch {
+        return undefined; // Not a local image; nothing to avoid.
+      }
+    }
+    return color;
+  };
 
   // Colors of published posts, resolved lazily: a hand-made card is read from
   // the image, a generated one is picked from the posts before it.
@@ -993,17 +1010,8 @@ site.preprocess([".md"], async (pages, allPages) => {
     const [id, entry] = published[j];
     let color: string | undefined;
     if (entry.card) {
-      const path = local(entry.card);
-      color = path && cardColorCache.get(path);
-      if (path && !color) {
-        try {
-          color = await cardColor(path);
-          cardColorCache.set(path, color);
-        } catch {
-          // Not a local image; nothing to avoid.
-        }
-      }
-    } else if (entry.photo) {
+      color = await handMadeColor(entry.card);
+    } else if (entry.needs.length) {
       color = pickColor(id, await history(j));
     }
     colorAt.set(j, color);
@@ -1011,22 +1019,27 @@ site.preprocess([".md"], async (pages, allPages) => {
   };
 
   for (const { id, entry, at } of targets) {
-    const photoPath = local(entry.photo!);
-    if (!photoPath) continue;
-    const color = entry.draft
+    // A translation of a post with a hand-made card takes that card's color,
+    // so the two language versions match. A draft is not in `published`, so
+    // its color is picked from the posts it will follow.
+    const color = entry.card
+      ? await handMadeColor(entry.card)
+      : entry.draft
       ? pickColor(id, await history(at))
       : await colorOf(at);
     if (!color) continue;
 
-    let stamp: string;
-    try {
-      const info = await Deno.stat(photoPath);
-      stamp = `${info.mtime?.getTime()}:${info.size}`;
-    } catch {
-      console.warn(`[og] ${id}: photo not found, ${entry.photo}`);
-      continue;
-    }
-    for (const page of entry.pages) {
+    for (const { page, photo } of entry.needs) {
+      const photoPath = local(photo);
+      let stamp: string;
+      try {
+        if (!photoPath) throw new Error("outside the source directory");
+        const info = await Deno.stat(photoPath);
+        stamp = `${info.mtime?.getTime()}:${info.size}`;
+      } catch {
+        console.warn(`[og] ${id}: photo not found, ${photo}`);
+        continue;
+      }
       const lang = page.data.lang as string;
       const title = page.data.title as string;
       const key = [photoPath, stamp, title, lang, color].join("\n");
