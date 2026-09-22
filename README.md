@@ -30,7 +30,8 @@ support on Discord. 🙏🏻
 
 ### CMS
 
-Log into the cms at https://cms.blog.esolia.pro/admin
+Log into the cms at https://cms.blog.esolia.co.jp/admin (the old
+cms.blog.esolia.pro redirects there)
 
 If you make changes on a local clone of the repo and push, the cms won't get
 those automatically as of 2025 Feb. At this time you need to:
@@ -42,6 +43,21 @@ those automatically as of 2025 Feb. At this time you need to:
 
 This pulls the changes from origin, and restarts lumecms. It takes 30 seconds
 for the UI to be refreshed.
+
+#### After Publish, Save state or Update
+
+LumeCMS restarts Lume after each of these, and the CMS rebuilds before it
+answers again: about 10 seconds on the VPS. For those seconds Cloudflare would
+show a 502, so a Custom Error Rule on the esolia.co.jp zone (502/503/504/530 on
+`cms.blog.esolia.co.jp` only) serves a bilingual "the CMS is restarting" page
+that reloads itself every 8 seconds. Its HTML is kept in
+`docs/cloudflare/cms-restarting.html`; after changing it, paste it into the
+rule again (Rules → Custom Error Rules).
+
+The rebuild is short because the `cms` task sets `LUME_CMS=true`, and
+`_config.ts` then skips what the editor preview does not need (search index,
+feeds, sitemap, git dates, image variants). Lume sets that variable itself,
+but only after `_config.ts` has loaded, which is why the task sets it.
 
 #### Who made a CMS edit (git author)
 
