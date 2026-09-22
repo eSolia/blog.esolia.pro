@@ -5,7 +5,7 @@ export const lang = ["ja", "en"];
 // export const id = "archiveresult";
 
 export default function* (
-  { search, lang, i18n, featuretags, featurecats, tagaliases },
+  { search, lang, i18n, featuretags, featurecats, tagaliases, authors },
 ) {
   // Per-tag/category archive pages (~68% of all pages) aren't needed for the CMS
   // editor preview. Skip them under the CMS (LUME_CMS=true) to shrink the
@@ -46,10 +46,17 @@ export default function* (
       i18n,
     };
   }
-  // Generate a page for each author
+  // Generate a page for each author. A byline that was renamed keeps a
+  // redirect from its old author page (`former_bylines` in
+  // src/_data/authors.yml), encoded as for tags above.
+  const formerBylines = (author) =>
+    authors?.find((item) => item.byline === author)?.former_bylines ?? [];
   for (const author of search.values("author", `lang=${lang}`)) {
     yield {
       url: `/author/${author}/`,
+      oldUrl: formerBylines(author).map(
+        (old) => `${localePrefix}/author/${encodeURIComponent(old)}/`,
+      ),
       title: `${i18n.search.by_author}:`,
       subtitle:
         `${i18n.punctuation.open_quote}${author}${i18n.punctuation.close_quote}`,

@@ -11,7 +11,7 @@ description: >-
   By performing simple maintenance regularly, you can maintain your PC's
   performance and use it smoothly.
 image: /uploads/202503d-simple-maintenance-tips-social-en.jpg
-author: 'Sachiko Kosuge '
+author: SK
 category: Troubleshooting
 tags:
   - Regular Maintenance

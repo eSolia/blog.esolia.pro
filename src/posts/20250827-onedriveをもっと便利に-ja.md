@@ -11,7 +11,7 @@ title: OneDriveをもっと便利に！SharePointとの違いもこれでスッ�
 description: OneDriveとSharePointの違いを初心者向けにわかりやすく解説。基本から業務効率化の活用術までをまとめた実用ガイド。
 image: /uploads/202504f-make-the-most-of-onedrive-ja.jpeg
 image_top: /uploads/202504f-make-the-most-of-onedrive.jpeg
-author: SK&Shiori
+author: SK & Shiori
 category: Microsoft-365
 tags:
   - OneDrive

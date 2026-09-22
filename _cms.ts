@@ -79,6 +79,92 @@ cms.upload({
 // Configure git
 cms.git();
 
+// Writers, edited as a list in the CMS and stored in src/_data/authors.yml.
+// Only the post form's author dropdown uses `active`; see authorOptions().
+cms.document({
+  name: "authors",
+  icon: "users",
+  type: "object-list",
+  label: "執筆者一覧 Authors",
+  description:
+    "記事の執筆者と、記事に表示される署名（バイライン）の一覧。退職した人は「有効」のチェックを外してください（過去の記事の署名は変わりません）。<br>The writers of the blog, and the byline each wants shown on their posts. Untick Active when someone leaves; their past posts keep their byline.",
+  store: "src:_data/authors.yml",
+  fields: [
+    {
+      name: "byline",
+      type: "text",
+      label: "署名 Byline",
+      description:
+        "記事に表示される名前。イニシャル、名、フルネームなど自由に。両言語共通です。<br>The name shown on posts: initials, first name, full name, as they like. The same in both languages.",
+      attributes: { required: true },
+    },
+    { name: "first_name", type: "text", label: "名 First name" },
+    { name: "last_name", type: "text", label: "姓 Last name" },
+    {
+      name: "email",
+      type: "email",
+      label: "メール Email",
+      description:
+        "社内の参照用です。サイトには表示されません。<br>For internal reference; not shown on the site.",
+    },
+    {
+      name: "active",
+      type: "checkbox",
+      label: "有効 Active",
+      description:
+        "チェックを外すと、記事の執筆者の選択肢に表示されなくなります。<br>Untick to stop offering this person in the post form's writer list.",
+      value: true,
+    },
+    {
+      // Also stops a save from this form dropping the key: LumeCMS writes
+      // only the fields it knows, and losing it would silently delete the
+      // redirects from renamed bylines' old author pages.
+      name: "former_bylines",
+      type: "list",
+      label: "以前の署名 Former bylines",
+      description:
+        "署名を変更した場合、以前の署名をここに残してください。古い執筆者ページが新しいページに転送されます。<br>If the byline changes, keep the old one here so its old author page redirects to the new one.",
+    },
+  ],
+});
+
+interface AuthorEntry {
+  byline: string;
+  first_name?: string;
+  last_name?: string;
+  active?: boolean;
+}
+
+/**
+ * Options for a post's author dropdown: active writers, labelled with their
+ * full name so initials are recognizable, storing the byline. A post's current
+ * byline is always included, even for an inactive writer or one not in the
+ * list, so opening an older post never blanks its author.
+ */
+function authorOptions(current?: string) {
+  let authors: AuthorEntry[] = [];
+  try {
+    authors = parseYaml(
+      Deno.readTextFileSync(
+        new URL("./src/_data/authors.yml", import.meta.url),
+      ),
+    ) as AuthorEntry[];
+  } catch {
+    // No list yet; fall back to the current value alone.
+  }
+  const label = (a: AuthorEntry) => {
+    const name = [a.first_name, a.last_name].filter(Boolean).join(" ");
+    return name && name !== a.byline ? `${a.byline} (${name})` : a.byline;
+  };
+  const options = authors
+    .filter((a) => a.active !== false || a.byline === current)
+    .map((a) => ({ value: a.byline, label: label(a) }));
+  if (current && !options.some((o) => o.value === current)) {
+    options.unshift({ value: current, label: current });
+  }
+  return options;
+}
+
 cms.document({
   name: "featurecats-ja",
   icon: "squares-four",
@@ -484,12 +570,16 @@ cms.collection({
     },
     {
       name: "author",
-      type: "text",
-      label: "コンテンツの著者 Author of the Content",
+      type: "select",
+      label: "執筆者 Writer",
       description:
-        "コンテンツの言語で、署名に表示される著者のフルネーム。<br>The author's full name as it should appear in the byline, in the language of the content.",
-      init(field, { data }) {
-        field.options = data.site?.search.values("author");
+        "記事を書いた人を選んでください（入力する人ではなく執筆者）。その人の署名（バイライン）が記事に表示されます。一覧にない場合は、先に「執筆者一覧 Authors」に追加してください。<br>Pick the person who wrote the article (not whoever is entering it). Their byline is what the post shows. If they are not listed, add them under Authors first.",
+      // Filled in init() from the Authors list, read fresh each time the form
+      // opens so a newly added writer appears at once. 0.15.5 requires options
+      // to be present.
+      options: [],
+      init(field, _cmsData, docData) {
+        field.options = authorOptions(docData?.author as string | undefined);
       },
     },
     {

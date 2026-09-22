@@ -14,7 +14,7 @@ description: >-
   efficiency.
 image: /uploads/202504f-make-the-most-of-onedrive-en.jpeg
 image_top: /uploads/202504f-make-the-most-of-onedrive.jpeg
-author: SK&Shiori
+author: SK & Shiori
 category: Microsoft-365
 tags:
   - OneDrive
