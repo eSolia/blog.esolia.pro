@@ -55,6 +55,7 @@
       "./src/keep-archive",
       "./src/favicon.svg",
       "./README.md",
+      "./docs/diagrams",
       "./src/_includes/css/typography.css",
       "./src/_includes/templates/page-toc.vto",
       "./src/_includes/templates/top-nav.vto"
