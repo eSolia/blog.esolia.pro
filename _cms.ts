@@ -1,5 +1,9 @@
 import lumeCMS from "lume/cms/mod.ts";
 import { parse as parseYaml } from "lume/deps/yaml.ts";
+import {
+  accessFromEnv,
+  PLACEHOLDER_USER,
+} from "./scripts/cms/cloudflare_access.ts";
 
 // Canonical tags, enforced at save time.
 //
@@ -53,10 +57,29 @@ const cms = lumeCMS({
     .join("\n"),
 });
 
-// Auth is enforced at the edge (Cloudflare Access on cms.blog.esolia.pro), NOT
-// in the CMS. Under Lume 3.2 the CMS only runs via `lume --serve`, whose
-// `isProduction` gate is always false, so the plugin never applies cms.auth().
-// Do not add cms.auth() here expecting it to protect the CMS — it does nothing.
+// Who is editing. Access is enforced at the edge (Cloudflare Access on
+// cms.blog.esolia.pro); the CMS takes the signed-in person from Access's
+// signed token so its git commits carry their email as author, instead of the
+// anonymous `undefined <>` it recorded before. See
+// scripts/cms/cloudflare_access.ts.
+//
+// Only on the VPS, where the systemd unit sets CMS_ACCESS_TEAM_DOMAIN and
+// CMS_ACCESS_AUD; locally there is no Access in front, so no login.
+//
+// Lume's own site-wide basic-auth gate (the `isProduction` check in the lume_cms
+// plugin) still never applies under `lume --serve`; this provider is separate
+// and runs inside the CMS's routes, so it does take effect.
+const access = accessFromEnv((email) => {
+  const writer = readAuthors().find((a) => a.email?.toLowerCase() === email);
+  const name = [writer?.first_name, writer?.last_name].filter(Boolean)
+    .join(" ");
+  return name || undefined;
+});
+if (access) {
+  // LumeCMS runs a provider only when its users map is non-empty. People are
+  // added as they sign in; this entry is never a login.
+  cms.auth({ [PLACEHOLDER_USER]: { password: crypto.randomUUID() } }, access);
+}
 
 // Configure upload storage
 cms.upload({
@@ -132,7 +155,20 @@ interface AuthorEntry {
   byline: string;
   first_name?: string;
   last_name?: string;
+  email?: string;
   active?: boolean;
+}
+
+function readAuthors(): AuthorEntry[] {
+  try {
+    return parseYaml(
+      Deno.readTextFileSync(
+        new URL("./src/_data/authors.yml", import.meta.url),
+      ),
+    ) as AuthorEntry[];
+  } catch {
+    return []; // No list yet.
+  }
 }
 
 /**
@@ -142,16 +178,7 @@ interface AuthorEntry {
  * list, so opening an older post never blanks its author.
  */
 function authorOptions(current?: string) {
-  let authors: AuthorEntry[] = [];
-  try {
-    authors = parseYaml(
-      Deno.readTextFileSync(
-        new URL("./src/_data/authors.yml", import.meta.url),
-      ),
-    ) as AuthorEntry[];
-  } catch {
-    // No list yet; fall back to the current value alone.
-  }
+  const authors = readAuthors();
   const label = (a: AuthorEntry) => {
     const name = [a.first_name, a.last_name].filter(Boolean).join(" ");
     return name && name !== a.byline ? `${a.byline} (${name})` : a.byline;
