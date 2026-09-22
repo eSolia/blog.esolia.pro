@@ -43,6 +43,31 @@ those automatically as of 2025 Feb. At this time you need to:
 This pulls the changes from origin, and restarts lumecms. It takes 30 seconds
 for the UI to be refreshed.
 
+#### Who made a CMS edit (git author)
+
+Each CMS save is a git commit. Its author is whoever is signed in to Cloudflare
+Access, e.g. `Ena Ishikawa <ena.ishikawa@esolia.co.jp>`. The name comes from
+the Authors list when the email is there, otherwise from first.last. The
+committer stays the VPS git identity. This records who *entered* the edit; the
+article's writer is its byline (Writer dropdown).
+
+The identity comes from Access's signed token, verified in
+`scripts/cms/cloudflare_access.ts`. It is switched on only on the VPS, by a
+systemd drop-in:
+
+```ini
+# /etc/systemd/system/lumecms.service.d/access.conf
+[Service]
+Environment=CMS_ACCESS_TEAM_DOMAIN=esolia.cloudflareaccess.com
+Environment=CMS_ACCESS_AUD=<the Access application's AUD tag>
+```
+
+then `systemctl daemon-reload && systemctl restart lumecms`. Without those
+variables (local development) the CMS has no login and commits are anonymous.
+With them, a request without a valid token is refused (403), so if the Access
+application or its AUD tag changes, update the drop-in. To switch it off,
+delete the drop-in and restart.
+
 #### Authors
 
 The CMS has an Authors list (`src/_data/authors.yml`), edited like the
