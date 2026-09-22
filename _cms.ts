@@ -208,16 +208,25 @@ cms.document({
       type: "select",
       label: "色 Color",
       description:
-        "カテゴリの色（Tailwindの色名）。一覧から選んでください。<br>The category color (a Tailwind color name). Pick from the list.",
+        "カテゴリの色（Tailwindの色名）。カテゴリページのヒーロー画像の色になります。他のカテゴリと重ならない色を選んでください。使用中：cyan, esoliaamber, fuchsia, lime, emerald, red, sky, teal, violet, amber。日英で同じ色にしてください。<br>The category color (a Tailwind color name), used to tint the category page's hero. Pick one no other category uses. In use: cyan, esoliaamber, fuchsia, lime, emerald, red, sky, teal, violet, amber. Use the same color in both languages.",
+      // Every option is a Tailwind color whose 600 shade holds up under white
+      // text (the hero tint is bg-<color>-600), so yellow is left out.
       options: [
+        "amber",
+        "blue",
         "cyan",
         "emerald",
         "esoliaamber",
         "fuchsia",
+        "indigo",
         "lime",
+        "orange",
+        "pink",
         "red",
+        "rose",
         "sky",
         "teal",
+        "violet",
       ],
     },
     "summary: markdown",
@@ -255,16 +264,25 @@ cms.document({
       type: "select",
       label: "色 Color",
       description:
-        "カテゴリの色（Tailwindの色名）。一覧から選んでください。<br>The category color (a Tailwind color name). Pick from the list.",
+        "カテゴリの色（Tailwindの色名）。カテゴリページのヒーロー画像の色になります。他のカテゴリと重ならない色を選んでください。使用中：cyan, esoliaamber, fuchsia, lime, emerald, red, sky, teal, violet, amber。日英で同じ色にしてください。<br>The category color (a Tailwind color name), used to tint the category page's hero. Pick one no other category uses. In use: cyan, esoliaamber, fuchsia, lime, emerald, red, sky, teal, violet, amber. Use the same color in both languages.",
+      // Every option is a Tailwind color whose 600 shade holds up under white
+      // text (the hero tint is bg-<color>-600), so yellow is left out.
       options: [
+        "amber",
+        "blue",
         "cyan",
         "emerald",
         "esoliaamber",
         "fuchsia",
+        "indigo",
         "lime",
+        "orange",
+        "pink",
         "red",
+        "rose",
         "sky",
         "teal",
+        "violet",
       ],
     },
     "summary: markdown",
@@ -614,7 +632,7 @@ cms.collection({
       type: "select",
       label: "カテゴリー Category",
       description:
-        "ページのカテゴリ（例：セキュリティ、クラウド など）。ページの言語で入力してください。<br>The page category (e.g. Security, Cloud, etc), in the language of the page.",
+        "記事のカテゴリを一つ選んでください（ページの言語のもの）。2026年9月に「働き方」と「文書管理」を追加しました。以前「その他」だった記事は、この二つか既存のカテゴリに移しています。どれにも当てはまらない場合のみ「その他」を使ってください。新しいカテゴリを作る場合は、「注目カテゴリ」にも日英両方の項目を追加してください。<br>Pick the post's category, in the page's language. Two were added in September 2026: Ways of Working and Documents, and the posts that used to be Other moved to these or to existing categories. Use Other only when nothing else fits. A new category also needs an entry under Featured Categories, in both languages.",
       // Populated dynamically in init(); 0.15.5 requires options to be present.
       options: [],
       init(field, { data }, docData) {
@@ -630,6 +648,10 @@ cms.collection({
             "AI活用",
             "Windows",
             "周辺機器",
+            "働き方",
+            "文書管理",
+            // Retired from the site's category list, but kept selectable for a
+            // post that genuinely fits nowhere else.
             "その他",
           ],
           en: [
@@ -641,6 +663,8 @@ cms.collection({
             "AI-Usage",
             "Windows",
             "Peripherals",
+            "Ways of Working",
+            "Documents",
             "Other",
           ],
         };
