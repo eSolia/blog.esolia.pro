@@ -58,7 +58,7 @@ const cms = lumeCMS({
 });
 
 // Who is editing. Access is enforced at the edge (Cloudflare Access on
-// cms.blog.esolia.pro); the CMS takes the signed-in person from Access's
+// cms.blog.esolia.co.jp); the CMS takes the signed-in person from Access's
 // signed token so its git commits carry their email as author, instead of the
 // anonymous `undefined <>` it recorded before. See
 // scripts/cms/cloudflare_access.ts.

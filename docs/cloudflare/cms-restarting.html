@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="refresh" content="8">
+    <title>CMS 再起動中 / CMS restarting</title>
+    <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
+      background: #f4f4f5;
+      color: #18181b;
+    }
+    main {
+      max-width: 34rem;
+      margin: 1rem;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px #0002;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.25rem;
+      margin: 0 0 1rem;
+    }
+    p {
+      line-height: 1.6;
+      margin: .5rem 0;
+    }
+    .en {
+      color: #52525b;
+    }
+    .dot {
+      display: inline-block;
+      width: .6rem;
+      height: .6rem;
+      border-radius: 50%;
+      background: #0369a1;
+      animation: p 1s infinite alternate;
+    }
+    @keyframes p {
+      to {
+        opacity: .2;
+      }
+    }
+    @media (prefers-color-scheme:dark) {
+      body {
+        background: #18181b;
+        color: #f4f4f5;
+      }
+      main {
+        background: #27272a;
+      }
+      .en {
+        color: #a1a1aa;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1><span class="dot"></span> CMS を再起動しています / The CMS is restarting</h1>
+      <p>公開・保存・更新のあと、CMS は数秒間再起動します。このページは自動的に再読み込みされます。変更は保存されています。</p>
+      <p class="en"
+        lang="en">After Publish, Save state or Update, the CMS restarts for a few seconds. This page reloads by itself, and your changes are saved.</p>
+    </main>
+  </body>
+</html>
