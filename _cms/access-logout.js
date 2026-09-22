@@ -42,11 +42,19 @@ function loggedOutPage() {
         <p lang="en" style="margin:.25rem 0 1.5rem;opacity:.75">
           You have logged out of the CMS. To keep working, log in again.
         </p>
-        <a class="button is-primary" href="/admin/">
+        <button type="button" class="button is-primary" id="cms-login-again">
           もう一度ログイン / Log in again
-        </a>
+        </button>
       </div>
     </main>`;
+  // A button, not a link: LumeCMS's navigation.js loads link targets with
+  // fetch(), and after logout /admin/ redirects to the Access login on the
+  // team domain, which a cross-origin fetch cannot follow, so the link just
+  // failed silently. A full-page navigation can.
+  document.getElementById("cms-login-again")?.addEventListener(
+    "click",
+    () => location.assign("/admin/"),
+  );
 }
 
 if (!LOCAL.includes(location.hostname)) {
