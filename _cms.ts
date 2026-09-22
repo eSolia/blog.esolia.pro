@@ -406,27 +406,15 @@ cms.collection({
         required: true,
       },
     },
-    {
-      name: "image",
-      type: "file",
-      label: "ページ画像 Page Image",
-      description:
-        "SNSでシェアされたときに表示される代表画像（OGP画像／1200×630px）。デフォルトのままにすると、トップ画像とタイトルから自動で作成されます（色は直近の投稿と重ならないよう自動選択）。プレビューの記事末尾で確認できます。独自の画像を使う場合のみアップロードしてください。<br>The social-share (Open Graph) image, 1200×630px. Leave it at the default and one is made automatically from the top image and title, in a color chosen to differ from recent posts. Check it at the end of the post in the preview. Upload an image only to use your own instead.",
-      value: "/uploads/blog-esolia-pro-default.png",
-      transform(value) {
-        return value?.trim(); // rem whitespace at ends
-      },
-      upload: "uploads",
-      attributes: {
-        accept: "image/*",
-      },
-    },
+    // Image fields, in the order an author should fill them: the photo first,
+    // because the social card (`image`) is generated from it unless one is
+    // uploaded (scripts/og/, _config.ts).
     {
       name: "image_top",
       type: "file",
-      label: "トップ画像 Page Top Image",
+      label: "① トップ画像（写真） Top Image (photo)",
       description:
-        "トップページのグリッドに表示される画像（横長・推奨 1200×630px 前後）。アップロードして選択するか、デフォルトのままでも構いません。<br>The image shown in the top-page grid (landscape, ~1200×630px recommended). Upload and select one, or leave the default.",
+        "最初にこれを設定してください。記事の写真（横長・1200×630px 前後）。トップページのグリッドに表示され、SNSシェア画像（③）の元にもなります。<br>Set this first. The post's photo (landscape, about 1200×630px). It appears in the top-page grid and is the base of the social card (③).",
       value: "/uploads/blog-esolia-pro-default-top.png",
       transform(value) {
         return value?.trim(); // rem whitespace at ends
@@ -445,7 +433,7 @@ cms.collection({
       // photographer's name can record that much instead of leaving it blank.
       name: "image_credit",
       type: "object",
-      label: "画像クレジット Image Credit",
+      label: "② 画像クレジット Image Credit",
       description:
         "写真の出典。分かる範囲で構いません。名前だけでも記録してください。<br>Where the image came from. Fill in whatever you know — even just a name is better than nothing.",
       fields: [
@@ -477,6 +465,22 @@ cms.collection({
             "その画像のページ（提供元サイト内）。<br>The image's own page on the source site.",
         },
       ],
+    },
+    {
+      name: "image",
+      type: "file",
+      label:
+        "③ SNSシェア画像（通常は変更不要） Social Card (usually leave as is)",
+      description:
+        "通常はデフォルトのままにしてください。①のトップ画像とタイトルから自動で作成されます（色は直近の投稿と重ならないよう自動選択）。①を設定して保存すると、プレビューの記事末尾に表示されるので確認してください。写真やタイトルを変えると、保存のたびに作り直されます。自分で作った画像を使う場合のみ、ここにアップロードしてください（空欄にすると自動作成に戻ります）。<br>Usually leave this at the default. The card is made automatically from the top image (①) and the title, in a color chosen to differ from recent posts. Set ①, save, and check the card at the end of the post in the preview. It is remade on every save, so changing the photo or title updates it. Upload here only to use a card you made yourself; clear it to go back to the automatic card.",
+      value: "/uploads/blog-esolia-pro-default.png",
+      transform(value) {
+        return value?.trim(); // rem whitespace at ends
+      },
+      upload: "uploads",
+      attributes: {
+        accept: "image/*",
+      },
     },
     {
       name: "author",

@@ -13,13 +13,16 @@
   </p>
   <p class="mt-1 text-xs text-zinc-600 dark:text-zinc-400">
     {{ if image_generated }}
-      トップ画像とタイトルから自動生成されています。写真やタイトルを変更すると画像も更新されます。独自の画像を使う場合は「ページ画像」に設定してください。<br>
+      トップ画像とタイトルから自動生成されています。写真やタイトルを変更すると画像も更新されます。自分で作った画像を使う場合は「③ SNSシェア画像」にアップロードしてください。<br>
       Generated from the top image and title, and updated whenever either
-      changes. To use your own card instead, set Page Image.
+      changes. To use a card you made yourself, upload it to ③ Social Card.
+    {{ else if image === "/uploads/blog-esolia-pro-default.png" }}
+      まだSNSシェア画像がありません。「① トップ画像」を設定して保存すると、ここに作成されます。<br>
+      No social card yet. Set ① Top Image and save, and one is made here.
     {{ else }}
-      「ページ画像」に設定された画像です。空欄またはデフォルトのままにすると、トップ画像から自動生成されます。<br>
-      The image set in Page Image. Leave it empty or at the default to have
-      one generated from the top image.
+      「③ SNSシェア画像」にアップロードされた画像です。③を空欄にして保存すると、トップ画像から自動で作成されます。<br>
+      The card uploaded to ③ Social Card. Clear ③ and save to have one made
+      from the top image instead.
     {{ /if }}
   </p>
   <p class="mt-1 text-xs text-zinc-600 dark:text-zinc-400">
