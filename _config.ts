@@ -936,6 +936,15 @@ site.preprocess([".md"], (pages) => {
 const PLACEHOLDER_CARD = "/uploads/blog-esolia-pro-default.png";
 const PLACEHOLDER_PHOTO = "/uploads/blog-esolia-pro-default-top.png";
 const cardCache = new Map<string, Uint8Array>();
+
+/** Short stable hash of what a card is built from, for cache busting. */
+function cardVersion(key: string): string {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < key.length; i++) {
+    h = Math.imul(h ^ key.charCodeAt(i), 0x01000193) >>> 0;
+  }
+  return h.toString(36);
+}
 const cardColorCache = new Map<string, string>();
 
 site.preprocess([".md"], async (pages, allPages) => {
@@ -1065,6 +1074,9 @@ site.preprocess([".md"], async (pages, allPages) => {
       allPages.push(Page.create({ url, content }));
       page.data.image = url;
       page.data.image_generated = true;
+      // The card keeps its URL when regenerated, so the CMS preview box adds
+      // this to it; without it a browser could keep showing an older card.
+      page.data.image_version = cardVersion(key);
     }
   }
 });

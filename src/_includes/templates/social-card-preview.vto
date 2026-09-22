@@ -29,9 +29,10 @@
     この枠は公開サイトには表示されません。 / This box does not appear on the
     live site.
   </p>
-  <a href="{{ image }}" target="_blank" rel="noopener" class="mt-3 block">
+  {{ set cardSrc = image_version ? image + "?v=" + image_version : image }}
+  <a href="{{ cardSrc }}" target="_blank" rel="noopener" class="mt-3 block">
     <img
-      src="{{ image }}"
+      src="{{ cardSrc }}"
       alt="Social card for this post"
       width="1200"
       height="630"
