@@ -5,8 +5,8 @@ featured: false
 oldUrl: []
 lang: en
 id: 202609a-clipboard-managers
-date: 2026-09-20T09:00:00.000Z
-last_modified: 2026-09-20T09:00:00.000Z
+date: 2026-09-20 09:00:00
+last_modified: 2026-09-22 11:25:00
 title: 'If Win + V Is Not Enough: Clipboard Managers for Windows'
 description: >-
   Copy, paste, and lose it a moment later. A clipboard manager keeps a history
@@ -16,15 +16,15 @@ image: /uploads/202609a-clipboard-managers-en.png
 image_top: /uploads/202609a-clipboard-managers.jpg
 image_credit:
   name: Frames For Your Heart
-  url: https://unsplash.com/@framesforyourheart
+  url: 'https://unsplash.com/@framesforyourheart'
   source: Unsplash
-  source_url: https://unsplash.com/photos/brown-wooden-boat-scale-model-rPRpBWXn2C4
+  source_url: 'https://unsplash.com/photos/brown-wooden-boat-scale-model-rPRpBWXn2C4'
 author: Rick Cogley
 category: Windows
 tags:
   - Productivity
   - Windows
-  - TechForBeginners
+  - Beginners
 comments: {}
 ---
 You copy some text, paste, then copy some more, but the first text is gone and you're wishing you could get it back. Everyone has had that moment, usually about two seconds after what you needed has vanished.
