@@ -38,9 +38,9 @@ for (const groups of Object.values(tagAliasGroups ?? {})) {
 //   translate-button.js      "Create translation" (opposite-language twin)
 //   translation-clipboard.js "Copy for translation" / "Paste translation"
 const extensions = await Promise.all(
-  ["translate-button.js", "translation-clipboard.js"].map((file) =>
-    Deno.readTextFile(new URL(`./_cms/${file}`, import.meta.url))
-  ),
+  ["translate-button.js", "translation-clipboard.js", "access-logout.js"].map((
+    file,
+  ) => Deno.readTextFile(new URL(`./_cms/${file}`, import.meta.url))),
 );
 
 const cms = lumeCMS({
