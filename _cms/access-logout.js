@@ -39,21 +39,28 @@ function loggedOutPage() {
         <p style="margin:.25rem 0">
           CMS からログアウトしました。続けて作業する場合は、もう一度ログインしてください。
         </p>
-        <p lang="en" style="margin:.25rem 0 1.5rem;opacity:.75">
+        <p lang="en" style="margin:.25rem 0 1rem;opacity:.75">
           You have logged out of the CMS. To keep working, log in again.
+        </p>
+        <p style="margin:0 0 1.5rem;font-size:.85em;opacity:.65">
+          WARP を使っている社内の端末では、入力なしで自動的にログインします。<br>
+          <span lang="en">On company devices with WARP, you are signed back in
+          automatically, without a prompt.</span>
         </p>
         <button type="button" class="button is-primary" id="cms-login-again">
           もう一度ログイン / Log in again
         </button>
       </div>
     </main>`;
-  // A button, not a link: LumeCMS's navigation.js loads link targets with
-  // fetch(), and after logout /admin/ redirects to the Access login on the
-  // team domain, which a cross-origin fetch cannot follow, so the link just
-  // failed silently. A full-page navigation can.
+  // A reload, not a link or location.assign(): LumeCMS's navigation.js uses
+  // the Navigation API to intercept every navigation to /admin/* and load it
+  // with fetch(), which cannot follow Access's redirect to the login on the
+  // team domain, so those failed silently. It exempts reloads. The page is
+  // still at the /admin/ address it was logged out from, so a reload goes
+  // through Access and comes back to it.
   document.getElementById("cms-login-again")?.addEventListener(
     "click",
-    () => location.assign("/admin/"),
+    () => location.reload(),
   );
 }
 
