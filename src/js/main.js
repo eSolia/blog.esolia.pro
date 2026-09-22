@@ -183,15 +183,28 @@ document.addEventListener("alpine:init", () => {
     },
   }));
 
+  // One instance per toggle button (desktop nav and mobile drawer). The
+  // `dark` class on <body> is the single source of truth: each instance's
+  // `darkMode` only mirrors it for the icons, and a `theme-change` event keeps
+  // the instances in step, so toggling one never leaves the other stale.
   Alpine.data("themeToggle", () => ({
     darkMode: localStorage.getItem("darkMode") === "true" || false,
     init() {
       this.$watch("darkMode", (value) => {
         localStorage.setItem("darkMode", value);
         document.body.classList.toggle("dark", value);
+        globalThis.dispatchEvent(
+          new CustomEvent("theme-change", { detail: value }),
+        );
+      });
+      globalThis.addEventListener("theme-change", (event) => {
+        this.darkMode = event.detail;
       });
       // Ensure the correct class is applied on page load
       document.body.classList.toggle("dark", this.darkMode);
+    },
+    toggleTheme() {
+      this.darkMode = !document.body.classList.contains("dark");
     },
   }));
 });
