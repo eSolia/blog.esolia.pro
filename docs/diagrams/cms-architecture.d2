@@ -1,0 +1,58 @@
+# How an editor reaches the blog CMS, and how a published post reaches readers.
+#
+# Source for cms-architecture.svg / .png in this folder, rendered with:
+#   d2 --pad=24 docs/diagrams/cms-architecture.d2 docs/diagrams/cms-architecture.svg
+#   d2 --pad=24 docs/diagrams/cms-architecture.d2 docs/diagrams/cms-architecture.png
+# Edit the .d2 and re-render both so they stay in step.
+
+direction: down
+
+vars: {
+  d2-config: {
+    theme-id: 300
+  }
+}
+
+editor: "Editor" {
+  shape: person
+}
+
+edge: "Cloudflare (esolia.co.jp zone, Pro plan)" {
+  style.stroke-dash: 3
+
+  access: "Cloudflare Access\ncms.blog.esolia.co.jp" {
+    style.bold: true
+  }
+  idp: "Microsoft 365 (Entra)\nor WARP device"
+  guard: "WAF, no caching,\nrestart page"
+
+  access -> idp: "sign in\n(silent on WARP)" {
+    style.stroke-dash: 2
+  }
+  access -> guard
+}
+
+vps: "Hetzner VPS  ·  no public web ports" {
+  style.stroke-dash: 3
+
+  cloudflared: "cloudflared\n(outbound tunnel)"
+  cms: "LumeCMS + Lume\n127.0.0.1:3000\nchecks the Access token" {
+    style.bold: true
+  }
+
+  cloudflared -> cms
+}
+
+github: "GitHub\ncommit = who signed in"
+site: "esolia.co.jp/blog\nEN + JA" {
+  style.bold: true
+}
+reader: "Reader" {
+  shape: person
+}
+
+editor -> edge.access: "1. open the CMS"
+edge.guard -> vps.cloudflared: "2. through the tunnel"
+vps.cms -> github: "3. Publish"
+github -> site: "4. checks, then build"
+site -> reader: "5. read"
