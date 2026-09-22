@@ -43,6 +43,23 @@ those automatically as of 2025 Feb. At this time you need to:
 This pulls the changes from origin, and restarts lumecms. It takes 30 seconds
 for the UI to be refreshed.
 
+#### Authors
+
+The CMS has an Authors list (`src/_data/authors.yml`), edited like the
+featured categories. The post form's Writer field is a dropdown built from it.
+
+- **Byline** is whatever the writer wants shown (initials, first name, full
+  name), the same in both languages. It is what a post's `author` field
+  stores.
+- **Active** only controls who the dropdown offers. Unticking it never changes
+  existing posts, and a post by an inactive writer still shows and keeps its
+  byline.
+- **Former bylines** keep a redirect from a renamed byline's old author page.
+  Add the old byline here when renaming, then change the posts.
+- Email is first.last@esolia.co.jp, for reference only; it is not published.
+- The CMS rewrites the file when the list is saved (and drops comments), so
+  keep notes here rather than in the YAML.
+
 #### Social cards
 
 A post with no card of its own (Social Card left at the default, empty, or the

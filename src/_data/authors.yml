@@ -1,0 +1,59 @@
+- byline: Rick Cogley
+  first_name: Rick
+  last_name: Cogley
+  email: rick.cogley@esolia.co.jp
+  active: true
+  former_bylines: []
+- byline: Ena
+  first_name: Ena
+  last_name: Ishikawa
+  email: ena.ishikawa@esolia.co.jp
+  active: true
+  former_bylines: []
+- byline: Kabaya
+  first_name: Satoshi
+  last_name: Kabaya
+  email: satoshi.kabaya@esolia.co.jp
+  active: true
+  former_bylines: []
+- byline: KC
+  first_name: Kylie
+  last_name: Cogley
+  email: kylie.cogley@esolia.co.jp
+  active: true
+  former_bylines: []
+- byline: K.Y.
+  first_name: Kisetsu
+  last_name: Yamada
+  email: kisetsu.yamada@esolia.co.jp
+  active: true
+  former_bylines: []
+- byline: Shiori
+  first_name: Shiori
+  last_name: Utano
+  email: shiori.utano@esolia.co.jp
+  active: true
+  former_bylines: []
+- byline: SK
+  first_name: Sachiko
+  last_name: Kosuge
+  email: sachiko.kosuge@esolia.co.jp
+  active: true
+  former_bylines:
+    - "Sachiko Kosuge "
+- byline: SK & Shiori
+  active: true
+  former_bylines:
+    - SK&Shiori
+- byline: YM
+  first_name: Yanquan
+  last_name: Ma
+  email: yanquan.ma@esolia.co.jp
+  active: true
+  former_bylines: []
+- byline: YN
+  first_name: Yorihisa
+  last_name: Nakada
+  email: yorihisa.nakada@esolia.co.jp
+  active: false
+  former_bylines: []
