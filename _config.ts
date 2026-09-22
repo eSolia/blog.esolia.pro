@@ -138,12 +138,17 @@ const site = lume({
   },
 });
 
-// When Lume serves the CMS (`lume --serve` with _cms.ts), it sets LUME_CMS=true.
-// The CMS rebuilds the whole site on each save-triggered reload, and that ~50-80s
-// window is when cms.blog.esolia.pro briefly 502s. Search index, feeds, and the
-// sitemap are irrelevant to the editor preview, so skip them under the CMS to
-// shrink the rebuild. The production Cloudflare build (no LUME_CMS) still emits
-// everything.
+// True when serving the CMS. LumeCMS restarts Lume after every Publish, Save
+// state and Update, and the editor waits until the rebuild finishes, so the
+// search index, feeds, sitemap, git dates and image variants, none of which
+// the editor preview needs, are skipped. The production Cloudflare build (no
+// LUME_CMS) still emits everything.
+//
+// Set by the `cms` task in deno.json, which the VPS runs. Lume sets LUME_CMS
+// itself too, but only in its CMS plugin, AFTER this file has loaded, so
+// relying on that left `isCms` false here and every gate below inactive; the
+// archive generators, which read it at render time, were the only part that
+// worked.
 const isCms = Deno.env.get("LUME_CMS") === "true";
 
 // Load First, order does not matter
