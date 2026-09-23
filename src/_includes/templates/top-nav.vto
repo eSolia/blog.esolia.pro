@@ -44,12 +44,24 @@
                       #FFBC68 leaf), and the currentColor version flattens to
                       a single colour by design. Only the grey one is inlined,
                       since only it needs CSS tinting. #}}
-                  class="hero-symbol {{ if bodyClass === "body-post" }}hero-symbol--brand {{ /if }}w-28 md:w-44 hidden md:block"
+                  class="hero-symbol {{ if bodyClass === "body-post" }}hero-symbol--brand hero-symbol--light {{ /if }}w-28 md:w-44 hidden md:block"
                   src="{{ if bodyClass === "body-post" }}/assets/symbol_darkblue_bgtransparent_2.svg{{ else }}/assets/symbol_currentcolor.svg{{ /if }}"
                   height="170"
                   width="170"
                   {{ if bodyClass !== "body-post" }}inline{{ /if }}
-                /></a>
+                />{{ if bodyClass === "body-post" }}{{# The dark-mode twin of the
+                  mark above: the same artwork drawn in white, since the
+                  two-tone brand version goes muddy on a dark background.
+                  Decorative, because the image above already carries the link
+                  text for assistive technology. #}}<img
+                  alt=""
+                  aria-hidden="true"
+                  decoding="async"
+                  class="hero-symbol hero-symbol--brand hero-symbol--dark w-28 md:w-44 hidden"
+                  src="/assets/symbol_white_bgtransparent.svg"
+                  height="170"
+                  width="170"
+                />{{ /if }}</a>
             </div>
           </div>
         </div>
