@@ -497,6 +497,13 @@ details[open] > summary {
 
 .dark .hero-symbol--brand {
   opacity: calc(0.85 * var(--hero-scroll-fade, 1));
+
+  /* White in dark mode. The brand mark is navy with one amber leaf, which
+     goes muddy on the dark background, and the white symbol elsewhere on the
+     page sets the expectation. `brightness(0)` flattens both colours to
+     black, `invert(1)` turns that to white, so the shape stays exactly the
+     brand mark and no second asset is fetched. */
+  filter: brightness(0) invert(1);
 }
 
 .dark .hero-symbol {
