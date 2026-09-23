@@ -495,12 +495,21 @@ details[open] > summary {
   opacity: calc(1 * var(--hero-scroll-fade, 1));
 }
 
+/* Order matters: these two selectors have the same specificity, so the more
+   specific-looking `--brand` rule only wins by coming last. It did not, which
+   is why the post mark was rendering at 0.34 — grey, not white. */
+.dark .hero-symbol {
+  opacity: calc(0.34 * var(--hero-scroll-fade, 1));
+}
+
 .dark .hero-symbol--brand {
   opacity: calc(0.85 * var(--hero-scroll-fade, 1));
 }
 
-.dark .hero-symbol {
-  opacity: calc(0.34 * var(--hero-scroll-fade, 1));
+/* The white artwork carries no colour of its own to sit back behind, so it is
+   shown at full strength; the two-tone mark stays at 0.85 in light mode. */
+.dark .hero-symbol--dark {
+  opacity: var(--hero-scroll-fade, 1);
 }
 
 /* Post pages carry the mark twice: the two-tone brand version for light mode
