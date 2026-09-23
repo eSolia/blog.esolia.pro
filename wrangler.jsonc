@@ -4,6 +4,21 @@
   "name": "blog-esolia-pro",
   "main": "./worker/index.ts",
   "compatibility_date": "2026-09-21",
+  // Serve this Worker only on blog.esolia.pro (and via the BLOG service binding
+  // from esolia-2025). `workers_dev` defaults to true, which would publish a
+  // stable blog-esolia-pro.esolia.workers.dev hostname in Cloudflare's own zone
+  // — outside our zone's WAF, scanner-pattern blocks and rate limits, and
+  // outside any Cloudflare Access application, which binds to one hostname.
+  // It also gives search engines a second host for the same content, the
+  // duplicate-indexing problem docs/blog-url-consolidation-plan.md is fixing.
+  // Disabling the route in the dashboard is not durable: Cloudflare re-enables
+  // it on the next `wrangler deploy` unless it is false here.
+  // `preview_urls` has matched `workers_dev` when unset since wrangler v4.44.0;
+  // set explicitly so the intent survives a wrangler version change.
+  // Rule: devkit .claude/shared-rules/cloudflare-cost-guards.md, "Wrangler
+  // configuration" item 4.
+  "workers_dev": false,
+  "preview_urls": false,
   "assets": {
     "directory": "./_site",
     "binding": "ASSETS",
