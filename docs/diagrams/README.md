@@ -24,3 +24,26 @@ Details behind the diagram:
 [Cloudflare Access + Tunnel runbook](../cloudflare-access-tunnel-runbook-en.md)
 ([日本語](../cloudflare-access-tunnel-runbook-ja.md)) and the CMS sections of
 the [README](../../README.md).
+
+## Office network before / after an IPoE switch
+
+Figures for the small-office network post
+(`src/posts/20260706-small-office-network-infrastructure-en.md` and its JA
+twin). Orange marks what depends on the old line, green is where those
+dependencies move, blue is temporary.
+
+![Office network before the switch](202603f-office-network-before.svg)
+![Office network after](202603f-office-network-after.svg)
+
+Sources: `202603f-office-network-{before,after}.d2`, with Japanese labels in
+the matching `.ja.d2` files. These carry no style block; the eSolia preamble is
+added at render time by the codex renderer, which writes the SVG and PNG beside
+the source:
+
+```sh
+cd ~/dev/codex
+npx tsx scripts/sync-d2.ts --file ~/dev/blog.esolia.pro/docs/diagrams/202603f-office-network-before.d2
+```
+
+Then copy each PNG into `src/uploads/` as
+`202603f-office-network-{before,after}-{en,ja}.png`.

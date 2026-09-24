@@ -1,0 +1,36 @@
+# Small office network AFTER: the line is just internet; nothing depends on it.
+# Figure for src/posts/20260706-small-office-network-infrastructure-en.md.
+# Japanese labels: 202603f-office-network-after.ja.d2.
+# Style (vars + classes) is injected at render time by ~/dev/codex scripts/sync-d2.ts:
+#   cd ~/dev/codex && npx tsx scripts/sync-d2.ts --file <abs path to this file>
+# Then copy the PNG to src/uploads/202603f-office-network-after-en.png.
+# Emerald = where the old dependencies went. Sky = temporary. Grey = plain plumbing.
+
+direction: down
+
+staff: "Staff, in the office or anywhere" { class: client }
+
+cloud: "Cloud" {
+  class: zone
+  label.near: top-left
+  direction: right
+  m365: "Microsoft 365\nEntra ID sign-in\nSharePoint, OneDrive" { class: outcome }
+  cf: "Cloudflare\nAccess, WARP" { class: outcome }
+}
+
+office: "Office" {
+  class: zone
+  label.near: top-left
+  direction: down
+  fw: "IPoE line + firewall\nno static IP, no VPN\noutbound only" { class: client }
+  lan: "PCs, printer, Wi-Fi" { class: client }
+  nas: "Old NAS\nuntil migration ends" { class: info }
+  fw -> lan
+  fw -> nas
+}
+
+staff -> cloud.m365: "sign in"
+staff -> cloud.cf: "WARP client"
+cloud.cf -> office.nas: "tunnel, dialed out\nfrom the office" {
+  style.stroke-dash: 3
+}

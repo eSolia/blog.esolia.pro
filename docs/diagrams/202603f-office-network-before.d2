@@ -1,0 +1,35 @@
+# Small office network BEFORE a PPPoE -> IPoE switch: what depends on the old line.
+# Figure for src/posts/20260706-small-office-network-infrastructure-en.md.
+# Japanese labels: 202603f-office-network-before.ja.d2.
+# Style (vars + classes) is injected at render time by ~/dev/codex scripts/sync-d2.ts:
+#   cd ~/dev/codex && npx tsx scripts/sync-d2.ts --file <abs path to this file>
+# Then copy the PNG to src/uploads/202603f-office-network-before-en.png.
+# Orange = what to check before switching. Grey = unaffected.
+
+direction: down
+
+outside: "Outside the office" {
+  class: zone
+  label.near: top-left
+  direction: right
+  remote: "Remote staff" { class: client }
+  services: "Banks, vendors, SaaS\n① only accept the office IP" { class: urgent }
+}
+
+office: "Office" {
+  class: zone
+  label.near: top-left
+  direction: down
+  line: "PPPoE line\nstatic IPv4 address" { class: urgent }
+  fw: "Firewall / router\n② VPN for remote staff\n③ port forwards\n④ supports IPoE?" { class: urgent }
+  lan: "Server (AD, file share)\nPCs, printer, Wi-Fi" { class: client }
+  line -> fw
+  fw -> lan
+}
+
+outside.remote -> office.line: "VPN to the static IP" {
+  style.stroke-dash: 3
+}
+outside.services -> office.line: "trusts the static IP" {
+  style.stroke-dash: 3
+}

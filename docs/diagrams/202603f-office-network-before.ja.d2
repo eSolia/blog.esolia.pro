@@ -1,0 +1,35 @@
+# Small office network BEFORE a PPPoE -> IPoE switch: what depends on the old line.
+# Figure for src/posts/20260706-small-office-network-infrastructure-en.md.
+# Japanese labels for 202603f-office-network-before.d2 (same structure).
+# Style (vars + classes) is injected at render time by ~/dev/codex scripts/sync-d2.ts:
+#   cd ~/dev/codex && npx tsx scripts/sync-d2.ts --file <abs path to this file>
+# Then copy the PNG to src/uploads/202603f-office-network-before-ja.png.
+# Orange = what to check before switching. Grey = unaffected.
+
+direction: down
+
+outside: "社外" {
+  class: zone
+  label.near: top-left
+  direction: right
+  remote: "社外で働く社員" { class: client }
+  services: "銀行・取引先・クラウドサービス\n① 会社のIPからのみ許可" { class: urgent }
+}
+
+office: "オフィス" {
+  class: zone
+  label.near: top-left
+  direction: down
+  line: "PPPoE回線\n固定IPv4アドレス" { class: urgent }
+  fw: "ファイアウォール／ルーター\n② リモート用VPN\n③ ポート転送\n④ IPoEに対応？" { class: urgent }
+  lan: "サーバー（AD・ファイル共有）\nPC・プリンター・Wi-Fi" { class: client }
+  line -> fw
+  fw -> lan
+}
+
+outside.remote -> office.line: "固定IPへVPN接続" {
+  style.stroke-dash: 3
+}
+outside.services -> office.line: "固定IPを信頼" {
+  style.stroke-dash: 3
+}
