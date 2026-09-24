@@ -12,6 +12,8 @@ description: We'll explain how even beginners can recognize phishing emails star
 image: /uploads/202506c-phishing-emails-en.jpeg
 image_top: /uploads/202506c-phishing-emails.jpeg
 author: KC
+image_credit:
+  source: Adobe Express
 category: Security
 tags:
   - Phishing Email

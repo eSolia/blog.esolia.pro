@@ -14,6 +14,8 @@ description: >-
   metadata management to enhance searchability!
 image: /uploads/202503b-sharepoint-migration-part1-social-en.jpg
 author: Ena
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 comments: {}
 date: 2025-07-02T01:00:00.000Z

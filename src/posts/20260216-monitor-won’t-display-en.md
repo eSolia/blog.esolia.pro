@@ -17,6 +17,8 @@ description: >-
 image: /uploads/202507c-monitor-troubleshooting-en.jpeg
 image_top: /uploads/202507c-monitor-troubleshooting.jpeg
 author: Kabaya
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - Display Issues

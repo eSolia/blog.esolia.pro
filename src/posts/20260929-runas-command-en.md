@@ -16,6 +16,8 @@ description: >-
 image: /uploads/202509b-runas-command-en.png
 image_top: /uploads/202509b-runas-command.png
 author: Kabaya
+image_credit:
+  source: Adobe Express
 category: Windows
 tags:
   - Runas

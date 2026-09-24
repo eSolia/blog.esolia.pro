@@ -11,6 +11,8 @@ description: How to solve the conflict between Cisco IP communicator & Microsoft
 image: /uploads/202504c-cisco-ip-communicator-problem-en.jpeg
 image_top: /uploads/202504c-cisco-ip-communicator-problem.jpeg
 author: K.Y.
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 tags:
   - Microsoft Teams

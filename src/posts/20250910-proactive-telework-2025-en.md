@@ -15,6 +15,8 @@ description: >-
 image: /uploads/202506a-telework-offensive-2025-en.jpeg
 image_top: /uploads/202506a-telework-offensive-2025.jpeg
 author: Ena
+image_credit:
+  source: Adobe Express
 category: Cloud
 tags: []
 comments: {}

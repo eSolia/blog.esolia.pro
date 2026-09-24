@@ -11,6 +11,8 @@ description: ChatGPTは、日常生活・学習・仕事など、さまざまな
 image: /uploads/202504a-everyday-ai-ja.jpeg
 image_top: /uploads/202504a-everyday-ai.jpeg
 author: KC
+image_credit:
+  source: Adobe Express
 category: AI活用
 tags:
   - ChatGPT

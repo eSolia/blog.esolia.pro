@@ -10,6 +10,8 @@ description: >-
   stops responding.
 image: /uploads/202503a-pc-freeze-social-en.jpg
 author: Shiori
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 comments: {}
 date: 2025-04-12T01:04:00.000Z

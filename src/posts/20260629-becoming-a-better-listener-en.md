@@ -19,6 +19,8 @@ description: >-
 image: /uploads/202603e-better-listener-en.png
 image_top: /uploads/202603e-better-listener.png
 author: Shiori
+image_credit:
+  source: Adobe Express
 tags:
   - IT Operations
   - IT Support

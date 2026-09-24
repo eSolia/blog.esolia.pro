@@ -130,6 +130,27 @@ if (document.readyState === "loading") {
 globalThis.addEventListener("resize", syncNavToScroll);
 
 // Theme Toggle with Alpine.js
+// Remember an explicit language choice, the way the main site's switcher does.
+//
+// esolia.co.jp serves /blog/* and sends a visitor whose browser prefers
+// English from /blog/ to /blog/en/, the same as it does at the site root. A
+// saved `lang` cookie overrides that, and the main site's own switcher
+// (TopNav.svelte) writes one before navigating — but the blog's switcher is a
+// plain link, so clicking 日本語 landed on /blog/ and was redirected straight
+// back, which reads as a dead button.
+//
+// Same cookie name, path, lifetime and SameSite as the main site, so one
+// choice holds across both. Written on the switcher links only, which are the
+// ones carrying hreflang.
+document.addEventListener("click", (event) => {
+  const link = event.target instanceof Element
+    ? event.target.closest("a[hreflang]")
+    : null;
+  const lang = link?.getAttribute("hreflang");
+  if (lang !== "ja" && lang !== "en") return;
+  document.cookie = `lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
+});
+
 /**
  * The theme to start in: the shared `theme` key the main site writes, then the
  * blog's older `darkMode` key, then the operating system's own setting — the

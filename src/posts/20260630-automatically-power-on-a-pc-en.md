@@ -17,6 +17,8 @@ description: >-
 image: /uploads/202508d-power-on-pc-en.png
 image_top: /uploads/202508d-power-on-pc.png
 author: Kabaya
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - BIOS Settings

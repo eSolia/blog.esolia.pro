@@ -15,6 +15,8 @@ description: >-
 image: /uploads/202506b-fix-internet-connection-en.jpeg
 image_top: /uploads/202506b-fix-internet-connection.jpeg
 author: Kabaya
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - Network

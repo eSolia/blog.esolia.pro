@@ -12,6 +12,8 @@ description: >-
   productivity and streamline your workflow, starting today!
 image: /uploads/202503c-essential-shortcuts-social-en.jpg
 author: 'YN'
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 comments: {}
 date: 2025-03-28T03:12:00.000Z

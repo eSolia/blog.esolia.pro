@@ -12,6 +12,8 @@ description: >-
   performance and use it smoothly.
 image: /uploads/202503d-simple-maintenance-tips-social-en.jpg
 author: SK
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - Regular Maintenance

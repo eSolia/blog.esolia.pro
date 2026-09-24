@@ -12,6 +12,8 @@ description: >-
   technique
 image: /uploads/202503f-laptop-battery-health-social-en.jpg
 author: K.Y.
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - Battery

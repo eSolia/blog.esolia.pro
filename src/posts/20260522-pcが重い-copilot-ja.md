@@ -13,6 +13,8 @@ description: >-
 image: /uploads/202603a-copilot-pc-performance-ja.png
 image_top: /uploads/202603a-copilot-pc-performance.png
 author: K.Y.
+image_credit:
+  source: Adobe Express
 category: Windows
 tags:
   - Copilot

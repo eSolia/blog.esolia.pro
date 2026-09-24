@@ -12,6 +12,8 @@ description: 'Is “Safely Remove Hardware and Eject Media” still necessary?  
 image: /uploads/202508b-remove-usb-en.png
 image_top: /uploads/202508b-remove-usb.png
 author: SK
+image_credit:
+  source: Adobe Express
 category: Windows
 tags:
   - USB
