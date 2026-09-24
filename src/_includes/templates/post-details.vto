@@ -1,8 +1,11 @@
 <!-- ===== post-details.vto TEMPLATE START ===== -->
 <div id="post-details" class="mt-2 flex flex-wrap items-center gap-x-4 text-xs">
   {{ if date !== "hide" }}
+    {{# ISO in the attribute, localized text for readers: `date` is a Date, so
+        interpolating it raw emitted "Tue Sep 22 2026 09:00:00 GMT+0900
+        (日本標準時)", which is not a valid datetime value. #}}
     <time
-      datetime="{{ date }}"
+      datetime="{{ date |> date("ATOM") }}"
       class="order-first flex items-center text-zinc-600 dark:text-zinc-300"
     >
       <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-400"></span>

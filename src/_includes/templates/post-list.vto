@@ -1,6 +1,15 @@
 <!-- ===== post-list.vto TEMPLATE START ===== -->
 {{ for post of postslist }}
-  <article id="post-list" class="md:grid md:grid-cols-4 md:items-baseline">
+  {{# `flex flex-col` below md so the photo can lead with `order-first`;
+      block layout would ignore order and leave it under the excerpt. The
+      photo keeps `order-first` at md too, which is what places it in the grid
+      cell the date used to hold. `items-start`, not the old `items-baseline`
+      that aligned the date text: an image's baseline is its bottom edge,
+      which drops the text column half a card down. #}}
+  <article
+  id="post-list"
+  class="flex flex-col gap-4 md:grid md:grid-cols-4 md:items-start md:gap-6"
+>
   <div class="group relative flex flex-col items-start md:col-span-3">
       <h2
         class="text-base font-semibold tracking-tight text-zinc-950 dark:text-zinc-100"
@@ -27,15 +36,6 @@
           </span>
         </a>
       </h2>
-      <time
-        class="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 md:hidden dark:text-zinc-500"
-        datetime="{{ post.date }}"
-      ><span
-          class="absolute inset-y-0 left-0 flex items-center"
-          aria-hidden="true"
-        ><span
-            class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
-          ></span></span>{{ post.date |> date("DATE") }}</time>
       <div
         class="relative z-10 mt-2 text-sm/7 text-zinc-600 dark:text-zinc-200 truncate w-full"
       >
@@ -45,7 +45,8 @@
 
       {{
         include "templates/post-details.vto" {
-          date: "hide",
+          date: post.date,
+          elapsed: post.elapseddays,
           category: post.category,
           author: post.author,
           readingInfo: post.readingInfo,
@@ -65,14 +66,30 @@
         >
       </div>
     </div>
-  <time
-    class="relative z-10 order-first mt-1 mb-3 flex items-center text-sm text-zinc-400 max-md:hidden dark:text-zinc-500"
-    datetime="{{ post.date }}"
-  >{{ post.date |> date("DATE") }}{{ if post.elapseddays < 40 }}<img
-          class="size-6 fill-sky-400"
-          src='{{ "dot-outline" |> icon("phosphor", "duotone") }}'
-          inline
-        >{{ /if }}</time>
+  {{# The photo, in the column the date used to occupy, and first in reading
+      order on small screens. Decorative rather than a second link: the title
+      carries a stretched link over the text column, and a link here would
+      compete with it (the same reason the home cards keep their credit as
+      plain text).
+
+      The wrapper is load-bearing: `picture()` wraps this `<img>` in a
+      `<picture>`, so the *wrapper* is the grid item and ordering classes on
+      the `<img>` place nothing. `[&>picture]:block` blockifies the generated
+      element, which is otherwise inline and adds a descender gap. #}}
+  <div class="order-first md:mt-1 [&>picture]:block">
+    <img
+      src="{{ if post.image_top }}{{ post.image_top }}{{ else }}/assets/blog-esolia-pro-default-top.png{{ /if }}"
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+      width="320"
+      height="180"
+      class="aspect-video w-full rounded-xl object-cover ring-1 ring-zinc-900/10 dark:ring-white/10 dark:mix-blend-luminosity"
+      transform-images="avif webp jpeg 320@2 480@2"
+      sizes="(max-width: 767px) 100vw, 320px"
+    >
+  </div>
 </article>
 {{ /for }}
 <!-- ===== post-list.vto TEMPLATE END ===== -->
