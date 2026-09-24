@@ -10,6 +10,8 @@ title: Outlookで予定表が同期されない?!
 description: 'アプリ版OutLookのよくあるトラブルの解消法をご説明いたします。 '
 image: /uploads/202503e-outlook-calender-sync-issues-social-ja.jpg
 author: KC
+image_credit:
+  source: Adobe Express
 category: トラブルシューティング
 tags:
   - Outlook

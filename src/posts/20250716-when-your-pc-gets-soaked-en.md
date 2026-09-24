@@ -14,6 +14,8 @@ description: >-
 image: /uploads/202506d-when-pc-soaked-en.jpeg
 image_top: /uploads/202506d-when-pc-soaked.jpeg
 author: YN
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - Water Damage

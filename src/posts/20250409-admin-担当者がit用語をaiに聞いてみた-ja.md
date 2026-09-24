@@ -10,6 +10,8 @@ title: 'UTPケーブル? Catケーブル？RJ45コネクタ？Admin 担当者が
 description: 'LAN配線に関連するケーブル用語をAIに聞いた結果をご紹介します。 '
 image: /uploads/202503g-admin-asked-ai-social-ja.jpg
 author: YM
+image_credit:
+  source: Adobe Express
 category: AI活用
 tags:
   - UTPケーブル

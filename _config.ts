@@ -554,8 +554,8 @@ site.process([".html"], (pages) => {
 // external (the photographer, the source page) and correctly left alone by
 // that fixup — they neither match its keys nor start with this origin.
 //
-// Only when `image_credit.name` is set. Without a credit the plain URL stays,
-// which is valid and all a crawler needs.
+// Only when `image_credit` carries a name or a source. Without a credit the
+// plain URL stays, which is valid and all a crawler needs.
 interface ImageCredit {
   name?: string;
   url?: string;
@@ -566,7 +566,9 @@ interface ImageCredit {
 site.process([".html"], (pages) => {
   for (const page of pages) {
     const credit = page.data.image_credit as ImageCredit | undefined;
-    if (!credit?.name) continue;
+    // A stock photo (Adobe Express) names no photographer, so a credit with
+    // only a source is still a credit: it becomes creditText, with no creator.
+    if (!credit?.name && !credit?.source) continue;
 
     const scripts = page.document?.querySelectorAll(
       'script[type="application/ld+json"]',
@@ -584,11 +586,15 @@ site.process([".html"], (pages) => {
           creditText: [credit.name, credit.source].filter(Boolean).join(
             " / ",
           ),
-          creator: {
-            "@type": "Person",
-            name: credit.name,
-            ...(credit.url ? { url: credit.url } : {}),
-          },
+          ...(credit.name
+            ? {
+              creator: {
+                "@type": "Person",
+                name: credit.name,
+                ...(credit.url ? { url: credit.url } : {}),
+              },
+            }
+            : {}),
           ...(credit.source_url
             ? { acquireLicensePage: credit.source_url }
             : {}),

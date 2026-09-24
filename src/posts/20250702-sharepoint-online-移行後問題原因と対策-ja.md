@@ -10,6 +10,8 @@ description: >-
   Onlineへ移行した後に『ファイルが開けない！』というトラブルに直面していませんか？本記事では、SPOのフォルダー構造やURL制限、アクセス管理の違いを解説し、実践的な対策を紹介します。検索性を向上させるためのメタデータ管理方法も詳しく解説！ 
 image: /uploads/202503b-sharepoint-migration-part1-social-ja.jpg
 author: Ena
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 comments: {}
 date: 2025-07-02T01:00:00.000Z

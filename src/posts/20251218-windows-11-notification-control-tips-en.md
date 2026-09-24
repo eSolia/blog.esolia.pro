@@ -15,6 +15,8 @@ description: >-
 image: /uploads/202508e-notification-windows11-en.png
 image_top: /uploads/202508e-notification-windows11.png
 author: Shiori
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 tags:
   - Windows 11

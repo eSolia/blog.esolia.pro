@@ -12,6 +12,8 @@ description: We will explore the basics of PDFs and their relationship with Adob
 image: /uploads/202506e-adobe-pdf-en.jpeg
 image_top: /uploads/202506e-adobe-pdf.jpeg
 author: YM
+image_credit:
+  source: Adobe Express
 category: Documents
 tags:
   - PDF

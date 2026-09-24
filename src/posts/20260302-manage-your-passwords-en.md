@@ -14,6 +14,8 @@ description: >-
 image: /uploads/202507e-manage-your-passwords-en.png
 image_top: /uploads/202507e-manage-your-passwords.png
 author: KC
+image_credit:
+  source: Adobe Express
 category: Security
 tags:
   - Beginners

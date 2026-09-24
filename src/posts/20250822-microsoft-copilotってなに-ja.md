@@ -13,6 +13,8 @@ description: Microsoft Copilotとは？WordやExcelなどで業務効率を上�
 image: /uploads/202504e-what-is-copilot-ja.jpeg
 image_top: /uploads/202504e-what-is-copilot.jpeg
 author: YM
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 tags:
   - Copilot

@@ -566,7 +566,7 @@ cms.collection({
       type: "object",
       label: "② 画像クレジット Image Credit",
       description:
-        "写真の出典。分かる範囲で構いません。名前だけでも記録してください。<br>Where the image came from. Fill in whatever you know — even just a name is better than nothing.",
+        "写真の出典。Adobe Expressの素材なら「提供元」に Adobe Express と入れるだけでよく、撮影者は空欄で構いません。それ以外は分かる範囲で記入してください。<br>Where the photo came from. For Adobe Express stock, just put Adobe Express in Source and leave Photographer empty. Otherwise fill in whatever you know.",
       fields: [
         {
           name: "name",

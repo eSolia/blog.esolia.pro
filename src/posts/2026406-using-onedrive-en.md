@@ -14,6 +14,8 @@ description: >-
 image: /uploads/202507f-using-onedrive-en.png
 image_top: /uploads/202507f-using-onedrive.png
 author: K.Y.
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 tags:
   - File Sharing

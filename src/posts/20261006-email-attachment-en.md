@@ -15,6 +15,8 @@ description: >-
 image: /uploads/202509c-email-attachment-en.png
 image_top: /uploads/202509c-email-attachment.png
 author: SK
+image_credit:
+  source: Adobe Express
 category: Security
 tags:
   - Zip File

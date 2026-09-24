@@ -12,6 +12,8 @@ description: '複合機がない環境でも書類をPDF化できるアプリ『
 image: /uploads/202603c-adobe-scan-ja.png
 image_top: /uploads/202603c-adobe-scan.png
 author: YM
+image_credit:
+  source: Adobe Express
 tags:
   - PDF化
   - 書類スキャン

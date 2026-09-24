@@ -13,6 +13,8 @@ description: >-
 image: /uploads/202504a-everyday-ai-en.jpeg
 image_top: /uploads/202504a-everyday-ai.jpeg
 author: KC
+image_credit:
+  source: Adobe Express
 category: AI-Usage
 tags:
   - ChatGPT

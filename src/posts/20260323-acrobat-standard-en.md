@@ -14,6 +14,8 @@ description: >-
 image: /uploads/202507a-acrobat-standard-en.png
 image_top: /uploads/202507a-acrobat-standard.png
 author: YM
+image_credit:
+  source: Adobe Express
 category: Documents
 tags:
   - Adobe Acrobat

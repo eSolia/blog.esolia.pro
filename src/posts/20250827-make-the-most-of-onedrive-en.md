@@ -15,6 +15,8 @@ description: >-
 image: /uploads/202504f-make-the-most-of-onedrive-en.jpeg
 image_top: /uploads/202504f-make-the-most-of-onedrive.jpeg
 author: SK & Shiori
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 tags:
   - OneDrive

@@ -15,6 +15,8 @@ description: >-
 image: /uploads/202603b-restarting-pc-en.png
 image_top: /uploads/202603b-restarting-pc.png
 author: KC
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - IT Literacy

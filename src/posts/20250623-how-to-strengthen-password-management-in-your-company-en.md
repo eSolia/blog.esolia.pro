@@ -16,6 +16,8 @@ description: >-
 image: /uploads/202503h-password-management-en2.jpeg
 image_top: /uploads/202503h-password-management2.jpeg
 author: Kabaya
+image_credit:
+  source: Adobe Express
 category: Security
 tags:
   - Cybersecurity

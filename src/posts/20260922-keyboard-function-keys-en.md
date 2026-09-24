@@ -15,6 +15,8 @@ description: >-
 image: /uploads/202509a-keyboard-history-en.png
 image_top: /uploads/202509a-keyboard-history.png
 author: YM
+image_credit:
+  source: Adobe Express
 category: Peripherals
 tags:
   - Keyboard
