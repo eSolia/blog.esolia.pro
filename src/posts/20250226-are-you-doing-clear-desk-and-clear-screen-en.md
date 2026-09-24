@@ -8,7 +8,7 @@ description: >-
   A quick security tip about the importance of keeping clear desk / clear screen
   in mind.
 image: ''
-image_top: /uploads/20250226-clear-desk-top.jpg
+image_top: /uploads/20250226-clear-desk-top-2.jpg
 author: Rick Cogley
 category: Security
 tags:
@@ -20,7 +20,9 @@ draft: false
 hot: false
 featured: false
 image_credit:
-  source: Adobe Express
+  name: cottonbro studio
+  source: Pexels
+  source_url: https://www.pexels.com/photo/crumpled-papers-and-sticky-notes-5185074/
 ---
 One security policy that is probably used at most organizations is *"clear desk, clear screen"*. Are you aware and doing it?
 
