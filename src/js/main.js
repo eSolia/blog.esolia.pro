@@ -129,7 +129,6 @@ if (document.readyState === "loading") {
 
 globalThis.addEventListener("resize", syncNavToScroll);
 
-// Theme Toggle with Alpine.js
 // Remember an explicit language choice, the way the main site's switcher does.
 //
 // esolia.co.jp serves /blog/* and sends a visitor whose browser prefers
@@ -151,130 +150,134 @@ document.addEventListener("click", (event) => {
   document.cookie = `lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
 });
 
-/**
- * The theme to start in: the shared `theme` key the main site writes, then the
- * blog's older `darkMode` key, then the operating system's own setting — the
- * same order of preference as the main site's boot script in app.html.
- */
-function storedTheme() {
-  const shared = localStorage.getItem("theme");
-  if (shared === "dark" || shared === "light") return shared === "dark";
-  const legacy = localStorage.getItem("darkMode");
-  if (legacy === "true" || legacy === "false") return legacy === "true";
-  return globalThis.matchMedia?.("(prefers-color-scheme: dark)").matches ??
-    false;
+// Theme toggle, without a framework.
+//
+// The `dark` class on <html> is the single source of truth, and an inline
+// boot script in base.vto sets it before the first paint. Every toggle button
+// in the page carries `data-theme-toggle`, and which icon each one shows is
+// decided by CSS from that class — so the buttons hold no state of their own,
+// there is nothing to keep in sync between the desktop and drawer copies, and
+// nothing flashes while this module loads.
+//
+// The stored preference is the main site's `theme` key, not a blog-only one:
+// esolia.co.jp serves both this blog and the main site, so they share an
+// origin and therefore localStorage, and a reader who picks dark here should
+// keep it when they click through to the main site. `darkMode` is the blog's
+// older key, still written so an older cached page agrees with this one.
+function applyTheme(dark) {
+  document.documentElement.classList.toggle("dark", dark);
+  localStorage.setItem("theme", dark ? "dark" : "light");
+  localStorage.setItem("darkMode", String(dark));
+  globalThis.dispatchEvent(new CustomEvent("theme-change", { detail: dark }));
 }
 
-document.addEventListener("alpine:init", () => {
-  // Drawer navigation for narrow viewports.
-  //
-  // The focus handling here is the part that matters. A dialog that traps
-  // nothing lets Tab walk out into the page behind it, which for a screen
-  // reader or keyboard user means the menu is still "open" while focus is
-  // somewhere they cannot see. The search modal got this treatment in #323;
-  // this menu never did.
-  Alpine.data("mobileMenu", () => ({
-    open: false,
-    lastFocused: null,
-
-    // The trigger button lives outside this component (it only dispatches
-    // toggle-menu), so it cannot read `open` to set aria-expanded. Announce
-    // every change instead, including closes from Escape or the backdrop.
-    init() {
-      this.$watch("open", (value) => {
-        globalThis.dispatchEvent(
-          new CustomEvent("menu-state", { detail: { open: value } }),
-        );
-      });
-    },
-
-    toggle() {
-      this.open ? this.close() : this.show();
-    },
-
-    show() {
-      this.lastFocused = document.activeElement;
-      this.open = true;
-      // The panel is behind an x-show transition, so wait for it to exist
-      // before moving focus into it.
-      this.$nextTick(() => this.$refs.closeBtn?.focus());
-      document.body.style.overflow = "hidden";
-    },
-
-    close() {
-      if (!this.open) return;
-      this.open = false;
-      document.body.style.overflow = "";
-      // Return focus to whatever opened the drawer, not to the top of the
-      // document — otherwise the user loses their place.
-      this.lastFocused?.focus?.();
-    },
-
-    // Keep Tab inside the panel while it is open.
-    trapFocus(event) {
-      if (event.key !== "Tab" || !this.open) return;
-      const focusable = this.$refs.panel?.querySelectorAll(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
-      );
-      if (!focusable?.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    },
-  }));
-
-  // One instance per toggle button (desktop nav and mobile drawer). The
-  // `dark` class on <body> is the single source of truth: each instance's
-  // `darkMode` only mirrors it for the icons, and a `theme-change` event keeps
-  // the instances in step, so toggling one never leaves the other stale.
-  //
-  // The stored preference is the main site's `theme` key, not a blog-only one:
-  // esolia.co.jp serves both this blog and the main site, so they share an
-  // origin and therefore localStorage, and a reader who picks dark here should
-  // keep it when they click through to the main site. `darkMode` is the blog's
-  // older key, still read so an existing choice is not lost, and still written
-  // so an older cached page agrees with this one.
-  Alpine.data("themeToggle", () => ({
-    darkMode: storedTheme(),
-    init() {
-      this.$watch("darkMode", (value) => {
-        localStorage.setItem("theme", value ? "dark" : "light");
-        localStorage.setItem("darkMode", value);
-        document.body.classList.toggle("dark", value);
-        globalThis.dispatchEvent(
-          new CustomEvent("theme-change", { detail: value }),
-        );
-      });
-      globalThis.addEventListener("theme-change", (event) => {
-        this.darkMode = event.detail;
-      });
-      // Ensure the correct class is applied on page load
-      document.body.classList.toggle("dark", this.darkMode);
-    },
-    toggleTheme() {
-      this.darkMode = !document.body.classList.contains("dark");
-    },
-  }));
+document.addEventListener("click", (event) => {
+  const button = event.target instanceof Element
+    ? event.target.closest("[data-theme-toggle]")
+    : null;
+  if (!button) return;
+  applyTheme(!document.documentElement.classList.contains("dark"));
 });
+
+// Drawer navigation for narrow viewports.
+//
+// The focus handling here is the part that matters. A dialog that traps
+// nothing lets Tab walk out into the page behind it, which for a screen
+// reader or keyboard user means the menu is still "open" while focus is
+// somewhere they cannot see. The search modal got this treatment in #323;
+// this menu never did.
+//
+// Closed is the markup's resting state — the panel is translated off-screen
+// and `invisible`, which also takes its links out of the tab order — so this
+// only has to flip classes and manage focus.
+function initMobileMenu() {
+  const root = document.querySelector("[data-menu-root]");
+  const panel = root?.querySelector("[data-menu-panel]");
+  const backdrop = root?.querySelector("[data-menu-backdrop]");
+  const closeBtn = root?.querySelector("[data-menu-close]");
+  const triggers = document.querySelectorAll("[data-menu-toggle]");
+  if (!root || !panel || !backdrop) return;
+
+  let open = false;
+  let lastFocused = null;
+
+  const show = () => {
+    if (open) return;
+    open = true;
+    lastFocused = document.activeElement;
+    // Make it visible first, then transition on the next frame: a transition
+    // from `invisible` in the same frame is not animated.
+    panel.classList.remove("invisible");
+    backdrop.classList.remove("invisible");
+    requestAnimationFrame(() => {
+      panel.classList.remove("translate-x-full");
+      backdrop.classList.remove("opacity-0");
+    });
+    document.body.style.overflow = "hidden";
+    triggers.forEach((t) => t.setAttribute("aria-expanded", "true"));
+    closeBtn?.focus();
+  };
+
+  const close = () => {
+    if (!open) return;
+    open = false;
+    panel.classList.add("translate-x-full");
+    backdrop.classList.add("opacity-0");
+    document.body.style.overflow = "";
+    triggers.forEach((t) => t.setAttribute("aria-expanded", "false"));
+    // Hide only once the slide has finished, or the panel vanishes mid-transition.
+    const hide = () => {
+      if (open) return;
+      panel.classList.add("invisible");
+      backdrop.classList.add("invisible");
+    };
+    panel.addEventListener("transitionend", hide, { once: true });
+    // A fallback for reduced-motion settings, where no transition fires.
+    setTimeout(hide, 300);
+    // Return focus to whatever opened the drawer, not to the top of the
+    // document — otherwise the user loses their place.
+    lastFocused?.focus?.();
+  };
+
+  triggers.forEach((trigger) =>
+    trigger.addEventListener("click", () => open ? close() : show())
+  );
+  closeBtn?.addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+
+  document.addEventListener("keydown", (event) => {
+    if (!open) return;
+    if (event.key === "Escape") {
+      close();
+      return;
+    }
+    // Keep Tab inside the panel while it is open.
+    if (event.key !== "Tab") return;
+    const focusable = panel.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initMobileMenu, { once: true });
+} else {
+  initMobileMenu();
+}
 
 // Load Mastodon Comments from a local file
 //import Comments from "./comments.js";
 //customElements.define("mastodon-comments", Comments);
-
-// Load Alpine.js with defer
-loadVendorScript(
-  "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js",
-  { "defer": "" },
-  function () {
-    console.log("Alpine.js loaded with defer");
-  },
-);
 
 // Load Fathom Analytics script with data-site attribute and defer
 loadVendorScript("https://cdn.usefathom.com/script.js", {

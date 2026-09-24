@@ -106,10 +106,7 @@
                         technology can follow the relationship. #}}
                     aria-expanded="false"
                     aria-controls="mobile-menu-panel"
-                    x-data="{ open: false }"
-                    @menu-state.window="open = $event.detail.open"
-                    :aria-expanded="open ? 'true' : 'false'"
-                    @click="$dispatch('toggle-menu')"
+                    data-menu-toggle
                   >
                     <span>{{ i18n.nav.mobile_nav_name }}</span>
                     <svg
@@ -187,31 +184,32 @@
                     {{ i18n.search.tooltip |> safe }}{{# site-authored i18n; contains <kbd> and <br> by design #}}
                   </div>
                 </div>
-                <div
-                  class="pointer-events-auto z-50 hidden lg:block"
-                  x-data="themeToggle"
-                  :class="{ 'dark': darkMode }"
-                >
+                {{# Which icon shows is decided by CSS from the `dark` class
+                    the boot script sets in <head>, not by JavaScript state.
+                    Under Alpine both icons were in the DOM and `x-show` hid
+                    one only once Alpine had booted, so every load flashed a
+                    sun and a moon stacked on top of each other. #}}
+                <div class="pointer-events-auto z-50 hidden lg:block">
                   <button
                     type="button"
+                    data-theme-toggle
                     aria-label="{{ i18n.nav.toggle_theme }}"
                     class="group rounded-full bg-white/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50"
-                    @click="toggleTheme()"
                   >
-                    <span x-show="!darkMode">
-                      <img
-                        class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-sky-400 group-hover:stroke-sky-600 transition hover:scale-110"
-                        src='{{ "sun" |> icon("phosphor", "duotone") }}'
-                        inline
-                      />
-                    </span>
-                    <span x-show="darkMode">
-                      <img
-                        class="h-5 w-5 fill-sky-300 stroke-sky-500 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 transition hover:scale-110"
-                        src='{{ "moon-stars" |> icon("phosphor", "duotone") }}'
-                        inline
-                      />
-                    </span>
+                    <img
+                      class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-sky-400 group-hover:stroke-sky-600 hover:scale-110 dark:hidden"
+                      src='{{ "sun" |> icon("phosphor", "duotone") }}'
+                      alt=""
+                      aria-hidden="true"
+                      inline
+                    />
+                    <img
+                      class="hidden h-5 w-5 fill-sky-300 stroke-sky-500 transition group-hover:fill-esoliaamber-600 group-hover:stroke-esoliaamber-900 hover:scale-110 dark:block"
+                      src='{{ "moon-stars" |> icon("phosphor", "duotone") }}'
+                      alt=""
+                      aria-hidden="true"
+                      inline
+                    />
                   </button>
                 </div>
                 {{# Last in the row on purpose: this is the only wide pill among
@@ -267,39 +265,28 @@
       deliberately stays outside as its own button: it is a
       primary action on a blog, and putting it two taps away
       would be a regression. #}}
-  <div
-    class="pointer-events-auto lg:hidden"
-    x-data="mobileMenu"
-    @toggle-menu.window="toggle()"
-    @keydown.escape.window="close()"
-    @keydown.tab="trapFocus($event)"
-  >
+  {{# Closed is the HTML's own resting state: the panel sits translated off
+      the right edge and `invisible`, which also keeps its links out of the
+      tab order. `main.js` toggles `data-open` on this element, and the
+      transitions are plain CSS. With no JavaScript the drawer simply never
+      opens, rather than flashing open the way an unhidden Alpine panel
+      would. #}}
+  <div class="pointer-events-auto lg:hidden" data-menu-root>
     {{# Backdrop. Click to dismiss; inert to screen readers. #}}
     <div
-      x-show="open"
-      x-cloak
-      x-transition.opacity
-      class="fixed inset-0 z-90 bg-zinc-900/40 backdrop-blur-xs"
+      data-menu-backdrop
+      class="invisible fixed inset-0 z-90 bg-zinc-900/40 opacity-0 backdrop-blur-xs transition-opacity duration-200"
       aria-hidden="true"
-      @click="close()"
     >
     </div>
 
     <div
-      x-show="open"
-      x-cloak
-      x-transition:enter="transition ease-out duration-200"
-      x-transition:enter-start="translate-x-full"
-      x-transition:enter-end="translate-x-0"
-      x-transition:leave="transition ease-in duration-150"
-      x-transition:leave-start="translate-x-0"
-      x-transition:leave-end="translate-x-full"
-      class="fixed inset-y-0 right-0 z-100 flex w-72 max-w-[85vw] flex-col bg-white shadow-xl dark:bg-zinc-900"
+      data-menu-panel
+      class="invisible fixed inset-y-0 right-0 z-100 flex w-72 max-w-[85vw] translate-x-full flex-col bg-white shadow-xl transition-transform duration-200 ease-out dark:bg-zinc-900"
       role="dialog"
       aria-modal="true"
       aria-label="{{ i18n.nav.mobile_nav_name }}"
       id="mobile-menu-panel"
-      x-ref="panel"
     >
       <div
         class="flex items-center justify-between border-b border-zinc-200 px-4 py-3 dark:border-zinc-700"
@@ -311,8 +298,7 @@
           type="button"
           aria-label="{{ i18n.search.close_link }}"
           class="rounded-md p-2 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
-          @click="close()"
-          x-ref="closeBtn"
+          data-menu-close
         >
           <img
             class="h-5 w-5"
@@ -386,8 +372,7 @@
         <div class="flex items-center justify-between">
           <button
             type="button"
-            x-data="themeToggle"
-            @click="toggleTheme()"
+            data-theme-toggle
             aria-label="{{ i18n.nav.toggle_theme }}"
             class="rounded-md p-2 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
           >

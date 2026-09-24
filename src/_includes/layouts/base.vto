@@ -7,6 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title |> plaintext }} - {{ site.title }}</title>
 
+    {{# Set the theme before the first paint, or the page renders light and
+        then flips. This has to be an inline, blocking script in <head>:
+        `main.js` is a deferred module, which runs after the document is
+        parsed — far too late. `theme` is the key the main site writes, so a
+        reader who picks dark on esolia.co.jp keeps it here (same origin);
+        `darkMode` is the blog's older key, read so an existing choice is not
+        lost. Mirrors the boot script in the main site's app.html.
+
+        The build hashes inline scripts into `script-src`, so this needs no
+        CSP change. #}}
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var legacy = localStorage.getItem("darkMode");
+        var dark = stored === "dark" ||
+          (stored !== "light" &&
+            (legacy === "true" ||
+              (legacy !== "false" &&
+                matchMedia("(prefers-color-scheme: dark)").matches)));
+        if (dark) document.documentElement.classList.add("dark");
+      })();
+    </script>
+
     <meta name="supported-color-schemes" content="light dark">
     <meta
       name="theme-color"
@@ -59,7 +82,7 @@
     <link rel="self" href="{{ url |> url(true) }}">
     <link rel="hub" href="https://pubsubhubbub.appspot.com/">
 
-    {{# Various js, such as Alpine and Fathom and the theme toggle script #}}
+    {{# Site behaviour: theme toggle, drawer nav, search modal, Fathom. #}}
     <script src="/js/main.js?cb={{ cacheBuster }}" type="module" defer></script>
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
     {{# {{ it.extra_head?.join("\n") }} #}}

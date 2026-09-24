@@ -71,11 +71,10 @@ script: /js/fathom-post-list-event.js
                     below it on the page. Only the first `tagLimit` are shown;
                     the rest sit behind a disclosure.
 
-                    <details>/<summary> rather than Alpine on purpose: it needs
-                    no JavaScript, is keyboard and screen-reader accessible
-                    with no ARIA of our own, and cannot flash open before a
-                    script initialises. (The `x-cloak` used elsewhere in this
-                    codebase has no backing CSS and is inert — see issue #357.) #}}
+                    <details>/<summary> rather than scripted state on
+                    purpose: it needs no JavaScript, is keyboard and screen
+                    reader accessible with no ARIA of our own, and cannot
+                    flash open before a script initialises. #}}
                 <div class="text-zinc-500 ml-1 mt-4">
                   <nav class="">
                     <h2>{{ i18n.search.tags }}:</h2>
