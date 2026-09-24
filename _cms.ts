@@ -566,7 +566,7 @@ cms.collection({
       type: "object",
       label: "② 画像クレジット Image Credit",
       description:
-        "写真の出典。Adobe Expressの素材なら「提供元」に Adobe Express と入れるだけでよく、撮影者は空欄で構いません。それ以外は分かる範囲で記入してください。<br>Where the photo came from. For Adobe Express stock, just put Adobe Express in Source and leave Photographer empty. Otherwise fill in whatever you know.",
+        "写真の出典。「提供元」には既定で Adobe Express が入っています。ほかから取得した写真の場合だけ、提供元を書き換え、分かる範囲で撮影者なども記入してください。<br>Where the photo came from. Source is pre-filled with Adobe Express; change it only when the photo came from somewhere else, and fill in the photographer if you know it.",
       fields: [
         {
           name: "name",
@@ -583,10 +583,16 @@ cms.collection({
             "撮影者のプロフィールページ。<br>The photographer's profile page.",
         },
         {
+          // Nearly every photo comes from our Adobe Express subscription, so
+          // that is the default; a photo from anywhere else is the exception
+          // an author edits. Stock needs no photographer, so `name` stays
+          // empty and the credit renders as "Photo: Adobe Express".
           name: "source",
           type: "text",
           label: "提供元 Source",
-          description: "例: Unsplash, Pexels<br>e.g. Unsplash, Pexels",
+          description:
+            "写真の出どころ。既定は Adobe Express です。例: Unsplash, Pexels<br>Where the photo is from. Defaults to Adobe Express. e.g. Unsplash, Pexels",
+          value: "Adobe Express",
         },
         {
           name: "source_url",
