@@ -122,3 +122,7 @@ alert:
   warning: Warning
   caution: Caution
   howto: How to Operate
+
+# CMS-only labels: shown in the editor's preview, never on the live site.
+cms:
+  social_card_preview: Social card preview

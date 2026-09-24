@@ -142,6 +142,17 @@ document.addEventListener("alpine:init", () => {
     open: false,
     lastFocused: null,
 
+    // The trigger button lives outside this component (it only dispatches
+    // toggle-menu), so it cannot read `open` to set aria-expanded. Announce
+    // every change instead, including closes from Escape or the backdrop.
+    init() {
+      this.$watch("open", (value) => {
+        globalThis.dispatchEvent(
+          new CustomEvent("menu-state", { detail: { open: value } }),
+        );
+      });
+    },
+
     toggle() {
       this.open ? this.close() : this.show();
     },
