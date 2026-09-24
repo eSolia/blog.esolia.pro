@@ -139,3 +139,7 @@ alert:
   caution: 注意
   # Our own callout, not a GitHub alert type: a step-by-step procedure.
   howto: 操作方法
+
+# CMS-only labels: shown in the editor's preview, never on the live site.
+cms:
+  social_card_preview: SNSシェア画像のプレビュー

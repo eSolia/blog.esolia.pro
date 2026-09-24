@@ -100,7 +100,15 @@
                   <button
                     class="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm whitespace-nowrap font-medium text-zinc-950 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
                     type="button"
-                    x-data
+                    {{# aria-expanded starts false for the server-rendered
+                        state and is kept in step by the drawer's menu-state
+                        event; aria-controls points at the panel so assistive
+                        technology can follow the relationship. #}}
+                    aria-expanded="false"
+                    aria-controls="mobile-menu-panel"
+                    x-data="{ open: false }"
+                    @menu-state.window="open = $event.detail.open"
+                    :aria-expanded="open ? 'true' : 'false'"
                     @click="$dispatch('toggle-menu')"
                   >
                     <span>{{ i18n.nav.mobile_nav_name }}</span>
@@ -290,6 +298,7 @@
       role="dialog"
       aria-modal="true"
       aria-label="{{ i18n.nav.mobile_nav_name }}"
+      id="mobile-menu-panel"
       x-ref="panel"
     >
       <div

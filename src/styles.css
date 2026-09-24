@@ -78,6 +78,15 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Alpine sets x-cloak on elements that must not be seen before it takes over,
+   and removes it once the component is live. Without this rule the attribute
+   does nothing, so the mobile drawer and its backdrop render open for the
+   moment between HTML arriving and Alpine booting. Alpine's own docs ship this
+   rule; the project had the attributes but never the CSS. */
+[x-cloak] {
+  display: none !important;
+}
+
 @theme {
   /* Fluid type scale.
    *
