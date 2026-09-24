@@ -39,7 +39,7 @@ A client asked me this recently. <!-- TODO(Kabaya): why did they ask? Slow eveni
 
 ## PPPoE and IPoE, briefly
 
-Most offices in Japan reach the internet over NTT's FLET'S fiber network, or one of the Hikari Collaboration (光コラボ) services built on it. With **PPPoE**, the router logs in to the internet provider with an ID and password, and traffic passes through shared network termination equipment (網終端装置) that is known to get congested at busy times. With **IPoE**, there's no login and no pass through that equipment, which is why it's usually faster in the evening.
+Most offices in Japan reach the internet over NTT's FLET'S fiber network, or one of the Hikari Collaboration (光コラボ) services built on it. With **PPPoE**, the router signs in to the internet provider with an ID and password, and the connection runs through network termination equipment (網終端装置) that many subscribers share. In the evening, when everyone is online at once, that shared equipment gets congested and speeds sag. If your connection slows down every night, this is the likely reason. **IPoE** doesn't go through that equipment at all. It reaches the provider by a different route, so it usually holds up much better at peak times.
 
 The catch is IPv4. IPoE runs on IPv6, and IPv4 traffic is carried inside it using a method such as MAP-E (used by v6プラス, for example) or DS-Lite (used by transix). Either way, the office usually shares its public IPv4 address with other customers of the provider. That means no static IP of its own, and in most cases nothing outside can connect in to the office. Providers do sell fixed-IP options for IPoE, at extra cost.
 
