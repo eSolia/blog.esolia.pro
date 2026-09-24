@@ -1,4 +1,9 @@
 <!-- ===== post-details.vto TEMPLATE START ===== -->
+{{# The links in this row carry `z-30`. In the archive and category lists the
+    post title stretches an `absolute z-20` link across the whole row, which
+    sat on top of them: clicking a category pill, author or tag navigated to
+    the post instead. Raising only the links keeps the gaps between them part
+    of the post's click target. #}}
 <div id="post-details" class="mt-2 flex flex-wrap items-center gap-x-4 text-xs">
   {{ if date !== "hide" }}
     {{# ISO in the attribute, localized text for readers: `date` is a Date, so
@@ -6,7 +11,10 @@
         (日本標準時)", which is not a valid datetime value. #}}
     <time
       datetime="{{ date |> date("ATOM") }}"
-      class="order-first flex items-center text-zinc-600 dark:text-zinc-300"
+      {{# `relative`, like every other item in this row: in the archive list a
+          hover panel sits behind the row at `z-0`, and an unpositioned child
+          paints below it — the date vanished on hover. #}}
+      class="relative order-first flex items-center text-zinc-600 dark:text-zinc-300"
     >
       <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-400"></span>
       <span class="ml-3">{{ date |> date("DATE") }}</span>
@@ -21,13 +29,13 @@
   <a
     href='{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/'
     data-pagefind-filter="{{ i18n.search.filter_by_category }}"
-    class="relative rounded-md bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-200 px-2 py-1 text-xs font-medium text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-900 dark:text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-900 ring-1 ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/10 dark:ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-100 no-underline"
+    class="relative z-30 rounded-md bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-200 px-2 py-1 text-xs font-medium text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-900 dark:text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-900 ring-1 ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/10 dark:ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-100 no-underline"
   >{{ category }}</a>
   {{ if author }}
     {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
     {{ if page }}
       <span
-        class="relative px-2 py-1 text-xs font-extralight text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700"
+        class="relative z-30 px-2 py-1 text-xs font-extralight text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700"
       >{{ i18n.post.by }}: <a
           class="no-underline text-zinc-600 dark:text-zinc-300"
           data-pagefind-filter="{{ i18n.search.filter_by_author }}"
@@ -56,7 +64,7 @@
     {{ if page }}
       <a
         data-pagefind-filter="{{ i18n.search.filter_by_tag }}"
-        class="relative rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline"
+        class="relative z-30 rounded-md bg-zinc-50 px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline"
         href="{{ page.url }}"
       >{{ tag }}</a>
     {{ /if }}

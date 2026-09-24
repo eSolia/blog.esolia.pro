@@ -6,11 +6,14 @@
       cell the date used to hold. `items-start`, not the old `items-baseline`
       that aligned the date text: an image's baseline is its bottom edge,
       which drops the text column half a card down. #}}
+  {{# `group relative` lives on the row, not on the text column: the hover
+      panel and the title's stretched link are absolutely positioned, so they
+      size to this element, and hovering the photo highlights the row too. #}}
   <article
   id="post-list"
-  class="flex flex-col gap-4 md:grid md:grid-cols-4 md:items-start md:gap-6"
+  class="group relative flex flex-col gap-4 md:grid md:grid-cols-4 md:items-start md:gap-6"
 >
-  <div class="group relative flex flex-col items-start md:col-span-3">
+  <div class="flex flex-col items-start md:col-span-3">
       <h2
         class="text-base font-semibold tracking-tight text-zinc-950 dark:text-zinc-100"
       >
@@ -67,16 +70,19 @@
       </div>
     </div>
   {{# The photo, in the column the date used to occupy, and first in reading
-      order on small screens. Decorative rather than a second link: the title
-      carries a stretched link over the text column, and a link here would
-      compete with it (the same reason the home cards keep their credit as
-      plain text).
+      order on small screens. It carries no link of its own: the title's
+      stretched link covers the whole row, photo included, so a second link to
+      the same post would only compete with it. Decorative for assistive tech
+      (`alt=""`, `aria-hidden`), since the title already names the post.
 
       The wrapper is load-bearing: `picture()` wraps this `<img>` in a
       `<picture>`, so the *wrapper* is the grid item and ordering classes on
       the `<img>` place nothing. `[&>picture]:block` blockifies the generated
-      element, which is otherwise inline and adds a descender gap. #}}
-  <div class="order-first md:mt-1 [&>picture]:block">
+      element, which is otherwise inline and adds a descender gap.
+
+      `relative z-10` keeps the photo above the row's hover panel, which is
+      positioned at `z-0` and would otherwise wash over it. #}}
+  <div class="relative z-10 order-first md:mt-1 [&>picture]:block">
     <img
       src="{{ if post.image_top }}{{ post.image_top }}{{ else }}/assets/blog-esolia-pro-default-top.png{{ /if }}"
       alt=""
