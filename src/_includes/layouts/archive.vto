@@ -126,23 +126,76 @@ script: /js/fathom-post-list-event.js
                 {{ include "templates/post-list.vto" { postslist: results } }}
 
                 {{ if pagination.totalPages !== 1 }}
-                  <nav class="page-pagination pagination">
-                    <ul>
-                      {{- if pagination.previous }}
-                        <li class="pagination-prev">
-                          <a href="{{ pagination.previous }}" rel="prev">{{ i18n.nav.previous }}</a>
-                        </li>
-                      {{ /if }}
+                  {{# Numbered pager. `pager` comes from the generator, which
+                      is the only place that knows how a page number becomes a
+                      URL; it carries the first page, the last, the current one
+                      and its neighbours, with gap markers where a run was
+                      skipped.
 
-                      <li class="pagination-page">
-                        {{ i18n.nav.page }} {{ pagination.page }}
+                      The markup used to be three bare list items styled by
+                      `.pagination` classes that no stylesheet in this repo
+                      ever defined, so it rendered as an unstyled list. #}}
+                  <nav
+                    class="mt-4 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+                    aria-label="{{ i18n.nav.pagination }}"
+                  >
+                    <p class="sr-only">
+                      {{ i18n.nav.page }} {{ pagination.page }} / {{ pagination.totalPages }}
+                    </p>
+                    <ul class="flex flex-wrap items-center justify-center gap-2">
+                      <li>
+                        {{ if pagination.previous }}
+                          <a
+                            href="{{ pagination.previous }}"
+                            rel="prev"
+                            class="inline-flex h-10 items-center gap-1 rounded-lg px-3 text-sm font-medium text-zinc-700 ring-1 ring-zinc-900/10 ring-inset transition hover:bg-zinc-50 hover:text-zinc-950 dark:text-zinc-200 dark:ring-white/10 dark:hover:bg-zinc-800 dark:hover:text-white"
+                          >{{ i18n.nav.previous }}</a>
+                        {{ else }}
+                          <span
+                            class="inline-flex h-10 items-center gap-1 rounded-lg px-3 text-sm font-medium text-zinc-300 ring-1 ring-zinc-900/5 ring-inset dark:text-zinc-600 dark:ring-white/5"
+                            aria-hidden="true"
+                          >{{ i18n.nav.previous }}</span>
+                        {{ /if }}
                       </li>
 
-                      {{- if pagination.next }}
-                        <li class="pagination-next">
-                          <a href="{{ pagination.next }}" rel="next">{{ i18n.nav.next }}</a>
+                      {{ for item of pager }}
+                        <li>
+                          {{ if item.gap }}
+                            <span
+                              class="inline-flex h-10 w-6 items-center justify-center text-sm text-zinc-400 dark:text-zinc-500"
+                              aria-hidden="true"
+                            >…</span>
+                          {{ else if item.current }}
+                            {{# A span, not a link: the current page is not
+                                somewhere to navigate to. #}}
+                            <span
+                              aria-current="page"
+                              class="inline-flex h-10 min-w-10 items-center justify-center rounded-lg bg-esoliablue-900 px-3 text-sm font-semibold text-white dark:bg-esoliablue-600"
+                            >{{ item.n }}</span>
+                          {{ else }}
+                            <a
+                              href="{{ item.url }}"
+                              aria-label="{{ i18n.nav.page }} {{ item.n }}"
+                              class="inline-flex h-10 min-w-10 items-center justify-center rounded-lg px-3 text-sm font-medium text-zinc-700 ring-1 ring-zinc-900/10 ring-inset transition hover:bg-zinc-50 hover:text-zinc-950 dark:text-zinc-200 dark:ring-white/10 dark:hover:bg-zinc-800 dark:hover:text-white"
+                            >{{ item.n }}</a>
+                          {{ /if }}
                         </li>
-                      {{ /if }}
+                      {{ /for }}
+
+                      <li>
+                        {{ if pagination.next }}
+                          <a
+                            href="{{ pagination.next }}"
+                            rel="next"
+                            class="inline-flex h-10 items-center gap-1 rounded-lg px-3 text-sm font-medium text-zinc-700 ring-1 ring-zinc-900/10 ring-inset transition hover:bg-zinc-50 hover:text-zinc-950 dark:text-zinc-200 dark:ring-white/10 dark:hover:bg-zinc-800 dark:hover:text-white"
+                          >{{ i18n.nav.next }}</a>
+                        {{ else }}
+                          <span
+                            class="inline-flex h-10 items-center gap-1 rounded-lg px-3 text-sm font-medium text-zinc-300 ring-1 ring-zinc-900/5 ring-inset dark:text-zinc-600 dark:ring-white/5"
+                            aria-hidden="true"
+                          >{{ i18n.nav.next }}</span>
+                        {{ /if }}
+                      </li>
                     </ul>
                   </nav>
                 {{ /if }}

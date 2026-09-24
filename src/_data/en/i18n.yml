@@ -59,6 +59,7 @@ nav:
   archive: More posts can be found in <a href="/en/archive/">the archive</a>.
   back: ← Back
   page: Page
+  pagination: Pagination
   next: Next →
   previous: ← Previous
   all_categories: All Categories

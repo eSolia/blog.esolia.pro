@@ -61,6 +61,7 @@ nav:
   archive: 更に<a href="/archive/">アーカイブ</a>にて、ポストの閲覧できます
   back: ← 戻る
   page: ページ
+  pagination: ページ送り
   next: 次へ →
   previous: ← 前へ
   all_categories: すべてのカテゴリ
