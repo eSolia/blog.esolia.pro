@@ -1,5 +1,8 @@
+# Template. The placeholder in script-src is replaced at build time with the
+# hashes of the inline scripts actually shipped, by the CSP processor in
+# _config.ts. Edit this file, never the generated copy in _site.
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://cdn.jsdelivr.net https://cdn.usefathom.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://cdn.usefathom.com; connect-src 'self' https://cdn.usefathom.com; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' __SCRIPT_HASHES__ 'unsafe-eval' 'wasm-unsafe-eval' https://cdn.jsdelivr.net https://cdn.usefathom.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://cdn.usefathom.com; connect-src 'self' https://cdn.usefathom.com; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
