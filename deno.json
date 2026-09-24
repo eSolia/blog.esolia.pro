@@ -40,6 +40,9 @@
     ]
   },
   "fmt": {
+    // proseWrap preserve: deno fmt hard-wraps prose, and a line break inside a
+    // Japanese paragraph renders as a visible space between characters.
+    "proseWrap": "preserve",
     "exclude": [
       "./_site",
       "./archive",
