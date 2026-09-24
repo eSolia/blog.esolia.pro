@@ -892,7 +892,10 @@ site.add("f36d0f5824b04fae955f338128bac96e.txt"); // indexnow
 // The Content-Signal / AI-bot policy, mirrored from esolia-2025. Lume's
 // sitemap plugin appends the Sitemap: line to whatever this file contains.
 site.add("robots.txt");
-site.add("_headers"); // Cloudflare Workers Static Assets headers config (404 handled via not_found_handling in wrangler.jsonc)
+// _headers (Cloudflare Workers Static Assets headers config; 404 handled via
+// not_found_handling in wrangler.jsonc) is NOT copied verbatim: the CSP
+// processor at the end of this file generates it from src/_headers so the
+// script hashes match what was actually built.
 // Mastodon comment system
 // site.add(
 //   "https://cdn.jsdelivr.net/npm/@oom/mastodon-comments@0.3.2/src/comments.js",
@@ -1244,5 +1247,79 @@ if (!isCms) {
 //     return "Invalid date";
 //   }
 // });
+
+// Content-Security-Policy: hash the inline scripts instead of allowing them.
+//
+// The site ships exactly two executable inline scripts — the Pagefind UI init
+// (every page with search) and the newsletter time-trap (the two newsletter
+// pages) — and no inline event handlers. Hashing them lets script-src drop
+// 'unsafe-inline', so injected markup cannot execute.
+//
+// The hashes are computed here, from the final HTML, rather than written into
+// src/_headers by hand: editing either script would otherwise silently break
+// it in production, where a CSP failure is invisible until someone notices
+// search or the signup form has stopped working.
+//
+// JSON-LD blocks are left alone: script-src is not enforced against
+// application/ld+json (verified in Chrome — no violation is raised), so the
+// several hundred of them need no hashes.
+//
+// Registered last on purpose: processors run in registration order, so by now
+// the HTML is final, including the Pagefind script that deferPagefind() adds
+// and anything the minifier rewrote.
+//
+// InfoSec: removes 'unsafe-inline' from script-src. 'wasm-unsafe-eval' stays
+// for Pagefind's WebAssembly, and 'unsafe-eval' stays because Alpine 3
+// compiles its expressions with new Function; moving to Alpine's CSP build
+// needs a template refactor (tracked separately).
+const CSP_TOKEN = "__SCRIPT_HASHES__";
+
+async function sha256Base64(text: string): Promise<string> {
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(text),
+  );
+  let binary = "";
+  for (const byte of new Uint8Array(digest)) {
+    binary += String.fromCharCode(byte);
+  }
+  return btoa(binary);
+}
+
+/** True for a <script> the browser will execute, so CSP applies to it. */
+function isExecutable(script: Element): boolean {
+  const type = script.getAttribute("type")?.trim().toLowerCase();
+  return !type || type === "module" || type === "text/javascript" ||
+    type === "application/javascript";
+}
+
+site.process(async (pages, allPages) => {
+  const hashes = new Set<string>();
+  for (const page of pages) {
+    if (!page.outputPath.endsWith(".html")) continue;
+    for (const script of page.document.querySelectorAll("script")) {
+      const element = script as unknown as Element;
+      if (element.getAttribute("src") || !isExecutable(element)) continue;
+      const code = element.textContent ?? "";
+      if (!code.trim()) continue;
+      hashes.add(`'sha256-${await sha256Base64(code)}'`);
+    }
+  }
+
+  const template = await Deno.readTextFile(site.src("_headers"));
+  if (!template.includes(CSP_TOKEN)) {
+    throw new Error(
+      `src/_headers no longer contains ${CSP_TOKEN}; the CSP would ship without the inline-script hashes`,
+    );
+  }
+  const content = template.replaceAll(
+    CSP_TOKEN,
+    [...hashes].sort().join(" ") || "'none'",
+  );
+  allPages.push(Page.create({ url: "/_headers", content }));
+  console.log(
+    `[csp] _headers written with ${hashes.size} inline-script hash(es)`,
+  );
+});
 
 export default site;
