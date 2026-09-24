@@ -151,6 +151,20 @@ document.addEventListener("click", (event) => {
   document.cookie = `lang=${lang}; path=/; max-age=31536000; SameSite=Lax`;
 });
 
+/**
+ * The theme to start in: the shared `theme` key the main site writes, then the
+ * blog's older `darkMode` key, then the operating system's own setting — the
+ * same order of preference as the main site's boot script in app.html.
+ */
+function storedTheme() {
+  const shared = localStorage.getItem("theme");
+  if (shared === "dark" || shared === "light") return shared === "dark";
+  const legacy = localStorage.getItem("darkMode");
+  if (legacy === "true" || legacy === "false") return legacy === "true";
+  return globalThis.matchMedia?.("(prefers-color-scheme: dark)").matches ??
+    false;
+}
+
 document.addEventListener("alpine:init", () => {
   // Drawer navigation for narrow viewports.
   //
@@ -219,10 +233,18 @@ document.addEventListener("alpine:init", () => {
   // `dark` class on <body> is the single source of truth: each instance's
   // `darkMode` only mirrors it for the icons, and a `theme-change` event keeps
   // the instances in step, so toggling one never leaves the other stale.
+  //
+  // The stored preference is the main site's `theme` key, not a blog-only one:
+  // esolia.co.jp serves both this blog and the main site, so they share an
+  // origin and therefore localStorage, and a reader who picks dark here should
+  // keep it when they click through to the main site. `darkMode` is the blog's
+  // older key, still read so an existing choice is not lost, and still written
+  // so an older cached page agrees with this one.
   Alpine.data("themeToggle", () => ({
-    darkMode: localStorage.getItem("darkMode") === "true" || false,
+    darkMode: storedTheme(),
     init() {
       this.$watch("darkMode", (value) => {
+        localStorage.setItem("theme", value ? "dark" : "light");
         localStorage.setItem("darkMode", value);
         document.body.classList.toggle("dark", value);
         globalThis.dispatchEvent(
