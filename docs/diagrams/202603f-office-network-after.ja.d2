@@ -1,0 +1,36 @@
+# Small office network AFTER: the line is just internet; nothing depends on it.
+# Figure for src/posts/20260706-small-office-network-infrastructure-en.md.
+# Japanese labels for 202603f-office-network-after.d2 (same structure).
+# Style (vars + classes) is injected at render time by ~/dev/codex scripts/sync-d2.ts:
+#   cd ~/dev/codex && npx tsx scripts/sync-d2.ts --file <abs path to this file>
+# Then copy the PNG to src/uploads/202603f-office-network-after-ja.png.
+# Emerald = where the old dependencies went. Sky = temporary. Grey = plain plumbing.
+
+direction: down
+
+staff: "社員（オフィスでも社外でも）" { class: client }
+
+cloud: "クラウド" {
+  class: zone
+  label.near: top-left
+  direction: right
+  m365: "Microsoft 365\nEntra IDでサインイン\nSharePoint・OneDrive" { class: outcome }
+  cf: "Cloudflare\nAccess・WARP" { class: outcome }
+}
+
+office: "オフィス" {
+  class: zone
+  label.near: top-left
+  direction: down
+  fw: "IPoE回線＋ファイアウォール\n固定IPもVPNも不要\n外向き通信のみ" { class: client }
+  lan: "PC・プリンター・Wi-Fi" { class: client }
+  nas: "旧NAS\n移行が終わるまで" { class: info }
+  fw -> lan
+  fw -> nas
+}
+
+staff -> cloud.m365: "サインイン"
+staff -> cloud.cf: "WARPクライアント"
+cloud.cf -> office.nas: "トンネル\n（外向きに接続）" {
+  style.stroke-dash: 3
+}
