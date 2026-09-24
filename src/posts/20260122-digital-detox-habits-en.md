@@ -14,6 +14,8 @@ description: >-
 image: /uploads/202506f-digital-detox-en.jpeg
 image_top: /uploads/202506f-digital-detox.jpeg
 author: Shiori
+image_credit:
+  source: Adobe Express
 category: Ways of Working
 tags:
   - Digital Detox

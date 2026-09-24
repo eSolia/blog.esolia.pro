@@ -17,6 +17,8 @@ description: >-
 image: /uploads/202603f-small-office-infra-en.png
 image_top: /uploads/202603f-small-office-infra.png
 author: Kabaya
+image_credit:
+  source: Adobe Express
 tags:
   - Network Infrastructure
   - Small Office

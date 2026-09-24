@@ -14,6 +14,8 @@ description: >-
 image: /uploads/202504b-screenshot-instantly-en.jpeg
 image_top: /uploads/202504b-screenshot-instantly.jpeg
 author: Kabaya
+image_credit:
+  source: Adobe Express
 category: Windows
 tags:
   - Screenshot

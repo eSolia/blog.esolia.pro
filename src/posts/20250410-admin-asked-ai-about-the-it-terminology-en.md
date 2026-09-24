@@ -13,6 +13,8 @@ description: >-
   they asked AI.
 image: /uploads/202503g-admin-asked-ai-social-en.jpg
 author: YM
+image_credit:
+  source: Adobe Express
 category: AI-Usage
 tags:
   - UTP Cable

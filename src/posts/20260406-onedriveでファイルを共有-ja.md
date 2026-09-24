@@ -12,6 +12,8 @@ description: OneDriveを利用したデータ共有の方法を紹介します�
 image: /uploads/202507f-using-onedrive-ja.png
 image_top: /uploads/202507f-using-onedrive.png
 author: K.Y.
+image_credit:
+  source: Adobe Express
 category: クラウド
 tags:
   - OneDrive

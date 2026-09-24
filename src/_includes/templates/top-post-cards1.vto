@@ -54,17 +54,17 @@
             `pointer-events-none` keeps it from intercepting the card click at
             all, and the gradient scrim gives the text something to sit on,
             since it has to stay legible over an arbitrary photograph. #}}
-        {{ if post.image_credit && post.image_credit.name }}
+        {{# Stock photos (Adobe Express) name no photographer, so a credit
+            with only a source counts too. #}}
+        {{ if post.image_credit && (post.image_credit.name || post.image_credit.source) }}
           <div
             class="pointer-events-none absolute inset-x-0 bottom-0 rounded-b-2xl bg-linear-to-t from-black/45 to-transparent pt-6 pb-2 pr-3 text-right"
           >
             <span class="text-[0.65rem] font-extralight text-white/80">
-              {{ i18n.post.photo_credit }} {{ post.image_credit.name }}{{
+              {{ i18n.post.photo_credit }}{{ if post.image_credit.name }} {{ post.image_credit.name }}{{ /if }}{{ if post.image_credit.name && post.image_credit.source }}
+                {{ i18n.post.photo_credit_on }}{{ /if }}{{
                 if post.image_credit.source
-              }}
-                {{ i18n.post.photo_credit_on }} {{ post.image_credit.source }}{{
-                /if
-              }}
+              }} {{ post.image_credit.source }}{{ /if }}
             </span>
           </div>
         {{ /if }}

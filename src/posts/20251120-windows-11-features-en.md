@@ -15,6 +15,8 @@ description: >-
 image: /uploads/202507b-windows11-features-en.jpeg
 image_top: /uploads/202507b-windows11-features.jpeg
 author: Shiori
+image_credit:
+  source: Adobe Express
 category: Windows
 tags:
   - Clipboard

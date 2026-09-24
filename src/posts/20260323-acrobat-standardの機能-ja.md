@@ -12,6 +12,8 @@ description: Acrobat Readerとの違いから、活用機能、Acrobat Proとの
 image: /uploads/202507a-acrobat-standard-ja.png
 image_top: /uploads/202507a-acrobat-standard.png
 author: YM
+image_credit:
+  source: Adobe Express
 category: 文書管理
 tags:
   - Adobe Acrobat

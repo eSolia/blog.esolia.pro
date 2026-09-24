@@ -17,6 +17,8 @@ description: >-
 image: /uploads/202509d-remote-environment-en.png
 image_top: /uploads/202509d-remote-environment.png
 author: Shiori
+image_credit:
+  source: Adobe Express
 category: Ways of Working
 tags:
   - Remote Work

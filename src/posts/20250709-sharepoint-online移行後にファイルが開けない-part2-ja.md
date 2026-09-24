@@ -13,6 +13,8 @@ description: >-
 image: /uploads/202504d-sharepoint-migration-part2-ja.jpeg
 image_top: /uploads/202504d-sharepoint-migration-part2.jpeg
 author: Ena
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 tags:
   - SharePoint Online

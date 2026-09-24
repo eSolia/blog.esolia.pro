@@ -17,6 +17,8 @@ description: >-
 image: /uploads/202506c-windows-sync-center-en.jpeg
 image_top: /uploads/202506c-windows-sync-center.jpeg
 author: K.Y.
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - Sync Center

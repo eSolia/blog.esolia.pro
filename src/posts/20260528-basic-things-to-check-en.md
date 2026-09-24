@@ -14,6 +14,8 @@ description: >-
 image: /uploads/202603d-basic-things-to-check-en.png
 image_top: /uploads/202603d-basic-things-to-check.png
 author: SK
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - Beginners

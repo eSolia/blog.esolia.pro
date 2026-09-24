@@ -14,6 +14,8 @@ description: >-
 image: /uploads/202508a-file-saving-popup-en.png
 image_top: /uploads/202508a-file-saving-popup.png
 author: YM
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - File Management

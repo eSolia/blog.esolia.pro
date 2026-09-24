@@ -12,6 +12,8 @@ description: >-
   ensure smoother scheduling.
 image: /uploads/202503e-outlook-calender-sync-issues-social-en.jpg
 author: KC
+image_credit:
+  source: Adobe Express
 category: Troubleshooting
 tags:
   - Outlook

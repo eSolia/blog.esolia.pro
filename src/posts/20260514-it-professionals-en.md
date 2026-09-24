@@ -15,6 +15,8 @@ description: >-
 image: /uploads/202507g-it-professionals-en.png
 image_top: /uploads/202507g-it-professionals.png
 author: Ena
+image_credit:
+  source: Adobe Express
 category: Ways of Working
 tags:
   - IT Project Management

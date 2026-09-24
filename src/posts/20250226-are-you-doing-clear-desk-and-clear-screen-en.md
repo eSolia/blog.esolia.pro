@@ -19,7 +19,8 @@ comments: {}
 draft: false
 hot: false
 featured: false
-image_credit: {}
+image_credit:
+  source: Adobe Express
 ---
 One security policy that is probably used at most organizations is *"clear desk, clear screen"*. Are you aware and doing it?
 

@@ -11,6 +11,8 @@ description: Cisco IP CommunicatorとMicrosoft Teamsのアプリ相性不具合�
 image: /uploads/202504c-cisco-ip-communicator-problem-ja.jpeg
 image_top: /uploads/202504c-cisco-ip-communicator-problem.jpeg
 author: K.Y.
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 tags:
   - Microsoft Teams

@@ -14,6 +14,8 @@ description: >-
 image: /uploads/202506d-teams-webinar-ja.jpeg
 image_top: /uploads/202506d-teams-webinar.jpeg
 author: SK
+image_credit:
+  source: Adobe Express
 category: Microsoft-365
 tags:
   - ウェビナー
