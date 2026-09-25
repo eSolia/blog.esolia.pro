@@ -28,7 +28,7 @@ the [README](../../README.md).
 ## Office network before / after an IPoE switch
 
 Figures for the small-office network post
-(`src/posts/20260706-small-office-network-infrastructure-en.md` and its JA
+(`src/posts/20261027-switching-to-ipoe-en.md` and its JA
 twin). Orange marks what depends on the old line, green is where those
 dependencies move, blue is temporary.
 
