@@ -4,16 +4,16 @@ hot: false
 featured: false
 oldUrl: []
 lang: en
-id: 202603f-small-office-infra
+id: 20261027-switching-to-ipoe
 date: 2026-10-27 00:00:00
-last_modified: 2026-09-25 12:00:00
-title: 'Switching to IPoE? Check What Depends on Your Old Line First'
+last_modified: 2026-09-25 10:11:00
+title: Switching to IPoE? Check What Depends on Your Current Line First
 description: >-
   A client asked whether to move their office internet from PPPoE to IPoE. The
   line change was the easy part; the hard part was everything that depended on
-  the old connection. Four things to check before you switch, and where we
-  would take it instead.
-image: /uploads/202603f-small-office-infra-en.png
+  the old connection. Four things to check before you switch, and where we would
+  take it instead.
+image: ''
 image_top: /uploads/202603f-small-office-infra.png
 author: Kabaya
 image_credit:
@@ -23,7 +23,6 @@ tags:
   - IPoE
   - PPPoE
   - VPN
-  - Network
   - IT Support
   - Remote Work
   - Cloud Migration
