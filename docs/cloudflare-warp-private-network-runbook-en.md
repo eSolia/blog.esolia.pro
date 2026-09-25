@@ -176,6 +176,33 @@ profile staff use
 
 Users may need to reconnect the client for the change to apply.
 
+### Services that only accept the office IP
+
+Check this before rolling the client out. In its default mode the One Client
+sends staff **internet** traffic through Cloudflare too, and it leaves from
+Cloudflare's shared addresses, not from the office line. Any bank, vendor
+portal or SaaS tenant that allowlists the office's fixed IP will then refuse
+staff, **even at their desks in the office**.
+
+Handle each such service one of three ways:
+
+1. **Replace the allowlist with an identity rule** where the service supports
+   it. For Microsoft 365, use conditional access requiring a compliant or
+   Entra-joined device instead of a named location. This is the durable fix.
+2. **Exclude the service from the One Client** so its traffic leaves directly
+   through the office line: in the same **Split Tunnels** list (Exclude mode),
+   add the service's domains or IP ranges. This only helps **in the office**.
+   Remote staff still reach the service from their own home IP, so it keeps
+   refusing them, and the office still needs its fixed IP (on IPoE, the paid
+   fixed-IP option).
+3. **A fixed Cloudflare egress IP** ("dedicated egress IPs") would cover staff
+   everywhere, but it is only sold as an add-on to the Zero Trust
+   **Enterprise** plan. In our experience that only makes financial sense for
+   a large organization, so for an SMB treat it as out of scope.
+
+List these services during the pre-switch checklist, not after the first
+failed bank login.
+
 ## 10. Step 7 — restrict who can reach it (Gateway network policies)
 
 Without a policy, **every enrolled device** can reach whatever the route
@@ -295,3 +322,7 @@ FortiGate.
   NAS accounts.
 - Test the **deny path** from a non-allowed user and from a disconnected device.
 - It works behind **IPoE / CGNAT** because the connector only dials out.
+- Staff internet traffic leaves from **Cloudflare's shared IPs**: services that
+  allowlist the office IP break, even in the office. Replace with identity
+  rules, or exclude them in Split Tunnels (office only). Dedicated egress IPs
+  are Enterprise-only.
