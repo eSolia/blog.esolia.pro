@@ -13,10 +13,12 @@ script: /js/fathom-post-list-event.js
             <h1
               class="text-2xl 2xs:text-3xl sm:text-4xl lg:text-5xl tracking-tight text-zinc-950 dark:text-zinc-100"
             >
+              {{# The mobile line break is `block md:inline` on the second
+                  span, not a <br>: a <br> is part of the heading text, and
+                  Cloudflare's markdown conversion printed it literally. #}}
               <span class="font-semibold subpixel-antialiased">{{ site.title }}</span>
-              <br class="block md:hidden">
               <span
-                class="font-extralight text-esoliablue-900 dark:text-esoliablue-600"
+                class="block md:inline font-extralight text-esoliablue-900 dark:text-esoliablue-600"
               >{{ i18n.archive.title }}</span>
             </h1>
             <p class="mt-6 text-base text-zinc-950 dark:text-zinc-400">

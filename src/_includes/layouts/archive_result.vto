@@ -43,7 +43,7 @@ bodyClass: body-tag
               decoding="async"
             >
             <h1 class="category-hero-title">
-              <span class="category-hero-title-label">{{ title }}</span>
+              <span class="category-hero-title-label">{{ heading_label }}</span>
               {{# `category`, not `subtitle`: subtitle wraps the name in curly
                   quotes, which suit the small inline heading on tag and author
                   pages but read as a quotation at hero scale. The CATEGORY:
@@ -96,9 +96,10 @@ bodyClass: body-tag
               >
                 <span
                   class="font-extralight text-esoliablue-800 dark:text-esoliablue-600"
-                >{{ title }}</span>
-                <br class="block md:hidden">
-                <span class="font-semibold">{{ subtitle }}</span>
+                >{{ heading_label }}</span>
+                {{# Mobile line break via `block md:inline`, not a <br>; see
+                    archive.vto. #}}
+                <span class="block md:inline font-semibold">{{ subtitle }}</span>
               </h1>
             {{ /if }}
             <p class="text-zinc-950 dark:text-zinc-200">{{ summary }}</p>

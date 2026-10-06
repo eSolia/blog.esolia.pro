@@ -37,7 +37,11 @@ export default function* (
       oldUrl: aliasesFor(tag).map(
         (old) => `${localePrefix}/archive/${encodeURIComponent(old)}/`,
       ),
-      title: `${i18n.search.by_tag}:`,
+      // `heading_label` is the H1 eyebrow, printed beside the name. `title`
+      // must carry the name too: it feeds <title>, og:title and the JSON-LD
+      // headline, which all read just "Tag:" when it held the label alone.
+      heading_label: `${i18n.search.by_tag}:`,
+      title: `${i18n.search.by_tag}: ${tag}`,
       subtitle:
         `${i18n.punctuation.open_quote}${tag}${i18n.punctuation.close_quote}`,
       type: "tag",
@@ -57,7 +61,8 @@ export default function* (
       oldUrl: formerBylines(author).map(
         (old) => `${localePrefix}/author/${encodeURIComponent(old)}/`,
       ),
-      title: `${i18n.search.by_author}:`,
+      heading_label: `${i18n.search.by_author}:`,
+      title: `${i18n.search.by_author}: ${author}`,
       subtitle:
         `${i18n.punctuation.open_quote}${author}${i18n.punctuation.close_quote}`,
       type: "author",
@@ -76,7 +81,8 @@ export default function* (
       heroArt: artFor(
         featurecats.find((item) => item.key === category)?.id ?? category,
       ),
-      title: `${i18n.search.by_category}:`,
+      heading_label: `${i18n.search.by_category}:`,
+      title: `${i18n.search.by_category}: ${category}`,
       subtitle:
         `${i18n.punctuation.open_quote}${category}${i18n.punctuation.close_quote}`,
       type: "category",
