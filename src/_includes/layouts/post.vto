@@ -30,7 +30,11 @@ bodyClass: body-post
                 data-title="{{ title }}"
                 data-pagefind-index-attrs="data-title"
               >
-                <header class="flex flex-col -top-4">
+                {{# A <div>, not <header>: Cloudflare's Markdown for Agents
+                    strips every <header> when converting for AI crawlers,
+                    which dropped the H1 from the markdown. Inside <main> a
+                    <header> is not a landmark, so nothing is lost. #}}
+                <div class="flex flex-col -top-4">
                   {{# {{ include "templates/post-details.vto" { elapsed: elapseddays } }} #}}
                   <h1
                     class="mt-1 text-fluid-title font-semibold tracking-tight text-zinc-950 dark:text-zinc-100 subpixel-antialiased"
@@ -40,7 +44,7 @@ bodyClass: body-post
                   {{ if toc.length }}
                     {{ include "templates/page-toc.vto" }}
                   {{ /if }}
-                </header>
+                </div>
                 {{# The prose size modifiers are mobile-first on purpose. They
                     used to read `sm:prose-sm md:prose-base lg:prose-lg`, which
                     left NO size below 640px — so narrow screens fell back to
