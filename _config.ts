@@ -932,6 +932,17 @@ site.preprocess([".md"], (pages) => {
     if (modified instanceof Date && modified < page.data.date) {
       page.data.last_modified = page.data.date;
     }
+
+    // Reading time for the twitter:data2 card label. It used to be scraped
+    // from a `.reading-info` element that is no longer rendered, so every
+    // post fell back to "2 min". readingInfo() runs earlier and has already
+    // counted the words.
+    const minutes = page.data.readingInfo?.minutes;
+    if (typeof minutes === "number") {
+      page.data.reading_time = page.data.lang === "ja"
+        ? `${minutes} 分`
+        : `${minutes} min`;
+    }
   }
 });
 
