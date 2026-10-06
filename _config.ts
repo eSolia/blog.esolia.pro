@@ -621,6 +621,50 @@ site.process([".html"], (pages) => {
 //
 // BlogPosting authors also get the URL of their author page; Google's Rich
 // Results Test lists a missing author url as an issue.
+interface Crumb {
+  name: string;
+  path: string;
+}
+
+/**
+ * Percent-encode a path exactly once. Page URLs arrive both ways: a post's
+ * `url` is raw ("/posts/20261006-添付ファイルの罠-ja/") while a generated
+ * page's is already encoded, so a plain encodeURI() double-encoded those.
+ */
+function encodePath(path: string): string {
+  try {
+    return encodeURI(decodeURI(path));
+  } catch {
+    return encodeURI(path); // a lone "%" that is not an escape
+  }
+}
+
+/** Breadcrumb trail for a page, as names and unprefixed root-relative paths. */
+function breadcrumbTrail(data: Lume.Data): Crumb[] {
+  const prefix = data.lang === "en" ? "/en" : "";
+  const home: Crumb = { name: data.site?.title ?? "", path: `${prefix}/` };
+  const url = typeof data.url === "string" ? data.url : "";
+  const title = typeof data.title === "string" ? data.title : "";
+  if (data.type === "post") {
+    const trail = [home];
+    if (typeof data.category === "string" && data.category) {
+      trail.push({
+        name: data.category,
+        path: `${prefix}/category/${data.category}/`,
+      });
+    }
+    trail.push({ name: title, path: url });
+    return trail;
+  }
+  if (["category", "tag", "author"].includes(data.type as string)) {
+    return [home, { name: title, path: url }];
+  }
+  if (url.startsWith(`${prefix}/archive/`) && !data.type) {
+    return [home, { name: data.i18n?.archive?.title ?? title, path: url }];
+  }
+  return [];
+}
+
 const ESOLIA_ORG = {
   "@type": "Organization",
   "@id": "https://esolia.co.jp/#organization",
@@ -648,11 +692,34 @@ site.process([".html"], (pages) => {
         ) {
           const prefix = page.data.lang === "en" ? "/en" : "";
           author.url = site.url(
-            encodeURI(`${prefix}/author/${author.name}/`),
+            encodePath(`${prefix}/author/${author.name}/`),
             true,
           );
         }
+        if (data["@type"] === "BlogPosting" && typeof data.url === "string") {
+          data.mainEntityOfPage = { "@type": "WebPage", "@id": data.url };
+        }
         el.textContent = scriptSafeJson(data);
+
+        // Breadcrumbs, as a second block beside the page's own. Posts read
+        // blog › category › post; listings blog › listing. The blog home has
+        // none, and nothing else is a page a reader navigates to by path.
+        const trail = breadcrumbTrail(page.data);
+        if (trail.length > 1) {
+          const crumbs = page.document!.createElement("script");
+          crumbs.setAttribute("type", "application/ld+json");
+          crumbs.textContent = scriptSafeJson({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: trail.map((crumb, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: crumb.name,
+              item: site.url(encodePath(crumb.path), true),
+            })),
+          });
+          el.after(crumbs);
+        }
       } catch {
         // As above: leave malformed JSON-LD alone.
       }
