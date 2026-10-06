@@ -78,7 +78,12 @@
       type="application/json"
       title="{{ site.title }}"
     >
-    <link rel="canonical" href="{{ url |> url(true) }}">
+    {{# The 404 page sets `canonical: false`: it is served at every missing
+        URL, so naming /404.html as their canonical told crawlers those URLs
+        were duplicates of a real page. #}}
+    {{ if canonical !== false }}
+      <link rel="canonical" href="{{ url |> url(true) }}">
+    {{ /if }}
     <link rel="self" href="{{ url |> url(true) }}">
     <link rel="hub" href="https://pubsubhubbub.appspot.com/">
 

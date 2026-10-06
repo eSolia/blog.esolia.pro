@@ -1176,8 +1176,20 @@ if (!isCms) {
     for (const page of pages) {
       const src = page.src.entry?.src;
       if (src) {
-        page.data.lastmod = getGitDate("modified", src);
+        // Listing pages set lastmod to their newest post's date in the
+        // generators; for them the git date is the generator script's last
+        // edit, which says nothing about the page's content.
+        page.data.lastmod ??= getGitDate("modified", src);
         page.data.created = getGitDate("created", src);
+      }
+      // A scheduled post is committed before it goes live, so its git date
+      // can precede its publication date; it cannot have changed before then.
+      const { date, lastmod } = page.data;
+      if (
+        page.data.type === "post" && date instanceof Date &&
+        (!(lastmod instanceof Date) || lastmod < date)
+      ) {
+        page.data.lastmod = date;
       }
     }
   });
