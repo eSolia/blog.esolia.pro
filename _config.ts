@@ -921,6 +921,17 @@ site.preprocess([".md"], (pages) => {
     const elapsedDays = now.getTime() - page.data.date.getTime();
     // save the elapsedDays variable:
     page.data.elapseddays = elapsedDays / (1000 * 3600 * 24);
+
+    // A post cannot be modified before it was published. The CMS stamps
+    // `last_modified` on every save, so a post scheduled weeks ahead carries
+    // a "modified" date earlier than its publication date, and that reached
+    // the JSON-LD dateModified, article:modified_time and the feeds' updated,
+    // which search engines read as unreliable dates. Clamped here in the
+    // build only; the front matter the CMS writes is left alone.
+    const modified = page.data.last_modified;
+    if (modified instanceof Date && modified < page.data.date) {
+      page.data.last_modified = page.data.date;
+    }
   }
 });
 
