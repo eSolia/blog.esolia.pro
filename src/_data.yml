@@ -118,10 +118,6 @@ metas:
   color: ["#ffbc68", "#2d2f63"]
   robots: true
   generator: true
-  "twitter:label1": "著者"
-  "twitter:data1": "チーム イソリア"
-  "twitter:label2": "読了目安"
-  "twitter:data2": "$ .reading-info || 2 分"
 jsonLd:
   "@type": WebSite
   inLanguage: "=site.isolang"
@@ -248,10 +244,6 @@ en:
     color: ["#ffbc68", "#2d2f63"]
     robots: true
     generator: true
-    "twitter:label1": "Written by"
-    "twitter:data1": "Team eSolia"
-    "twitter:label2": "Reading Time"
-    "twitter:data2": "$ .reading-info || 2 min"
   jsonLd:
     "@type": WebSite
     inLanguage: "=site.isolang"
