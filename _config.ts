@@ -607,6 +607,59 @@ site.process([".html"], (pages) => {
   }
 });
 
+// Publisher and author links in the structured data.
+//
+// The blog lives at esolia.co.jp/blog, so its publisher is the same entity the
+// main site describes as https://esolia.co.jp/#organization. Reusing that @id,
+// with the main site's name and logo, tells search engines the blog belongs to
+// the company rather than to a separate "eSolia" with no URL. KEEP IN STEP with
+// the Organization in esolia-2025's JSON-LD.
+//
+// Added here, after the base-path fixup, because that fixup prefixes /blog to
+// every first-party url, @id and logo, which would turn these main-site URLs
+// into blog URLs that do not exist.
+//
+// BlogPosting authors also get the URL of their author page; Google's Rich
+// Results Test lists a missing author url as an issue.
+const ESOLIA_ORG = {
+  "@type": "Organization",
+  "@id": "https://esolia.co.jp/#organization",
+  name: "eSolia Inc.",
+  alternateName: "株式会社イソリア",
+  url: "https://esolia.co.jp",
+  logo: "https://esolia.co.jp/assets/logo_horiz_darkblue_bgtransparent.svg",
+};
+
+site.process([".html"], (pages) => {
+  for (const page of pages) {
+    const scripts = page.document?.querySelectorAll(
+      'script[type="application/ld+json"]',
+    );
+    for (const el of scripts ?? []) {
+      const raw = el.textContent;
+      if (!raw) continue;
+      try {
+        const data = JSON.parse(raw);
+        data.publisher = ESOLIA_ORG;
+        const author = data.author;
+        if (
+          data["@type"] === "BlogPosting" && author?.["@type"] === "Person" &&
+          typeof author.name === "string" && author.name
+        ) {
+          const prefix = page.data.lang === "en" ? "/en" : "";
+          author.url = site.url(
+            encodeURI(`${prefix}/author/${author.name}/`),
+            true,
+          );
+        }
+        el.textContent = scriptSafeJson(data);
+      } catch {
+        // As above: leave malformed JSON-LD alone.
+      }
+    }
+  }
+});
+
 // Markdown
 site.use(title());
 // Pinned to 0.11.0 deliberately — do not bump without reading this.
