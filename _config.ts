@@ -10,6 +10,7 @@ import date from "lume/plugins/date.ts";
 import { enUS } from "npm:date-fns@^4.1.0/locale/en-US";
 import { ja } from "npm:date-fns@^4.1.0/locale/ja";
 import { getGitDate } from "lume/core/utils/date.ts";
+import { normalizeByline } from "./scripts/byline.ts";
 // import { time } from "node:console";
 // import { getCurrentVersion } from "lume/core/utils/lume_version.ts";
 import jsonLd from "lume/plugins/json_ld.ts";
@@ -1057,6 +1058,14 @@ site.preprocess([".md"], (pages) => {
     const elapsedDays = now.getTime() - page.data.date.getTime();
     // save the elapsedDays variable:
     page.data.elapseddays = elapsedDays / (1000 * 3600 * 24);
+
+    // One spelling per byline, whatever the front matter says: the byline is
+    // the author page's key, so "SK&Shiori" or a trailing space would mint a
+    // second author page. The CMS writes it normalized too; this covers
+    // hand edits. See scripts/byline.ts.
+    if (typeof page.data.author === "string") {
+      page.data.author = normalizeByline(page.data.author);
+    }
 
     // A post cannot be modified before it was published. The CMS stamps
     // `last_modified` on every save, so a post scheduled weeks ahead carries
