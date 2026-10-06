@@ -129,9 +129,6 @@ jsonLd:
   author:
     "@type": Organization
     name: =site.author
-  editor:
-    "@type": Organization
-    name: "=site.author"
 
 en:
   lang: en
@@ -255,6 +252,3 @@ en:
     author:
       "@type": Organization
       name: =site.author
-    editor:
-      "@type": Organization
-      name: "=site.author"
