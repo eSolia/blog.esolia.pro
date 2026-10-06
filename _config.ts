@@ -727,6 +727,24 @@ site.process([".html"], (pages) => {
       try {
         const data = JSON.parse(raw);
         data.publisher = ESOLIA_ORG;
+        // Each language's home is a Blog within the company's WebSite (the
+        // main site already declares #website), and each post is part of
+        // its language's Blog. Without this the home claimed to be a
+        // WebSite of its own, a second site on the same domain.
+        const blogId = `${
+          site.url(page.data.lang === "en" ? "/en/" : "/", true)
+        }#blog`;
+        if (page.data.id === "home") {
+          data["@type"] = "Blog";
+          data["@id"] = blogId;
+          data.isPartOf = {
+            "@type": "WebSite",
+            "@id": "https://esolia.co.jp/#website",
+            url: "https://esolia.co.jp",
+          };
+        } else if (data["@type"] === "BlogPosting") {
+          data.isPartOf = { "@type": "Blog", "@id": blogId };
+        }
         const author = data.author;
         if (
           data["@type"] === "BlogPosting" && author?.["@type"] === "Person" &&
