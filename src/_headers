@@ -1,6 +1,11 @@
 # Template. The placeholder in script-src is replaced at build time with the
 # hashes of the inline scripts actually shipped, by the CSP processor in
 # _config.ts. Edit this file, never the generated copy in _site.
+#
+# Content-Signal must match the Content-Signal line in robots.txt exactly
+# (tests/content_signal_test.ts checks it). Cloudflare keeps an origin
+# content-signal header on its Markdown for Agents responses; without one it
+# adds its own default, ai-train=yes, contradicting robots.txt.
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self' __SCRIPT_HASHES__ 'wasm-unsafe-eval' https://cdn.usefathom.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://cdn.usefathom.com; connect-src 'self' https://cdn.usefathom.com; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
   X-Frame-Options: DENY
@@ -10,6 +15,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Permissions-Policy: autoplay=(), camera=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), publickey-credentials-get=()
+  Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 
 /fonts-*/*
   Cache-Control: public, max-age=31536000, immutable
