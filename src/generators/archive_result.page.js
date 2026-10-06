@@ -23,6 +23,9 @@ export default function* (
   // path for Microsoft365, SharePointOnline and Windows10.
   const localePrefix = lang === "ja" ? "" : `/${lang}`;
   const aliasesFor = (tag) => tagaliases?.[lang]?.[tag] ?? [];
+  // Sitemap lastmod for a listing: its newest post. Without it the sitemap fell
+  // back to this script's git date, which changes with the code, not the content.
+  const newest = (query) => search.pages(query, "date=desc", 1)[0]?.date;
 
   for (const tag of search.values("tags", `lang=${lang}`)) {
     yield {
@@ -46,6 +49,7 @@ export default function* (
         `${i18n.punctuation.open_quote}${tag}${i18n.punctuation.close_quote}`,
       type: "tag",
       search_query: `type=post lang=${lang} '${tag}'`,
+      lastmod: newest(`type=post lang=${lang} '${tag}'`),
       tag,
       i18n,
     };
@@ -67,6 +71,7 @@ export default function* (
         `${i18n.punctuation.open_quote}${author}${i18n.punctuation.close_quote}`,
       type: "author",
       search_query: `type=post lang=${lang} author='${author}'`,
+      lastmod: newest(`type=post lang=${lang} author='${author}'`),
       author,
       i18n,
     };
@@ -87,6 +92,7 @@ export default function* (
         `${i18n.punctuation.open_quote}${category}${i18n.punctuation.close_quote}`,
       type: "category",
       search_query: `type=post lang=${lang} category='${category}'`,
+      lastmod: newest(`type=post lang=${lang} category='${category}'`),
       category,
       i18n,
     };

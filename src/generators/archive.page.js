@@ -56,6 +56,8 @@ export default function* ({ search, paginate, lang, i18n }) {
 
     yield {
       ...data,
+      // Sitemap lastmod: the newest post on this page (results are date=desc).
+      lastmod: data.results[0]?.date,
       pager: pagerItems(data.pagination.page, data.pagination.totalPages),
       title: i18n.nav.archive_title,
       id: `archive-${data.pagination.page}`, // To link the JA and EN versions
