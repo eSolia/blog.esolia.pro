@@ -1256,13 +1256,13 @@ if (!isCms) {
 
 // Content-Security-Policy: hash the inline scripts instead of allowing them.
 //
-// The site ships exactly two executable inline scripts — the Pagefind UI init
-// (every page with search) and the newsletter time-trap (the two newsletter
-// pages) — and no inline event handlers. Hashing them lets script-src drop
-// 'unsafe-inline', so injected markup cannot execute.
+// The site ships a handful of executable inline scripts (the theme init in
+// <head>, the Pagefind UI init, and the newsletter time-trap) and no inline
+// event handlers. Hashing them lets script-src drop 'unsafe-inline', so
+// injected markup cannot execute.
 //
 // The hashes are computed here, from the final HTML, rather than written into
-// src/_headers by hand: editing either script would otherwise silently break
+// src/_headers by hand: editing any of these scripts would otherwise silently break
 // it in production, where a CSP failure is invisible until someone notices
 // search or the signup form has stopped working.
 //
@@ -1274,10 +1274,14 @@ if (!isCms) {
 // the HTML is final, including the Pagefind script that deferPagefind() adds
 // and anything the minifier rewrote.
 //
+// Cloudflare's JavaScript Detections script, injected at the edge, cannot be
+// hashed because it changes per request. Under esolia.co.jp/blog the
+// esolia-2025 forwarder (src/lib/server/blog-proxy.ts) adds a per-request
+// nonce to this script-src, which Cloudflare stamps onto its injected script.
+// So keep script-src in _headers: without it there is nothing to extend.
+//
 // InfoSec: removes 'unsafe-inline' from script-src. 'wasm-unsafe-eval' stays
-// for Pagefind's WebAssembly, and 'unsafe-eval' stays because Alpine 3
-// compiles its expressions with new Function; moving to Alpine's CSP build
-// needs a template refactor (tracked separately).
+// for Pagefind's WebAssembly. 'unsafe-eval' went with Alpine in deea3ce.
 const CSP_TOKEN = "__SCRIPT_HASHES__";
 
 async function sha256Base64(text: string): Promise<string> {
