@@ -29,9 +29,6 @@ jsonLd:
   author:
     "@type": Person
     name: "=author"
-  publisher:
-    "@type": Organization
-    name: "=site.author"
 
 en:
   lang: en
@@ -65,6 +62,3 @@ en:
     author:
       "@type": Person
       name: "=author"
-    publisher:
-      "@type": Organization
-      name: "=site.author"

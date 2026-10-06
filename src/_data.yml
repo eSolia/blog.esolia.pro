@@ -126,9 +126,6 @@ jsonLd:
   headline: =metas.title
   name: =site.title
   description: =metas.description
-  author:
-    "@type": Organization
-    name: =site.author
 
 en:
   lang: en
@@ -249,6 +246,3 @@ en:
     headline: =metas.title
     name: =site.title
     description: =metas.description
-    author:
-      "@type": Organization
-      name: =site.author
