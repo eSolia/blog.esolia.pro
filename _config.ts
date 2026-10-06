@@ -638,6 +638,31 @@ site.process([".html"], (pages) => {
   }
 });
 
+// og:locale:alternate, from the hreflang alternates multilanguage() already
+// wrote, so social parsers learn the other language exists. Derived from the
+// links rather than recomputed, so the two can never disagree.
+const OG_LOCALE: Record<string, string> = { ja: "ja_JP", en: "en_US" };
+site.process([".html"], (pages) => {
+  for (const page of pages) {
+    const document = page.document;
+    const own = document?.querySelector('meta[property="og:locale"]');
+    if (!document || !own) continue;
+    const links = document.querySelectorAll(
+      'link[rel="alternate"][hreflang]',
+    );
+    let anchor = own;
+    for (const link of links) {
+      const locale = OG_LOCALE[link.getAttribute("hreflang") ?? ""];
+      if (!locale || locale === own.getAttribute("content")) continue;
+      const meta = document.createElement("meta");
+      meta.setAttribute("property", "og:locale:alternate");
+      meta.setAttribute("content", locale);
+      anchor.after(meta);
+      anchor = meta;
+    }
+  }
+});
+
 interface Crumb {
   name: string;
   path: string;

@@ -1,6 +1,10 @@
 logo: /assets/logo_horiz_darkblue_bgtransparent.svg
 extra_head: []
 lang: ja
+# hreflang x-default: point every page at its Japanese version, the blog's
+# default language (Lume multilanguage resolves a language code per page).
+# Inherited by the en: subtree.
+unmatchedLangUrl: ja
 # Cloudflare Turnstile sitekey for the newsletter signup (public value).
 # Inherited by the en: subtree below, so one entry covers both locales.
 # TODO: replace placeholder with the real sitekey from the Turnstile dashboard
