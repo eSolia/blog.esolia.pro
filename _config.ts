@@ -621,6 +621,22 @@ site.process([".html"], (pages) => {
 //
 // BlogPosting authors also get the URL of their author page; Google's Rich
 // Results Test lists a missing author url as an issue.
+// OpenGraph's article:* tags are properties (<meta property="article:…">),
+// but metas() writes every key it does not know as name=. Parsers that follow
+// the OpenGraph protocol strictly read only property=.
+site.process([".html"], (pages) => {
+  for (const page of pages) {
+    for (
+      const meta of page.document?.querySelectorAll('meta[name^="article:"]') ??
+        []
+    ) {
+      const name = meta.getAttribute("name")!;
+      meta.removeAttribute("name");
+      meta.setAttribute("property", name);
+    }
+  }
+});
+
 interface Crumb {
   name: string;
   path: string;
@@ -1293,6 +1309,13 @@ site.data("cardPreview", showScheduledDrafts);
 // the sitemap, so it skips these too.
 if (!isCms) {
   site.preprocess([".html"], (pages) => {
+    const newestPostDate = new Map<string, Date>();
+    for (const { data } of pages) {
+      if (data.type !== "post" || !(data.date instanceof Date)) continue;
+      const lang = data.lang as string;
+      const seen = newestPostDate.get(lang);
+      if (!seen || data.date > seen) newestPostDate.set(lang, data.date);
+    }
     for (const page of pages) {
       const src = page.src.entry?.src;
       if (src) {
@@ -1301,6 +1324,13 @@ if (!isCms) {
         // edit, which says nothing about the page's content.
         page.data.lastmod ??= getGitDate("modified", src);
         page.data.created = getGitDate("created", src);
+      }
+      // The blog home lists the newest posts, so it changes when one is
+      // published, not when index.vto is edited.
+      // (Read from `pages`: site.search finds no posts at this stage.)
+      if (page.data.id === "home") {
+        const newest = newestPostDate.get(page.data.lang as string);
+        if (newest) page.data.lastmod = newest;
       }
       // A scheduled post is committed before it goes live, so its git date
       // can precede its publication date; it cannot have changed before then.
