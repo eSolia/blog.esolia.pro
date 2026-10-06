@@ -4,6 +4,7 @@ import {
   accessFromEnv,
   PLACEHOLDER_USER,
 } from "./scripts/cms/cloudflare_access.ts";
+import { normalizeByline } from "./scripts/byline.ts";
 
 // Canonical tags, enforced at save time.
 //
@@ -120,6 +121,10 @@ cms.document({
       description:
         "記事に表示される名前。イニシャル、名、フルネームなど自由に。両言語共通です。<br>The name shown on posts: initials, first name, full name, as they like. The same in both languages.",
       attributes: { required: true },
+      // One person, one spelling: the byline keys the author page. See scripts/byline.ts.
+      transform(value) {
+        return typeof value === "string" ? normalizeByline(value) : value;
+      },
     },
     { name: "first_name", type: "text", label: "名 First name" },
     { name: "last_name", type: "text", label: "姓 Last name" },
@@ -185,7 +190,7 @@ function authorOptions(current?: string) {
   };
   const options = authors
     .filter((a) => a.active !== false || a.byline === current)
-    .map((a) => ({ value: a.byline, label: label(a) }));
+    .map((a) => ({ value: normalizeByline(a.byline), label: label(a) }));
   if (current && !options.some((o) => o.value === current)) {
     options.unshift({ value: current, label: current });
   }
@@ -631,6 +636,10 @@ cms.collection({
       options: [],
       init(field, _cmsData, docData) {
         field.options = authorOptions(docData?.author as string | undefined);
+      },
+      // Written normalized, so the markdown file never carries a stray space.
+      transform(value) {
+        return typeof value === "string" ? normalizeByline(value) : value;
       },
     },
     {

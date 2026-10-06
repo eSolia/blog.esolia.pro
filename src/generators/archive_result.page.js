@@ -1,4 +1,5 @@
 import { artFor, tagArtFor } from "../../scripts/gen-category-art.ts";
+import { normalizeByline } from "../../scripts/byline.ts";
 
 export const layout = "layouts/archive_result.vto";
 export const lang = ["ja", "en"];
@@ -58,7 +59,8 @@ export default function* (
   // redirect from its old author page (`former_bylines` in
   // src/_data/authors.yml), encoded as for tags above.
   const formerBylines = (author) =>
-    authors?.find((item) => item.byline === author)?.former_bylines ?? [];
+    authors?.find((item) => normalizeByline(item.byline ?? "") === author)
+      ?.former_bylines ?? [];
   for (const author of search.values("author", `lang=${lang}`)) {
     yield {
       url: `/author/${author}/`,
