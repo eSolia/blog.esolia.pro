@@ -564,6 +564,15 @@ interface ImageCredit {
   source_url?: string;
 }
 
+// Licence pages for sources that publish one licence for everything they
+// host, so the ImageObject can state it. Adobe Express is deliberately absent:
+// staff images come from it, but the posts do not record which asset, and
+// there is no single public licence URL to claim on its behalf.
+const SOURCE_LICENSE: Record<string, string> = {
+  pexels: "https://www.pexels.com/license/",
+  unsplash: "https://unsplash.com/license",
+};
+
 site.process([".html"], (pages) => {
   for (const page of pages) {
     const credit = page.data.image_credit as ImageCredit | undefined;
@@ -598,6 +607,11 @@ site.process([".html"], (pages) => {
             : {}),
           ...(credit.source_url
             ? { acquireLicensePage: credit.source_url }
+            : {}),
+          // The photographer keeps the copyright under these licences.
+          ...(credit.name ? { copyrightNotice: credit.name } : {}),
+          ...(SOURCE_LICENSE[credit.source?.toLowerCase() ?? ""]
+            ? { license: SOURCE_LICENSE[credit.source!.toLowerCase()] }
             : {}),
         };
         el.textContent = scriptSafeJson(data);
