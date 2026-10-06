@@ -87,7 +87,8 @@ footernav:
       title: イソリア社ウェブサイトへのリンク
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
-  lang: ja
+  # Region-qualified so og:locale reads ja_JP (metas swaps - for _).
+  lang: "=site.isolang"
   type: website
   site: "=site.title || イソリア Tech It Easy Blog"
   title: "=title || イソリア Tech It Easy Blog ブログ ページ"
@@ -206,7 +207,7 @@ en:
         aria_label: External link
         title: Link to eSolia Inc. website
   metas:
-    lang: en
+    lang: "=site.isolang"
     type: website
     site: "=site.title || eSolia Tech It Easy Blog"
     title: "=title || eSolia Tech It Easy Blog Page"
