@@ -62,7 +62,10 @@ bodyClass: body-tag
     <div class="mx-auto w-full max-w-full lg:px-8">
       <div class="relative px-4 sm:px-8 lg:px-12">
         <div class="mx-auto max-w-2xl lg:max-w-5xl">
-          <header class="max-w-2xl space-y-10">
+          {{# A <div>, not <header>: Cloudflare's Markdown for Agents strips
+              every <header>, and this one wraps the post list, so AI
+              crawlers got a category page with no posts. See post.vto. #}}
+          <div class="max-w-2xl space-y-10">
             {{# Back to the archive, which is the only page listing every
                 category and tag. Two things were wrong here before: the href
                 was hard-coded to the Japanese archive, so the English pages
@@ -102,7 +105,7 @@ bodyClass: body-tag
             {{
               include "templates/post-list.vto" { postslist: search.pages(search_query) }
             }}
-          </header>
+          </div>
         </div>
       </div>
     </div>

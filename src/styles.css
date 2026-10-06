@@ -207,7 +207,7 @@ body.os-windows article > div > p:first-of-type {
   /* @apply font-medium; */
 }
 
-body.os-windows header > nav {
+body.os-windows #page-toc {
   @apply prose-a:font-normal;
 }
 
