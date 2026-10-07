@@ -7,7 +7,7 @@ lang: en
 id: 202603b-restarting-pc
 date: 2026-05-28 07:03:00
 last_modified: 2026-07-06 15:34:00
-title: 'Why Restarting Your PC Fixes Many Problems: A Simple Explanation'
+title: 'Why restarting your PC fixes many problems: A simple explanation'
 description: >-
   Why do IT support teams often say “Please restart your computer”? This article
   explains how restarting works, why it fixes many issues, and how it differs

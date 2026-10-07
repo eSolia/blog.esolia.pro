@@ -7,12 +7,8 @@ lang: en
 id: 202509b-runas-command
 date: 2026-09-29 00:00:00
 last_modified: 2026-09-16 12:00:00
-title: >-
-  Understanding the runas Command - Running Apps with Another Account Without
-  Logging Off
-description: >-
-  Learn how to use the Windows runas command to run apps or admin consoles with
-  admin rights only when needed, while working mainly as a standard user. 
+title: 'Windows runas: open admin tools without logging off'
+description: 'Work as a standard user but need admin rights for Device Manager or Services? runas opens them under an admin account. Covers the 740 error fix too.'
 image: /uploads/202509b-runas-command-en.png
 image_top: /uploads/202509b-runas-command.png
 author: Kabaya

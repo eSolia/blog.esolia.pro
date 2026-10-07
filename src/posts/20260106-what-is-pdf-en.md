@@ -8,7 +8,7 @@ id: 202506e-adobe-pdf
 date: 2026-01-06T02:55:00.000Z
 last_modified: 2026-01-06T11:56:00.000Z
 title: What is PDF? How is it related to Adobe Acrobat?
-description: We will explore the basics of PDFs and their relationship with Adobe Acrobat.
+description: 'PDF is a file format; Acrobat is Adobe''s software for it. How free Reader differs from Standard and Pro, plus alternatives: Edge, macOS Preview, Foxit.'
 image: /uploads/202506e-adobe-pdf-en.jpeg
 image_top: /uploads/202506e-adobe-pdf.jpeg
 author: YM

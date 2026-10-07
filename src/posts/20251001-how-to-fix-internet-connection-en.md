@@ -7,11 +7,8 @@ lang: en
 id: 202506b-fix-internet-connection
 date: 2025-10-01T01:30:00.000Z
 last_modified: 2025-10-01T10:39:00.000Z
-title: How to Fix a PC That Won’t Connect to the Internet
-description: >-
-  Your PC suddenly can't connect to the internet? Neither Wi-Fi nor Ethernet is
-  working? This article explains specific recovery steps, including how to
-  resolve the "Ethernet doesn’t have a valid IP configuration" error. 
+title: 'PC won''t connect on Wi-Fi or Ethernet? Try a netsh reset'
+description: '"Ethernet doesn''t have a valid IP configuration" and no Wi-Fi either? When ipconfig /renew and Network Reset failed, two netsh commands fixed it.'
 image: /uploads/202506b-fix-internet-connection-en.jpeg
 image_top: /uploads/202506b-fix-internet-connection.jpeg
 author: Kabaya

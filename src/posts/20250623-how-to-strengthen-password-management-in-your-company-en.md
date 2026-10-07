@@ -6,13 +6,8 @@ lang: en
 id: 202503h-password-management
 date: 2025-06-23T00:30:00.000Z
 last_modified: 2025-06-23T09:35:00.000Z
-title: >-
-  Must-Read for IT Managers! How to Strengthen Password Management in Your
-  Company
-description: >-
-  Enhance your company's password management with practical strategies. Learn
-  about MFA, password policies, and password managers to improve security. A
-  must-read for IT managers and decision-makers.
+title: 'Company password management: 5 steps based on NIST guidance'
+description: 'Forced password changes often backfire. Five steps for IT managers: a NIST-based policy, MFA, a password manager, least-privilege access and training.'
 image: /uploads/202503h-password-management-en2.jpeg
 image_top: /uploads/202503h-password-management2.jpeg
 author: Kabaya

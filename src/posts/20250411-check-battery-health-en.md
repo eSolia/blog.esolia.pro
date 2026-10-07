@@ -6,10 +6,8 @@ lang: en
 id: 202503f-laptop-battery-health
 date: 2025-04-11T01:07:00.000Z
 last_modified: 2025-06-09T15:32:00.000Z
-title: Tips for how to check your laptop battery health on Windows
-description: >-
-  How to check your laptop battery health on Windows using a simple command line
-  technique
+title: 'Check your laptop battery health with powercfg in Windows'
+description: 'Battery draining fast? Run powercfg/batteryreport in Command Prompt and compare Full Charge Capacity with Design Capacity. Near 70% means time to replace.'
 image: /uploads/202503f-laptop-battery-health-social-en.jpg
 author: K.Y.
 image_credit:

@@ -7,11 +7,8 @@ lang: en
 id: 202507g-it-professionals
 date: 2026-05-14T05:10:00.000Z
 last_modified: 2026-05-14T14:10:00.000Z
-title: Reflecting on the True Value of IT Professionals at the Heart of Tokyo Station
-description: >-
-  What is the true value of IT project managers? Using Tokyo Station as a
-  metaphor, this article explores how IT professionals coordinate, decide, and
-  connect people—leveraging data and AI to move projects forward. 
+title: 'Coordinating IT projects like Tokyo Station traffic control'
+description: 'Users, corporate IT, legal, finance all want something. How IT project managers reconcile them, decide with data like UPS sizing, and keep AI in check.'
 image: /uploads/202507g-it-professionals-en.png
 image_top: /uploads/202507g-it-professionals.png
 author: Ena

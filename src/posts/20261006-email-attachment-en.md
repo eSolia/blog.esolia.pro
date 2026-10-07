@@ -7,11 +7,8 @@ lang: en
 id: 202509c-email-attachment
 date: 2026-10-06 00:00:00
 last_modified: 2026-09-16 12:00:00
-title: The Hidden Dangers of Email Attachments
-description: >-
-  Explains the risks of ZIP bombs and macro viruses hidden in email attachments.
-  Provides easy-to-understand guidance for beginners on how to spot them, plus
-  practical countermeasures.
+title: 'How to spot ZIP bombs and macro viruses in email attachments'
+description: 'A tiny "Invoice.zip" or an "Enable Content" prompt is a red flag. Signs of ZIP bombs and macro viruses, what to do, and what Microsoft 365 blocks.'
 image: /uploads/202509c-email-attachment-en.png
 image_top: /uploads/202509c-email-attachment.png
 author: SK

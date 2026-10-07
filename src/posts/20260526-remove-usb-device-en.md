@@ -8,7 +8,7 @@ id: 202508b-remove-usb
 date: 2026-05-26T06:00:00.000Z
 last_modified: 2026-05-28T10:08:00.000Z
 title: Is it safe to just yank your USB device?
-description: 'Is “Safely Remove Hardware and Eject Media” still necessary?  '
+description: 'Since Windows 10, USB drives default to Quick Removal, so you can unplug once copying ends. Use Safely Remove for external HDDs, SSDs and older Windows.'
 image: /uploads/202508b-remove-usb-en.png
 image_top: /uploads/202508b-remove-usb.png
 author: SK

@@ -7,8 +7,8 @@ lang: ja
 id: 202507f-using-onedrive
 date: 2026-04-06T00:45:00.000Z
 last_modified: 2026-04-06T09:55:00.000Z
-title: OneDriveでファイルを共有
-description: OneDriveを利用したデータ共有の方法を紹介します。
+title: 'OneDriveでファイルを共有する手順：送る側・受け取る側'
+description: 'USBメモリを使わずに大きなファイルを渡したいときに。OneDriveの共有手順を送る側・受け取る側に分け、編集可能・表示可能の権限設定から検証コードの入力まで画面付きで説明。'
 image: /uploads/202507f-using-onedrive-ja.png
 image_top: /uploads/202507f-using-onedrive.png
 author: K.Y.

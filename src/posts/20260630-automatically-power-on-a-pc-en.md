@@ -7,13 +7,8 @@ lang: en
 id: 202508d-power-on-pc
 date: 2026-06-30 15:33:00
 last_modified: 2026-06-30 15:33:00
-title: >-
-  How to Automatically Power On a PC After a Power Outage: Dell BIOS Setting
-  Guide
-description: >-
-  Learn how to configure Dell Optiplex BIOS settings so that your PC
-  automatically powers on after power loss or updates. Includes a real-world
-  case using a warehouse PC as an SCCM distribution point.
+title: 'Auto-start a Dell PC after a power outage with AC Recovery'
+description: 'PC stays off after a power cut until someone presses the button? Set Dell OptiPlex BIOS AC Recovery to Power On, as we did for a warehouse SCCM server.'
 image: /uploads/202508d-power-on-pc-en.png
 image_top: /uploads/202508d-power-on-pc.png
 author: Kabaya

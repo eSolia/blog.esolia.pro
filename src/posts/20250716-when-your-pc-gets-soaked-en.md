@@ -7,10 +7,8 @@ lang: en
 id: 202506d-when-pc-soaked
 date: 2025-07-16T00:30:00.000Z
 last_modified: 2025-07-16T09:43:00.000Z
-title: When Your PC Gets Soaked
-description: >-
-  Learn what to do (and what not to do) when your PC gets wet, and how to report
-  it properly to your IT department.
+title: 'PC got wet? What to do first and how to tell IT'
+description: 'Coffee spill, humidifier mist, or a sudden downpour? Power off, unplug, wipe, and air-dry with no hairdryer, then tell IT how it got wet and how long ago.'
 image: /uploads/202506d-when-pc-soaked-en.jpeg
 image_top: /uploads/202506d-when-pc-soaked.jpeg
 author: YN

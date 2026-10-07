@@ -7,8 +7,8 @@ lang: ja
 id: 202504f-make-the-most-of-onedrive
 date: 2025-08-27T00:30:00.000Z
 last_modified: 2025-08-27T09:27:00.000Z
-title: OneDriveをもっと便利に！SharePointとの違いもこれでスッキリ解決
-description: OneDriveとSharePointの違いを初心者向けにわかりやすく解説。基本から業務効率化の活用術までをまとめた実用ガイド。
+title: 'OneDriveとSharePointの違いと便利機能3選'
+description: 'Teamsで共有したファイルはどこに保存される？OneDriveとSharePointの使い分けを整理し、バージョン履歴、ファイルオンデマンド、オフラインアクセスの手順もまとめました。'
 image: /uploads/202504f-make-the-most-of-onedrive-ja.jpeg
 image_top: /uploads/202504f-make-the-most-of-onedrive.jpeg
 author: SK & Shiori

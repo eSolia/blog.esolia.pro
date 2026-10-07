@@ -7,10 +7,8 @@ lang: en
 id: 202506f-digital-detox
 date: 2026-01-22T00:30:00.000Z
 last_modified: 2026-01-22T09:30:00.000Z
-title: Small Digital Detox Habits
-description: >-
-  Introducing simple and sustainable digital detox tips practiced by an IT
-  professional—find your perfect balance with technology. 
+title: 'Small digital detox habits from an IT support specialist'
+description: 'Tired from screens all day? Paper notes, iPhone Screen Time limits, noise-canceling earphones as earplugs, and no charging by the bed: habits that stick.'
 image: /uploads/202506f-digital-detox-en.jpeg
 image_top: /uploads/202506f-digital-detox.jpeg
 author: Shiori

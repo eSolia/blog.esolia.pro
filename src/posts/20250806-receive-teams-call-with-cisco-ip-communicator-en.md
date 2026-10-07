@@ -6,8 +6,8 @@ lang: en
 id: 202504c-cisco-ip-communicator-problem
 date: 2025-08-06T00:34:00.000Z
 last_modified: 2025-08-06T09:34:00.000Z
-title: Picking up Teams calls while using Cisco IP Communicator
-description: How to solve the conflict between Cisco IP communicator & Microsoft Teams
+title: 'Can''t join Teams meetings with Cisco IP Communicator open?'
+description: 'Running Cisco IP Communicator? Joining a Teams meeting can turn its handset on and drop you out. Turn off "Sync button for devices" in Teams.'
 image: /uploads/202504c-cisco-ip-communicator-problem-en.jpeg
 image_top: /uploads/202504c-cisco-ip-communicator-problem.jpeg
 author: K.Y.

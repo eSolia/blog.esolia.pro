@@ -7,11 +7,8 @@ lang: en
 id: 202507b-windows11-features
 date: 2025-11-20T01:37:00.000Z
 last_modified: 2025-11-20T10:39:00.000Z
-title: Must-Know Windows 11 Features After the Upgrade
-description: >-
-  Discover useful new features to explore after upgrading to Windows 11. This
-  beginner-friendly guide covers clipboard history, snap layouts, File Explorer
-  tabs, and more.
+title: 'Just upgraded to Windows 11? 3 features to start using'
+description: 'Moved to Windows 11 as Windows 10 support ended? Start with clipboard history (Win + V), Snap layouts from the maximize button, and File Explorer tabs.'
 image: /uploads/202507b-windows11-features-en.jpeg
 image_top: /uploads/202507b-windows11-features.jpeg
 author: Shiori

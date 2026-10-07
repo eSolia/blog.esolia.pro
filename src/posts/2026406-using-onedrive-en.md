@@ -7,10 +7,8 @@ lang: en
 id: 202507f-using-onedrive
 date: 2026-04-06T00:47:00.000Z
 last_modified: 2026-04-06T09:47:00.000Z
-title: Let’s share your data using OneDrive!
-description: >-
-  This article clearly explains how to securely and easily share files using
-  Microsoft 365 OneDrive.
+title: 'Share files with OneDrive: steps for sender and recipient'
+description: 'Need to send a big file without a USB stick? Share it from OneDrive, choose Can edit or Can view, and what the recipient does with the verification code.'
 image: /uploads/202507f-using-onedrive-en.png
 image_top: /uploads/202507f-using-onedrive.png
 author: K.Y.

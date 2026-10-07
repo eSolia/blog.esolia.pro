@@ -7,7 +7,7 @@ lang: en
 id: 20261027-switching-to-ipoe
 date: 2026-10-27 00:00:00
 last_modified: 2026-09-25 10:11:00
-title: Switching to IPoE? Check What Depends on Your Current Line First
+title: 'Switching to IPoE? Check what depends on your current line first'
 description: >-
   A client asked whether to move their office internet from PPPoE to IPoE. The
   line change was the easy part; the hard part was everything that depended on

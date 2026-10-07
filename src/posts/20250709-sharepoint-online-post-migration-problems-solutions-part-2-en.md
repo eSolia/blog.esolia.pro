@@ -6,11 +6,8 @@ lang: en
 id: 202504d-sharepoint-migration-part2
 date: 2025-07-09T00:15:00.000Z
 last_modified: 2025-07-09T09:49:00.000Z
-title: Files Won’t Open After Migrating to SharePoint Online! Part 2
-description: >-
-  Learn how to prevent file access errors in SharePoint Online by using metadata
-  management instead of deep folder structures. Boost searchability and
-  efficiency with practical tips.
+title: 'Files won''t open in SharePoint Online? Part 2: use metadata'
+description: 'Deep folder trees push SharePoint Online past its URL limits. Swap folders for metadata columns like Project Name, Year and Owner, then filter with views.'
 image: /uploads/202504d-sharepoint-migration-part2-en.jpeg
 image_top: /uploads/202504d-sharepoint-migration-part2.jpeg
 author: Ena

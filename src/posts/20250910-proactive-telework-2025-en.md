@@ -7,11 +7,8 @@ lang: en
 id: 202506a-telework-offensive-2025
 date: 2025-09-10T00:00:00.000Z
 last_modified: 2025-09-10T09:15:00.000Z
-title: 2025 Edition Telework Offensive
-description: >-
-  Telework is here to stay. As return-to-office trends grow, this 2025 edition
-  reflects on the value of remote work and explores how IT professionals can
-  support flexible workstyles. 
+title: 'Telework offensive 2025: return to office vs. remote work'
+description: 'Tokyo telework adoption slipped from 60.1% to 58.0% as firms push a return to office. What employers worry about, and why staff still want remote work.'
 image: /uploads/202506a-telework-offensive-2025-en.jpeg
 image_top: /uploads/202506a-telework-offensive-2025.jpeg
 author: Ena
