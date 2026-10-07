@@ -81,12 +81,16 @@
 .prose.prose-zinc {
   --tw-prose-links: var(--color-sky-700);
   --tw-prose-headings: var(--color-sky-950);
+  /* zinc-500 captions measured 4.47:1 on the warm surfaces; the main site
+     steps muted text to zinc-600 for the same reason. */
+  --tw-prose-captions: var(--color-zinc-600);
 }
 /* Being unlayered, the rule above also outranks dark:prose-invert, which
    normally swaps these variables for dark mode; so dark mode sets its own. */
 .dark .prose.prose-zinc {
   --tw-prose-links: var(--color-sky-300);
   --tw-prose-headings: var(--color-zinc-100);
+  --tw-prose-captions: var(--color-zinc-400);
 }
 .prose :where(a) {
   @apply hover:text-indigo-600 dark:hover:text-indigo-400;
