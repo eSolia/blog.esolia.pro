@@ -6,7 +6,7 @@ lang: en
 id: 202503b-sharepoint-migration-part1
 title: >-
   Unable to Open Files After Migrating to SharePoint Online? Comprehensive Guide
-  to Causes and Solutions! Part1
+  to Causes and Solutions! Part 1
 description: >-
   Files won't open after migrating to SharePoint Online? In this article, we
   explain the differences in SPO's folder structure, URL limitations, access
