@@ -8,8 +8,8 @@ lang: ja
 id: 202504e-what-is-copilot
 date: 2025-08-22T05:00:00.000Z
 last_modified: 2025-08-22T14:10:00.000Z
-title: Microsoft Copilotってなに？
-description: Microsoft Copilotとは？WordやExcelなどで業務効率を上げるAI機能を、わかりやすく解説します。
+title: 'Microsoft Copilotってなに？料金と無料版の使い方'
+description: '無料のCopilot in Windowsと有料のCopilot Pro、Microsoft 365 Copilotの料金と違い。Edgeやスマホアプリでの始め方、「目標・コンテキスト・期待・ソース」で組むプロンプトのコツも。'
 image: /uploads/202504e-what-is-copilot-ja.jpeg
 image_top: /uploads/202504e-what-is-copilot.jpeg
 author: YM

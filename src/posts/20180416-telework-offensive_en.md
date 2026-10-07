@@ -7,9 +7,9 @@ image_credit:
   source: Adobe Express
 date: 2018-04-15T22:07:27.000Z
 draft: false
-title: Telework Offensive!
+title: 'Telework offensive: from employee perk to productivity tool'
 subtitle: It's not just a welfare matter; moving toward a practical telework offensive
-description: It's not just a welfare matter; moving toward a practical telework offensive
+description: 'Why hasn''t telework caught on in Japan? Only 3.9% worked from home weekly in FY2014. The productivity case, the ICT tools it needs, and subsidies.'
 image: /uploads/20180416a-social-en.jpg
 image_top: /uploads/20180416a-top.jpg
 category: Cloud

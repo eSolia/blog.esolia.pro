@@ -4,12 +4,8 @@ hot: false
 featured: true
 lang: en
 id: 202503c-essential-shortcuts
-title: >-
-  This Is Your First Step to Saving Time! Essential Shortcuts You Can Use
-  Starting Today
-description: >-
-  Discover useful shortcut keys for Windows and Office 365 to enhance
-  productivity and streamline your workflow, starting today!
+title: 'Windows and Office 365 shortcuts to start using today'
+description: 'Lock your screen with Win+L, open clipboard history with Win+V, reply in Outlook with Ctrl+R: the everyday shortcuts for Windows, Word, Excel and Outlook.'
 image: /uploads/202503c-essential-shortcuts-social-en.jpg
 author: 'YN'
 image_credit:

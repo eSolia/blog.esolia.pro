@@ -7,11 +7,8 @@ lang: en
 id: 202506d-teams-webinar
 date: 2025-12-12T00:30:00.000Z
 last_modified: 2025-12-12T09:41:00.000Z
-title: 'Microsoft Teams Webinar: Essentials & Best Practices'
-description: >-
-  What is the webinar feature in Microsoft Teams? This article clearly explains
-  the basics of using Teams Webinars, along with key tips for making the most of
-  them when hosting.
+title: 'Hosting a Microsoft Teams webinar: setup and tips'
+description: 'Teams webinars take up to 1,000 attendees, with registration forms, roles and Q&A. Set one up from the Teams calendar in three steps, then rehearse.'
 image: /uploads/202506d-teams-webinar-en.jpeg
 image_top: /uploads/202506d-teams-webinar.jpeg
 author: SK

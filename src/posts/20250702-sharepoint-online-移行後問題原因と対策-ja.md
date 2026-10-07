@@ -4,10 +4,8 @@ hot: false
 featured: false
 lang: ja
 id: 202503b-sharepoint-migration-part1
-title: SPO移行後にファイルが開けない？原因と対策を徹底解説！Part1
-description: >-
-  SharePoint
-  Onlineへ移行した後に『ファイルが開けない！』というトラブルに直面していませんか？本記事では、SPOのフォルダー構造やURL制限、アクセス管理の違いを解説し、実践的な対策を紹介します。検索性を向上させるためのメタデータ管理方法も詳しく解説！ 
+title: 'SPO移行後にファイルが開けない？256文字制限と対策Part1'
+description: 'ファイルサーバーの深いフォルダー構成をそのままSharePoint Onlineへ移したら「ファイルが開けない」。同期時の256文字制限、URLの400文字制限という原因と、列での分類や短い名前付けルールなどの対策。'
 image: /uploads/202503b-sharepoint-migration-part1-social-ja.jpg
 author: Ena
 image_credit:

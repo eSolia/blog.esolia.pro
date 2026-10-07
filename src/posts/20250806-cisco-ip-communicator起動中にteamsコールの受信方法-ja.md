@@ -6,8 +6,8 @@ lang: ja
 id: 202504c-cisco-ip-communicator-problem
 date: 2025-08-06T00:32:00.000Z
 last_modified: 2025-08-06T09:32:00.000Z
-title: Cisco IP Communicator起動中にTeamsコール受信する方法
-description: Cisco IP CommunicatorとMicrosoft Teamsのアプリ相性不具合の解決方法を紹介します
+title: 'Teams会議切れ：Cisco IP Communicator'
+description: 'Cisco IP Communicatorを起動したままTeams会議に参加すると、受話器が自動でオンになり会議から退出してしまう。Teamsの設定「デバイス」で「デバイスの同期ボタン」をオフにすれば解消できます。'
 image: /uploads/202504c-cisco-ip-communicator-problem-ja.jpeg
 image_top: /uploads/202504c-cisco-ip-communicator-problem.jpeg
 author: K.Y.

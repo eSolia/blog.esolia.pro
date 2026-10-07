@@ -6,11 +6,8 @@ lang: en
 id: 202503g-admin-asked-ai
 date: 2025-04-10T05:13:55.141Z
 last_modified: 2025-05-31T20:00:27.000Z
-title: UTP Cable? Cat Cable? RJ45 Connector? Admin asks AI about IT terminology
-description: >-
-  What are the "UTP cable", "Cat cable" and “RJ-45 Connector” that are often
-  seen on estimates for LAN cabling construction? Our admin team was curious, so
-  they asked AI.
+title: 'UTP, Cat, RJ45? An admin asks ChatGPT, Copilot and DeepSeek'
+description: 'Seeing UTP cable, Cat6, and RJ45 on a LAN cabling estimate? An office manager asked ChatGPT, Copilot, and DeepSeek, and rewording the question helped.'
 image: /uploads/202503g-admin-asked-ai-social-en.jpg
 author: YM
 image_credit:

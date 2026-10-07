@@ -6,10 +6,8 @@ lang: en
 id: 202504a-everyday-ai
 date: 2025-07-23T00:30:00.000Z
 last_modified: 2025-07-23T09:33:00.000Z
-title: 'Practical AI for Everyday Life: How I Use ChatGPT'
-description: >-
-  ChatGPT is a tool that can be used in a wide range of situations. I’d like to
-  share some of the ways I personally use it.
+title: 'How I use ChatGPT in daily life: emails, study and diet'
+description: 'Softer wording for "No need to reply," five practice exam questions a day, feedback on meals: how one eSolia staffer uses ChatGPT, and what to watch for.'
 image: /uploads/202504a-everyday-ai-en.jpeg
 image_top: /uploads/202504a-everyday-ai.jpeg
 author: KC

@@ -6,10 +6,8 @@ lang: ja
 id: 202504d-sharepoint-migration-part2
 date: 2025-07-09T00:15:00.000Z
 last_modified: 2025-07-09T09:10:00.000Z
-title: SharePoint Online移行後にファイルが開けない？Part2
-description: >-
-  SharePoint
-  Onlineでファイルが開けない原因を解決するためのメタデータ管理の方法を解説。階層型フォルダーに頼らず、検索性と運用性を高める実践的なSPO活用術を紹介。 
+title: 'SharePoint移行後にファイルが開けない？Part2'
+description: 'フォルダー階層が深いとURLが長くなり、SPOでファイルが開けない原因に。「プロジェクト名」「年度」「担当者」などのカスタム列とビューで、フォルダーに頼らずファイルを整理・検索する方法をまとめました。'
 image: /uploads/202504d-sharepoint-migration-part2-ja.jpeg
 image_top: /uploads/202504d-sharepoint-migration-part2.jpeg
 author: Ena

@@ -6,10 +6,8 @@ lang: en
 id: 202503d-Simple-Maintenance-Tips
 date: 2025-04-08T05:57:10.950Z
 last_modified: 2025-05-31T20:00:27.000Z
-title: 'Simple Maintenance Tips to keep your PC running smoothly '
-description: >-
-  By performing simple maintenance regularly, you can maintain your PC's
-  performance and use it smoothly.
+title: '4 simple maintenance tips to keep your PC running smoothly'
+description: 'A slow or hot PC often needs basic care: clear dust from fans and ports, run Windows Update, use Disk Cleanup, and restart regularly to free memory.'
 image: /uploads/202503d-simple-maintenance-tips-social-en.jpg
 author: SK
 image_credit:

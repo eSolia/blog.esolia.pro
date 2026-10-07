@@ -7,8 +7,8 @@ lang: ja
 id: 202507a-acrobat-standard
 date: 2026-03-23T00:46:00.000Z
 last_modified: 2026-03-23T09:49:00.000Z
-title: 管理部門で活用するAcrobat Standardの機能をご紹介
-description: Acrobat Readerとの違いから、活用機能、Acrobat Proとの比較まで
+title: '管理部門がよく使うAcrobat Standardの4機能'
+description: 'PDFの直接編集、パスワード保護、電子署名の依頼、Officeとの変換。当社管理部門が使うAcrobat Standardの機能を手順付きでまとめ、Readerとの違いやProだけの墨消し・OCRも比較。'
 image: /uploads/202507a-acrobat-standard-ja.png
 image_top: /uploads/202507a-acrobat-standard.png
 author: YM

@@ -7,11 +7,8 @@ lang: en
 id: 202509a-keyboard-history
 date: 2026-09-22 00:00:00
 last_modified: 2026-09-16 12:00:00
-title: Keyboard Layout History and the Role of Function Keys
-description: >-
-  Explains the different types of keyboard layouts, the differences between
-  Japanese and English keyboards, and the functions of the F1–F12 keys. Also
-  introduces useful key operations to improve PC productivity.
+title: 'QWERTY vs. JIS keyboards and what the F1–F12 keys do'
+description: 'Why is QWERTY laid out the way it is, and how does a JIS keyboard differ from US? Plus what F1–F12 do in Windows, Excel and Word, and handy Fn key combos.'
 image: /uploads/202509a-keyboard-history-en.png
 image_top: /uploads/202509a-keyboard-history.png
 author: YM

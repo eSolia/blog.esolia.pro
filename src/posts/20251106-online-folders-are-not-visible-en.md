@@ -7,13 +7,8 @@ lang: en
 id: 202506c-windows-sync-center
 date: 2025-11-06T02:00:00.000Z
 last_modified: 2025-11-06T11:10:00.000Z
-title: >-
-  A Tip for the issue where online folders are not visible due to Windows Sync
-  Center
-description: >-
-  The reason why files that should be visible aren’t showing up might be the
-  Sync Center. This article clearly explains how to check and fix issues when
-  folders don’t appear due to Windows Sync Center.
+title: 'Shared folders partly missing? Check Windows Sync Center'
+description: 'Only some folders show on a shared drive or NAS, yet other PCs see them all? If Explorer shows "Status: Online," disable offline files in Sync Center.'
 image: /uploads/202506c-windows-sync-center-en.jpeg
 image_top: /uploads/202506c-windows-sync-center.jpeg
 author: K.Y.

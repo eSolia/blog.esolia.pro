@@ -7,9 +7,7 @@ lang: en
 id: 202603e-better-listener
 date: 2026-06-29 05:57:00
 last_modified: 2026-07-06 15:42:00
-title: >-
-  Becoming a Better Listener in IT Support - Interviewing Tips to Speed Up
-  Troubleshooting
+title: 'Becoming a better listener in IT support: Interviewing tips to speed up troubleshooting'
 description: >-
   This article explains practical listening and interviewing techniques that
   help IT support professionals resolve issues more quickly. From real-world IT

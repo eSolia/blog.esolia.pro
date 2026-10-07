@@ -7,7 +7,7 @@ lang: en
 id: 202603d-basic-things-to-check
 date: 2026-05-28 07:32:00
 last_modified: 2026-07-06 15:06:00
-title: Three Basic Things to Check When an Error Happens.
+title: 'Three basic things to check when an error happens'
 description: >-
   A short guide on what to check first when an error happens. It covers message
   checks, your actions, and basic environment checks.

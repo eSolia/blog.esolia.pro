@@ -6,8 +6,8 @@ lang: ja
 id: 202504a-everyday-ai
 date: 2025-07-23T00:30:00.000Z
 last_modified: 2025-07-23T09:25:00.000Z
-title: 日常に役立つAI：ChatGPT活用のリアル
-description: ChatGPTは、日常生活・学習・仕事など、さまざまな場面で活用できるツールです。日々の生活でどのようにAIを活用していけるか、実例とともに紹介します。
+title: 'ChatGPTの日常使い：メール添削から資格勉強、ダイエットまで'
+description: '「返信不要です」を柔らかく言い換える、資格試験の問題を毎日5問出してもらう、食べたものを評価してもらう。実際に試したChatGPTの使い方と、それぞれの注意点。'
 image: /uploads/202504a-everyday-ai-ja.jpeg
 image_top: /uploads/202504a-everyday-ai.jpeg
 author: KC

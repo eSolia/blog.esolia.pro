@@ -7,10 +7,8 @@ lang: en
 id: 202507a-acrobat-standard
 date: 2026-03-23T00:51:00.000Z
 last_modified: 2026-03-23T10:32:00.000Z
-title: Introducing Acrobat Standard features for use in administrative departments
-description: >-
-  From differences with Acrobat Reader to useful features and comparison with
-  Acrobat Pro
+title: 'Acrobat Standard for admin teams: 4 features we use most'
+description: 'Edit PDF text, password-protect files, request e-signatures, convert to Word or Excel: what Acrobat Standard adds over Reader, and what only Pro can do.'
 image: /uploads/202507a-acrobat-standard-en.png
 image_top: /uploads/202507a-acrobat-standard.png
 author: YM

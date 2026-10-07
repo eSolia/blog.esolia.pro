@@ -7,10 +7,8 @@ lang: ja
 id: 202506d-teams-webinar
 date: 2025-12-12T00:30:00.000Z
 last_modified: 2025-12-12T09:35:00.000Z
-title: Microsoft Teams Webinar の基本と活用ポイント
-description: >-
-  Microsoft Teamsのウェビナー機能とは？本記事では、Teams
-  Webinarの基本的な使い方から開催時の活用ポイントまでをわかりやすく解説します。
+title: 'Teamsでウェビナーを開催する手順と成功のポイント'
+description: '最大1000人が参加できるTeamsのウェビナー。カレンダーからの作成、登録フォームの準備、主催者・発表者・参加者の役割設定の3ステップと、リハーサルや録画共有など成功のコツをまとめました。'
 image: /uploads/202506d-teams-webinar-ja.jpeg
 image_top: /uploads/202506d-teams-webinar.jpeg
 author: SK

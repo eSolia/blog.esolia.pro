@@ -4,10 +4,8 @@ hot: false
 featured: false
 lang: en
 id: 202503a-pc-freeze
-title: My Computer Froze! 7 Easy Fixes for Beginners
-description: >-
-  Here are seven easy fixes that beginners can try when their computer suddenly
-  stops responding.
+title: 'Windows PC frozen? 7 easy fixes before a force shutdown'
+description: 'Screen stuck? Before holding the power button, wait for the access lamp, check peripherals, end the app in Task Manager, sign out, or restart.'
 image: /uploads/202503a-pc-freeze-social-en.jpg
 author: Shiori
 image_credit:

@@ -6,8 +6,8 @@ lang: ja
 id: 202503g-admin-asked-ai
 date: 2025-04-09T02:08:56.295Z
 last_modified: 2025-05-31T20:00:27.000Z
-title: 'UTPケーブル？Catケーブル？RJ45コネクタ？Admin 担当者が不思議に思ったIT用語をAIに聞いてみた '
-description: 'LAN配線に関連するケーブル用語をAIに聞いた結果をご紹介します。 '
+title: 'UTP？Cat？RJ45？Admin担当者がAIに聞いてみた'
+description: 'LAN配線工事の見積に並ぶ「UTPケーブル」「Catケーブル」「RJ45コネクタ」。ChatGPT、Copilot、DeepSeekに「IT知識のない人にわかりやすく」と聞き方を変えると、答えがどう変わったか。'
 image: /uploads/202503g-admin-asked-ai-social-ja.jpg
 author: YM
 image_credit:

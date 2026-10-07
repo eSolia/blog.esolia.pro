@@ -7,10 +7,8 @@ lang: en
 id: 202507e-manage-your-passwords
 date: 2026-03-02T01:30:00.000Z
 last_modified: 2026-03-02T13:33:00.000Z
-title: How Should You Manage Your Passwords?
-description: >-
-  We’ll look at how to manage passwords safely, and how to create stronger,
-  harder-to-guess passwords — even for beginners. 
+title: 'Strong passwords you can remember, and where to keep them'
+description: 'Reusing one password or using 123456? Turn a simple word into a strong password, keep it in a manager like Codebook, and follow three rules, including 2FA.'
 image: /uploads/202507e-manage-your-passwords-en.png
 image_top: /uploads/202507e-manage-your-passwords.png
 author: KC

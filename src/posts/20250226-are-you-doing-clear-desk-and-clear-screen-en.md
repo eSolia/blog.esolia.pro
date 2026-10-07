@@ -3,10 +3,8 @@ lang: en
 id: 20250226-clear-desk
 date: 2025-02-26 01:56:00
 last_modified: 2026-09-22 14:34:00
-title: Are you doing Clear Desk and Clear Screen?
-description: >-
-  A quick security tip about the importance of keeping clear desk / clear screen
-  in mind.
+title: 'Clear desk and clear screen means more than a tidy desk'
+description: 'Clear desk, clear screen covers more than tidying up: auto screen lock with a PIN, limits on printing, clearing printers and whiteboards (ISO 27001 A.7.7).'
 image: ''
 image_top: /uploads/20250226-clear-desk-top-2.jpg
 author: Rick Cogley

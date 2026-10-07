@@ -7,8 +7,8 @@ lang: en
 id: 202506c-phishing-emails
 date: 2025-10-23T00:35:00.000Z
 last_modified: 2025-10-23T09:37:00.000Z
-title: How to Spot Phishing Emails
-description: We'll explain how even beginners can recognize phishing emails starting today!
+title: 'How to spot phishing emails: 5 checks anyone can do'
+description: 'Fake delivery notices and bank alerts can look real. Check the sender, link URLs, urgent wording, and attachments, and know what to do if you opened one.'
 image: /uploads/202506c-phishing-emails-en.jpeg
 image_top: /uploads/202506c-phishing-emails.jpeg
 author: KC

@@ -6,10 +6,8 @@ lang: en
 id: 202503e-outlook-calender-sync-issues
 date: 2025-04-08T07:31:31.905Z
 last_modified: 2025-05-31T20:00:27.000Z
-title: How to Fix Outlook Calendar Sync Issues
-description: >-
-  Here are some methods to help resolve outlook calendar sync problems and
-  ensure smoother scheduling.
+title: 'Outlook calendar not syncing? OST file and profile fixes'
+description: 'Outlook app calendar late or not updating, risking double bookings? Check Outlook on the web first, then delete the OST file or rebuild your profile.'
 image: /uploads/202503e-outlook-calender-sync-issues-social-en.jpg
 author: KC
 image_credit:

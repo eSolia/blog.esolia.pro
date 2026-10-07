@@ -7,11 +7,8 @@ lang: en
 id: 202609a-clipboard-managers
 date: 2026-09-20 09:00:00
 last_modified: 2026-09-22 17:47:00
-title: 'If Win + V Is Not Enough: Clipboard Managers for Windows'
-description: >-
-  Copy, paste, and lose it a moment later. A clipboard manager keeps a history
-  so you can go back — here are the Windows options, and the security question
-  worth asking before you install one.
+title: 'If Win + V is not enough: clipboard managers for Windows'
+description: 'Lost something you copied a minute ago? Start with Win + V, step up to Ditto or CopyQ, and set it to ignore your password manager before passwords pile up.'
 image: /uploads/202609a-clipboard-managers-en.png
 image_top: /uploads/202609a-clipboard-managers.jpg
 image_credit:

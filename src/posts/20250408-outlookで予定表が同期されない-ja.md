@@ -6,8 +6,8 @@ lang: ja
 id: 202503e-outlook-calender-sync-issues
 date: 2025-04-08T06:35:20.445Z
 last_modified: 2025-05-31T20:00:27.000Z
-title: Outlookで予定表が同期されない？！
-description: 'アプリ版Outlookのよくあるトラブルの解消法をご説明いたします。 '
+title: 'Outlook予定表が同期されない：Web版確認とOST削除'
+description: 'アプリ版Outlookの予定表が更新されず、ダブルブッキングの原因に。まずWeb版で確認し、直らなければOSTファイルの削除やプロファイルの再作成を。手順と注意点つき。'
 image: /uploads/202503e-outlook-calender-sync-issues-social-ja.jpg
 author: KC
 image_credit:

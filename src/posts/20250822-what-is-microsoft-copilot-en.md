@@ -8,10 +8,8 @@ lang: en
 id: 202504e-what-is-copilot
 date: 2025-08-22T05:00:00.000Z
 last_modified: 2025-08-22T14:12:00.000Z
-title: What is Microsoft Copilot?
-description: >-
-  We introduce the basics of Microsoft Copilot, its pricing plans, how to use
-  the free version, and examples of how it can be used effectively.
+title: 'What is Microsoft Copilot? Plans, pricing, and free use'
+description: 'Copilot is free in Windows and Edge, or paid as Copilot Pro (¥3,200/month) and Microsoft 365 Copilot. What each plan offers and how to prompt it well.'
 image: /uploads/202504e-what-is-copilot-en.jpeg
 image_top: /uploads/202504e-what-is-copilot.jpeg
 author: YM
