@@ -35,7 +35,7 @@ If your computer is processing tasks and struggling to keep up, rushing and pres
 <figcaption class="text-left mt-2"><small>ex）Dell Latitude7290 access lamp</small></figcaption></figure>
 
 
-## Disconnect Peripherals
+## Check External Mouse & Keyboard
 Sometimes, what seems like a frozen screen may actually be an issue with your external keyboard or mouse. If you're using external devices, check their connection:
 
 &nbsp;&nbsp;**For wired devices**: Try unplugging and reconnecting the cable.
@@ -43,7 +43,7 @@ Sometimes, what seems like a frozen screen may actually be an issue with your ex
 
 If your computer’s built-in keyboard or trackpad still works, the problem is likely with the external device. Wireless devices often run out of battery without warning, so it's a good idea to check them regularly.
 
-## Check External Mouse & Keyboard
+## Disconnect Peripherals
 Sometimes, connected USB devices or peripherals can cause your computer to freeze. Try unplugging all peripherals and checking whether the problem resolves.
 
 Common peripherals include:
