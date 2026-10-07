@@ -26,25 +26,25 @@ tags:
 comments: {}
 ---
 In day-to-day IT support, situations often come up like:
-“I normally work with a standard user account, but sometimes I need admin rights to uninstall drivers or access admin web consoles.” Logging off and switching accounts every time is tedious. That’s where the built-in Windows **runas command** comes in handy. It lets you run programs using an admin account only when needed, without changing your main login.
+“I normally work with a standard user account, but sometimes I need admin rights to uninstall drivers or access admin web consoles.” Logging off and switching accounts every time is tedious. That’s where the built-in Windows **`runas` command** comes in handy. It lets you run programs using an admin account only when needed, without changing your main login.
 
 <!--more-->
 
 ## What is runas
-* runas is a Windows command that allows you to run a program as a different user.
+* `runas` is a Windows command that allows you to run a program as a different user.
 * Even if you’re logged in as a standard user, you can launch a program with admin privileges by entering the admin username and password.
 * Think of it like having your own key for normal tasks, but borrowing an admin key to access a locked room when necessary.
 
 > [!NOTE]
-> runas runs the program as another user. It does not automatically handle UAC elevation in all cases. Sometimes you need to use cmd.exe /c as an intermediary.
+> `runas` runs the program as another user. It does not automatically handle UAC elevation in all cases. Sometimes you need to use `cmd.exe /c` as an intermediary.
 
 ## Example 1: Opening Device Manager as an Admin
-In my daily IT support, I sometimes uninstall and reinstall drivers on user PCs. To uninstall a device, admin rights are required, so I use runas to open Device Manager:
+In my daily IT support, I sometimes uninstall and reinstall drivers on user PCs. To uninstall a device, admin rights are required, so I use `runas` to open Device Manager:
 
 ```cmd
 runas /user:DOMAIN\AdminAccount "cmd.exe /c mmc devmgmt.msc"
 ```
-* DOMAIN\AdminAccount = your admin account (or PCName\Administrator for local accounts)
+* `DOMAIN\AdminAccount` = your admin account (or `PCName\Administrator` for local accounts)
 * After entering the password, Device Manager opens with admin rights
 
 > [!TIP]
@@ -74,8 +74,8 @@ For everyday use, a separate Chrome profile or an InPrivate window is often simp
 
 ## Common Questions / Tips
 * Can I store the password in a script? → Not recommended. Storing in plain text is a security risk.
-* Can I use /savecred? → Possible, but it has security risks. Always follow your company policy.
-* What about UAC? → runas doesn’t handle all UAC prompts. If you get a 740 error, use cmd.exe /c or consider alternatives like Task Scheduler.
+* Can I use `/savecred`? → Possible, but it has security risks. Always follow your company policy.
+* What about UAC? → `runas` doesn’t handle all UAC prompts. If you get a 740 error, use `cmd.exe /c` or consider alternatives like Task Scheduler.
 
 > [!CAUTION]
 > Never hard-code an admin password in a batch file or script — plain-text credentials are a serious security risk. The `/savecred` option caches the password after the first use, which also increases exposure. Always follow your organization's security policy.
@@ -86,7 +86,7 @@ For everyday use, a separate Chrome profile or an InPrivate window is often simp
 * Third-party tools (e.g., PsExec): Useful, but be cautious with passwords and logs.
 
 ## Summary
-* runas lets you run programs as another user without logging off.
-* For Device Manager, use cmd.exe /c to avoid the 740 error.
-* Other consoles, and even a browser session, can run under an admin account too — but a browser's web-console access depends on the account you sign in with, not on runas.
+* `runas` lets you run programs as another user without logging off.
+* For Device Manager, use `cmd.exe /c` to avoid the 740 error.
+* Other consoles, and even a browser session, can run under an admin account too — but a browser's web-console access depends on the account you sign in with, not on `runas`.
 * Avoid storing passwords in scripts. Follow safe operational rules.

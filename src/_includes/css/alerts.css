@@ -63,6 +63,18 @@ body {
 }
 
 .dark {
+  /* Alerts stay light in dark mode (a -200 tint with zinc-900 text), but they
+     sit inside `dark:prose-invert`, which turns bold, inline code and links
+     near-white: white on pale pink, close to invisible. Point prose's own
+     variables back at the dark text inside the box; custom properties inherit,
+     so this wins over prose-invert on the ancestor. */
+  .markdown-alert {
+    --tw-prose-bold: var(--color-zinc-900);
+    --tw-prose-code: var(--color-zinc-900);
+    --tw-prose-links: var(--color-zinc-900);
+    --tw-prose-bullets: var(--color-zinc-500);
+    --tw-prose-counters: var(--color-zinc-600);
+  }
   .markdown-alert-title {
     color: var(--color-zinc-800);
   }
