@@ -53,7 +53,7 @@
         X
       </span>
       <button
-        class="ml-4 inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-700 transition hover:bg-sky-600 active:bg-sky-800 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50 group-invalid:pointer-events-none group-invalid:opacity-50"
+        class="ml-4 inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-700 transition hover:bg-sky-600 active:bg-sky-800 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50 group-invalid:pointer-events-none group-invalid:bg-zinc-600"
         type="submit"
       >
         {{ i18n.newsletter.button }}
@@ -129,11 +129,43 @@
     </div>
   </div>
 </div>
-<script
-  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-  async
-  defer
-></script>
+{{# Turnstile loads when the form comes near the viewport, not on page load.
+    The panel sits at the foot of the page, and loading api.js up front put
+    its script and widget iframe in the way of the first paint on mobile.
+    The 600px margin, plus loading on the first focus in the form, means the
+    widget is ready before anyone can reach Subscribe; implicit rendering
+    still finds the .cf-turnstile element whenever the script arrives. #}}
+<script>
+(function () {
+  var form = document.getElementById("newsletter");
+  if (!form) return;
+  var loaded = false;
+  function load() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement("script");
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+    s.async = true;
+    document.head.appendChild(s);
+  }
+  form.addEventListener("focusin", load, { once: true });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      if (
+        entries.some(function (e) {
+          return e.isIntersecting;
+        })
+      ) {
+        io.disconnect();
+        load();
+      }
+    }, { rootMargin: "600px 0px" });
+    io.observe(form);
+  } else {
+    load();
+  }
+})();
+</script>
 <script>
 (function () {
   // Stamp the time-trap field so the Worker can reject impossibly fast bots.

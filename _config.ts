@@ -1504,6 +1504,35 @@ if (!isCms) {
 //   }
 // });
 
+// Percent-encode "@" in this site's image URLs.
+//
+// picture() names the 2x variants "…-384w@2.avif". Cloudflare's static assets
+// serve such a path only by 307-redirecting it to "%40", so every card image
+// cost an extra round trip: 12 on the blog home, the LCP image among them.
+// Only root-relative or same-origin URLs are touched; an "@" elsewhere (an
+// Unsplash profile, a social handle) is someone else's URL.
+const SITE_ORIGIN = site.options.location.origin;
+function encodeAtInUrls(value: string): string {
+  return value.replace(
+    /(^|[\s,])((?:\/|https?:\/\/)[^\s,]*)/g,
+    (match, lead: string, url: string) =>
+      url.startsWith("/") || url.startsWith(`${SITE_ORIGIN}/`)
+        ? lead + url.replaceAll("@", "%40")
+        : match,
+  );
+}
+site.process([".html"], (pages) => {
+  for (const page of pages) {
+    const els = page.document?.querySelectorAll("img, source") ?? [];
+    for (const el of els) {
+      for (const attr of ["src", "srcset"]) {
+        const value = el.getAttribute(attr);
+        if (value?.includes("@")) el.setAttribute(attr, encodeAtInUrls(value));
+      }
+    }
+  }
+});
+
 // Content-Security-Policy: hash the inline scripts instead of allowing them.
 //
 // The site ships a handful of executable inline scripts (the theme init in
