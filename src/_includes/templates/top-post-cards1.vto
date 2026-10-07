@@ -92,7 +92,7 @@
             <a
               href="{{ post.url }}"
               data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}"
-              class="data-fatrigger text-zinc-950 group-hover:text-sky-500 dark:text-zinc-50 dark:group-hover:text-sky-500 transition-color duration-300 ease-in-out"
+              class="data-fatrigger text-zinc-950 group-hover:text-indigo-600 dark:text-zinc-50 dark:group-hover:text-indigo-400 transition-color duration-300 ease-in-out"
               {{ if post.url == url }}
                 aria-current="page"{{ /if }}
             >
@@ -121,7 +121,7 @@
     role="button"
     tabindex="0"
     aria-label="{{ i18n.archive.aria_label }}"
-    class="inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-700 transition hover:bg-sky-600 active:bg-sky-800 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-sky-500/50"
+    class="inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-700 transition hover:bg-sky-600 active:bg-sky-800 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-indigo-500/50"
   >
     {{ i18n.archive.button }}
   </a>

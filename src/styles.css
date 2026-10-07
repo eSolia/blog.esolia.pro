@@ -14,8 +14,8 @@
     /* zinc-500 measured 4.39:1 on the zinc-100 surfaces used for cards and the
        TOC — just under the 4.5:1 that body-size text needs. zinc-600 clears it
        and is visually almost identical. */
-    @apply text-zinc-600 dark:text-zinc-100 hover:text-sky-600
-      dark:hover:text-sky-400;
+    @apply text-zinc-600 dark:text-zinc-100 hover:text-indigo-600
+      dark:hover:text-indigo-400;
     transition: color 0.15s ease-in-out;
     text-decoration-thickness: 1px; /* Set your desired default thickness here as well */
     text-decoration-color: theme("colors.zinc.500"); /* Match the text color */
@@ -55,11 +55,6 @@
   table.not-prose caption {
     @apply caption-bottom text-left p-2 text-xs text-zinc-400;
   }
-  /* Override the prose <a> tag hover classes */
-  .prose :where(a) {
-    @apply hover:opacity-70;
-  }
-
   .prose figure + p {
     margin-top: 1.3333333em; /* Add top margin to paragraphs after figures */
   }
@@ -74,11 +69,49 @@
   }
 }
 
+/* Prose links and headings follow esolia-2025's article pages: links in
+   the shared link blue (sky-700), hovering to the blog's section accent
+   (indigo, as reserved for the blog in esolia-2025's SECTION_COLORS);
+   headings in navy, with heading anchors inheriting it rather than
+   looking like body links.
+
+   Unlayered on purpose: Tailwind v4's typography plugin emits prose-zinc
+   and its link and heading colors in the utilities layer, which outranks
+   anything in @layer components however specific. */
+.prose.prose-zinc {
+  --tw-prose-links: var(--color-sky-700);
+  --tw-prose-headings: var(--color-sky-950);
+}
+/* Being unlayered, the rule above also outranks dark:prose-invert, which
+   normally swaps these variables for dark mode; so dark mode sets its own. */
+.dark .prose.prose-zinc {
+  --tw-prose-links: var(--color-sky-300);
+  --tw-prose-headings: var(--color-zinc-100);
+}
+.prose :where(a) {
+  @apply hover:text-indigo-600 dark:hover:text-indigo-400;
+}
+.prose :where(h1, h2, h3, h4, h5, h6) :where(a) {
+  color: inherit;
+}
+
 /* prose-a:text-sky-900 dark:prose-a:text-sky-200  prose-a:decoration-sky-700 prose-a:underline  */
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  /* Warm surfaces, shared with esolia-2025 (same names and values as its
+   * src/app.css), so the blog sits in the main site's color system:
+   *   esoliawhite        the reading sheet (main site: article column)
+   *   esoliawhite-alt    page ground and insets (main site: left sidebar)
+   *   esoliawhite-light  floating controls (main site: right rail)
+   * Text and borders stay zinc, which is also the main site's neutral. Keep
+   * these in step with esolia-2025 until the two share a token package.
+   */
+  --color-esoliawhite: oklch(99.5% 0.005 85);
+  --color-esoliawhite-alt: oklch(97.5% 0.008 85);
+  --color-esoliawhite-light: oklch(99.2% 0.002 85);
+
   /* Fluid type scale.
    *
    * Replaces stepped breakpoint chains. The measured problem with the steps

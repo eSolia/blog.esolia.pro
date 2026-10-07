@@ -92,7 +92,7 @@
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
     {{# {{ it.extra_head?.join("\n") }} #}}
   </head>
-  <body class="flex h-full bg-zinc-50 dark:bg-black">
+  <body class="flex h-full bg-esoliawhite-alt dark:bg-zinc-900">
     {{ include "templates/skiplink.vto" }}
     <!-- Container start -->
     <div class="flex w-full">
@@ -112,7 +112,7 @@
               everything without any z-index wrangling — the content column is
               a later sibling of this whole fixed layer. #}}
           <div
-            class="relative overflow-hidden w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"
+            class="relative overflow-hidden w-full bg-esoliawhite ring-1 ring-zinc-900/5 dark:bg-zinc-950 dark:ring-zinc-300/10"
           >
             {{ if id == "home" }}
               {{ include "templates/hero-circuit.vto" }}
