@@ -19,13 +19,20 @@ archive:
 social:
   share_placeholder: Check out this new post from eSolia's IT Tips Blog
   share_ask: Kindly do us a favor?
-  share_title: Share this post on social media!
+  share_title: Share this post by email or on social media!
   linkedin_label: Follow on LinkedIn
   linkedin_share: Share on LinkedIn
   linkedin_profile_url: https://www.linkedin.com/company/esolia-inc
   twitter_label: Follow on X Twitter
+  twitter_share: Share on X Twitter
   twitter_profile_url: https://x.com/esolia_inc
   bluesky_label: Follow on Bluesky
+  bluesky_share: Share on Bluesky
+  email_share: Share by email
+  # mailto: subject is the post title; the body is this intro, a blank line,
+  # the title, then the post's absolute URL.
+  email_body: I came across this post on eSolia's IT Tips Blog and thought you might find it useful.
+  card_flip_label: Flip the card to see the original photo
   bluesky_profile_url: https://bsky.app/profile/esolia.com
   github_label: GitHub profile
   github_profile_url: https://github.com/esolia
