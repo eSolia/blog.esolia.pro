@@ -19,7 +19,7 @@ archive:
 social:
   share_placeholder: 役立つIT情報をお届け中！当ブログの最新ポストはこちら
   share_ask: この記事が役に立ったと思ったら
-  share_title: SNSでシェアしてみませんか？
+  share_title: メールやSNSでシェアしてみませんか？
   linkedin_label: LinkedInでフォローする
   linkedin_share: LinkedInでシェアする
   linkedin_profile_url: https://www.linkedin.com/company/esolia-inc
@@ -28,6 +28,10 @@ social:
   twitter_profile_url: https://x.com/esolia_inc
   bluesky_label: Blueskyでフォローする
   bluesky_share: Blueskyでシェアする
+  email_share: メールでシェアする
+  # mailto: の件名は記事タイトル、本文はこの導入文・空行・タイトル・記事の絶対URL。
+  email_body: イソリアのITブログで役に立ちそうな記事を見つけたので、共有します。
+  card_flip_label: カードを裏返して元の写真を表示
   bluesky_profile_url: https://bsky.app/profile/esolia.com
   github_label: GitHubプロフィール
   github_profile_url: https://github.com/esolia

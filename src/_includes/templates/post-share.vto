@@ -1,55 +1,143 @@
 <!-- ===== post-share.vto TEMPLATE START ===== -->
+{{# Share links need the post's ABSOLUTE url. A bare `{{ url }}` is
+    root-relative (/en/posts/…), which LinkedIn, Bluesky and X cannot resolve,
+    so shares went out with no link. `url(true)` adds the origin and the /blog
+    base path; encodeURIComponent keeps it intact inside the query string. #}}
+{{ set shareUrl = url |> url(true) }}
+{{ set shareUrlEnc = shareUrl |> encodeURIComponent() }}
+{{ set shareText = i18n.social.share_placeholder |> encodeURIComponent() }}
+{{# mailto body: intro, blank line, title, URL. CRLF per RFC 6068. #}}
+{{ set mailSubject = title |> encodeURIComponent() }}
+{{ set mailBody = (i18n.social.email_body + "\r\n\r\n" + title + "\r\n" + shareUrl) |> encodeURIComponent() }}
+{{# The two faces of the flip card, each with a fallback so a post that has
+    no card or no photo yet shows the defaults, never a broken image. The back
+    uses the same default as the home page cards. #}}
+{{ set cardFront = image || "/uploads/blog-esolia-pro-default.png" }}
+{{ set cardBack = (image_top && image_top !== "/uploads/blog-esolia-pro-default-top.png") ? image_top : "/assets/blog-esolia-pro-default-top.png" }}
+{{# `not-prose`: this sits inside the post's prose block, whose img and p
+    margins would otherwise push the layout apart. A <div> wrapper, not
+    <header>/<section>, per the Markdown for Agents note in post.vto.
+
+    The lozenge is a rounded rectangle rather than rounded-full: a full pill
+    would force the thumbnail into a pill too and crop the card's corner logo.
+    Radii are concentric: outer 2rem, padding 0.875rem, inner 1.125rem. #}}
 <div
   id="post-share"
-  class="mx-auto my-16 max-w-sm overflow-hidden rounded-full shadow-md ring-1 ring-zinc-900/5 px-4 py-4 sm:py-2 lg:px-6 bg-esoliawhite-alt dark:bg-zinc-900"
+  class="not-prose mx-auto my-16 flex max-w-sm flex-col items-center gap-4 rounded-[2rem] bg-esoliawhite-alt p-3.5 shadow-md ring-1 ring-zinc-900/5 sm:max-w-xl sm:flex-row sm:gap-5 dark:bg-zinc-900 dark:ring-white/10"
 >
-  <div class="flex flex-wrap justify-center text-md p-1">
-    <p class="text-zinc-600 dark:text-zinc-200 text-center">
-      <span class="font-semibold">{{ i18n.social.share_ask }}</span>
-      <br>
-      <span class="font-base">{{ i18n.social.share_title }}</span>
+  {{# Flip card: the social card on the front, the post's top photo (as on
+      the home page) on the back. It flips on hover, and the visually hidden
+      checkbox lets a tap (touch screens have no hover) or Space flip it too,
+      with no script. Tailwind v4's hover variants only apply on devices that
+      can hover, so a tap never leaves it stuck mid-state. Reduced motion
+      swaps the faces without the rotation. Both images are decorative: the
+      post title is already on the page. #}}
+  <label
+    class="group/flip relative block aspect-[40/21] w-full shrink-0 cursor-pointer perspective-[900px] sm:w-60"
+  >
+    <input type="checkbox" class="peer sr-only">
+    <span class="sr-only">{{ i18n.social.card_flip_label }}</span>
+    <span
+      class="relative block size-full rounded-[1.125rem] transition-transform duration-700 ease-in-out transform-3d group-hover/flip:rotate-y-180 peer-checked:rotate-y-180 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-indigo-600 motion-reduce:duration-0"
+    >
+      <span
+        class="absolute inset-0 overflow-hidden rounded-[1.125rem] shadow-sm ring-1 ring-zinc-900/10 backface-hidden [&>picture]:block [&>picture]:size-full"
+      >
+        <img
+          src="{{ cardFront }}"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          width="240"
+          height="126"
+          class="size-full object-cover"
+          transform-images="avif webp jpeg 240@2 384@2"
+          sizes="(max-width: 639px) 100vw, 240px"
+        >
+      </span>
+      <span
+        class="absolute inset-0 rotate-y-180 overflow-hidden rounded-[1.125rem] shadow-sm ring-1 ring-zinc-900/10 backface-hidden [&>picture]:block [&>picture]:size-full"
+      >
+        <img
+          src="{{ cardBack }}"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          width="240"
+          height="126"
+          class="size-full object-cover"
+          transform-images="avif webp jpeg 240@2 384@2"
+          sizes="(max-width: 639px) 100vw, 240px"
+        >
+      </span>
+    </span>
+  </label>
+  {{# auto-phrase: Chrome breaks Japanese at phrase boundaries rather than
+      between any two characters, so a line never strands 「ませんか？」.
+      Other browsers ignore it and fall back to normal breaking. #}}
+  <div class="flex flex-1 flex-col items-center gap-3 px-2 pb-2 text-center sm:pb-0">
+    {{# Block spans rather than a <br>: text-balance evens out each block on
+        its own, where a <br> made Chrome balance both lines as one and
+        still strand the last word. #}}
+    <p class="leading-snug text-balance text-zinc-600 [word-break:auto-phrase] dark:text-zinc-200">
+      <span class="block font-semibold">{{ i18n.social.share_ask }}</span>
+      <span class="mt-0.5 block text-sm lg:text-base">{{ i18n.social.share_title }}</span>
     </p>
-  </div>
-  <div class="mt-0 flex justify-center gap-x-4 pb-3 no-external-icon">
-    <a
-      class="group -m-1 p-1"
-      aria-label="{{ i18n.social.linkedin_share }}"
-      href="https://www.linkedin.com/shareArticle?mini=true&url={{ url }}"
-      target="_blank"
-      rel="noopener"
-    ><img
-        class="size-6 fill-sky-800 dark:fill-sky-600 transition hover:scale-110"
-        aria-hidden="true"
-        src='{{ "linkedin-logo" |> icon("phosphor", "duotone") }}'
-        inline
-      ><span class="sr-only">{{ i18n.social.linkedin_share }}</span>
-    </a>
-    <a
-      class="group -m-1 p-1"
-      aria-label="{{ i18n.social.bluesky_share }}"
-      href="https://bsky.app/intent/compose?text={{ i18n.social.share_placeholder |> encodeURI() }}&url={{ url }}"
-      target="_blank"
-      rel="noopener"
-    ><img
-        class="size-6 fill-sky-400 dark:fill-sky-300 transition hover:scale-110"
-        aria-hidden="true"
-        src='{{ "butterfly" |> icon("phosphor", "duotone") }}'
-        inline
-      ><span class="sr-only">{{ i18n.social.bluesky_share }}</span>
-    </a>
-    <a
-      class="group -m-1 p-1"
-      aria-label="{{ i18n.social.twitter_share }}"
-      href="https://x.com/intent/post?text={{ i18n.social.share_placeholder |> encodeURI() }}&url={{ url }}"
-      target="_blank"
-      rel="noopener"
-    ><img
-        class="size-6 fill-black-600 dark:fill-zinc-50 transition hover:scale-110"
-        aria-hidden="true"
-        src='{{ "x-logo" |> icon("phosphor", "duotone") }}'
-        inline
-      ><span class="sr-only">{{ i18n.social.twitter_share }}</span>
-    </a>
+    <div class="flex justify-center gap-x-5 lg:gap-x-6 no-external-icon">
+      <a
+        class="group -m-1 p-1"
+        aria-label="{{ i18n.social.linkedin_share }}"
+        href="https://www.linkedin.com/shareArticle?mini=true&url={{ shareUrlEnc }}"
+        target="_blank"
+        rel="noopener"
+      ><img
+          class="size-6 sm:size-7 lg:size-8 fill-sky-800 dark:fill-sky-600 transition hover:scale-110"
+          aria-hidden="true"
+          src='{{ "linkedin-logo" |> icon("phosphor", "duotone") }}'
+          inline
+        ><span class="sr-only">{{ i18n.social.linkedin_share }}</span>
+      </a>
+      <a
+        class="group -m-1 p-1"
+        aria-label="{{ i18n.social.bluesky_share }}"
+        href="https://bsky.app/intent/compose?text={{ shareText }}&url={{ shareUrlEnc }}"
+        target="_blank"
+        rel="noopener"
+      ><img
+          class="size-6 sm:size-7 lg:size-8 fill-sky-400 dark:fill-sky-300 transition hover:scale-110"
+          aria-hidden="true"
+          src='{{ "butterfly" |> icon("phosphor", "duotone") }}'
+          inline
+        ><span class="sr-only">{{ i18n.social.bluesky_share }}</span>
+      </a>
+      <a
+        class="group -m-1 p-1"
+        aria-label="{{ i18n.social.twitter_share }}"
+        href="https://x.com/intent/post?text={{ shareText }}&url={{ shareUrlEnc }}"
+        target="_blank"
+        rel="noopener"
+      ><img
+          class="size-6 sm:size-7 lg:size-8 fill-zinc-900 dark:fill-zinc-50 transition hover:scale-110"
+          aria-hidden="true"
+          src='{{ "x-logo" |> icon("phosphor", "duotone") }}'
+          inline
+        ><span class="sr-only">{{ i18n.social.twitter_share }}</span>
+      </a>
+      {{# No target: a mailto link opens the mail client, not a page. #}}
+      <a
+        class="group -m-1 p-1"
+        aria-label="{{ i18n.social.email_share }}"
+        href="mailto:?subject={{ mailSubject }}&body={{ mailBody }}"
+      ><img
+          class="size-6 sm:size-7 lg:size-8 fill-indigo-600 dark:fill-indigo-400 transition hover:scale-110"
+          aria-hidden="true"
+          src='{{ "envelope-simple" |> icon("phosphor", "duotone") }}'
+          inline
+        ><span class="sr-only">{{ i18n.social.email_share }}</span>
+      </a>
+    </div>
   </div>
 </div>
 <!-- ===== post-share.vto TEMPLATE END ===== -->
