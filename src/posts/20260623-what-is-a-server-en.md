@@ -9,7 +9,7 @@ date: 2026-06-23T05:20:53.000Z
 last_modified: 2026-06-23T05:20:53.000Z
 title: 'IT Terms You Think You Know: What Is a Server?'
 description: >-
-  we’ll give a gentle and beginner-friendly explanation of the term “server,”
+  We’ll give a gentle and beginner-friendly explanation of the term “server,”
   which you might know the sound of, but not fully understand.
 image: /uploads/202508c-what-is-server-en.png
 image_top: /uploads/202508c-what-is-server.png

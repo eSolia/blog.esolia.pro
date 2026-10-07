@@ -8,7 +8,7 @@ id: 202508d-power-on-pc
 date: 2026-06-30 15:33:00
 last_modified: 2026-06-30 15:33:00
 title: >-
-  How to Automatically Power On a PC After a Power Outage：Dell BIOS Setting
+  How to Automatically Power On a PC After a Power Outage: Dell BIOS Setting
   Guide
 description: >-
   Learn how to configure Dell Optiplex BIOS settings so that your PC
