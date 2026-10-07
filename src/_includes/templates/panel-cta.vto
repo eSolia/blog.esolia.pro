@@ -151,7 +151,11 @@
   form.addEventListener("focusin", load, { once: true });
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
-      if (entries.some(function (e) { return e.isIntersecting; })) {
+      if (
+        entries.some(function (e) {
+          return e.isIntersecting;
+        })
+      ) {
         io.disconnect();
         load();
       }
