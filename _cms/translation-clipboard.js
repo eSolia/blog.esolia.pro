@@ -43,6 +43,8 @@ const CATEGORY_PAIRS = [
   ["AI活用", "AI-Usage"],
   ["Windows", "Windows"],
   ["周辺機器", "Peripherals"],
+  ["働き方", "Ways of Working"],
+  ["文書管理", "Documents"],
   ["その他", "Other"],
 ];
 
