@@ -565,13 +565,13 @@ cms.collection({
       // stay machine-readable — the template links the name and the source
       // separately, and a later pass can audit which posts still lack one.
       //
-      // Every part is optional by design: an author who only knows the
-      // photographer's name can record that much instead of leaving it blank.
+      // Only the source is required; the other parts are optional so an
+      // author who knows just the photographer's name can still record it.
       name: "image_credit",
       type: "object",
       label: "② 画像クレジット Image Credit",
       description:
-        "写真の出典。「提供元」には既定で Adobe Express が入っています。ほかから取得した写真の場合だけ、提供元を書き換え、分かる範囲で撮影者なども記入してください。<br>Where the photo came from. Source is pre-filled with Adobe Express; change it only when the photo came from somewhere else, and fill in the photographer if you know it.",
+        "写真の出典。使える写真は、Unsplash、Pexels、Wikimedia Commons（自由ライセンスのもの）、自社撮影、Adobe Express（ライセンス保有者のみ）です。提供元を選び、画像ページのURLを記入してください。撮影者が分かる場合は、名前とURLも記入してください。<br>Where the photo came from. Allowed sources are Unsplash, Pexels, Wikimedia Commons (freely licensed images only), our own photos, and Adobe Express (license holders only). Pick the source and enter the image page URL. Add the photographer's name and URL when known.",
       fields: [
         {
           name: "name",
@@ -588,23 +588,39 @@ cms.collection({
             "撮影者のプロフィールページ。<br>The photographer's profile page.",
         },
         {
-          // Nearly every photo comes from our Adobe Express subscription, so
-          // that is the default; a photo from anywhere else is the exception
-          // an author edits. Stock needs no photographer, so `name` stays
-          // empty and the credit renders as "Photo: Adobe Express".
+          // A fixed list of the sources we may use, with no default. Adobe
+          // Express stock is licensed per seat, so pre-filling it nudged
+          // unlicensed writers toward the one source they may not use, and
+          // left wrong credits on photos from elsewhere. Who holds a seat
+          // changes; the help text names the blog lead, who holds one. Stored values match
+          // what posts already carry (Adobe Express, Pexels, Unsplash), and
+          // the template renders the value as the credit text.
           name: "source",
-          type: "text",
+          type: "select",
           label: "提供元 Source",
           description:
-            "写真の出どころ。既定は Adobe Express です。例: Unsplash, Pexels<br>Where the photo is from. Defaults to Adobe Express. e.g. Unsplash, Pexels",
-          value: "Adobe Express",
+            "写真の出どころを選んでください。<br>・Unsplash、Pexels：誰でも利用できます。画像ページのURLを必ず記入してください。<br>・Wikimedia Commons：画像ごとにライセンスが異なります。パブリックドメイン、CC0、CC BY、CC BY-SA のものだけを使い、撮影者名を記入してください。<br>・Adobe Express：ライセンス保有者のみ利用できます。保有していない場合は、ブログ担当の蒲谷さんに画像を依頼してください。<br>・自社撮影：イソリアのスタッフが撮影した写真。<br>Pick where the photo is from.<br>• Unsplash, Pexels: anyone may use them. Always enter the image page URL.<br>• Wikimedia Commons: the license differs per image. Use only public domain, CC0, CC BY, or CC BY-SA images, and enter the photographer's name.<br>• Adobe Express: license holders only. If you don't hold a license, ask Kabaya, who runs the blog, for an image.<br>• Own photo: taken by eSolia staff.",
+          options: [
+            { label: "Unsplash", value: "Unsplash" },
+            { label: "Pexels", value: "Pexels" },
+            { label: "Wikimedia Commons", value: "Wikimedia Commons" },
+            {
+              label:
+                "Adobe Express（ライセンス保有者のみ license holders only）",
+              value: "Adobe Express",
+            },
+            { label: "自社撮影 Own photo", value: "eSolia" },
+          ],
+          attributes: {
+            required: true,
+          },
         },
         {
           name: "source_url",
           type: "url",
           label: "画像のURL Image URL",
           description:
-            "その画像のページ（提供元サイト内）。<br>The image's own page on the source site.",
+            "その画像のページ（提供元サイト内）。Unsplash、Pexels、Wikimedia Commons の写真では必ず記入してください。<br>The image's own page on the source site. Required for Unsplash, Pexels, and Wikimedia Commons photos.",
         },
       ],
     },
