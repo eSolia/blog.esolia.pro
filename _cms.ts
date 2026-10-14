@@ -592,14 +592,14 @@ cms.collection({
           // Express stock is licensed per seat, so pre-filling it nudged
           // unlicensed writers toward the one source they may not use, and
           // left wrong credits on photos from elsewhere. Who holds a seat
-          // changes, so the help text names no one. Stored values match
+          // changes; the help text names the blog lead, who holds one. Stored values match
           // what posts already carry (Adobe Express, Pexels, Unsplash), and
           // the template renders the value as the credit text.
           name: "source",
           type: "select",
           label: "提供元 Source",
           description:
-            "写真の出どころを選んでください。<br>・Unsplash、Pexels：誰でも利用できます。画像ページのURLを必ず記入してください。<br>・Wikimedia Commons：画像ごとにライセンスが異なります。パブリックドメイン、CC0、CC BY、CC BY-SA のものだけを使い、撮影者名を記入してください。<br>・Adobe Express：ライセンス保有者のみ利用できます。保有していない場合は、使う前にRickに相談してください。<br>・自社撮影：イソリアのスタッフが撮影した写真。<br>Pick where the photo is from.<br>• Unsplash, Pexels: anyone may use them. Always enter the image page URL.<br>• Wikimedia Commons: the license differs per image. Use only public domain, CC0, CC BY, or CC BY-SA images, and enter the photographer's name.<br>• Adobe Express: license holders only. If you don't hold a license, ask Rick before using one.<br>• Own photo: taken by eSolia staff.",
+            "写真の出どころを選んでください。<br>・Unsplash、Pexels：誰でも利用できます。画像ページのURLを必ず記入してください。<br>・Wikimedia Commons：画像ごとにライセンスが異なります。パブリックドメイン、CC0、CC BY、CC BY-SA のものだけを使い、撮影者名を記入してください。<br>・Adobe Express：ライセンス保有者のみ利用できます。保有していない場合は、ブログ担当の蒲谷さんに画像を依頼してください。<br>・自社撮影：イソリアのスタッフが撮影した写真。<br>Pick where the photo is from.<br>• Unsplash, Pexels: anyone may use them. Always enter the image page URL.<br>• Wikimedia Commons: the license differs per image. Use only public domain, CC0, CC BY, or CC BY-SA images, and enter the photographer's name.<br>• Adobe Express: license holders only. If you don't hold a license, ask Kabaya, who runs the blog, for an image.<br>• Own photo: taken by eSolia staff.",
           options: [
             { label: "Unsplash", value: "Unsplash" },
             { label: "Pexels", value: "Pexels" },
