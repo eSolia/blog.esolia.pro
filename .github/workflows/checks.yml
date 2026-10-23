@@ -36,7 +36,7 @@ jobs:
           # Pinned, not a range. The formatter's output depends on it, so a
           # floating version would make this job disagree with developers'
           # machines the moment Deno ships a formatting change.
-          deno-version: v2.9.6
+          deno-version: v2.9.8
 
       - name: Lint
         run: deno lint

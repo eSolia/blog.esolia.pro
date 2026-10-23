@@ -176,7 +176,7 @@ is hardcoded in the dashboard build command**, not in this repo:
 > Workers → `blog-esolia-pro` → Settings → Build → Build command
 >
 > ```
-> curl -fsSL https://deno.land/install.sh | sh -s v2.9.6 && $HOME/.deno/bin/deno task build:cloudflare
+> curl -fsSL https://deno.land/install.sh | sh -s v2.9.8 && $HOME/.deno/bin/deno task build:cloudflare
 > ```
 
 The `sh -s v<version>` argument is the pin. It is recorded here because nothing
@@ -202,7 +202,7 @@ fails `fmt --check` under 2.9 and vice versa. With the checks moved out, the
 build command's version can be changed independently.
 
 To reproduce a build failure locally with a matching Deno:
-`dvm install 2.9.6 && ~/.dvm/versions/2.9.6/deno task build:cloudflare`.
+`dvm install 2.9.8 && ~/.dvm/versions/2.9.8/deno task build:cloudflare`.
 
 ### Markdown "alerts"
 
