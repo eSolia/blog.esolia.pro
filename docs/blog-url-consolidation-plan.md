@@ -1,6 +1,6 @@
 # Consolidating the blog onto `esolia.co.jp/blog`
 
-**Status:** in progress (blog side) · **Date:** 2026-09-19 · **Repos:**
+**Status:** live; verified 2026-10-24 except a live newsletter round trip · **Date:** 2026-09-19 · **Repos:**
 `blog.esolia.pro`, `esolia-2025`
 
 Move the blog from `blog.esolia.pro` to `esolia.co.jp/blog` by edge-routing the
@@ -622,19 +622,29 @@ can be checked before anything is deployed:
 
 Needs the deploy and the esolia-2025 side:
 
-- [ ] `esolia.co.jp/blog/` and a deep post URL render with correct CSS and
-      images
-- [ ] `blog.esolia.pro/<path>` 301s to `esolia.co.jp/blog/<path>`, query
-      preserved
+- [x] `esolia.co.jp/blog/` and a deep post URL render with correct CSS and
+      images (2026-10-24: home, a JA post, its CSS and images all 200)
+- [x] `blog.esolia.pro/<path>` 301s to `esolia.co.jp/blog/<path>`, query
+      preserved (2026-10-24: deep JA post and `/en/posts/?utm_source=x&a=1`)
 - [ ] Newsletter signup completes end-to-end from an `esolia.co.jp` page
+      (2026-10-24: both forms post to `/blog/api/newsletter`; a live signup
+      needs a person, because of Turnstile)
 - [ ] Double opt-in **and** unsubscribe complete end-to-end — the confirm-page
       form action was broken and is easy to miss, since the signup path works
-      without it
-- [ ] `esolia.co.jp/blog/sitemap.xml` is reachable and matches the above
-- [ ] `esolia.co.jp/robots.txt` lists both sitemaps
-- [ ] PWA manifest installs with the right icons and a `/blog/` start URL
-- [ ] CMS preview at `cms.blog.esolia.pro` still renders correctly
-- [ ] CI green in both repos; no new Dependabot alerts
+      without it (2026-10-24: both routes answer under `/blog/api/newsletter/`
+      and the confirm form posts to `${PUBLIC_BASE}/api/newsletter/…` with
+      `PUBLIC_BASE = "/blog"`; the round trip needs the test signup above)
+- [x] `esolia.co.jp/blog/sitemap.xml` is reachable and matches the above
+      (absolute `esolia.co.jp/blog/` URLs, no `blog.esolia.pro`)
+- [x] `esolia.co.jp/robots.txt` lists both sitemaps
+- [x] PWA manifest installs with the right icons and a `/blog/` start URL
+      (`/blog/manifest.json`; `start_url` and icon paths are relative, so they
+      resolve under `/blog/`; all five icons 200)
+- [x] CMS preview still renders correctly (the CMS moved to
+      `cms.blog.esolia.co.jp` on 2026-09-22 and is in daily use)
+- [x] CI green in both repos; no Dependabot alerts from this change
+      (2026-10-24: blog 0 open; esolia-2025 has three Vite `launch-editor`
+      dev-server alerts from 2026-10-21, unrelated)
 
 ## Rollback
 
