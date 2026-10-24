@@ -168,6 +168,28 @@ Upgrade:
 > deno task lume upgrade
 ```
 
+#### Where dependencies load from
+
+Remote modules load from jsDelivr's GitHub mirror (`cdn.jsdelivr.net/gh/…`),
+not `deno.land/x`. Deno announced on 2026-10-09 that it is joining Cloudflare,
+and deno.land/x's future was not addressed; the Cloudflare build fetches
+imports fresh every time, so a registry outage there would break deploys. Keep
+new imports off `deno.land/x`.
+
+`lume_markdown_plugins` stays pinned at `v0.11.0` on purpose; see the comment
+above `site.use(toc())` in `_config.ts`.
+
+`deno.json` must stay strict JSON, with no comments: `deno task update-deps`
+(nudd) reads it with `JSON.parse` and fails otherwise. The reason for
+`fmt.proseWrap: "preserve"` lives here instead: `deno fmt` hard-wraps prose,
+and a line break inside a Japanese paragraph renders as a visible space
+between characters.
+
+The weekly `update-deps` workflow runs nudd and, when something changed,
+pushes the `automated/update-deps` branch and opens or updates an issue
+labelled `dependencies`. GitHub Actions is not allowed to open pull requests
+in this repo, so a person opens the PR from that branch after reviewing it.
+
 ### Cloudflare build environment
 
 The production build runs on Cloudflare Workers Builds, and **the Deno version

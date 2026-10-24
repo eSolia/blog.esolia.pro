@@ -2,18 +2,20 @@ name: Update Deno dependencies
 
 # Dependabot only covers the devcontainers ecosystem for this repo and cannot
 # track deno.land/x, jsr:, or npm: imports. This job runs `deno task update-deps`
-# (nudd) on a schedule and opens a PR so those updates get surfaced for review.
-# The Cloudflare Workers build validates the change on the PR branch.
+# (nudd) on a schedule, pushes the result to the automated/update-deps branch and
+# opens or updates an issue so the updates get surfaced for review. This repo
+# does not allow GitHub Actions to create pull requests, so a person opens the
+# PR from that branch; the Cloudflare Workers build then validates it.
 
 on:
   schedule:
     - cron: "0 6 * * 1" # Mondays 06:00 UTC (15:00 JST)
   workflow_dispatch: {}
 
-# Least privilege: only what is needed to push a branch and open a PR.
+# Least privilege: only what is needed to push a branch and open an issue.
 permissions:
   contents: write
-  pull-requests: write
+  issues: write
 
 concurrency:
   group: update-deps
@@ -34,7 +36,7 @@ jobs:
       - name: Update dependencies
         run: deno task update-deps
 
-      - name: Open or update pull request
+      - name: Push branch and open or update issue
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -54,23 +56,32 @@ jobs:
             -m "NOTE: lume_markdown_plugins is deliberately pinned at v0.11.0. Bumping it to v0.11.1+ silently rewrites every Japanese heading anchor. See the comment above site.use(toc()) in _config.ts before accepting that bump." \
             -m "InfoSec: dependency version updates; review for security-relevant changes."
           git push --force origin "$branch"
+          compare="https://github.com/${GITHUB_REPOSITORY}/compare/main...${branch}?expand=1"
           # Built with echo rather than an inline string so the rendered body
           # carries no leading indentation (4+ spaces would become a code block).
           {
-            echo "Automated dependency update from \`deno task update-deps\`. Review each bump (changelogs) and confirm the Cloudflare preview build is green before merging."
+            echo "\`deno task update-deps\` found updates and pushed them to \`${branch}\`."
+            echo
+            echo "**To review:** [open a pull request from the branch](${compare}), read each dependency's changelog, and confirm the Cloudflare preview build is green before merging. Close this issue when that PR merges, or if the updates are declined."
+            echo
+            echo "\`\`\`diff"
+            git --no-pager diff HEAD~1 --unified=0 -- deno.json _config.ts | grep -E '^[-+][^-+]' || true
+            echo "\`\`\`"
             echo
             echo "> [!WARNING]"
             echo "> \`lume_markdown_plugins\` is pinned at \`v0.11.0\` on purpose. 0.11.1 switched to"
             echo "> Lume's slugifier, which strips non-ASCII characters and rewrites every Japanese"
             echo "> heading anchor into a meaningless, order-dependent \`h_\` / \`h_-1\` ID. That breaks"
-            echo "> every existing deep link, silently, with no build error. If this PR bumps that"
-            echo "> dependency, revert that hunk. See the comment above \`site.use(toc())\` in"
-            echo "> \`_config.ts\`."
-          } > "$RUNNER_TEMP/pr-body.md"
-          if ! gh pr view "$branch" >/dev/null 2>&1; then
-            gh pr create --base main --head "$branch" \
-              --title "chore: update Deno dependencies" \
-              --body-file "$RUNNER_TEMP/pr-body.md"
+            echo "> every existing deep link, silently, with no build error. If the branch bumps that"
+            echo "> dependency, revert that hunk before opening the PR. See the comment above"
+            echo "> \`site.use(toc())\` in \`_config.ts\`."
+          } > "$RUNNER_TEMP/issue-body.md"
+          title="chore: Deno dependency updates available"
+          gh label create dependencies --color 0366d6 --description "Dependency updates" 2>/dev/null || true
+          existing=$(gh issue list --state open --label dependencies --search "in:title \"$title\"" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body-file "$RUNNER_TEMP/issue-body.md"
+            gh issue comment "$existing" --body "Branch refreshed on $(date -u +%Y-%m-%d)."
           else
-            gh pr edit "$branch" --body-file "$RUNNER_TEMP/pr-body.md"
+            gh issue create --title "$title" --label dependencies --body-file "$RUNNER_TEMP/issue-body.md"
           fi
