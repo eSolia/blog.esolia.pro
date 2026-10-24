@@ -1,17 +1,17 @@
 {
   "imports": {
-    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@v3.3.1/",
+    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@3.3.3/",
     "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.15.9/",
-    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.15/jsx-runtime.ts",
-    "hibana/": "https://cdn.jsdelivr.net/gh/RickCogley/hibana@v1.3.0/",
-    "https://deno.land/x/lume@v3.1.2/": "https://cdn.jsdelivr.net/gh/lumeland/lume@v3.3.1/"
+    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.16/jsx-runtime.ts",
+    "hibana/": "https://cdn.jsdelivr.net/gh/RickCogley/hibana@1.3.0/",
+    "https://deno.land/x/lume@v3.1.2/": "https://cdn.jsdelivr.net/gh/lumeland/lume@3.3.3/"
   },
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
     "build": "deno task lume",
     "build:cloudflare": "deno task lume",
     "serve": "deno task lume -s",
-    "update-deps": "deno run -A --quiet 'https://cdn.jsdelivr.net/gh/oscarotero/nudd@v0.2.15/cli.ts' update deno.json _config.ts",
+    "update-deps": "deno run -A --quiet 'https://cdn.jsdelivr.net/gh/oscarotero/nudd@0.2.15/cli.ts' update deno.json _config.ts",
     "cms": "LUME_CMS=true deno task lume -s",
     "test": "deno test --allow-read=src tests/",
     "check:robots": "deno run --allow-net --allow-read scripts/check-robots-sync.ts"
@@ -37,7 +37,7 @@
       ]
     },
     "plugins": [
-      "https://cdn.jsdelivr.net/gh/lumeland/lume@v3.3.1/lint.ts"
+      "https://cdn.jsdelivr.net/gh/lumeland/lume@3.3.3/lint.ts"
     ]
   },
   "fmt": {
