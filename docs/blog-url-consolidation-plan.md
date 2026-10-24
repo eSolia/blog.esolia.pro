@@ -1,6 +1,6 @@
 # Consolidating the blog onto `esolia.co.jp/blog`
 
-**Status:** live; verified 2026-10-24 except a live newsletter round trip · **Date:** 2026-09-19 · **Repos:**
+**Status:** live; verified 2026-10-24 except a live newsletter unsubscribe · **Date:** 2026-09-19 · **Repos:**
 `blog.esolia.pro`, `esolia-2025`
 
 Move the blog from `blog.esolia.pro` to `esolia.co.jp/blog` by edge-routing the
@@ -626,14 +626,16 @@ Needs the deploy and the esolia-2025 side:
       images (2026-10-24: home, a JA post, its CSS and images all 200)
 - [x] `blog.esolia.pro/<path>` 301s to `esolia.co.jp/blog/<path>`, query
       preserved (2026-10-24: deep JA post and `/en/posts/?utm_source=x&a=1`)
-- [ ] Newsletter signup completes end-to-end from an `esolia.co.jp` page
-      (2026-10-24: both forms post to `/blog/api/newsletter`; a live signup
-      needs a person, because of Turnstile)
+- [x] Newsletter signup completes end-to-end from an `esolia.co.jp` page
+      (2026-10-24: both forms post to `/blog/api/newsletter`; Rick signed up
+      from `esolia.co.jp/blog/en/`, received the email, verified, and the
+      record shows Verified in PROdb)
 - [ ] Double opt-in **and** unsubscribe complete end-to-end — the confirm-page
       form action was broken and is easy to miss, since the signup path works
       without it (2026-10-24: both routes answer under `/blog/api/newsletter/`
       and the confirm form posts to `${PUBLIC_BASE}/api/newsletter/…` with
-      `PUBLIC_BASE = "/blog"`; the round trip needs the test signup above)
+      `PUBLIC_BASE = "/blog"`; opt-in verified live 2026-10-24 with the signup above; unsubscribe not yet
+      clicked through)
 - [x] `esolia.co.jp/blog/sitemap.xml` is reachable and matches the above
       (absolute `esolia.co.jp/blog/` URLs, no `blog.esolia.pro`)
 - [x] `esolia.co.jp/robots.txt` lists both sitemaps
