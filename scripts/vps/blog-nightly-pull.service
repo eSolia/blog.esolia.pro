@@ -1,0 +1,8 @@
+[Unit]
+Description=Safe fast-forward git pull of /root/www (blog CMS host)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/blog-nightly-pull.sh
