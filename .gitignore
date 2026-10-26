@@ -19,3 +19,10 @@ errors.log
 
 # Playwright MCP session artifacts
 .playwright-mcp/
+
+# Local secret files (keys init)
+.env
+.env.*
+!.env.example
+.dev.vars.*
+.esolia/.keys.lock
