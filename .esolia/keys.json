@@ -1,0 +1,28 @@
+{
+  "$schema": "./keys.schema.json",
+  "version": 2,
+  "entries": [
+    {
+      "name": "DBFLEX_API_KEY_01",
+      "ref": "file:DBFLEX_15331_WRITE_TOKEN_ESOLIA",
+      "kind": "third-party-api-key",
+      "consumers": [
+        {
+          "type": "worker-secret",
+          "worker": "blog-esolia-pro"
+        }
+      ],
+      "rotation": {
+        "method": "manual",
+        "max_age_days": 180
+      },
+      "owner": "rickcogley",
+      "bundle": "work-on:blog.esolia.pro",
+      "added": "2026-10-27",
+      "note": "PROdb role API Read Write; newsletter signup creates and updates Email Newsletter Subscriber",
+      "refs": [
+        "#499"
+      ]
+    }
+  ]
+}
