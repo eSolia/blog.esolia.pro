@@ -20,9 +20,7 @@
       "bundle": "work-on:blog.esolia.pro",
       "added": "2026-10-27",
       "note": "PROdb role API Read Write; newsletter signup creates and updates Email Newsletter Subscriber",
-      "refs": [
-        "#499"
-      ]
+      "refs": ["#499"]
     }
   ]
 }
