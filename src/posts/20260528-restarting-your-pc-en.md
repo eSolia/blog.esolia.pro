@@ -1,12 +1,12 @@
 ---
-draft: true
+draft: false
 hot: false
 featured: false
 oldUrl: []
 lang: en
 id: 202603b-restarting-pc
-date: 2026-05-28 07:03:00
-last_modified: 2026-07-06 15:34:00
+date: 2026-11-11 15:49:00
+last_modified: 2026-11-11 15:49:00
 title: 'Why restarting your PC fixes many problems: A simple explanation'
 description: >-
   Why do IT support teams often say “Please restart your computer”? This article
