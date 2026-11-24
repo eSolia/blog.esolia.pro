@@ -31,7 +31,10 @@
       with no script. Tailwind v4's hover variants only apply on devices that
       can hover, so a tap never leaves it stuck mid-state. Reduced motion
       swaps the faces without the rotation. Both images are decorative: the
-      post title is already on the page. #}}
+      post title is already on the page, so `aria-hidden` keeps them out of
+      the accessibility tree and out of the checkbox's name. They still carry
+      alt text, because Bing's SEO analysis reports an empty alt as a missing
+      one (esolia-2025#746) and the text helps image search. #}}
   <label
     class="group/flip relative block aspect-[40/21] w-full shrink-0 cursor-pointer perspective-[900px] sm:w-60"
   >
@@ -45,7 +48,7 @@
       >
         <img
           src="{{ cardFront }}"
-          alt=""
+          alt="{{ title }}"
           aria-hidden="true"
           loading="lazy"
           decoding="async"
@@ -61,7 +64,7 @@
       >
         <img
           src="{{ cardBack }}"
-          alt=""
+          alt="{{ title }}{{ i18n.social.card_photo_alt_suffix }}"
           aria-hidden="true"
           loading="lazy"
           decoding="async"

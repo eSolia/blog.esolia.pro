@@ -32,6 +32,8 @@ social:
   # mailto: の件名は記事タイトル、本文はこの導入文・空行・タイトル・記事の絶対URL。
   email_body: イソリアのITブログで役に立ちそうな記事を見つけたので、共有します。
   card_flip_label: カードを裏返して元の写真を表示
+  # フリップカード裏面の画像の代替テキスト。記事タイトルの後ろに付く。
+  card_photo_alt_suffix: （元の写真）
   bluesky_profile_url: https://bsky.app/profile/esolia.com
   github_label: GitHubプロフィール
   github_profile_url: https://github.com/esolia

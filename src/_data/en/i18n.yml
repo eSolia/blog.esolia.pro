@@ -33,6 +33,8 @@ social:
   # the title, then the post's absolute URL.
   email_body: I came across this post on eSolia's IT Tips Blog and thought you might find it useful.
   card_flip_label: Flip the card to see the original photo
+  # Alt text for the image on the back of the flip card; follows the post title.
+  card_photo_alt_suffix: " (original photo)"
   bluesky_profile_url: https://bsky.app/profile/esolia.com
   github_label: GitHub profile
   github_profile_url: https://github.com/esolia
