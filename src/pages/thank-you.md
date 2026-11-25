@@ -4,6 +4,8 @@ id: subscribe-thanks
 layout: layouts/page.vto
 title: ご登録ありがとうございます
 url: /thank-you/
+# Shown only after a newsletter sign-up: keep it out of search and the sitemap.
+noindex: true
 ---
 
 イソリアのIT Tips BlogのNewsletterにご登録いただき、ありがとうございます！

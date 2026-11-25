@@ -442,6 +442,17 @@ site.use(svgo());
 
 // metas runs after asset plugins (esbuild/fonts/tailwind/images/basePath) so it
 // sees final, processed URLs — required ordering per lume/plugin-order (Lume 3.2).
+// A page marked `noindex: true` gets a noindex robots tag from metas() and is
+// left out of the sitemap. The flag is needed because `metas.robots: false` in
+// an English page's frontmatter is overridden by the `en.metas` block in
+// src/_data.yml once multilanguage() merges it.
+site.preprocess([".html"], (pages) => {
+  for (const page of pages) {
+    if (page.data.noindex === true) {
+      page.data.metas = { ...page.data.metas, robots: false };
+    }
+  }
+});
 site.use(metas());
 
 // jsonLd must run here for exactly the same reason, and used to run near the
@@ -1012,7 +1023,8 @@ if (!isCms) {
     }
   });
   site.use(sitemap({
-    // query: "external_link=undefined",
+    // Pages marked `noindex: true` (thank-you) are not advertised here either.
+    query: "noindex!=true",
     filename: "sitemap.xml",
     sort: "lastmod=desc",
     // lastmod/priority moved under `items` in Lume 3.2's sitemap plugin, which
