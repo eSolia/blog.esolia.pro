@@ -4,6 +4,8 @@ id: subscribe-thanks
 layout: layouts/page.vto
 title: Thanks for Subscribing!
 url: /thank-you/
+# Shown only after a newsletter sign-up: keep it out of search and the sitemap.
+noindex: true
 ---
 
 Thank you sincerely for subscribing to the eSolia IT Tips Blog newsletter.
