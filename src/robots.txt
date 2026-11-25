@@ -26,10 +26,10 @@ Disallow: /api/
 # Content-Signal: AI-usage preferences (https://contentsignals.org/, draft-romm-aipref-contentsignals)
 # search=yes       — search engines may index and rank
 # ai-input=yes     — agents may use content as runtime input (RAG, browsing, citations)
-# ai-train=no      — content must not be used to train generative models
+# ai-train=yes     — content may be used to train generative models
 # use=reference    — index, excerpt and link back; do not reproduce wholesale
 #                    (Cloudflare's content-use extension to Content Signals)
-Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
+Content-Signal: search=yes, ai-input=yes, ai-train=yes, use=reference
 
 # Allow major AI bots (discovery and recommendations outweigh content risk)
 # GPTBot — ChatGPT / SearchGPT
@@ -40,8 +40,8 @@ Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 # CCBot — Common Crawl, a corpus many assistants are built from
 # meta-externalagent — Meta AI
 # Allowed since 2026-11 (#768): being named in AI answers matters more to us
-# than withholding the content. The Content-Signal above still states our
-# preference on training.
+# than withholding the content. The Content-Signal above says the same
+# (ai-train=yes).
 
 # Block AI training/scraping bots with no search benefit
 User-agent: Bytespider
