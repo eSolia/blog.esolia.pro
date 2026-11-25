@@ -49,6 +49,12 @@ export default function* (
       subtitle:
         `${i18n.punctuation.open_quote}${tag}${i18n.punctuation.close_quote}`,
       type: "tag",
+      // Tag listings stay out of search indexes and the sitemap: about 360 of
+      // them, many near-duplicates, earned 0.2% of the blog's impressions and
+      // no clicks over 2026-09-19 to 2026-11-21 (eSolia/esolia-2025#768).
+      // Links stay followable. Category and author listings are unaffected.
+      noindex: true,
+      noindex_follow: true,
       search_query: `type=post lang=${lang} '${tag}'`,
       lastmod: newest(`type=post lang=${lang} '${tag}'`),
       tag,

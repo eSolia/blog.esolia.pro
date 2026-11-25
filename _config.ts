@@ -449,7 +449,12 @@ site.use(svgo());
 site.preprocess([".html"], (pages) => {
   for (const page of pages) {
     if (page.data.noindex === true) {
-      page.data.metas = { ...page.data.metas, robots: false };
+      // `noindex_follow` keeps the links crawlable: tag listings are left out
+      // of the index, but the posts they list should still be found from them.
+      const robots = page.data.noindex_follow === true
+        ? "noindex, follow"
+        : false;
+      page.data.metas = { ...page.data.metas, robots };
     }
   }
 });
@@ -1023,8 +1028,11 @@ if (!isCms) {
     }
   });
   site.use(sitemap({
-    // Pages marked `noindex: true` (thank-you) are not advertised here either.
-    query: "noindex!=true",
+    // Pages marked `noindex: true` (thank-you, tag listings) are not
+    // advertised here either. `unlisted!=true` is the plugin's own default
+    // and has to be restated: it keeps the redirect stubs for retired tag and
+    // author names out.
+    query: "unlisted!=true noindex!=true",
     filename: "sitemap.xml",
     sort: "lastmod=desc",
     // lastmod/priority moved under `items` in Lume 3.2's sitemap plugin, which
