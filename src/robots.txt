@@ -35,21 +35,16 @@ Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 # GPTBot — ChatGPT / SearchGPT
 # ClaudeBot — Anthropic Claude
 # PerplexityBot — Perplexity AI search
+# Google-Extended — Gemini (grounding and training)
+# Applebot-Extended — Apple Intelligence
+# CCBot — Common Crawl, a corpus many assistants are built from
+# meta-externalagent — Meta AI
+# Allowed since 2026-11 (#768): being named in AI answers matters more to us
+# than withholding the content. The Content-Signal above still states our
+# preference on training.
 
 # Block AI training/scraping bots with no search benefit
-User-agent: Applebot-Extended
-Disallow: /
-
 User-agent: Bytespider
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: meta-externalagent
 Disallow: /
 
 User-agent: cohere-ai
