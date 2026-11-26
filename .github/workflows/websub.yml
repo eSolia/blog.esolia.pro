@@ -1,0 +1,42 @@
+name: WebSub Ping
+
+# Notify Google's WebSub (PubSubHubbub) hub when blog posts are added or updated
+# on main so Google discovers updated RSS/Atom entries promptly.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/posts/**"
+      - "_config.ts"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: websub-ping
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Wait for Cloudflare deploy to propagate
+        run: sleep 180
+
+      - name: Ping WebSub hub (Google PubSubHubbub)
+        run: |
+          for FEED_URL in \
+            "https://esolia.co.jp/blog/feed.ja.xml" \
+            "https://esolia.co.jp/blog/feed.en.xml"
+          do
+            HTTP_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST \
+              -d "hub.mode=publish" \
+              --data-urlencode "hub.url=${FEED_URL}" \
+              "https://pubsubhubbub.appspot.com/" || echo "000")
+            echo "WebSub publish ${FEED_URL} → HTTP ${HTTP_CODE}"
+            if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
+              echo "::warning::WebSub publish for ${FEED_URL} returned HTTP ${HTTP_CODE}"
+            fi
+          done
