@@ -5,7 +5,7 @@ featured: false
 lang: en
 id: 202503h-password-management
 date: 2025-06-23T00:30:00.000Z
-last_modified: 2025-06-23T09:35:00.000Z
+last_modified: 2026-11-26T12:15:00.000Z
 title: 'Company password management: 5 steps based on NIST guidance'
 description: 'Forced password changes often backfire. Five steps for IT managers: a NIST-based policy, MFA, a password manager, least-privilege access and training.'
 image: /uploads/202503h-password-management-en2.jpeg
@@ -74,4 +74,4 @@ At eSolia, in addition to taking part in security training, all employees create
 ## Conclusion
 Strengthening password management is a fundamental part of corporate cybersecurity. IT managers and decision-makers must lead efforts in setting policies, implementing security tools, and educating employees. Start by assessing your company’s current password management practices and take steps to enhance security today!
 
-At eSolia Inc, we provide reliable IT support services for businesses as an outsourced IT department. If you're considering IT outsourcing, feel free to contact us for more information.
+At eSolia Inc, we provide reliable IT support services for businesses as an outsourced IT department. If your 5–100 user team in Japan runs Microsoft 365 Business Premium and wants MFA, Entra ID Conditional Access, Defender, and email authentication properly configured in 2–3 weeks, see eSolia's [M365 Security Essentials](https://esolia.co.jp/en/solutions/m365-security-essentials/). If you're considering IT outsourcing, feel free to contact us for more information.
