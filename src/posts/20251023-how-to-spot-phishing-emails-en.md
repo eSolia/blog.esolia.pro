@@ -6,7 +6,7 @@ oldUrl: []
 lang: en
 id: 202506c-phishing-emails
 date: 2025-10-23T00:35:00.000Z
-last_modified: 2025-10-23T09:37:00.000Z
+last_modified: 2026-11-26T12:15:00.000Z
 title: 'How to spot phishing emails: 5 checks anyone can do'
 description: 'Fake delivery notices and bank alerts can look real. Check the sender, link URLs, urgent wording, and attachments, and know what to do if you opened one.'
 image: /uploads/202506c-phishing-emails-en.jpeg
@@ -69,3 +69,5 @@ For delivery notifications, instead of clicking links, visit the official websit
 
 ## Summary
 Phishing emails can be highly deceptive, but a bit of caution goes a long way. If you ever think, “Is this real…?” — stop, avoid downloading or clicking anything, and consult your IT department or someone you trust.
+
+User awareness works best alongside technical safeguards such as MFA, Defender for Office 365 anti-phishing, and enforced email authentication (SPF, DKIM, and DMARC `p=reject`). For 5–100 user teams in Japan running Microsoft 365 Business Premium, see eSolia's [M365 Security Essentials](https://esolia.co.jp/en/solutions/m365-security-essentials/).

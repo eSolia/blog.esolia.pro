@@ -6,7 +6,7 @@ oldUrl: []
 lang: en
 id: 202509c-email-attachment
 date: 2026-10-06 00:00:00
-last_modified: 2026-09-16 12:00:00
+last_modified: 2026-11-26 21:15:00
 title: 'How to spot ZIP bombs and macro viruses in email attachments'
 description: 'A tiny "Invoice.zip" or an "Enable Content" prompt is a red flag. Signs of ZIP bombs and macro viruses, what to do, and what Microsoft 365 blocks.'
 image: /uploads/202509c-email-attachment-en.png
@@ -56,6 +56,8 @@ Macro viruses are embedded in Word or Excel files and activate when the document
 
 ## How Microsoft 365 helps
 Since most of us work in Microsoft 365, it helps to know that Outlook and Exchange Online already screen attachments for you. Exchange Online Protection (EOP) scans every incoming attachment for known malware and automatically blocks risky executable file types, and Zero-hour Auto Purge (ZAP) can pull a malicious message out of your mailbox even after it has been delivered. If your organization has Microsoft Defender for Office 365 (included with Business Premium and E5), Safe Attachments goes a step further and opens unknown files in an isolated sandbox to check how they behave before they ever reach you. Modern Office apps also block VBA macros in files that come from the internet by default. These layers stop a great deal — but they are not a guarantee, so the habits above still matter.
+
+Note that features like Safe Attachments, Defender for Business, and enforced DMARC (`p=reject`) only protect your team once properly configured — for 5–100 user teams in Japan on Microsoft 365 Business Premium, eSolia's [M365 Security Essentials](https://esolia.co.jp/en/solutions/m365-security-essentials/) puts these controls in place in 2–3 weeks.
 
 ## Share and Report
 Attachment-based attacks don’t just affect individuals – they can compromise entire departments. Early detection and communication are key.
