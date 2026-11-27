@@ -13,9 +13,10 @@ export const M3_EASING_CSS = {
 };
 
 const DEFAULT_RIPPLE_SELECTOR =
-  ".m3-ripple, .m3-btn-filled, .m3-nav-pill, .m3-icon-btn, .m3-chip, details > summary, [data-m3-ripple]";
+  ".m3-ripple, .m3-btn-filled, .m3-nav-pill, .m3-icon-btn, .m3-chip, .m3-fab, details > summary, [data-m3-ripple]";
 
-const CENTERED_RIPPLE_SELECTOR = ".m3-icon-btn, [data-m3-ripple='center']";
+const CENTERED_RIPPLE_SELECTOR =
+  ".m3-icon-btn, .m3-fab, [data-m3-ripple='center']";
 
 function prefersReducedMotion() {
   return (

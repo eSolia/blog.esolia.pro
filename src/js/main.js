@@ -26,12 +26,34 @@ initM3Ripples();
   }
 })();
 
-// Swap logo on scroll and make nav bg more opaque
+// Swap logo on scroll, make nav bg more opaque, and toggle back-to-top FAB
+const scrollTopBtn = document.getElementById("scroll-to-top");
+
+scrollTopBtn?.addEventListener("click", () => {
+  const reduceMotion =
+    globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  globalThis.scrollTo({
+    top: 0,
+    behavior: reduceMotion ? "auto" : "smooth",
+  });
+});
+
 globalThis.addEventListener("scroll", () => {
   const largeLogo = document.getElementById("large-logo");
   const smallLogo = document.getElementById("small-logo");
   const topNavBG = document.getElementById("top-nav-bg");
   const scrollPosition = globalThis.scrollY;
+
+  if (scrollTopBtn) {
+    const shouldHide = scrollPosition <= 600;
+    if (shouldHide) {
+      if (!scrollTopBtn.hasAttribute("data-hidden")) {
+        scrollTopBtn.setAttribute("data-hidden", "true");
+      }
+    } else if (scrollTopBtn.hasAttribute("data-hidden")) {
+      scrollTopBtn.removeAttribute("data-hidden");
+    }
+  }
 
   // Masthead fade, linked to scroll position rather than triggered by it.
   //

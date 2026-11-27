@@ -74,10 +74,9 @@
 }
 
 /* Prose links and headings follow esolia-2025's article pages: links in
-   the shared link blue (sky-700), hovering to the blog's section accent
-   (indigo, as reserved for the blog in esolia-2025's SECTION_COLORS);
-   headings in navy, with heading anchors inheriting it rather than
-   looking like body links.
+   the shared link blue (sky-700), hovering to the active category or default
+   sky accent (`--section-hover`); headings in navy, with heading anchors
+   inheriting it rather than looking like body links.
 
    Unlayered on purpose: Tailwind v4's typography plugin emits prose-zinc
    and its link and heading colors in the utilities layer, which outranks
@@ -228,26 +227,46 @@
   --color-esoliapaleyellow-950: oklch(44.52% 0.092 98.87);
 }
 
-/* Default lede paragraph styles (Mac, Linux, etc.) */
-/* font-weight: 300; */
-body article > div > p:first-of-type {
-  /* `text-base` was here too, ahead of `text-lg`. Both set font-size, so
-     the first was emitted and immediately overridden by the second in the
-     same rule — visible as a duplicated `font-size` in the built CSS. */
-  @apply text-lg lg:text-xl font-extralight leading-relaxed text-zinc-950
-    dark:text-zinc-200;
+/* Post lede paragraph — matched to `.lede` on esolia-2025's /articles pages:
+   24px (1.5rem) EN / 23.2px (1.45rem) JA above md, 21.6px (1.35rem) on mobile,
+   weight 300 with a subtle 3px left rule. Mobile-first so `:lang(ja)` never
+   outranks the narrow-screen size. */
+body article > div[data-mdx-content] > p:first-child,
+body article .lede {
+  font-size: 1.35rem;
+  line-height: 1.45;
+  font-weight: 300;
+  color: light-dark(var(--color-zinc-800), var(--color-zinc-200));
+  margin-inline: -0.5rem;
+  padding-inline: 0.5rem;
+  border-left: 3px solid
+    light-dark(var(--color-zinc-200), var(--color-zinc-700));
 }
 
-/* Specific styles for Windows devices */
-/* More specific due to `body.os-windows`; overrides default */
-body.os-windows article > div > p:first-of-type {
-  /* Only override the font-weight, and it will use others*/
-  /* This is a workaround for the blurriness issue on Windows */
-  /* font-normal (font-weight: 400) */
-  @apply font-normal;
+:lang(ja) body article > div[data-mdx-content] > p:first-child,
+:lang(ja) body article .lede {
+  letter-spacing: -0.01em;
+  line-height: 1.55;
+}
 
-  /* font-medium (font-weight: 500) */
-  /* @apply font-medium; */
+@media (min-width: 769px) {
+  body article > div[data-mdx-content] > p:first-child,
+  body article .lede {
+    font-size: 1.5rem;
+    margin-inline: -0.75rem;
+    padding-inline: 0.75rem;
+  }
+
+  :lang(ja) body article > div[data-mdx-content] > p:first-child,
+  :lang(ja) body article .lede {
+    font-size: 1.45rem;
+  }
+}
+
+/* Windows ClearType renders weight 300 thin/blurry; step up to 400 */
+body.os-windows article > div[data-mdx-content] > p:first-child,
+body.os-windows article .lede {
+  font-weight: 400;
 }
 
 body.os-windows #page-toc {
@@ -270,7 +289,7 @@ kbd {
  *----------------------------*/
 :root {
   --pagefind-ui-scale: 1;
-  --pagefind-ui-primary: var(--color-indigo-600);
+  --pagefind-ui-primary: var(--color-sky-600);
   --pagefind-ui-text: var(--color-zinc-900);
   --pagefind-ui-background: var(--color-surface-container-lowest);
   --pagefind-ui-border: var(--color-outline-variant);
@@ -290,7 +309,7 @@ kbd {
     "Segoe UI Symbol",
     "Noto Color Emoji";
   .dark {
-    --pagefind-ui-primary: var(--color-indigo-400);
+    --pagefind-ui-primary: var(--color-sky-400);
     --pagefind-ui-text: var(--color-zinc-100);
     --pagefind-ui-background: var(--color-surface-container);
     --pagefind-ui-border: var(--color-outline-variant);

@@ -53,13 +53,38 @@
   --shadow-m3-3: 0 4px 8px 3px rgb(18 21 48 / 0.09), 0 1px 3px 0 rgb(18 21 48 / 0.12);
 }
 
+/* Typed custom properties so `light-dark(...)` resolves against the element's
+   active `color-scheme` before inheriting into `::selection` (needed by engines
+   that do not evaluate `light-dark()` tokens inside highlight pseudos).
+   Note: iOS/iPadOS WebKit ignores CSS `::selection` in favor of UIKit's native
+   system selection overlay, so custom selection colors apply on desktop & Android. */
+@property --section-selection-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(90.5% 0.07 238);
+}
+
+@property --section-selection-fg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: oklch(21% 0.055 242);
+}
+
 /* ── Per-Category Accent & ::selection Tokens ───────────────────────────
-   Default on the blog is indigo (matching SECTION_COLORS.blog on esolia.co.jp).
-   Post and category pages set `data-accent="<color>"` on <html>. */
+   Default on multi-category pages (home, archive, tags, authors) is sky,
+   matching the light-blue navigation icons. Post and category pages set
+   `data-accent="<color>"` on <html>. */
 :root,
+[data-accent="sky"] {
+  --section-accent: var(--color-sky-500);
+  --section-hover: light-dark(var(--color-sky-700), var(--color-sky-300));
+  --section-selection-bg: light-dark(oklch(90.5% 0.07 238), oklch(37% 0.095 238));
+  --section-selection-fg: light-dark(oklch(21% 0.055 242), oklch(97% 0.02 238));
+}
+
 [data-accent="indigo"] {
   --section-accent: var(--color-indigo-500);
-  --section-hover: light-dark(var(--color-sky-700), var(--color-sky-300));
+  --section-hover: light-dark(var(--color-indigo-700), var(--color-indigo-300));
   --section-selection-bg: light-dark(oklch(90% 0.07 272), oklch(37% 0.105 272));
   --section-selection-fg: light-dark(oklch(21% 0.065 275), oklch(97% 0.02 272));
 }
@@ -111,13 +136,6 @@
   --section-hover: light-dark(var(--color-red-700), var(--color-red-300));
   --section-selection-bg: light-dark(oklch(90.5% 0.075 22), oklch(37% 0.115 24));
   --section-selection-fg: light-dark(oklch(23% 0.07 24), oklch(97% 0.02 22));
-}
-
-[data-accent="sky"] {
-  --section-accent: var(--color-sky-500);
-  --section-hover: light-dark(var(--color-sky-700), var(--color-sky-300));
-  --section-selection-bg: light-dark(oklch(90.5% 0.07 238), oklch(37% 0.095 238));
-  --section-selection-fg: light-dark(oklch(21% 0.055 242), oklch(97% 0.02 238));
 }
 
 [data-accent="teal"] {
@@ -305,7 +323,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid var(--color-indigo-500);
+      outline: 2px solid var(--color-sky-500);
       outline-offset: 2px;
     }
   }
@@ -336,6 +354,65 @@
       background-color: color-mix(in oklch, currentColor 14%, transparent);
       border-radius: 0.625rem;
       transform: scale(0.94);
+    }
+  }
+
+  /* M3 FAB (Floating Action Button — scroll-to-top, matching esolia-2025's
+     ScrollToTop.svelte with subtle per-category rim and arrow tint) */
+  .m3-fab {
+    --m3-ripple-color: color-mix(in oklch, var(--section-accent) 55%, #ffffff);
+    --m3-ripple-opacity: 0.18;
+    position: fixed;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: var(--color-esoliablue-800);
+    box-shadow:
+      0 0 0 1.5px color-mix(in oklch, var(--section-accent) 62%, transparent),
+      var(--shadow-m3-3);
+    transition:
+      opacity 220ms var(--ease-m3-standard),
+      visibility 220ms allow-discrete,
+      border-radius 260ms var(--ease-m3-spring),
+      background-color 200ms var(--ease-m3-standard),
+      box-shadow 220ms var(--ease-m3-standard),
+      transform 260ms var(--ease-m3-emphasized-decelerate);
+
+    &:hover {
+      border-radius: 1.25rem;
+      background-color: color-mix(
+        in oklch,
+        var(--color-esoliablue-700) 86%,
+        var(--section-accent)
+      );
+      box-shadow:
+        0 0 0 1.5px color-mix(in oklch, var(--section-accent) 88%, #ffffff),
+        var(--shadow-m3-3);
+      transform: translateY(-2px);
+    }
+
+    &:hover .m3-fab-icon {
+      color: color-mix(in oklch, var(--section-accent) 65%, #ffffff);
+    }
+
+    &:active {
+      border-radius: 0.75rem;
+      transform: translateY(0) scale(0.96);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--section-accent);
+      outline-offset: 3px;
+    }
+
+    &[data-hidden="true"] {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(0.75rem);
+      transition:
+        opacity 160ms var(--ease-m3-emphasized-accelerate),
+        visibility 160ms allow-discrete,
+        transform 160ms var(--ease-m3-emphasized-accelerate);
     }
   }
 }
