@@ -1,5 +1,10 @@
 <!-- ===== footer.vto TEMPLATE START ===== -->
-<footer id="footer" class="mt-32 flex-none bg-esoliawhite-alt dark:bg-zinc-900">
+{{# Matches esolia-2025 Footer.svelte: one notch deeper than sky-950 so the
+    footer sits on the shared eSolia sky-navy ramp across both sites. #}}
+<footer
+  id="footer"
+  class="relative z-10 mt-32 flex-none bg-[oklch(0.195_0.042_245)] dark:bg-[oklch(0.195_0.042_245)]"
+>
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="py-16">
       <a
@@ -7,19 +12,18 @@
         class="pointer-events-auto block origin-left"
         href='/{{ if lang === "en" }}{{ lang }}/{{ /if }}'
       ><img
-          id="large-logo"
           alt="{{ i18n.nav.logo_large_alt }}"
           loading="lazy"
           fetchpriority="auto"
           decoding="async"
-          class="mx-auto h-12 w-auto object-cover dark:grayscale dark:invert dark:saturate-[.1] transition-opacity duration-300"
-          src="/assets/logo_horiz_darkblue_bgtransparent_2.svg"
-          height="195"
-          width="531"
+          class="mx-auto h-12 w-auto object-contain transition-opacity duration-300 hover:opacity-80"
+          src="/assets/logo_horiz_white_bgtransparent.svg"
+          height="111"
+          width="454"
         /></a>
 
       <nav class="mt-10 text-sm" aria-label="{{ i18n.nav.footer_nav_label }}">
-        <div class="-my-1 flex justify-center gap-x-6 flex-wrap">
+        <div class="-my-1 flex justify-center gap-x-6 gap-y-2 flex-wrap">
           {{- for item of it.footernav.links }}
             {{# The icon comes from the same `icon:` field the drawer uses, so
                 the two navigations look related. The field had been on this
@@ -27,14 +31,14 @@
                 two names that do not exist in Phosphor (`privacy`, `sitemap`)
                 sat here unnoticed — nothing ever asked for them. #}}
             <a
-              class="inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-sm {{- if item.target === '_blank' }} after:content-['_↗']{{ /if -}}"
+              class="inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-sm text-white hover:text-esoliaamber-400 dark:text-white dark:hover:text-esoliaamber-400 no-underline transition-colors {{- if item.target === '_blank' }} after:content-['_↗']{{ /if -}}"
               href="{{ item.href }}"
               title="{{ item.title }}"
               {{- if item.target }}target="{{ item.target }}"{{ /if }}
               {{- if item.target === "_blank" }}rel="noopener"{{ /if -}}
             >
               {{ if item.icon }}<img
-                  class="h-4 w-4 shrink-0 opacity-70"
+                  class="h-4 w-4 shrink-0 fill-white/70"
                   src='{{ item.icon |> icon("phosphor", "duotone") }}'
                   alt=""
                   aria-hidden="true"
@@ -48,9 +52,9 @@
       </nav>
     </div>
     <div
-      class="flex flex-col items-center border-t border-zinc-400/10 py-10 sm:flex-row-reverse sm:justify-between no-external-icon"
+      class="flex flex-col items-center border-t border-white/20 py-10 sm:flex-row-reverse sm:justify-between no-external-icon"
     >
-      <div class="mt-6 flex flex-wrap gap-6">
+      <div class="mt-6 flex flex-wrap gap-6 sm:mt-0">
         <a
           class="group -m-1 p-1"
           aria-label="{{ i18n.social.linkedin_label }}"
@@ -58,7 +62,7 @@
           target="_blank"
           rel="noopener"
         ><img
-            class="h-6 w-6 fill-sky-800 dark:fill-sky-600 transition hover:scale-110"
+            class="h-6 w-6 fill-blue-200 transition hover:scale-110"
             src='{{ "linkedin-logo" |> icon("phosphor", "duotone") }}'
             inline
           ></a>
@@ -69,7 +73,7 @@
           target="_blank"
           rel="noopener"
         ><img
-            class="h-6 w-6 fill-sky-400 dark:fill-sky-300 transition hover:scale-110"
+            class="h-6 w-6 fill-sky-400 transition hover:scale-110"
             src='{{ "butterfly" |> icon("phosphor", "duotone") }}'
             inline
           ></a>
@@ -80,7 +84,7 @@
           target="_blank"
           rel="noopener"
         ><img
-            class="h-6 w-6 fill-black-600 dark:fill-zinc-50 transition hover:scale-110"
+            class="h-6 w-6 fill-white/85 transition hover:scale-110"
             src='{{ "x-logo" |> icon("phosphor", "duotone") }}'
             inline
           ></a>
@@ -91,17 +95,17 @@
           target="_blank"
           rel="noopener"
         ><img
-            class="h-6 w-6 fill-green-600 dark:fill-green-500 transition hover:scale-110"
+            class="h-6 w-6 fill-green-400 transition hover:scale-110"
             src='{{ "github-logo" |> icon("phosphor", "duotone") }}'
             inline
           ></a>
       </div>
       <p
-        class="mt-6 text-sm text-zinc-600 dark:text-zinc-400 sm:mt-0 text-center sm:text-left"
+        class="mt-6 text-sm text-white sm:mt-0 text-center sm:text-left"
       >
         ©{{ new Date().getFullYear() }}
         {{ i18n.home.company_long }} All rights reserved.<br>
-        <span class="text-xs text-zinc-600 dark:text-zinc-400">{{ i18n.home.company_address }}</span>
+        <span class="text-xs text-white/80">{{ i18n.home.company_address }}</span>
       </p>
     </div>
   </div>

@@ -13,7 +13,8 @@
 
     Purely decorative — aria-hidden, pointer-events: none, and it carries no
     information that is not also in the text. #}}
-<div class="hero-circuit" aria-hidden="true">
+<div class="hero-circuit{{ if bodyClass === " body-post" }}
+  hero-circuit--post{{ /if }}" aria-hidden="true">
   <svg width="100%" height="100%" preserveAspectRatio="xMaxYMin slice">
     <defs>
       <pattern

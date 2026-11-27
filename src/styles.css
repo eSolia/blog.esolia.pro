@@ -8,17 +8,21 @@
 /* @plugin "tailwind-every-layout@latest"; */
 @import "css/alerts.css";
 @import "css/type.css";
+@import "css/m3-tokens.css";
 
 @layer base {
   a {
     /* zinc-500 measured 4.39:1 on the zinc-100 surfaces used for cards and the
        TOC — just under the 4.5:1 that body-size text needs. zinc-600 clears it
        and is visually almost identical. */
-    @apply text-zinc-600 dark:text-zinc-100 hover:text-indigo-600
-      dark:hover:text-indigo-400;
+    @apply text-zinc-600 dark:text-zinc-100;
     transition: color 0.15s ease-in-out;
     text-decoration-thickness: 1px; /* Set your desired default thickness here as well */
     text-decoration-color: theme("colors.zinc.500"); /* Match the text color */
+
+    &:hover {
+      color: var(--section-hover);
+    }
   }
 
   /* You could also style specific link states globally */
@@ -92,11 +96,16 @@
   --tw-prose-headings: var(--color-zinc-100);
   --tw-prose-captions: var(--color-zinc-400);
 }
-.prose :where(a) {
-  @apply hover:text-indigo-600 dark:hover:text-indigo-400;
+.prose :where(a):hover {
+  color: var(--section-hover);
 }
 .prose :where(h1, h2, h3, h4, h5, h6) :where(a) {
   color: inherit;
+  text-decoration: none;
+  transition: color 180ms var(--ease-m3-standard);
+}
+.prose :where(h1, h2, h3, h4, h5, h6) :where(a):hover {
+  color: var(--section-hover);
 }
 
 /* prose-a:text-sky-900 dark:prose-a:text-sky-200  prose-a:decoration-sky-700 prose-a:underline  */
@@ -104,17 +113,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Warm surfaces, shared with esolia-2025 (same names and values as its
-   * src/app.css), so the blog sits in the main site's color system:
-   *   esoliawhite        the reading sheet (main site: article column)
-   *   esoliawhite-alt    page ground and insets (main site: left sidebar)
-   *   esoliawhite-light  floating controls (main site: right rail)
-   * Text and borders stay zinc, which is also the main site's neutral. Keep
-   * these in step with esolia-2025 until the two share a token package.
+  /* Calm porcelain neutrals, shared with esolia-2025's M3 surface tokens:
+   *   esoliawhite        the reading sheet (main site: .m3-reading-sheet)
+   *   esoliawhite-alt    page ground and insets
+   *   esoliawhite-light  floating controls
    */
-  --color-esoliawhite: oklch(99.5% 0.005 85);
-  --color-esoliawhite-alt: oklch(97.5% 0.008 85);
-  --color-esoliawhite-light: oklch(99.2% 0.002 85);
+  --color-esoliawhite: oklch(99.65% 0.0015 260);
+  --color-esoliawhite-alt: oklch(97.2% 0.004 264);
+  --color-esoliawhite-light: oklch(98.4% 0.003 262);
 
   /* Fluid type scale.
    *
@@ -264,14 +270,14 @@ kbd {
  *----------------------------*/
 :root {
   --pagefind-ui-scale: 1;
-  --pagefind-ui-primary: var(--color-sky-500);
+  --pagefind-ui-primary: var(--color-indigo-600);
   --pagefind-ui-text: var(--color-zinc-900);
-  --pagefind-ui-background: #ffffff;
-  --pagefind-ui-border: var(--color-zinc-200);
-  --pagefind-ui-tag: var(--color-zinc-200);
+  --pagefind-ui-background: var(--color-surface-container-lowest);
+  --pagefind-ui-border: var(--color-outline-variant);
+  --pagefind-ui-tag: var(--color-surface-container);
   --pagefind-ui-border-width: 1px;
-  --pagefind-ui-border-radius: 8px;
-  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-border-radius: 12px;
+  --pagefind-ui-image-border-radius: 10px;
   --pagefind-ui-image-box-ratio: 3 / 2;
   --pagefind-ui-font:
     textface,
@@ -284,10 +290,10 @@ kbd {
     "Segoe UI Symbol",
     "Noto Color Emoji";
   .dark {
-    --pagefind-ui-primary: var(--color-sky-500);
-    --pagefind-ui-text: var(--color-zinc-200);
-    --pagefind-ui-background: var(--color-zinc-900);
-    --pagefind-ui-border: var(--color-zinc-700);
+    --pagefind-ui-primary: var(--color-indigo-400);
+    --pagefind-ui-text: var(--color-zinc-100);
+    --pagefind-ui-background: var(--color-surface-container);
+    --pagefind-ui-border: var(--color-outline-variant);
     --pagefind-ui-tag: var(--color-sky-400);
   }
 }
@@ -296,38 +302,18 @@ kbd {
 }
 
 /*----------------------------
- * テキスト選択ハイライト
+ * Prism syntax themes (injected at build time — keep comment placeholders!)
+ * Text ::selection is driven per-category in css/m3-tokens.css.
  *----------------------------*/
 mark {
   background-color: var(--color-sky-300);
 }
 :root {
-  ::selection {
-    background-color: var(--color-sky-300);
-    color: var(--color-zinc-900);
-  }
-
   /* light-theme-here */
 
   .dark {
-    ::selection {
-      background-color: var(--color-sky-300);
-      color: var(--color-zinc-900);
-    }
-
     /* dark-theme-here */
   }
-}
-
-/* TOC */
-/* Remove default padding some browsers apply to summary */
-summary {
-  padding: 0;
-}
-
-/* Optional: Adjust spacing between summary and content when open on small screens */
-details[open] > summary {
-  margin-bottom: 0.5rem; /* Or adjust as needed for your design */
 }
 
 /* Ensure the ul within details doesn't have unwanted top margin if prose changes its default */
@@ -412,6 +398,37 @@ details[open] > summary {
 .dark .hero-circuit {
   color: var(--color-esoliablue-300);
   opacity: 0.13;
+}
+
+/* Singleton post pages carry a calmer, category-tinted circuit field that
+   frames the post header and dissolves smoothly as the reader scrolls into
+   the article body (`--hero-scroll-fade`), leaving clean paper behind prose. */
+.hero-circuit--post {
+  height: min(36rem, 100%);
+  color: color-mix(
+    in oklab,
+    var(--color-esoliablue-900) 58%,
+    var(--section-accent)
+  );
+  opacity: calc(0.09 * var(--hero-scroll-fade, 1));
+  --hero-circuit-fade: radial-gradient(
+    circle 48rem at 100% 0%,
+    #000 0%,
+    #000 12%,
+    rgb(0 0 0 / 55%) 34%,
+    rgb(0 0 0 / 26%) 52%,
+    rgb(0 0 0 / 10%) 68%,
+    transparent 84%
+  );
+}
+
+.dark .hero-circuit--post {
+  color: color-mix(
+    in oklab,
+    var(--color-esoliablue-300) 52%,
+    var(--section-accent)
+  );
+  opacity: calc(0.12 * var(--hero-scroll-fade, 1));
 }
 
 /* The artwork is inert decoration, but it still adds visual noise. Honour a

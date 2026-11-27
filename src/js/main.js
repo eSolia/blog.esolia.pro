@@ -1,4 +1,7 @@
 import { loadVendorScript } from "hibana/utils/dom_utils.ts";
+import { initM3Ripples } from "./_m3_flourishes.js";
+
+initM3Ripples();
 
 // Load this first.
 //
@@ -72,38 +75,17 @@ globalThis.addEventListener("scroll", () => {
   // So, no specific JS logic is needed for logos on small screens here.
 
   // Handle nav opacity changes based on scroll position
-  if (scrollPosition > 50) {
-    topNavBG.classList.remove(
-      "bg-zinc-50/50",
-      "dark:bg-zinc-700/50",
-      "bg-zinc-50/70",
-      "dark:bg-zinc-700/70",
-    );
-    topNavBG.classList.add("bg-zinc-50/95", "dark:bg-zinc-700/95");
-  } else if (scrollPosition > 30 && scrollPosition <= 50) {
-    topNavBG.classList.remove(
-      "bg-zinc-50/50",
-      "dark:bg-zinc-700/50",
-      "bg-zinc-50/95",
-      "dark:bg-zinc-700/95",
-    );
-    topNavBG.classList.add("bg-zinc-50/70", "dark:bg-zinc-700/70");
-  } else if (scrollPosition > 10 && scrollPosition <= 30) {
-    topNavBG.classList.remove(
-      "bg-zinc-50/70",
-      "dark:bg-zinc-700/70",
-      "bg-zinc-50/95",
-      "dark:bg-zinc-700/95",
-    );
-    topNavBG.classList.add("bg-zinc-50/50", "dark:bg-zinc-700/50");
-  } else {
-    topNavBG.classList.remove(
-      "bg-zinc-50/70",
-      "dark:bg-zinc-700/70",
-      "bg-zinc-50/95",
-      "dark:bg-zinc-700/95",
-    );
-    topNavBG.classList.add("bg-zinc-50/50", "dark:bg-zinc-700/50");
+  if (topNavBG) {
+    if (scrollPosition > 50) {
+      topNavBG.classList.remove("bg-surface/50", "bg-surface/75");
+      topNavBG.classList.add("bg-surface/94");
+    } else if (scrollPosition > 30 && scrollPosition <= 50) {
+      topNavBG.classList.remove("bg-surface/50", "bg-surface/94");
+      topNavBG.classList.add("bg-surface/75");
+    } else {
+      topNavBG.classList.remove("bg-surface/75", "bg-surface/94");
+      topNavBG.classList.add("bg-surface/50");
+    }
   }
 });
 
@@ -312,6 +294,7 @@ buttons.forEach((button) => {
 //     handlers on the same target.
 //   - Focus management, below.
 const searchModal = document.getElementById("searchModal");
+const searchPanel = searchModal?.querySelector("[data-search-panel]");
 const searchButton = document.getElementById("search-button");
 const searchClose = document.getElementById("modal-close");
 
@@ -320,8 +303,9 @@ if (searchModal && searchButton) {
   // close. Without this, closing the modal drops focus to the top of the
   // document and a keyboard user loses their place entirely.
   let lastFocused = null;
+  let searchOpen = false;
 
-  const isOpen = () => searchModal.style.display === "block";
+  const isOpen = () => searchOpen;
 
   const focusablesIn = (root) =>
     [...root.querySelectorAll(
@@ -329,17 +313,34 @@ if (searchModal && searchButton) {
     )].filter((el) => el.offsetParent !== null);
 
   const openSearch = () => {
+    if (searchOpen) return;
+    searchOpen = true;
     lastFocused = document.activeElement;
-    searchModal.style.display = "block";
+    searchModal.classList.remove("invisible", "hidden");
     searchModal.setAttribute("aria-hidden", "false");
-    // Pagefind builds its input lazily, so it may not exist on first open.
-    const input = searchModal.querySelector(".pagefind-ui__search-input");
-    (input ?? focusablesIn(searchModal)[0] ?? searchModal).focus();
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(() => {
+      searchModal.classList.remove("opacity-0");
+      searchPanel?.classList.remove("scale-95", "opacity-0");
+      // Pagefind builds its input lazily, so it may not exist on first open.
+      const input = searchModal.querySelector(".pagefind-ui__search-input");
+      (input ?? focusablesIn(searchModal)[0] ?? searchModal).focus();
+    });
   };
 
   const closeSearch = () => {
-    searchModal.style.display = "none";
+    if (!searchOpen) return;
+    searchOpen = false;
+    searchModal.classList.add("opacity-0");
+    searchPanel?.classList.add("scale-95", "opacity-0");
     searchModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    const hide = () => {
+      if (searchOpen) return;
+      searchModal.classList.add("invisible", "hidden");
+    };
+    searchModal.addEventListener("transitionend", hide, { once: true });
+    setTimeout(hide, 240);
     if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
     lastFocused = null;
   };
