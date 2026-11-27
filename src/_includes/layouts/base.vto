@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- ===== base.vto LAYOUT START ===== -->
-{{ set activeColor = color || featurecats?.find((c) => c.key === category)?.color || "indigo" }}
+{{ set activeColor = color || featurecats?.find((c) => c.key === category)?.color || "sky" }}
 <html lang="{{ it.lang }}" data-accent="{{ activeColor }}">
   <head>
     <meta charset="utf-8">
@@ -128,6 +128,7 @@
 
         <!-- Current page: {{ url }} -->
         {{ include "templates/footer.vto" }}
+        {{ include "templates/scroll-to-top.vto" }}
         {{ include "templates/search-modal.vto" }}
       </div>
     </div>
