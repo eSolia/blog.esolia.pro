@@ -4,7 +4,9 @@
     sat on top of them: clicking a category pill, author or tag navigated to
     the post instead. Raising only the links keeps the gaps between them part
     of the post's click target. #}}
-<div id="post-details" class="mt-2 flex flex-wrap items-center gap-x-4 text-xs">
+{{ if !onlyTags }}
+<div id="post-details"
+  class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
   {{ if date !== "hide" }}
     {{# ISO in the attribute, localized text for readers: `date` is a Date, so
         interpolating it raw emitted "Tue Sep 22 2026 09:00:00 GMT+0900
@@ -29,15 +31,15 @@
   <a
     href='{{ if lang === "en"}}/en{{/if}}/category/{{ category }}/'
     data-pagefind-filter="{{ i18n.search.filter_by_category }}"
-    class="relative z-30 rounded-md bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-200 px-2 py-1 text-xs font-medium text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-900 dark:text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-900 ring-1 ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/10 dark:ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-100 no-underline"
+    class="m3-chip relative z-30 bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-200 px-2.5 py-0.5 text-xs font-medium text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-900 dark:text-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-900 ring-1 ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/15 dark:ring-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if catColor }}{{ catColor }}{{ else }}zinc{{ /if }}-100 no-underline"
   >{{ category }}</a>
   {{ if author }}
     {{ set page = search.page(`type=author lang=${lang} author="${author}"`) }}
     {{ if page }}
       <span
-        class="relative z-30 px-2 py-1 text-xs font-extralight text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700"
+        class="relative z-30 rounded-md px-2 py-1 text-xs font-extralight text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800"
       >{{ i18n.post.by }}: <a
-          class="no-underline text-zinc-600 dark:text-zinc-300"
+          class="no-underline text-zinc-600 hover:text-sky-700 dark:text-zinc-300 dark:hover:text-sky-300"
           data-pagefind-filter="{{ i18n.search.filter_by_author }}"
           href="{{ page.url }}"
         >{{ author }}</a></span>
@@ -53,23 +55,27 @@
     >{{ i18n.post.reading_time }}: <span class="font-medium">{{ it.readingInfo.minutes }}{{ if lang === "en" }}&nbsp;{{ /if }}{{ i18n.post.minutes }}</span></span>
   {{ /if }}
   {{ if hot }}<span
-      class="relative rounded-md px-2 py-1 text-[0.6rem] font-medium bg-esoliaamber-500 ring-1 ring-esoliaamber-900/30 ring-inset text-esoliaamber-950"
+      class="relative rounded-full px-2.5 py-0.5 text-[0.65rem] font-medium bg-esoliaamber-500 ring-1 ring-esoliaamber-900/30 ring-inset text-esoliaamber-950"
     >
       {{ i18n.post.hot }}
     </span>{{ /if }}
 </div>
-<div class="text-xs/3 text-zinc-500 ml-4 mt-2 flex flex-wrap gap-2 break-keep">
+{{ /if }}
+{{ if !hideTags && tags?.length }}
+<div
+  class="text-xs/3 text-zinc-500 {{ if onlyTags }}mt-0{{ else }}ml-4 mt-2{{ /if }} flex flex-wrap gap-2 break-keep">
   {{ for tag of tags }}
     {{ set page = search.page(`type=tag lang=${lang} tag="${tag}"`) }}
     {{ if page }}
       <a
         data-pagefind-filter="{{ i18n.search.filter_by_tag }}"
-        class="relative z-30 rounded-md bg-esoliawhite-alt px-2 py-1 text-xs font-medium text-zinc-600 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 no-underline"
+        class="m3-chip relative z-30 border border-outline-variant bg-surface-container-low px-3 py-1 text-xs font-medium text-zinc-700 hover:bg-surface-container dark:text-zinc-200 no-underline"
         href="{{ page.url }}"
       >{{ tag }}</a>
     {{ /if }}
   {{ /for }}
 </div>
+{{ /if }}
 {{# No photo credit here, deliberately.
 
     The post page never shows the credited photo: `image` is the Open Graph

@@ -76,10 +76,10 @@ bodyClass: body-tag
             <div>
               <a
                 href="{{ i18n.archive.url }}"
-                class="inline-flex items-center gap-1.5 text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+                class="m3-chip group -ml-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-zinc-600 hover:bg-surface-container hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 no-underline"
               >
                 <img
-                  class="h-4 w-4 shrink-0 opacity-70"
+                  class="h-4 w-4 shrink-0 opacity-70 transition-transform duration-200 ease-m3-spring group-hover:-translate-x-0.5"
                   src='{{ "arrow-left" |> icon("phosphor", "duotone") }}'
                   alt=""
                   aria-hidden="true"

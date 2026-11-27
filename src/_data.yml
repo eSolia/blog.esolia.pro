@@ -27,7 +27,7 @@ mobilenav:
       aria_label: サイト内リンク
       title: ブログのトップページ
     - text: アーカイブ
-      href: /archive
+      href: /archive/
       target: _self
       icon: archive
       aria_label: サイト内リンク
@@ -60,7 +60,7 @@ mobilenav:
 footernav:
   links:
     - text: アーカイブ
-      href: /archive
+      href: /archive/
       target: _self
       icon: archive
       aria_label: サイト内リンク
@@ -148,7 +148,7 @@ en:
         aria_label: Site internal link
         title: Blog home
       - text: Archive
-        href: /en/archive
+        href: /en/archive/
         target: _self
         icon: archive
         aria_label: Site internal link
@@ -181,7 +181,7 @@ en:
   footernav:
     links:
       - text: Archive
-        href: /archive
+        href: /en/archive/
         target: _self
         icon: archive
         aria_label: Site internal link

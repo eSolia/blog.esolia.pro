@@ -1,0 +1,341 @@
+/* ==========================================================================
+   eSolia Material 3 (Refined B2B Tactile) Token & Flourish Layer
+   Shared design tokens across esolia-2025 (SvelteKit) and blog.esolia.pro (Lume).
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+}
+
+:root:where(.dark) {
+  color-scheme: dark;
+}
+
+@theme {
+  /* ── M3 Motion & Spring Physics Curves ─────────────────────────────── */
+  --ease-m3-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-m3-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+  --ease-m3-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --ease-m3-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-m3-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --ease-m3-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --ease-m3-spring: linear(
+    0,
+    0.009,
+    0.035 2.1%,
+    0.141,
+    0.281 6.7%,
+    0.723 12.9%,
+    0.938 16.7%,
+    1.017,
+    1.036 22.7%,
+    1.028 27%,
+    1.005 38%,
+    0.999 48%,
+    1
+  );
+
+  /* ── M3 Tonal Surface Hierarchy (Calm Navy-Tinted oklch) ───────────── */
+  --color-surface: light-dark(oklch(99.4% 0.003 265), oklch(14.5% 0.012 272));
+  --color-surface-dim: light-dark(oklch(96.8% 0.006 268), oklch(12.5% 0.01 272));
+  --color-surface-container-lowest: light-dark(#ffffff, oklch(17.5% 0.013 272));
+  --color-surface-container-low: light-dark(oklch(98% 0.005 268), oklch(21.5% 0.016 272));
+  --color-surface-container: light-dark(oklch(95.8% 0.008 268), oklch(25% 0.02 272));
+  --color-surface-container-high: light-dark(oklch(93.8% 0.011 268), oklch(28.5% 0.023 272));
+  --color-surface-container-highest: light-dark(oklch(91.5% 0.014 268), oklch(32.5% 0.026 272));
+
+  --color-secondary-container: light-dark(oklch(93.2% 0.022 266), oklch(30.5% 0.042 272));
+  --color-on-secondary-container: light-dark(oklch(27.5% 0.065 275), oklch(93% 0.018 266));
+  --color-outline-variant: light-dark(oklch(88.5% 0.012 268), oklch(35% 0.02 272));
+
+  --shadow-m3-1: 0 1px 2px 0 rgb(18 21 48 / 0.06), 0 1px 3px 1px rgb(18 21 48 / 0.05);
+  --shadow-m3-2: 0 1px 2px 0 rgb(18 21 48 / 0.08), 0 4px 10px 2px rgb(18 21 48 / 0.07);
+  --shadow-m3-3: 0 4px 8px 3px rgb(18 21 48 / 0.09), 0 1px 3px 0 rgb(18 21 48 / 0.12);
+}
+
+/* ── Per-Category Accent & ::selection Tokens ───────────────────────────
+   Default on the blog is indigo (matching SECTION_COLORS.blog on esolia.co.jp).
+   Post and category pages set `data-accent="<color>"` on <html>. */
+:root,
+[data-accent="indigo"] {
+  --section-accent: var(--color-indigo-500);
+  --section-hover: light-dark(var(--color-sky-700), var(--color-sky-300));
+  --section-selection-bg: light-dark(oklch(90% 0.07 272), oklch(37% 0.105 272));
+  --section-selection-fg: light-dark(oklch(21% 0.065 275), oklch(97% 0.02 272));
+}
+
+[data-accent="cyan"] {
+  --section-accent: var(--color-cyan-500);
+  --section-hover: light-dark(var(--color-cyan-700), var(--color-cyan-300));
+  --section-selection-bg: light-dark(oklch(91% 0.072 210), oklch(37% 0.09 210));
+  --section-selection-fg: light-dark(oklch(22% 0.05 215), oklch(97% 0.02 210));
+}
+
+[data-accent="amber"],
+[data-accent="esoliaamber"] {
+  --section-accent: var(--color-amber-500);
+  --section-hover: light-dark(var(--color-amber-700), var(--color-amber-300));
+  --section-selection-bg: light-dark(oklch(91.5% 0.095 82), oklch(40% 0.105 78));
+  --section-selection-fg: light-dark(oklch(23% 0.05 75), oklch(98% 0.02 82));
+}
+
+[data-accent="fuchsia"] {
+  --section-accent: var(--color-fuchsia-500);
+  --section-hover: light-dark(
+    var(--color-fuchsia-700),
+    var(--color-fuchsia-300)
+  );
+  --section-selection-bg: light-dark(oklch(91% 0.082 322), oklch(37% 0.11 322));
+  --section-selection-fg: light-dark(oklch(23% 0.07 322), oklch(97% 0.02 322));
+}
+
+[data-accent="lime"] {
+  --section-accent: var(--color-lime-500);
+  --section-hover: light-dark(var(--color-lime-700), var(--color-lime-300));
+  --section-selection-bg: light-dark(oklch(92% 0.095 130), oklch(38% 0.1 130));
+  --section-selection-fg: light-dark(oklch(22% 0.055 132), oklch(97% 0.02 130));
+}
+
+[data-accent="emerald"] {
+  --section-accent: var(--color-emerald-500);
+  --section-hover: light-dark(
+    var(--color-emerald-700),
+    var(--color-emerald-300)
+  );
+  --section-selection-bg: light-dark(oklch(91% 0.082 162), oklch(37% 0.095 162));
+  --section-selection-fg: light-dark(oklch(21% 0.05 164), oklch(97% 0.02 162));
+}
+
+[data-accent="red"] {
+  --section-accent: var(--color-red-500);
+  --section-hover: light-dark(var(--color-red-700), var(--color-red-300));
+  --section-selection-bg: light-dark(oklch(90.5% 0.075 22), oklch(37% 0.115 24));
+  --section-selection-fg: light-dark(oklch(23% 0.07 24), oklch(97% 0.02 22));
+}
+
+[data-accent="sky"] {
+  --section-accent: var(--color-sky-500);
+  --section-hover: light-dark(var(--color-sky-700), var(--color-sky-300));
+  --section-selection-bg: light-dark(oklch(90.5% 0.07 238), oklch(37% 0.095 238));
+  --section-selection-fg: light-dark(oklch(21% 0.055 242), oklch(97% 0.02 238));
+}
+
+[data-accent="teal"] {
+  --section-accent: var(--color-teal-500);
+  --section-hover: light-dark(var(--color-teal-700), var(--color-teal-300));
+  --section-selection-bg: light-dark(oklch(91% 0.072 182), oklch(37% 0.09 182));
+  --section-selection-fg: light-dark(oklch(21% 0.05 184), oklch(97% 0.02 182));
+}
+
+[data-accent="violet"] {
+  --section-accent: var(--color-violet-500);
+  --section-hover: light-dark(var(--color-violet-700), var(--color-violet-300));
+  --section-selection-bg: light-dark(oklch(90.5% 0.078 292), oklch(37% 0.11 292));
+  --section-selection-fg: light-dark(oklch(22% 0.07 292), oklch(97% 0.02 292));
+}
+
+::selection {
+  background-color: var(--section-selection-bg);
+  color: var(--section-selection-fg);
+}
+
+/* Smooth intrinsic height animations for <details> disclosures */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+@supports selector(::details-content) {
+  details::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow-y: clip;
+    transition:
+      block-size 280ms var(--ease-m3-emphasized-decelerate),
+      opacity 220ms var(--ease-m3-standard),
+      content-visibility 280ms allow-discrete;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+
+/* Pointer-origin M3 ripple wave */
+.m3-ripple-wave {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  background-color: var(--m3-ripple-color, currentColor);
+  opacity: 0;
+  transform: scale(0.18);
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .m3-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Category-whisper porcelain gutter backdrop */
+  .m3-reading-canvas {
+    background-color: light-dark(
+      color-mix(in oklch, oklch(96.8% 0.003 262) 98.2%, var(--section-accent)),
+      color-mix(in oklch, oklch(14.6% 0.012 272) 96.5%, var(--section-accent))
+    );
+    transition: background-color 280ms var(--ease-m3-standard);
+  }
+
+  /* Glare-free warm paper reading sheet (0px box-shadow ring preserves exact column width) */
+  .m3-reading-sheet {
+    background-color: light-dark(oklch(99.65% 0.0015 260), oklch(19.2% 0.014
+      272));
+    box-shadow:
+      0 0 0 1px light-dark(oklch(91.5% 0.008 265 / 0.85), oklch(32% 0.02 272 /
+      0.75)),
+      0 1px 3px 0 rgb(18 21 48 / 0.04),
+      0 8px 28px -4px rgb(18 21 48 / 0.05);
+  }
+
+  /* M3 Interactive Chip / Category Pill
+     Uses a finite pill radius (1.25rem) and non-overshooting standard curve:
+     Tailwind's `rounded-full` uses `calc(infinity * 1px)`, which causes spring
+     overshoot (>1.0) to clamp to `border-radius: 0px` (4 pointy square corners). */
+  .m3-chip {
+    --m3-ripple-opacity: 0.1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    transition:
+      border-radius 190ms var(--ease-m3-standard),
+      background-color 180ms var(--ease-m3-standard),
+      border-color 180ms var(--ease-m3-standard),
+      color 180ms var(--ease-m3-standard),
+      transform 190ms var(--ease-m3-spring),
+      box-shadow 180ms var(--ease-m3-standard);
+
+    &:active {
+      border-radius: 0.5625rem;
+      transform: scale(0.96);
+    }
+  }
+
+  /* Floating Top-Nav Control Pill / Round Button
+     M3 Expressive Squircle (Option B): finite 1.25rem (20px) circle morphs
+     smoothly to 0.625rem (10px) on press with zero overshoot. */
+  .m3-nav-pill {
+    --m3-ripple-opacity: 0.11;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background-color: light-dark(oklch(99% 0.003 262 / 0.92), oklch(24% 0.018
+      272 / 0.92));
+    border: 1px solid var(--color-outline-variant);
+    box-shadow: var(--shadow-m3-1);
+    backdrop-filter: blur(8px);
+    transition:
+      border-radius 190ms var(--ease-m3-standard),
+      background-color 180ms var(--ease-m3-standard),
+      border-color 180ms var(--ease-m3-standard),
+      box-shadow 200ms var(--ease-m3-standard),
+      transform 190ms var(--ease-m3-spring);
+
+    &:hover {
+      background-color: var(--color-surface-container);
+      box-shadow: var(--shadow-m3-2);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      border-radius: 0.625rem;
+      transform: translateY(0) scale(0.94);
+    }
+  }
+
+  /* Primary Filled Action Button (Archive CTA, Newsletter Subscribe, Contact) */
+  .m3-btn-filled {
+    --m3-ripple-color: #ffffff;
+    --m3-ripple-opacity: 0.14;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.875rem;
+    padding: 0.5625rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: var(--color-sky-700);
+    box-shadow: var(--shadow-m3-1);
+    text-decoration: none;
+    transition:
+      border-radius 240ms var(--ease-m3-spring),
+      background-color 180ms var(--ease-m3-standard),
+      box-shadow 220ms var(--ease-m3-standard),
+      transform 220ms var(--ease-m3-spring);
+
+    &:hover {
+      color: #ffffff;
+      background-color: var(--color-sky-600);
+      border-radius: 1.0625rem;
+      box-shadow: var(--shadow-m3-2);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      border-radius: 0.5rem;
+      background-color: var(--color-sky-800);
+      transform: translateY(0) scale(0.98);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-indigo-500);
+      outline-offset: 2px;
+    }
+  }
+
+  /* Icon-only toolbar/dialog button (Option B Expressive Squircle: 20px -> 10px) */
+  .m3-icon-btn {
+    --m3-ripple-opacity: 0.12;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    min-height: 2.5rem;
+    min-width: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.25rem;
+    padding: 0.5rem;
+    transition:
+      background-color 180ms var(--ease-m3-standard),
+      border-radius 190ms var(--ease-m3-standard),
+      color 180ms var(--ease-m3-standard),
+      transform 190ms var(--ease-m3-spring);
+
+    &:hover {
+      background-color: color-mix(in oklch, currentColor 9%, transparent);
+    }
+
+    &:active {
+      background-color: color-mix(in oklch, currentColor 14%, transparent);
+      border-radius: 0.625rem;
+      transform: scale(0.94);
+    }
+  }
+}

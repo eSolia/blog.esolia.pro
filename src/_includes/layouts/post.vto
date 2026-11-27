@@ -15,10 +15,10 @@ bodyClass: body-post
                   type="button"
                   href='/{{ if lang === "en"}}en{{/if}}'
                   aria-label="{{ i18n.nav.return_home }}"
-                  class="btn group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-esoliawhite-light shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition lg:absolute lg:-left-5 lg:-mt-0 lg:mb-0 xl:-top-0 xl:left-0 xl:-mt-0 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20"
+                  class="m3-nav-pill group mb-8 flex h-10 w-10 items-center justify-center lg:absolute lg:-left-5 lg:-mt-0 lg:mb-0 xl:-top-0 xl:left-0 xl:-mt-0"
                 >
                   <img
-                    class="size-6 stroke-zinc-300 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400"
+                    class="size-5 stroke-zinc-400 transition-all duration-200 ease-m3-spring group-hover:-translate-x-0.5 group-hover:stroke-zinc-700 dark:stroke-zinc-400 dark:group-hover:stroke-zinc-200"
                     src='{{ "arrow-left" |> icon("phosphor", "duotone") }}'
                     inline
                   />
@@ -35,12 +35,19 @@ bodyClass: body-post
                     which dropped the H1 from the markdown. Inside <main> a
                     <header> is not a landmark, so nothing is lost. #}}
                 <div class="flex flex-col -top-4">
-                  {{# {{ include "templates/post-details.vto" { elapsed: elapseddays } }} #}}
                   <h1
                     class="mt-1 text-fluid-title font-semibold tracking-tight text-sky-950 dark:text-zinc-100 subpixel-antialiased"
                   >
                     {{ title }}
                   </h1>
+                  <div class="mt-3">
+                    {{
+                      include "templates/post-details.vto" {
+                        elapsed: elapseddays,
+                        hideTags: true,
+                      }
+                    }}
+                  </div>
                   {{ if toc.length }}
                     {{ include "templates/page-toc.vto" }}
                   {{ /if }}
@@ -76,9 +83,11 @@ bodyClass: body-post
                   {{ if cardPreview }}
                     {{ include "templates/social-card-preview.vto" }}
                   {{ /if }}
-                  {{
-                    include "templates/post-details.vto" { elapsed: elapseddays }
-                  }}
+                  {{ if tags?.length }}
+                    <div class="not-prose mt-8">
+                      {{ include "templates/post-details.vto" { onlyTags: true } }}
+                    </div>
+                  {{ /if }}
                   {{ include "templates/post-share.vto" }}
                   {{# {{ include "templates/post-image.vto" }} #}}
                   {{# <nav class="page-pagination pagination">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- ===== base.vto LAYOUT START ===== -->
-
-<html lang="{{ it.lang }}">
+{{ set activeColor = color || featurecats?.find((c) => c.key === category)?.color || "indigo" }}
+<html lang="{{ it.lang }}" data-accent="{{ activeColor }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,7 +92,7 @@
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
     {{# {{ it.extra_head?.join("\n") }} #}}
   </head>
-  <body class="flex h-full bg-esoliawhite-alt dark:bg-zinc-900">
+  <body class="m3-reading-canvas flex h-full">
     {{ include "templates/skiplink.vto" }}
     <!-- Container start -->
     <div class="flex w-full">
@@ -112,9 +112,9 @@
               everything without any z-index wrangling — the content column is
               a later sibling of this whole fixed layer. #}}
           <div
-            class="relative overflow-hidden w-full bg-esoliawhite ring-1 ring-zinc-900/5 dark:bg-zinc-950 dark:ring-zinc-300/10"
+            class="m3-reading-sheet relative w-full overflow-hidden"
           >
-            {{ if id == "home" }}
+            {{ if id == "home" || bodyClass == "body-post" }}
               {{ include "templates/hero-circuit.vto" }}
             {{ /if }}
           </div>

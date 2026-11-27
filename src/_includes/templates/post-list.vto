@@ -15,16 +15,16 @@
 >
   <div class="flex flex-col items-start md:col-span-3">
       <h2
-        class="text-base font-semibold tracking-tight text-zinc-950 dark:text-zinc-100"
+        class="text-base font-semibold tracking-tight text-sky-950 dark:text-zinc-100"
       >
         <div
-          class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-esoliawhite-alt opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50"
+          class="absolute -inset-x-4 -inset-y-6 z-0 scale-[0.97] border border-outline-variant/60 bg-surface-container-low opacity-0 shadow-m3-1 transition-all duration-240 ease-m3-spring group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl"
         >
         </div>
         <a
           href="{{ post.url }}"
           data-faid="{{ post.lang }}-{{ if post.id.length > 0 }}{{ post.id }}{{ else }}{{ loop.index }}{{ /if }}"
-          class="data-fatrigger"
+          class="data-fatrigger text-sky-950 group-hover:text-sky-700 dark:text-zinc-100 dark:group-hover:text-sky-300 no-underline transition-colors duration-200"
           {{ if post.url == url }}
             aria-current="page"{{ /if }}
         ><span
@@ -57,13 +57,13 @@
       }}
       <div
         aria-hidden="true"
-        class="relative z-10 mt-4 flex items-center text-sm font-medium text-sky-500"
+        class="relative z-10 mt-4 flex items-center gap-0.5 text-sm font-medium text-sky-600 dark:text-sky-400"
       >
         {{ i18n.nav.continue_reading }}<img
           alt=""
           loading="lazy"
           decoding="async"
-          class="h-4 w-4 fill-sky-500 dark:fill-sky-300"
+          class="h-4 w-4 fill-sky-600 dark:fill-sky-400 transition-transform duration-200 ease-m3-spring group-hover:translate-x-0.5"
           src='{{ "caret-right" |> icon("phosphor") }}'
           inline
         >

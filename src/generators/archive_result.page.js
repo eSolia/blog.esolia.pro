@@ -8,81 +8,85 @@ export const lang = ["ja", "en"];
 export default function* (
   { search, lang, i18n, featuretags, featurecats, tagaliases, authors },
 ) {
-  // Per-tag/category archive pages (~68% of all pages) aren't needed for the CMS
-  // editor preview. Skip them under the CMS (LUME_CMS=true) to shrink the
-  // rebuild window; the public Cloudflare build still generates them.
-  if (Deno.env.get("LUME_CMS") === "true") return;
-  // Generate a page for each tag
-  // Retired tag names redirect to the tag that replaced them. Consolidating a
-  // tag removes its page, so without these every link and bookmark pointing at
-  // the old name 404s — silently, because nothing in the build fails. See
-  // src/_data/tagaliases.yml.
-  // The multilanguage plugin prefixes `url` for non-default languages but does
-  // NOT touch `oldUrl`, so the prefix has to be applied by hand. Without it the
-  // English redirects are emitted at /archive/<name>/ and collide with the
-  // Japanese tag pages of the same name — the build reports a duplicate output
-  // path for Microsoft365, SharePointOnline and Windows10.
+  // Per-tag and per-author archive pages (~68% of all pages) aren't needed for
+  // the CMS editor preview (and `lume -s` sets LUME_CMS=true whenever _cms.ts
+  // is present). Skip those under LUME_CMS=true to shrink the rebuild window,
+  // while still generating the ~9 category pages per language so the home-page
+  // category bar (#top-main-cats) and category links always work in preview.
+  const isCms = Deno.env.get("LUME_CMS") === "true";
   const localePrefix = lang === "ja" ? "" : `/${lang}`;
   const aliasesFor = (tag) => tagaliases?.[lang]?.[tag] ?? [];
   // Sitemap lastmod for a listing: its newest post. Without it the sitemap fell
   // back to this script's git date, which changes with the code, not the content.
   const newest = (query) => search.pages(query, "date=desc", 1)[0]?.date;
 
-  for (const tag of search.values("tags", `lang=${lang}`)) {
-    yield {
-      ...featuretags.find((item) => item.key === tag), // <- Add the id and summary etc from featuretags
-      url: `/archive/${tag}/`,
-      // Tags get the schematic artwork and no colour — see tagArtFor().
-      heroArt: tagArtFor(tag),
-      // Percent-encode the retired name. The redirects plugin splits each
-      // oldUrl on whitespace to allow an optional trailing status code, so a
-      // name like "internal IT support" is read as a path plus the status
-      // "support" and rejected as an invalid status code.
-      oldUrl: aliasesFor(tag).map(
-        (old) => `${localePrefix}/archive/${encodeURIComponent(old)}/`,
-      ),
-      // `heading_label` is the H1 eyebrow, printed beside the name. `title`
-      // must carry the name too: it feeds <title>, og:title and the JSON-LD
-      // headline, which all read just "Tag:" when it held the label alone.
-      heading_label: `${i18n.search.by_tag}:`,
-      title: `${i18n.search.by_tag}: ${tag}`,
-      subtitle:
-        `${i18n.punctuation.open_quote}${tag}${i18n.punctuation.close_quote}`,
-      type: "tag",
-      // Tag listings stay out of search indexes and the sitemap: about 360 of
-      // them, many near-duplicates, earned 0.2% of the blog's impressions and
-      // no clicks over 2026-09-19 to 2026-11-21 (eSolia/esolia-2025#768).
-      // Links stay followable. Category and author listings are unaffected.
-      noindex: true,
-      noindex_follow: true,
-      search_query: `type=post lang=${lang} '${tag}'`,
-      lastmod: newest(`type=post lang=${lang} '${tag}'`),
-      tag,
-      i18n,
-    };
-  }
-  // Generate a page for each author. A byline that was renamed keeps a
-  // redirect from its old author page (`former_bylines` in
-  // src/_data/authors.yml), encoded as for tags above.
-  const formerBylines = (author) =>
-    authors?.find((item) => normalizeByline(item.byline ?? "") === author)
-      ?.former_bylines ?? [];
-  for (const author of search.values("author", `lang=${lang}`)) {
-    yield {
-      url: `/author/${author}/`,
-      oldUrl: formerBylines(author).map(
-        (old) => `${localePrefix}/author/${encodeURIComponent(old)}/`,
-      ),
-      heading_label: `${i18n.search.by_author}:`,
-      title: `${i18n.search.by_author}: ${author}`,
-      subtitle:
-        `${i18n.punctuation.open_quote}${author}${i18n.punctuation.close_quote}`,
-      type: "author",
-      search_query: `type=post lang=${lang} author='${author}'`,
-      lastmod: newest(`type=post lang=${lang} author='${author}'`),
-      author,
-      i18n,
-    };
+  if (!isCms) {
+    // Generate a page for each tag
+    // Retired tag names redirect to the tag that replaced them. Consolidating a
+    // tag removes its page, so without these every link and bookmark pointing at
+    // the old name 404s — silently, because nothing in the build fails. See
+    // src/_data/tagaliases.yml.
+    // The multilanguage plugin prefixes `url` for non-default languages but does
+    // NOT touch `oldUrl`, so the prefix has to be applied by hand. Without it the
+    // English redirects are emitted at /archive/<name>/ and collide with the
+    // Japanese tag pages of the same name — the build reports a duplicate output
+    // path for Microsoft365, SharePointOnline and Windows10.
+    for (const tag of search.values("tags", `lang=${lang}`)) {
+      yield {
+        ...featuretags.find((item) => item.key === tag), // <- Add the id and summary etc from featuretags
+        url: `/archive/${tag}/`,
+        // Tags get the schematic artwork and no colour — see tagArtFor().
+        heroArt: tagArtFor(tag),
+        // Percent-encode the retired name. The redirects plugin splits each
+        // oldUrl on whitespace to allow an optional trailing status code, so a
+        // name like "internal IT support" is read as a path plus the status
+        // "support" and rejected as an invalid status code.
+        oldUrl: aliasesFor(tag).map(
+          (old) => `${localePrefix}/archive/${encodeURIComponent(old)}/`,
+        ),
+        // `heading_label` is the H1 eyebrow, printed beside the name. `title`
+        // must carry the name too: it feeds <title>, og:title and the JSON-LD
+        // headline, which all read just "Tag:" when it held the label alone.
+        heading_label: `${i18n.search.by_tag}:`,
+        title: `${i18n.search.by_tag}: ${tag}`,
+        subtitle:
+          `${i18n.punctuation.open_quote}${tag}${i18n.punctuation.close_quote}`,
+        type: "tag",
+        // Tag listings stay out of search indexes and the sitemap: about 360 of
+        // them, many near-duplicates, earned 0.2% of the blog's impressions and
+        // no clicks over 2026-09-19 to 2026-11-21 (eSolia/esolia-2025#768).
+        // Links stay followable. Category and author listings are unaffected.
+        noindex: true,
+        noindex_follow: true,
+        search_query: `type=post lang=${lang} '${tag}'`,
+        lastmod: newest(`type=post lang=${lang} '${tag}'`),
+        tag,
+        i18n,
+      };
+    }
+    // Generate a page for each author. A byline that was renamed keeps a
+    // redirect from its old author page (`former_bylines` in
+    // src/_data/authors.yml), encoded as for tags above.
+    const formerBylines = (author) =>
+      authors?.find((item) => normalizeByline(item.byline ?? "") === author)
+        ?.former_bylines ?? [];
+    for (const author of search.values("author", `lang=${lang}`)) {
+      yield {
+        url: `/author/${author}/`,
+        oldUrl: formerBylines(author).map(
+          (old) => `${localePrefix}/author/${encodeURIComponent(old)}/`,
+        ),
+        heading_label: `${i18n.search.by_author}:`,
+        title: `${i18n.search.by_author}: ${author}`,
+        subtitle:
+          `${i18n.punctuation.open_quote}${author}${i18n.punctuation.close_quote}`,
+        type: "author",
+        search_query: `type=post lang=${lang} author='${author}'`,
+        lastmod: newest(`type=post lang=${lang} author='${author}'`),
+        author,
+        i18n,
+      };
+    }
   }
   // Generate a page for each category
   for (const category of search.values("category", `lang=${lang}`)) {

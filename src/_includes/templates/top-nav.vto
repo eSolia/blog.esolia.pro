@@ -72,7 +72,7 @@
   </div>
   <div
     id="top-nav-bg"
-    class="fixed top-0 z-10 h-20 pt-6 w-full bg-esoliawhite-alt/50 dark:bg-zinc-700/50 transition-all duration-700 backdrop-blur shadow-xs"
+    class="fixed top-0 z-10 h-20 pt-6 w-full bg-surface/50 transition-colors duration-300 backdrop-blur-md shadow-xs"
   >
     <div class="top-(--header-top,--spacing(6)) w-full sm:px-8 fixed">
       <div class="mx-auto w-full max-w-7xl lg:px-8">
@@ -100,7 +100,7 @@
               <div class="flex flex-1 justify-end lg:justify-center">
                 <div class="pointer-events-auto lg:hidden relative">
                   <button
-                    class="group flex items-center rounded-full bg-esoliawhite-light/90 px-4 py-2 text-sm whitespace-nowrap font-medium text-zinc-950 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
+                    class="m3-nav-pill group flex items-center px-4 py-2 text-sm whitespace-nowrap font-medium text-zinc-950 dark:text-zinc-100"
                     type="button"
                     {{# aria-expanded starts false for the server-rendered
                         state and is kept in step by the drawer's menu-state
@@ -145,7 +145,7 @@
                   <a
                     href="{{ i18n.mainsite.url }}"
                     aria-label="{{ i18n.mainsite.label }}"
-                    class="group block rounded-full bg-esoliawhite-light/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50"
+                    class="m3-nav-pill group block px-3 py-2 z-50"
                   >
                     <span>
                       <img
@@ -158,7 +158,7 @@
                     </span>
                   </a>
                   <div
-                    class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-zinc-200 text-zinc-950 dark:bg-zinc-700 dark:text-zinc-200 text-sm rounded-md opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none z-50 whitespace-nowrap before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-8 before:border-x-transparent before:border-t-0 before:border-b-zinc-200 dark:before:border-b-zinc-700"
+                    class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2.5 py-1 bg-surface-container-highest text-zinc-950 dark:text-zinc-100 text-xs font-medium rounded-lg shadow-m3-1 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 pointer-events-none z-50 whitespace-nowrap"
                   >
                     {{ i18n.mainsite.tooltip }}
                   </div>
@@ -170,7 +170,7 @@
                     type="button"
                     id="search-button" 
                     aria-label="{{ i18n.search.open_search }}"
-                    class="group rounded-full bg-esoliawhite-light/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50"
+                    class="m3-nav-pill group px-3 py-2 z-50"
                   >
                     <span>
                       <img
@@ -181,7 +181,7 @@
                     </span>
                   </button>
                   <div
-                    class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-zinc-200 text-zinc-950 dark:bg-zinc-700 dark:text-zinc-200  text-sm rounded-md opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none z-50 whitespace-nowrap before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-8 before:border-x-transparent before:border-t-0 before:border-b-zinc-200 dark:before:border-b-zinc-700"
+                    class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2.5 py-1 bg-surface-container-highest text-zinc-950 dark:text-zinc-100 text-xs font-medium rounded-lg shadow-m3-1 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 pointer-events-none z-50 whitespace-nowrap"
                   >
                     {{ i18n.search.tooltip |> safe }}{{# site-authored i18n; contains <kbd> and <br> by design #}}
                   </div>
@@ -196,7 +196,7 @@
                     type="button"
                     data-theme-toggle
                     aria-label="{{ i18n.nav.toggle_theme }}"
-                    class="group rounded-full bg-esoliawhite-light/90 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50"
+                    class="m3-nav-pill group px-3 py-2 z-50"
                   >
                     <img
                       class="h-5 w-5 fill-esoliaamber-500 stroke-esoliaamber-800 transition group-hover:fill-sky-400 group-hover:stroke-sky-600 hover:scale-110 dark:hidden"
@@ -228,7 +228,7 @@
                   <div class="pointer-events-auto z-50 hidden lg:block">
                     {{- for alt of alternates }}{{ if alt.lang !== lang }}
                         <a
-                          class="group relative block rounded-full bg-sky-800/95 px-3 py-2 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 z-50 text-sm font-medium text-zinc-50 dark:text-zinc-200 hover:text-esoliaamber-400 dark:hover:text-esoliaamber-500"
+                          class="m3-chip group relative block bg-sky-800/95 px-3.5 py-2 shadow-m3-1 border border-sky-700/50 backdrop-blur-sm dark:bg-surface-container dark:border-outline-variant z-50 text-sm font-medium text-zinc-50 dark:text-zinc-100 hover:text-esoliaamber-300 dark:hover:text-esoliaamber-400 no-underline"
                           href="{{ alt.url }}"
                           hreflang="{{ alt.lang }}"
                           lang="{{ alt.lang }}"
@@ -238,7 +238,7 @@
                           title="{{ alt.title }}"
                         >{{ if alt.lang == "ja" }}日本語{{ else }}English{{
                           /if
-                        }}<span class="absolute inset-x-1 -bottom-px h-px bg-linear-to-r from-zinc-500/0 via-zinc-500/40 to-zinc-500/0 dark:from-zinc-400/0 dark:via-zinc-400/40 dark:to-zinc-400/0 opacity-0 group-hover:opacity-100 transition duration-300"></span></a>
+                        }}</a>
                       {{ /if }}{{ /for }}
                   </div>
                 {{ /if }}
@@ -277,21 +277,21 @@
     {{# Backdrop. Click to dismiss; inert to screen readers. #}}
     <div
       data-menu-backdrop
-      class="invisible fixed inset-0 z-90 bg-zinc-900/40 opacity-0 backdrop-blur-xs transition-opacity duration-200"
+      class="invisible fixed inset-0 z-90 bg-esoliablue-950/45 dark:bg-black/65 opacity-0 backdrop-blur-[3px] transition-opacity duration-200"
       aria-hidden="true"
     >
     </div>
 
     <div
       data-menu-panel
-      class="invisible fixed inset-y-0 right-0 z-100 flex w-72 max-w-[85vw] translate-x-full flex-col bg-esoliawhite shadow-xl transition-transform duration-200 ease-out dark:bg-zinc-900"
+      class="invisible fixed inset-y-0 right-0 z-100 flex w-76 max-w-[85vw] translate-x-full flex-col rounded-l-3xl border-l border-outline-variant bg-surface-container-low shadow-2xl transition-transform duration-300 ease-m3-emphasized-decelerate"
       role="dialog"
       aria-modal="true"
       aria-label="{{ i18n.nav.mobile_nav_name }}"
       id="mobile-menu-panel"
     >
       <div
-        class="flex items-center justify-between border-b border-zinc-200 px-4 py-3 dark:border-zinc-700"
+        class="flex items-center justify-between border-b border-outline-variant px-5 py-3"
       >
         <span
           class="text-sm font-medium text-zinc-600 dark:text-zinc-300"
@@ -299,7 +299,7 @@
         <button
           type="button"
           aria-label="{{ i18n.search.close_link }}"
-          class="rounded-md p-2 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+          class="m3-icon-btn -mr-1.5 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
           data-menu-close
         >
           <img
@@ -312,12 +312,12 @@
         </button>
       </div>
 
-      <nav class="flex-1 overflow-y-auto px-4 py-4">
+      <nav class="flex-1 overflow-y-auto px-3 py-4">
         <ul class="space-y-1">
           {{- for item of it.mobilenav.primary }}
             <li>
               <a
-                class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white"
+                class="m3-ripple flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:bg-surface-container hover:text-zinc-900 dark:text-zinc-200 dark:hover:text-white no-underline"
                 href="{{ item.href }}"
                 {{- if item.target }}target="{{ item.target }}"{{ /if -}}
                 {{- if item.target === "_blank" }}rel="noopener"{{ /if -}}
@@ -338,13 +338,13 @@
         </ul>
 
         <div
-          class="mt-4 border-t border-zinc-200 pt-4 dark:border-zinc-700"
+          class="mt-4 border-t border-outline-variant pt-4"
         >
           <ul class="space-y-1">
             {{- for item of it.mobilenav.secondary }}
               <li>
                 <a
-                  class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+                  class="m3-ripple flex items-center gap-3 rounded-full px-4 py-2 text-sm text-zinc-500 transition-colors hover:bg-surface-container hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-100 no-underline"
                   href="{{ item.href }}"
                   {{- if item.target }}target="{{ item.target }}"{{ /if -}}
                   {{- if item.target === "_blank" }}rel="noopener"{{ /if -}}
@@ -369,14 +369,14 @@
       {{# Theme on the left, language on the right, as on the
           main site. #}}
       <div
-        class="border-t border-zinc-200 px-4 py-4 dark:border-zinc-700"
+        class="border-t border-outline-variant px-5 py-3.5"
       >
         <div class="flex items-center justify-between">
           <button
             type="button"
             data-theme-toggle
             aria-label="{{ i18n.nav.toggle_theme }}"
-            class="rounded-md p-2 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+            class="m3-icon-btn -ml-1.5 text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-100"
           >
             <img
               class="h-5 w-5 dark:hidden"
@@ -396,7 +396,7 @@
           {{ if alternates && alternates.length > 1 }}
             {{- for alt of alternates }}{{ if alt.lang !== lang }}
                 <a
-                  class="rounded-full bg-sky-800/95 px-3 py-1.5 text-sm text-white ring-1 ring-zinc-900/5 transition hover:bg-sky-700"
+                  class="m3-chip bg-sky-800/95 px-4 py-1.5 text-sm font-medium text-white shadow-m3-1 hover:bg-sky-700 no-underline"
                   href="{{ alt.url }}"
                   hreflang="{{ alt.lang }}"
                   lang="{{ alt.lang }}"

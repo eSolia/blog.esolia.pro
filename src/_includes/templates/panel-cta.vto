@@ -1,7 +1,7 @@
 <!-- ===== panel-cta.vto TEMPLATE START ===== -->
 <div id="panel-cta" class="flex flex-col lg:flex-row lg:space-x-4">
   <form
-    class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 group"
+    class="rounded-3xl border border-outline-variant bg-surface-container-low p-6 shadow-m3-1 group"
     name="frm"
     method="post"
     id="newsletter"
@@ -53,7 +53,7 @@
         X
       </span>
       <button
-        class="ml-4 inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-700 transition hover:bg-sky-600 active:bg-sky-800 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-indigo-500/50 group-invalid:pointer-events-none group-invalid:bg-zinc-600"
+        class="m3-btn-filled ml-4 group-invalid:pointer-events-none group-invalid:bg-zinc-600 group-invalid:shadow-none"
         type="submit"
       >
         {{ i18n.newsletter.button }}
@@ -98,7 +98,7 @@
     </p>
   </form>
   <div
-    class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40 mt-6 lg:mt-0"
+    class="rounded-3xl border border-outline-variant bg-surface-container-low p-6 shadow-m3-1 mt-6 lg:mt-0"
   >
     <h2 class="flex text-sm font-semibold text-zinc-950 dark:text-zinc-100">
       <img
@@ -122,7 +122,7 @@
         role="button"
         tabindex="0"
         aria-label="{{ i18n.contact.aria_label }}"
-        class="inline-flex flex-none items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 text-zinc-50 bg-sky-700 transition hover:bg-sky-600 active:bg-sky-800 active:text-sky-100/70 active:transition-none dark:bg-sky-700 dark:hover:bg-sky-600 dark:active:bg-sky-700 dark:active:text-sky-100/70 transform hover:scale-105 active:scale-100 focus:ring-4 focus:ring-indigo-500/50"
+        class="m3-btn-filled"
       >
         {{ i18n.contact.button }}
       </a>

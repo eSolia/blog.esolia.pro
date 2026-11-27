@@ -51,12 +51,12 @@ script: /js/fathom-post-list-event.js
                 <div class="text-zinc-500 ml-1 mt-6">
                   <nav class="">
                     <h2>{{ i18n.search.categories }}:</h2>
-                    <ul class="flex flex-wrap space-x-2 space-y-2">
+                    <ul class="mt-2 flex flex-wrap gap-2">
                       {{ for page of pageCats }}
                         <li>
                           <a
                             href="{{ page.url }}"
-                            class="rounded-md bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-200 px-2 py-1 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-900 dark:text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-900 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/10 dark:ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap"
+                            class="m3-chip inline-flex items-center bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-200 px-3 py-1 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-900 dark:text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-900 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/15 dark:ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap"
                           >{{ page.category }}</a>
                         </li>
                       {{ /for }}
@@ -80,33 +80,33 @@ script: /js/fathom-post-list-event.js
                 <div class="text-zinc-500 ml-1 mt-4">
                   <nav class="">
                     <h2>{{ i18n.search.tags }}:</h2>
-                    <ul class="flex flex-wrap space-x-2 space-y-2">
+                    <ul class="mt-2 flex flex-wrap gap-2">
                       {{ for page of pageTags.slice(0, tagLimit) }}
                         <li>
                           <a
                             href="{{ page.url }}"
-                            class="rounded-md bg-esoliawhite-alt dark:bg-zinc-700 px-2 py-1 text-xs font-medium text-zinc-900 dark:text-zinc-50 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 dark:hover:bg-zinc-500 no-underline whitespace-nowrap"
+                            class="m3-chip inline-flex items-center border border-outline-variant bg-surface-container-low px-3 py-1 text-xs font-medium text-zinc-800 hover:bg-surface-container dark:text-zinc-100 no-underline whitespace-nowrap"
                           >{{ page.tag }}</a>
                         </li>
                       {{ /for }}
                     </ul>
 
                     {{ if pageTags.length > tagLimit }}
-                      <details class="tag-disclosure mt-2">
+                      <details class="tag-disclosure mt-3">
                         <summary
-                          class="inline-flex items-center gap-1.5 cursor-pointer rounded-md px-2 py-1 text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-50 select-none"
+                          class="m3-chip inline-flex items-center gap-1.5 cursor-pointer border border-outline-variant bg-surface-container px-3 py-1 text-xs font-medium text-zinc-700 dark:text-zinc-200 hover:bg-surface-container-high select-none"
                         >
                           {{# Both labels are rendered; CSS swaps them on
                               [open] so the control does not need script. #}}
                           <span class="tag-disclosure-more">{{ i18n.archive.show_all_tags }} ({{ pageTags.length }})</span>
                           <span class="tag-disclosure-less">{{ i18n.archive.show_fewer_tags }}</span>
                         </summary>
-                        <ul class="flex flex-wrap space-x-2 space-y-2 mt-2">
+                        <ul class="mt-2.5 flex flex-wrap gap-2">
                           {{ for page of pageTags.slice(tagLimit) }}
                             <li>
                               <a
                                 href="{{ page.url }}"
-                                class="rounded-md bg-esoliawhite-alt dark:bg-zinc-700 px-2 py-1 text-xs font-medium text-zinc-900 dark:text-zinc-50 ring-1 ring-zinc-500/10 ring-inset hover:bg-zinc-100 dark:hover:bg-zinc-500 no-underline whitespace-nowrap"
+                                class="m3-chip inline-flex items-center border border-outline-variant bg-surface-container-low px-3 py-1 text-xs font-medium text-zinc-800 hover:bg-surface-container dark:text-zinc-100 no-underline whitespace-nowrap"
                               >{{ page.tag }}</a>
                             </li>
                           {{ /for }}
