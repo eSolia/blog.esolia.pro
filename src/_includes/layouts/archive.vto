@@ -56,7 +56,7 @@ script: /js/fathom-post-list-event.js
                         <li>
                           <a
                             href="{{ page.url }}"
-                            class="m3-chip inline-flex items-center bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-200 px-3 py-1 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-900 dark:text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-900 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/15 dark:ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap"
+                            class="m3-chip inline-flex min-h-8 items-center bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-50 dark:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-200 px-3 py-1.5 text-xs font-medium text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-900 dark:text-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-900 ring-1 ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/15 dark:ring-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-500/30 ring-inset hover:bg-{{ if page.color }}{{ page.color }}{{ else }}zinc{{ /if }}-100 no-underline whitespace-nowrap"
                           >{{ page.category }}</a>
                         </li>
                       {{ /for }}
@@ -85,7 +85,7 @@ script: /js/fathom-post-list-event.js
                         <li>
                           <a
                             href="{{ page.url }}"
-                            class="m3-chip inline-flex items-center border border-outline-variant bg-surface-container-low px-3 py-1 text-xs font-medium text-zinc-800 hover:bg-surface-container dark:text-zinc-100 no-underline whitespace-nowrap"
+                            class="m3-chip inline-flex min-h-8 items-center border border-outline-variant bg-surface-container-low px-3 py-1.5 text-xs font-medium text-zinc-800 hover:bg-surface-container dark:text-zinc-100 no-underline whitespace-nowrap"
                           >{{ page.tag }}</a>
                         </li>
                       {{ /for }}
@@ -94,7 +94,7 @@ script: /js/fathom-post-list-event.js
                     {{ if pageTags.length > tagLimit }}
                       <details class="tag-disclosure mt-3">
                         <summary
-                          class="m3-chip inline-flex items-center gap-1.5 cursor-pointer border border-outline-variant bg-surface-container px-3 py-1 text-xs font-medium text-zinc-700 dark:text-zinc-200 hover:bg-surface-container-high select-none"
+                          class="m3-chip inline-flex min-h-8 items-center gap-1.5 cursor-pointer border border-outline-variant bg-surface-container px-3 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200 hover:bg-surface-container-high select-none"
                         >
                           {{# Both labels are rendered; CSS swaps them on
                               [open] so the control does not need script. #}}

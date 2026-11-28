@@ -24,6 +24,21 @@
     }
   }
 
+  a,
+  button,
+  summary,
+  input,
+  select,
+  textarea,
+  [role="button"] {
+    touch-action: manipulation;
+  }
+
+  /* Prevent iOS Safari viewport auto-zoom on Pagefind's injected search input */
+  .pagefind-ui__search-input {
+    font-size: 16px !important;
+  }
+
   a {
     /* zinc-500 measured 4.39:1 on the zinc-100 surfaces used for cards and the
        TOC — just under the 4.5:1 that body-size text needs. zinc-600 clears it
@@ -346,6 +361,37 @@ mark {
   .dark {
     /* dark-theme-here */
   }
+}
+
+/* Pure-CSS horizontal scroll-shadow cues on wide post tables on phones */
+.table-scroll-wrap {
+  -webkit-overflow-scrolling: touch;
+  background-image:
+    linear-gradient(to right, oklch(99.65% 0.0015 260) 30%, transparent),
+    linear-gradient(to left, oklch(99.65% 0.0015 260) 30%, transparent),
+    radial-gradient(farthest-side at 0 50%, rgb(18 21 48 / 0.14), transparent),
+    radial-gradient(farthest-side at 100% 50%, rgb(18 21 48 / 0.14),
+    transparent);
+  background-position:
+    left center,
+    right center,
+    left center,
+    right center;
+  background-repeat: no-repeat;
+  background-size:
+    24px 100%,
+    24px 100%,
+    10px 100%,
+    10px 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+.dark .table-scroll-wrap {
+  background-image:
+    linear-gradient(to right, oklch(19.2% 0.014 272) 30%, transparent),
+    linear-gradient(to left, oklch(19.2% 0.014 272) 30%, transparent),
+    radial-gradient(farthest-side at 0 50%, rgb(0 0 0 / 0.45), transparent),
+    radial-gradient(farthest-side at 100% 50%, rgb(0 0 0 / 0.45), transparent);
 }
 
 /* Skip offscreen layout & paint work for foot-of-page panels on mobile */

@@ -1,7 +1,7 @@
 <!-- ===== page-toc.vto TEMPLATE START ===== -->
 <nav id="page-toc" class="not-prose mt-6 mr-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-low shadow-m3-1">
   <details id="toc-details" class="group block" open>
-    <summary class="m3-ripple flex list-none cursor-pointer items-center justify-between gap-3 px-4 py-3 select-none hover:bg-surface-container focus-visible:bg-surface-container focus-visible:outline-none md:px-5 md:py-3.5 [&::-webkit-details-marker]:hidden">
+    <summary class="m3-ripple flex min-h-11 list-none cursor-pointer items-center justify-between gap-3 px-4 py-3 select-none hover:bg-surface-container focus-visible:bg-surface-container focus-visible:outline-none md:px-5 md:py-3.5 [&::-webkit-details-marker]:hidden">
       <h2 class="m-0 text-sm font-semibold tracking-tight text-zinc-900 md:text-base dark:text-zinc-100">{{ i18n.nav.toc }}</h2>
       <svg
         class="h-4 w-4 shrink-0 text-zinc-500 transition-transform duration-280 ease-m3-spring group-open:rotate-180 dark:text-zinc-400"
@@ -15,15 +15,15 @@
       </svg>
     </summary>
     <div class="border-t border-outline-variant px-4 py-3.5 md:px-5 md:py-4">
-      <ul class="space-y-2 border-l-2 border-outline-variant pl-4 text-sm">
+      <ul class="space-y-1.5 border-l-2 border-outline-variant pl-4 text-sm">
         {{ for item of toc }}
         <li>
-          <a class="text-zinc-700 no-underline transition-colors hover:text-(--section-hover) dark:text-zinc-300 dark:hover:text-(--section-hover)" href="#{{ item.slug }}">{{ item.text }}</a>
+          <a class="inline-block py-1 text-zinc-700 no-underline transition-colors hover:text-(--section-hover) md:py-0.5 dark:text-zinc-300 dark:hover:text-(--section-hover)" href="#{{ item.slug }}">{{ item.text }}</a>
           {{ if item.children.length }}
-          <ul class="mt-1.5 space-y-1 pl-4 text-xs">
+          <ul class="mt-1 space-y-1 pl-4 text-xs">
             {{ for child of item.children }}
             <li>
-              <a class="text-zinc-600 no-underline transition-colors hover:text-(--section-hover) dark:text-zinc-400 dark:hover:text-(--section-hover)" href="#{{ child.slug }}">{{ child.text }}</a>
+              <a class="inline-block py-1 text-zinc-600 no-underline transition-colors hover:text-(--section-hover) md:py-0.5 dark:text-zinc-400 dark:hover:text-(--section-hover)" href="#{{ child.slug }}">{{ child.text }}</a>
             </li>
             {{ /for }}
           </ul>
