@@ -348,6 +348,13 @@ mark {
   }
 }
 
+/* Skip offscreen layout & paint work for foot-of-page panels on mobile */
+#post-share,
+#panel-cta {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
+}
+
 /* Ensure the ul within details doesn't have unwanted top margin if prose changes its default */
 #toc-details ul {
   margin-top: 0;

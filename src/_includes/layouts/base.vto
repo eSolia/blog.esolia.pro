@@ -89,6 +89,29 @@
 
     {{# Site behaviour: theme toggle, drawer nav, search modal, Fathom. #}}
     <script src="/js/main.js?cb={{ cacheBuster }}" type="module" defer></script>
+    {{# Speculation Rules: prefetch same-origin blog & main-site pages on hover
+        or mobile pointerdown. Hashed into CSP script-src by _config.ts. #}}
+    <script type="speculationrules">
+      {
+        "prefetch": [
+          {
+            "where": {
+              "and": [
+                { "href_matches": "/*" },
+                { "not": { "href_matches": "/blog/api/*" } },
+                { "not": { "href_matches": "/api/*" } },
+                { "not": { "href_matches": "/blog/pagefind/*" } },
+                { "not": { "href_matches": "/*.xml" } },
+                { "not": { "href_matches": "/*.json" } },
+                { "not": { "href_matches": "/*.pdf" } },
+                { "not": { "selector_matches": "[rel~=nofollow], [download]" } }
+              ]
+            },
+            "eagerness": "moderate"
+          }
+        ]
+      }
+    </script>
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
     {{# {{ it.extra_head?.join("\n") }} #}}
   </head>
