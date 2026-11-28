@@ -1595,11 +1595,11 @@ async function sha256Base64(text: string): Promise<string> {
   return btoa(binary);
 }
 
-/** True for a <script> the browser will execute, so CSP applies to it. */
+/** True for a <script> the browser will execute (or enforce script-src on, such as speculationrules). */
 function isExecutable(script: Element): boolean {
   const type = script.getAttribute("type")?.trim().toLowerCase();
   return !type || type === "module" || type === "text/javascript" ||
-    type === "application/javascript";
+    type === "application/javascript" || type === "speculationrules";
 }
 
 site.process(async (pages, allPages) => {

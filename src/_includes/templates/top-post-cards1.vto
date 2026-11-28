@@ -27,10 +27,12 @@
           src="{{ if post.image_top }}{{ post.image_top }}{{ else }}/assets/blog-esolia-pro-default-top.png{{ /if }}"
           alt="{{ i18n.home.top_card_image_alt }} - {{ post.title }}"
           class="aspect-video w-full rounded-2xl bg-blend-overlay object-cover sm:aspect-2/1 lg:aspect-3/2 transition-all duration-300 ease-m3-emphasized-decelerate mix-blend-normal dark:mix-blend-luminosity group-hover:scale-[1.015] group-hover:opacity-92"
-          {{ if imageCounter < 3 }}
+          {{ if imageCounter === 0 }}
             fetchpriority="high" loading="eager"
+          {{ else if imageCounter < 3 }}
+            loading="eager"
           {{ else }}
-            fetchpriority="auto" loading="lazy"
+            loading="lazy"
           {{ /if }}
           decoding="async"
           width="600"
