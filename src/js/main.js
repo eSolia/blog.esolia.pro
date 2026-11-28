@@ -26,8 +26,17 @@ initM3Ripples();
   }
 })();
 
-// Swap logo on scroll, make nav bg more opaque, and toggle back-to-top FAB
+// Swap logo on scroll, make nav bg more opaque, and toggle back-to-top FAB.
+//
+// Cached DOM references, passive listener, requestAnimationFrame coalescing,
+// and state-change guards keep mobile touch scrolling entirely off the main
+// thread once past the 200px masthead fade zone.
 const scrollTopBtn = document.getElementById("scroll-to-top");
+const largeLogo = document.getElementById("large-logo");
+const smallLogo = document.getElementById("small-logo");
+const topNavBG = document.getElementById("top-nav-bg");
+const mdQuery = globalThis.matchMedia("(min-width: 768px)");
+let isLargeScreen = mdQuery.matches;
 
 scrollTopBtn?.addEventListener("click", () => {
   const reduceMotion =
@@ -38,10 +47,13 @@ scrollTopBtn?.addEventListener("click", () => {
   });
 });
 
-globalThis.addEventListener("scroll", () => {
-  const largeLogo = document.getElementById("large-logo");
-  const smallLogo = document.getElementById("small-logo");
-  const topNavBG = document.getElementById("top-nav-bg");
+const HERO_FADE_DISTANCE = 200;
+let lastHeroFadeStr = "";
+let navBand = -1;
+let scrollTicking = false;
+
+function applyScrollState() {
+  scrollTicking = false;
   const scrollPosition = globalThis.scrollY;
 
   if (scrollTopBtn) {
@@ -57,71 +69,58 @@ globalThis.addEventListener("scroll", () => {
 
   // Masthead fade, linked to scroll position rather than triggered by it.
   //
-  // A threshold plus a CSS transition looked abrupt: crossing 10px ran the
-  // whole fade on a timer, so it played out the same way whether you nudged
-  // the wheel or flung the page. Driving a 1..0 factor straight from
-  // scrollY means the artwork fades exactly as far as you have scrolled, and
-  // comes back just as gradually on the way up.
-  //
-  // One property on the root, read by both the symbol and the connector, so
-  // this is a single write per scroll event rather than one per element.
-  const HERO_FADE_DISTANCE = 200;
+  // Driving a 1..0 factor straight from scrollY means the artwork fades
+  // exactly as far as you have scrolled, and comes back gradually on the way
+  // up. Guarded against lastHeroFadeStr so scrolling past 200px performs zero
+  // style mutations for the rest of the article.
   const heroFade = Math.max(0, 1 - scrollPosition / HERO_FADE_DISTANCE);
-  document.documentElement.style.setProperty(
-    "--hero-scroll-fade",
-    heroFade.toFixed(3),
-  );
-
-  // Check if the current screen size is 'md' (768px) or larger
-  // (Tailwind's default 'md' breakpoint is 768px)
-  const isLargeScreen = globalThis.matchMedia("(min-width: 768px)").matches;
+  const heroFadeStr = heroFade.toFixed(3);
+  if (heroFadeStr !== lastHeroFadeStr) {
+    lastHeroFadeStr = heroFadeStr;
+    document.documentElement.style.setProperty(
+      "--hero-scroll-fade",
+      heroFadeStr,
+    );
+  }
 
   // --- Handle logo swap only for 'md' and larger screens ---
-  //
-  // Only the small nav symbol is toggled here. The hero symbol fades from
-  // `--hero-scroll-fade` above; it cannot use Tailwind's opacity utilities,
-  // because `.hero-symbol` sets opacity from the shared masthead ink and is
-  // unlayered, so it outranks them and the utilities did nothing.
-  if (isLargeScreen) {
-    if (largeLogo && smallLogo) { // Defensive check
-      if (scrollPosition > 10) {
-        smallLogo.classList.remove("md:opacity-0"); // Show small logo
-      } else {
-        smallLogo.classList.add("md:opacity-0"); // Hide small logo
-      }
+  if (isLargeScreen && largeLogo && smallLogo) {
+    if (scrollPosition > 10) {
+      smallLogo.classList.remove("md:opacity-0");
+    } else {
+      smallLogo.classList.add("md:opacity-0");
     }
   }
-  // For small screens, the Tailwind CSS classes now handle visibility:
-  // - large-logo is `hidden` by default.
-  // - small-logo is `opacity-100` by default.
-  // So, no specific JS logic is needed for logos on small screens here.
 
   // Handle nav opacity changes based on scroll position
   if (topNavBG) {
-    if (scrollPosition > 50) {
-      topNavBG.classList.remove("bg-surface/50", "bg-surface/75");
-      topNavBG.classList.add("bg-surface/94");
-    } else if (scrollPosition > 30 && scrollPosition <= 50) {
-      topNavBG.classList.remove("bg-surface/50", "bg-surface/94");
-      topNavBG.classList.add("bg-surface/75");
-    } else {
-      topNavBG.classList.remove("bg-surface/75", "bg-surface/94");
-      topNavBG.classList.add("bg-surface/50");
+    const nextBand = scrollPosition > 50 ? 2 : scrollPosition > 30 ? 1 : 0;
+    if (nextBand !== navBand) {
+      navBand = nextBand;
+      topNavBG.classList.toggle("bg-surface/50", nextBand === 0);
+      topNavBG.classList.toggle("bg-surface/75", nextBand === 1);
+      topNavBG.classList.toggle("bg-surface/94", nextBand === 2);
     }
   }
+}
+
+function onScroll() {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(applyScrollState);
+}
+
+globalThis.addEventListener("scroll", onScroll, { passive: true });
+
+mdQuery.addEventListener("change", (e) => {
+  isLargeScreen = e.matches;
+  applyScrollState();
 });
 
 // Sync the nav and logo to the current scroll position once at startup, and
 // again on resize — the logo swap is breakpoint-dependent, so crossing the md
 // boundary has to be re-evaluated.
-//
-// These two registrations used to sit INSIDE the scroll callback above, so
-// every scroll event added another pair: 50 scroll events registered 50
-// DOMContentLoaded and 50 resize listeners. Worse, each accumulated resize
-// listener re-dispatched `scroll`, so one resize after a page of scrolling
-// fanned out multiplicatively. At module scope they are registered exactly
-// once, which is what the original comment intended.
-const syncNavToScroll = () => globalThis.dispatchEvent(new Event("scroll"));
+const syncNavToScroll = () => applyScrollState();
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", syncNavToScroll, {

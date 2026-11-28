@@ -11,6 +11,19 @@
 @import "css/m3-tokens.css";
 
 @layer base {
+  /* Keep TOC jumps and focused targets clear of the fixed h-20 (5rem) navbar
+     (WCAG 2.2 SC 2.4.11 Focus Not Obscured). */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   a {
     /* zinc-500 measured 4.39:1 on the zinc-100 surfaces used for cards and the
        TOC — just under the 4.5:1 that body-size text needs. zinc-600 clears it
