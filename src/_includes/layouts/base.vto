@@ -4,7 +4,7 @@
 <html lang="{{ it.lang }}" data-accent="{{ activeColor }}">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>{{ title |> plaintext }} - {{ site.title }}</title>
 
     {{# Set the theme before the first paint, or the page renders light and
@@ -115,7 +115,7 @@
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
     {{# {{ it.extra_head?.join("\n") }} #}}
   </head>
-  <body class="m3-reading-canvas flex h-full">
+  <body class="m3-reading-canvas flex min-h-dvh">
     {{ include "templates/skiplink.vto" }}
     <!-- Container start -->
     <div class="flex w-full">

@@ -237,6 +237,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 1.25rem;
+    touch-action: manipulation;
     transition:
       border-radius 190ms var(--ease-m3-standard),
       background-color 180ms var(--ease-m3-standard),
@@ -363,8 +364,11 @@
     --m3-ripple-color: color-mix(in oklch, var(--section-accent) 55%, #ffffff);
     --m3-ripple-opacity: 0.18;
     position: fixed;
+    right: max(1.5rem, calc(env(safe-area-inset-right, 0px) + 1rem));
+    bottom: max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 0.875rem));
     overflow: hidden;
     border-radius: 1rem;
+    touch-action: manipulation;
     background-color: var(--color-esoliablue-800);
     box-shadow:
       0 0 0 1.5px color-mix(in oklch, var(--section-accent) 62%, transparent),

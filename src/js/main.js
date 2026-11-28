@@ -435,4 +435,15 @@ document.addEventListener("DOMContentLoaded", () => {
   handleDetailsState();
   // Re-evaluate state on window resize
   globalThis.addEventListener("resize", handleDetailsState);
+
+  // Auto-collapse the TOC disclosure on mobile (<768px) after tapping a heading link
+  tocDetails.addEventListener("click", (event) => {
+    if (globalThis.matchMedia("(min-width: 768px)").matches) return;
+    const anchor = event.target instanceof Element
+      ? event.target.closest('a[href^="#"]')
+      : null;
+    if (anchor) {
+      tocDetails.removeAttribute("open");
+    }
+  });
 });

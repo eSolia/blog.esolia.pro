@@ -283,7 +283,7 @@
 
     <div
       data-menu-panel
-      class="invisible fixed inset-y-0 right-0 z-100 flex w-76 max-w-[85vw] translate-x-full flex-col rounded-l-3xl border-l border-outline-variant bg-surface-container-low shadow-2xl transition-transform duration-300 ease-m3-emphasized-decelerate"
+      class="invisible fixed inset-y-0 right-0 z-100 flex h-dvh w-76 max-w-[85vw] translate-x-full flex-col rounded-l-3xl border-l border-outline-variant bg-surface-container-low shadow-2xl transition-transform duration-300 ease-m3-emphasized-decelerate"
       role="dialog"
       aria-modal="true"
       aria-label="{{ i18n.nav.mobile_nav_name }}"
@@ -368,7 +368,7 @@
       {{# Theme on the left, language on the right, as on the
           main site. #}}
       <div
-        class="border-t border-outline-variant px-5 py-3.5"
+        class="border-t border-outline-variant px-5 pt-3.5 pb-[max(0.875rem,env(safe-area-inset-bottom))]"
       >
         <div class="flex items-center justify-between">
           <button

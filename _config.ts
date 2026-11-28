@@ -1431,6 +1431,29 @@ if (!isCms) {
   });
 }
 
+// Wrap post tables in a keyboard-focusable horizontal scroll container with
+// CSS scroll-shadow cues (`table-scroll-wrap`) so wide shortcut/comparison
+// tables scroll smoothly on narrow phones without overflowing the viewport.
+site.process([".html"], (pages) => {
+  for (const page of pages) {
+    const doc = page.document;
+    if (!doc) continue;
+    const tables = doc.querySelectorAll("[data-mdx-content] table");
+    for (const table of tables) {
+      const parent = table.parentElement;
+      if (!parent || parent.classList.contains("overflow-x-auto")) continue;
+      const wrapper = doc.createElement("div");
+      wrapper.setAttribute(
+        "class",
+        "table-scroll-wrap overflow-x-auto my-6",
+      );
+      wrapper.setAttribute("tabindex", "0");
+      parent.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    }
+  }
+});
+
 // pass the base url
 site.process([".html"], externalLinksIcon(site.options.location.href));
 if (!isCms) {
