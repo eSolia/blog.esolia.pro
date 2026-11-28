@@ -114,6 +114,34 @@
   :lang(ja) h3 {
     font-feature-settings: "palt" 1;
   }
+
+  /* WebKit's `text-wrap: pretty` runs whole-paragraph line-length balancing
+     across every line rather than only preventing last-line orphans. On
+     left-aligned Japanese copy (which has no inter-word spaces and is expected
+     to form an even block to the right margin), that pulls every line inward by
+     2–7 characters and makes the right margin look pushed in on iOS/Safari.
+     Default JA prose to `wrap` and opt into `pretty` below only on Chromium. */
+  :lang(ja) :is(p, li, dd, figcaption, blockquote, summary) {
+    text-wrap: wrap;
+  }
+}
+
+/* Progressive enhancement (Chromium):
+   1. Phrase-aware BudouX wrapping on Japanese headings only (body prose keeps
+      normal character wrapping + `line-break: strict` so narrow mobile columns
+      stay even and never emergency-break mid-phrase).
+   2. `text-wrap: pretty` on Japanese prose — Chromium's implementation adjusts
+      only the final 2–4 lines to prevent single-kana orphans without narrowing
+      the rest of the paragraph. */
+@supports (word-break: auto-phrase) {
+  :lang(ja) :is(h1, h2, h3, h4) {
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+  }
+
+  :lang(ja) :is(p, li, dd, figcaption, blockquote, summary) {
+    text-wrap: pretty;
+  }
 }
 
 /*
